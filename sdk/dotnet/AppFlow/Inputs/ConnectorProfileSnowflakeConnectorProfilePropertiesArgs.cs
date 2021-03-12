@@ -18,43 +18,43 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-accountname
         /// </summary>
-        [Input("AccountName")]
+        [Input("accountName")]
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketname
         /// </summary>
-        [Input("BucketName", required: true)]
+        [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketprefix
         /// </summary>
-        [Input("BucketPrefix")]
+        [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-privatelinkservicename
         /// </summary>
-        [Input("PrivateLinkServiceName")]
+        [Input("privateLinkServiceName")]
         public Input<string>? PrivateLinkServiceName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-region
         /// </summary>
-        [Input("Region")]
+        [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-stage
         /// </summary>
-        [Input("Stage", required: true)]
+        [Input("stage", required: true)]
         public Input<string> Stage { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-warehouse
         /// </summary>
-        [Input("Warehouse", required: true)]
+        [Input("warehouse", required: true)]
         public Input<string> Warehouse { get; set; } = null!;
 
         public ConnectorProfileSnowflakeConnectorProfilePropertiesArgs()

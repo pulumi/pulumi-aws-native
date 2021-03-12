@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-kmskeyid
         /// </summary>
-        [Input("KmsKeyId")]
+        [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        [Input("MonitoringOutputs", required: true)]
-        private InputList<Inputs.ModelBiasJobDefinitionMonitoringOutputArgs>? _MonitoringOutputs;
+        [Input("monitoringOutputs", required: true)]
+        private InputList<Inputs.ModelBiasJobDefinitionMonitoringOutputArgs>? _monitoringOutputs;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-monitoringoutputs
         /// </summary>
         public InputList<Inputs.ModelBiasJobDefinitionMonitoringOutputArgs> MonitoringOutputs
         {
-            get => _MonitoringOutputs ?? (_MonitoringOutputs = new InputList<Inputs.ModelBiasJobDefinitionMonitoringOutputArgs>());
-            set => _MonitoringOutputs = value;
+            get => _monitoringOutputs ?? (_monitoringOutputs = new InputList<Inputs.ModelBiasJobDefinitionMonitoringOutputArgs>());
+            set => _monitoringOutputs = value;
         }
 
         public ModelBiasJobDefinitionMonitoringOutputConfigArgs()

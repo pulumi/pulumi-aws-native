@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
 
         [OutputConstructor]
         private DataflowEndpointGroupSocketAddress(
-            string? Name,
+            string? name,
 
-            int? Port)
+            int? port)
         {
-            this.Name = Name;
-            this.Port = Port;
+            Name = name;
+            Port = port;
         }
     }
 }

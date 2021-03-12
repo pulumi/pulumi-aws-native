@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamElasticsearchBufferingHints(
-            int? IntervalInSeconds,
+            int? intervalInSeconds,
 
-            int? SizeInMBs)
+            int? sizeInMBs)
         {
-            this.IntervalInSeconds = IntervalInSeconds;
-            this.SizeInMBs = SizeInMBs;
+            IntervalInSeconds = intervalInSeconds;
+            SizeInMBs = sizeInMBs;
         }
     }
 }

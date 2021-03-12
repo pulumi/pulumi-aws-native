@@ -15,79 +15,79 @@ namespace Pulumi.AwsNative.ImageBuilder
     [AwsNativeResourceType("aws-native:ImageBuilder:InfrastructureConfiguration")]
     public partial class InfrastructureConfiguration : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
         /// </summary>
-        [Output("InstanceProfileName")]
+        [Output("instanceProfileName")]
         public Output<string> InstanceProfileName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
         /// </summary>
-        [Output("InstanceTypes")]
+        [Output("instanceTypes")]
         public Output<ImmutableArray<string>> InstanceTypes { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
         /// </summary>
-        [Output("KeyPair")]
+        [Output("keyPair")]
         public Output<string?> KeyPair { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
         /// </summary>
-        [Output("Logging")]
+        [Output("logging")]
         public Output<Union<System.Text.Json.JsonElement, string>?> Logging { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
         /// </summary>
-        [Output("ResourceTags")]
+        [Output("resourceTags")]
         public Output<ImmutableDictionary<string, string>?> ResourceTags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
         /// </summary>
-        [Output("SecurityGroupIds")]
+        [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
         /// </summary>
-        [Output("SnsTopicArn")]
+        [Output("snsTopicArn")]
         public Output<string?> SnsTopicArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
         /// </summary>
-        [Output("SubnetId")]
+        [Output("subnetId")]
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
         /// </summary>
-        [Output("TerminateInstanceOnFailure")]
+        [Output("terminateInstanceOnFailure")]
         public Output<bool?> TerminateInstanceOnFailure { get; private set; } = null!;
 
 
@@ -138,97 +138,97 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
         /// </summary>
-        [Input("InstanceProfileName", required: true)]
+        [Input("instanceProfileName", required: true)]
         public Input<string> InstanceProfileName { get; set; } = null!;
 
-        [Input("InstanceTypes")]
-        private InputList<string>? _InstanceTypes;
+        [Input("instanceTypes")]
+        private InputList<string>? _instanceTypes;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
         /// </summary>
         public InputList<string> InstanceTypes
         {
-            get => _InstanceTypes ?? (_InstanceTypes = new InputList<string>());
-            set => _InstanceTypes = value;
+            get => _instanceTypes ?? (_instanceTypes = new InputList<string>());
+            set => _instanceTypes = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
         /// </summary>
-        [Input("KeyPair")]
+        [Input("keyPair")]
         public Input<string>? KeyPair { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
         /// </summary>
-        [Input("Logging")]
+        [Input("logging")]
         public InputUnion<System.Text.Json.JsonElement, string>? Logging { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("ResourceTags")]
-        private InputMap<string>? _ResourceTags;
+        [Input("resourceTags")]
+        private InputMap<string>? _resourceTags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
         /// </summary>
         public InputMap<string> ResourceTags
         {
-            get => _ResourceTags ?? (_ResourceTags = new InputMap<string>());
-            set => _ResourceTags = value;
+            get => _resourceTags ?? (_resourceTags = new InputMap<string>());
+            set => _resourceTags = value;
         }
 
-        [Input("SecurityGroupIds")]
-        private InputList<string>? _SecurityGroupIds;
+        [Input("securityGroupIds")]
+        private InputList<string>? _securityGroupIds;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
-            get => _SecurityGroupIds ?? (_SecurityGroupIds = new InputList<string>());
-            set => _SecurityGroupIds = value;
+            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
+            set => _securityGroupIds = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
         /// </summary>
-        [Input("SnsTopicArn")]
+        [Input("snsTopicArn")]
         public Input<string>? SnsTopicArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
         /// </summary>
-        [Input("SubnetId")]
+        [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
-        [Input("Tags")]
-        private InputMap<string>? _Tags;
+        [Input("tags")]
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
         /// </summary>
         public InputMap<string> Tags
         {
-            get => _Tags ?? (_Tags = new InputMap<string>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
         /// </summary>
-        [Input("TerminateInstanceOnFailure")]
+        [Input("terminateInstanceOnFailure")]
         public Input<bool>? TerminateInstanceOnFailure { get; set; }
 
         public InfrastructureConfigurationArgs()

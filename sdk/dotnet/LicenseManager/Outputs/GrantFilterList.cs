@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
         public readonly ImmutableArray<Outputs.GrantFilter> FilterList;
 
         [OutputConstructor]
-        private GrantFilterList(ImmutableArray<Outputs.GrantFilter> FilterList)
+        private GrantFilterList(ImmutableArray<Outputs.GrantFilter> filterList)
         {
-            this.FilterList = FilterList;
+            FilterList = filterList;
         }
     }
 }

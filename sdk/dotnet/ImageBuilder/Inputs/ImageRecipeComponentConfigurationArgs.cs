@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
         /// </summary>
-        [Input("ComponentArn")]
+        [Input("componentArn")]
         public Input<string>? ComponentArn { get; set; }
 
         public ImageRecipeComponentConfigurationArgs()

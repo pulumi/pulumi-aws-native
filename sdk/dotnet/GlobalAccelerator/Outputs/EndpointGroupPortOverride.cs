@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Outputs
 
         [OutputConstructor]
         private EndpointGroupPortOverride(
-            int EndpointPort,
+            int endpointPort,
 
-            int ListenerPort)
+            int listenerPort)
         {
-            this.EndpointPort = EndpointPort;
-            this.ListenerPort = ListenerPort;
+            EndpointPort = endpointPort;
+            ListenerPort = listenerPort;
         }
     }
 }

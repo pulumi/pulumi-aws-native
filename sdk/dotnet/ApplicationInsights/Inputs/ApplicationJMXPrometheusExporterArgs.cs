@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-hostport
         /// </summary>
-        [Input("HostPort")]
+        [Input("hostPort")]
         public Input<string>? HostPort { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-jmxurl
         /// </summary>
-        [Input("JMXURL")]
+        [Input("jMXURL")]
         public Input<string>? JMXURL { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-prometheusport
         /// </summary>
-        [Input("PrometheusPort")]
+        [Input("prometheusPort")]
         public Input<string>? PrometheusPort { get; set; }
 
         public ApplicationJMXPrometheusExporterArgs()

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html#cfn-licensemanager-license-filter-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html#cfn-licensemanager-license-filter-values
         /// </summary>
-        [Input("Values", required: true)]
+        [Input("values", required: true)]
         public Input<Inputs.LicenseStringListArgs> Values { get; set; } = null!;
 
         public LicenseFilterArgs()

@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
         /// </summary>
-        [Input("Encryption")]
+        [Input("encryption")]
         public Input<Inputs.PackagingConfigurationMssEncryptionArgs>? Encryption { get; set; }
 
-        [Input("MssManifests", required: true)]
-        private InputList<Inputs.PackagingConfigurationMssManifestArgs>? _MssManifests;
+        [Input("mssManifests", required: true)]
+        private InputList<Inputs.PackagingConfigurationMssManifestArgs>? _mssManifests;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
         /// </summary>
         public InputList<Inputs.PackagingConfigurationMssManifestArgs> MssManifests
         {
-            get => _MssManifests ?? (_MssManifests = new InputList<Inputs.PackagingConfigurationMssManifestArgs>());
-            set => _MssManifests = value;
+            get => _mssManifests ?? (_mssManifests = new InputList<Inputs.PackagingConfigurationMssManifestArgs>());
+            set => _mssManifests = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds
         /// </summary>
-        [Input("SegmentDurationSeconds")]
+        [Input("segmentDurationSeconds")]
         public Input<int>? SegmentDurationSeconds { get; set; }
 
         public PackagingConfigurationMssPackageArgs()

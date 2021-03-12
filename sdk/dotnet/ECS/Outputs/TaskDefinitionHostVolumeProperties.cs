@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ECS.Outputs
         public readonly string? SourcePath;
 
         [OutputConstructor]
-        private TaskDefinitionHostVolumeProperties(string? SourcePath)
+        private TaskDefinitionHostVolumeProperties(string? sourcePath)
         {
-            this.SourcePath = SourcePath;
+            SourcePath = sourcePath;
         }
     }
 }

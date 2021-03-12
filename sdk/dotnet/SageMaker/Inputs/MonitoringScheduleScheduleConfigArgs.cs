@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-scheduleexpression
         /// </summary>
-        [Input("ScheduleExpression", required: true)]
+        [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;
 
         public MonitoringScheduleScheduleConfigArgs()

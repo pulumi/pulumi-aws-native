@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRulePutAssetPropertyValueEntry(
-            string? AssetId,
+            string? assetId,
 
-            string? EntryId,
+            string? entryId,
 
-            string? PropertyAlias,
+            string? propertyAlias,
 
-            string? PropertyId,
+            string? propertyId,
 
-            ImmutableArray<Outputs.TopicRuleAssetPropertyValue> PropertyValues)
+            ImmutableArray<Outputs.TopicRuleAssetPropertyValue> propertyValues)
         {
-            this.AssetId = AssetId;
-            this.EntryId = EntryId;
-            this.PropertyAlias = PropertyAlias;
-            this.PropertyId = PropertyId;
-            this.PropertyValues = PropertyValues;
+            AssetId = assetId;
+            EntryId = entryId;
+            PropertyAlias = propertyAlias;
+            PropertyId = propertyId;
+            PropertyValues = propertyValues;
         }
     }
 }

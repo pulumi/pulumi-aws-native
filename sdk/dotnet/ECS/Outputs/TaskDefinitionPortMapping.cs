@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionPortMapping(
-            int? ContainerPort,
+            int? containerPort,
 
-            int? HostPort,
+            int? hostPort,
 
-            string? Protocol)
+            string? protocol)
         {
-            this.ContainerPort = ContainerPort;
-            this.HostPort = HostPort;
-            this.Protocol = Protocol;
+            ContainerPort = containerPort;
+            HostPort = hostPort;
+            Protocol = protocol;
         }
     }
 }

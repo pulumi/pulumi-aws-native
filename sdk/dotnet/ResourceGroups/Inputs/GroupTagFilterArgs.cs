@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.ResourceGroups.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-key
         /// </summary>
-        [Input("Key")]
+        [Input("key")]
         public Input<string>? Key { get; set; }
 
-        [Input("Values")]
-        private InputList<string>? _Values;
+        [Input("values")]
+        private InputList<string>? _values;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-values
         /// </summary>
         public InputList<string> Values
         {
-            get => _Values ?? (_Values = new InputList<string>());
-            set => _Values = value;
+            get => _values ?? (_values = new InputList<string>());
+            set => _values = value;
         }
 
         public GroupTagFilterArgs()

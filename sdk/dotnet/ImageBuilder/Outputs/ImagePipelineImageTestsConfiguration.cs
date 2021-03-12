@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
         [OutputConstructor]
         private ImagePipelineImageTestsConfiguration(
-            bool? ImageTestsEnabled,
+            bool? imageTestsEnabled,
 
-            int? TimeoutMinutes)
+            int? timeoutMinutes)
         {
-            this.ImageTestsEnabled = ImageTestsEnabled;
-            this.TimeoutMinutes = TimeoutMinutes;
+            ImageTestsEnabled = imageTestsEnabled;
+            TimeoutMinutes = timeoutMinutes;
         }
     }
 }

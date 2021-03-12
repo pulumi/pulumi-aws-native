@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-documenttitlefieldname
         /// </summary>
-        [Input("DocumentTitleFieldName")]
+        [Input("documentTitleFieldName")]
         public Input<string>? DocumentTitleFieldName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-fieldmappings
         /// </summary>
-        [Input("FieldMappings")]
+        [Input("fieldMappings")]
         public Input<Inputs.DataSourceDataSourceToIndexFieldMappingListArgs>? FieldMappings { get; set; }
 
         public DataSourceSalesforceStandardObjectAttachmentConfigurationArgs()

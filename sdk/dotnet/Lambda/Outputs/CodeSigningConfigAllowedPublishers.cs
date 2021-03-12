@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         public readonly ImmutableArray<string> SigningProfileVersionArns;
 
         [OutputConstructor]
-        private CodeSigningConfigAllowedPublishers(ImmutableArray<string> SigningProfileVersionArns)
+        private CodeSigningConfigAllowedPublishers(ImmutableArray<string> signingProfileVersionArns)
         {
-            this.SigningProfileVersionArns = SigningProfileVersionArns;
+            SigningProfileVersionArns = signingProfileVersionArns;
         }
     }
 }

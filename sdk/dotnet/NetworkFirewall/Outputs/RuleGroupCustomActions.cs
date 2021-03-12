@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<Outputs.RuleGroupCustomAction> CustomActions;
 
         [OutputConstructor]
-        private RuleGroupCustomActions(ImmutableArray<Outputs.RuleGroupCustomAction> CustomActions)
+        private RuleGroupCustomActions(ImmutableArray<Outputs.RuleGroupCustomAction> customActions)
         {
-            this.CustomActions = CustomActions;
+            CustomActions = customActions;
         }
     }
 }

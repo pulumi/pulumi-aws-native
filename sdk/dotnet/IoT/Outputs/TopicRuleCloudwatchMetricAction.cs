@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleCloudwatchMetricAction(
-            string MetricName,
+            string metricName,
 
-            string MetricNamespace,
+            string metricNamespace,
 
-            string? MetricTimestamp,
+            string? metricTimestamp,
 
-            string MetricUnit,
+            string metricUnit,
 
-            string MetricValue,
+            string metricValue,
 
-            string RoleArn)
+            string roleArn)
         {
-            this.MetricName = MetricName;
-            this.MetricNamespace = MetricNamespace;
-            this.MetricTimestamp = MetricTimestamp;
-            this.MetricUnit = MetricUnit;
-            this.MetricValue = MetricValue;
-            this.RoleArn = RoleArn;
+            MetricName = metricName;
+            MetricNamespace = metricNamespace;
+            MetricTimestamp = metricTimestamp;
+            MetricUnit = metricUnit;
+            MetricValue = metricValue;
+            RoleArn = roleArn;
         }
     }
 }

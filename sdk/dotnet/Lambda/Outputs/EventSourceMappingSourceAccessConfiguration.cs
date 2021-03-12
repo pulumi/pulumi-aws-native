@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 
         [OutputConstructor]
         private EventSourceMappingSourceAccessConfiguration(
-            string? Type,
+            string? type,
 
-            string? URI)
+            string? uRI)
         {
-            this.Type = Type;
-            this.URI = URI;
+            Type = type;
+            URI = uRI;
         }
     }
 }

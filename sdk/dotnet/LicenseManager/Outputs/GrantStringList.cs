@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
         public readonly ImmutableArray<string> StringList;
 
         [OutputConstructor]
-        private GrantStringList(ImmutableArray<string> StringList)
+        private GrantStringList(ImmutableArray<string> stringList)
         {
-            this.StringList = StringList;
+            StringList = stringList;
         }
     }
 }

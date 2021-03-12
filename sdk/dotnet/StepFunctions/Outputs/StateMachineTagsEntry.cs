@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
 
         [OutputConstructor]
         private StateMachineTagsEntry(
-            string Key,
+            string key,
 
-            string Value)
+            string value)
         {
-            this.Key = Key;
-            this.Value = Value;
+            Key = key;
+            Value = value;
         }
     }
 }

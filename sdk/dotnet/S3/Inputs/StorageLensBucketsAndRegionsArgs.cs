@@ -15,28 +15,28 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// </summary>
     public sealed class StorageLensBucketsAndRegionsArgs : Pulumi.ResourceArgs
     {
-        [Input("Buckets")]
-        private InputList<string>? _Buckets;
+        [Input("buckets")]
+        private InputList<string>? _buckets;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
         /// </summary>
         public InputList<string> Buckets
         {
-            get => _Buckets ?? (_Buckets = new InputList<string>());
-            set => _Buckets = value;
+            get => _buckets ?? (_buckets = new InputList<string>());
+            set => _buckets = value;
         }
 
-        [Input("Regions")]
-        private InputList<string>? _Regions;
+        [Input("regions")]
+        private InputList<string>? _regions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
         /// </summary>
         public InputList<string> Regions
         {
-            get => _Regions ?? (_Regions = new InputList<string>());
-            set => _Regions = value;
+            get => _regions ?? (_regions = new InputList<string>());
+            set => _regions = value;
         }
 
         public StorageLensBucketsAndRegionsArgs()

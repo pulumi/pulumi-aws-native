@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
 
         [OutputConstructor]
         private CanaryVPCConfig(
-            ImmutableArray<string> SecurityGroupIds,
+            ImmutableArray<string> securityGroupIds,
 
-            ImmutableArray<string> SubnetIds,
+            ImmutableArray<string> subnetIds,
 
-            string? VpcId)
+            string? vpcId)
         {
-            this.SecurityGroupIds = SecurityGroupIds;
-            this.SubnetIds = SubnetIds;
-            this.VpcId = VpcId;
+            SecurityGroupIds = securityGroupIds;
+            SubnetIds = subnetIds;
+            VpcId = vpcId;
         }
     }
 }

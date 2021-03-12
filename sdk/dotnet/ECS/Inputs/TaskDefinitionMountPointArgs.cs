@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-containerpath
         /// </summary>
-        [Input("ContainerPath")]
+        [Input("containerPath")]
         public Input<string>? ContainerPath { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-readonly
         /// </summary>
-        [Input("ReadOnly")]
+        [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-sourcevolume
         /// </summary>
-        [Input("SourceVolume")]
+        [Input("sourceVolume")]
         public Input<string>? SourceVolume { get; set; }
 
         public TaskDefinitionMountPointArgs()

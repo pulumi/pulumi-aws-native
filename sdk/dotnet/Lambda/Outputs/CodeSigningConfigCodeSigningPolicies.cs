@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         public readonly string UntrustedArtifactOnDeployment;
 
         [OutputConstructor]
-        private CodeSigningConfigCodeSigningPolicies(string UntrustedArtifactOnDeployment)
+        private CodeSigningConfigCodeSigningPolicies(string untrustedArtifactOnDeployment)
         {
-            this.UntrustedArtifactOnDeployment = UntrustedArtifactOnDeployment;
+            UntrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
         }
     }
 }

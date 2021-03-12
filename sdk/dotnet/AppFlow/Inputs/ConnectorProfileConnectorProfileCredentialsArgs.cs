@@ -18,91 +18,91 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-amplitude
         /// </summary>
-        [Input("Amplitude")]
+        [Input("amplitude")]
         public Input<Inputs.ConnectorProfileAmplitudeConnectorProfileCredentialsArgs>? Amplitude { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-datadog
         /// </summary>
-        [Input("Datadog")]
+        [Input("datadog")]
         public Input<Inputs.ConnectorProfileDatadogConnectorProfileCredentialsArgs>? Datadog { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-dynatrace
         /// </summary>
-        [Input("Dynatrace")]
+        [Input("dynatrace")]
         public Input<Inputs.ConnectorProfileDynatraceConnectorProfileCredentialsArgs>? Dynatrace { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-googleanalytics
         /// </summary>
-        [Input("GoogleAnalytics")]
+        [Input("googleAnalytics")]
         public Input<Inputs.ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs>? GoogleAnalytics { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-infornexus
         /// </summary>
-        [Input("InforNexus")]
+        [Input("inforNexus")]
         public Input<Inputs.ConnectorProfileInforNexusConnectorProfileCredentialsArgs>? InforNexus { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-marketo
         /// </summary>
-        [Input("Marketo")]
+        [Input("marketo")]
         public Input<Inputs.ConnectorProfileMarketoConnectorProfileCredentialsArgs>? Marketo { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-redshift
         /// </summary>
-        [Input("Redshift")]
+        [Input("redshift")]
         public Input<Inputs.ConnectorProfileRedshiftConnectorProfileCredentialsArgs>? Redshift { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-salesforce
         /// </summary>
-        [Input("Salesforce")]
+        [Input("salesforce")]
         public Input<Inputs.ConnectorProfileSalesforceConnectorProfileCredentialsArgs>? Salesforce { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-servicenow
         /// </summary>
-        [Input("ServiceNow")]
+        [Input("serviceNow")]
         public Input<Inputs.ConnectorProfileServiceNowConnectorProfileCredentialsArgs>? ServiceNow { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-singular
         /// </summary>
-        [Input("Singular")]
+        [Input("singular")]
         public Input<Inputs.ConnectorProfileSingularConnectorProfileCredentialsArgs>? Singular { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-slack
         /// </summary>
-        [Input("Slack")]
+        [Input("slack")]
         public Input<Inputs.ConnectorProfileSlackConnectorProfileCredentialsArgs>? Slack { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-snowflake
         /// </summary>
-        [Input("Snowflake")]
+        [Input("snowflake")]
         public Input<Inputs.ConnectorProfileSnowflakeConnectorProfileCredentialsArgs>? Snowflake { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-trendmicro
         /// </summary>
-        [Input("Trendmicro")]
+        [Input("trendmicro")]
         public Input<Inputs.ConnectorProfileTrendmicroConnectorProfileCredentialsArgs>? Trendmicro { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-veeva
         /// </summary>
-        [Input("Veeva")]
+        [Input("veeva")]
         public Input<Inputs.ConnectorProfileVeevaConnectorProfileCredentialsArgs>? Veeva { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-zendesk
         /// </summary>
-        [Input("Zendesk")]
+        [Input("zendesk")]
         public Input<Inputs.ConnectorProfileZendeskConnectorProfileCredentialsArgs>? Zendesk { get; set; }
 
         public ConnectorProfileConnectorProfileCredentialsArgs()

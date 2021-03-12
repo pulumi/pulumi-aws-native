@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Backup.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions
         /// </summary>
-        [Input("BackupOptions", required: true)]
+        [Input("backupOptions", required: true)]
         public InputUnion<System.Text.Json.JsonElement, string> BackupOptions { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
         /// </summary>
-        [Input("ResourceType", required: true)]
+        [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 
         public BackupPlanAdvancedBackupSettingResourceTypeArgs()

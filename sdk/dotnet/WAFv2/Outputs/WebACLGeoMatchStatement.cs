@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLGeoMatchStatement(
-            ImmutableArray<string> CountryCodes,
+            ImmutableArray<string> countryCodes,
 
-            Outputs.WebACLForwardedIPConfiguration? ForwardedIPConfig)
+            Outputs.WebACLForwardedIPConfiguration? forwardedIPConfig)
         {
-            this.CountryCodes = CountryCodes;
-            this.ForwardedIPConfig = ForwardedIPConfig;
+            CountryCodes = countryCodes;
+            ForwardedIPConfig = forwardedIPConfig;
         }
     }
 }

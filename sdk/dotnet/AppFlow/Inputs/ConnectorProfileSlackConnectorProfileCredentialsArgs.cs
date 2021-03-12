@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-accesstoken
         /// </summary>
-        [Input("AccessToken")]
+        [Input("accessToken")]
         public Input<string>? AccessToken { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientid
         /// </summary>
-        [Input("ClientId", required: true)]
+        [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientsecret
         /// </summary>
-        [Input("ClientSecret", required: true)]
+        [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-connectoroauthrequest
         /// </summary>
-        [Input("ConnectorOAuthRequest")]
+        [Input("connectorOAuthRequest")]
         public Input<Inputs.ConnectorProfileConnectorOAuthRequestArgs>? ConnectorOAuthRequest { get; set; }
 
         public ConnectorProfileSlackConnectorProfileCredentialsArgs()

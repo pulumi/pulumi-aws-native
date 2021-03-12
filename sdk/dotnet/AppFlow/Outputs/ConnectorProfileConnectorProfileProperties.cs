@@ -60,39 +60,39 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileConnectorProfileProperties(
-            Outputs.ConnectorProfileDatadogConnectorProfileProperties? Datadog,
+            Outputs.ConnectorProfileDatadogConnectorProfileProperties? datadog,
 
-            Outputs.ConnectorProfileDynatraceConnectorProfileProperties? Dynatrace,
+            Outputs.ConnectorProfileDynatraceConnectorProfileProperties? dynatrace,
 
-            Outputs.ConnectorProfileInforNexusConnectorProfileProperties? InforNexus,
+            Outputs.ConnectorProfileInforNexusConnectorProfileProperties? inforNexus,
 
-            Outputs.ConnectorProfileMarketoConnectorProfileProperties? Marketo,
+            Outputs.ConnectorProfileMarketoConnectorProfileProperties? marketo,
 
-            Outputs.ConnectorProfileRedshiftConnectorProfileProperties? Redshift,
+            Outputs.ConnectorProfileRedshiftConnectorProfileProperties? redshift,
 
-            Outputs.ConnectorProfileSalesforceConnectorProfileProperties? Salesforce,
+            Outputs.ConnectorProfileSalesforceConnectorProfileProperties? salesforce,
 
-            Outputs.ConnectorProfileServiceNowConnectorProfileProperties? ServiceNow,
+            Outputs.ConnectorProfileServiceNowConnectorProfileProperties? serviceNow,
 
-            Outputs.ConnectorProfileSlackConnectorProfileProperties? Slack,
+            Outputs.ConnectorProfileSlackConnectorProfileProperties? slack,
 
-            Outputs.ConnectorProfileSnowflakeConnectorProfileProperties? Snowflake,
+            Outputs.ConnectorProfileSnowflakeConnectorProfileProperties? snowflake,
 
-            Outputs.ConnectorProfileVeevaConnectorProfileProperties? Veeva,
+            Outputs.ConnectorProfileVeevaConnectorProfileProperties? veeva,
 
-            Outputs.ConnectorProfileZendeskConnectorProfileProperties? Zendesk)
+            Outputs.ConnectorProfileZendeskConnectorProfileProperties? zendesk)
         {
-            this.Datadog = Datadog;
-            this.Dynatrace = Dynatrace;
-            this.InforNexus = InforNexus;
-            this.Marketo = Marketo;
-            this.Redshift = Redshift;
-            this.Salesforce = Salesforce;
-            this.ServiceNow = ServiceNow;
-            this.Slack = Slack;
-            this.Snowflake = Snowflake;
-            this.Veeva = Veeva;
-            this.Zendesk = Zendesk;
+            Datadog = datadog;
+            Dynatrace = dynatrace;
+            InforNexus = inforNexus;
+            Marketo = marketo;
+            Redshift = redshift;
+            Salesforce = salesforce;
+            ServiceNow = serviceNow;
+            Slack = slack;
+            Snowflake = snowflake;
+            Veeva = veeva;
+            Zendesk = zendesk;
         }
     }
 }

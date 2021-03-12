@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagetoindexfieldmapping.html#cfn-kendra-datasource-confluencepagetoindexfieldmapping-datasourcefieldname
         /// </summary>
-        [Input("DataSourceFieldName", required: true)]
+        [Input("dataSourceFieldName", required: true)]
         public Input<string> DataSourceFieldName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagetoindexfieldmapping.html#cfn-kendra-datasource-confluencepagetoindexfieldmapping-datefieldformat
         /// </summary>
-        [Input("DateFieldFormat")]
+        [Input("dateFieldFormat")]
         public Input<string>? DateFieldFormat { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagetoindexfieldmapping.html#cfn-kendra-datasource-confluencepagetoindexfieldmapping-indexfieldname
         /// </summary>
-        [Input("IndexFieldName", required: true)]
+        [Input("indexFieldName", required: true)]
         public Input<string> IndexFieldName { get; set; } = null!;
 
         public DataSourceConfluencePageToIndexFieldMappingArgs()

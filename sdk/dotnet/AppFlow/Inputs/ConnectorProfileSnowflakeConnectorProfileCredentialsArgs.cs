@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-password
         /// </summary>
-        [Input("Password", required: true)]
+        [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-username
         /// </summary>
-        [Input("Username", required: true)]
+        [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
         public ConnectorProfileSnowflakeConnectorProfileCredentialsArgs()

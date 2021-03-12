@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-flags
         /// </summary>
-        [Input("Flags", required: true)]
+        [Input("flags", required: true)]
         public Input<Inputs.RuleGroupFlagsArgs> Flags { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-masks
         /// </summary>
-        [Input("Masks")]
+        [Input("masks")]
         public Input<Inputs.RuleGroupFlagsArgs>? Masks { get; set; }
 
         public RuleGroupTCPFlagFieldArgs()

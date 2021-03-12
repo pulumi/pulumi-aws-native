@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html#cfn-iotsitewise-assetmodel-attribute-defaultvalue
         /// </summary>
-        [Input("DefaultValue")]
+        [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         public AssetModelAttributeArgs()

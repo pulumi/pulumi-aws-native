@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionSecret(
-            string Name,
+            string name,
 
-            string ValueFrom)
+            string valueFrom)
         {
-            this.Name = Name;
-            this.ValueFrom = ValueFrom;
+            Name = name;
+            ValueFrom = valueFrom;
         }
     }
 }

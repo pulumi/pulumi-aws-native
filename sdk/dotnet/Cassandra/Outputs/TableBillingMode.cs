@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
 
         [OutputConstructor]
         private TableBillingMode(
-            string Mode,
+            string mode,
 
-            Outputs.TableProvisionedThroughput? ProvisionedThroughput)
+            Outputs.TableProvisionedThroughput? provisionedThroughput)
         {
-            this.Mode = Mode;
-            this.ProvisionedThroughput = ProvisionedThroughput;
+            Mode = mode;
+            ProvisionedThroughput = provisionedThroughput;
         }
     }
 }

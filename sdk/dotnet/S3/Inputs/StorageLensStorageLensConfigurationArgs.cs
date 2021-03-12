@@ -18,49 +18,49 @@ namespace Pulumi.AwsNative.S3.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
         /// </summary>
-        [Input("AccountLevel", required: true)]
+        [Input("accountLevel", required: true)]
         public Input<Inputs.StorageLensAccountLevelArgs> AccountLevel { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
         /// </summary>
-        [Input("AwsOrg")]
+        [Input("awsOrg")]
         public Input<Inputs.StorageLensAwsOrgArgs>? AwsOrg { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
         /// </summary>
-        [Input("DataExport")]
+        [Input("dataExport")]
         public Input<Inputs.StorageLensDataExportArgs>? DataExport { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
         /// </summary>
-        [Input("Exclude")]
+        [Input("exclude")]
         public Input<Inputs.StorageLensBucketsAndRegionsArgs>? Exclude { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
         /// </summary>
-        [Input("Id", required: true)]
+        [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
         /// </summary>
-        [Input("Include")]
+        [Input("include")]
         public Input<Inputs.StorageLensBucketsAndRegionsArgs>? Include { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
         /// </summary>
-        [Input("IsEnabled", required: true)]
+        [Input("isEnabled", required: true)]
         public Input<bool> IsEnabled { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
         /// </summary>
-        [Input("StorageLensArn")]
+        [Input("storageLensArn")]
         public Input<string>? StorageLensArn { get; set; }
 
         public StorageLensStorageLensConfigurationArgs()

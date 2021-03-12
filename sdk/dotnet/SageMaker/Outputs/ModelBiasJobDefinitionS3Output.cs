@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ModelBiasJobDefinitionS3Output(
-            string LocalPath,
+            string localPath,
 
-            string? S3UploadMode,
+            string? s3UploadMode,
 
-            string S3Uri)
+            string s3Uri)
         {
-            this.LocalPath = LocalPath;
-            this.S3UploadMode = S3UploadMode;
-            this.S3Uri = S3Uri;
+            LocalPath = localPath;
+            S3UploadMode = s3UploadMode;
+            S3Uri = s3Uri;
         }
     }
 }

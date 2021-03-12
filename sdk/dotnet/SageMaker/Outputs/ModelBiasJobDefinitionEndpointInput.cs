@@ -56,36 +56,36 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ModelBiasJobDefinitionEndpointInput(
-            string? EndTimeOffset,
+            string? endTimeOffset,
 
-            string EndpointName,
+            string endpointName,
 
-            string? FeaturesAttribute,
+            string? featuresAttribute,
 
-            string? InferenceAttribute,
+            string? inferenceAttribute,
 
-            string LocalPath,
+            string localPath,
 
-            string? ProbabilityAttribute,
+            string? probabilityAttribute,
 
-            double? ProbabilityThresholdAttribute,
+            double? probabilityThresholdAttribute,
 
-            string? S3DataDistributionType,
+            string? s3DataDistributionType,
 
-            string? S3InputMode,
+            string? s3InputMode,
 
-            string? StartTimeOffset)
+            string? startTimeOffset)
         {
-            this.EndTimeOffset = EndTimeOffset;
-            this.EndpointName = EndpointName;
-            this.FeaturesAttribute = FeaturesAttribute;
-            this.InferenceAttribute = InferenceAttribute;
-            this.LocalPath = LocalPath;
-            this.ProbabilityAttribute = ProbabilityAttribute;
-            this.ProbabilityThresholdAttribute = ProbabilityThresholdAttribute;
-            this.S3DataDistributionType = S3DataDistributionType;
-            this.S3InputMode = S3InputMode;
-            this.StartTimeOffset = StartTimeOffset;
+            EndTimeOffset = endTimeOffset;
+            EndpointName = endpointName;
+            FeaturesAttribute = featuresAttribute;
+            InferenceAttribute = inferenceAttribute;
+            LocalPath = localPath;
+            ProbabilityAttribute = probabilityAttribute;
+            ProbabilityThresholdAttribute = probabilityThresholdAttribute;
+            S3DataDistributionType = s3DataDistributionType;
+            S3InputMode = s3InputMode;
+            StartTimeOffset = startTimeOffset;
         }
     }
 }

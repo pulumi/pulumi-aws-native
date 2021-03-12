@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string Object;
 
         [OutputConstructor]
-        private FlowAmplitudeSourceProperties(string Object)
+        private FlowAmplitudeSourceProperties(string @object)
         {
-            this.Object = Object;
+            Object = @object;
         }
     }
 }

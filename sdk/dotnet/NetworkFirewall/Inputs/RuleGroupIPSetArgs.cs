@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html#cfn-networkfirewall-rulegroup-ipset-definition
         /// </summary>
-        [Input("Definition")]
+        [Input("definition")]
         public Input<Inputs.RuleGroupVariableDefinitionListArgs>? Definition { get; set; }
 
         public RuleGroupIPSetArgs()

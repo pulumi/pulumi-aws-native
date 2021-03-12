@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private DataQualityJobDefinitionNetworkConfig(
-            bool? EnableInterContainerTrafficEncryption,
+            bool? enableInterContainerTrafficEncryption,
 
-            bool? EnableNetworkIsolation,
+            bool? enableNetworkIsolation,
 
-            Outputs.DataQualityJobDefinitionVpcConfig? VpcConfig)
+            Outputs.DataQualityJobDefinitionVpcConfig? vpcConfig)
         {
-            this.EnableInterContainerTrafficEncryption = EnableInterContainerTrafficEncryption;
-            this.EnableNetworkIsolation = EnableNetworkIsolation;
-            this.VpcConfig = VpcConfig;
+            EnableInterContainerTrafficEncryption = enableInterContainerTrafficEncryption;
+            EnableNetworkIsolation = enableNetworkIsolation;
+            VpcConfig = vpcConfig;
         }
     }
 }

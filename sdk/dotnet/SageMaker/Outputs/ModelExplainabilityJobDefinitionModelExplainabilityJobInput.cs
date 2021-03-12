@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly Outputs.ModelExplainabilityJobDefinitionEndpointInput EndpointInput;
 
         [OutputConstructor]
-        private ModelExplainabilityJobDefinitionModelExplainabilityJobInput(Outputs.ModelExplainabilityJobDefinitionEndpointInput EndpointInput)
+        private ModelExplainabilityJobDefinitionModelExplainabilityJobInput(Outputs.ModelExplainabilityJobDefinitionEndpointInput endpointInput)
         {
-            this.EndpointInput = EndpointInput;
+            EndpointInput = endpointInput;
         }
     }
 }

@@ -15,34 +15,34 @@ namespace Pulumi.AwsNative.Signer
     [AwsNativeResourceType("aws-native:Signer:SigningProfile")]
     public partial class SigningProfile : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
         /// </summary>
-        [Output("PlatformId")]
+        [Output("platformId")]
         public Output<string> PlatformId { get; private set; } = null!;
 
-        [Output("ProfileName")]
+        [Output("profileName")]
         public Output<string> ProfileName { get; private set; } = null!;
 
-        [Output("ProfileVersion")]
+        [Output("profileVersion")]
         public Output<string> ProfileVersion { get; private set; } = null!;
 
-        [Output("ProfileVersionArn")]
+        [Output("profileVersionArn")]
         public Output<string> ProfileVersionArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
         /// </summary>
-        [Output("SignatureValidityPeriod")]
+        [Output("signatureValidityPeriod")]
         public Output<Outputs.SigningProfileSignatureValidityPeriod?> SignatureValidityPeriod { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -93,25 +93,25 @@ namespace Pulumi.AwsNative.Signer
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
         /// </summary>
-        [Input("PlatformId", required: true)]
+        [Input("platformId", required: true)]
         public Input<string> PlatformId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
         /// </summary>
-        [Input("SignatureValidityPeriod")]
+        [Input("signatureValidityPeriod")]
         public Input<Inputs.SigningProfileSignatureValidityPeriodArgs>? SignatureValidityPeriod { get; set; }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public SigningProfileArgs()

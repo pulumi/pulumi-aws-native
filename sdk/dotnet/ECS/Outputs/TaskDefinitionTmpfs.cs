@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionTmpfs(
-            string? ContainerPath,
+            string? containerPath,
 
-            ImmutableArray<string> MountOptions,
+            ImmutableArray<string> mountOptions,
 
-            int Size)
+            int size)
         {
-            this.ContainerPath = ContainerPath;
-            this.MountOptions = MountOptions;
-            this.Size = Size;
+            ContainerPath = containerPath;
+            MountOptions = mountOptions;
+            Size = size;
         }
     }
 }

@@ -18,34 +18,34 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
         /// </summary>
-        [Output("ConnectionPoolConfigurationInfo")]
+        [Output("connectionPoolConfigurationInfo")]
         public Output<Outputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat?> ConnectionPoolConfigurationInfo { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
         /// </summary>
-        [Output("DBClusterIdentifiers")]
+        [Output("dBClusterIdentifiers")]
         public Output<ImmutableArray<string>> DBClusterIdentifiers { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
         /// </summary>
-        [Output("DBInstanceIdentifiers")]
+        [Output("dBInstanceIdentifiers")]
         public Output<ImmutableArray<string>> DBInstanceIdentifiers { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
         /// </summary>
-        [Output("DBProxyName")]
+        [Output("dBProxyName")]
         public Output<string> DBProxyName { get; private set; } = null!;
 
-        [Output("TargetGroupArn")]
+        [Output("targetGroupArn")]
         public Output<string> TargetGroupArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
         /// </summary>
-        [Output("TargetGroupName")]
+        [Output("targetGroupName")]
         public Output<string> TargetGroupName { get; private set; } = null!;
 
 
@@ -96,43 +96,43 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
         /// </summary>
-        [Input("ConnectionPoolConfigurationInfo")]
+        [Input("connectionPoolConfigurationInfo")]
         public Input<Inputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>? ConnectionPoolConfigurationInfo { get; set; }
 
-        [Input("DBClusterIdentifiers")]
-        private InputList<string>? _DBClusterIdentifiers;
+        [Input("dBClusterIdentifiers")]
+        private InputList<string>? _dBClusterIdentifiers;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
         /// </summary>
         public InputList<string> DBClusterIdentifiers
         {
-            get => _DBClusterIdentifiers ?? (_DBClusterIdentifiers = new InputList<string>());
-            set => _DBClusterIdentifiers = value;
+            get => _dBClusterIdentifiers ?? (_dBClusterIdentifiers = new InputList<string>());
+            set => _dBClusterIdentifiers = value;
         }
 
-        [Input("DBInstanceIdentifiers")]
-        private InputList<string>? _DBInstanceIdentifiers;
+        [Input("dBInstanceIdentifiers")]
+        private InputList<string>? _dBInstanceIdentifiers;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
         /// </summary>
         public InputList<string> DBInstanceIdentifiers
         {
-            get => _DBInstanceIdentifiers ?? (_DBInstanceIdentifiers = new InputList<string>());
-            set => _DBInstanceIdentifiers = value;
+            get => _dBInstanceIdentifiers ?? (_dBInstanceIdentifiers = new InputList<string>());
+            set => _dBInstanceIdentifiers = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
         /// </summary>
-        [Input("DBProxyName", required: true)]
+        [Input("dBProxyName", required: true)]
         public Input<string> DBProxyName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
         /// </summary>
-        [Input("TargetGroupName", required: true)]
+        [Input("targetGroupName", required: true)]
         public Input<string> TargetGroupName { get; set; } = null!;
 
         public DBProxyTargetGroupArgs()

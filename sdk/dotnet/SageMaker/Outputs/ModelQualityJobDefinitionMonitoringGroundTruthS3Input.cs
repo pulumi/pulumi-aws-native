@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly string S3Uri;
 
         [OutputConstructor]
-        private ModelQualityJobDefinitionMonitoringGroundTruthS3Input(string S3Uri)
+        private ModelQualityJobDefinitionMonitoringGroundTruthS3Input(string s3Uri)
         {
-            this.S3Uri = S3Uri;
+            S3Uri = s3Uri;
         }
     }
 }

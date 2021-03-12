@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parameterkey
         /// </summary>
-        [Input("ParameterKey", required: true)]
+        [Input("parameterKey", required: true)]
         public Input<string> ParameterKey { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parametervalue
         /// </summary>
-        [Input("ParameterValue", required: true)]
+        [Input("parameterValue", required: true)]
         public Input<string> ParameterValue { get; set; } = null!;
 
         public StackSetParameterArgs()

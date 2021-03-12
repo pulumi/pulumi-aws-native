@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamDataFormatConversionConfiguration(
-            bool? Enabled,
+            bool? enabled,
 
-            Outputs.DeliveryStreamInputFormatConfiguration? InputFormatConfiguration,
+            Outputs.DeliveryStreamInputFormatConfiguration? inputFormatConfiguration,
 
-            Outputs.DeliveryStreamOutputFormatConfiguration? OutputFormatConfiguration,
+            Outputs.DeliveryStreamOutputFormatConfiguration? outputFormatConfiguration,
 
-            Outputs.DeliveryStreamSchemaConfiguration? SchemaConfiguration)
+            Outputs.DeliveryStreamSchemaConfiguration? schemaConfiguration)
         {
-            this.Enabled = Enabled;
-            this.InputFormatConfiguration = InputFormatConfiguration;
-            this.OutputFormatConfiguration = OutputFormatConfiguration;
-            this.SchemaConfiguration = SchemaConfiguration;
+            Enabled = enabled;
+            InputFormatConfiguration = inputFormatConfiguration;
+            OutputFormatConfiguration = outputFormatConfiguration;
+            SchemaConfiguration = schemaConfiguration;
         }
     }
 }

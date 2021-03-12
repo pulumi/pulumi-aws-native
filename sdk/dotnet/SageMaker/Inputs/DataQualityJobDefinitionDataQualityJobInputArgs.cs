@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput
         /// </summary>
-        [Input("EndpointInput", required: true)]
+        [Input("endpointInput", required: true)]
         public Input<Inputs.DataQualityJobDefinitionEndpointInputArgs> EndpointInput { get; set; } = null!;
 
         public DataQualityJobDefinitionDataQualityJobInputArgs()

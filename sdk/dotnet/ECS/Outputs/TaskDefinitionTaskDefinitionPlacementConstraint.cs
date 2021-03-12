@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionTaskDefinitionPlacementConstraint(
-            string? Expression,
+            string? expression,
 
-            string Type)
+            string type)
         {
-            this.Expression = Expression;
-            this.Type = Type;
+            Expression = expression;
+            Type = type;
         }
     }
 }

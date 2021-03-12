@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
     /// </summary>
     public sealed class AssessmentAWSServicesArgs : Pulumi.ResourceArgs
     {
-        [Input("AWSServices")]
-        private InputList<Inputs.AssessmentAWSServiceArgs>? _AWSServices;
+        [Input("aWSServices")]
+        private InputList<Inputs.AssessmentAWSServiceArgs>? _aWSServices;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
         /// </summary>
         public InputList<Inputs.AssessmentAWSServiceArgs> AWSServices
         {
-            get => _AWSServices ?? (_AWSServices = new InputList<Inputs.AssessmentAWSServiceArgs>());
-            set => _AWSServices = value;
+            get => _aWSServices ?? (_aWSServices = new InputList<Inputs.AssessmentAWSServiceArgs>());
+            set => _aWSServices = value;
         }
 
         public AssessmentAWSServicesArgs()

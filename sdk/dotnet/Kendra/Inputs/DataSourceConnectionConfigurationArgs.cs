@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databasehost
         /// </summary>
-        [Input("DatabaseHost", required: true)]
+        [Input("databaseHost", required: true)]
         public Input<string> DatabaseHost { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databasename
         /// </summary>
-        [Input("DatabaseName", required: true)]
+        [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databaseport
         /// </summary>
-        [Input("DatabasePort", required: true)]
+        [Input("databasePort", required: true)]
         public Input<int> DatabasePort { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-secretarn
         /// </summary>
-        [Input("SecretArn", required: true)]
+        [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-tablename
         /// </summary>
-        [Input("TableName", required: true)]
+        [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
         public DataSourceConnectionConfigurationArgs()

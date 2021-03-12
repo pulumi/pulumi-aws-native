@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
         /// </summary>
-        [Input("Comment")]
+        [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        [Input("Items", required: true)]
-        private InputList<string>? _Items;
+        [Input("items", required: true)]
+        private InputList<string>? _items;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items
         /// </summary>
         public InputList<string> Items
         {
-            get => _Items ?? (_Items = new InputList<string>());
-            set => _Items = value;
+            get => _items ?? (_items = new InputList<string>());
+            set => _items = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         public KeyGroupKeyGroupConfigArgs()

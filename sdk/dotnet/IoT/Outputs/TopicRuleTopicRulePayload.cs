@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleTopicRulePayload(
-            ImmutableArray<Outputs.TopicRuleAction> Actions,
+            ImmutableArray<Outputs.TopicRuleAction> actions,
 
-            string? AwsIotSqlVersion,
+            string? awsIotSqlVersion,
 
-            string? Description,
+            string? description,
 
-            Outputs.TopicRuleAction? ErrorAction,
+            Outputs.TopicRuleAction? errorAction,
 
-            bool RuleDisabled,
+            bool ruleDisabled,
 
-            string Sql)
+            string sql)
         {
-            this.Actions = Actions;
-            this.AwsIotSqlVersion = AwsIotSqlVersion;
-            this.Description = Description;
-            this.ErrorAction = ErrorAction;
-            this.RuleDisabled = RuleDisabled;
-            this.Sql = Sql;
+            Actions = actions;
+            AwsIotSqlVersion = awsIotSqlVersion;
+            Description = description;
+            ErrorAction = errorAction;
+            RuleDisabled = ruleDisabled;
+            Sql = sql;
         }
     }
 }

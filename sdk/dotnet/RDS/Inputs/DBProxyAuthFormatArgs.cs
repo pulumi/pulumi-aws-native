@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.RDS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-authscheme
         /// </summary>
-        [Input("AuthScheme")]
+        [Input("authScheme")]
         public Input<string>? AuthScheme { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-iamauth
         /// </summary>
-        [Input("IAMAuth")]
+        [Input("iAMAuth")]
         public Input<string>? IAMAuth { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-secretarn
         /// </summary>
-        [Input("SecretArn")]
+        [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-username
         /// </summary>
-        [Input("UserName")]
+        [Input("userName")]
         public Input<string>? UserName { get; set; }
 
         public DBProxyAuthFormatArgs()

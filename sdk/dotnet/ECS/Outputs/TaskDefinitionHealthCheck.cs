@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionHealthCheck(
-            ImmutableArray<string> Command,
+            ImmutableArray<string> command,
 
-            int? Interval,
+            int? interval,
 
-            int? Retries,
+            int? retries,
 
-            int? StartPeriod,
+            int? startPeriod,
 
-            int? Timeout)
+            int? timeout)
         {
-            this.Command = Command;
-            this.Interval = Interval;
-            this.Retries = Retries;
-            this.StartPeriod = StartPeriod;
-            this.Timeout = Timeout;
+            Command = command;
+            Interval = interval;
+            Retries = retries;
+            StartPeriod = startPeriod;
+            Timeout = timeout;
         }
     }
 }

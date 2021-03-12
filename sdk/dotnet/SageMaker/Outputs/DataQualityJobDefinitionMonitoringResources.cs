@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly Outputs.DataQualityJobDefinitionClusterConfig ClusterConfig;
 
         [OutputConstructor]
-        private DataQualityJobDefinitionMonitoringResources(Outputs.DataQualityJobDefinitionClusterConfig ClusterConfig)
+        private DataQualityJobDefinitionMonitoringResources(Outputs.DataQualityJobDefinitionClusterConfig clusterConfig)
         {
-            this.ClusterConfig = ClusterConfig;
+            ClusterConfig = clusterConfig;
         }
     }
 }

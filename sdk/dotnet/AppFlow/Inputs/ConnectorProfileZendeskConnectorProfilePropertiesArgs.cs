@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html#cfn-appflow-connectorprofile-zendeskconnectorprofileproperties-instanceurl
         /// </summary>
-        [Input("InstanceUrl", required: true)]
+        [Input("instanceUrl", required: true)]
         public Input<string> InstanceUrl { get; set; } = null!;
 
         public ConnectorProfileZendeskConnectorProfilePropertiesArgs()

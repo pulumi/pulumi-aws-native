@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-containerpath
         /// </summary>
-        [Input("ContainerPath")]
+        [Input("containerPath")]
         public Input<string>? ContainerPath { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-hostpath
         /// </summary>
-        [Input("HostPath")]
+        [Input("hostPath")]
         public Input<string>? HostPath { get; set; }
 
-        [Input("Permissions")]
-        private InputList<string>? _Permissions;
+        [Input("permissions")]
+        private InputList<string>? _permissions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-permissions
         /// </summary>
         public InputList<string> Permissions
         {
-            get => _Permissions ?? (_Permissions = new InputList<string>());
-            set => _Permissions = value;
+            get => _permissions ?? (_permissions = new InputList<string>());
+            set => _permissions = value;
         }
 
         public TaskDefinitionDeviceArgs()

@@ -15,22 +15,22 @@ namespace Pulumi.AwsNative.Backup.Inputs
     /// </summary>
     public sealed class BackupVaultNotificationObjectTypeArgs : Pulumi.ResourceArgs
     {
-        [Input("BackupVaultEvents", required: true)]
-        private InputList<string>? _BackupVaultEvents;
+        [Input("backupVaultEvents", required: true)]
+        private InputList<string>? _backupVaultEvents;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents
         /// </summary>
         public InputList<string> BackupVaultEvents
         {
-            get => _BackupVaultEvents ?? (_BackupVaultEvents = new InputList<string>());
-            set => _BackupVaultEvents = value;
+            get => _backupVaultEvents ?? (_backupVaultEvents = new InputList<string>());
+            set => _backupVaultEvents = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
         /// </summary>
-        [Input("SNSTopicArn", required: true)]
+        [Input("sNSTopicArn", required: true)]
         public Input<string> SNSTopicArn { get; set; } = null!;
 
         public BackupVaultNotificationObjectTypeArgs()

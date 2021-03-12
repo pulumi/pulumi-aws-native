@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private RuleGroupHeader(
-            string Destination,
+            string destination,
 
-            string DestinationPort,
+            string destinationPort,
 
-            string Direction,
+            string direction,
 
-            string Protocol,
+            string protocol,
 
-            string Source,
+            string source,
 
-            string SourcePort)
+            string sourcePort)
         {
-            this.Destination = Destination;
-            this.DestinationPort = DestinationPort;
-            this.Direction = Direction;
-            this.Protocol = Protocol;
-            this.Source = Source;
-            this.SourcePort = SourcePort;
+            Destination = destination;
+            DestinationPort = destinationPort;
+            Direction = direction;
+            Protocol = protocol;
+            Source = source;
+            SourcePort = sourcePort;
         }
     }
 }

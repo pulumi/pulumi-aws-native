@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Athena.Outputs
 
         [OutputConstructor]
         private WorkGroupResultConfiguration(
-            Outputs.WorkGroupEncryptionConfiguration? EncryptionConfiguration,
+            Outputs.WorkGroupEncryptionConfiguration? encryptionConfiguration,
 
-            string? OutputLocation)
+            string? outputLocation)
         {
-            this.EncryptionConfiguration = EncryptionConfiguration;
-            this.OutputLocation = OutputLocation;
+            EncryptionConfiguration = encryptionConfiguration;
+            OutputLocation = outputLocation;
         }
     }
 }

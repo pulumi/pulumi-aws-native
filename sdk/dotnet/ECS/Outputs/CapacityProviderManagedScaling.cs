@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private CapacityProviderManagedScaling(
-            int? MaximumScalingStepSize,
+            int? maximumScalingStepSize,
 
-            int? MinimumScalingStepSize,
+            int? minimumScalingStepSize,
 
-            string? Status,
+            string? status,
 
-            int? TargetCapacity)
+            int? targetCapacity)
         {
-            this.MaximumScalingStepSize = MaximumScalingStepSize;
-            this.MinimumScalingStepSize = MinimumScalingStepSize;
-            this.Status = Status;
-            this.TargetCapacity = TargetCapacity;
+            MaximumScalingStepSize = maximumScalingStepSize;
+            MinimumScalingStepSize = minimumScalingStepSize;
+            Status = status;
+            TargetCapacity = targetCapacity;
         }
     }
 }

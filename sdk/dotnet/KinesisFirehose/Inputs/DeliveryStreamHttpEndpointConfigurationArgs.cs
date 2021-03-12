@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-accesskey
         /// </summary>
-        [Input("AccessKey")]
+        [Input("accessKey")]
         public Input<string>? AccessKey { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-name
         /// </summary>
-        [Input("Name")]
+        [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-url
         /// </summary>
-        [Input("Url", required: true)]
+        [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
         public DeliveryStreamHttpEndpointConfigurationArgs()

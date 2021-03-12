@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
         /// </summary>
-        [Output("Key")]
+        [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
         /// </summary>
-        [Output("SchemaVersionId")]
+        [Output("schemaVersionId")]
         public Output<string> SchemaVersionId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
         /// </summary>
-        [Output("Value")]
+        [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
 
@@ -81,19 +81,19 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
         /// </summary>
-        [Input("Key", required: true)]
+        [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
         /// </summary>
-        [Input("SchemaVersionId", required: true)]
+        [Input("schemaVersionId", required: true)]
         public Input<string> SchemaVersionId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
         /// </summary>
-        [Input("Value", required: true)]
+        [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
         public SchemaVersionMetadataArgs()

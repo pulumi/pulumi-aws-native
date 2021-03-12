@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskSetAwsVpcConfiguration(
-            string? AssignPublicIp,
+            string? assignPublicIp,
 
-            ImmutableArray<string> SecurityGroups,
+            ImmutableArray<string> securityGroups,
 
-            ImmutableArray<string> Subnets)
+            ImmutableArray<string> subnets)
         {
-            this.AssignPublicIp = AssignPublicIp;
-            this.SecurityGroups = SecurityGroups;
-            this.Subnets = Subnets;
+            AssignPublicIp = assignPublicIp;
+            SecurityGroups = securityGroups;
+            Subnets = subnets;
         }
     }
 }

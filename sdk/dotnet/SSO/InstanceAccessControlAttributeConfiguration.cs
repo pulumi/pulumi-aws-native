@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
         /// </summary>
-        [Output("InstanceAccessControlAttributeConfiguration")]
+        [Output("instanceAccessControlAttributeConfiguration")]
         public Output<Union<System.Text.Json.JsonElement, string>> InstanceAccessControlAttributeConfigurationValue { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
         /// </summary>
-        [Output("InstanceArn")]
+        [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
 
@@ -75,13 +75,13 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
         /// </summary>
-        [Input("InstanceAccessControlAttributeConfiguration", required: true)]
+        [Input("instanceAccessControlAttributeConfiguration", required: true)]
         public InputUnion<System.Text.Json.JsonElement, string> InstanceAccessControlAttributeConfigurationValue { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
         /// </summary>
-        [Input("InstanceArn", required: true)]
+        [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
         public InstanceAccessControlAttributeConfigurationArgs()

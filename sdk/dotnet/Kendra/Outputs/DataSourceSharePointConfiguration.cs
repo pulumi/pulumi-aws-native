@@ -60,39 +60,39 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceSharePointConfiguration(
-            bool? CrawlAttachments,
+            bool? crawlAttachments,
 
-            bool? DisableLocalGroups,
+            bool? disableLocalGroups,
 
-            string? DocumentTitleFieldName,
+            string? documentTitleFieldName,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? ExclusionPatterns,
+            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? exclusionPatterns,
 
-            Outputs.DataSourceDataSourceToIndexFieldMappingList? FieldMappings,
+            Outputs.DataSourceDataSourceToIndexFieldMappingList? fieldMappings,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? InclusionPatterns,
+            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? inclusionPatterns,
 
-            string SecretArn,
+            string secretArn,
 
-            string SharePointVersion,
+            string sharePointVersion,
 
-            ImmutableArray<string> Urls,
+            ImmutableArray<string> urls,
 
-            bool? UseChangeLog,
+            bool? useChangeLog,
 
-            Outputs.DataSourceDataSourceVpcConfiguration? VpcConfiguration)
+            Outputs.DataSourceDataSourceVpcConfiguration? vpcConfiguration)
         {
-            this.CrawlAttachments = CrawlAttachments;
-            this.DisableLocalGroups = DisableLocalGroups;
-            this.DocumentTitleFieldName = DocumentTitleFieldName;
-            this.ExclusionPatterns = ExclusionPatterns;
-            this.FieldMappings = FieldMappings;
-            this.InclusionPatterns = InclusionPatterns;
-            this.SecretArn = SecretArn;
-            this.SharePointVersion = SharePointVersion;
-            this.Urls = Urls;
-            this.UseChangeLog = UseChangeLog;
-            this.VpcConfiguration = VpcConfiguration;
+            CrawlAttachments = crawlAttachments;
+            DisableLocalGroups = disableLocalGroups;
+            DocumentTitleFieldName = documentTitleFieldName;
+            ExclusionPatterns = exclusionPatterns;
+            FieldMappings = fieldMappings;
+            InclusionPatterns = inclusionPatterns;
+            SecretArn = secretArn;
+            SharePointVersion = sharePointVersion;
+            Urls = urls;
+            UseChangeLog = useChangeLog;
+            VpcConfiguration = vpcConfiguration;
         }
     }
 }

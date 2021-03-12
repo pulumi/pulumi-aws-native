@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// </summary>
     public sealed class EventSourceMappingEndpointsArgs : Pulumi.ResourceArgs
     {
-        [Input("KafkaBootstrapServers")]
-        private InputList<string>? _KafkaBootstrapServers;
+        [Input("kafkaBootstrapServers")]
+        private InputList<string>? _kafkaBootstrapServers;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html#cfn-lambda-eventsourcemapping-endpoints-kafkabootstrapservers
         /// </summary>
         public InputList<string> KafkaBootstrapServers
         {
-            get => _KafkaBootstrapServers ?? (_KafkaBootstrapServers = new InputList<string>());
-            set => _KafkaBootstrapServers = value;
+            get => _kafkaBootstrapServers ?? (_kafkaBootstrapServers = new InputList<string>());
+            set => _kafkaBootstrapServers = value;
         }
 
         public EventSourceMappingEndpointsArgs()

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<string> VariableDefinitionList;
 
         [OutputConstructor]
-        private RuleGroupVariableDefinitionList(ImmutableArray<string> VariableDefinitionList)
+        private RuleGroupVariableDefinitionList(ImmutableArray<string> variableDefinitionList)
         {
-            this.VariableDefinitionList = VariableDefinitionList;
+            VariableDefinitionList = variableDefinitionList;
         }
     }
 }

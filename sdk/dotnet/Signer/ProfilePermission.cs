@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.Signer
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
         /// </summary>
-        [Output("Action")]
+        [Output("action")]
         public Output<string> Action { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
         /// </summary>
-        [Output("Principal")]
+        [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
         /// </summary>
-        [Output("ProfileName")]
+        [Output("profileName")]
         public Output<string> ProfileName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
         /// </summary>
-        [Output("ProfileVersion")]
+        [Output("profileVersion")]
         public Output<string?> ProfileVersion { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
         /// </summary>
-        [Output("StatementId")]
+        [Output("statementId")]
         public Output<string> StatementId { get; private set; } = null!;
 
 
@@ -93,31 +93,31 @@ namespace Pulumi.AwsNative.Signer
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
         /// </summary>
-        [Input("Action", required: true)]
+        [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
         /// </summary>
-        [Input("Principal", required: true)]
+        [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
         /// </summary>
-        [Input("ProfileName", required: true)]
+        [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
         /// </summary>
-        [Input("ProfileVersion")]
+        [Input("profileVersion")]
         public Input<string>? ProfileVersion { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
         /// </summary>
-        [Input("StatementId", required: true)]
+        [Input("statementId", required: true)]
         public Input<string> StatementId { get; set; } = null!;
 
         public ProfilePermissionArgs()

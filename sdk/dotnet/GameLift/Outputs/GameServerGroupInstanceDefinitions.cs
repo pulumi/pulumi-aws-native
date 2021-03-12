@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         public readonly ImmutableArray<Outputs.GameServerGroupInstanceDefinition> InstanceDefinitions;
 
         [OutputConstructor]
-        private GameServerGroupInstanceDefinitions(ImmutableArray<Outputs.GameServerGroupInstanceDefinition> InstanceDefinitions)
+        private GameServerGroupInstanceDefinitions(ImmutableArray<Outputs.GameServerGroupInstanceDefinition> instanceDefinitions)
         {
-            this.InstanceDefinitions = InstanceDefinitions;
+            InstanceDefinitions = instanceDefinitions;
         }
     }
 }

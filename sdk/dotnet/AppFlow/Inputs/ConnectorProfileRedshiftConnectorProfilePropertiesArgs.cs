@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketname
         /// </summary>
-        [Input("BucketName", required: true)]
+        [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketprefix
         /// </summary>
-        [Input("BucketPrefix")]
+        [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-databaseurl
         /// </summary>
-        [Input("DatabaseUrl", required: true)]
+        [Input("databaseUrl", required: true)]
         public Input<string> DatabaseUrl { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         public ConnectorProfileRedshiftConnectorProfilePropertiesArgs()

@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class MonitoringScheduleMonitoringInputsArgs : Pulumi.ResourceArgs
     {
-        [Input("MonitoringInputs")]
-        private InputList<Inputs.MonitoringScheduleMonitoringInputArgs>? _MonitoringInputs;
+        [Input("monitoringInputs")]
+        private InputList<Inputs.MonitoringScheduleMonitoringInputArgs>? _monitoringInputs;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html#cfn-sagemaker-monitoringschedule-monitoringinputs-monitoringinputs
         /// </summary>
         public InputList<Inputs.MonitoringScheduleMonitoringInputArgs> MonitoringInputs
         {
-            get => _MonitoringInputs ?? (_MonitoringInputs = new InputList<Inputs.MonitoringScheduleMonitoringInputArgs>());
-            set => _MonitoringInputs = value;
+            get => _monitoringInputs ?? (_monitoringInputs = new InputList<Inputs.MonitoringScheduleMonitoringInputArgs>());
+            set => _monitoringInputs = value;
         }
 
         public MonitoringScheduleMonitoringInputsArgs()

@@ -18,79 +18,79 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-andstatement
         /// </summary>
-        [Input("AndStatement")]
+        [Input("andStatement")]
         public Input<Inputs.WebACLAndStatementOneArgs>? AndStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-bytematchstatement
         /// </summary>
-        [Input("ByteMatchStatement")]
+        [Input("byteMatchStatement")]
         public Input<Inputs.WebACLByteMatchStatementArgs>? ByteMatchStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-geomatchstatement
         /// </summary>
-        [Input("GeoMatchStatement")]
+        [Input("geoMatchStatement")]
         public Input<Inputs.WebACLGeoMatchStatementArgs>? GeoMatchStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ipsetreferencestatement
         /// </summary>
-        [Input("IPSetReferenceStatement")]
+        [Input("iPSetReferenceStatement")]
         public Input<Inputs.WebACLIPSetReferenceStatementArgs>? IPSetReferenceStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-managedrulegroupstatement
         /// </summary>
-        [Input("ManagedRuleGroupStatement")]
+        [Input("managedRuleGroupStatement")]
         public Input<Inputs.WebACLManagedRuleGroupStatementArgs>? ManagedRuleGroupStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-notstatement
         /// </summary>
-        [Input("NotStatement")]
+        [Input("notStatement")]
         public Input<Inputs.WebACLNotStatementOneArgs>? NotStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-orstatement
         /// </summary>
-        [Input("OrStatement")]
+        [Input("orStatement")]
         public Input<Inputs.WebACLOrStatementOneArgs>? OrStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ratebasedstatement
         /// </summary>
-        [Input("RateBasedStatement")]
+        [Input("rateBasedStatement")]
         public Input<Inputs.WebACLRateBasedStatementOneArgs>? RateBasedStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-regexpatternsetreferencestatement
         /// </summary>
-        [Input("RegexPatternSetReferenceStatement")]
+        [Input("regexPatternSetReferenceStatement")]
         public Input<Inputs.WebACLRegexPatternSetReferenceStatementArgs>? RegexPatternSetReferenceStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-rulegroupreferencestatement
         /// </summary>
-        [Input("RuleGroupReferenceStatement")]
+        [Input("ruleGroupReferenceStatement")]
         public Input<Inputs.WebACLRuleGroupReferenceStatementArgs>? RuleGroupReferenceStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sizeconstraintstatement
         /// </summary>
-        [Input("SizeConstraintStatement")]
+        [Input("sizeConstraintStatement")]
         public Input<Inputs.WebACLSizeConstraintStatementArgs>? SizeConstraintStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sqlimatchstatement
         /// </summary>
-        [Input("SqliMatchStatement")]
+        [Input("sqliMatchStatement")]
         public Input<Inputs.WebACLSqliMatchStatementArgs>? SqliMatchStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-xssmatchstatement
         /// </summary>
-        [Input("XssMatchStatement")]
+        [Input("xssMatchStatement")]
         public Input<Inputs.WebACLXssMatchStatementArgs>? XssMatchStatement { get; set; }
 
         public WebACLStatementOneArgs()

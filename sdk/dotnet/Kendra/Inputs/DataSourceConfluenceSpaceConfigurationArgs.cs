@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlarchivedspaces
         /// </summary>
-        [Input("CrawlArchivedSpaces")]
+        [Input("crawlArchivedSpaces")]
         public Input<bool>? CrawlArchivedSpaces { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlpersonalspaces
         /// </summary>
-        [Input("CrawlPersonalSpaces")]
+        [Input("crawlPersonalSpaces")]
         public Input<bool>? CrawlPersonalSpaces { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
         /// </summary>
-        [Input("ExcludeSpaces")]
+        [Input("excludeSpaces")]
         public Input<Inputs.DataSourceConfluenceSpaceListArgs>? ExcludeSpaces { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
         /// </summary>
-        [Input("IncludeSpaces")]
+        [Input("includeSpaces")]
         public Input<Inputs.DataSourceConfluenceSpaceListArgs>? IncludeSpaces { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
         /// </summary>
-        [Input("SpaceFieldMappings")]
+        [Input("spaceFieldMappings")]
         public Input<Inputs.DataSourceConfluenceSpaceFieldMappingsListArgs>? SpaceFieldMappings { get; set; }
 
         public DataSourceConfluenceSpaceConfigurationArgs()

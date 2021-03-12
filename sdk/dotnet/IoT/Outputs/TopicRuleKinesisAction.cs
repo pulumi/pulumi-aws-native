@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleKinesisAction(
-            string? PartitionKey,
+            string? partitionKey,
 
-            string RoleArn,
+            string roleArn,
 
-            string StreamName)
+            string streamName)
         {
-            this.PartitionKey = PartitionKey;
-            this.RoleArn = RoleArn;
-            this.StreamName = StreamName;
+            PartitionKey = partitionKey;
+            RoleArn = roleArn;
+            StreamName = streamName;
         }
     }
 }

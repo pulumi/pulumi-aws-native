@@ -15,37 +15,37 @@ namespace Pulumi.AwsNative.Kinesis
     [AwsNativeResourceType("aws-native:Kinesis:Stream")]
     public partial class Stream : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
         /// </summary>
-        [Output("RetentionPeriodHours")]
+        [Output("retentionPeriodHours")]
         public Output<int?> RetentionPeriodHours { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
         /// </summary>
-        [Output("ShardCount")]
+        [Output("shardCount")]
         public Output<int> ShardCount { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
         /// </summary>
-        [Output("StreamEncryption")]
+        [Output("streamEncryption")]
         public Output<Outputs.StreamStreamEncryption?> StreamEncryption { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -96,37 +96,37 @@ namespace Pulumi.AwsNative.Kinesis
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
         /// </summary>
-        [Input("Name")]
+        [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
         /// </summary>
-        [Input("RetentionPeriodHours")]
+        [Input("retentionPeriodHours")]
         public Input<int>? RetentionPeriodHours { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
         /// </summary>
-        [Input("ShardCount", required: true)]
+        [Input("shardCount", required: true)]
         public Input<int> ShardCount { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
         /// </summary>
-        [Input("StreamEncryption")]
+        [Input("streamEncryption")]
         public Input<Inputs.StreamStreamEncryptionArgs>? StreamEncryption { get; set; }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public StreamArgs()

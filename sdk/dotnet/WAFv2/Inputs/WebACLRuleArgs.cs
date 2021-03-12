@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-action
         /// </summary>
-        [Input("Action")]
+        [Input("action")]
         public Input<Inputs.WebACLRuleActionArgs>? Action { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-overrideaction
         /// </summary>
-        [Input("OverrideAction")]
+        [Input("overrideAction")]
         public Input<Inputs.WebACLOverrideActionArgs>? OverrideAction { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority
         /// </summary>
-        [Input("Priority", required: true)]
+        [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
         /// </summary>
-        [Input("Statement", required: true)]
+        [Input("statement", required: true)]
         public Input<Inputs.WebACLStatementOneArgs> Statement { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
         /// </summary>
-        [Input("VisibilityConfig", required: true)]
+        [Input("visibilityConfig", required: true)]
         public Input<Inputs.WebACLVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;
 
         public WebACLRuleArgs()

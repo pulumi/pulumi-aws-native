@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html#cfn-licensemanager-grant-filter-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html#cfn-licensemanager-grant-filter-values
         /// </summary>
-        [Input("Values", required: true)]
+        [Input("values", required: true)]
         public Input<Inputs.GrantStringListArgs> Values { get; set; } = null!;
 
         public GrantFilterArgs()

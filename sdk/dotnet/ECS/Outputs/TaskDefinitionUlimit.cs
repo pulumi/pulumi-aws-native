@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionUlimit(
-            int HardLimit,
+            int hardLimit,
 
-            string Name,
+            string name,
 
-            int SoftLimit)
+            int softLimit)
         {
-            this.HardLimit = HardLimit;
-            this.Name = Name;
-            this.SoftLimit = SoftLimit;
+            HardLimit = hardLimit;
+            Name = name;
+            SoftLimit = softLimit;
         }
     }
 }

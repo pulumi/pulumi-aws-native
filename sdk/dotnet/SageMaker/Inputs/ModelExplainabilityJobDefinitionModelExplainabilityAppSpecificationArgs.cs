@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-configuri
         /// </summary>
-        [Input("ConfigUri", required: true)]
+        [Input("configUri", required: true)]
         public Input<string> ConfigUri { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
         /// </summary>
-        [Input("Environment")]
+        [Input("environment")]
         public Input<Inputs.ModelExplainabilityJobDefinitionEnvironmentArgs>? Environment { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
         /// </summary>
-        [Input("ImageUri", required: true)]
+        [Input("imageUri", required: true)]
         public Input<string> ImageUri { get; set; } = null!;
 
         public ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs()

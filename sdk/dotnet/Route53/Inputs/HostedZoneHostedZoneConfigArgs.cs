@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Route53.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
         /// </summary>
-        [Input("Comment")]
+        [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         public HostedZoneHostedZoneConfigArgs()

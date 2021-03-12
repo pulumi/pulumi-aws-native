@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.SSM.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname
         /// </summary>
-        [Input("OutputS3BucketName")]
+        [Input("outputS3BucketName")]
         public Input<string>? OutputS3BucketName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3keyprefix
         /// </summary>
-        [Input("OutputS3KeyPrefix")]
+        [Input("outputS3KeyPrefix")]
         public Input<string>? OutputS3KeyPrefix { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3region
         /// </summary>
-        [Input("OutputS3Region")]
+        [Input("outputS3Region")]
         public Input<string>? OutputS3Region { get; set; }
 
         public AssociationS3OutputLocationArgs()

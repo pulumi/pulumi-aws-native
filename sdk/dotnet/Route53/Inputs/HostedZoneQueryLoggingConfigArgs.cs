@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Route53.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn
         /// </summary>
-        [Input("CloudWatchLogsLogGroupArn", required: true)]
+        [Input("cloudWatchLogsLogGroupArn", required: true)]
         public Input<string> CloudWatchLogsLogGroupArn { get; set; } = null!;
 
         public HostedZoneQueryLoggingConfigArgs()

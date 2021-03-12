@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceConfluencePageFieldMappingsListArgs : Pulumi.ResourceArgs
     {
-        [Input("ConfluencePageFieldMappingsList")]
-        private InputList<Inputs.DataSourceConfluencePageToIndexFieldMappingArgs>? _ConfluencePageFieldMappingsList;
+        [Input("confluencePageFieldMappingsList")]
+        private InputList<Inputs.DataSourceConfluencePageToIndexFieldMappingArgs>? _confluencePageFieldMappingsList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html#cfn-kendra-datasource-confluencepagefieldmappingslist-confluencepagefieldmappingslist
         /// </summary>
         public InputList<Inputs.DataSourceConfluencePageToIndexFieldMappingArgs> ConfluencePageFieldMappingsList
         {
-            get => _ConfluencePageFieldMappingsList ?? (_ConfluencePageFieldMappingsList = new InputList<Inputs.DataSourceConfluencePageToIndexFieldMappingArgs>());
-            set => _ConfluencePageFieldMappingsList = value;
+            get => _confluencePageFieldMappingsList ?? (_confluencePageFieldMappingsList = new InputList<Inputs.DataSourceConfluencePageToIndexFieldMappingArgs>());
+            set => _confluencePageFieldMappingsList = value;
         }
 
         public DataSourceConfluencePageFieldMappingsListArgs()

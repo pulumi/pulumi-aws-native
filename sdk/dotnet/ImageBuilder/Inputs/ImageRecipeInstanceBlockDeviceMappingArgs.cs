@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-devicename
         /// </summary>
-        [Input("DeviceName")]
+        [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
         /// </summary>
-        [Input("Ebs")]
+        [Input("ebs")]
         public Input<Inputs.ImageRecipeEbsInstanceBlockDeviceSpecificationArgs>? Ebs { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-nodevice
         /// </summary>
-        [Input("NoDevice")]
+        [Input("noDevice")]
         public Input<string>? NoDevice { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-virtualname
         /// </summary>
-        [Input("VirtualName")]
+        [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }
 
         public ImageRecipeInstanceBlockDeviceMappingArgs()

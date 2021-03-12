@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Glue.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-islatest
         /// </summary>
-        [Input("IsLatest")]
+        [Input("isLatest")]
         public Input<bool>? IsLatest { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-versionnumber
         /// </summary>
-        [Input("VersionNumber")]
+        [Input("versionNumber")]
         public Input<int>? VersionNumber { get; set; }
 
         public SchemaSchemaVersionArgs()

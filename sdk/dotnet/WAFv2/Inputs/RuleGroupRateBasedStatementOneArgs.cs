@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-aggregatekeytype
         /// </summary>
-        [Input("AggregateKeyType", required: true)]
+        [Input("aggregateKeyType", required: true)]
         public Input<string> AggregateKeyType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-forwardedipconfig
         /// </summary>
-        [Input("ForwardedIPConfig")]
+        [Input("forwardedIPConfig")]
         public Input<Inputs.RuleGroupForwardedIPConfigurationArgs>? ForwardedIPConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-limit
         /// </summary>
-        [Input("Limit", required: true)]
+        [Input("limit", required: true)]
         public Input<int> Limit { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-scopedownstatement
         /// </summary>
-        [Input("ScopeDownStatement")]
+        [Input("scopeDownStatement")]
         public Input<Inputs.RuleGroupStatementTwoArgs>? ScopeDownStatement { get; set; }
 
         public RuleGroupRateBasedStatementOneArgs()

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string ApiKey;
 
         [OutputConstructor]
-        private ConnectorProfileSingularConnectorProfileCredentials(string ApiKey)
+        private ConnectorProfileSingularConnectorProfileCredentials(string apiKey)
         {
-            this.ApiKey = ApiKey;
+            ApiKey = apiKey;
         }
     }
 }

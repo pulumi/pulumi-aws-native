@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
         /// </summary>
-        [Input("Pattern", required: true)]
+        [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-patternname
         /// </summary>
-        [Input("PatternName", required: true)]
+        [Input("patternName", required: true)]
         public Input<string> PatternName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-rank
         /// </summary>
-        [Input("Rank", required: true)]
+        [Input("rank", required: true)]
         public Input<int> Rank { get; set; } = null!;
 
         public ApplicationLogPatternArgs()

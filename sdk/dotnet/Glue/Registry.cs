@@ -15,25 +15,25 @@ namespace Pulumi.AwsNative.Glue
     [AwsNativeResourceType("aws-native:Glue:Registry")]
     public partial class Registry : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -84,25 +84,25 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html#cfn-glue-registry-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public RegistryArgs()

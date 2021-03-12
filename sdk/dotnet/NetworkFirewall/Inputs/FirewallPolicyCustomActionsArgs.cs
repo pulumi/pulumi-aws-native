@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class FirewallPolicyCustomActionsArgs : Pulumi.ResourceArgs
     {
-        [Input("CustomActions")]
-        private InputList<Inputs.FirewallPolicyCustomActionArgs>? _CustomActions;
+        [Input("customActions")]
+        private InputList<Inputs.FirewallPolicyCustomActionArgs>? _customActions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html#cfn-networkfirewall-firewallpolicy-customactions-customactions
         /// </summary>
         public InputList<Inputs.FirewallPolicyCustomActionArgs> CustomActions
         {
-            get => _CustomActions ?? (_CustomActions = new InputList<Inputs.FirewallPolicyCustomActionArgs>());
-            set => _CustomActions = value;
+            get => _customActions ?? (_customActions = new InputList<Inputs.FirewallPolicyCustomActionArgs>());
+            set => _customActions = value;
         }
 
         public FirewallPolicyCustomActionsArgs()

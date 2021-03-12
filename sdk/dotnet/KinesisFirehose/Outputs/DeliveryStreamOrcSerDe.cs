@@ -56,36 +56,36 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamOrcSerDe(
-            int? BlockSizeBytes,
+            int? blockSizeBytes,
 
-            ImmutableArray<string> BloomFilterColumns,
+            ImmutableArray<string> bloomFilterColumns,
 
-            double? BloomFilterFalsePositiveProbability,
+            double? bloomFilterFalsePositiveProbability,
 
-            string? Compression,
+            string? compression,
 
-            double? DictionaryKeyThreshold,
+            double? dictionaryKeyThreshold,
 
-            bool? EnablePadding,
+            bool? enablePadding,
 
-            string? FormatVersion,
+            string? formatVersion,
 
-            double? PaddingTolerance,
+            double? paddingTolerance,
 
-            int? RowIndexStride,
+            int? rowIndexStride,
 
-            int? StripeSizeBytes)
+            int? stripeSizeBytes)
         {
-            this.BlockSizeBytes = BlockSizeBytes;
-            this.BloomFilterColumns = BloomFilterColumns;
-            this.BloomFilterFalsePositiveProbability = BloomFilterFalsePositiveProbability;
-            this.Compression = Compression;
-            this.DictionaryKeyThreshold = DictionaryKeyThreshold;
-            this.EnablePadding = EnablePadding;
-            this.FormatVersion = FormatVersion;
-            this.PaddingTolerance = PaddingTolerance;
-            this.RowIndexStride = RowIndexStride;
-            this.StripeSizeBytes = StripeSizeBytes;
+            BlockSizeBytes = blockSizeBytes;
+            BloomFilterColumns = bloomFilterColumns;
+            BloomFilterFalsePositiveProbability = bloomFilterFalsePositiveProbability;
+            Compression = compression;
+            DictionaryKeyThreshold = dictionaryKeyThreshold;
+            EnablePadding = enablePadding;
+            FormatVersion = formatVersion;
+            PaddingTolerance = paddingTolerance;
+            RowIndexStride = rowIndexStride;
+            StripeSizeBytes = stripeSizeBytes;
         }
     }
 }

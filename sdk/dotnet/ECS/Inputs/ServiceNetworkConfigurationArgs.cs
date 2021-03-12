@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
         /// </summary>
-        [Input("AwsvpcConfiguration")]
+        [Input("awsvpcConfiguration")]
         public Input<Inputs.ServiceAwsVpcConfigurationArgs>? AwsvpcConfiguration { get; set; }
 
         public ServiceNetworkConfigurationArgs()

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination
         /// </summary>
-        [Input("Destination")]
+        [Input("destination")]
         public Input<string>? Destination { get; set; }
 
         public EventSourceMappingOnFailureArgs()

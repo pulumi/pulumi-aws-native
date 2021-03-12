@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class RuleGroupFlagsArgs : Pulumi.ResourceArgs
     {
-        [Input("Flags")]
-        private InputList<string>? _Flags;
+        [Input("flags")]
+        private InputList<string>? _flags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-flags.html#cfn-networkfirewall-rulegroup-flags-flags
         /// </summary>
         public InputList<string> Flags
         {
-            get => _Flags ?? (_Flags = new InputList<string>());
-            set => _Flags = value;
+            get => _flags ?? (_flags = new InputList<string>());
+            set => _flags = value;
         }
 
         public RuleGroupFlagsArgs()

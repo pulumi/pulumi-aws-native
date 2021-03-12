@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> DataSourceToIndexFieldMappingList;
 
         [OutputConstructor]
-        private DataSourceDataSourceToIndexFieldMappingList(ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> DataSourceToIndexFieldMappingList)
+        private DataSourceDataSourceToIndexFieldMappingList(ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> dataSourceToIndexFieldMappingList)
         {
-            this.DataSourceToIndexFieldMappingList = DataSourceToIndexFieldMappingList;
+            DataSourceToIndexFieldMappingList = dataSourceToIndexFieldMappingList;
         }
     }
 }

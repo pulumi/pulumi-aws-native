@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Route53.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
         /// </summary>
-        [Input("VPCId", required: true)]
+        [Input("vPCId", required: true)]
         public Input<string> VPCId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
         /// </summary>
-        [Input("VPCRegion", required: true)]
+        [Input("vPCRegion", required: true)]
         public Input<string> VPCRegion { get; set; } = null!;
 
         public HostedZoneVPCArgs()

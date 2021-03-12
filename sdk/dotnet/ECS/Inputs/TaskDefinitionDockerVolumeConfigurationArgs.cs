@@ -18,43 +18,43 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-autoprovision
         /// </summary>
-        [Input("Autoprovision")]
+        [Input("autoprovision")]
         public Input<bool>? Autoprovision { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driver
         /// </summary>
-        [Input("Driver")]
+        [Input("driver")]
         public Input<string>? Driver { get; set; }
 
-        [Input("DriverOpts")]
-        private InputMap<string>? _DriverOpts;
+        [Input("driverOpts")]
+        private InputMap<string>? _driverOpts;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driveropts
         /// </summary>
         public InputMap<string> DriverOpts
         {
-            get => _DriverOpts ?? (_DriverOpts = new InputMap<string>());
-            set => _DriverOpts = value;
+            get => _driverOpts ?? (_driverOpts = new InputMap<string>());
+            set => _driverOpts = value;
         }
 
-        [Input("Labels")]
-        private InputMap<string>? _Labels;
+        [Input("labels")]
+        private InputMap<string>? _labels;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-labels
         /// </summary>
         public InputMap<string> Labels
         {
-            get => _Labels ?? (_Labels = new InputMap<string>());
-            set => _Labels = value;
+            get => _labels ?? (_labels = new InputMap<string>());
+            set => _labels = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-scope
         /// </summary>
-        [Input("Scope")]
+        [Input("scope")]
         public Input<string>? Scope { get; set; }
 
         public TaskDefinitionDockerVolumeConfigurationArgs()

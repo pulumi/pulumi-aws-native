@@ -15,52 +15,52 @@ namespace Pulumi.AwsNative.QLDB
     [AwsNativeResourceType("aws-native:QLDB:Stream")]
     public partial class Stream : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
         /// </summary>
-        [Output("ExclusiveEndTime")]
+        [Output("exclusiveEndTime")]
         public Output<string?> ExclusiveEndTime { get; private set; } = null!;
 
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
         /// </summary>
-        [Output("InclusiveStartTime")]
+        [Output("inclusiveStartTime")]
         public Output<string> InclusiveStartTime { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
         /// </summary>
-        [Output("KinesisConfiguration")]
+        [Output("kinesisConfiguration")]
         public Output<Outputs.StreamKinesisConfiguration> KinesisConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
         /// </summary>
-        [Output("LedgerName")]
+        [Output("ledgerName")]
         public Output<string> LedgerName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
         /// </summary>
-        [Output("RoleArn")]
+        [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
         /// </summary>
-        [Output("StreamName")]
+        [Output("streamName")]
         public Output<string> StreamName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -111,49 +111,49 @@ namespace Pulumi.AwsNative.QLDB
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
         /// </summary>
-        [Input("ExclusiveEndTime")]
+        [Input("exclusiveEndTime")]
         public Input<string>? ExclusiveEndTime { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
         /// </summary>
-        [Input("InclusiveStartTime", required: true)]
+        [Input("inclusiveStartTime", required: true)]
         public Input<string> InclusiveStartTime { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
         /// </summary>
-        [Input("KinesisConfiguration", required: true)]
+        [Input("kinesisConfiguration", required: true)]
         public Input<Inputs.StreamKinesisConfigurationArgs> KinesisConfiguration { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
         /// </summary>
-        [Input("LedgerName", required: true)]
+        [Input("ledgerName", required: true)]
         public Input<string> LedgerName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
         /// </summary>
-        [Input("StreamName", required: true)]
+        [Input("streamName", required: true)]
         public Input<string> StreamName { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public StreamArgs()

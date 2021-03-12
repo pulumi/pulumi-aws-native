@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
         public readonly int MaxTimeToLiveInMinutes;
 
         [OutputConstructor]
-        private LicenseProvisionalConfiguration(int MaxTimeToLiveInMinutes)
+        private LicenseProvisionalConfiguration(int maxTimeToLiveInMinutes)
         {
-            this.MaxTimeToLiveInMinutes = MaxTimeToLiveInMinutes;
+            MaxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
         }
     }
 }

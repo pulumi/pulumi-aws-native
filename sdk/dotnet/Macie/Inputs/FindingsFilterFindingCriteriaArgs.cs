@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Macie.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
         /// </summary>
-        [Input("Criterion")]
+        [Input("criterion")]
         public Input<Inputs.FindingsFilterCriterionArgs>? Criterion { get; set; }
 
         public FindingsFilterFindingCriteriaArgs()

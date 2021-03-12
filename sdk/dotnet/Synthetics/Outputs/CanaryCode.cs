@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
 
         [OutputConstructor]
         private CanaryCode(
-            string? Handler,
+            string? handler,
 
-            string? S3Bucket,
+            string? s3Bucket,
 
-            string? S3Key,
+            string? s3Key,
 
-            string? S3ObjectVersion,
+            string? s3ObjectVersion,
 
-            string? Script)
+            string? script)
         {
-            this.Handler = Handler;
-            this.S3Bucket = S3Bucket;
-            this.S3Key = S3Key;
-            this.S3ObjectVersion = S3ObjectVersion;
-            this.Script = Script;
+            Handler = handler;
+            S3Bucket = s3Bucket;
+            S3Key = s3Key;
+            S3ObjectVersion = s3ObjectVersion;
+            Script = script;
         }
     }
 }

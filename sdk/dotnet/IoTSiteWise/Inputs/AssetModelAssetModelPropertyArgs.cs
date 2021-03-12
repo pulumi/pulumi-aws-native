@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype
         /// </summary>
-        [Input("DataType", required: true)]
+        [Input("dataType", required: true)]
         public Input<string> DataType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
         /// </summary>
-        [Input("LogicalId", required: true)]
+        [Input("logicalId", required: true)]
         public Input<string> LogicalId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-type
         /// </summary>
-        [Input("Type", required: true)]
+        [Input("type", required: true)]
         public Input<Inputs.AssetModelPropertyTypeArgs> Type { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-unit
         /// </summary>
-        [Input("Unit")]
+        [Input("unit")]
         public Input<string>? Unit { get; set; }
 
         public AssetModelAssetModelPropertyArgs()

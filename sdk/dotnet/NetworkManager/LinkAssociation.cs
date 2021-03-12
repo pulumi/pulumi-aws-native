@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
         /// </summary>
-        [Output("DeviceId")]
+        [Output("deviceId")]
         public Output<string> DeviceId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
         /// </summary>
-        [Output("GlobalNetworkId")]
+        [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
         /// </summary>
-        [Output("LinkId")]
+        [Output("linkId")]
         public Output<string> LinkId { get; private set; } = null!;
 
 
@@ -81,19 +81,19 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
         /// </summary>
-        [Input("DeviceId", required: true)]
+        [Input("deviceId", required: true)]
         public Input<string> DeviceId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
         /// </summary>
-        [Input("GlobalNetworkId", required: true)]
+        [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
         /// </summary>
-        [Input("LinkId", required: true)]
+        [Input("linkId", required: true)]
         public Input<string> LinkId { get; set; } = null!;
 
         public LinkAssociationArgs()

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
         /// </summary>
-        [Output("GlobalNetworkId")]
+        [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
         /// </summary>
-        [Output("TransitGatewayArn")]
+        [Output("transitGatewayArn")]
         public Output<string> TransitGatewayArn { get; private set; } = null!;
 
 
@@ -75,13 +75,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
         /// </summary>
-        [Input("GlobalNetworkId", required: true)]
+        [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
         /// </summary>
-        [Input("TransitGatewayArn", required: true)]
+        [Input("transitGatewayArn", required: true)]
         public Input<string> TransitGatewayArn { get; set; } = null!;
 
         public TransitGatewayRegistrationArgs()

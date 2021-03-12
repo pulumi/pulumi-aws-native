@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4
         /// </summary>
-        [Input("Sigv4")]
+        [Input("sigv4")]
         public Input<Inputs.TopicRuleSigV4AuthorizationArgs>? Sigv4 { get; set; }
 
         public TopicRuleHttpAuthorizationArgs()

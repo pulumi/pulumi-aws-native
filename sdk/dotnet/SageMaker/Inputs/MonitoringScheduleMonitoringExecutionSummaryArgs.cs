@@ -18,49 +18,49 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-creationtime
         /// </summary>
-        [Input("CreationTime", required: true)]
+        [Input("creationTime", required: true)]
         public Input<string> CreationTime { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-endpointname
         /// </summary>
-        [Input("EndpointName")]
+        [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-failurereason
         /// </summary>
-        [Input("FailureReason")]
+        [Input("failureReason")]
         public Input<string>? FailureReason { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-lastmodifiedtime
         /// </summary>
-        [Input("LastModifiedTime", required: true)]
+        [Input("lastModifiedTime", required: true)]
         public Input<string> LastModifiedTime { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringexecutionstatus
         /// </summary>
-        [Input("MonitoringExecutionStatus", required: true)]
+        [Input("monitoringExecutionStatus", required: true)]
         public Input<string> MonitoringExecutionStatus { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringschedulename
         /// </summary>
-        [Input("MonitoringScheduleName", required: true)]
+        [Input("monitoringScheduleName", required: true)]
         public Input<string> MonitoringScheduleName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-processingjobarn
         /// </summary>
-        [Input("ProcessingJobArn")]
+        [Input("processingJobArn")]
         public Input<string>? ProcessingJobArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-scheduledtime
         /// </summary>
-        [Input("ScheduledTime", required: true)]
+        [Input("scheduledTime", required: true)]
         public Input<string> ScheduledTime { get; set; } = null!;
 
         public MonitoringScheduleMonitoringExecutionSummaryArgs()

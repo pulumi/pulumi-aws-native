@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
-        private ListenerRulePathPatternConfig(ImmutableArray<string> Values)
+        private ListenerRulePathPatternConfig(ImmutableArray<string> values)
         {
-            this.Values = Values;
+            Values = values;
         }
     }
 }

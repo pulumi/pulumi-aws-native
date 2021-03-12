@@ -18,10 +18,10 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
         /// </summary>
-        [Output("ResourceCollectionFilter")]
+        [Output("resourceCollectionFilter")]
         public Output<Outputs.ResourceCollectionResourceCollectionFilter> ResourceCollectionFilter { get; private set; } = null!;
 
-        [Output("ResourceCollectionType")]
+        [Output("resourceCollectionType")]
         public Output<string> ResourceCollectionType { get; private set; } = null!;
 
 
@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
         /// </summary>
-        [Input("ResourceCollectionFilter", required: true)]
+        [Input("resourceCollectionFilter", required: true)]
         public Input<Inputs.ResourceCollectionResourceCollectionFilterArgs> ResourceCollectionFilter { get; set; } = null!;
 
         public ResourceCollectionArgs()

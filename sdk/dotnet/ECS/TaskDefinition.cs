@@ -18,94 +18,94 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
         /// </summary>
-        [Output("ContainerDefinitions")]
+        [Output("containerDefinitions")]
         public Output<ImmutableArray<Outputs.TaskDefinitionContainerDefinition>> ContainerDefinitions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
         /// </summary>
-        [Output("Cpu")]
+        [Output("cpu")]
         public Output<string?> Cpu { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
         /// </summary>
-        [Output("ExecutionRoleArn")]
+        [Output("executionRoleArn")]
         public Output<string?> ExecutionRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
         /// </summary>
-        [Output("Family")]
+        [Output("family")]
         public Output<string?> Family { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
         /// </summary>
-        [Output("InferenceAccelerators")]
+        [Output("inferenceAccelerators")]
         public Output<ImmutableArray<Outputs.TaskDefinitionInferenceAccelerator>> InferenceAccelerators { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
         /// </summary>
-        [Output("IpcMode")]
+        [Output("ipcMode")]
         public Output<string?> IpcMode { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory
         /// </summary>
-        [Output("Memory")]
+        [Output("memory")]
         public Output<string?> Memory { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
         /// </summary>
-        [Output("NetworkMode")]
+        [Output("networkMode")]
         public Output<string?> NetworkMode { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
         /// </summary>
-        [Output("PidMode")]
+        [Output("pidMode")]
         public Output<string?> PidMode { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
         /// </summary>
-        [Output("PlacementConstraints")]
+        [Output("placementConstraints")]
         public Output<ImmutableArray<Outputs.TaskDefinitionTaskDefinitionPlacementConstraint>> PlacementConstraints { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
         /// </summary>
-        [Output("ProxyConfiguration")]
+        [Output("proxyConfiguration")]
         public Output<Outputs.TaskDefinitionProxyConfiguration?> ProxyConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
         /// </summary>
-        [Output("RequiresCompatibilities")]
+        [Output("requiresCompatibilities")]
         public Output<ImmutableArray<string>> RequiresCompatibilities { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
-        [Output("TaskDefinitionArn")]
+        [Output("taskDefinitionArn")]
         public Output<string> TaskDefinitionArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
         /// </summary>
-        [Output("TaskRoleArn")]
+        [Output("taskRoleArn")]
         public Output<string?> TaskRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
         /// </summary>
-        [Output("Volumes")]
+        [Output("volumes")]
         public Output<ImmutableArray<Outputs.TaskDefinitionVolume>> Volumes { get; private set; } = null!;
 
 
@@ -153,130 +153,130 @@ namespace Pulumi.AwsNative.ECS
 
     public sealed class TaskDefinitionArgs : Pulumi.ResourceArgs
     {
-        [Input("ContainerDefinitions")]
-        private InputList<Inputs.TaskDefinitionContainerDefinitionArgs>? _ContainerDefinitions;
+        [Input("containerDefinitions")]
+        private InputList<Inputs.TaskDefinitionContainerDefinitionArgs>? _containerDefinitions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
         /// </summary>
         public InputList<Inputs.TaskDefinitionContainerDefinitionArgs> ContainerDefinitions
         {
-            get => _ContainerDefinitions ?? (_ContainerDefinitions = new InputList<Inputs.TaskDefinitionContainerDefinitionArgs>());
-            set => _ContainerDefinitions = value;
+            get => _containerDefinitions ?? (_containerDefinitions = new InputList<Inputs.TaskDefinitionContainerDefinitionArgs>());
+            set => _containerDefinitions = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
         /// </summary>
-        [Input("Cpu")]
+        [Input("cpu")]
         public Input<string>? Cpu { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
         /// </summary>
-        [Input("ExecutionRoleArn")]
+        [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
         /// </summary>
-        [Input("Family")]
+        [Input("family")]
         public Input<string>? Family { get; set; }
 
-        [Input("InferenceAccelerators")]
-        private InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs>? _InferenceAccelerators;
+        [Input("inferenceAccelerators")]
+        private InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs>? _inferenceAccelerators;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
         /// </summary>
         public InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs> InferenceAccelerators
         {
-            get => _InferenceAccelerators ?? (_InferenceAccelerators = new InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs>());
-            set => _InferenceAccelerators = value;
+            get => _inferenceAccelerators ?? (_inferenceAccelerators = new InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs>());
+            set => _inferenceAccelerators = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
         /// </summary>
-        [Input("IpcMode")]
+        [Input("ipcMode")]
         public Input<string>? IpcMode { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory
         /// </summary>
-        [Input("Memory")]
+        [Input("memory")]
         public Input<string>? Memory { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
         /// </summary>
-        [Input("NetworkMode")]
+        [Input("networkMode")]
         public Input<string>? NetworkMode { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
         /// </summary>
-        [Input("PidMode")]
+        [Input("pidMode")]
         public Input<string>? PidMode { get; set; }
 
-        [Input("PlacementConstraints")]
-        private InputList<Inputs.TaskDefinitionTaskDefinitionPlacementConstraintArgs>? _PlacementConstraints;
+        [Input("placementConstraints")]
+        private InputList<Inputs.TaskDefinitionTaskDefinitionPlacementConstraintArgs>? _placementConstraints;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
         /// </summary>
         public InputList<Inputs.TaskDefinitionTaskDefinitionPlacementConstraintArgs> PlacementConstraints
         {
-            get => _PlacementConstraints ?? (_PlacementConstraints = new InputList<Inputs.TaskDefinitionTaskDefinitionPlacementConstraintArgs>());
-            set => _PlacementConstraints = value;
+            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.TaskDefinitionTaskDefinitionPlacementConstraintArgs>());
+            set => _placementConstraints = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
         /// </summary>
-        [Input("ProxyConfiguration")]
+        [Input("proxyConfiguration")]
         public Input<Inputs.TaskDefinitionProxyConfigurationArgs>? ProxyConfiguration { get; set; }
 
-        [Input("RequiresCompatibilities")]
-        private InputList<string>? _RequiresCompatibilities;
+        [Input("requiresCompatibilities")]
+        private InputList<string>? _requiresCompatibilities;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
         /// </summary>
         public InputList<string> RequiresCompatibilities
         {
-            get => _RequiresCompatibilities ?? (_RequiresCompatibilities = new InputList<string>());
-            set => _RequiresCompatibilities = value;
+            get => _requiresCompatibilities ?? (_requiresCompatibilities = new InputList<string>());
+            set => _requiresCompatibilities = value;
         }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
         /// </summary>
-        [Input("TaskRoleArn")]
+        [Input("taskRoleArn")]
         public Input<string>? TaskRoleArn { get; set; }
 
-        [Input("Volumes")]
-        private InputList<Inputs.TaskDefinitionVolumeArgs>? _Volumes;
+        [Input("volumes")]
+        private InputList<Inputs.TaskDefinitionVolumeArgs>? _volumes;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
         /// </summary>
         public InputList<Inputs.TaskDefinitionVolumeArgs> Volumes
         {
-            get => _Volumes ?? (_Volumes = new InputList<Inputs.TaskDefinitionVolumeArgs>());
-            set => _Volumes = value;
+            get => _volumes ?? (_volumes = new InputList<Inputs.TaskDefinitionVolumeArgs>());
+            set => _volumes = value;
         }
 
         public TaskDefinitionArgs()

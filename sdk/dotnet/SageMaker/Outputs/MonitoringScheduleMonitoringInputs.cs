@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly ImmutableArray<Outputs.MonitoringScheduleMonitoringInput> MonitoringInputs;
 
         [OutputConstructor]
-        private MonitoringScheduleMonitoringInputs(ImmutableArray<Outputs.MonitoringScheduleMonitoringInput> MonitoringInputs)
+        private MonitoringScheduleMonitoringInputs(ImmutableArray<Outputs.MonitoringScheduleMonitoringInput> monitoringInputs)
         {
-            this.MonitoringInputs = MonitoringInputs;
+            MonitoringInputs = monitoringInputs;
         }
     }
 }

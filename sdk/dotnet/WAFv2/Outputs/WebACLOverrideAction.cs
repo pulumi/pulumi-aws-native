@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLOverrideAction(
-            Union<System.Text.Json.JsonElement, string>? Count,
+            Union<System.Text.Json.JsonElement, string>? count,
 
-            Union<System.Text.Json.JsonElement, string>? None)
+            Union<System.Text.Json.JsonElement, string>? none)
         {
-            this.Count = Count;
-            this.None = None;
+            Count = count;
+            None = none;
         }
     }
 }

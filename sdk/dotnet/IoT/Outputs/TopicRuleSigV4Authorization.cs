@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleSigV4Authorization(
-            string RoleArn,
+            string roleArn,
 
-            string ServiceName,
+            string serviceName,
 
-            string SigningRegion)
+            string signingRegion)
         {
-            this.RoleArn = RoleArn;
-            this.ServiceName = ServiceName;
-            this.SigningRegion = SigningRegion;
+            RoleArn = roleArn;
+            ServiceName = serviceName;
+            SigningRegion = signingRegion;
         }
     }
 }

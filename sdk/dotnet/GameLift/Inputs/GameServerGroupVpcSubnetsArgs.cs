@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// </summary>
     public sealed class GameServerGroupVpcSubnetsArgs : Pulumi.ResourceArgs
     {
-        [Input("VpcSubnets")]
-        private InputList<string>? _VpcSubnets;
+        [Input("vpcSubnets")]
+        private InputList<string>? _vpcSubnets;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html#cfn-gamelift-gameservergroup-vpcsubnets-vpcsubnets
         /// </summary>
         public InputList<string> VpcSubnets
         {
-            get => _VpcSubnets ?? (_VpcSubnets = new InputList<string>());
-            set => _VpcSubnets = value;
+            get => _vpcSubnets ?? (_vpcSubnets = new InputList<string>());
+            set => _vpcSubnets = value;
         }
 
         public GameServerGroupVpcSubnetsArgs()

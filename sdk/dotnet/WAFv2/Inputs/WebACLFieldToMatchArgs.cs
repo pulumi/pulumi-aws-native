@@ -18,43 +18,43 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-allqueryarguments
         /// </summary>
-        [Input("AllQueryArguments")]
+        [Input("allQueryArguments")]
         public InputUnion<System.Text.Json.JsonElement, string>? AllQueryArguments { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-body
         /// </summary>
-        [Input("Body")]
+        [Input("body")]
         public InputUnion<System.Text.Json.JsonElement, string>? Body { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
         /// </summary>
-        [Input("Method")]
+        [Input("method")]
         public InputUnion<System.Text.Json.JsonElement, string>? Method { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-querystring
         /// </summary>
-        [Input("QueryString")]
+        [Input("queryString")]
         public InputUnion<System.Text.Json.JsonElement, string>? QueryString { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singleheader
         /// </summary>
-        [Input("SingleHeader")]
+        [Input("singleHeader")]
         public InputUnion<System.Text.Json.JsonElement, string>? SingleHeader { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singlequeryargument
         /// </summary>
-        [Input("SingleQueryArgument")]
+        [Input("singleQueryArgument")]
         public InputUnion<System.Text.Json.JsonElement, string>? SingleQueryArgument { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-uripath
         /// </summary>
-        [Input("UriPath")]
+        [Input("uriPath")]
         public InputUnion<System.Text.Json.JsonElement, string>? UriPath { get; set; }
 
         public WebACLFieldToMatchArgs()

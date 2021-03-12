@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
         /// </summary>
-        [Input("MaximumScalingStepSize")]
+        [Input("maximumScalingStepSize")]
         public Input<int>? MaximumScalingStepSize { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-minimumscalingstepsize
         /// </summary>
-        [Input("MinimumScalingStepSize")]
+        [Input("minimumScalingStepSize")]
         public Input<int>? MinimumScalingStepSize { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-status
         /// </summary>
-        [Input("Status")]
+        [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-targetcapacity
         /// </summary>
-        [Input("TargetCapacity")]
+        [Input("targetCapacity")]
         public Input<int>? TargetCapacity { get; set; }
 
         public CapacityProviderManagedScalingArgs()

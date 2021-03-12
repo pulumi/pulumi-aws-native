@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
         [OutputConstructor]
         private BackupPlanBackupPlanResourceType(
-            ImmutableArray<Outputs.BackupPlanAdvancedBackupSettingResourceType> AdvancedBackupSettings,
+            ImmutableArray<Outputs.BackupPlanAdvancedBackupSettingResourceType> advancedBackupSettings,
 
-            string BackupPlanName,
+            string backupPlanName,
 
-            ImmutableArray<Outputs.BackupPlanBackupRuleResourceType> BackupPlanRule)
+            ImmutableArray<Outputs.BackupPlanBackupRuleResourceType> backupPlanRule)
         {
-            this.AdvancedBackupSettings = AdvancedBackupSettings;
-            this.BackupPlanName = BackupPlanName;
-            this.BackupPlanRule = BackupPlanRule;
+            AdvancedBackupSettings = advancedBackupSettings;
+            BackupPlanName = backupPlanName;
+            BackupPlanRule = backupPlanRule;
         }
     }
 }

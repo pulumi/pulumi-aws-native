@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ModelBiasJobDefinitionVpcConfig(
-            ImmutableArray<string> SecurityGroupIds,
+            ImmutableArray<string> securityGroupIds,
 
-            ImmutableArray<string> Subnets)
+            ImmutableArray<string> subnets)
         {
-            this.SecurityGroupIds = SecurityGroupIds;
-            this.Subnets = Subnets;
+            SecurityGroupIds = securityGroupIds;
+            Subnets = subnets;
         }
     }
 }

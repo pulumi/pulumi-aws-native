@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 
         [OutputConstructor]
         private GameServerGroupAutoScalingPolicy(
-            double? EstimatedInstanceWarmup,
+            double? estimatedInstanceWarmup,
 
-            Outputs.GameServerGroupTargetTrackingConfiguration TargetTrackingConfiguration)
+            Outputs.GameServerGroupTargetTrackingConfiguration targetTrackingConfiguration)
         {
-            this.EstimatedInstanceWarmup = EstimatedInstanceWarmup;
-            this.TargetTrackingConfiguration = TargetTrackingConfiguration;
+            EstimatedInstanceWarmup = estimatedInstanceWarmup;
+            TargetTrackingConfiguration = targetTrackingConfiguration;
         }
     }
 }

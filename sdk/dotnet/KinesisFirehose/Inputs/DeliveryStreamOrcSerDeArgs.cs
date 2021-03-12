@@ -18,67 +18,67 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-blocksizebytes
         /// </summary>
-        [Input("BlockSizeBytes")]
+        [Input("blockSizeBytes")]
         public Input<int>? BlockSizeBytes { get; set; }
 
-        [Input("BloomFilterColumns")]
-        private InputList<string>? _BloomFilterColumns;
+        [Input("bloomFilterColumns")]
+        private InputList<string>? _bloomFilterColumns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-bloomfiltercolumns
         /// </summary>
         public InputList<string> BloomFilterColumns
         {
-            get => _BloomFilterColumns ?? (_BloomFilterColumns = new InputList<string>());
-            set => _BloomFilterColumns = value;
+            get => _bloomFilterColumns ?? (_bloomFilterColumns = new InputList<string>());
+            set => _bloomFilterColumns = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-bloomfilterfalsepositiveprobability
         /// </summary>
-        [Input("BloomFilterFalsePositiveProbability")]
+        [Input("bloomFilterFalsePositiveProbability")]
         public Input<double>? BloomFilterFalsePositiveProbability { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-compression
         /// </summary>
-        [Input("Compression")]
+        [Input("compression")]
         public Input<string>? Compression { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-dictionarykeythreshold
         /// </summary>
-        [Input("DictionaryKeyThreshold")]
+        [Input("dictionaryKeyThreshold")]
         public Input<double>? DictionaryKeyThreshold { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-enablepadding
         /// </summary>
-        [Input("EnablePadding")]
+        [Input("enablePadding")]
         public Input<bool>? EnablePadding { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-formatversion
         /// </summary>
-        [Input("FormatVersion")]
+        [Input("formatVersion")]
         public Input<string>? FormatVersion { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-paddingtolerance
         /// </summary>
-        [Input("PaddingTolerance")]
+        [Input("paddingTolerance")]
         public Input<double>? PaddingTolerance { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-rowindexstride
         /// </summary>
-        [Input("RowIndexStride")]
+        [Input("rowIndexStride")]
         public Input<int>? RowIndexStride { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-stripesizebytes
         /// </summary>
-        [Input("StripeSizeBytes")]
+        [Input("stripeSizeBytes")]
         public Input<int>? StripeSizeBytes { get; set; }
 
         public DeliveryStreamOrcSerDeArgs()

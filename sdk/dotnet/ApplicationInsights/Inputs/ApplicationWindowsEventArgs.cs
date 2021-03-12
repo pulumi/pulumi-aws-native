@@ -15,34 +15,34 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// </summary>
     public sealed class ApplicationWindowsEventArgs : Pulumi.ResourceArgs
     {
-        [Input("EventLevels", required: true)]
-        private InputList<string>? _EventLevels;
+        [Input("eventLevels", required: true)]
+        private InputList<string>? _eventLevels;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels
         /// </summary>
         public InputList<string> EventLevels
         {
-            get => _EventLevels ?? (_EventLevels = new InputList<string>());
-            set => _EventLevels = value;
+            get => _eventLevels ?? (_eventLevels = new InputList<string>());
+            set => _eventLevels = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventname
         /// </summary>
-        [Input("EventName", required: true)]
+        [Input("eventName", required: true)]
         public Input<string> EventName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-loggroupname
         /// </summary>
-        [Input("LogGroupName", required: true)]
+        [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-patternset
         /// </summary>
-        [Input("PatternSet")]
+        [Input("patternSet")]
         public Input<string>? PatternSet { get; set; }
 
         public ApplicationWindowsEventArgs()

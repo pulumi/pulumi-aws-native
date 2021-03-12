@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ElastiCache.Outputs
 
         [OutputConstructor]
         private UserAuthentication(
-            int? PasswordCount,
+            int? passwordCount,
 
-            string? Type)
+            string? type)
         {
-            this.PasswordCount = PasswordCount;
-            this.Type = Type;
+            PasswordCount = passwordCount;
+            Type = type;
         }
     }
 }

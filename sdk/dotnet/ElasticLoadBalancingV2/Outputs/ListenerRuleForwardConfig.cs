@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerRuleForwardConfig(
-            Outputs.ListenerRuleTargetGroupStickinessConfig? TargetGroupStickinessConfig,
+            Outputs.ListenerRuleTargetGroupStickinessConfig? targetGroupStickinessConfig,
 
-            ImmutableArray<Outputs.ListenerRuleTargetGroupTuple> TargetGroups)
+            ImmutableArray<Outputs.ListenerRuleTargetGroupTuple> targetGroups)
         {
-            this.TargetGroupStickinessConfig = TargetGroupStickinessConfig;
-            this.TargetGroups = TargetGroups;
+            TargetGroupStickinessConfig = targetGroupStickinessConfig;
+            TargetGroups = targetGroups;
         }
     }
 }

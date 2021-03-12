@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionEFSVolumeConfiguration(
-            Union<System.Text.Json.JsonElement, string>? AuthorizationConfig,
+            Union<System.Text.Json.JsonElement, string>? authorizationConfig,
 
-            string FilesystemId,
+            string filesystemId,
 
-            string? RootDirectory,
+            string? rootDirectory,
 
-            string? TransitEncryption,
+            string? transitEncryption,
 
-            int? TransitEncryptionPort)
+            int? transitEncryptionPort)
         {
-            this.AuthorizationConfig = AuthorizationConfig;
-            this.FilesystemId = FilesystemId;
-            this.RootDirectory = RootDirectory;
-            this.TransitEncryption = TransitEncryption;
-            this.TransitEncryptionPort = TransitEncryptionPort;
+            AuthorizationConfig = authorizationConfig;
+            FilesystemId = filesystemId;
+            RootDirectory = rootDirectory;
+            TransitEncryption = transitEncryption;
+            TransitEncryptionPort = transitEncryptionPort;
         }
     }
 }

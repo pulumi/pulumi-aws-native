@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerTargetGroupTuple(
-            string? TargetGroupArn,
+            string? targetGroupArn,
 
-            int? Weight)
+            int? weight)
         {
-            this.TargetGroupArn = TargetGroupArn;
-            this.Weight = Weight;
+            TargetGroupArn = targetGroupArn;
+            Weight = weight;
         }
     }
 }

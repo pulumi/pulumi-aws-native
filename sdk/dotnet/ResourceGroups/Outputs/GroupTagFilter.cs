@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ResourceGroups.Outputs
 
         [OutputConstructor]
         private GroupTagFilter(
-            string? Key,
+            string? key,
 
-            ImmutableArray<string> Values)
+            ImmutableArray<string> values)
         {
-            this.Key = Key;
-            this.Values = Values;
+            Key = key;
+            Values = values;
         }
     }
 }

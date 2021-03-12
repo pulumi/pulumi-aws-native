@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamSchemaConfiguration(
-            string? CatalogId,
+            string? catalogId,
 
-            string? DatabaseName,
+            string? databaseName,
 
-            string? Region,
+            string? region,
 
-            string? RoleARN,
+            string? roleARN,
 
-            string? TableName,
+            string? tableName,
 
-            string? VersionId)
+            string? versionId)
         {
-            this.CatalogId = CatalogId;
-            this.DatabaseName = DatabaseName;
-            this.Region = Region;
-            this.RoleARN = RoleARN;
-            this.TableName = TableName;
-            this.VersionId = VersionId;
+            CatalogId = catalogId;
+            DatabaseName = databaseName;
+            Region = region;
+            RoleARN = roleARN;
+            TableName = tableName;
+            VersionId = versionId;
         }
     }
 }

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
         /// </summary>
-        [Input("EndpointInput", required: true)]
+        [Input("endpointInput", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionEndpointInputArgs> EndpointInput { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input
         /// </summary>
-        [Input("GroundTruthS3Input", required: true)]
+        [Input("groundTruthS3Input", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs> GroundTruthS3Input { get; set; } = null!;
 
         public ModelQualityJobDefinitionModelQualityJobInputArgs()

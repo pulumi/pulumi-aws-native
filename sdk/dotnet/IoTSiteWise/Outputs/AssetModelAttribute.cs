@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         public readonly string? DefaultValue;
 
         [OutputConstructor]
-        private AssetModelAttribute(string? DefaultValue)
+        private AssetModelAttribute(string? defaultValue)
         {
-            this.DefaultValue = DefaultValue;
+            DefaultValue = defaultValue;
         }
     }
 }

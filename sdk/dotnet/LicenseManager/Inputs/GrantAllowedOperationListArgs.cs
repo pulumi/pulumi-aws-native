@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
     /// </summary>
     public sealed class GrantAllowedOperationListArgs : Pulumi.ResourceArgs
     {
-        [Input("AllowedOperationList")]
-        private InputList<string>? _AllowedOperationList;
+        [Input("allowedOperationList")]
+        private InputList<string>? _allowedOperationList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-allowedoperationlist.html#cfn-licensemanager-grant-allowedoperationlist-allowedoperationlist
         /// </summary>
         public InputList<string> AllowedOperationList
         {
-            get => _AllowedOperationList ?? (_AllowedOperationList = new InputList<string>());
-            set => _AllowedOperationList = value;
+            get => _allowedOperationList ?? (_allowedOperationList = new InputList<string>());
+            set => _allowedOperationList = value;
         }
 
         public GrantAllowedOperationListArgs()

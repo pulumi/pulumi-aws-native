@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-duration
         /// </summary>
-        [Input("Duration")]
+        [Input("duration")]
         public Input<string>? Duration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-freshness
         /// </summary>
-        [Input("Freshness")]
+        [Input("freshness")]
         public Input<bool>? Freshness { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-importance
         /// </summary>
-        [Input("Importance")]
+        [Input("importance")]
         public Input<int>? Importance { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-rankorder
         /// </summary>
-        [Input("RankOrder")]
+        [Input("rankOrder")]
         public Input<string>? RankOrder { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
         /// </summary>
-        [Input("ValueImportanceItems")]
+        [Input("valueImportanceItems")]
         public Input<Inputs.IndexValueImportanceItemsArgs>? ValueImportanceItems { get; set; }
 
         public IndexRelevanceArgs()

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-type
         /// </summary>
-        [Input("Type")]
+        [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-uri
         /// </summary>
-        [Input("URI")]
+        [Input("uRI")]
         public Input<string>? URI { get; set; }
 
         public EventSourceMappingSourceAccessConfigurationArgs()

@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
         [OutputConstructor]
         private NetworkInsightsAnalysisAnalysisAclRule(
-            string? Cidr,
+            string? cidr,
 
-            bool? Egress,
+            bool? egress,
 
-            Outputs.NetworkInsightsAnalysisPortRange? PortRange,
+            Outputs.NetworkInsightsAnalysisPortRange? portRange,
 
-            string? Protocol,
+            string? protocol,
 
-            string? RuleAction,
+            string? ruleAction,
 
-            int? RuleNumber)
+            int? ruleNumber)
         {
-            this.Cidr = Cidr;
-            this.Egress = Egress;
-            this.PortRange = PortRange;
-            this.Protocol = Protocol;
-            this.RuleAction = RuleAction;
-            this.RuleNumber = RuleNumber;
+            Cidr = cidr;
+            Egress = egress;
+            PortRange = portRange;
+            Protocol = protocol;
+            RuleAction = ruleAction;
+            RuleNumber = ruleNumber;
         }
     }
 }

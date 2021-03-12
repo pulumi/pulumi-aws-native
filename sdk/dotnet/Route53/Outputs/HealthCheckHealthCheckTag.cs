@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Route53.Outputs
 
         [OutputConstructor]
         private HealthCheckHealthCheckTag(
-            string Key,
+            string key,
 
-            string Value)
+            string value)
         {
-            this.Key = Key;
-            this.Value = Value;
+            Key = key;
+            Value = value;
         }
     }
 }

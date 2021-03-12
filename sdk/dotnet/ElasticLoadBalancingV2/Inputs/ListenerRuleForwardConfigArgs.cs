@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroupstickinessconfig
         /// </summary>
-        [Input("TargetGroupStickinessConfig")]
+        [Input("targetGroupStickinessConfig")]
         public Input<Inputs.ListenerRuleTargetGroupStickinessConfigArgs>? TargetGroupStickinessConfig { get; set; }
 
-        [Input("TargetGroups")]
-        private InputList<Inputs.ListenerRuleTargetGroupTupleArgs>? _TargetGroups;
+        [Input("targetGroups")]
+        private InputList<Inputs.ListenerRuleTargetGroupTupleArgs>? _targetGroups;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroups
         /// </summary>
         public InputList<Inputs.ListenerRuleTargetGroupTupleArgs> TargetGroups
         {
-            get => _TargetGroups ?? (_TargetGroups = new InputList<Inputs.ListenerRuleTargetGroupTupleArgs>());
-            set => _TargetGroups = value;
+            get => _targetGroups ?? (_targetGroups = new InputList<Inputs.ListenerRuleTargetGroupTupleArgs>());
+            set => _targetGroups = value;
         }
 
         public ListenerRuleForwardConfigArgs()

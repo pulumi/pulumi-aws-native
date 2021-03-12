@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-accesskeyid
         /// </summary>
-        [Input("AccessKeyId", required: true)]
+        [Input("accessKeyId", required: true)]
         public Input<string> AccessKeyId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-datakey
         /// </summary>
-        [Input("Datakey", required: true)]
+        [Input("datakey", required: true)]
         public Input<string> Datakey { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-secretaccesskey
         /// </summary>
-        [Input("SecretAccessKey", required: true)]
+        [Input("secretAccessKey", required: true)]
         public Input<string> SecretAccessKey { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-userid
         /// </summary>
-        [Input("UserId", required: true)]
+        [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
 
         public ConnectorProfileInforNexusConnectorProfileCredentialsArgs()

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
 
         [OutputConstructor]
         private CertificateValidity(
-            string Type,
+            string type,
 
-            int Value)
+            int value)
         {
-            this.Type = Type;
-            this.Value = Value;
+            Type = type;
+            Value = value;
         }
     }
 }

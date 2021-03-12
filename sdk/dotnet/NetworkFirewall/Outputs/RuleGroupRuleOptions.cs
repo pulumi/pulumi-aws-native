@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<Outputs.RuleGroupRuleOption> RuleOptions;
 
         [OutputConstructor]
-        private RuleGroupRuleOptions(ImmutableArray<Outputs.RuleGroupRuleOption> RuleOptions)
+        private RuleGroupRuleOptions(ImmutableArray<Outputs.RuleGroupRuleOption> ruleOptions)
         {
-            this.RuleOptions = RuleOptions;
+            RuleOptions = ruleOptions;
         }
     }
 }

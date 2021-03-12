@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-aclconfiguration
         /// </summary>
-        [Input("AclConfiguration")]
+        [Input("aclConfiguration")]
         public Input<Inputs.DataSourceAclConfigurationArgs>? AclConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-columnconfiguration
         /// </summary>
-        [Input("ColumnConfiguration", required: true)]
+        [Input("columnConfiguration", required: true)]
         public Input<Inputs.DataSourceColumnConfigurationArgs> ColumnConfiguration { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-connectionconfiguration
         /// </summary>
-        [Input("ConnectionConfiguration", required: true)]
+        [Input("connectionConfiguration", required: true)]
         public Input<Inputs.DataSourceConnectionConfigurationArgs> ConnectionConfiguration { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-databaseenginetype
         /// </summary>
-        [Input("DatabaseEngineType", required: true)]
+        [Input("databaseEngineType", required: true)]
         public Input<string> DatabaseEngineType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-sqlconfiguration
         /// </summary>
-        [Input("SqlConfiguration")]
+        [Input("sqlConfiguration")]
         public Input<Inputs.DataSourceSqlConfigurationArgs>? SqlConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-vpcconfiguration
         /// </summary>
-        [Input("VpcConfiguration")]
+        [Input("vpcConfiguration")]
         public Input<Inputs.DataSourceDataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }
 
         public DataSourceDatabaseConfigurationArgs()

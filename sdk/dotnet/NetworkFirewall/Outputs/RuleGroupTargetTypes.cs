@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<string> TargetTypes;
 
         [OutputConstructor]
-        private RuleGroupTargetTypes(ImmutableArray<string> TargetTypes)
+        private RuleGroupTargetTypes(ImmutableArray<string> targetTypes)
         {
-            this.TargetTypes = TargetTypes;
+            TargetTypes = targetTypes;
         }
     }
 }

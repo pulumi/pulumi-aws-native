@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.MWAA.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs
         /// </summary>
-        [Input("DagProcessingLogs")]
+        [Input("dagProcessingLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? DagProcessingLogs { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs
         /// </summary>
-        [Input("SchedulerLogs")]
+        [Input("schedulerLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? SchedulerLogs { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs
         /// </summary>
-        [Input("TaskLogs")]
+        [Input("taskLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? TaskLogs { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs
         /// </summary>
-        [Input("WebserverLogs")]
+        [Input("webserverLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? WebserverLogs { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs
         /// </summary>
-        [Input("WorkerLogs")]
+        [Input("workerLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? WorkerLogs { get; set; }
 
         public EnvironmentLoggingConfigurationArgs()

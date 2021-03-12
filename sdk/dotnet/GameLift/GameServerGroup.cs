@@ -15,82 +15,82 @@ namespace Pulumi.AwsNative.GameLift
     [AwsNativeResourceType("aws-native:GameLift:GameServerGroup")]
     public partial class GameServerGroup : Pulumi.CustomResource
     {
-        [Output("AutoScalingGroupArn")]
+        [Output("autoScalingGroupArn")]
         public Output<string> AutoScalingGroupArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
         /// </summary>
-        [Output("AutoScalingPolicy")]
+        [Output("autoScalingPolicy")]
         public Output<Outputs.GameServerGroupAutoScalingPolicy?> AutoScalingPolicy { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
         /// </summary>
-        [Output("BalancingStrategy")]
+        [Output("balancingStrategy")]
         public Output<string?> BalancingStrategy { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
         /// </summary>
-        [Output("DeleteOption")]
+        [Output("deleteOption")]
         public Output<string?> DeleteOption { get; private set; } = null!;
 
-        [Output("GameServerGroupArn")]
+        [Output("gameServerGroupArn")]
         public Output<string> GameServerGroupArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
         /// </summary>
-        [Output("GameServerGroupName")]
+        [Output("gameServerGroupName")]
         public Output<string> GameServerGroupName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
         /// </summary>
-        [Output("GameServerProtectionPolicy")]
+        [Output("gameServerProtectionPolicy")]
         public Output<string?> GameServerProtectionPolicy { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
         /// </summary>
-        [Output("InstanceDefinitions")]
+        [Output("instanceDefinitions")]
         public Output<Outputs.GameServerGroupInstanceDefinitions> InstanceDefinitions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
         /// </summary>
-        [Output("LaunchTemplate")]
+        [Output("launchTemplate")]
         public Output<Outputs.GameServerGroupLaunchTemplate> LaunchTemplate { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
         /// </summary>
-        [Output("MaxSize")]
+        [Output("maxSize")]
         public Output<double?> MaxSize { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
         /// </summary>
-        [Output("MinSize")]
+        [Output("minSize")]
         public Output<double?> MinSize { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
         /// </summary>
-        [Output("RoleArn")]
+        [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<Outputs.GameServerGroupTags?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
         /// </summary>
-        [Output("VpcSubnets")]
+        [Output("vpcSubnets")]
         public Output<Outputs.GameServerGroupVpcSubnets?> VpcSubnets { get; private set; } = null!;
 
 
@@ -141,73 +141,73 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
         /// </summary>
-        [Input("AutoScalingPolicy")]
+        [Input("autoScalingPolicy")]
         public Input<Inputs.GameServerGroupAutoScalingPolicyArgs>? AutoScalingPolicy { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
         /// </summary>
-        [Input("BalancingStrategy")]
+        [Input("balancingStrategy")]
         public Input<string>? BalancingStrategy { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
         /// </summary>
-        [Input("DeleteOption")]
+        [Input("deleteOption")]
         public Input<string>? DeleteOption { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
         /// </summary>
-        [Input("GameServerGroupName", required: true)]
+        [Input("gameServerGroupName", required: true)]
         public Input<string> GameServerGroupName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
         /// </summary>
-        [Input("GameServerProtectionPolicy")]
+        [Input("gameServerProtectionPolicy")]
         public Input<string>? GameServerProtectionPolicy { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
         /// </summary>
-        [Input("InstanceDefinitions", required: true)]
+        [Input("instanceDefinitions", required: true)]
         public Input<Inputs.GameServerGroupInstanceDefinitionsArgs> InstanceDefinitions { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
         /// </summary>
-        [Input("LaunchTemplate", required: true)]
+        [Input("launchTemplate", required: true)]
         public Input<Inputs.GameServerGroupLaunchTemplateArgs> LaunchTemplate { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
         /// </summary>
-        [Input("MaxSize")]
+        [Input("maxSize")]
         public Input<double>? MaxSize { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
         /// </summary>
-        [Input("MinSize")]
+        [Input("minSize")]
         public Input<double>? MinSize { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
         /// </summary>
-        [Input("Tags")]
+        [Input("tags")]
         public Input<Inputs.GameServerGroupTagsArgs>? Tags { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
         /// </summary>
-        [Input("VpcSubnets")]
+        [Input("vpcSubnets")]
         public Input<Inputs.GameServerGroupVpcSubnetsArgs>? VpcSubnets { get; set; }
 
         public GameServerGroupArgs()

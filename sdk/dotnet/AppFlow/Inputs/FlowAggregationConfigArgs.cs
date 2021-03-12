@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-aggregationtype
         /// </summary>
-        [Input("AggregationType")]
+        [Input("aggregationType")]
         public Input<string>? AggregationType { get; set; }
 
         public FlowAggregationConfigArgs()

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimension.html#cfn-networkfirewall-rulegroup-dimension-value
         /// </summary>
-        [Input("Value", required: true)]
+        [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
         public RuleGroupDimensionArgs()

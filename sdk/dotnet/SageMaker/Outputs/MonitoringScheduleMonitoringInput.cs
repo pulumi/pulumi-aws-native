@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly Outputs.MonitoringScheduleEndpointInput EndpointInput;
 
         [OutputConstructor]
-        private MonitoringScheduleMonitoringInput(Outputs.MonitoringScheduleEndpointInput EndpointInput)
+        private MonitoringScheduleMonitoringInput(Outputs.MonitoringScheduleEndpointInput endpointInput)
         {
-            this.EndpointInput = EndpointInput;
+            EndpointInput = endpointInput;
         }
     }
 }

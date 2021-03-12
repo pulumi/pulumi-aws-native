@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-assetid
         /// </summary>
-        [Input("AssetId")]
+        [Input("assetId")]
         public Input<string>? AssetId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-entryid
         /// </summary>
-        [Input("EntryId")]
+        [Input("entryId")]
         public Input<string>? EntryId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyalias
         /// </summary>
-        [Input("PropertyAlias")]
+        [Input("propertyAlias")]
         public Input<string>? PropertyAlias { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyid
         /// </summary>
-        [Input("PropertyId")]
+        [Input("propertyId")]
         public Input<string>? PropertyId { get; set; }
 
-        [Input("PropertyValues", required: true)]
-        private InputList<Inputs.TopicRuleAssetPropertyValueArgs>? _PropertyValues;
+        [Input("propertyValues", required: true)]
+        private InputList<Inputs.TopicRuleAssetPropertyValueArgs>? _propertyValues;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyvalues
         /// </summary>
         public InputList<Inputs.TopicRuleAssetPropertyValueArgs> PropertyValues
         {
-            get => _PropertyValues ?? (_PropertyValues = new InputList<Inputs.TopicRuleAssetPropertyValueArgs>());
-            set => _PropertyValues = value;
+            get => _propertyValues ?? (_propertyValues = new InputList<Inputs.TopicRuleAssetPropertyValueArgs>());
+            set => _propertyValues = value;
         }
 
         public TopicRulePutAssetPropertyValueEntryArgs()

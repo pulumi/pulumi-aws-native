@@ -18,49 +18,49 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticatecognitoconfig
         /// </summary>
-        [Input("AuthenticateCognitoConfig")]
+        [Input("authenticateCognitoConfig")]
         public Input<Inputs.ListenerAuthenticateCognitoConfigArgs>? AuthenticateCognitoConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticateoidcconfig
         /// </summary>
-        [Input("AuthenticateOidcConfig")]
+        [Input("authenticateOidcConfig")]
         public Input<Inputs.ListenerAuthenticateOidcConfigArgs>? AuthenticateOidcConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig
         /// </summary>
-        [Input("FixedResponseConfig")]
+        [Input("fixedResponseConfig")]
         public Input<Inputs.ListenerFixedResponseConfigArgs>? FixedResponseConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig
         /// </summary>
-        [Input("ForwardConfig")]
+        [Input("forwardConfig")]
         public Input<Inputs.ListenerForwardConfigArgs>? ForwardConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-order
         /// </summary>
-        [Input("Order")]
+        [Input("order")]
         public Input<int>? Order { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-redirectconfig
         /// </summary>
-        [Input("RedirectConfig")]
+        [Input("redirectConfig")]
         public Input<Inputs.ListenerRedirectConfigArgs>? RedirectConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-targetgrouparn
         /// </summary>
-        [Input("TargetGroupArn")]
+        [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-type
         /// </summary>
-        [Input("Type", required: true)]
+        [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         public ListenerActionArgs()

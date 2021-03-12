@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-targetgrouparn
         /// </summary>
-        [Input("TargetGroupArn")]
+        [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-weight
         /// </summary>
-        [Input("Weight")]
+        [Input("weight")]
         public Input<int>? Weight { get; set; }
 
         public ListenerRuleTargetGroupTupleArgs()

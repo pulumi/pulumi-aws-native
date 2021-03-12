@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class LoggingConfigurationLogDestinationConfigsArgs : Pulumi.ResourceArgs
     {
-        [Input("LogDestinationConfigs")]
-        private InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs>? _LogDestinationConfigs;
+        [Input("logDestinationConfigs")]
+        private InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs>? _logDestinationConfigs;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfigs-logdestinationconfigs
         /// </summary>
         public InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs> LogDestinationConfigs
         {
-            get => _LogDestinationConfigs ?? (_LogDestinationConfigs = new InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs>());
-            set => _LogDestinationConfigs = value;
+            get => _logDestinationConfigs ?? (_logDestinationConfigs = new InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs>());
+            set => _logDestinationConfigs = value;
         }
 
         public LoggingConfigurationLogDestinationConfigsArgs()

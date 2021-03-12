@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-host
         /// </summary>
-        [Input("Host")]
+        [Input("host")]
         public Input<string>? Host { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-path
         /// </summary>
-        [Input("Path")]
+        [Input("path")]
         public Input<string>? Path { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-port
         /// </summary>
-        [Input("Port")]
+        [Input("port")]
         public Input<string>? Port { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-protocol
         /// </summary>
-        [Input("Protocol")]
+        [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-query
         /// </summary>
-        [Input("Query")]
+        [Input("query")]
         public Input<string>? Query { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-statuscode
         /// </summary>
-        [Input("StatusCode", required: true)]
+        [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
 
         public ListenerRedirectConfigArgs()

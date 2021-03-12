@@ -15,25 +15,25 @@ namespace Pulumi.AwsNative.GameLift
     [AwsNativeResourceType("aws-native:GameLift:Alias")]
     public partial class Alias : Pulumi.CustomResource
     {
-        [Output("AliasId")]
+        [Output("aliasId")]
         public Output<string> AliasId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
         /// </summary>
-        [Output("RoutingStrategy")]
+        [Output("routingStrategy")]
         public Output<Outputs.AliasRoutingStrategy> RoutingStrategy { get; private set; } = null!;
 
 
@@ -84,19 +84,19 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
         /// </summary>
-        [Input("RoutingStrategy", required: true)]
+        [Input("routingStrategy", required: true)]
         public Input<Inputs.AliasRoutingStrategyArgs> RoutingStrategy { get; set; } = null!;
 
         public AliasArgs()

@@ -18,43 +18,43 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-endpointname
         /// </summary>
-        [Input("EndpointName", required: true)]
+        [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-featuresattribute
         /// </summary>
-        [Input("FeaturesAttribute")]
+        [Input("featuresAttribute")]
         public Input<string>? FeaturesAttribute { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-inferenceattribute
         /// </summary>
-        [Input("InferenceAttribute")]
+        [Input("inferenceAttribute")]
         public Input<string>? InferenceAttribute { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-localpath
         /// </summary>
-        [Input("LocalPath", required: true)]
+        [Input("localPath", required: true)]
         public Input<string> LocalPath { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-probabilityattribute
         /// </summary>
-        [Input("ProbabilityAttribute")]
+        [Input("probabilityAttribute")]
         public Input<string>? ProbabilityAttribute { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3datadistributiontype
         /// </summary>
-        [Input("S3DataDistributionType")]
+        [Input("s3DataDistributionType")]
         public Input<string>? S3DataDistributionType { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3inputmode
         /// </summary>
-        [Input("S3InputMode")]
+        [Input("s3InputMode")]
         public Input<string>? S3InputMode { get; set; }
 
         public ModelExplainabilityJobDefinitionEndpointInputArgs()

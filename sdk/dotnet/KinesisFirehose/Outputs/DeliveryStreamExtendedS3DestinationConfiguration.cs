@@ -64,42 +64,42 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamExtendedS3DestinationConfiguration(
-            string BucketARN,
+            string bucketARN,
 
-            Outputs.DeliveryStreamBufferingHints? BufferingHints,
+            Outputs.DeliveryStreamBufferingHints? bufferingHints,
 
-            Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions,
+            Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
-            string? CompressionFormat,
+            string? compressionFormat,
 
-            Outputs.DeliveryStreamDataFormatConversionConfiguration? DataFormatConversionConfiguration,
+            Outputs.DeliveryStreamDataFormatConversionConfiguration? dataFormatConversionConfiguration,
 
-            Outputs.DeliveryStreamEncryptionConfiguration? EncryptionConfiguration,
+            Outputs.DeliveryStreamEncryptionConfiguration? encryptionConfiguration,
 
-            string? ErrorOutputPrefix,
+            string? errorOutputPrefix,
 
-            string? Prefix,
+            string? prefix,
 
-            Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration,
+            Outputs.DeliveryStreamProcessingConfiguration? processingConfiguration,
 
-            string RoleARN,
+            string roleARN,
 
-            Outputs.DeliveryStreamS3DestinationConfiguration? S3BackupConfiguration,
+            Outputs.DeliveryStreamS3DestinationConfiguration? s3BackupConfiguration,
 
-            string? S3BackupMode)
+            string? s3BackupMode)
         {
-            this.BucketARN = BucketARN;
-            this.BufferingHints = BufferingHints;
-            this.CloudWatchLoggingOptions = CloudWatchLoggingOptions;
-            this.CompressionFormat = CompressionFormat;
-            this.DataFormatConversionConfiguration = DataFormatConversionConfiguration;
-            this.EncryptionConfiguration = EncryptionConfiguration;
-            this.ErrorOutputPrefix = ErrorOutputPrefix;
-            this.Prefix = Prefix;
-            this.ProcessingConfiguration = ProcessingConfiguration;
-            this.RoleARN = RoleARN;
-            this.S3BackupConfiguration = S3BackupConfiguration;
-            this.S3BackupMode = S3BackupMode;
+            BucketARN = bucketARN;
+            BufferingHints = bufferingHints;
+            CloudWatchLoggingOptions = cloudWatchLoggingOptions;
+            CompressionFormat = compressionFormat;
+            DataFormatConversionConfiguration = dataFormatConversionConfiguration;
+            EncryptionConfiguration = encryptionConfiguration;
+            ErrorOutputPrefix = errorOutputPrefix;
+            Prefix = prefix;
+            ProcessingConfiguration = processingConfiguration;
+            RoleARN = roleARN;
+            S3BackupConfiguration = s3BackupConfiguration;
+            S3BackupMode = s3BackupMode;
         }
     }
 }

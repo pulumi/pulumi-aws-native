@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
     /// </summary>
     public sealed class GrantArnListArgs : Pulumi.ResourceArgs
     {
-        [Input("ArnList")]
-        private InputList<string>? _ArnList;
+        [Input("arnList")]
+        private InputList<string>? _arnList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-arnlist.html#cfn-licensemanager-grant-arnlist-arnlist
         /// </summary>
         public InputList<string> ArnList
         {
-            get => _ArnList ?? (_ArnList = new InputList<string>());
-            set => _ArnList = value;
+            get => _arnList ?? (_arnList = new InputList<string>());
+            set => _arnList = value;
         }
 
         public GrantArnListArgs()

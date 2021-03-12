@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
     /// </summary>
     public sealed class ListenerRulePathPatternConfigArgs : Pulumi.ResourceArgs
     {
-        [Input("Values")]
-        private InputList<string>? _Values;
+        [Input("values")]
+        private InputList<string>? _values;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html#cfn-elasticloadbalancingv2-listenerrule-pathpatternconfig-values
         /// </summary>
         public InputList<string> Values
         {
-            get => _Values ?? (_Values = new InputList<string>());
-            set => _Values = value;
+            get => _values ?? (_values = new InputList<string>());
+            set => _values = value;
         }
 
         public ListenerRulePathPatternConfigArgs()

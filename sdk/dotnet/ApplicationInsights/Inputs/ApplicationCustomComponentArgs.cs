@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-componentname
         /// </summary>
-        [Input("ComponentName", required: true)]
+        [Input("componentName", required: true)]
         public Input<string> ComponentName { get; set; } = null!;
 
-        [Input("ResourceList", required: true)]
-        private InputList<string>? _ResourceList;
+        [Input("resourceList", required: true)]
+        private InputList<string>? _resourceList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-resourcelist
         /// </summary>
         public InputList<string> ResourceList
         {
-            get => _ResourceList ?? (_ResourceList = new InputList<string>());
-            set => _ResourceList = value;
+            get => _resourceList ?? (_resourceList = new InputList<string>());
+            set => _resourceList = value;
         }
 
         public ApplicationCustomComponentArgs()

@@ -15,70 +15,70 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:SageMaker:ModelQualityJobDefinition")]
     public partial class ModelQualityJobDefinition : Pulumi.CustomResource
     {
-        [Output("CreationTime")]
+        [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
-        [Output("JobDefinitionArn")]
+        [Output("jobDefinitionArn")]
         public Output<string> JobDefinitionArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
         /// </summary>
-        [Output("JobDefinitionName")]
+        [Output("jobDefinitionName")]
         public Output<string?> JobDefinitionName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
         /// </summary>
-        [Output("JobResources")]
+        [Output("jobResources")]
         public Output<Outputs.ModelQualityJobDefinitionMonitoringResources> JobResources { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
         /// </summary>
-        [Output("ModelQualityAppSpecification")]
+        [Output("modelQualityAppSpecification")]
         public Output<Outputs.ModelQualityJobDefinitionModelQualityAppSpecification> ModelQualityAppSpecification { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
         /// </summary>
-        [Output("ModelQualityBaselineConfig")]
+        [Output("modelQualityBaselineConfig")]
         public Output<Outputs.ModelQualityJobDefinitionModelQualityBaselineConfig?> ModelQualityBaselineConfig { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
         /// </summary>
-        [Output("ModelQualityJobInput")]
+        [Output("modelQualityJobInput")]
         public Output<Outputs.ModelQualityJobDefinitionModelQualityJobInput> ModelQualityJobInput { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
         /// </summary>
-        [Output("ModelQualityJobOutputConfig")]
+        [Output("modelQualityJobOutputConfig")]
         public Output<Outputs.ModelQualityJobDefinitionMonitoringOutputConfig> ModelQualityJobOutputConfig { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
         /// </summary>
-        [Output("NetworkConfig")]
+        [Output("networkConfig")]
         public Output<Outputs.ModelQualityJobDefinitionNetworkConfig?> NetworkConfig { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
         /// </summary>
-        [Output("RoleArn")]
+        [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
         /// </summary>
-        [Output("StoppingCondition")]
+        [Output("stoppingCondition")]
         public Output<Outputs.ModelQualityJobDefinitionStoppingCondition?> StoppingCondition { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -129,67 +129,67 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
         /// </summary>
-        [Input("JobDefinitionName")]
+        [Input("jobDefinitionName")]
         public Input<string>? JobDefinitionName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
         /// </summary>
-        [Input("JobResources", required: true)]
+        [Input("jobResources", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionMonitoringResourcesArgs> JobResources { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
         /// </summary>
-        [Input("ModelQualityAppSpecification", required: true)]
+        [Input("modelQualityAppSpecification", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionModelQualityAppSpecificationArgs> ModelQualityAppSpecification { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
         /// </summary>
-        [Input("ModelQualityBaselineConfig")]
+        [Input("modelQualityBaselineConfig")]
         public Input<Inputs.ModelQualityJobDefinitionModelQualityBaselineConfigArgs>? ModelQualityBaselineConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
         /// </summary>
-        [Input("ModelQualityJobInput", required: true)]
+        [Input("modelQualityJobInput", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionModelQualityJobInputArgs> ModelQualityJobInput { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
         /// </summary>
-        [Input("ModelQualityJobOutputConfig", required: true)]
+        [Input("modelQualityJobOutputConfig", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionMonitoringOutputConfigArgs> ModelQualityJobOutputConfig { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
         /// </summary>
-        [Input("NetworkConfig")]
+        [Input("networkConfig")]
         public Input<Inputs.ModelQualityJobDefinitionNetworkConfigArgs>? NetworkConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
         /// </summary>
-        [Input("StoppingCondition")]
+        [Input("stoppingCondition")]
         public Input<Inputs.ModelQualityJobDefinitionStoppingConditionArgs>? StoppingCondition { get; set; }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public ModelQualityJobDefinitionArgs()

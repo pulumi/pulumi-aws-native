@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-enabled
         /// </summary>
-        [Input("Enabled")]
+        [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        [Input("Processors")]
-        private InputList<Inputs.DeliveryStreamProcessorArgs>? _Processors;
+        [Input("processors")]
+        private InputList<Inputs.DeliveryStreamProcessorArgs>? _processors;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-processors
         /// </summary>
         public InputList<Inputs.DeliveryStreamProcessorArgs> Processors
         {
-            get => _Processors ?? (_Processors = new InputList<Inputs.DeliveryStreamProcessorArgs>());
-            set => _Processors = value;
+            get => _processors ?? (_processors = new InputList<Inputs.DeliveryStreamProcessorArgs>());
+            set => _processors = value;
         }
 
         public DeliveryStreamProcessingConfigurationArgs()

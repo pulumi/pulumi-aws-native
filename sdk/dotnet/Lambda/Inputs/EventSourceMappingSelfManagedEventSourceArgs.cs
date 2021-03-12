@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
         /// </summary>
-        [Input("Endpoints")]
+        [Input("endpoints")]
         public Input<Inputs.EventSourceMappingEndpointsArgs>? Endpoints { get; set; }
 
         public EventSourceMappingSelfManagedEventSourceArgs()

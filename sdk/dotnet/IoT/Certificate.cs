@@ -15,40 +15,40 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:IoT:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
         /// </summary>
-        [Output("CACertificatePem")]
+        [Output("cACertificatePem")]
         public Output<string?> CACertificatePem { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
         /// </summary>
-        [Output("CertificateMode")]
+        [Output("certificateMode")]
         public Output<string?> CertificateMode { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
         /// </summary>
-        [Output("CertificatePem")]
+        [Output("certificatePem")]
         public Output<string?> CertificatePem { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
         /// </summary>
-        [Output("CertificateSigningRequest")]
+        [Output("certificateSigningRequest")]
         public Output<string?> CertificateSigningRequest { get; private set; } = null!;
 
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
         /// </summary>
-        [Output("Status")]
+        [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
 
@@ -99,31 +99,31 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
         /// </summary>
-        [Input("CACertificatePem")]
+        [Input("cACertificatePem")]
         public Input<string>? CACertificatePem { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
         /// </summary>
-        [Input("CertificateMode")]
+        [Input("certificateMode")]
         public Input<string>? CertificateMode { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
         /// </summary>
-        [Input("CertificatePem")]
+        [Input("certificatePem")]
         public Input<string>? CertificatePem { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
         /// </summary>
-        [Input("CertificateSigningRequest")]
+        [Input("certificateSigningRequest")]
         public Input<string>? CertificateSigningRequest { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
         /// </summary>
-        [Input("Status", required: true)]
+        [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
         public CertificateArgs()

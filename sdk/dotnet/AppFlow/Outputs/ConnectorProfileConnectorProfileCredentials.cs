@@ -76,51 +76,51 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileConnectorProfileCredentials(
-            Outputs.ConnectorProfileAmplitudeConnectorProfileCredentials? Amplitude,
+            Outputs.ConnectorProfileAmplitudeConnectorProfileCredentials? amplitude,
 
-            Outputs.ConnectorProfileDatadogConnectorProfileCredentials? Datadog,
+            Outputs.ConnectorProfileDatadogConnectorProfileCredentials? datadog,
 
-            Outputs.ConnectorProfileDynatraceConnectorProfileCredentials? Dynatrace,
+            Outputs.ConnectorProfileDynatraceConnectorProfileCredentials? dynatrace,
 
-            Outputs.ConnectorProfileGoogleAnalyticsConnectorProfileCredentials? GoogleAnalytics,
+            Outputs.ConnectorProfileGoogleAnalyticsConnectorProfileCredentials? googleAnalytics,
 
-            Outputs.ConnectorProfileInforNexusConnectorProfileCredentials? InforNexus,
+            Outputs.ConnectorProfileInforNexusConnectorProfileCredentials? inforNexus,
 
-            Outputs.ConnectorProfileMarketoConnectorProfileCredentials? Marketo,
+            Outputs.ConnectorProfileMarketoConnectorProfileCredentials? marketo,
 
-            Outputs.ConnectorProfileRedshiftConnectorProfileCredentials? Redshift,
+            Outputs.ConnectorProfileRedshiftConnectorProfileCredentials? redshift,
 
-            Outputs.ConnectorProfileSalesforceConnectorProfileCredentials? Salesforce,
+            Outputs.ConnectorProfileSalesforceConnectorProfileCredentials? salesforce,
 
-            Outputs.ConnectorProfileServiceNowConnectorProfileCredentials? ServiceNow,
+            Outputs.ConnectorProfileServiceNowConnectorProfileCredentials? serviceNow,
 
-            Outputs.ConnectorProfileSingularConnectorProfileCredentials? Singular,
+            Outputs.ConnectorProfileSingularConnectorProfileCredentials? singular,
 
-            Outputs.ConnectorProfileSlackConnectorProfileCredentials? Slack,
+            Outputs.ConnectorProfileSlackConnectorProfileCredentials? slack,
 
-            Outputs.ConnectorProfileSnowflakeConnectorProfileCredentials? Snowflake,
+            Outputs.ConnectorProfileSnowflakeConnectorProfileCredentials? snowflake,
 
-            Outputs.ConnectorProfileTrendmicroConnectorProfileCredentials? Trendmicro,
+            Outputs.ConnectorProfileTrendmicroConnectorProfileCredentials? trendmicro,
 
-            Outputs.ConnectorProfileVeevaConnectorProfileCredentials? Veeva,
+            Outputs.ConnectorProfileVeevaConnectorProfileCredentials? veeva,
 
-            Outputs.ConnectorProfileZendeskConnectorProfileCredentials? Zendesk)
+            Outputs.ConnectorProfileZendeskConnectorProfileCredentials? zendesk)
         {
-            this.Amplitude = Amplitude;
-            this.Datadog = Datadog;
-            this.Dynatrace = Dynatrace;
-            this.GoogleAnalytics = GoogleAnalytics;
-            this.InforNexus = InforNexus;
-            this.Marketo = Marketo;
-            this.Redshift = Redshift;
-            this.Salesforce = Salesforce;
-            this.ServiceNow = ServiceNow;
-            this.Singular = Singular;
-            this.Slack = Slack;
-            this.Snowflake = Snowflake;
-            this.Trendmicro = Trendmicro;
-            this.Veeva = Veeva;
-            this.Zendesk = Zendesk;
+            Amplitude = amplitude;
+            Datadog = datadog;
+            Dynatrace = dynatrace;
+            GoogleAnalytics = googleAnalytics;
+            InforNexus = inforNexus;
+            Marketo = marketo;
+            Redshift = redshift;
+            Salesforce = salesforce;
+            ServiceNow = serviceNow;
+            Singular = singular;
+            Slack = slack;
+            Snowflake = snowflake;
+            Trendmicro = trendmicro;
+            Veeva = veeva;
+            Zendesk = zendesk;
         }
     }
 }

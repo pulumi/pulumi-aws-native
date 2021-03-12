@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.FMS.Outputs
 
         [OutputConstructor]
         private PolicyIEMap(
-            ImmutableArray<string> ACCOUNT,
+            ImmutableArray<string> aCCOUNT,
 
-            ImmutableArray<string> ORGUNIT)
+            ImmutableArray<string> oRGUNIT)
         {
-            this.ACCOUNT = ACCOUNT;
-            this.ORGUNIT = ORGUNIT;
+            ACCOUNT = aCCOUNT;
+            ORGUNIT = oRGUNIT;
         }
     }
 }

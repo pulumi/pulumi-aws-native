@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
         /// </summary>
-        [Input("Greengrass", required: true)]
+        [Input("greengrass", required: true)]
         public Input<Inputs.GatewayGreengrassArgs> Greengrass { get; set; } = null!;
 
         public GatewayGatewayPlatformArgs()

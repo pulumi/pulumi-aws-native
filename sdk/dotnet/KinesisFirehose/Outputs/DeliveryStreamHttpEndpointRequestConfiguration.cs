@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamHttpEndpointRequestConfiguration(
-            ImmutableArray<Outputs.DeliveryStreamHttpEndpointCommonAttribute> CommonAttributes,
+            ImmutableArray<Outputs.DeliveryStreamHttpEndpointCommonAttribute> commonAttributes,
 
-            string? ContentEncoding)
+            string? contentEncoding)
         {
-            this.CommonAttributes = CommonAttributes;
-            this.ContentEncoding = ContentEncoding;
+            CommonAttributes = commonAttributes;
+            ContentEncoding = contentEncoding;
         }
     }
 }

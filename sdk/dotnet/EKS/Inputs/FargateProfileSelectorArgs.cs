@@ -15,22 +15,22 @@ namespace Pulumi.AwsNative.EKS.Inputs
     /// </summary>
     public sealed class FargateProfileSelectorArgs : Pulumi.ResourceArgs
     {
-        [Input("Labels")]
-        private InputList<Inputs.FargateProfileLabelArgs>? _Labels;
+        [Input("labels")]
+        private InputList<Inputs.FargateProfileLabelArgs>? _labels;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-labels
         /// </summary>
         public InputList<Inputs.FargateProfileLabelArgs> Labels
         {
-            get => _Labels ?? (_Labels = new InputList<Inputs.FargateProfileLabelArgs>());
-            set => _Labels = value;
+            get => _labels ?? (_labels = new InputList<Inputs.FargateProfileLabelArgs>());
+            set => _labels = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-namespace
         /// </summary>
-        [Input("Namespace", required: true)]
+        [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 
         public FargateProfileSelectorArgs()

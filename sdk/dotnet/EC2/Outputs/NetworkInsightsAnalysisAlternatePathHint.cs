@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
         [OutputConstructor]
         private NetworkInsightsAnalysisAlternatePathHint(
-            string? ComponentArn,
+            string? componentArn,
 
-            string? ComponentId)
+            string? componentId)
         {
-            this.ComponentArn = ComponentArn;
-            this.ComponentId = ComponentId;
+            ComponentArn = componentArn;
+            ComponentId = componentId;
         }
     }
 }

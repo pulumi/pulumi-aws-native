@@ -52,33 +52,33 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceSalesforceConfiguration(
-            Outputs.DataSourceSalesforceChatterFeedConfiguration? ChatterFeedConfiguration,
+            Outputs.DataSourceSalesforceChatterFeedConfiguration? chatterFeedConfiguration,
 
-            bool? CrawlAttachments,
+            bool? crawlAttachments,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? ExcludeAttachmentFilePatterns,
+            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? excludeAttachmentFilePatterns,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? IncludeAttachmentFilePatterns,
+            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? includeAttachmentFilePatterns,
 
-            Outputs.DataSourceSalesforceKnowledgeArticleConfiguration? KnowledgeArticleConfiguration,
+            Outputs.DataSourceSalesforceKnowledgeArticleConfiguration? knowledgeArticleConfiguration,
 
-            string SecretArn,
+            string secretArn,
 
-            string ServerUrl,
+            string serverUrl,
 
-            Outputs.DataSourceSalesforceStandardObjectAttachmentConfiguration? StandardObjectAttachmentConfiguration,
+            Outputs.DataSourceSalesforceStandardObjectAttachmentConfiguration? standardObjectAttachmentConfiguration,
 
-            Outputs.DataSourceSalesforceStandardObjectConfigurationList? StandardObjectConfigurations)
+            Outputs.DataSourceSalesforceStandardObjectConfigurationList? standardObjectConfigurations)
         {
-            this.ChatterFeedConfiguration = ChatterFeedConfiguration;
-            this.CrawlAttachments = CrawlAttachments;
-            this.ExcludeAttachmentFilePatterns = ExcludeAttachmentFilePatterns;
-            this.IncludeAttachmentFilePatterns = IncludeAttachmentFilePatterns;
-            this.KnowledgeArticleConfiguration = KnowledgeArticleConfiguration;
-            this.SecretArn = SecretArn;
-            this.ServerUrl = ServerUrl;
-            this.StandardObjectAttachmentConfiguration = StandardObjectAttachmentConfiguration;
-            this.StandardObjectConfigurations = StandardObjectConfigurations;
+            ChatterFeedConfiguration = chatterFeedConfiguration;
+            CrawlAttachments = crawlAttachments;
+            ExcludeAttachmentFilePatterns = excludeAttachmentFilePatterns;
+            IncludeAttachmentFilePatterns = includeAttachmentFilePatterns;
+            KnowledgeArticleConfiguration = knowledgeArticleConfiguration;
+            SecretArn = secretArn;
+            ServerUrl = serverUrl;
+            StandardObjectAttachmentConfiguration = standardObjectAttachmentConfiguration;
+            StandardObjectConfigurations = standardObjectConfigurations;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation
         /// </summary>
-        [Input("CloudFormation")]
+        [Input("cloudFormation")]
         public Input<Inputs.ResourceCollectionCloudFormationCollectionFilterArgs>? CloudFormation { get; set; }
 
         public ResourceCollectionResourceCollectionFilterArgs()

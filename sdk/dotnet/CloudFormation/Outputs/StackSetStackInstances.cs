@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
 
         [OutputConstructor]
         private StackSetStackInstances(
-            Outputs.StackSetDeploymentTargets DeploymentTargets,
+            Outputs.StackSetDeploymentTargets deploymentTargets,
 
-            ImmutableArray<Outputs.StackSetParameter> ParameterOverrides,
+            ImmutableArray<Outputs.StackSetParameter> parameterOverrides,
 
-            ImmutableArray<string> Regions)
+            ImmutableArray<string> regions)
         {
-            this.DeploymentTargets = DeploymentTargets;
-            this.ParameterOverrides = ParameterOverrides;
-            this.Regions = Regions;
+            DeploymentTargets = deploymentTargets;
+            ParameterOverrides = parameterOverrides;
+            Regions = regions;
         }
     }
 }

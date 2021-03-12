@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.S3.Outputs
         public readonly string? VpcId;
 
         [OutputConstructor]
-        private AccessPointVpcConfiguration(string? VpcId)
+        private AccessPointVpcConfiguration(string? vpcId)
         {
-            this.VpcId = VpcId;
+            VpcId = vpcId;
         }
     }
 }

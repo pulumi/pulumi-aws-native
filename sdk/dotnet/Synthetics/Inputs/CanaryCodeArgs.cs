@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
         /// </summary>
-        [Input("Handler")]
+        [Input("handler")]
         public Input<string>? Handler { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
         /// </summary>
-        [Input("S3Bucket")]
+        [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3key
         /// </summary>
-        [Input("S3Key")]
+        [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3objectversion
         /// </summary>
-        [Input("S3ObjectVersion")]
+        [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script
         /// </summary>
-        [Input("Script")]
+        [Input("script")]
         public Input<string>? Script { get; set; }
 
         public CanaryCodeArgs()

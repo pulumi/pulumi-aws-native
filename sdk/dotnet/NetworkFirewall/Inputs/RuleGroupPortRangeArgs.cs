@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portrange.html#cfn-networkfirewall-rulegroup-portrange-fromport
         /// </summary>
-        [Input("FromPort", required: true)]
+        [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portrange.html#cfn-networkfirewall-rulegroup-portrange-toport
         /// </summary>
-        [Input("ToPort", required: true)]
+        [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;
 
         public RuleGroupPortRangeArgs()

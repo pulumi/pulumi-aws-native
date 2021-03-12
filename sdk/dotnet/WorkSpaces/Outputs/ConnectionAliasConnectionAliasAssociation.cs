@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.WorkSpaces.Outputs
 
         [OutputConstructor]
         private ConnectionAliasConnectionAliasAssociation(
-            string? AssociatedAccountId,
+            string? associatedAccountId,
 
-            string? AssociationStatus,
+            string? associationStatus,
 
-            string? ConnectionIdentifier,
+            string? connectionIdentifier,
 
-            string? ResourceId)
+            string? resourceId)
         {
-            this.AssociatedAccountId = AssociatedAccountId;
-            this.AssociationStatus = AssociationStatus;
-            this.ConnectionIdentifier = ConnectionIdentifier;
-            this.ResourceId = ResourceId;
+            AssociatedAccountId = associatedAccountId;
+            AssociationStatus = associationStatus;
+            ConnectionIdentifier = connectionIdentifier;
+            ResourceId = resourceId;
         }
     }
 }

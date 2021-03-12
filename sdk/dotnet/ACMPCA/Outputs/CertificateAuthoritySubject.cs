@@ -72,48 +72,48 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
 
         [OutputConstructor]
         private CertificateAuthoritySubject(
-            string? CommonName,
+            string? commonName,
 
-            string? Country,
+            string? country,
 
-            string? DistinguishedNameQualifier,
+            string? distinguishedNameQualifier,
 
-            string? GenerationQualifier,
+            string? generationQualifier,
 
-            string? GivenName,
+            string? givenName,
 
-            string? Initials,
+            string? initials,
 
-            string? Locality,
+            string? locality,
 
-            string? Organization,
+            string? organization,
 
-            string? OrganizationalUnit,
+            string? organizationalUnit,
 
-            string? Pseudonym,
+            string? pseudonym,
 
-            string? SerialNumber,
+            string? serialNumber,
 
-            string? State,
+            string? state,
 
-            string? Surname,
+            string? surname,
 
-            string? Title)
+            string? title)
         {
-            this.CommonName = CommonName;
-            this.Country = Country;
-            this.DistinguishedNameQualifier = DistinguishedNameQualifier;
-            this.GenerationQualifier = GenerationQualifier;
-            this.GivenName = GivenName;
-            this.Initials = Initials;
-            this.Locality = Locality;
-            this.Organization = Organization;
-            this.OrganizationalUnit = OrganizationalUnit;
-            this.Pseudonym = Pseudonym;
-            this.SerialNumber = SerialNumber;
-            this.State = State;
-            this.Surname = Surname;
-            this.Title = Title;
+            CommonName = commonName;
+            Country = country;
+            DistinguishedNameQualifier = distinguishedNameQualifier;
+            GenerationQualifier = generationQualifier;
+            GivenName = givenName;
+            Initials = initials;
+            Locality = locality;
+            Organization = organization;
+            OrganizationalUnit = organizationalUnit;
+            Pseudonym = pseudonym;
+            SerialNumber = serialNumber;
+            State = state;
+            Surname = surname;
+            Title = title;
         }
     }
 }

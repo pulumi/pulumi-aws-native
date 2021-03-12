@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly Outputs.RuleGroupVariableDefinitionList? Definition;
 
         [OutputConstructor]
-        private RuleGroupIPSet(Outputs.RuleGroupVariableDefinitionList? Definition)
+        private RuleGroupIPSet(Outputs.RuleGroupVariableDefinitionList? definition)
         {
-            this.Definition = Definition;
+            Definition = definition;
         }
     }
 }

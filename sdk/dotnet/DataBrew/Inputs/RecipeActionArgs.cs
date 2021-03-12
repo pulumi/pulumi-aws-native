@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
         /// </summary>
-        [Input("Operation", required: true)]
+        [Input("operation", required: true)]
         public Input<string> Operation { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
         /// </summary>
-        [Input("Parameters")]
+        [Input("parameters")]
         public Input<object>? Parameters { get; set; }
 
         public RecipeActionArgs()

@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.RDS.Outputs
 
         [OutputConstructor]
         private DBProxyAuthFormat(
-            string? AuthScheme,
+            string? authScheme,
 
-            string? Description,
+            string? description,
 
-            string? IAMAuth,
+            string? iAMAuth,
 
-            string? SecretArn,
+            string? secretArn,
 
-            string? UserName)
+            string? userName)
         {
-            this.AuthScheme = AuthScheme;
-            this.Description = Description;
-            this.IAMAuth = IAMAuth;
-            this.SecretArn = SecretArn;
-            this.UserName = UserName;
+            AuthScheme = authScheme;
+            Description = description;
+            IAMAuth = iAMAuth;
+            SecretArn = secretArn;
+            UserName = userName;
         }
     }
 }

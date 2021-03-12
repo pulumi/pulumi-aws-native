@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html#cfn-groundstation-dataflowendpointgroup-socketaddress-name
         /// </summary>
-        [Input("Name")]
+        [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html#cfn-groundstation-dataflowendpointgroup-socketaddress-port
         /// </summary>
-        [Input("Port")]
+        [Input("port")]
         public Input<int>? Port { get; set; }
 
         public DataflowEndpointGroupSocketAddressArgs()

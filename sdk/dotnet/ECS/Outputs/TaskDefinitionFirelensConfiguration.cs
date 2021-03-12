@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionFirelensConfiguration(
-            ImmutableDictionary<string, string>? Options,
+            ImmutableDictionary<string, string>? options,
 
-            string? Type)
+            string? type)
         {
-            this.Options = Options;
-            this.Type = Type;
+            Options = options;
+            Type = type;
         }
     }
 }

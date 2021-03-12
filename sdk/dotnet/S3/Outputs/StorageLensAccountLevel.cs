@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.S3.Outputs
 
         [OutputConstructor]
         private StorageLensAccountLevel(
-            Outputs.StorageLensActivityMetrics? ActivityMetrics,
+            Outputs.StorageLensActivityMetrics? activityMetrics,
 
-            Outputs.StorageLensBucketLevel BucketLevel)
+            Outputs.StorageLensBucketLevel bucketLevel)
         {
-            this.ActivityMetrics = ActivityMetrics;
-            this.BucketLevel = BucketLevel;
+            ActivityMetrics = activityMetrics;
+            BucketLevel = bucketLevel;
         }
     }
 }

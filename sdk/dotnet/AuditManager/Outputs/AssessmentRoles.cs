@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
         public readonly ImmutableArray<Outputs.AssessmentRole> Roles;
 
         [OutputConstructor]
-        private AssessmentRoles(ImmutableArray<Outputs.AssessmentRole> Roles)
+        private AssessmentRoles(ImmutableArray<Outputs.AssessmentRole> roles)
         {
-            this.Roles = Roles;
+            Roles = roles;
         }
     }
 }

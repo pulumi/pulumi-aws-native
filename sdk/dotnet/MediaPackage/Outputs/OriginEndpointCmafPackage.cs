@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private OriginEndpointCmafPackage(
-            Outputs.OriginEndpointCmafEncryption? Encryption,
+            Outputs.OriginEndpointCmafEncryption? encryption,
 
-            ImmutableArray<Outputs.OriginEndpointHlsManifest> HlsManifests,
+            ImmutableArray<Outputs.OriginEndpointHlsManifest> hlsManifests,
 
-            int? SegmentDurationSeconds,
+            int? segmentDurationSeconds,
 
-            string? SegmentPrefix,
+            string? segmentPrefix,
 
-            Outputs.OriginEndpointStreamSelection? StreamSelection)
+            Outputs.OriginEndpointStreamSelection? streamSelection)
         {
-            this.Encryption = Encryption;
-            this.HlsManifests = HlsManifests;
-            this.SegmentDurationSeconds = SegmentDurationSeconds;
-            this.SegmentPrefix = SegmentPrefix;
-            this.StreamSelection = StreamSelection;
+            Encryption = encryption;
+            HlsManifests = hlsManifests;
+            SegmentDurationSeconds = segmentDurationSeconds;
+            SegmentPrefix = segmentPrefix;
+            StreamSelection = streamSelection;
         }
     }
 }

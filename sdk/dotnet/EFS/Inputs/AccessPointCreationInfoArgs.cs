@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.EFS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-ownergid
         /// </summary>
-        [Input("OwnerGid", required: true)]
+        [Input("ownerGid", required: true)]
         public Input<string> OwnerGid { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-owneruid
         /// </summary>
-        [Input("OwnerUid", required: true)]
+        [Input("ownerUid", required: true)]
         public Input<string> OwnerUid { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-permissions
         /// </summary>
-        [Input("Permissions", required: true)]
+        [Input("permissions", required: true)]
         public Input<string> Permissions { get; set; } = null!;
 
         public AccessPointCreationInfoArgs()

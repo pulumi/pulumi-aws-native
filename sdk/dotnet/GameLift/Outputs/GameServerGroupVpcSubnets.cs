@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         public readonly ImmutableArray<string> VpcSubnets;
 
         [OutputConstructor]
-        private GameServerGroupVpcSubnets(ImmutableArray<string> VpcSubnets)
+        private GameServerGroupVpcSubnets(ImmutableArray<string> vpcSubnets)
         {
-            this.VpcSubnets = VpcSubnets;
+            VpcSubnets = vpcSubnets;
         }
     }
 }

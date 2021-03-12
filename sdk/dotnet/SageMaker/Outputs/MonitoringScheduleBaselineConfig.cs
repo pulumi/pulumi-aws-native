@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private MonitoringScheduleBaselineConfig(
-            Outputs.MonitoringScheduleConstraintsResource? ConstraintsResource,
+            Outputs.MonitoringScheduleConstraintsResource? constraintsResource,
 
-            Outputs.MonitoringScheduleStatisticsResource? StatisticsResource)
+            Outputs.MonitoringScheduleStatisticsResource? statisticsResource)
         {
-            this.ConstraintsResource = ConstraintsResource;
-            this.StatisticsResource = StatisticsResource;
+            ConstraintsResource = constraintsResource;
+            StatisticsResource = statisticsResource;
         }
     }
 }

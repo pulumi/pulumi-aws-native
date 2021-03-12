@@ -48,30 +48,30 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
         [OutputConstructor]
         private BackupPlanBackupRuleResourceType(
-            double? CompletionWindowMinutes,
+            double? completionWindowMinutes,
 
-            ImmutableArray<Outputs.BackupPlanCopyActionResourceType> CopyActions,
+            ImmutableArray<Outputs.BackupPlanCopyActionResourceType> copyActions,
 
-            Outputs.BackupPlanLifecycleResourceType? Lifecycle,
+            Outputs.BackupPlanLifecycleResourceType? lifecycle,
 
-            Union<System.Text.Json.JsonElement, string>? RecoveryPointTags,
+            Union<System.Text.Json.JsonElement, string>? recoveryPointTags,
 
-            string RuleName,
+            string ruleName,
 
-            string? ScheduleExpression,
+            string? scheduleExpression,
 
-            double? StartWindowMinutes,
+            double? startWindowMinutes,
 
-            string TargetBackupVault)
+            string targetBackupVault)
         {
-            this.CompletionWindowMinutes = CompletionWindowMinutes;
-            this.CopyActions = CopyActions;
-            this.Lifecycle = Lifecycle;
-            this.RecoveryPointTags = RecoveryPointTags;
-            this.RuleName = RuleName;
-            this.ScheduleExpression = ScheduleExpression;
-            this.StartWindowMinutes = StartWindowMinutes;
-            this.TargetBackupVault = TargetBackupVault;
+            CompletionWindowMinutes = completionWindowMinutes;
+            CopyActions = copyActions;
+            Lifecycle = lifecycle;
+            RecoveryPointTags = recoveryPointTags;
+            RuleName = ruleName;
+            ScheduleExpression = scheduleExpression;
+            StartWindowMinutes = startWindowMinutes;
+            TargetBackupVault = targetBackupVault;
         }
     }
 }

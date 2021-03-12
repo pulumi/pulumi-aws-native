@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggerproperties
         /// </summary>
-        [Input("TriggerProperties")]
+        [Input("triggerProperties")]
         public Input<Inputs.FlowScheduledTriggerPropertiesArgs>? TriggerProperties { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggertype
         /// </summary>
-        [Input("TriggerType", required: true)]
+        [Input("triggerType", required: true)]
         public Input<string> TriggerType { get; set; } = null!;
 
         public FlowTriggerConfigArgs()

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<Outputs.IndexDocumentMetadataConfiguration> DocumentMetadataConfigurationList;
 
         [OutputConstructor]
-        private IndexDocumentMetadataConfigurationList(ImmutableArray<Outputs.IndexDocumentMetadataConfiguration> DocumentMetadataConfigurationList)
+        private IndexDocumentMetadataConfigurationList(ImmutableArray<Outputs.IndexDocumentMetadataConfiguration> documentMetadataConfigurationList)
         {
-            this.DocumentMetadataConfigurationList = DocumentMetadataConfigurationList;
+            DocumentMetadataConfigurationList = documentMetadataConfigurationList;
         }
     }
 }

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
         /// </summary>
-        [Input("Enabled")]
+        [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-retainstacksonaccountremoval
         /// </summary>
-        [Input("RetainStacksOnAccountRemoval")]
+        [Input("retainStacksOnAccountRemoval")]
         public Input<bool>? RetainStacksOnAccountRemoval { get; set; }
 
         public StackSetAutoDeploymentArgs()

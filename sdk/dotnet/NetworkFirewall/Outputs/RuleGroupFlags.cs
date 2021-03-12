@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<string> Flags;
 
         [OutputConstructor]
-        private RuleGroupFlags(ImmutableArray<string> Flags)
+        private RuleGroupFlags(ImmutableArray<string> flags)
         {
-            this.Flags = Flags;
+            Flags = flags;
         }
     }
 }

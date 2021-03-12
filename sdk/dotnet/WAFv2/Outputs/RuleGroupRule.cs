@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private RuleGroupRule(
-            Outputs.RuleGroupRuleAction? Action,
+            Outputs.RuleGroupRuleAction? action,
 
-            string Name,
+            string name,
 
-            int Priority,
+            int priority,
 
-            Outputs.RuleGroupStatementOne Statement,
+            Outputs.RuleGroupStatementOne statement,
 
-            Outputs.RuleGroupVisibilityConfig VisibilityConfig)
+            Outputs.RuleGroupVisibilityConfig visibilityConfig)
         {
-            this.Action = Action;
-            this.Name = Name;
-            this.Priority = Priority;
-            this.Statement = Statement;
-            this.VisibilityConfig = VisibilityConfig;
+            Action = action;
+            Name = name;
+            Priority = priority;
+            Statement = statement;
+            VisibilityConfig = visibilityConfig;
         }
     }
 }

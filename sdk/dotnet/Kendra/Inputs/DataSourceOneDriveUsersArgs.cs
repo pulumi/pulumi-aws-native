@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
         /// </summary>
-        [Input("OneDriveUserList")]
+        [Input("oneDriveUserList")]
         public Input<Inputs.DataSourceOneDriveUserListArgs>? OneDriveUserList { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path
         /// </summary>
-        [Input("OneDriveUserS3Path")]
+        [Input("oneDriveUserS3Path")]
         public Input<Inputs.DataSourceS3PathArgs>? OneDriveUserS3Path { get; set; }
 
         public DataSourceOneDriveUsersArgs()

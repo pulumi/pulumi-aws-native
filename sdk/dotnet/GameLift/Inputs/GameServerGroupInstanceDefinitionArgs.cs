@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype
         /// </summary>
-        [Input("InstanceType", required: true)]
+        [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-weightedcapacity
         /// </summary>
-        [Input("WeightedCapacity")]
+        [Input("weightedCapacity")]
         public Input<string>? WeightedCapacity { get; set; }
 
         public GameServerGroupInstanceDefinitionArgs()

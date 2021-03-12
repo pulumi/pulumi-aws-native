@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
         [OutputConstructor]
         private ComponentVersionComponentPlatform(
-            ImmutableDictionary<string, string>? Attributes,
+            ImmutableDictionary<string, string>? attributes,
 
-            string? Name)
+            string? name)
         {
-            this.Attributes = Attributes;
-            this.Name = Name;
+            Attributes = attributes;
+            Name = name;
         }
     }
 }

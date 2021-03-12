@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.MWAA.Outputs
 
         [OutputConstructor]
         private EnvironmentLastUpdate(
-            string? CreatedAt,
+            string? createdAt,
 
-            Outputs.EnvironmentUpdateError? Error,
+            Outputs.EnvironmentUpdateError? error,
 
-            string? Status)
+            string? status)
         {
-            this.CreatedAt = CreatedAt;
-            this.Error = Error;
-            this.Status = Status;
+            CreatedAt = createdAt;
+            Error = error;
+            Status = status;
         }
     }
 }

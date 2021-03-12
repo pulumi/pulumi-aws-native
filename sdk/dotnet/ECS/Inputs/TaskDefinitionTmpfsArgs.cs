@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-containerpath
         /// </summary>
-        [Input("ContainerPath")]
+        [Input("containerPath")]
         public Input<string>? ContainerPath { get; set; }
 
-        [Input("MountOptions")]
-        private InputList<string>? _MountOptions;
+        [Input("mountOptions")]
+        private InputList<string>? _mountOptions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-mountoptions
         /// </summary>
         public InputList<string> MountOptions
         {
-            get => _MountOptions ?? (_MountOptions = new InputList<string>());
-            set => _MountOptions = value;
+            get => _mountOptions ?? (_mountOptions = new InputList<string>());
+            set => _mountOptions = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-size
         /// </summary>
-        [Input("Size", required: true)]
+        [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;
 
         public TaskDefinitionTmpfsArgs()

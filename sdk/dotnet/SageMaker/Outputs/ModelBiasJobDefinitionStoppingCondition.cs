@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly int MaxRuntimeInSeconds;
 
         [OutputConstructor]
-        private ModelBiasJobDefinitionStoppingCondition(int MaxRuntimeInSeconds)
+        private ModelBiasJobDefinitionStoppingCondition(int maxRuntimeInSeconds)
         {
-            this.MaxRuntimeInSeconds = MaxRuntimeInSeconds;
+            MaxRuntimeInSeconds = maxRuntimeInSeconds;
         }
     }
 }

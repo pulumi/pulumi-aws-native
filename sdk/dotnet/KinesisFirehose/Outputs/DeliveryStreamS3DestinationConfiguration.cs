@@ -48,30 +48,30 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamS3DestinationConfiguration(
-            string BucketARN,
+            string bucketARN,
 
-            Outputs.DeliveryStreamBufferingHints? BufferingHints,
+            Outputs.DeliveryStreamBufferingHints? bufferingHints,
 
-            Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions,
+            Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
-            string? CompressionFormat,
+            string? compressionFormat,
 
-            Outputs.DeliveryStreamEncryptionConfiguration? EncryptionConfiguration,
+            Outputs.DeliveryStreamEncryptionConfiguration? encryptionConfiguration,
 
-            string? ErrorOutputPrefix,
+            string? errorOutputPrefix,
 
-            string? Prefix,
+            string? prefix,
 
-            string RoleARN)
+            string roleARN)
         {
-            this.BucketARN = BucketARN;
-            this.BufferingHints = BufferingHints;
-            this.CloudWatchLoggingOptions = CloudWatchLoggingOptions;
-            this.CompressionFormat = CompressionFormat;
-            this.EncryptionConfiguration = EncryptionConfiguration;
-            this.ErrorOutputPrefix = ErrorOutputPrefix;
-            this.Prefix = Prefix;
-            this.RoleARN = RoleARN;
+            BucketARN = bucketARN;
+            BufferingHints = bufferingHints;
+            CloudWatchLoggingOptions = cloudWatchLoggingOptions;
+            CompressionFormat = compressionFormat;
+            EncryptionConfiguration = encryptionConfiguration;
+            ErrorOutputPrefix = errorOutputPrefix;
+            Prefix = prefix;
+            RoleARN = roleARN;
         }
     }
 }

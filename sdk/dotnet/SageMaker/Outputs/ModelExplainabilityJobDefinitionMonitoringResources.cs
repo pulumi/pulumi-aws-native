@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly Outputs.ModelExplainabilityJobDefinitionClusterConfig ClusterConfig;
 
         [OutputConstructor]
-        private ModelExplainabilityJobDefinitionMonitoringResources(Outputs.ModelExplainabilityJobDefinitionClusterConfig ClusterConfig)
+        private ModelExplainabilityJobDefinitionMonitoringResources(Outputs.ModelExplainabilityJobDefinitionClusterConfig clusterConfig)
         {
-            this.ClusterConfig = ClusterConfig;
+            ClusterConfig = clusterConfig;
         }
     }
 }

@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class IndexTagListArgs : Pulumi.ResourceArgs
     {
-        [Input("TagList")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _TagList;
+        [Input("tagList")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tagList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html#cfn-kendra-index-taglist-taglist
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> TagList
         {
-            get => _TagList ?? (_TagList = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _TagList = value;
+            get => _tagList ?? (_tagList = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tagList = value;
         }
 
         public IndexTagListArgs()

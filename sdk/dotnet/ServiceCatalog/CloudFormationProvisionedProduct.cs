@@ -18,85 +18,85 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
         /// </summary>
-        [Output("AcceptLanguage")]
+        [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
 
-        [Output("CloudformationStackArn")]
+        [Output("cloudformationStackArn")]
         public Output<string> CloudformationStackArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
         /// </summary>
-        [Output("NotificationArns")]
+        [Output("notificationArns")]
         public Output<ImmutableArray<string>> NotificationArns { get; private set; } = null!;
 
-        [Output("Outputs")]
+        [Output("outputs")]
         public Output<ImmutableDictionary<string, string>> Outputs { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
         /// </summary>
-        [Output("PathId")]
+        [Output("pathId")]
         public Output<string?> PathId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
         /// </summary>
-        [Output("PathName")]
+        [Output("pathName")]
         public Output<string?> PathName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
         /// </summary>
-        [Output("ProductId")]
+        [Output("productId")]
         public Output<string?> ProductId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
         /// </summary>
-        [Output("ProductName")]
+        [Output("productName")]
         public Output<string?> ProductName { get; private set; } = null!;
 
-        [Output("ProvisionedProductId")]
+        [Output("provisionedProductId")]
         public Output<string> ProvisionedProductId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
         /// </summary>
-        [Output("ProvisionedProductName")]
+        [Output("provisionedProductName")]
         public Output<string?> ProvisionedProductName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
         /// </summary>
-        [Output("ProvisioningArtifactId")]
+        [Output("provisioningArtifactId")]
         public Output<string?> ProvisioningArtifactId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
         /// </summary>
-        [Output("ProvisioningArtifactName")]
+        [Output("provisioningArtifactName")]
         public Output<string?> ProvisioningArtifactName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
         /// </summary>
-        [Output("ProvisioningParameters")]
+        [Output("provisioningParameters")]
         public Output<ImmutableArray<Outputs.CloudFormationProvisionedProductProvisioningParameter>> ProvisioningParameters { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
         /// </summary>
-        [Output("ProvisioningPreferences")]
+        [Output("provisioningPreferences")]
         public Output<Outputs.CloudFormationProvisionedProductProvisioningPreferences?> ProvisioningPreferences { get; private set; } = null!;
 
-        [Output("RecordId")]
+        [Output("recordId")]
         public Output<string> RecordId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -147,91 +147,91 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
         /// </summary>
-        [Input("AcceptLanguage")]
+        [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        [Input("NotificationArns")]
-        private InputList<string>? _NotificationArns;
+        [Input("notificationArns")]
+        private InputList<string>? _notificationArns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
         /// </summary>
         public InputList<string> NotificationArns
         {
-            get => _NotificationArns ?? (_NotificationArns = new InputList<string>());
-            set => _NotificationArns = value;
+            get => _notificationArns ?? (_notificationArns = new InputList<string>());
+            set => _notificationArns = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
         /// </summary>
-        [Input("PathId")]
+        [Input("pathId")]
         public Input<string>? PathId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
         /// </summary>
-        [Input("PathName")]
+        [Input("pathName")]
         public Input<string>? PathName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
         /// </summary>
-        [Input("ProductId")]
+        [Input("productId")]
         public Input<string>? ProductId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
         /// </summary>
-        [Input("ProductName")]
+        [Input("productName")]
         public Input<string>? ProductName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
         /// </summary>
-        [Input("ProvisionedProductName")]
+        [Input("provisionedProductName")]
         public Input<string>? ProvisionedProductName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
         /// </summary>
-        [Input("ProvisioningArtifactId")]
+        [Input("provisioningArtifactId")]
         public Input<string>? ProvisioningArtifactId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
         /// </summary>
-        [Input("ProvisioningArtifactName")]
+        [Input("provisioningArtifactName")]
         public Input<string>? ProvisioningArtifactName { get; set; }
 
-        [Input("ProvisioningParameters")]
-        private InputList<Inputs.CloudFormationProvisionedProductProvisioningParameterArgs>? _ProvisioningParameters;
+        [Input("provisioningParameters")]
+        private InputList<Inputs.CloudFormationProvisionedProductProvisioningParameterArgs>? _provisioningParameters;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
         /// </summary>
         public InputList<Inputs.CloudFormationProvisionedProductProvisioningParameterArgs> ProvisioningParameters
         {
-            get => _ProvisioningParameters ?? (_ProvisioningParameters = new InputList<Inputs.CloudFormationProvisionedProductProvisioningParameterArgs>());
-            set => _ProvisioningParameters = value;
+            get => _provisioningParameters ?? (_provisioningParameters = new InputList<Inputs.CloudFormationProvisionedProductProvisioningParameterArgs>());
+            set => _provisioningParameters = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
         /// </summary>
-        [Input("ProvisioningPreferences")]
+        [Input("provisioningPreferences")]
         public Input<Inputs.CloudFormationProvisionedProductProvisioningPreferencesArgs>? ProvisioningPreferences { get; set; }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public CloudFormationProvisionedProductArgs()

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLIPSetReferenceStatement(
-            string Arn,
+            string arn,
 
-            Outputs.WebACLIPSetForwardedIPConfiguration? IPSetForwardedIPConfig)
+            Outputs.WebACLIPSetForwardedIPConfiguration? iPSetForwardedIPConfig)
         {
-            this.Arn = Arn;
-            this.IPSetForwardedIPConfig = IPSetForwardedIPConfig;
+            Arn = arn;
+            IPSetForwardedIPConfig = iPSetForwardedIPConfig;
         }
     }
 }

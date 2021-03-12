@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
         /// </summary>
-        [Input("CustomActions")]
+        [Input("customActions")]
         public Input<Inputs.RuleGroupCustomActionsArgs>? CustomActions { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
         /// </summary>
-        [Input("StatelessRules", required: true)]
+        [Input("statelessRules", required: true)]
         public Input<Inputs.RuleGroupStatelessRulesArgs> StatelessRules { get; set; } = null!;
 
         public RuleGroupStatelessRulesAndCustomActionsArgs()

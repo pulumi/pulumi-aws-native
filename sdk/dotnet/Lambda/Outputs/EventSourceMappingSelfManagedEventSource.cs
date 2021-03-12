@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         public readonly Outputs.EventSourceMappingEndpoints? Endpoints;
 
         [OutputConstructor]
-        private EventSourceMappingSelfManagedEventSource(Outputs.EventSourceMappingEndpoints? Endpoints)
+        private EventSourceMappingSelfManagedEventSource(Outputs.EventSourceMappingEndpoints? endpoints)
         {
-            this.Endpoints = Endpoints;
+            Endpoints = endpoints;
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.EFS.Outputs
         public readonly string TransitionToIA;
 
         [OutputConstructor]
-        private FileSystemLifecyclePolicy(string TransitionToIA)
+        private FileSystemLifecyclePolicy(string transitionToIA)
         {
-            this.TransitionToIA = TransitionToIA;
+            TransitionToIA = transitionToIA;
         }
     }
 }

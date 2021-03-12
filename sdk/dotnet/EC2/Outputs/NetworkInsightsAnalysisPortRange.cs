@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
         [OutputConstructor]
         private NetworkInsightsAnalysisPortRange(
-            int? From,
+            int? from,
 
-            int? To)
+            int? to)
         {
-            this.From = From;
-            this.To = To;
+            From = from;
+            To = to;
         }
     }
 }

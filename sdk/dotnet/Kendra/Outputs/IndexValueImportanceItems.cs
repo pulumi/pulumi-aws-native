@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<Outputs.IndexValueImportanceItem> ValueImportanceItems;
 
         [OutputConstructor]
-        private IndexValueImportanceItems(ImmutableArray<Outputs.IndexValueImportanceItem> ValueImportanceItems)
+        private IndexValueImportanceItems(ImmutableArray<Outputs.IndexValueImportanceItem> valueImportanceItems)
         {
-            this.ValueImportanceItems = ValueImportanceItems;
+            ValueImportanceItems = valueImportanceItems;
         }
     }
 }

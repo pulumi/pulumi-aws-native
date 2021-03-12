@@ -18,43 +18,43 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
         /// </summary>
-        [Output("AddressFamily")]
+        [Output("addressFamily")]
         public Output<string> AddressFamily { get; private set; } = null!;
 
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
         /// </summary>
-        [Output("Entries")]
+        [Output("entries")]
         public Output<ImmutableArray<Outputs.PrefixListEntry>> Entries { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
         /// </summary>
-        [Output("MaxEntries")]
+        [Output("maxEntries")]
         public Output<int> MaxEntries { get; private set; } = null!;
 
-        [Output("OwnerId")]
+        [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
-        [Output("PrefixListId")]
+        [Output("prefixListId")]
         public Output<string> PrefixListId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
         /// </summary>
-        [Output("PrefixListName")]
+        [Output("prefixListName")]
         public Output<string> PrefixListName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
-        [Output("Version")]
+        [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
 
@@ -105,43 +105,43 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
         /// </summary>
-        [Input("AddressFamily", required: true)]
+        [Input("addressFamily", required: true)]
         public Input<string> AddressFamily { get; set; } = null!;
 
-        [Input("Entries")]
-        private InputList<Inputs.PrefixListEntryArgs>? _Entries;
+        [Input("entries")]
+        private InputList<Inputs.PrefixListEntryArgs>? _entries;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
         /// </summary>
         public InputList<Inputs.PrefixListEntryArgs> Entries
         {
-            get => _Entries ?? (_Entries = new InputList<Inputs.PrefixListEntryArgs>());
-            set => _Entries = value;
+            get => _entries ?? (_entries = new InputList<Inputs.PrefixListEntryArgs>());
+            set => _entries = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
         /// </summary>
-        [Input("MaxEntries", required: true)]
+        [Input("maxEntries", required: true)]
         public Input<int> MaxEntries { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
         /// </summary>
-        [Input("PrefixListName", required: true)]
+        [Input("prefixListName", required: true)]
         public Input<string> PrefixListName { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public PrefixListArgs()

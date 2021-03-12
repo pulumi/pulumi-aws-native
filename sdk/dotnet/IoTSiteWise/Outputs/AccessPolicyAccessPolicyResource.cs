@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
         [OutputConstructor]
         private AccessPolicyAccessPolicyResource(
-            Outputs.AccessPolicyPortal? Portal,
+            Outputs.AccessPolicyPortal? portal,
 
-            Outputs.AccessPolicyProject? Project)
+            Outputs.AccessPolicyProject? project)
         {
-            this.Portal = Portal;
-            this.Project = Project;
+            Portal = portal;
+            Project = project;
         }
     }
 }

@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceDataSourceInclusionsExclusionsStringsArgs : Pulumi.ResourceArgs
     {
-        [Input("DataSourceInclusionsExclusionsStrings")]
-        private InputList<string>? _DataSourceInclusionsExclusionsStrings;
+        [Input("dataSourceInclusionsExclusionsStrings")]
+        private InputList<string>? _dataSourceInclusionsExclusionsStrings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceinclusionsexclusionsstrings.html#cfn-kendra-datasource-datasourceinclusionsexclusionsstrings-datasourceinclusionsexclusionsstrings
         /// </summary>
         public InputList<string> DataSourceInclusionsExclusionsStrings
         {
-            get => _DataSourceInclusionsExclusionsStrings ?? (_DataSourceInclusionsExclusionsStrings = new InputList<string>());
-            set => _DataSourceInclusionsExclusionsStrings = value;
+            get => _dataSourceInclusionsExclusionsStrings ?? (_dataSourceInclusionsExclusionsStrings = new InputList<string>());
+            set => _dataSourceInclusionsExclusionsStrings = value;
         }
 
         public DataSourceDataSourceInclusionsExclusionsStringsArgs()

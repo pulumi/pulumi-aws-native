@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.EFS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-key
         /// </summary>
-        [Input("Key")]
+        [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-value
         /// </summary>
-        [Input("Value")]
+        [Input("value")]
         public Input<string>? Value { get; set; }
 
         public AccessPointAccessPointTagArgs()

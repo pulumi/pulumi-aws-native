@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private ProvisioningTemplateProvisioningHook(
-            string? PayloadVersion,
+            string? payloadVersion,
 
-            string? TargetArn)
+            string? targetArn)
         {
-            this.PayloadVersion = PayloadVersion;
-            this.TargetArn = TargetArn;
+            PayloadVersion = payloadVersion;
+            TargetArn = targetArn;
         }
     }
 }

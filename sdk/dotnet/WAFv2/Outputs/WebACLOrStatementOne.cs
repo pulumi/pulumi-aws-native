@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         public readonly ImmutableArray<Outputs.WebACLStatementTwo> Statements;
 
         [OutputConstructor]
-        private WebACLOrStatementOne(ImmutableArray<Outputs.WebACLStatementTwo> Statements)
+        private WebACLOrStatementOne(ImmutableArray<Outputs.WebACLStatementTwo> statements)
         {
-            this.Statements = Statements;
+            Statements = statements;
         }
     }
 }

@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLSizeConstraintStatement(
-            string ComparisonOperator,
+            string comparisonOperator,
 
-            Outputs.WebACLFieldToMatch FieldToMatch,
+            Outputs.WebACLFieldToMatch fieldToMatch,
 
-            int Size,
+            int size,
 
-            ImmutableArray<Outputs.WebACLTextTransformation> TextTransformations)
+            ImmutableArray<Outputs.WebACLTextTransformation> textTransformations)
         {
-            this.ComparisonOperator = ComparisonOperator;
-            this.FieldToMatch = FieldToMatch;
-            this.Size = Size;
-            this.TextTransformations = TextTransformations;
+            ComparisonOperator = comparisonOperator;
+            FieldToMatch = fieldToMatch;
+            Size = size;
+            TextTransformations = textTransformations;
         }
     }
 }

@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-configuri
         /// </summary>
-        [Input("ConfigUri", required: true)]
+        [Input("configUri", required: true)]
         public Input<string> ConfigUri { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
         /// </summary>
-        [Input("Environment")]
+        [Input("environment")]
         public Input<Inputs.ModelBiasJobDefinitionEnvironmentArgs>? Environment { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
         /// </summary>
-        [Input("ImageUri", required: true)]
+        [Input("imageUri", required: true)]
         public Input<string> ImageUri { get; set; } = null!;
 
         public ModelBiasJobDefinitionModelBiasAppSpecificationArgs()

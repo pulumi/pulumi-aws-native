@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.MWAA.Outputs
 
         [OutputConstructor]
         private EnvironmentModuleLoggingConfiguration(
-            string? CloudWatchLogGroupArn,
+            string? cloudWatchLogGroupArn,
 
-            bool? Enabled,
+            bool? enabled,
 
-            string? LogLevel)
+            string? logLevel)
         {
-            this.CloudWatchLogGroupArn = CloudWatchLogGroupArn;
-            this.Enabled = Enabled;
-            this.LogLevel = LogLevel;
+            CloudWatchLogGroupArn = cloudWatchLogGroupArn;
+            Enabled = enabled;
+            LogLevel = logLevel;
         }
     }
 }

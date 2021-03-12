@@ -15,43 +15,43 @@ namespace Pulumi.AwsNative.IVS
     [AwsNativeResourceType("aws-native:IVS:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
         /// </summary>
-        [Output("Authorized")]
+        [Output("authorized")]
         public Output<bool?> Authorized { get; private set; } = null!;
 
-        [Output("IngestEndpoint")]
+        [Output("ingestEndpoint")]
         public Output<string> IngestEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
         /// </summary>
-        [Output("LatencyMode")]
+        [Output("latencyMode")]
         public Output<string?> LatencyMode { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("PlaybackUrl")]
+        [Output("playbackUrl")]
         public Output<string> PlaybackUrl { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
         /// </summary>
-        [Output("Type")]
+        [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
 
@@ -102,37 +102,37 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
         /// </summary>
-        [Input("Authorized")]
+        [Input("authorized")]
         public Input<bool>? Authorized { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
         /// </summary>
-        [Input("LatencyMode")]
+        [Input("latencyMode")]
         public Input<string>? LatencyMode { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
         /// </summary>
-        [Input("Name")]
+        [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
         /// </summary>
-        [Input("Type")]
+        [Input("type")]
         public Input<string>? Type { get; set; }
 
         public ChannelArgs()

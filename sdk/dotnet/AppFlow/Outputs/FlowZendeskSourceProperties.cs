@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string Object;
 
         [OutputConstructor]
-        private FlowZendeskSourceProperties(string Object)
+        private FlowZendeskSourceProperties(string @object)
         {
-            this.Object = Object;
+            Object = @object;
         }
     }
 }

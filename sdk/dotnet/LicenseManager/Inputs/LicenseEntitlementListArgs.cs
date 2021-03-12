@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
     /// </summary>
     public sealed class LicenseEntitlementListArgs : Pulumi.ResourceArgs
     {
-        [Input("EntitlementList")]
-        private InputList<Inputs.LicenseEntitlementArgs>? _EntitlementList;
+        [Input("entitlementList")]
+        private InputList<Inputs.LicenseEntitlementArgs>? _entitlementList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlementlist.html#cfn-licensemanager-license-entitlementlist-entitlementlist
         /// </summary>
         public InputList<Inputs.LicenseEntitlementArgs> EntitlementList
         {
-            get => _EntitlementList ?? (_EntitlementList = new InputList<Inputs.LicenseEntitlementArgs>());
-            set => _EntitlementList = value;
+            get => _entitlementList ?? (_entitlementList = new InputList<Inputs.LicenseEntitlementArgs>());
+            set => _entitlementList = value;
         }
 
         public LicenseEntitlementListArgs()

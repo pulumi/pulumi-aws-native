@@ -18,73 +18,73 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-admarkers
         /// </summary>
-        [Input("AdMarkers")]
+        [Input("adMarkers")]
         public Input<string>? AdMarkers { get; set; }
 
-        [Input("AdTriggers")]
-        private InputList<string>? _AdTriggers;
+        [Input("adTriggers")]
+        private InputList<string>? _adTriggers;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adtriggers
         /// </summary>
         public InputList<string> AdTriggers
         {
-            get => _AdTriggers ?? (_AdTriggers = new InputList<string>());
-            set => _AdTriggers = value;
+            get => _adTriggers ?? (_adTriggers = new InputList<string>());
+            set => _adTriggers = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adsondeliveryrestrictions
         /// </summary>
-        [Input("AdsOnDeliveryRestrictions")]
+        [Input("adsOnDeliveryRestrictions")]
         public Input<string>? AdsOnDeliveryRestrictions { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-encryption
         /// </summary>
-        [Input("Encryption")]
+        [Input("encryption")]
         public Input<Inputs.OriginEndpointHlsEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-includeiframeonlystream
         /// </summary>
-        [Input("IncludeIframeOnlyStream")]
+        [Input("includeIframeOnlyStream")]
         public Input<bool>? IncludeIframeOnlyStream { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlisttype
         /// </summary>
-        [Input("PlaylistType")]
+        [Input("playlistType")]
         public Input<string>? PlaylistType { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlistwindowseconds
         /// </summary>
-        [Input("PlaylistWindowSeconds")]
+        [Input("playlistWindowSeconds")]
         public Input<int>? PlaylistWindowSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-programdatetimeintervalseconds
         /// </summary>
-        [Input("ProgramDateTimeIntervalSeconds")]
+        [Input("programDateTimeIntervalSeconds")]
         public Input<int>? ProgramDateTimeIntervalSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-segmentdurationseconds
         /// </summary>
-        [Input("SegmentDurationSeconds")]
+        [Input("segmentDurationSeconds")]
         public Input<int>? SegmentDurationSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-streamselection
         /// </summary>
-        [Input("StreamSelection")]
+        [Input("streamSelection")]
         public Input<Inputs.OriginEndpointStreamSelectionArgs>? StreamSelection { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-useaudiorenditiongroup
         /// </summary>
-        [Input("UseAudioRenditionGroup")]
+        [Input("useAudioRenditionGroup")]
         public Input<bool>? UseAudioRenditionGroup { get; set; }
 
         public OriginEndpointHlsPackageArgs()

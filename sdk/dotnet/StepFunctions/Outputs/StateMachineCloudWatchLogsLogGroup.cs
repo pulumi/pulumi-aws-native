@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
         public readonly string? LogGroupArn;
 
         [OutputConstructor]
-        private StateMachineCloudWatchLogsLogGroup(string? LogGroupArn)
+        private StateMachineCloudWatchLogsLogGroup(string? logGroupArn)
         {
-            this.LogGroupArn = LogGroupArn;
+            LogGroupArn = logGroupArn;
         }
     }
 }

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationComponentConfiguration(
-            Outputs.ApplicationConfigurationDetails? ConfigurationDetails,
+            Outputs.ApplicationConfigurationDetails? configurationDetails,
 
-            ImmutableArray<Outputs.ApplicationSubComponentTypeConfiguration> SubComponentTypeConfigurations)
+            ImmutableArray<Outputs.ApplicationSubComponentTypeConfiguration> subComponentTypeConfigurations)
         {
-            this.ConfigurationDetails = ConfigurationDetails;
-            this.SubComponentTypeConfigurations = SubComponentTypeConfigurations;
+            ConfigurationDetails = configurationDetails;
+            SubComponentTypeConfigurations = subComponentTypeConfigurations;
         }
     }
 }

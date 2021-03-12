@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-actiondefinition.html#cfn-networkfirewall-rulegroup-actiondefinition-publishmetricaction
         /// </summary>
-        [Input("PublishMetricAction")]
+        [Input("publishMetricAction")]
         public Input<Inputs.RuleGroupPublishMetricActionArgs>? PublishMetricAction { get; set; }
 
         public RuleGroupActionDefinitionArgs()

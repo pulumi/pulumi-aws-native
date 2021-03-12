@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
 
         [OutputConstructor]
         private DataflowEndpointGroupSecurityDetails(
-            string? RoleArn,
+            string? roleArn,
 
-            ImmutableArray<string> SecurityGroupIds,
+            ImmutableArray<string> securityGroupIds,
 
-            ImmutableArray<string> SubnetIds)
+            ImmutableArray<string> subnetIds)
         {
-            this.RoleArn = RoleArn;
-            this.SecurityGroupIds = SecurityGroupIds;
-            this.SubnetIds = SubnetIds;
+            RoleArn = roleArn;
+            SecurityGroupIds = securityGroupIds;
+            SubnetIds = subnetIds;
         }
     }
 }

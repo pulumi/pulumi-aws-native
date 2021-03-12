@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html#cfn-appflow-connectorprofile-slackconnectorprofileproperties-instanceurl
         /// </summary>
-        [Input("InstanceUrl", required: true)]
+        [Input("instanceUrl", required: true)]
         public Input<string> InstanceUrl { get; set; } = null!;
 
         public ConnectorProfileSlackConnectorProfilePropertiesArgs()

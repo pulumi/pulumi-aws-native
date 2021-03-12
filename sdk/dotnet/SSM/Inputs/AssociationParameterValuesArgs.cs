@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.SSM.Inputs
     /// </summary>
     public sealed class AssociationParameterValuesArgs : Pulumi.ResourceArgs
     {
-        [Input("ParameterValues")]
-        private InputList<string>? _ParameterValues;
+        [Input("parameterValues")]
+        private InputList<string>? _parameterValues;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
         /// </summary>
         public InputList<string> ParameterValues
         {
-            get => _ParameterValues ?? (_ParameterValues = new InputList<string>());
-            set => _ParameterValues = value;
+            get => _parameterValues ?? (_parameterValues = new InputList<string>());
+            set => _parameterValues = value;
         }
 
         public AssociationParameterValuesArgs()

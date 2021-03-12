@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ECS.Outputs
         public readonly string? CredentialsParameter;
 
         [OutputConstructor]
-        private TaskDefinitionRepositoryCredentials(string? CredentialsParameter)
+        private TaskDefinitionRepositoryCredentials(string? credentialsParameter)
         {
-            this.CredentialsParameter = CredentialsParameter;
+            CredentialsParameter = credentialsParameter;
         }
     }
 }

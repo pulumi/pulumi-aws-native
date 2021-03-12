@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-assignpublicip
         /// </summary>
-        [Input("AssignPublicIp")]
+        [Input("assignPublicIp")]
         public Input<string>? AssignPublicIp { get; set; }
 
-        [Input("SecurityGroups")]
-        private InputList<string>? _SecurityGroups;
+        [Input("securityGroups")]
+        private InputList<string>? _securityGroups;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-securitygroups
         /// </summary>
         public InputList<string> SecurityGroups
         {
-            get => _SecurityGroups ?? (_SecurityGroups = new InputList<string>());
-            set => _SecurityGroups = value;
+            get => _securityGroups ?? (_securityGroups = new InputList<string>());
+            set => _securityGroups = value;
         }
 
-        [Input("Subnets", required: true)]
-        private InputList<string>? _Subnets;
+        [Input("subnets", required: true)]
+        private InputList<string>? _subnets;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-subnets
         /// </summary>
         public InputList<string> Subnets
         {
-            get => _Subnets ?? (_Subnets = new InputList<string>());
-            set => _Subnets = value;
+            get => _subnets ?? (_subnets = new InputList<string>());
+            set => _subnets = value;
         }
 
         public TaskSetAwsVpcConfigurationArgs()

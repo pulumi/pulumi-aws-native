@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containername
         /// </summary>
-        [Input("ContainerName")]
+        [Input("containerName")]
         public Input<string>? ContainerName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containerport
         /// </summary>
-        [Input("ContainerPort")]
+        [Input("containerPort")]
         public Input<int>? ContainerPort { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-loadbalancername
         /// </summary>
-        [Input("LoadBalancerName")]
+        [Input("loadBalancerName")]
         public Input<string>? LoadBalancerName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-targetgrouparn
         /// </summary>
-        [Input("TargetGroupArn")]
+        [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }
 
         public ServiceLoadBalancerArgs()

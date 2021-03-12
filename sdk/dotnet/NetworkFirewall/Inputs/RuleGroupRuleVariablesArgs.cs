@@ -15,28 +15,28 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class RuleGroupRuleVariablesArgs : Pulumi.ResourceArgs
     {
-        [Input("IPSets")]
-        private InputMap<Inputs.RuleGroupIPSetArgs>? _IPSets;
+        [Input("iPSets")]
+        private InputMap<Inputs.RuleGroupIPSetArgs>? _iPSets;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html#cfn-networkfirewall-rulegroup-rulevariables-ipsets
         /// </summary>
         public InputMap<Inputs.RuleGroupIPSetArgs> IPSets
         {
-            get => _IPSets ?? (_IPSets = new InputMap<Inputs.RuleGroupIPSetArgs>());
-            set => _IPSets = value;
+            get => _iPSets ?? (_iPSets = new InputMap<Inputs.RuleGroupIPSetArgs>());
+            set => _iPSets = value;
         }
 
-        [Input("PortSets")]
-        private InputMap<Inputs.RuleGroupPortSetArgs>? _PortSets;
+        [Input("portSets")]
+        private InputMap<Inputs.RuleGroupPortSetArgs>? _portSets;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html#cfn-networkfirewall-rulegroup-rulevariables-portsets
         /// </summary>
         public InputMap<Inputs.RuleGroupPortSetArgs> PortSets
         {
-            get => _PortSets ?? (_PortSets = new InputMap<Inputs.RuleGroupPortSetArgs>());
-            set => _PortSets = value;
+            get => _portSets ?? (_portSets = new InputMap<Inputs.RuleGroupPortSetArgs>());
+            set => _portSets = value;
         }
 
         public RuleGroupRuleVariablesArgs()

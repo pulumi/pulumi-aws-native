@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class RuleGroupProtocolNumbersArgs : Pulumi.ResourceArgs
     {
-        [Input("ProtocolNumbers")]
-        private InputList<int>? _ProtocolNumbers;
+        [Input("protocolNumbers")]
+        private InputList<int>? _protocolNumbers;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-protocolnumbers.html#cfn-networkfirewall-rulegroup-protocolnumbers-protocolnumbers
         /// </summary>
         public InputList<int> ProtocolNumbers
         {
-            get => _ProtocolNumbers ?? (_ProtocolNumbers = new InputList<int>());
-            set => _ProtocolNumbers = value;
+            get => _protocolNumbers ?? (_protocolNumbers = new InputList<int>());
+            set => _protocolNumbers = value;
         }
 
         public RuleGroupProtocolNumbersArgs()

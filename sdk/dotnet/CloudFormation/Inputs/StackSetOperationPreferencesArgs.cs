@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
         /// </summary>
-        [Input("FailureToleranceCount")]
+        [Input("failureToleranceCount")]
         public Input<int>? FailureToleranceCount { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
         /// </summary>
-        [Input("FailureTolerancePercentage")]
+        [Input("failureTolerancePercentage")]
         public Input<int>? FailureTolerancePercentage { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
         /// </summary>
-        [Input("MaxConcurrentCount")]
+        [Input("maxConcurrentCount")]
         public Input<int>? MaxConcurrentCount { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
         /// </summary>
-        [Input("MaxConcurrentPercentage")]
+        [Input("maxConcurrentPercentage")]
         public Input<int>? MaxConcurrentPercentage { get; set; }
 
-        [Input("RegionOrder")]
-        private InputList<string>? _RegionOrder;
+        [Input("regionOrder")]
+        private InputList<string>? _regionOrder;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
         /// </summary>
         public InputList<string> RegionOrder
         {
-            get => _RegionOrder ?? (_RegionOrder = new InputList<string>());
-            set => _RegionOrder = value;
+            get => _regionOrder ?? (_regionOrder = new InputList<string>());
+            set => _regionOrder = value;
         }
 
         public StackSetOperationPreferencesArgs()

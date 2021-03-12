@@ -15,52 +15,52 @@ namespace Pulumi.AwsNative.CodeArtifact
     [AwsNativeResourceType("aws-native:CodeArtifact:Repository")]
     public partial class Repository : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("DomainName")]
+        [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        [Output("DomainOwner")]
+        [Output("domainOwner")]
         public Output<string> DomainOwner { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
         /// </summary>
-        [Output("ExternalConnections")]
+        [Output("externalConnections")]
         public Output<ImmutableArray<string>> ExternalConnections { get; private set; } = null!;
 
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
         /// </summary>
-        [Output("PermissionsPolicyDocument")]
+        [Output("permissionsPolicyDocument")]
         public Output<Union<System.Text.Json.JsonElement, string>?> PermissionsPolicyDocument { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
         /// </summary>
-        [Output("RepositoryName")]
+        [Output("repositoryName")]
         public Output<string> RepositoryName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
         /// </summary>
-        [Output("Upstreams")]
+        [Output("upstreams")]
         public Output<ImmutableArray<string>> Upstreams { get; private set; } = null!;
 
 
@@ -111,67 +111,67 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainname
         /// </summary>
-        [Input("DomainName", required: true)]
+        [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainowner
         /// </summary>
-        [Input("DomainOwner")]
+        [Input("domainOwner")]
         public Input<string>? DomainOwner { get; set; }
 
-        [Input("ExternalConnections")]
-        private InputList<string>? _ExternalConnections;
+        [Input("externalConnections")]
+        private InputList<string>? _externalConnections;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
         /// </summary>
         public InputList<string> ExternalConnections
         {
-            get => _ExternalConnections ?? (_ExternalConnections = new InputList<string>());
-            set => _ExternalConnections = value;
+            get => _externalConnections ?? (_externalConnections = new InputList<string>());
+            set => _externalConnections = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
         /// </summary>
-        [Input("PermissionsPolicyDocument")]
+        [Input("permissionsPolicyDocument")]
         public InputUnion<System.Text.Json.JsonElement, string>? PermissionsPolicyDocument { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
         /// </summary>
-        [Input("RepositoryName", required: true)]
+        [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
-        [Input("Upstreams")]
-        private InputList<string>? _Upstreams;
+        [Input("upstreams")]
+        private InputList<string>? _upstreams;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
         /// </summary>
         public InputList<string> Upstreams
         {
-            get => _Upstreams ?? (_Upstreams = new InputList<string>());
-            set => _Upstreams = value;
+            get => _upstreams ?? (_upstreams = new InputList<string>());
+            set => _upstreams = value;
         }
 
         public RepositoryArgs()

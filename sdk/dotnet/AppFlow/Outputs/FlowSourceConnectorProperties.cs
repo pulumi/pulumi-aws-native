@@ -72,48 +72,48 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowSourceConnectorProperties(
-            Outputs.FlowAmplitudeSourceProperties? Amplitude,
+            Outputs.FlowAmplitudeSourceProperties? amplitude,
 
-            Outputs.FlowDatadogSourceProperties? Datadog,
+            Outputs.FlowDatadogSourceProperties? datadog,
 
-            Outputs.FlowDynatraceSourceProperties? Dynatrace,
+            Outputs.FlowDynatraceSourceProperties? dynatrace,
 
-            Outputs.FlowGoogleAnalyticsSourceProperties? GoogleAnalytics,
+            Outputs.FlowGoogleAnalyticsSourceProperties? googleAnalytics,
 
-            Outputs.FlowInforNexusSourceProperties? InforNexus,
+            Outputs.FlowInforNexusSourceProperties? inforNexus,
 
-            Outputs.FlowMarketoSourceProperties? Marketo,
+            Outputs.FlowMarketoSourceProperties? marketo,
 
-            Outputs.FlowS3SourceProperties? S3,
+            Outputs.FlowS3SourceProperties? s3,
 
-            Outputs.FlowSalesforceSourceProperties? Salesforce,
+            Outputs.FlowSalesforceSourceProperties? salesforce,
 
-            Outputs.FlowServiceNowSourceProperties? ServiceNow,
+            Outputs.FlowServiceNowSourceProperties? serviceNow,
 
-            Outputs.FlowSingularSourceProperties? Singular,
+            Outputs.FlowSingularSourceProperties? singular,
 
-            Outputs.FlowSlackSourceProperties? Slack,
+            Outputs.FlowSlackSourceProperties? slack,
 
-            Outputs.FlowTrendmicroSourceProperties? Trendmicro,
+            Outputs.FlowTrendmicroSourceProperties? trendmicro,
 
-            Outputs.FlowVeevaSourceProperties? Veeva,
+            Outputs.FlowVeevaSourceProperties? veeva,
 
-            Outputs.FlowZendeskSourceProperties? Zendesk)
+            Outputs.FlowZendeskSourceProperties? zendesk)
         {
-            this.Amplitude = Amplitude;
-            this.Datadog = Datadog;
-            this.Dynatrace = Dynatrace;
-            this.GoogleAnalytics = GoogleAnalytics;
-            this.InforNexus = InforNexus;
-            this.Marketo = Marketo;
-            this.S3 = S3;
-            this.Salesforce = Salesforce;
-            this.ServiceNow = ServiceNow;
-            this.Singular = Singular;
-            this.Slack = Slack;
-            this.Trendmicro = Trendmicro;
-            this.Veeva = Veeva;
-            this.Zendesk = Zendesk;
+            Amplitude = amplitude;
+            Datadog = datadog;
+            Dynatrace = dynatrace;
+            GoogleAnalytics = googleAnalytics;
+            InforNexus = inforNexus;
+            Marketo = marketo;
+            S3 = s3;
+            Salesforce = salesforce;
+            ServiceNow = serviceNow;
+            Singular = singular;
+            Slack = slack;
+            Trendmicro = trendmicro;
+            Veeva = veeva;
+            Zendesk = zendesk;
         }
     }
 }

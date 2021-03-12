@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
         [OutputConstructor]
         private ImagePipelineSchedule(
-            string? PipelineExecutionStartCondition,
+            string? pipelineExecutionStartCondition,
 
-            string? ScheduleExpression)
+            string? scheduleExpression)
         {
-            this.PipelineExecutionStartCondition = PipelineExecutionStartCondition;
-            this.ScheduleExpression = ScheduleExpression;
+            PipelineExecutionStartCondition = pipelineExecutionStartCondition;
+            ScheduleExpression = scheduleExpression;
         }
     }
 }

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ModelQualityJobDefinitionModelQualityJobInput(
-            Outputs.ModelQualityJobDefinitionEndpointInput EndpointInput,
+            Outputs.ModelQualityJobDefinitionEndpointInput endpointInput,
 
-            Outputs.ModelQualityJobDefinitionMonitoringGroundTruthS3Input GroundTruthS3Input)
+            Outputs.ModelQualityJobDefinitionMonitoringGroundTruthS3Input groundTruthS3Input)
         {
-            this.EndpointInput = EndpointInput;
-            this.GroundTruthS3Input = GroundTruthS3Input;
+            EndpointInput = endpointInput;
+            GroundTruthS3Input = groundTruthS3Input;
         }
     }
 }

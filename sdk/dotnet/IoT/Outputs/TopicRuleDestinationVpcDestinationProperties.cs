@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleDestinationVpcDestinationProperties(
-            string? RoleArn,
+            string? roleArn,
 
-            ImmutableArray<string> SecurityGroups,
+            ImmutableArray<string> securityGroups,
 
-            ImmutableArray<string> SubnetIds,
+            ImmutableArray<string> subnetIds,
 
-            string? VpcId)
+            string? vpcId)
         {
-            this.RoleArn = RoleArn;
-            this.SecurityGroups = SecurityGroups;
-            this.SubnetIds = SubnetIds;
-            this.VpcId = VpcId;
+            RoleArn = roleArn;
+            SecurityGroups = securityGroups;
+            SubnetIds = subnetIds;
+            VpcId = vpcId;
         }
     }
 }

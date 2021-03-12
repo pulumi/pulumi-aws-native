@@ -15,25 +15,25 @@ namespace Pulumi.AwsNative.GroundStation
     [AwsNativeResourceType("aws-native:GroundStation:DataflowEndpointGroup")]
     public partial class DataflowEndpointGroup : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
         /// </summary>
-        [Output("EndpointDetails")]
+        [Output("endpointDetails")]
         public Output<ImmutableArray<Outputs.DataflowEndpointGroupEndpointDetails>> EndpointDetails { get; private set; } = null!;
 
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
-        [Output("Status")]
+        [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -81,28 +81,28 @@ namespace Pulumi.AwsNative.GroundStation
 
     public sealed class DataflowEndpointGroupArgs : Pulumi.ResourceArgs
     {
-        [Input("EndpointDetails", required: true)]
-        private InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs>? _EndpointDetails;
+        [Input("endpointDetails", required: true)]
+        private InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs>? _endpointDetails;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
         /// </summary>
         public InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs> EndpointDetails
         {
-            get => _EndpointDetails ?? (_EndpointDetails = new InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs>());
-            set => _EndpointDetails = value;
+            get => _endpointDetails ?? (_endpointDetails = new InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs>());
+            set => _endpointDetails = value;
         }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public DataflowEndpointGroupArgs()

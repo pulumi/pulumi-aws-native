@@ -15,31 +15,31 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:CloudFront:RealtimeLogConfig")]
     public partial class RealtimeLogConfig : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
         /// </summary>
-        [Output("EndPoints")]
+        [Output("endPoints")]
         public Output<ImmutableArray<Outputs.RealtimeLogConfigEndPoint>> EndPoints { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
         /// </summary>
-        [Output("Fields")]
+        [Output("fields")]
         public Output<ImmutableArray<string>> Fields { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
         /// </summary>
-        [Output("SamplingRate")]
+        [Output("samplingRate")]
         public Output<double> SamplingRate { get; private set; } = null!;
 
 
@@ -87,40 +87,40 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class RealtimeLogConfigArgs : Pulumi.ResourceArgs
     {
-        [Input("EndPoints", required: true)]
-        private InputList<Inputs.RealtimeLogConfigEndPointArgs>? _EndPoints;
+        [Input("endPoints", required: true)]
+        private InputList<Inputs.RealtimeLogConfigEndPointArgs>? _endPoints;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
         /// </summary>
         public InputList<Inputs.RealtimeLogConfigEndPointArgs> EndPoints
         {
-            get => _EndPoints ?? (_EndPoints = new InputList<Inputs.RealtimeLogConfigEndPointArgs>());
-            set => _EndPoints = value;
+            get => _endPoints ?? (_endPoints = new InputList<Inputs.RealtimeLogConfigEndPointArgs>());
+            set => _endPoints = value;
         }
 
-        [Input("Fields", required: true)]
-        private InputList<string>? _Fields;
+        [Input("fields", required: true)]
+        private InputList<string>? _fields;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
         /// </summary>
         public InputList<string> Fields
         {
-            get => _Fields ?? (_Fields = new InputList<string>());
-            set => _Fields = value;
+            get => _fields ?? (_fields = new InputList<string>());
+            set => _fields = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
         /// </summary>
-        [Input("SamplingRate", required: true)]
+        [Input("samplingRate", required: true)]
         public Input<double> SamplingRate { get; set; } = null!;
 
         public RealtimeLogConfigArgs()

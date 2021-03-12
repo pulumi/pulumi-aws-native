@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-address
         /// </summary>
-        [Input("Address")]
+        [Input("address")]
         public Input<Inputs.DataflowEndpointGroupSocketAddressArgs>? Address { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-mtu
         /// </summary>
-        [Input("Mtu")]
+        [Input("mtu")]
         public Input<int>? Mtu { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
         /// </summary>
-        [Input("Name")]
+        [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
         /// </summary>
-        [Input("Status")]
+        [Input("status")]
         public Input<string>? Status { get; set; }
 
         public DataflowEndpointGroupDataflowEndpointArgs()

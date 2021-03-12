@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
         /// </summary>
-        [Input("S3Output", required: true)]
+        [Input("s3Output", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionS3OutputArgs> S3Output { get; set; } = null!;
 
         public ModelBiasJobDefinitionMonitoringOutputArgs()

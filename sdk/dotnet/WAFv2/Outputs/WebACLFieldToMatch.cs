@@ -44,27 +44,27 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLFieldToMatch(
-            Union<System.Text.Json.JsonElement, string>? AllQueryArguments,
+            Union<System.Text.Json.JsonElement, string>? allQueryArguments,
 
-            Union<System.Text.Json.JsonElement, string>? Body,
+            Union<System.Text.Json.JsonElement, string>? body,
 
-            Union<System.Text.Json.JsonElement, string>? Method,
+            Union<System.Text.Json.JsonElement, string>? method,
 
-            Union<System.Text.Json.JsonElement, string>? QueryString,
+            Union<System.Text.Json.JsonElement, string>? queryString,
 
-            Union<System.Text.Json.JsonElement, string>? SingleHeader,
+            Union<System.Text.Json.JsonElement, string>? singleHeader,
 
-            Union<System.Text.Json.JsonElement, string>? SingleQueryArgument,
+            Union<System.Text.Json.JsonElement, string>? singleQueryArgument,
 
-            Union<System.Text.Json.JsonElement, string>? UriPath)
+            Union<System.Text.Json.JsonElement, string>? uriPath)
         {
-            this.AllQueryArguments = AllQueryArguments;
-            this.Body = Body;
-            this.Method = Method;
-            this.QueryString = QueryString;
-            this.SingleHeader = SingleHeader;
-            this.SingleQueryArgument = SingleQueryArgument;
-            this.UriPath = UriPath;
+            AllQueryArguments = allQueryArguments;
+            Body = body;
+            Method = method;
+            QueryString = queryString;
+            SingleHeader = singleHeader;
+            SingleQueryArgument = singleQueryArgument;
+            UriPath = uriPath;
         }
     }
 }

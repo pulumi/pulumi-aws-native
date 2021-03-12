@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
         public readonly string? ConfirmationUrl;
 
         [OutputConstructor]
-        private TopicRuleDestinationHttpUrlDestinationSummary(string? ConfirmationUrl)
+        private TopicRuleDestinationHttpUrlDestinationSummary(string? confirmationUrl)
         {
-            this.ConfirmationUrl = ConfirmationUrl;
+            ConfirmationUrl = confirmationUrl;
         }
     }
 }

@@ -60,39 +60,39 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
         [OutputConstructor]
         private NetworkInsightsAnalysisPathComponent(
-            Outputs.NetworkInsightsAnalysisAnalysisAclRule? AclRule,
+            Outputs.NetworkInsightsAnalysisAnalysisAclRule? aclRule,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? Component,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? component,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? DestinationVpc,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? destinationVpc,
 
-            Outputs.NetworkInsightsAnalysisAnalysisPacketHeader? InboundHeader,
+            Outputs.NetworkInsightsAnalysisAnalysisPacketHeader? inboundHeader,
 
-            Outputs.NetworkInsightsAnalysisAnalysisPacketHeader? OutboundHeader,
+            Outputs.NetworkInsightsAnalysisAnalysisPacketHeader? outboundHeader,
 
-            Outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute? RouteTableRoute,
+            Outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute? routeTableRoute,
 
-            Outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule? SecurityGroupRule,
+            Outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule? securityGroupRule,
 
-            int? SequenceNumber,
+            int? sequenceNumber,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? SourceVpc,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? sourceVpc,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? Subnet,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? subnet,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? Vpc)
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? vpc)
         {
-            this.AclRule = AclRule;
-            this.Component = Component;
-            this.DestinationVpc = DestinationVpc;
-            this.InboundHeader = InboundHeader;
-            this.OutboundHeader = OutboundHeader;
-            this.RouteTableRoute = RouteTableRoute;
-            this.SecurityGroupRule = SecurityGroupRule;
-            this.SequenceNumber = SequenceNumber;
-            this.SourceVpc = SourceVpc;
-            this.Subnet = Subnet;
-            this.Vpc = Vpc;
+            AclRule = aclRule;
+            Component = component;
+            DestinationVpc = destinationVpc;
+            InboundHeader = inboundHeader;
+            OutboundHeader = outboundHeader;
+            RouteTableRoute = routeTableRoute;
+            SecurityGroupRule = securityGroupRule;
+            SequenceNumber = sequenceNumber;
+            SourceVpc = sourceVpc;
+            Subnet = subnet;
+            Vpc = vpc;
         }
     }
 }

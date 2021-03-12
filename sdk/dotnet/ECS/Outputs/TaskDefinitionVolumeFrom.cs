@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionVolumeFrom(
-            bool? ReadOnly,
+            bool? readOnly,
 
-            string? SourceContainer)
+            string? sourceContainer)
         {
-            this.ReadOnly = ReadOnly;
-            this.SourceContainer = SourceContainer;
+            ReadOnly = readOnly;
+            SourceContainer = sourceContainer;
         }
     }
 }

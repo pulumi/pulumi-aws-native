@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration
         /// </summary>
-        [Input("DockerVolumeConfiguration")]
+        [Input("dockerVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionDockerVolumeConfigurationArgs>? DockerVolumeConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
         /// </summary>
-        [Input("EFSVolumeConfiguration")]
+        [Input("eFSVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionEFSVolumeConfigurationArgs>? EFSVolumeConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-host
         /// </summary>
-        [Input("Host")]
+        [Input("host")]
         public Input<Inputs.TaskDefinitionHostVolumePropertiesArgs>? Host { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-name
         /// </summary>
-        [Input("Name")]
+        [Input("name")]
         public Input<string>? Name { get; set; }
 
         public TaskDefinitionVolumeArgs()

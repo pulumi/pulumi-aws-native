@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly Outputs.DataSourceConfluencePageFieldMappingsList? PageFieldMappings;
 
         [OutputConstructor]
-        private DataSourceConfluencePageConfiguration(Outputs.DataSourceConfluencePageFieldMappingsList? PageFieldMappings)
+        private DataSourceConfluencePageConfiguration(Outputs.DataSourceConfluencePageFieldMappingsList? pageFieldMappings)
         {
-            this.PageFieldMappings = PageFieldMappings;
+            PageFieldMappings = pageFieldMappings;
         }
     }
 }

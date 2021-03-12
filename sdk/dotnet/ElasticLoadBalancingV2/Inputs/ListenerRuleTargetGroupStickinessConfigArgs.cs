@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig-durationseconds
         /// </summary>
-        [Input("DurationSeconds")]
+        [Input("durationSeconds")]
         public Input<int>? DurationSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig-enabled
         /// </summary>
-        [Input("Enabled")]
+        [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         public ListenerRuleTargetGroupStickinessConfigArgs()

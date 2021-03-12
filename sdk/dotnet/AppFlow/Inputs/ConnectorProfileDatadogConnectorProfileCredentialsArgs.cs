@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-apikey
         /// </summary>
-        [Input("ApiKey", required: true)]
+        [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-applicationkey
         /// </summary>
-        [Input("ApplicationKey", required: true)]
+        [Input("applicationKey", required: true)]
         public Input<string> ApplicationKey { get; set; } = null!;
 
         public ConnectorProfileDatadogConnectorProfileCredentialsArgs()

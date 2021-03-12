@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-endpoint
         /// </summary>
-        [Input("Endpoint")]
+        [Input("endpoint")]
         public Input<Inputs.DataflowEndpointGroupDataflowEndpointArgs>? Endpoint { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-securitydetails
         /// </summary>
-        [Input("SecurityDetails")]
+        [Input("securityDetails")]
         public Input<Inputs.DataflowEndpointGroupSecurityDetailsArgs>? SecurityDetails { get; set; }
 
         public DataflowEndpointGroupEndpointDetailsArgs()

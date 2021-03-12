@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamProcessingConfiguration(
-            bool? Enabled,
+            bool? enabled,
 
-            ImmutableArray<Outputs.DeliveryStreamProcessor> Processors)
+            ImmutableArray<Outputs.DeliveryStreamProcessor> processors)
         {
-            this.Enabled = Enabled;
-            this.Processors = Processors;
+            Enabled = enabled;
+            Processors = processors;
         }
     }
 }

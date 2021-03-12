@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowDestinationConnectorProperties(
-            Outputs.FlowEventBridgeDestinationProperties? EventBridge,
+            Outputs.FlowEventBridgeDestinationProperties? eventBridge,
 
-            Outputs.FlowRedshiftDestinationProperties? Redshift,
+            Outputs.FlowRedshiftDestinationProperties? redshift,
 
-            Outputs.FlowS3DestinationProperties? S3,
+            Outputs.FlowS3DestinationProperties? s3,
 
-            Outputs.FlowSalesforceDestinationProperties? Salesforce,
+            Outputs.FlowSalesforceDestinationProperties? salesforce,
 
-            Outputs.FlowSnowflakeDestinationProperties? Snowflake,
+            Outputs.FlowSnowflakeDestinationProperties? snowflake,
 
-            Outputs.FlowUpsolverDestinationProperties? Upsolver)
+            Outputs.FlowUpsolverDestinationProperties? upsolver)
         {
-            this.EventBridge = EventBridge;
-            this.Redshift = Redshift;
-            this.S3 = S3;
-            this.Salesforce = Salesforce;
-            this.Snowflake = Snowflake;
-            this.Upsolver = Upsolver;
+            EventBridge = eventBridge;
+            Redshift = redshift;
+            S3 = s3;
+            Salesforce = salesforce;
+            Snowflake = snowflake;
+            Upsolver = upsolver;
         }
     }
 }

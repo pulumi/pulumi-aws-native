@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametername
         /// </summary>
-        [Input("ParameterName", required: true)]
+        [Input("parameterName", required: true)]
         public Input<string> ParameterName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametervalue
         /// </summary>
-        [Input("ParameterValue", required: true)]
+        [Input("parameterValue", required: true)]
         public Input<string> ParameterValue { get; set; } = null!;
 
         public DeliveryStreamProcessorParameterArgs()

@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
     /// </summary>
     public sealed class DeliveryStreamHiveJsonSerDeArgs : Pulumi.ResourceArgs
     {
-        [Input("TimestampFormats")]
-        private InputList<string>? _TimestampFormats;
+        [Input("timestampFormats")]
+        private InputList<string>? _timestampFormats;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-hivejsonserde.html#cfn-kinesisfirehose-deliverystream-hivejsonserde-timestampformats
         /// </summary>
         public InputList<string> TimestampFormats
         {
-            get => _TimestampFormats ?? (_TimestampFormats = new InputList<string>());
-            set => _TimestampFormats = value;
+            get => _timestampFormats ?? (_timestampFormats = new InputList<string>());
+            set => _timestampFormats = value;
         }
 
         public DeliveryStreamHiveJsonSerDeArgs()

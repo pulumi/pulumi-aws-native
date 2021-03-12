@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SSM.Outputs
         public readonly ImmutableArray<string> ParameterValues;
 
         [OutputConstructor]
-        private AssociationParameterValues(ImmutableArray<string> ParameterValues)
+        private AssociationParameterValues(ImmutableArray<string> parameterValues)
         {
-            this.ParameterValues = ParameterValues;
+            ParameterValues = parameterValues;
         }
     }
 }

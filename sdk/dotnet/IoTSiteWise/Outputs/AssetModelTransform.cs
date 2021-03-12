@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
         [OutputConstructor]
         private AssetModelTransform(
-            string Expression,
+            string expression,
 
-            ImmutableArray<Outputs.AssetModelExpressionVariable> Variables)
+            ImmutableArray<Outputs.AssetModelExpressionVariable> variables)
         {
-            this.Expression = Expression;
-            this.Variables = Variables;
+            Expression = expression;
+            Variables = variables;
         }
     }
 }

@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-fallbackbehavior
         /// </summary>
-        [Input("FallbackBehavior", required: true)]
+        [Input("fallbackBehavior", required: true)]
         public Input<string> FallbackBehavior { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-headername
         /// </summary>
-        [Input("HeaderName", required: true)]
+        [Input("headerName", required: true)]
         public Input<string> HeaderName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-position
         /// </summary>
-        [Input("Position", required: true)]
+        [Input("position", required: true)]
         public Input<string> Position { get; set; } = null!;
 
         public RuleGroupIPSetForwardedIPConfigurationArgs()

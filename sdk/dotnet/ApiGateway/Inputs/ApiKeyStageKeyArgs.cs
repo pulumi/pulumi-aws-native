@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
         /// </summary>
-        [Input("RestApiId")]
+        [Input("restApiId")]
         public Input<string>? RestApiId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
         /// </summary>
-        [Input("StageName")]
+        [Input("stageName")]
         public Input<string>? StageName { get; set; }
 
         public ApiKeyStageKeyArgs()

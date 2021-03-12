@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private PackagingConfigurationHlsPackage(
-            Outputs.PackagingConfigurationHlsEncryption? Encryption,
+            Outputs.PackagingConfigurationHlsEncryption? encryption,
 
-            ImmutableArray<Outputs.PackagingConfigurationHlsManifest> HlsManifests,
+            ImmutableArray<Outputs.PackagingConfigurationHlsManifest> hlsManifests,
 
-            int? SegmentDurationSeconds,
+            int? segmentDurationSeconds,
 
-            bool? UseAudioRenditionGroup)
+            bool? useAudioRenditionGroup)
         {
-            this.Encryption = Encryption;
-            this.HlsManifests = HlsManifests;
-            this.SegmentDurationSeconds = SegmentDurationSeconds;
-            this.UseAudioRenditionGroup = UseAudioRenditionGroup;
+            Encryption = encryption;
+            HlsManifests = hlsManifests;
+            SegmentDurationSeconds = segmentDurationSeconds;
+            UseAudioRenditionGroup = useAudioRenditionGroup;
         }
     }
 }

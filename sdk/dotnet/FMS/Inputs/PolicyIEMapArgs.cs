@@ -15,28 +15,28 @@ namespace Pulumi.AwsNative.FMS.Inputs
     /// </summary>
     public sealed class PolicyIEMapArgs : Pulumi.ResourceArgs
     {
-        [Input("ACCOUNT")]
-        private InputList<string>? _ACCOUNT;
+        [Input("aCCOUNT")]
+        private InputList<string>? _aCCOUNT;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
         /// </summary>
         public InputList<string> ACCOUNT
         {
-            get => _ACCOUNT ?? (_ACCOUNT = new InputList<string>());
-            set => _ACCOUNT = value;
+            get => _aCCOUNT ?? (_aCCOUNT = new InputList<string>());
+            set => _aCCOUNT = value;
         }
 
-        [Input("ORGUNIT")]
-        private InputList<string>? _ORGUNIT;
+        [Input("oRGUNIT")]
+        private InputList<string>? _oRGUNIT;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
         /// </summary>
         public InputList<string> ORGUNIT
         {
-            get => _ORGUNIT ?? (_ORGUNIT = new InputList<string>());
-            set => _ORGUNIT = value;
+            get => _oRGUNIT ?? (_oRGUNIT = new InputList<string>());
+            set => _oRGUNIT = value;
         }
 
         public PolicyIEMapArgs()

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-packagingconfigurationid
         /// </summary>
-        [Input("PackagingConfigurationId", required: true)]
+        [Input("packagingConfigurationId", required: true)]
         public Input<string> PackagingConfigurationId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-url
         /// </summary>
-        [Input("Url", required: true)]
+        [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
         public AssetEgressEndpointArgs()

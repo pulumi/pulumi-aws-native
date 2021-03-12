@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
 
         [OutputConstructor]
         private CertificateAuthorityCrlConfiguration(
-            string? CustomCname,
+            string? customCname,
 
-            bool? Enabled,
+            bool? enabled,
 
-            int? ExpirationInDays,
+            int? expirationInDays,
 
-            string? S3BucketName)
+            string? s3BucketName)
         {
-            this.CustomCname = CustomCname;
-            this.Enabled = Enabled;
-            this.ExpirationInDays = ExpirationInDays;
-            this.S3BucketName = S3BucketName;
+            CustomCname = customCname;
+            Enabled = enabled;
+            ExpirationInDays = expirationInDays;
+            S3BucketName = s3BucketName;
         }
     }
 }

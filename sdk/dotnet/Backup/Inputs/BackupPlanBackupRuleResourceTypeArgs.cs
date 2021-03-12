@@ -18,55 +18,55 @@ namespace Pulumi.AwsNative.Backup.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-completionwindowminutes
         /// </summary>
-        [Input("CompletionWindowMinutes")]
+        [Input("completionWindowMinutes")]
         public Input<double>? CompletionWindowMinutes { get; set; }
 
-        [Input("CopyActions")]
-        private InputList<Inputs.BackupPlanCopyActionResourceTypeArgs>? _CopyActions;
+        [Input("copyActions")]
+        private InputList<Inputs.BackupPlanCopyActionResourceTypeArgs>? _copyActions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
         /// </summary>
         public InputList<Inputs.BackupPlanCopyActionResourceTypeArgs> CopyActions
         {
-            get => _CopyActions ?? (_CopyActions = new InputList<Inputs.BackupPlanCopyActionResourceTypeArgs>());
-            set => _CopyActions = value;
+            get => _copyActions ?? (_copyActions = new InputList<Inputs.BackupPlanCopyActionResourceTypeArgs>());
+            set => _copyActions = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
         /// </summary>
-        [Input("Lifecycle")]
+        [Input("lifecycle")]
         public Input<Inputs.BackupPlanLifecycleResourceTypeArgs>? Lifecycle { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
         /// </summary>
-        [Input("RecoveryPointTags")]
+        [Input("recoveryPointTags")]
         public InputUnion<System.Text.Json.JsonElement, string>? RecoveryPointTags { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename
         /// </summary>
-        [Input("RuleName", required: true)]
+        [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
         /// </summary>
-        [Input("ScheduleExpression")]
+        [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-startwindowminutes
         /// </summary>
-        [Input("StartWindowMinutes")]
+        [Input("startWindowMinutes")]
         public Input<double>? StartWindowMinutes { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault
         /// </summary>
-        [Input("TargetBackupVault", required: true)]
+        [Input("targetBackupVault", required: true)]
         public Input<string> TargetBackupVault { get; set; } = null!;
 
         public BackupPlanBackupRuleResourceTypeArgs()

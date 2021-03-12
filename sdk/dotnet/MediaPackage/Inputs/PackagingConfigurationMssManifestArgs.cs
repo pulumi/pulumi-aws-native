@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-manifestname
         /// </summary>
-        [Input("ManifestName")]
+        [Input("manifestName")]
         public Input<string>? ManifestName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-streamselection
         /// </summary>
-        [Input("StreamSelection")]
+        [Input("streamSelection")]
         public Input<Inputs.PackagingConfigurationStreamSelectionArgs>? StreamSelection { get; set; }
 
         public PackagingConfigurationMssManifestArgs()

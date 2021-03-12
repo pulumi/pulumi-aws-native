@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documentdatafieldname
         /// </summary>
-        [Input("DocumentDataFieldName", required: true)]
+        [Input("documentDataFieldName", required: true)]
         public Input<string> DocumentDataFieldName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documenttitlefieldname
         /// </summary>
-        [Input("DocumentTitleFieldName")]
+        [Input("documentTitleFieldName")]
         public Input<string>? DocumentTitleFieldName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings
         /// </summary>
-        [Input("FieldMappings")]
+        [Input("fieldMappings")]
         public Input<Inputs.DataSourceDataSourceToIndexFieldMappingListArgs>? FieldMappings { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-includefiltertypes
         /// </summary>
-        [Input("IncludeFilterTypes")]
+        [Input("includeFilterTypes")]
         public Input<Inputs.DataSourceSalesforceChatterFeedIncludeFilterTypesArgs>? IncludeFilterTypes { get; set; }
 
         public DataSourceSalesforceChatterFeedConfigurationArgs()

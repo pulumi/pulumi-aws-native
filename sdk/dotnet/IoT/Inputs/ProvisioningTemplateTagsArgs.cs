@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// </summary>
     public sealed class ProvisioningTemplateTagsArgs : Pulumi.ResourceArgs
     {
-        [Input("Tags")]
-        private InputList<object>? _Tags;
+        [Input("tags")]
+        private InputList<object>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html#cfn-iot-provisioningtemplate-tags-tags
         /// </summary>
         public InputList<object> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<object>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<object>());
+            set => _tags = value;
         }
 
         public ProvisioningTemplateTagsArgs()

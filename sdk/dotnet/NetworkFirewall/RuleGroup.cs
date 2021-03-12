@@ -18,43 +18,43 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
         /// </summary>
-        [Output("Capacity")]
+        [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
         /// </summary>
-        [Output("RuleGroup")]
+        [Output("ruleGroup")]
         public Output<Outputs.RuleGroupRuleGroup?> RuleGroupValue { get; private set; } = null!;
 
-        [Output("RuleGroupArn")]
+        [Output("ruleGroupArn")]
         public Output<string> RuleGroupArn { get; private set; } = null!;
 
-        [Output("RuleGroupId")]
+        [Output("ruleGroupId")]
         public Output<string> RuleGroupId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
         /// </summary>
-        [Output("RuleGroupName")]
+        [Output("ruleGroupName")]
         public Output<string> RuleGroupName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
         /// </summary>
-        [Output("Type")]
+        [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
 
@@ -105,43 +105,43 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
         /// </summary>
-        [Input("Capacity", required: true)]
+        [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
         /// </summary>
-        [Input("RuleGroup")]
+        [Input("ruleGroup")]
         public Input<Inputs.RuleGroupRuleGroupArgs>? RuleGroupValue { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
         /// </summary>
-        [Input("RuleGroupName", required: true)]
+        [Input("ruleGroupName", required: true)]
         public Input<string> RuleGroupName { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
         /// </summary>
-        [Input("Type", required: true)]
+        [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         public RuleGroupArgs()

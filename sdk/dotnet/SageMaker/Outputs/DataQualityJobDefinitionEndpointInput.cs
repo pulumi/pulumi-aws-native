@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private DataQualityJobDefinitionEndpointInput(
-            string EndpointName,
+            string endpointName,
 
-            string LocalPath,
+            string localPath,
 
-            string? S3DataDistributionType,
+            string? s3DataDistributionType,
 
-            string? S3InputMode)
+            string? s3InputMode)
         {
-            this.EndpointName = EndpointName;
-            this.LocalPath = LocalPath;
-            this.S3DataDistributionType = S3DataDistributionType;
-            this.S3InputMode = S3InputMode;
+            EndpointName = endpointName;
+            LocalPath = localPath;
+            S3DataDistributionType = s3DataDistributionType;
+            S3InputMode = s3InputMode;
         }
     }
 }

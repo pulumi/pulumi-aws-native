@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.EFS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
         /// </summary>
-        [Input("TransitionToIA", required: true)]
+        [Input("transitionToIA", required: true)]
         public Input<string> TransitionToIA { get; set; } = null!;
 
         public FileSystemLifecyclePolicyArgs()

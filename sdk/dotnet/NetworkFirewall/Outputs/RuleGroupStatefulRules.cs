@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<Outputs.RuleGroupStatefulRule> StatefulRules;
 
         [OutputConstructor]
-        private RuleGroupStatefulRules(ImmutableArray<Outputs.RuleGroupStatefulRule> StatefulRules)
+        private RuleGroupStatefulRules(ImmutableArray<Outputs.RuleGroupStatefulRule> statefulRules)
         {
-            this.StatefulRules = StatefulRules;
+            StatefulRules = statefulRules;
         }
     }
 }

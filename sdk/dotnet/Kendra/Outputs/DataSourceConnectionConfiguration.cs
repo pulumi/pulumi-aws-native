@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceConnectionConfiguration(
-            string DatabaseHost,
+            string databaseHost,
 
-            string DatabaseName,
+            string databaseName,
 
-            int DatabasePort,
+            int databasePort,
 
-            string SecretArn,
+            string secretArn,
 
-            string TableName)
+            string tableName)
         {
-            this.DatabaseHost = DatabaseHost;
-            this.DatabaseName = DatabaseName;
-            this.DatabasePort = DatabasePort;
-            this.SecretArn = SecretArn;
-            this.TableName = TableName;
+            DatabaseHost = databaseHost;
+            DatabaseName = databaseName;
+            DatabasePort = databasePort;
+            SecretArn = secretArn;
+            TableName = tableName;
         }
     }
 }

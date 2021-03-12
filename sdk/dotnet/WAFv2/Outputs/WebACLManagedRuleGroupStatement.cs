@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLManagedRuleGroupStatement(
-            ImmutableArray<Outputs.WebACLExcludedRule> ExcludedRules,
+            ImmutableArray<Outputs.WebACLExcludedRule> excludedRules,
 
-            string Name,
+            string name,
 
-            string VendorName)
+            string vendorName)
         {
-            this.ExcludedRules = ExcludedRules;
-            this.Name = Name;
-            this.VendorName = VendorName;
+            ExcludedRules = excludedRules;
+            Name = name;
+            VendorName = vendorName;
         }
     }
 }

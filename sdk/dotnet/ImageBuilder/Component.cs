@@ -15,73 +15,73 @@ namespace Pulumi.AwsNative.ImageBuilder
     [AwsNativeResourceType("aws-native:ImageBuilder:Component")]
     public partial class Component : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
         /// </summary>
-        [Output("ChangeDescription")]
+        [Output("changeDescription")]
         public Output<string?> ChangeDescription { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
         /// </summary>
-        [Output("Data")]
+        [Output("data")]
         public Output<string?> Data { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("Encrypted")]
+        [Output("encrypted")]
         public Output<bool> Encrypted { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
         /// </summary>
-        [Output("KmsKeyId")]
+        [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
         /// </summary>
-        [Output("Platform")]
+        [Output("platform")]
         public Output<string> Platform { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
         /// </summary>
-        [Output("SupportedOsVersions")]
+        [Output("supportedOsVersions")]
         public Output<ImmutableArray<string>> SupportedOsVersions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        [Output("Type")]
+        [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
         /// </summary>
-        [Output("Uri")]
+        [Output("uri")]
         public Output<string?> Uri { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
         /// </summary>
-        [Output("Version")]
+        [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
 
@@ -132,73 +132,73 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
         /// </summary>
-        [Input("ChangeDescription")]
+        [Input("changeDescription")]
         public Input<string>? ChangeDescription { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
         /// </summary>
-        [Input("Data")]
+        [Input("data")]
         public Input<string>? Data { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
         /// </summary>
-        [Input("KmsKeyId")]
+        [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
         /// </summary>
-        [Input("Platform", required: true)]
+        [Input("platform", required: true)]
         public Input<string> Platform { get; set; } = null!;
 
-        [Input("SupportedOsVersions")]
-        private InputList<string>? _SupportedOsVersions;
+        [Input("supportedOsVersions")]
+        private InputList<string>? _supportedOsVersions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
         /// </summary>
         public InputList<string> SupportedOsVersions
         {
-            get => _SupportedOsVersions ?? (_SupportedOsVersions = new InputList<string>());
-            set => _SupportedOsVersions = value;
+            get => _supportedOsVersions ?? (_supportedOsVersions = new InputList<string>());
+            set => _supportedOsVersions = value;
         }
 
-        [Input("Tags")]
-        private InputMap<string>? _Tags;
+        [Input("tags")]
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
         /// </summary>
         public InputMap<string> Tags
         {
-            get => _Tags ?? (_Tags = new InputMap<string>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
         /// </summary>
-        [Input("Uri")]
+        [Input("uri")]
         public Input<string>? Uri { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
         /// </summary>
-        [Input("Version", required: true)]
+        [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
         public ComponentArgs()

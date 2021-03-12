@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enableintercontainertrafficencryption
         /// </summary>
-        [Input("EnableInterContainerTrafficEncryption")]
+        [Input("enableInterContainerTrafficEncryption")]
         public Input<bool>? EnableInterContainerTrafficEncryption { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enablenetworkisolation
         /// </summary>
-        [Input("EnableNetworkIsolation")]
+        [Input("enableNetworkIsolation")]
         public Input<bool>? EnableNetworkIsolation { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-vpcconfig
         /// </summary>
-        [Input("VpcConfig")]
+        [Input("vpcConfig")]
         public Input<Inputs.MonitoringScheduleVpcConfigArgs>? VpcConfig { get; set; }
 
         public MonitoringScheduleNetworkConfigArgs()

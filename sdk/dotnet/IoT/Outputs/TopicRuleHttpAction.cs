@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleHttpAction(
-            Outputs.TopicRuleHttpAuthorization? Auth,
+            Outputs.TopicRuleHttpAuthorization? auth,
 
-            string? ConfirmationUrl,
+            string? confirmationUrl,
 
-            ImmutableArray<Outputs.TopicRuleHttpActionHeader> Headers,
+            ImmutableArray<Outputs.TopicRuleHttpActionHeader> headers,
 
-            string Url)
+            string url)
         {
-            this.Auth = Auth;
-            this.ConfirmationUrl = ConfirmationUrl;
-            this.Headers = Headers;
-            this.Url = Url;
+            Auth = auth;
+            ConfirmationUrl = confirmationUrl;
+            Headers = headers;
+            Url = url;
         }
     }
 }

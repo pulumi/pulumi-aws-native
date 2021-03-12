@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private PackagingConfigurationMssPackage(
-            Outputs.PackagingConfigurationMssEncryption? Encryption,
+            Outputs.PackagingConfigurationMssEncryption? encryption,
 
-            ImmutableArray<Outputs.PackagingConfigurationMssManifest> MssManifests,
+            ImmutableArray<Outputs.PackagingConfigurationMssManifest> mssManifests,
 
-            int? SegmentDurationSeconds)
+            int? segmentDurationSeconds)
         {
-            this.Encryption = Encryption;
-            this.MssManifests = MssManifests;
-            this.SegmentDurationSeconds = SegmentDurationSeconds;
+            Encryption = encryption;
+            MssManifests = mssManifests;
+            SegmentDurationSeconds = segmentDurationSeconds;
         }
     }
 }

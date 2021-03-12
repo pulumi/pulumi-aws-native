@@ -18,55 +18,55 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
         /// </summary>
-        [Input("BaselineConfig")]
+        [Input("baselineConfig")]
         public Input<Inputs.MonitoringScheduleBaselineConfigArgs>? BaselineConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
         /// </summary>
-        [Input("Environment")]
+        [Input("environment")]
         public Input<Inputs.MonitoringScheduleEnvironmentArgs>? Environment { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
         /// </summary>
-        [Input("MonitoringAppSpecification", required: true)]
+        [Input("monitoringAppSpecification", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringAppSpecificationArgs> MonitoringAppSpecification { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
         /// </summary>
-        [Input("MonitoringInputs", required: true)]
+        [Input("monitoringInputs", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringInputsArgs> MonitoringInputs { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
         /// </summary>
-        [Input("MonitoringOutputConfig", required: true)]
+        [Input("monitoringOutputConfig", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringOutputConfigArgs> MonitoringOutputConfig { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
         /// </summary>
-        [Input("MonitoringResources", required: true)]
+        [Input("monitoringResources", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringResourcesArgs> MonitoringResources { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig
         /// </summary>
-        [Input("NetworkConfig")]
+        [Input("networkConfig")]
         public Input<Inputs.MonitoringScheduleNetworkConfigArgs>? NetworkConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition
         /// </summary>
-        [Input("StoppingCondition")]
+        [Input("stoppingCondition")]
         public Input<Inputs.MonitoringScheduleStoppingConditionArgs>? StoppingCondition { get; set; }
 
         public MonitoringScheduleMonitoringJobDefinitionArgs()

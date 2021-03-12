@@ -18,55 +18,55 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-bytematchstatement
         /// </summary>
-        [Input("ByteMatchStatement")]
+        [Input("byteMatchStatement")]
         public Input<Inputs.WebACLByteMatchStatementArgs>? ByteMatchStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-geomatchstatement
         /// </summary>
-        [Input("GeoMatchStatement")]
+        [Input("geoMatchStatement")]
         public Input<Inputs.WebACLGeoMatchStatementArgs>? GeoMatchStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-ipsetreferencestatement
         /// </summary>
-        [Input("IPSetReferenceStatement")]
+        [Input("iPSetReferenceStatement")]
         public Input<Inputs.WebACLIPSetReferenceStatementArgs>? IPSetReferenceStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-managedrulegroupstatement
         /// </summary>
-        [Input("ManagedRuleGroupStatement")]
+        [Input("managedRuleGroupStatement")]
         public Input<Inputs.WebACLManagedRuleGroupStatementArgs>? ManagedRuleGroupStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-regexpatternsetreferencestatement
         /// </summary>
-        [Input("RegexPatternSetReferenceStatement")]
+        [Input("regexPatternSetReferenceStatement")]
         public Input<Inputs.WebACLRegexPatternSetReferenceStatementArgs>? RegexPatternSetReferenceStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-rulegroupreferencestatement
         /// </summary>
-        [Input("RuleGroupReferenceStatement")]
+        [Input("ruleGroupReferenceStatement")]
         public Input<Inputs.WebACLRuleGroupReferenceStatementArgs>? RuleGroupReferenceStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sizeconstraintstatement
         /// </summary>
-        [Input("SizeConstraintStatement")]
+        [Input("sizeConstraintStatement")]
         public Input<Inputs.WebACLSizeConstraintStatementArgs>? SizeConstraintStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sqlimatchstatement
         /// </summary>
-        [Input("SqliMatchStatement")]
+        [Input("sqliMatchStatement")]
         public Input<Inputs.WebACLSqliMatchStatementArgs>? SqliMatchStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-xssmatchstatement
         /// </summary>
-        [Input("XssMatchStatement")]
+        [Input("xssMatchStatement")]
         public Input<Inputs.WebACLXssMatchStatementArgs>? XssMatchStatement { get; set; }
 
         public WebACLStatementThreeArgs()

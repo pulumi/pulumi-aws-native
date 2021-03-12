@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamCopyCommand(
-            string? CopyOptions,
+            string? copyOptions,
 
-            string? DataTableColumns,
+            string? dataTableColumns,
 
-            string DataTableName)
+            string dataTableName)
         {
-            this.CopyOptions = CopyOptions;
-            this.DataTableColumns = DataTableColumns;
-            this.DataTableName = DataTableName;
+            CopyOptions = copyOptions;
+            DataTableColumns = dataTableColumns;
+            DataTableName = dataTableName;
         }
     }
 }

@@ -15,61 +15,61 @@ namespace Pulumi.AwsNative.ApplicationInsights
     [AwsNativeResourceType("aws-native:ApplicationInsights:Application")]
     public partial class Application : Pulumi.CustomResource
     {
-        [Output("ApplicationARN")]
+        [Output("applicationARN")]
         public Output<string> ApplicationARN { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
         /// </summary>
-        [Output("AutoConfigurationEnabled")]
+        [Output("autoConfigurationEnabled")]
         public Output<bool?> AutoConfigurationEnabled { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
         /// </summary>
-        [Output("CWEMonitorEnabled")]
+        [Output("cWEMonitorEnabled")]
         public Output<bool?> CWEMonitorEnabled { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
         /// </summary>
-        [Output("ComponentMonitoringSettings")]
+        [Output("componentMonitoringSettings")]
         public Output<ImmutableArray<Outputs.ApplicationComponentMonitoringSetting>> ComponentMonitoringSettings { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
         /// </summary>
-        [Output("CustomComponents")]
+        [Output("customComponents")]
         public Output<ImmutableArray<Outputs.ApplicationCustomComponent>> CustomComponents { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
         /// </summary>
-        [Output("LogPatternSets")]
+        [Output("logPatternSets")]
         public Output<ImmutableArray<Outputs.ApplicationLogPatternSet>> LogPatternSets { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
         /// </summary>
-        [Output("OpsCenterEnabled")]
+        [Output("opsCenterEnabled")]
         public Output<bool?> OpsCenterEnabled { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
         /// </summary>
-        [Output("OpsItemSNSTopicArn")]
+        [Output("opsItemSNSTopicArn")]
         public Output<string?> OpsItemSNSTopicArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
         /// </summary>
-        [Output("ResourceGroupName")]
+        [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -120,79 +120,79 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
         /// </summary>
-        [Input("AutoConfigurationEnabled")]
+        [Input("autoConfigurationEnabled")]
         public Input<bool>? AutoConfigurationEnabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
         /// </summary>
-        [Input("CWEMonitorEnabled")]
+        [Input("cWEMonitorEnabled")]
         public Input<bool>? CWEMonitorEnabled { get; set; }
 
-        [Input("ComponentMonitoringSettings")]
-        private InputList<Inputs.ApplicationComponentMonitoringSettingArgs>? _ComponentMonitoringSettings;
+        [Input("componentMonitoringSettings")]
+        private InputList<Inputs.ApplicationComponentMonitoringSettingArgs>? _componentMonitoringSettings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
         /// </summary>
         public InputList<Inputs.ApplicationComponentMonitoringSettingArgs> ComponentMonitoringSettings
         {
-            get => _ComponentMonitoringSettings ?? (_ComponentMonitoringSettings = new InputList<Inputs.ApplicationComponentMonitoringSettingArgs>());
-            set => _ComponentMonitoringSettings = value;
+            get => _componentMonitoringSettings ?? (_componentMonitoringSettings = new InputList<Inputs.ApplicationComponentMonitoringSettingArgs>());
+            set => _componentMonitoringSettings = value;
         }
 
-        [Input("CustomComponents")]
-        private InputList<Inputs.ApplicationCustomComponentArgs>? _CustomComponents;
+        [Input("customComponents")]
+        private InputList<Inputs.ApplicationCustomComponentArgs>? _customComponents;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
         /// </summary>
         public InputList<Inputs.ApplicationCustomComponentArgs> CustomComponents
         {
-            get => _CustomComponents ?? (_CustomComponents = new InputList<Inputs.ApplicationCustomComponentArgs>());
-            set => _CustomComponents = value;
+            get => _customComponents ?? (_customComponents = new InputList<Inputs.ApplicationCustomComponentArgs>());
+            set => _customComponents = value;
         }
 
-        [Input("LogPatternSets")]
-        private InputList<Inputs.ApplicationLogPatternSetArgs>? _LogPatternSets;
+        [Input("logPatternSets")]
+        private InputList<Inputs.ApplicationLogPatternSetArgs>? _logPatternSets;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
         /// </summary>
         public InputList<Inputs.ApplicationLogPatternSetArgs> LogPatternSets
         {
-            get => _LogPatternSets ?? (_LogPatternSets = new InputList<Inputs.ApplicationLogPatternSetArgs>());
-            set => _LogPatternSets = value;
+            get => _logPatternSets ?? (_logPatternSets = new InputList<Inputs.ApplicationLogPatternSetArgs>());
+            set => _logPatternSets = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
         /// </summary>
-        [Input("OpsCenterEnabled")]
+        [Input("opsCenterEnabled")]
         public Input<bool>? OpsCenterEnabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
         /// </summary>
-        [Input("OpsItemSNSTopicArn")]
+        [Input("opsItemSNSTopicArn")]
         public Input<string>? OpsItemSNSTopicArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
         /// </summary>
-        [Input("ResourceGroupName", required: true)]
+        [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public ApplicationArgs()

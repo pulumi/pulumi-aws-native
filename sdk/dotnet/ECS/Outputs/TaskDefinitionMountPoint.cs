@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionMountPoint(
-            string? ContainerPath,
+            string? containerPath,
 
-            bool? ReadOnly,
+            bool? readOnly,
 
-            string? SourceVolume)
+            string? sourceVolume)
         {
-            this.ContainerPath = ContainerPath;
-            this.ReadOnly = ReadOnly;
-            this.SourceVolume = SourceVolume;
+            ContainerPath = containerPath;
+            ReadOnly = readOnly;
+            SourceVolume = sourceVolume;
         }
     }
 }

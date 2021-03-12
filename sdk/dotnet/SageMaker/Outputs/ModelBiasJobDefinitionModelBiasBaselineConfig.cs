@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ModelBiasJobDefinitionModelBiasBaselineConfig(
-            string? BaseliningJobName,
+            string? baseliningJobName,
 
-            Outputs.ModelBiasJobDefinitionConstraintsResource? ConstraintsResource)
+            Outputs.ModelBiasJobDefinitionConstraintsResource? constraintsResource)
         {
-            this.BaseliningJobName = BaseliningJobName;
-            this.ConstraintsResource = ConstraintsResource;
+            BaseliningJobName = baseliningJobName;
+            ConstraintsResource = constraintsResource;
         }
     }
 }

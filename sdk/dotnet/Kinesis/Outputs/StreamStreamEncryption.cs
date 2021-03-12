@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Kinesis.Outputs
 
         [OutputConstructor]
         private StreamStreamEncryption(
-            string EncryptionType,
+            string encryptionType,
 
-            string KeyId)
+            string keyId)
         {
-            this.EncryptionType = EncryptionType;
-            this.KeyId = KeyId;
+            EncryptionType = encryptionType;
+            KeyId = keyId;
         }
     }
 }

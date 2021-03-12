@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
         public readonly ImmutableArray<Outputs.LicenseMetadata> MetadataList;
 
         [OutputConstructor]
-        private LicenseMetadataList(ImmutableArray<Outputs.LicenseMetadata> MetadataList)
+        private LicenseMetadataList(ImmutableArray<Outputs.LicenseMetadata> metadataList)
         {
-            this.MetadataList = MetadataList;
+            MetadataList = metadataList;
         }
     }
 }

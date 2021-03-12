@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-allowearlycheckin
         /// </summary>
-        [Input("AllowEarlyCheckIn", required: true)]
+        [Input("allowEarlyCheckIn", required: true)]
         public Input<bool> AllowEarlyCheckIn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-maxtimetoliveinminutes
         /// </summary>
-        [Input("MaxTimeToLiveInMinutes", required: true)]
+        [Input("maxTimeToLiveInMinutes", required: true)]
         public Input<int> MaxTimeToLiveInMinutes { get; set; } = null!;
 
         public LicenseBorrowConfigurationArgs()

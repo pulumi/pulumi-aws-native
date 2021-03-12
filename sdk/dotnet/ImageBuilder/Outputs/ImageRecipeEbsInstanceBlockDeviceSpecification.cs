@@ -44,27 +44,27 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
         [OutputConstructor]
         private ImageRecipeEbsInstanceBlockDeviceSpecification(
-            bool? DeleteOnTermination,
+            bool? deleteOnTermination,
 
-            bool? Encrypted,
+            bool? encrypted,
 
-            int? Iops,
+            int? iops,
 
-            string? KmsKeyId,
+            string? kmsKeyId,
 
-            string? SnapshotId,
+            string? snapshotId,
 
-            int? VolumeSize,
+            int? volumeSize,
 
-            string? VolumeType)
+            string? volumeType)
         {
-            this.DeleteOnTermination = DeleteOnTermination;
-            this.Encrypted = Encrypted;
-            this.Iops = Iops;
-            this.KmsKeyId = KmsKeyId;
-            this.SnapshotId = SnapshotId;
-            this.VolumeSize = VolumeSize;
-            this.VolumeType = VolumeType;
+            DeleteOnTermination = deleteOnTermination;
+            Encrypted = encrypted;
+            Iops = iops;
+            KmsKeyId = kmsKeyId;
+            SnapshotId = snapshotId;
+            VolumeSize = volumeSize;
+            VolumeType = volumeType;
         }
     }
 }

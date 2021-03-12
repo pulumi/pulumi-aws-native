@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly string AWSKMSKeyARN;
 
         [OutputConstructor]
-        private DeliveryStreamKMSEncryptionConfig(string AWSKMSKeyARN)
+        private DeliveryStreamKMSEncryptionConfig(string aWSKMSKeyARN)
         {
-            this.AWSKMSKeyARN = AWSKMSKeyARN;
+            AWSKMSKeyARN = aWSKMSKeyARN;
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.DevOpsGuru.Outputs
         public readonly Outputs.ResourceCollectionCloudFormationCollectionFilter? CloudFormation;
 
         [OutputConstructor]
-        private ResourceCollectionResourceCollectionFilter(Outputs.ResourceCollectionCloudFormationCollectionFilter? CloudFormation)
+        private ResourceCollectionResourceCollectionFilter(Outputs.ResourceCollectionCloudFormationCollectionFilter? cloudFormation)
         {
-            this.CloudFormation = CloudFormation;
+            CloudFormation = cloudFormation;
         }
     }
 }

@@ -15,22 +15,22 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// </summary>
     public sealed class WebACLGeoMatchStatementArgs : Pulumi.ResourceArgs
     {
-        [Input("CountryCodes")]
-        private InputList<string>? _CountryCodes;
+        [Input("countryCodes")]
+        private InputList<string>? _countryCodes;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
         /// </summary>
         public InputList<string> CountryCodes
         {
-            get => _CountryCodes ?? (_CountryCodes = new InputList<string>());
-            set => _CountryCodes = value;
+            get => _countryCodes ?? (_countryCodes = new InputList<string>());
+            set => _countryCodes = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
         /// </summary>
-        [Input("ForwardedIPConfig")]
+        [Input("forwardedIPConfig")]
         public Input<Inputs.WebACLForwardedIPConfigurationArgs>? ForwardedIPConfig { get; set; }
 
         public WebACLGeoMatchStatementArgs()

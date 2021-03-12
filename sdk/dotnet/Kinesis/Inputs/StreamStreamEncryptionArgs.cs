@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Kinesis.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-encryptiontype
         /// </summary>
-        [Input("EncryptionType", required: true)]
+        [Input("encryptionType", required: true)]
         public Input<string> EncryptionType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-keyid
         /// </summary>
-        [Input("KeyId", required: true)]
+        [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
         public StreamStreamEncryptionArgs()

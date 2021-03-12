@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileAmplitudeConnectorProfileCredentials(
-            string ApiKey,
+            string apiKey,
 
-            string SecretKey)
+            string secretKey)
         {
-            this.ApiKey = ApiKey;
-            this.SecretKey = SecretKey;
+            ApiKey = apiKey;
+            SecretKey = secretKey;
         }
     }
 }

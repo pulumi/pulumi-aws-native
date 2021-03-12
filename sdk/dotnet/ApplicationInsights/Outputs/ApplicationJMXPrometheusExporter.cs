@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationJMXPrometheusExporter(
-            string? HostPort,
+            string? hostPort,
 
-            string? JMXURL,
+            string? jMXURL,
 
-            string? PrometheusPort)
+            string? prometheusPort)
         {
-            this.HostPort = HostPort;
-            this.JMXURL = JMXURL;
-            this.PrometheusPort = PrometheusPort;
+            HostPort = hostPort;
+            JMXURL = jMXURL;
+            PrometheusPort = prometheusPort;
         }
     }
 }

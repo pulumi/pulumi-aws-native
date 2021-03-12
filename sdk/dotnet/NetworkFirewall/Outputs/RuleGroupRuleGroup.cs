@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private RuleGroupRuleGroup(
-            Outputs.RuleGroupRuleVariables? RuleVariables,
+            Outputs.RuleGroupRuleVariables? ruleVariables,
 
-            Outputs.RuleGroupRulesSource RulesSource)
+            Outputs.RuleGroupRulesSource rulesSource)
         {
-            this.RuleVariables = RuleVariables;
-            this.RulesSource = RulesSource;
+            RuleVariables = ruleVariables;
+            RulesSource = rulesSource;
         }
     }
 }

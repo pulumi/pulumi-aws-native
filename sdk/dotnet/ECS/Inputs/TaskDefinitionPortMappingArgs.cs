@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-containerport
         /// </summary>
-        [Input("ContainerPort")]
+        [Input("containerPort")]
         public Input<int>? ContainerPort { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-readonly
         /// </summary>
-        [Input("HostPort")]
+        [Input("hostPort")]
         public Input<int>? HostPort { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-sourcevolume
         /// </summary>
-        [Input("Protocol")]
+        [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         public TaskDefinitionPortMappingArgs()

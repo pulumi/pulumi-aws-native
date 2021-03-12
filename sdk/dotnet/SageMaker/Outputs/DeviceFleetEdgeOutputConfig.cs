@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private DeviceFleetEdgeOutputConfig(
-            string? KmsKeyId,
+            string? kmsKeyId,
 
-            string S3OutputLocation)
+            string s3OutputLocation)
         {
-            this.KmsKeyId = KmsKeyId;
-            this.S3OutputLocation = S3OutputLocation;
+            KmsKeyId = kmsKeyId;
+            S3OutputLocation = s3OutputLocation;
         }
     }
 }

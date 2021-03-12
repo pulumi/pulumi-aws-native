@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly int MaxRuntimeInSeconds;
 
         [OutputConstructor]
-        private MonitoringScheduleStoppingCondition(int MaxRuntimeInSeconds)
+        private MonitoringScheduleStoppingCondition(int maxRuntimeInSeconds)
         {
-            this.MaxRuntimeInSeconds = MaxRuntimeInSeconds;
+            MaxRuntimeInSeconds = maxRuntimeInSeconds;
         }
     }
 }

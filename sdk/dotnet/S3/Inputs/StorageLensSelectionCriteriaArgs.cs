@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.S3.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
         /// </summary>
-        [Input("Delimiter")]
+        [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
         /// </summary>
-        [Input("MaxDepth")]
+        [Input("maxDepth")]
         public Input<int>? MaxDepth { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
         /// </summary>
-        [Input("MinStorageBytesPercentage")]
+        [Input("minStorageBytesPercentage")]
         public Input<double>? MinStorageBytesPercentage { get; set; }
 
         public StorageLensSelectionCriteriaArgs()

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Athena.Outputs
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private WorkGroupTags(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
+        private WorkGroupTags(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
-            this.Tags = Tags;
+            Tags = tags;
         }
     }
 }

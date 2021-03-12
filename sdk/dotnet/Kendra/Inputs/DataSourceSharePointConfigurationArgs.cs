@@ -18,73 +18,73 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-crawlattachments
         /// </summary>
-        [Input("CrawlAttachments")]
+        [Input("crawlAttachments")]
         public Input<bool>? CrawlAttachments { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-disablelocalgroups
         /// </summary>
-        [Input("DisableLocalGroups")]
+        [Input("disableLocalGroups")]
         public Input<bool>? DisableLocalGroups { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-documenttitlefieldname
         /// </summary>
-        [Input("DocumentTitleFieldName")]
+        [Input("documentTitleFieldName")]
         public Input<string>? DocumentTitleFieldName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-exclusionpatterns
         /// </summary>
-        [Input("ExclusionPatterns")]
+        [Input("exclusionPatterns")]
         public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? ExclusionPatterns { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-fieldmappings
         /// </summary>
-        [Input("FieldMappings")]
+        [Input("fieldMappings")]
         public Input<Inputs.DataSourceDataSourceToIndexFieldMappingListArgs>? FieldMappings { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-inclusionpatterns
         /// </summary>
-        [Input("InclusionPatterns")]
+        [Input("inclusionPatterns")]
         public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? InclusionPatterns { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-secretarn
         /// </summary>
-        [Input("SecretArn", required: true)]
+        [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-sharepointversion
         /// </summary>
-        [Input("SharePointVersion", required: true)]
+        [Input("sharePointVersion", required: true)]
         public Input<string> SharePointVersion { get; set; } = null!;
 
-        [Input("Urls", required: true)]
-        private InputList<string>? _Urls;
+        [Input("urls", required: true)]
+        private InputList<string>? _urls;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-urls
         /// </summary>
         public InputList<string> Urls
         {
-            get => _Urls ?? (_Urls = new InputList<string>());
-            set => _Urls = value;
+            get => _urls ?? (_urls = new InputList<string>());
+            set => _urls = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-usechangelog
         /// </summary>
-        [Input("UseChangeLog")]
+        [Input("useChangeLog")]
         public Input<bool>? UseChangeLog { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-vpcconfiguration
         /// </summary>
-        [Input("VpcConfiguration")]
+        [Input("vpcConfiguration")]
         public Input<Inputs.DataSourceDataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }
 
         public DataSourceSharePointConfigurationArgs()

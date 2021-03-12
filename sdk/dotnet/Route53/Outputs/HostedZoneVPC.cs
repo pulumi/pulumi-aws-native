@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Route53.Outputs
 
         [OutputConstructor]
         private HostedZoneVPC(
-            string VPCId,
+            string vPCId,
 
-            string VPCRegion)
+            string vPCRegion)
         {
-            this.VPCId = VPCId;
-            this.VPCRegion = VPCRegion;
+            VPCId = vPCId;
+            VPCRegion = vPCRegion;
         }
     }
 }

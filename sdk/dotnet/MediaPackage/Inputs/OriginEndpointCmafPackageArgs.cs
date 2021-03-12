@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-encryption
         /// </summary>
-        [Input("Encryption")]
+        [Input("encryption")]
         public Input<Inputs.OriginEndpointCmafEncryptionArgs>? Encryption { get; set; }
 
-        [Input("HlsManifests")]
-        private InputList<Inputs.OriginEndpointHlsManifestArgs>? _HlsManifests;
+        [Input("hlsManifests")]
+        private InputList<Inputs.OriginEndpointHlsManifestArgs>? _hlsManifests;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests
         /// </summary>
         public InputList<Inputs.OriginEndpointHlsManifestArgs> HlsManifests
         {
-            get => _HlsManifests ?? (_HlsManifests = new InputList<Inputs.OriginEndpointHlsManifestArgs>());
-            set => _HlsManifests = value;
+            get => _hlsManifests ?? (_hlsManifests = new InputList<Inputs.OriginEndpointHlsManifestArgs>());
+            set => _hlsManifests = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentdurationseconds
         /// </summary>
-        [Input("SegmentDurationSeconds")]
+        [Input("segmentDurationSeconds")]
         public Input<int>? SegmentDurationSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentprefix
         /// </summary>
-        [Input("SegmentPrefix")]
+        [Input("segmentPrefix")]
         public Input<string>? SegmentPrefix { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-streamselection
         /// </summary>
-        [Input("StreamSelection")]
+        [Input("streamSelection")]
         public Input<Inputs.OriginEndpointStreamSelectionArgs>? StreamSelection { get; set; }
 
         public OriginEndpointCmafPackageArgs()

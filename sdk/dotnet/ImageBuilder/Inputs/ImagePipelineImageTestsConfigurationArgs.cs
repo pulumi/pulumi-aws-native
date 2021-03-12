@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-imagetestsenabled
         /// </summary>
-        [Input("ImageTestsEnabled")]
+        [Input("imageTestsEnabled")]
         public Input<bool>? ImageTestsEnabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-timeoutminutes
         /// </summary>
-        [Input("TimeoutMinutes")]
+        [Input("timeoutMinutes")]
         public Input<int>? TimeoutMinutes { get; set; }
 
         public ImagePipelineImageTestsConfigurationArgs()

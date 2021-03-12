@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private OriginEndpointDashEncryption(
-            int? KeyRotationIntervalSeconds,
+            int? keyRotationIntervalSeconds,
 
-            Outputs.OriginEndpointSpekeKeyProvider SpekeKeyProvider)
+            Outputs.OriginEndpointSpekeKeyProvider spekeKeyProvider)
         {
-            this.KeyRotationIntervalSeconds = KeyRotationIntervalSeconds;
-            this.SpekeKeyProvider = SpekeKeyProvider;
+            KeyRotationIntervalSeconds = keyRotationIntervalSeconds;
+            SpekeKeyProvider = spekeKeyProvider;
         }
     }
 }

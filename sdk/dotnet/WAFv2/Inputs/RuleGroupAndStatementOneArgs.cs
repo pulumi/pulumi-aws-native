@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// </summary>
     public sealed class RuleGroupAndStatementOneArgs : Pulumi.ResourceArgs
     {
-        [Input("Statements", required: true)]
-        private InputList<Inputs.RuleGroupStatementTwoArgs>? _Statements;
+        [Input("statements", required: true)]
+        private InputList<Inputs.RuleGroupStatementTwoArgs>? _statements;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html#cfn-wafv2-rulegroup-andstatementone-statements
         /// </summary>
         public InputList<Inputs.RuleGroupStatementTwoArgs> Statements
         {
-            get => _Statements ?? (_Statements = new InputList<Inputs.RuleGroupStatementTwoArgs>());
-            set => _Statements = value;
+            get => _statements ?? (_statements = new InputList<Inputs.RuleGroupStatementTwoArgs>());
+            set => _statements = value;
         }
 
         public RuleGroupAndStatementOneArgs()

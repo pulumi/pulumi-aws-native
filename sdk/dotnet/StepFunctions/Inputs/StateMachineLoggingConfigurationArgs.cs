@@ -15,28 +15,28 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
     /// </summary>
     public sealed class StateMachineLoggingConfigurationArgs : Pulumi.ResourceArgs
     {
-        [Input("Destinations")]
-        private InputList<Inputs.StateMachineLogDestinationArgs>? _Destinations;
+        [Input("destinations")]
+        private InputList<Inputs.StateMachineLogDestinationArgs>? _destinations;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-destinations
         /// </summary>
         public InputList<Inputs.StateMachineLogDestinationArgs> Destinations
         {
-            get => _Destinations ?? (_Destinations = new InputList<Inputs.StateMachineLogDestinationArgs>());
-            set => _Destinations = value;
+            get => _destinations ?? (_destinations = new InputList<Inputs.StateMachineLogDestinationArgs>());
+            set => _destinations = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata
         /// </summary>
-        [Input("IncludeExecutionData")]
+        [Input("includeExecutionData")]
         public Input<bool>? IncludeExecutionData { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level
         /// </summary>
-        [Input("Level")]
+        [Input("level")]
         public Input<string>? Level { get; set; }
 
         public StateMachineLoggingConfigurationArgs()

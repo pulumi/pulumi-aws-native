@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly Outputs.FirewallPolicyDimensions Dimensions;
 
         [OutputConstructor]
-        private FirewallPolicyPublishMetricAction(Outputs.FirewallPolicyDimensions Dimensions)
+        private FirewallPolicyPublishMetricAction(Outputs.FirewallPolicyDimensions dimensions)
         {
-            this.Dimensions = Dimensions;
+            Dimensions = dimensions;
         }
     }
 }

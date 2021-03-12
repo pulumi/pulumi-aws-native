@@ -18,61 +18,61 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-attachmentconfiguration
         /// </summary>
-        [Input("AttachmentConfiguration")]
+        [Input("attachmentConfiguration")]
         public Input<Inputs.DataSourceConfluenceAttachmentConfigurationArgs>? AttachmentConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-blogconfiguration
         /// </summary>
-        [Input("BlogConfiguration")]
+        [Input("blogConfiguration")]
         public Input<Inputs.DataSourceConfluenceBlogConfigurationArgs>? BlogConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns
         /// </summary>
-        [Input("ExclusionPatterns")]
+        [Input("exclusionPatterns")]
         public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? ExclusionPatterns { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns
         /// </summary>
-        [Input("InclusionPatterns")]
+        [Input("inclusionPatterns")]
         public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? InclusionPatterns { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-pageconfiguration
         /// </summary>
-        [Input("PageConfiguration")]
+        [Input("pageConfiguration")]
         public Input<Inputs.DataSourceConfluencePageConfigurationArgs>? PageConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-secretarn
         /// </summary>
-        [Input("SecretArn", required: true)]
+        [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-serverurl
         /// </summary>
-        [Input("ServerUrl", required: true)]
+        [Input("serverUrl", required: true)]
         public Input<string> ServerUrl { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-spaceconfiguration
         /// </summary>
-        [Input("SpaceConfiguration")]
+        [Input("spaceConfiguration")]
         public Input<Inputs.DataSourceConfluenceSpaceConfigurationArgs>? SpaceConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-version
         /// </summary>
-        [Input("Version", required: true)]
+        [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-vpcconfiguration
         /// </summary>
-        [Input("VpcConfiguration")]
+        [Input("vpcConfiguration")]
         public Input<Inputs.DataSourceDataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }
 
         public DataSourceConfluenceConfigurationArgs()

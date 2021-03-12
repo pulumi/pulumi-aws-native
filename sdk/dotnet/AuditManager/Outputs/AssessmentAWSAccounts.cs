@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
         public readonly ImmutableArray<Outputs.AssessmentAWSAccount> AWSAccounts;
 
         [OutputConstructor]
-        private AssessmentAWSAccounts(ImmutableArray<Outputs.AssessmentAWSAccount> AWSAccounts)
+        private AssessmentAWSAccounts(ImmutableArray<Outputs.AssessmentAWSAccount> aWSAccounts)
         {
-            this.AWSAccounts = AWSAccounts;
+            AWSAccounts = aWSAccounts;
         }
     }
 }

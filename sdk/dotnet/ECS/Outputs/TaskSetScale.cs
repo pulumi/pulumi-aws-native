@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskSetScale(
-            string? Unit,
+            string? unit,
 
-            double? Value)
+            double? value)
         {
-            this.Unit = Unit;
-            this.Value = Value;
+            Unit = unit;
+            Value = value;
         }
     }
 }

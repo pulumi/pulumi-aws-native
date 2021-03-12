@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private RuleGroupByteMatchStatement(
-            Outputs.RuleGroupFieldToMatch FieldToMatch,
+            Outputs.RuleGroupFieldToMatch fieldToMatch,
 
-            string PositionalConstraint,
+            string positionalConstraint,
 
-            string? SearchString,
+            string? searchString,
 
-            string? SearchStringBase64,
+            string? searchStringBase64,
 
-            ImmutableArray<Outputs.RuleGroupTextTransformation> TextTransformations)
+            ImmutableArray<Outputs.RuleGroupTextTransformation> textTransformations)
         {
-            this.FieldToMatch = FieldToMatch;
-            this.PositionalConstraint = PositionalConstraint;
-            this.SearchString = SearchString;
-            this.SearchStringBase64 = SearchStringBase64;
-            this.TextTransformations = TextTransformations;
+            FieldToMatch = fieldToMatch;
+            PositionalConstraint = positionalConstraint;
+            SearchString = searchString;
+            SearchStringBase64 = searchStringBase64;
+            TextTransformations = textTransformations;
         }
     }
 }

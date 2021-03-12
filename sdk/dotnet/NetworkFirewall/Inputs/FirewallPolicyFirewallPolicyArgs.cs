@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences
         /// </summary>
-        [Input("StatefulRuleGroupReferences")]
+        [Input("statefulRuleGroupReferences")]
         public Input<Inputs.FirewallPolicyStatefulRuleGroupReferencesArgs>? StatefulRuleGroupReferences { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions
         /// </summary>
-        [Input("StatelessCustomActions")]
+        [Input("statelessCustomActions")]
         public Input<Inputs.FirewallPolicyCustomActionsArgs>? StatelessCustomActions { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions
         /// </summary>
-        [Input("StatelessDefaultActions", required: true)]
+        [Input("statelessDefaultActions", required: true)]
         public Input<Inputs.FirewallPolicyStatelessActionsArgs> StatelessDefaultActions { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions
         /// </summary>
-        [Input("StatelessFragmentDefaultActions", required: true)]
+        [Input("statelessFragmentDefaultActions", required: true)]
         public Input<Inputs.FirewallPolicyStatelessActionsArgs> StatelessFragmentDefaultActions { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
         /// </summary>
-        [Input("StatelessRuleGroupReferences")]
+        [Input("statelessRuleGroupReferences")]
         public Input<Inputs.FirewallPolicyStatelessRuleGroupReferencesArgs>? StatelessRuleGroupReferences { get; set; }
 
         public FirewallPolicyFirewallPolicyArgs()

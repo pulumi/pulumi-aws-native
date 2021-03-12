@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports
         /// </summary>
-        [Input("DestinationPorts")]
+        [Input("destinationPorts")]
         public Input<Inputs.RuleGroupPortRangesArgs>? DestinationPorts { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations
         /// </summary>
-        [Input("Destinations")]
+        [Input("destinations")]
         public Input<Inputs.RuleGroupAddressesArgs>? Destinations { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-protocols
         /// </summary>
-        [Input("Protocols")]
+        [Input("protocols")]
         public Input<Inputs.RuleGroupProtocolNumbersArgs>? Protocols { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports
         /// </summary>
-        [Input("SourcePorts")]
+        [Input("sourcePorts")]
         public Input<Inputs.RuleGroupPortRangesArgs>? SourcePorts { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources
         /// </summary>
-        [Input("Sources")]
+        [Input("sources")]
         public Input<Inputs.RuleGroupAddressesArgs>? Sources { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-tcpflags
         /// </summary>
-        [Input("TCPFlags")]
+        [Input("tCPFlags")]
         public Input<Inputs.RuleGroupTCPFlagsArgs>? TCPFlags { get; set; }
 
         public RuleGroupMatchAttributesArgs()

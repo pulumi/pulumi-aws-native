@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
         public readonly Outputs.StateMachineCloudWatchLogsLogGroup? CloudWatchLogsLogGroup;
 
         [OutputConstructor]
-        private StateMachineLogDestination(Outputs.StateMachineCloudWatchLogsLogGroup? CloudWatchLogsLogGroup)
+        private StateMachineLogDestination(Outputs.StateMachineCloudWatchLogsLogGroup? cloudWatchLogsLogGroup)
         {
-            this.CloudWatchLogsLogGroup = CloudWatchLogsLogGroup;
+            CloudWatchLogsLogGroup = cloudWatchLogsLogGroup;
         }
     }
 }

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.KMS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
         /// </summary>
-        [Output("AliasName")]
+        [Output("aliasName")]
         public Output<string> AliasName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid
         /// </summary>
-        [Output("TargetKeyId")]
+        [Output("targetKeyId")]
         public Output<string> TargetKeyId { get; private set; } = null!;
 
 
@@ -75,13 +75,13 @@ namespace Pulumi.AwsNative.KMS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
         /// </summary>
-        [Input("AliasName", required: true)]
+        [Input("aliasName", required: true)]
         public Input<string> AliasName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid
         /// </summary>
-        [Input("TargetKeyId", required: true)]
+        [Input("targetKeyId", required: true)]
         public Input<string> TargetKeyId { get; set; } = null!;
 
         public AliasArgs()

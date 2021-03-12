@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
 
         [OutputConstructor]
         private LicenseBorrowConfiguration(
-            bool AllowEarlyCheckIn,
+            bool allowEarlyCheckIn,
 
-            int MaxTimeToLiveInMinutes)
+            int maxTimeToLiveInMinutes)
         {
-            this.AllowEarlyCheckIn = AllowEarlyCheckIn;
-            this.MaxTimeToLiveInMinutes = MaxTimeToLiveInMinutes;
+            AllowEarlyCheckIn = allowEarlyCheckIn;
+            MaxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
         }
     }
 }

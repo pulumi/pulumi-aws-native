@@ -18,85 +18,85 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-commonname
         /// </summary>
-        [Input("CommonName")]
+        [Input("commonName")]
         public Input<string>? CommonName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-country
         /// </summary>
-        [Input("Country")]
+        [Input("country")]
         public Input<string>? Country { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-distinguishednamequalifier
         /// </summary>
-        [Input("DistinguishedNameQualifier")]
+        [Input("distinguishedNameQualifier")]
         public Input<string>? DistinguishedNameQualifier { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-generationqualifier
         /// </summary>
-        [Input("GenerationQualifier")]
+        [Input("generationQualifier")]
         public Input<string>? GenerationQualifier { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-givenname
         /// </summary>
-        [Input("GivenName")]
+        [Input("givenName")]
         public Input<string>? GivenName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-initials
         /// </summary>
-        [Input("Initials")]
+        [Input("initials")]
         public Input<string>? Initials { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-locality
         /// </summary>
-        [Input("Locality")]
+        [Input("locality")]
         public Input<string>? Locality { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-organization
         /// </summary>
-        [Input("Organization")]
+        [Input("organization")]
         public Input<string>? Organization { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-organizationalunit
         /// </summary>
-        [Input("OrganizationalUnit")]
+        [Input("organizationalUnit")]
         public Input<string>? OrganizationalUnit { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-pseudonym
         /// </summary>
-        [Input("Pseudonym")]
+        [Input("pseudonym")]
         public Input<string>? Pseudonym { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-serialnumber
         /// </summary>
-        [Input("SerialNumber")]
+        [Input("serialNumber")]
         public Input<string>? SerialNumber { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-state
         /// </summary>
-        [Input("State")]
+        [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-surname
         /// </summary>
-        [Input("Surname")]
+        [Input("surname")]
         public Input<string>? Surname { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-title
         /// </summary>
-        [Input("Title")]
+        [Input("title")]
         public Input<string>? Title { get; set; }
 
         public CertificateAuthoritySubjectArgs()

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string Object;
 
         [OutputConstructor]
-        private FlowVeevaSourceProperties(string Object)
+        private FlowVeevaSourceProperties(string @object)
         {
-            this.Object = Object;
+            Object = @object;
         }
     }
 }

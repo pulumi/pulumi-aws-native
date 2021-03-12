@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.S3.Outputs
 
         [OutputConstructor]
         private StorageLensBucketsAndRegions(
-            ImmutableArray<string> Buckets,
+            ImmutableArray<string> buckets,
 
-            ImmutableArray<string> Regions)
+            ImmutableArray<string> regions)
         {
-            this.Buckets = Buckets;
-            this.Regions = Regions;
+            Buckets = buckets;
+            Regions = regions;
         }
     }
 }

@@ -18,55 +18,55 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-field
         /// </summary>
-        [Input("Field")]
+        [Input("field")]
         public Input<string>? Field { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
         /// </summary>
-        [Input("HostHeaderConfig")]
+        [Input("hostHeaderConfig")]
         public Input<Inputs.ListenerRuleHostHeaderConfigArgs>? HostHeaderConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig
         /// </summary>
-        [Input("HttpHeaderConfig")]
+        [Input("httpHeaderConfig")]
         public Input<Inputs.ListenerRuleHttpHeaderConfigArgs>? HttpHeaderConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig
         /// </summary>
-        [Input("HttpRequestMethodConfig")]
+        [Input("httpRequestMethodConfig")]
         public Input<Inputs.ListenerRuleHttpRequestMethodConfigArgs>? HttpRequestMethodConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig
         /// </summary>
-        [Input("PathPatternConfig")]
+        [Input("pathPatternConfig")]
         public Input<Inputs.ListenerRulePathPatternConfigArgs>? PathPatternConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
         /// </summary>
-        [Input("QueryStringConfig")]
+        [Input("queryStringConfig")]
         public Input<Inputs.ListenerRuleQueryStringConfigArgs>? QueryStringConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig
         /// </summary>
-        [Input("SourceIpConfig")]
+        [Input("sourceIpConfig")]
         public Input<Inputs.ListenerRuleSourceIpConfigArgs>? SourceIpConfig { get; set; }
 
-        [Input("Values")]
-        private InputList<string>? _Values;
+        [Input("values")]
+        private InputList<string>? _values;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-values
         /// </summary>
         public InputList<string> Values
         {
-            get => _Values ?? (_Values = new InputList<string>());
-            set => _Values = value;
+            get => _values ?? (_values = new InputList<string>());
+            set => _values = value;
         }
 
         public ListenerRuleRuleConditionArgs()

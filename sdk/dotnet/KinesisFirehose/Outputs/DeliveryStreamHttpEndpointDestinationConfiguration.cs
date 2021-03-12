@@ -52,33 +52,33 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamHttpEndpointDestinationConfiguration(
-            Outputs.DeliveryStreamBufferingHints? BufferingHints,
+            Outputs.DeliveryStreamBufferingHints? bufferingHints,
 
-            Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions,
+            Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
-            Outputs.DeliveryStreamHttpEndpointConfiguration EndpointConfiguration,
+            Outputs.DeliveryStreamHttpEndpointConfiguration endpointConfiguration,
 
-            Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration,
+            Outputs.DeliveryStreamProcessingConfiguration? processingConfiguration,
 
-            Outputs.DeliveryStreamHttpEndpointRequestConfiguration? RequestConfiguration,
+            Outputs.DeliveryStreamHttpEndpointRequestConfiguration? requestConfiguration,
 
-            Outputs.DeliveryStreamRetryOptions? RetryOptions,
+            Outputs.DeliveryStreamRetryOptions? retryOptions,
 
-            string? RoleARN,
+            string? roleARN,
 
-            string? S3BackupMode,
+            string? s3BackupMode,
 
-            Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration)
+            Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration)
         {
-            this.BufferingHints = BufferingHints;
-            this.CloudWatchLoggingOptions = CloudWatchLoggingOptions;
-            this.EndpointConfiguration = EndpointConfiguration;
-            this.ProcessingConfiguration = ProcessingConfiguration;
-            this.RequestConfiguration = RequestConfiguration;
-            this.RetryOptions = RetryOptions;
-            this.RoleARN = RoleARN;
-            this.S3BackupMode = S3BackupMode;
-            this.S3Configuration = S3Configuration;
+            BufferingHints = bufferingHints;
+            CloudWatchLoggingOptions = cloudWatchLoggingOptions;
+            EndpointConfiguration = endpointConfiguration;
+            ProcessingConfiguration = processingConfiguration;
+            RequestConfiguration = requestConfiguration;
+            RetryOptions = retryOptions;
+            RoleARN = roleARN;
+            S3BackupMode = s3BackupMode;
+            S3Configuration = s3Configuration;
         }
     }
 }

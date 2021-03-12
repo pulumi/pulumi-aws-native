@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.S3.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicacls
         /// </summary>
-        [Input("BlockPublicAcls")]
+        [Input("blockPublicAcls")]
         public Input<bool>? BlockPublicAcls { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicpolicy
         /// </summary>
-        [Input("BlockPublicPolicy")]
+        [Input("blockPublicPolicy")]
         public Input<bool>? BlockPublicPolicy { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-ignorepublicacls
         /// </summary>
-        [Input("IgnorePublicAcls")]
+        [Input("ignorePublicAcls")]
         public Input<bool>? IgnorePublicAcls { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-restrictpublicbuckets
         /// </summary>
-        [Input("RestrictPublicBuckets")]
+        [Input("restrictPublicBuckets")]
         public Input<bool>? RestrictPublicBuckets { get; set; }
 
         public AccessPointPublicAccessBlockConfigurationArgs()

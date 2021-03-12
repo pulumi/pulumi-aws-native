@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html#cfn-sagemaker-modelqualityjobdefinition-monitoringresources-clusterconfig
         /// </summary>
-        [Input("ClusterConfig", required: true)]
+        [Input("clusterConfig", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionClusterConfigArgs> ClusterConfig { get; set; } = null!;
 
         public ModelQualityJobDefinitionMonitoringResourcesArgs()

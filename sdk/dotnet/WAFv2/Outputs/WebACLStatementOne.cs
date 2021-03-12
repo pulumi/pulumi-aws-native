@@ -68,45 +68,45 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLStatementOne(
-            Outputs.WebACLAndStatementOne? AndStatement,
+            Outputs.WebACLAndStatementOne? andStatement,
 
-            Outputs.WebACLByteMatchStatement? ByteMatchStatement,
+            Outputs.WebACLByteMatchStatement? byteMatchStatement,
 
-            Outputs.WebACLGeoMatchStatement? GeoMatchStatement,
+            Outputs.WebACLGeoMatchStatement? geoMatchStatement,
 
-            Outputs.WebACLIPSetReferenceStatement? IPSetReferenceStatement,
+            Outputs.WebACLIPSetReferenceStatement? iPSetReferenceStatement,
 
-            Outputs.WebACLManagedRuleGroupStatement? ManagedRuleGroupStatement,
+            Outputs.WebACLManagedRuleGroupStatement? managedRuleGroupStatement,
 
-            Outputs.WebACLNotStatementOne? NotStatement,
+            Outputs.WebACLNotStatementOne? notStatement,
 
-            Outputs.WebACLOrStatementOne? OrStatement,
+            Outputs.WebACLOrStatementOne? orStatement,
 
-            Outputs.WebACLRateBasedStatementOne? RateBasedStatement,
+            Outputs.WebACLRateBasedStatementOne? rateBasedStatement,
 
-            Outputs.WebACLRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement,
+            Outputs.WebACLRegexPatternSetReferenceStatement? regexPatternSetReferenceStatement,
 
-            Outputs.WebACLRuleGroupReferenceStatement? RuleGroupReferenceStatement,
+            Outputs.WebACLRuleGroupReferenceStatement? ruleGroupReferenceStatement,
 
-            Outputs.WebACLSizeConstraintStatement? SizeConstraintStatement,
+            Outputs.WebACLSizeConstraintStatement? sizeConstraintStatement,
 
-            Outputs.WebACLSqliMatchStatement? SqliMatchStatement,
+            Outputs.WebACLSqliMatchStatement? sqliMatchStatement,
 
-            Outputs.WebACLXssMatchStatement? XssMatchStatement)
+            Outputs.WebACLXssMatchStatement? xssMatchStatement)
         {
-            this.AndStatement = AndStatement;
-            this.ByteMatchStatement = ByteMatchStatement;
-            this.GeoMatchStatement = GeoMatchStatement;
-            this.IPSetReferenceStatement = IPSetReferenceStatement;
-            this.ManagedRuleGroupStatement = ManagedRuleGroupStatement;
-            this.NotStatement = NotStatement;
-            this.OrStatement = OrStatement;
-            this.RateBasedStatement = RateBasedStatement;
-            this.RegexPatternSetReferenceStatement = RegexPatternSetReferenceStatement;
-            this.RuleGroupReferenceStatement = RuleGroupReferenceStatement;
-            this.SizeConstraintStatement = SizeConstraintStatement;
-            this.SqliMatchStatement = SqliMatchStatement;
-            this.XssMatchStatement = XssMatchStatement;
+            AndStatement = andStatement;
+            ByteMatchStatement = byteMatchStatement;
+            GeoMatchStatement = geoMatchStatement;
+            IPSetReferenceStatement = iPSetReferenceStatement;
+            ManagedRuleGroupStatement = managedRuleGroupStatement;
+            NotStatement = notStatement;
+            OrStatement = orStatement;
+            RateBasedStatement = rateBasedStatement;
+            RegexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
+            RuleGroupReferenceStatement = ruleGroupReferenceStatement;
+            SizeConstraintStatement = sizeConstraintStatement;
+            SqliMatchStatement = sqliMatchStatement;
+            XssMatchStatement = xssMatchStatement;
         }
     }
 }

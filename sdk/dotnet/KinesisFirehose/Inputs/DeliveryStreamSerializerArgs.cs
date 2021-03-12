@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-orcserde
         /// </summary>
-        [Input("OrcSerDe")]
+        [Input("orcSerDe")]
         public Input<Inputs.DeliveryStreamOrcSerDeArgs>? OrcSerDe { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-parquetserde
         /// </summary>
-        [Input("ParquetSerDe")]
+        [Input("parquetSerDe")]
         public Input<Inputs.DeliveryStreamParquetSerDeArgs>? ParquetSerDe { get; set; }
 
         public DeliveryStreamSerializerArgs()

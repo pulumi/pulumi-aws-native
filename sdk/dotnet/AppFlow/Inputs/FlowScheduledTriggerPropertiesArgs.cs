@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-datapullmode
         /// </summary>
-        [Input("DataPullMode")]
+        [Input("dataPullMode")]
         public Input<string>? DataPullMode { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleendtime
         /// </summary>
-        [Input("ScheduleEndTime")]
+        [Input("scheduleEndTime")]
         public Input<double>? ScheduleEndTime { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleexpression
         /// </summary>
-        [Input("ScheduleExpression", required: true)]
+        [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
         /// </summary>
-        [Input("ScheduleStartTime")]
+        [Input("scheduleStartTime")]
         public Input<double>? ScheduleStartTime { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-timezone
         /// </summary>
-        [Input("TimeZone")]
+        [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }
 
         public FlowScheduledTriggerPropertiesArgs()

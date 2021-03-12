@@ -18,28 +18,28 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
         /// </summary>
-        [Output("AcceleratorArn")]
+        [Output("acceleratorArn")]
         public Output<string> AcceleratorArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
         /// </summary>
-        [Output("ClientAffinity")]
+        [Output("clientAffinity")]
         public Output<string?> ClientAffinity { get; private set; } = null!;
 
-        [Output("ListenerArn")]
+        [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
         /// </summary>
-        [Output("PortRanges")]
+        [Output("portRanges")]
         public Output<ImmutableArray<Outputs.ListenerPortRange>> PortRanges { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
         /// </summary>
-        [Output("Protocol")]
+        [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
 
@@ -90,31 +90,31 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
         /// </summary>
-        [Input("AcceleratorArn", required: true)]
+        [Input("acceleratorArn", required: true)]
         public Input<string> AcceleratorArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
         /// </summary>
-        [Input("ClientAffinity")]
+        [Input("clientAffinity")]
         public Input<string>? ClientAffinity { get; set; }
 
-        [Input("PortRanges", required: true)]
-        private InputList<Inputs.ListenerPortRangeArgs>? _PortRanges;
+        [Input("portRanges", required: true)]
+        private InputList<Inputs.ListenerPortRangeArgs>? _portRanges;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
         /// </summary>
         public InputList<Inputs.ListenerPortRangeArgs> PortRanges
         {
-            get => _PortRanges ?? (_PortRanges = new InputList<Inputs.ListenerPortRangeArgs>());
-            set => _PortRanges = value;
+            get => _portRanges ?? (_portRanges = new InputList<Inputs.ListenerPortRangeArgs>());
+            set => _portRanges = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
         /// </summary>
-        [Input("Protocol", required: true)]
+        [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         public ListenerArgs()

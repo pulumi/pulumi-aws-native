@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
         public readonly string TableName;
 
         [OutputConstructor]
-        private TopicRulePutItemInput(string TableName)
+        private TopicRulePutItemInput(string tableName)
         {
-            this.TableName = TableName;
+            TableName = tableName;
         }
     }
 }

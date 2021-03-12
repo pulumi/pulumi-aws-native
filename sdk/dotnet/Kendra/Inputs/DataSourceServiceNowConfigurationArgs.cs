@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-hosturl
         /// </summary>
-        [Input("HostUrl", required: true)]
+        [Input("hostUrl", required: true)]
         public Input<string> HostUrl { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-knowledgearticleconfiguration
         /// </summary>
-        [Input("KnowledgeArticleConfiguration")]
+        [Input("knowledgeArticleConfiguration")]
         public Input<Inputs.DataSourceServiceNowKnowledgeArticleConfigurationArgs>? KnowledgeArticleConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-secretarn
         /// </summary>
-        [Input("SecretArn", required: true)]
+        [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-servicecatalogconfiguration
         /// </summary>
-        [Input("ServiceCatalogConfiguration")]
+        [Input("serviceCatalogConfiguration")]
         public Input<Inputs.DataSourceServiceNowServiceCatalogConfigurationArgs>? ServiceCatalogConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-servicenowbuildversion
         /// </summary>
-        [Input("ServiceNowBuildVersion", required: true)]
+        [Input("serviceNowBuildVersion", required: true)]
         public Input<string> ServiceNowBuildVersion { get; set; } = null!;
 
         public DataSourceServiceNowConfigurationArgs()

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private FirewallPolicyCustomAction(
-            Outputs.FirewallPolicyActionDefinition ActionDefinition,
+            Outputs.FirewallPolicyActionDefinition actionDefinition,
 
-            string ActionName)
+            string actionName)
         {
-            this.ActionDefinition = ActionDefinition;
-            this.ActionName = ActionName;
+            ActionDefinition = actionDefinition;
+            ActionName = actionName;
         }
     }
 }

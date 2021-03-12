@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         public readonly string? ComponentArn;
 
         [OutputConstructor]
-        private ImageRecipeComponentConfiguration(string? ComponentArn)
+        private ImageRecipeComponentConfiguration(string? componentArn)
         {
-            this.ComponentArn = ComponentArn;
+            ComponentArn = componentArn;
         }
     }
 }

@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceSalesforceKnowledgeArticleStateListArgs : Pulumi.ResourceArgs
     {
-        [Input("SalesforceKnowledgeArticleStateList")]
-        private InputList<string>? _SalesforceKnowledgeArticleStateList;
+        [Input("salesforceKnowledgeArticleStateList")]
+        private InputList<string>? _salesforceKnowledgeArticleStateList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticlestatelist.html#cfn-kendra-datasource-salesforceknowledgearticlestatelist-salesforceknowledgearticlestatelist
         /// </summary>
         public InputList<string> SalesforceKnowledgeArticleStateList
         {
-            get => _SalesforceKnowledgeArticleStateList ?? (_SalesforceKnowledgeArticleStateList = new InputList<string>());
-            set => _SalesforceKnowledgeArticleStateList = value;
+            get => _salesforceKnowledgeArticleStateList ?? (_salesforceKnowledgeArticleStateList = new InputList<string>());
+            set => _salesforceKnowledgeArticleStateList = value;
         }
 
         public DataSourceSalesforceKnowledgeArticleStateListArgs()

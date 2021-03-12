@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html#cfn-kendra-datasource-confluenceblogconfiguration-blogfieldmappings
         /// </summary>
-        [Input("BlogFieldMappings")]
+        [Input("blogFieldMappings")]
         public Input<Inputs.DataSourceConfluenceBlogFieldMappingsListArgs>? BlogFieldMappings { get; set; }
 
         public DataSourceConfluenceBlogConfigurationArgs()

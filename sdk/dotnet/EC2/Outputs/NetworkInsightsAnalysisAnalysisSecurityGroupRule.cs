@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
         [OutputConstructor]
         private NetworkInsightsAnalysisAnalysisSecurityGroupRule(
-            string? Cidr,
+            string? cidr,
 
-            string? Direction,
+            string? direction,
 
-            Outputs.NetworkInsightsAnalysisPortRange? PortRange,
+            Outputs.NetworkInsightsAnalysisPortRange? portRange,
 
-            string? PrefixListId,
+            string? prefixListId,
 
-            string? Protocol,
+            string? protocol,
 
-            string? SecurityGroupId)
+            string? securityGroupId)
         {
-            this.Cidr = Cidr;
-            this.Direction = Direction;
-            this.PortRange = PortRange;
-            this.PrefixListId = PrefixListId;
-            this.Protocol = Protocol;
-            this.SecurityGroupId = SecurityGroupId;
+            Cidr = cidr;
+            Direction = direction;
+            PortRange = portRange;
+            PrefixListId = prefixListId;
+            Protocol = protocol;
+            SecurityGroupId = securityGroupId;
         }
     }
 }

@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-crawlattachments
         /// </summary>
-        [Input("CrawlAttachments")]
+        [Input("crawlAttachments")]
         public Input<bool>? CrawlAttachments { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-documentdatafieldname
         /// </summary>
-        [Input("DocumentDataFieldName", required: true)]
+        [Input("documentDataFieldName", required: true)]
         public Input<string> DocumentDataFieldName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-documenttitlefieldname
         /// </summary>
-        [Input("DocumentTitleFieldName")]
+        [Input("documentTitleFieldName")]
         public Input<string>? DocumentTitleFieldName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-excludeattachmentfilepatterns
         /// </summary>
-        [Input("ExcludeAttachmentFilePatterns")]
+        [Input("excludeAttachmentFilePatterns")]
         public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? ExcludeAttachmentFilePatterns { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-fieldmappings
         /// </summary>
-        [Input("FieldMappings")]
+        [Input("fieldMappings")]
         public Input<Inputs.DataSourceDataSourceToIndexFieldMappingListArgs>? FieldMappings { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-includeattachmentfilepatterns
         /// </summary>
-        [Input("IncludeAttachmentFilePatterns")]
+        [Input("includeAttachmentFilePatterns")]
         public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? IncludeAttachmentFilePatterns { get; set; }
 
         public DataSourceServiceNowKnowledgeArticleConfigurationArgs()

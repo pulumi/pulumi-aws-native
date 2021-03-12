@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-clientippreservationenabled
         /// </summary>
-        [Input("ClientIPPreservationEnabled")]
+        [Input("clientIPPreservationEnabled")]
         public Input<bool>? ClientIPPreservationEnabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-endpointid
         /// </summary>
-        [Input("EndpointId", required: true)]
+        [Input("endpointId", required: true)]
         public Input<string> EndpointId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-weight
         /// </summary>
-        [Input("Weight")]
+        [Input("weight")]
         public Input<int>? Weight { get; set; }
 
         public EndpointGroupEndpointConfigurationArgs()

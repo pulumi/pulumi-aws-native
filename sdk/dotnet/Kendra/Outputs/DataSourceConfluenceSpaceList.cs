@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<string> ConfluenceSpaceList;
 
         [OutputConstructor]
-        private DataSourceConfluenceSpaceList(ImmutableArray<string> ConfluenceSpaceList)
+        private DataSourceConfluenceSpaceList(ImmutableArray<string> confluenceSpaceList)
         {
-            this.ConfluenceSpaceList = ConfluenceSpaceList;
+            ConfluenceSpaceList = confluenceSpaceList;
         }
     }
 }

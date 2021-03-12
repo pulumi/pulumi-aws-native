@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
         /// </summary>
-        [Input("EndpointInput", required: true)]
+        [Input("endpointInput", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionEndpointInputArgs> EndpointInput { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input
         /// </summary>
-        [Input("GroundTruthS3Input", required: true)]
+        [Input("groundTruthS3Input", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs> GroundTruthS3Input { get; set; } = null!;
 
         public ModelBiasJobDefinitionModelBiasJobInputArgs()

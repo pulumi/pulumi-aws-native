@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
         /// </summary>
-        [Input("Arn", required: true)]
+        [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        [Input("ExcludedRules")]
-        private InputList<Inputs.WebACLExcludedRuleArgs>? _ExcludedRules;
+        [Input("excludedRules")]
+        private InputList<Inputs.WebACLExcludedRuleArgs>? _excludedRules;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
         /// </summary>
         public InputList<Inputs.WebACLExcludedRuleArgs> ExcludedRules
         {
-            get => _ExcludedRules ?? (_ExcludedRules = new InputList<Inputs.WebACLExcludedRuleArgs>());
-            set => _ExcludedRules = value;
+            get => _excludedRules ?? (_excludedRules = new InputList<Inputs.WebACLExcludedRuleArgs>());
+            set => _excludedRules = value;
         }
 
         public WebACLRuleGroupReferenceStatementArgs()

@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// </summary>
     public sealed class WebACLOrStatementTwoArgs : Pulumi.ResourceArgs
     {
-        [Input("Statements", required: true)]
-        private InputList<Inputs.WebACLStatementThreeArgs>? _Statements;
+        [Input("statements", required: true)]
+        private InputList<Inputs.WebACLStatementThreeArgs>? _statements;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html#cfn-wafv2-webacl-orstatementtwo-statements
         /// </summary>
         public InputList<Inputs.WebACLStatementThreeArgs> Statements
         {
-            get => _Statements ?? (_Statements = new InputList<Inputs.WebACLStatementThreeArgs>());
-            set => _Statements = value;
+            get => _statements ?? (_statements = new InputList<Inputs.WebACLStatementThreeArgs>());
+            set => _statements = value;
         }
 
         public WebACLOrStatementTwoArgs()

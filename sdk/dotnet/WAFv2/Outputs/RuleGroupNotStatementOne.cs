@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         public readonly Outputs.RuleGroupStatementTwo Statement;
 
         [OutputConstructor]
-        private RuleGroupNotStatementOne(Outputs.RuleGroupStatementTwo Statement)
+        private RuleGroupNotStatementOne(Outputs.RuleGroupStatementTwo statement)
         {
-            this.Statement = Statement;
+            Statement = statement;
         }
     }
 }

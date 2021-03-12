@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-type
         /// </summary>
-        [Input("Type", required: true)]
+        [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
         /// </summary>
-        [Input("Value", required: true)]
+        [Input("value", required: true)]
         public Input<int> Value { get; set; } = null!;
 
         public CertificateValidityArgs()

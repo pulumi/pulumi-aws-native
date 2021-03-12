@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html#cfn-kendra-datasource-s3path-bucket
         /// </summary>
-        [Input("Bucket", required: true)]
+        [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html#cfn-kendra-datasource-s3path-key
         /// </summary>
-        [Input("Key", required: true)]
+        [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         public DataSourceS3PathArgs()

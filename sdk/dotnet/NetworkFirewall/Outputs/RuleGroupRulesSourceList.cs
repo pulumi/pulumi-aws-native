@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private RuleGroupRulesSourceList(
-            string GeneratedRulesType,
+            string generatedRulesType,
 
-            Outputs.RuleGroupTargetTypes TargetTypes,
+            Outputs.RuleGroupTargetTypes targetTypes,
 
-            ImmutableArray<string> Targets)
+            ImmutableArray<string> targets)
         {
-            this.GeneratedRulesType = GeneratedRulesType;
-            this.TargetTypes = TargetTypes;
-            this.Targets = Targets;
+            GeneratedRulesType = generatedRulesType;
+            TargetTypes = targetTypes;
+            Targets = targets;
         }
     }
 }

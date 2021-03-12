@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
     /// </summary>
     public sealed class UserGroupUserIdListArgs : Pulumi.ResourceArgs
     {
-        [Input("UserIdList")]
-        private InputList<string>? _UserIdList;
+        [Input("userIdList")]
+        private InputList<string>? _userIdList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html#cfn-elasticache-usergroup-useridlist-useridlist
         /// </summary>
         public InputList<string> UserIdList
         {
-            get => _UserIdList ?? (_UserIdList = new InputList<string>());
-            set => _UserIdList = value;
+            get => _userIdList ?? (_userIdList = new InputList<string>());
+            set => _userIdList = value;
         }
 
         public UserGroupUserIdListArgs()

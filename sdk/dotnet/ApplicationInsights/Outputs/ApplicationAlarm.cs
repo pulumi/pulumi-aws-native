@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationAlarm(
-            string AlarmName,
+            string alarmName,
 
-            string? Severity)
+            string? severity)
         {
-            this.AlarmName = AlarmName;
-            this.Severity = Severity;
+            AlarmName = alarmName;
+            Severity = severity;
         }
     }
 }

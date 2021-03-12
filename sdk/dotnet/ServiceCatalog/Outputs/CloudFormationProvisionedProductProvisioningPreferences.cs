@@ -44,27 +44,27 @@ namespace Pulumi.AwsNative.ServiceCatalog.Outputs
 
         [OutputConstructor]
         private CloudFormationProvisionedProductProvisioningPreferences(
-            ImmutableArray<string> StackSetAccounts,
+            ImmutableArray<string> stackSetAccounts,
 
-            int? StackSetFailureToleranceCount,
+            int? stackSetFailureToleranceCount,
 
-            int? StackSetFailureTolerancePercentage,
+            int? stackSetFailureTolerancePercentage,
 
-            int? StackSetMaxConcurrencyCount,
+            int? stackSetMaxConcurrencyCount,
 
-            int? StackSetMaxConcurrencyPercentage,
+            int? stackSetMaxConcurrencyPercentage,
 
-            string? StackSetOperationType,
+            string? stackSetOperationType,
 
-            ImmutableArray<string> StackSetRegions)
+            ImmutableArray<string> stackSetRegions)
         {
-            this.StackSetAccounts = StackSetAccounts;
-            this.StackSetFailureToleranceCount = StackSetFailureToleranceCount;
-            this.StackSetFailureTolerancePercentage = StackSetFailureTolerancePercentage;
-            this.StackSetMaxConcurrencyCount = StackSetMaxConcurrencyCount;
-            this.StackSetMaxConcurrencyPercentage = StackSetMaxConcurrencyPercentage;
-            this.StackSetOperationType = StackSetOperationType;
-            this.StackSetRegions = StackSetRegions;
+            StackSetAccounts = stackSetAccounts;
+            StackSetFailureToleranceCount = stackSetFailureToleranceCount;
+            StackSetFailureTolerancePercentage = stackSetFailureTolerancePercentage;
+            StackSetMaxConcurrencyCount = stackSetMaxConcurrencyCount;
+            StackSetMaxConcurrencyPercentage = stackSetMaxConcurrencyPercentage;
+            StackSetOperationType = stackSetOperationType;
+            StackSetRegions = stackSetRegions;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
         /// </summary>
-        [Input("EndpointInput", required: true)]
+        [Input("endpointInput", required: true)]
         public Input<Inputs.ModelExplainabilityJobDefinitionEndpointInputArgs> EndpointInput { get; set; } = null!;
 
         public ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs()

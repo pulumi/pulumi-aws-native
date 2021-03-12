@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.S3.Outputs
 
         [OutputConstructor]
         private AccessPointPublicAccessBlockConfiguration(
-            bool? BlockPublicAcls,
+            bool? blockPublicAcls,
 
-            bool? BlockPublicPolicy,
+            bool? blockPublicPolicy,
 
-            bool? IgnorePublicAcls,
+            bool? ignorePublicAcls,
 
-            bool? RestrictPublicBuckets)
+            bool? restrictPublicBuckets)
         {
-            this.BlockPublicAcls = BlockPublicAcls;
-            this.BlockPublicPolicy = BlockPublicPolicy;
-            this.IgnorePublicAcls = IgnorePublicAcls;
-            this.RestrictPublicBuckets = RestrictPublicBuckets;
+            BlockPublicAcls = blockPublicAcls;
+            BlockPublicPolicy = blockPublicPolicy;
+            IgnorePublicAcls = ignorePublicAcls;
+            RestrictPublicBuckets = restrictPublicBuckets;
         }
     }
 }

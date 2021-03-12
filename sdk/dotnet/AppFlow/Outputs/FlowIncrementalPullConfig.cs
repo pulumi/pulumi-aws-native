@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string? DatetimeTypeFieldName;
 
         [OutputConstructor]
-        private FlowIncrementalPullConfig(string? DatetimeTypeFieldName)
+        private FlowIncrementalPullConfig(string? datetimeTypeFieldName)
         {
-            this.DatetimeTypeFieldName = DatetimeTypeFieldName;
+            DatetimeTypeFieldName = datetimeTypeFieldName;
         }
     }
 }

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.MWAA.Outputs
 
         [OutputConstructor]
         private EnvironmentNetworkConfiguration(
-            Outputs.EnvironmentSecurityGroupList? SecurityGroupIds,
+            Outputs.EnvironmentSecurityGroupList? securityGroupIds,
 
-            Outputs.EnvironmentSubnetList? SubnetIds)
+            Outputs.EnvironmentSubnetList? subnetIds)
         {
-            this.SecurityGroupIds = SecurityGroupIds;
-            this.SubnetIds = SubnetIds;
+            SecurityGroupIds = securityGroupIds;
+            SubnetIds = subnetIds;
         }
     }
 }

@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-booleanvalue
         /// </summary>
-        [Input("BooleanValue")]
+        [Input("booleanValue")]
         public Input<string>? BooleanValue { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-doublevalue
         /// </summary>
-        [Input("DoubleValue")]
+        [Input("doubleValue")]
         public Input<string>? DoubleValue { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-integervalue
         /// </summary>
-        [Input("IntegerValue")]
+        [Input("integerValue")]
         public Input<string>? IntegerValue { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-stringvalue
         /// </summary>
-        [Input("StringValue")]
+        [Input("stringValue")]
         public Input<string>? StringValue { get; set; }
 
         public TopicRuleAssetPropertyVariantArgs()

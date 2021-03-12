@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-addgroupowner
         /// </summary>
-        [Input("AddGroupOwner")]
+        [Input("addGroupOwner")]
         public Input<bool>? AddGroupOwner { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-path
         /// </summary>
-        [Input("Path")]
+        [Input("path")]
         public Input<string>? Path { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-permission
         /// </summary>
-        [Input("Permission")]
+        [Input("permission")]
         public Input<string>? Permission { get; set; }
 
         public ComponentVersionLambdaDeviceMountArgs()

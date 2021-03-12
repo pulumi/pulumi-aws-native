@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.RDS.Outputs
 
         [OutputConstructor]
         private DBProxyTagFormat(
-            string? Key,
+            string? key,
 
-            string? Value)
+            string? value)
         {
-            this.Key = Key;
-            this.Value = Value;
+            Key = key;
+            Value = value;
         }
     }
 }

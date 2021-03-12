@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-readonly
         /// </summary>
-        [Input("ReadOnly")]
+        [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-sourcecontainer
         /// </summary>
-        [Input("SourceContainer")]
+        [Input("sourceContainer")]
         public Input<string>? SourceContainer { get; set; }
 
         public TaskDefinitionVolumeFromArgs()

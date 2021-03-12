@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string? AggregationType;
 
         [OutputConstructor]
-        private FlowAggregationConfig(string? AggregationType)
+        private FlowAggregationConfig(string? aggregationType)
         {
-            this.AggregationType = AggregationType;
+            AggregationType = aggregationType;
         }
     }
 }

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.FMS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
         /// </summary>
-        [Output("SnsRoleName")]
+        [Output("snsRoleName")]
         public Output<string> SnsRoleName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
         /// </summary>
-        [Output("SnsTopicArn")]
+        [Output("snsTopicArn")]
         public Output<string> SnsTopicArn { get; private set; } = null!;
 
 
@@ -75,13 +75,13 @@ namespace Pulumi.AwsNative.FMS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
         /// </summary>
-        [Input("SnsRoleName", required: true)]
+        [Input("snsRoleName", required: true)]
         public Input<string> SnsRoleName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
         /// </summary>
-        [Input("SnsTopicArn", required: true)]
+        [Input("snsTopicArn", required: true)]
         public Input<string> SnsTopicArn { get; set; } = null!;
 
         public NotificationChannelArgs()

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
 
         [OutputConstructor]
         private CanarySchedule(
-            string? DurationInSeconds,
+            string? durationInSeconds,
 
-            string Expression)
+            string expression)
         {
-            this.DurationInSeconds = DurationInSeconds;
-            this.Expression = Expression;
+            DurationInSeconds = durationInSeconds;
+            Expression = expression;
         }
     }
 }

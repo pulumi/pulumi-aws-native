@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly int? DurationInSeconds;
 
         [OutputConstructor]
-        private DeliveryStreamRedshiftRetryOptions(int? DurationInSeconds)
+        private DeliveryStreamRedshiftRetryOptions(int? durationInSeconds)
         {
-            this.DurationInSeconds = DurationInSeconds;
+            DurationInSeconds = durationInSeconds;
         }
     }
 }

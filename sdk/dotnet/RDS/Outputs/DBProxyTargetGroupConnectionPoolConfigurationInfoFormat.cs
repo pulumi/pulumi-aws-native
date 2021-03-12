@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.RDS.Outputs
 
         [OutputConstructor]
         private DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(
-            int? ConnectionBorrowTimeout,
+            int? connectionBorrowTimeout,
 
-            string? InitQuery,
+            string? initQuery,
 
-            int? MaxConnectionsPercent,
+            int? maxConnectionsPercent,
 
-            int? MaxIdleConnectionsPercent,
+            int? maxIdleConnectionsPercent,
 
-            ImmutableArray<string> SessionPinningFilters)
+            ImmutableArray<string> sessionPinningFilters)
         {
-            this.ConnectionBorrowTimeout = ConnectionBorrowTimeout;
-            this.InitQuery = InitQuery;
-            this.MaxConnectionsPercent = MaxConnectionsPercent;
-            this.MaxIdleConnectionsPercent = MaxIdleConnectionsPercent;
-            this.SessionPinningFilters = SessionPinningFilters;
+            ConnectionBorrowTimeout = connectionBorrowTimeout;
+            InitQuery = initQuery;
+            MaxConnectionsPercent = maxConnectionsPercent;
+            MaxIdleConnectionsPercent = maxIdleConnectionsPercent;
+            SessionPinningFilters = sessionPinningFilters;
         }
     }
 }

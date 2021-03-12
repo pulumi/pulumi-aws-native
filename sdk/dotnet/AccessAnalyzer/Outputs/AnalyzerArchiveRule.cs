@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Outputs
 
         [OutputConstructor]
         private AnalyzerArchiveRule(
-            ImmutableArray<Outputs.AnalyzerFilter> Filter,
+            ImmutableArray<Outputs.AnalyzerFilter> filter,
 
-            string RuleName)
+            string ruleName)
         {
-            this.Filter = Filter;
-            this.RuleName = RuleName;
+            Filter = filter;
+            RuleName = ruleName;
         }
     }
 }

@@ -18,64 +18,64 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
         /// </summary>
-        [Output("Cluster")]
+        [Output("cluster")]
         public Output<string> Cluster { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
         /// </summary>
-        [Output("ExternalId")]
+        [Output("externalId")]
         public Output<string?> ExternalId { get; private set; } = null!;
 
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
         /// </summary>
-        [Output("LaunchType")]
+        [Output("launchType")]
         public Output<string?> LaunchType { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
         /// </summary>
-        [Output("LoadBalancers")]
+        [Output("loadBalancers")]
         public Output<ImmutableArray<Outputs.TaskSetLoadBalancer>> LoadBalancers { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
         /// </summary>
-        [Output("NetworkConfiguration")]
+        [Output("networkConfiguration")]
         public Output<Outputs.TaskSetNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
         /// </summary>
-        [Output("PlatformVersion")]
+        [Output("platformVersion")]
         public Output<string?> PlatformVersion { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
         /// </summary>
-        [Output("Scale")]
+        [Output("scale")]
         public Output<Outputs.TaskSetScale?> Scale { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
         /// </summary>
-        [Output("Service")]
+        [Output("service")]
         public Output<string> Service { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
         /// </summary>
-        [Output("ServiceRegistries")]
+        [Output("serviceRegistries")]
         public Output<ImmutableArray<Outputs.TaskSetServiceRegistry>> ServiceRegistries { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
         /// </summary>
-        [Output("TaskDefinition")]
+        [Output("taskDefinition")]
         public Output<string> TaskDefinition { get; private set; } = null!;
 
 
@@ -126,73 +126,73 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
         /// </summary>
-        [Input("Cluster", required: true)]
+        [Input("cluster", required: true)]
         public Input<string> Cluster { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
         /// </summary>
-        [Input("ExternalId")]
+        [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
         /// </summary>
-        [Input("LaunchType")]
+        [Input("launchType")]
         public Input<string>? LaunchType { get; set; }
 
-        [Input("LoadBalancers")]
-        private InputList<Inputs.TaskSetLoadBalancerArgs>? _LoadBalancers;
+        [Input("loadBalancers")]
+        private InputList<Inputs.TaskSetLoadBalancerArgs>? _loadBalancers;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
         /// </summary>
         public InputList<Inputs.TaskSetLoadBalancerArgs> LoadBalancers
         {
-            get => _LoadBalancers ?? (_LoadBalancers = new InputList<Inputs.TaskSetLoadBalancerArgs>());
-            set => _LoadBalancers = value;
+            get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.TaskSetLoadBalancerArgs>());
+            set => _loadBalancers = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
         /// </summary>
-        [Input("NetworkConfiguration")]
+        [Input("networkConfiguration")]
         public Input<Inputs.TaskSetNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
         /// </summary>
-        [Input("PlatformVersion")]
+        [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
         /// </summary>
-        [Input("Scale")]
+        [Input("scale")]
         public Input<Inputs.TaskSetScaleArgs>? Scale { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
         /// </summary>
-        [Input("Service", required: true)]
+        [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
 
-        [Input("ServiceRegistries")]
-        private InputList<Inputs.TaskSetServiceRegistryArgs>? _ServiceRegistries;
+        [Input("serviceRegistries")]
+        private InputList<Inputs.TaskSetServiceRegistryArgs>? _serviceRegistries;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
         /// </summary>
         public InputList<Inputs.TaskSetServiceRegistryArgs> ServiceRegistries
         {
-            get => _ServiceRegistries ?? (_ServiceRegistries = new InputList<Inputs.TaskSetServiceRegistryArgs>());
-            set => _ServiceRegistries = value;
+            get => _serviceRegistries ?? (_serviceRegistries = new InputList<Inputs.TaskSetServiceRegistryArgs>());
+            set => _serviceRegistries = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
         /// </summary>
-        [Input("TaskDefinition", required: true)]
+        [Input("taskDefinition", required: true)]
         public Input<string> TaskDefinition { get; set; } = null!;
 
         public TaskSetArgs()

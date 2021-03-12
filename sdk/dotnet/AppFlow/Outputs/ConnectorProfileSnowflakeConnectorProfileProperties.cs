@@ -44,27 +44,27 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileSnowflakeConnectorProfileProperties(
-            string? AccountName,
+            string? accountName,
 
-            string BucketName,
+            string bucketName,
 
-            string? BucketPrefix,
+            string? bucketPrefix,
 
-            string? PrivateLinkServiceName,
+            string? privateLinkServiceName,
 
-            string? Region,
+            string? region,
 
-            string Stage,
+            string stage,
 
-            string Warehouse)
+            string warehouse)
         {
-            this.AccountName = AccountName;
-            this.BucketName = BucketName;
-            this.BucketPrefix = BucketPrefix;
-            this.PrivateLinkServiceName = PrivateLinkServiceName;
-            this.Region = Region;
-            this.Stage = Stage;
-            this.Warehouse = Warehouse;
+            AccountName = accountName;
+            BucketName = bucketName;
+            BucketPrefix = bucketPrefix;
+            PrivateLinkServiceName = privateLinkServiceName;
+            Region = region;
+            Stage = stage;
+            Warehouse = warehouse;
         }
     }
 }

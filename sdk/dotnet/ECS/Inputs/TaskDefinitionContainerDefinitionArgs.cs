@@ -15,346 +15,346 @@ namespace Pulumi.AwsNative.ECS.Inputs
     /// </summary>
     public sealed class TaskDefinitionContainerDefinitionArgs : Pulumi.ResourceArgs
     {
-        [Input("Command")]
-        private InputList<string>? _Command;
+        [Input("command")]
+        private InputList<string>? _command;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-command
         /// </summary>
         public InputList<string> Command
         {
-            get => _Command ?? (_Command = new InputList<string>());
-            set => _Command = value;
+            get => _command ?? (_command = new InputList<string>());
+            set => _command = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-cpu
         /// </summary>
-        [Input("Cpu")]
+        [Input("cpu")]
         public Input<int>? Cpu { get; set; }
 
-        [Input("DependsOn")]
-        private InputList<Inputs.TaskDefinitionContainerDependencyArgs>? _DependsOn;
+        [Input("dependsOn")]
+        private InputList<Inputs.TaskDefinitionContainerDependencyArgs>? _dependsOn;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dependson
         /// </summary>
         public InputList<Inputs.TaskDefinitionContainerDependencyArgs> DependsOn
         {
-            get => _DependsOn ?? (_DependsOn = new InputList<Inputs.TaskDefinitionContainerDependencyArgs>());
-            set => _DependsOn = value;
+            get => _dependsOn ?? (_dependsOn = new InputList<Inputs.TaskDefinitionContainerDependencyArgs>());
+            set => _dependsOn = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-disablenetworking
         /// </summary>
-        [Input("DisableNetworking")]
+        [Input("disableNetworking")]
         public Input<bool>? DisableNetworking { get; set; }
 
-        [Input("DnsSearchDomains")]
-        private InputList<string>? _DnsSearchDomains;
+        [Input("dnsSearchDomains")]
+        private InputList<string>? _dnsSearchDomains;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains
         /// </summary>
         public InputList<string> DnsSearchDomains
         {
-            get => _DnsSearchDomains ?? (_DnsSearchDomains = new InputList<string>());
-            set => _DnsSearchDomains = value;
+            get => _dnsSearchDomains ?? (_dnsSearchDomains = new InputList<string>());
+            set => _dnsSearchDomains = value;
         }
 
-        [Input("DnsServers")]
-        private InputList<string>? _DnsServers;
+        [Input("dnsServers")]
+        private InputList<string>? _dnsServers;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnsservers
         /// </summary>
         public InputList<string> DnsServers
         {
-            get => _DnsServers ?? (_DnsServers = new InputList<string>());
-            set => _DnsServers = value;
+            get => _dnsServers ?? (_dnsServers = new InputList<string>());
+            set => _dnsServers = value;
         }
 
-        [Input("DockerLabels")]
-        private InputMap<string>? _DockerLabels;
+        [Input("dockerLabels")]
+        private InputMap<string>? _dockerLabels;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockerlabels
         /// </summary>
         public InputMap<string> DockerLabels
         {
-            get => _DockerLabels ?? (_DockerLabels = new InputMap<string>());
-            set => _DockerLabels = value;
+            get => _dockerLabels ?? (_dockerLabels = new InputMap<string>());
+            set => _dockerLabels = value;
         }
 
-        [Input("DockerSecurityOptions")]
-        private InputList<string>? _DockerSecurityOptions;
+        [Input("dockerSecurityOptions")]
+        private InputList<string>? _dockerSecurityOptions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockersecurityoptions
         /// </summary>
         public InputList<string> DockerSecurityOptions
         {
-            get => _DockerSecurityOptions ?? (_DockerSecurityOptions = new InputList<string>());
-            set => _DockerSecurityOptions = value;
+            get => _dockerSecurityOptions ?? (_dockerSecurityOptions = new InputList<string>());
+            set => _dockerSecurityOptions = value;
         }
 
-        [Input("EntryPoint")]
-        private InputList<string>? _EntryPoint;
+        [Input("entryPoint")]
+        private InputList<string>? _entryPoint;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-entrypoint
         /// </summary>
         public InputList<string> EntryPoint
         {
-            get => _EntryPoint ?? (_EntryPoint = new InputList<string>());
-            set => _EntryPoint = value;
+            get => _entryPoint ?? (_entryPoint = new InputList<string>());
+            set => _entryPoint = value;
         }
 
-        [Input("Environment")]
-        private InputList<Inputs.TaskDefinitionKeyValuePairArgs>? _Environment;
+        [Input("environment")]
+        private InputList<Inputs.TaskDefinitionKeyValuePairArgs>? _environment;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environment
         /// </summary>
         public InputList<Inputs.TaskDefinitionKeyValuePairArgs> Environment
         {
-            get => _Environment ?? (_Environment = new InputList<Inputs.TaskDefinitionKeyValuePairArgs>());
-            set => _Environment = value;
+            get => _environment ?? (_environment = new InputList<Inputs.TaskDefinitionKeyValuePairArgs>());
+            set => _environment = value;
         }
 
-        [Input("EnvironmentFiles")]
-        private InputList<Inputs.TaskDefinitionEnvironmentFileArgs>? _EnvironmentFiles;
+        [Input("environmentFiles")]
+        private InputList<Inputs.TaskDefinitionEnvironmentFileArgs>? _environmentFiles;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles
         /// </summary>
         public InputList<Inputs.TaskDefinitionEnvironmentFileArgs> EnvironmentFiles
         {
-            get => _EnvironmentFiles ?? (_EnvironmentFiles = new InputList<Inputs.TaskDefinitionEnvironmentFileArgs>());
-            set => _EnvironmentFiles = value;
+            get => _environmentFiles ?? (_environmentFiles = new InputList<Inputs.TaskDefinitionEnvironmentFileArgs>());
+            set => _environmentFiles = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential
         /// </summary>
-        [Input("Essential")]
+        [Input("essential")]
         public Input<bool>? Essential { get; set; }
 
-        [Input("ExtraHosts")]
-        private InputList<Inputs.TaskDefinitionHostEntryArgs>? _ExtraHosts;
+        [Input("extraHosts")]
+        private InputList<Inputs.TaskDefinitionHostEntryArgs>? _extraHosts;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts
         /// </summary>
         public InputList<Inputs.TaskDefinitionHostEntryArgs> ExtraHosts
         {
-            get => _ExtraHosts ?? (_ExtraHosts = new InputList<Inputs.TaskDefinitionHostEntryArgs>());
-            set => _ExtraHosts = value;
+            get => _extraHosts ?? (_extraHosts = new InputList<Inputs.TaskDefinitionHostEntryArgs>());
+            set => _extraHosts = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration
         /// </summary>
-        [Input("FirelensConfiguration")]
+        [Input("firelensConfiguration")]
         public Input<Inputs.TaskDefinitionFirelensConfigurationArgs>? FirelensConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-healthcheck
         /// </summary>
-        [Input("HealthCheck")]
+        [Input("healthCheck")]
         public Input<Inputs.TaskDefinitionHealthCheckArgs>? HealthCheck { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-hostname
         /// </summary>
-        [Input("Hostname")]
+        [Input("hostname")]
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-image
         /// </summary>
-        [Input("Image")]
+        [Input("image")]
         public Input<string>? Image { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-interactive
         /// </summary>
-        [Input("Interactive")]
+        [Input("interactive")]
         public Input<bool>? Interactive { get; set; }
 
-        [Input("Links")]
-        private InputList<string>? _Links;
+        [Input("links")]
+        private InputList<string>? _links;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links
         /// </summary>
         public InputList<string> Links
         {
-            get => _Links ?? (_Links = new InputList<string>());
-            set => _Links = value;
+            get => _links ?? (_links = new InputList<string>());
+            set => _links = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-linuxparameters
         /// </summary>
-        [Input("LinuxParameters")]
+        [Input("linuxParameters")]
         public Input<Inputs.TaskDefinitionLinuxParametersArgs>? LinuxParameters { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration
         /// </summary>
-        [Input("LogConfiguration")]
+        [Input("logConfiguration")]
         public Input<Inputs.TaskDefinitionLogConfigurationArgs>? LogConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memory
         /// </summary>
-        [Input("Memory")]
+        [Input("memory")]
         public Input<int>? Memory { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memoryreservation
         /// </summary>
-        [Input("MemoryReservation")]
+        [Input("memoryReservation")]
         public Input<int>? MemoryReservation { get; set; }
 
-        [Input("MountPoints")]
-        private InputList<Inputs.TaskDefinitionMountPointArgs>? _MountPoints;
+        [Input("mountPoints")]
+        private InputList<Inputs.TaskDefinitionMountPointArgs>? _mountPoints;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints
         /// </summary>
         public InputList<Inputs.TaskDefinitionMountPointArgs> MountPoints
         {
-            get => _MountPoints ?? (_MountPoints = new InputList<Inputs.TaskDefinitionMountPointArgs>());
-            set => _MountPoints = value;
+            get => _mountPoints ?? (_mountPoints = new InputList<Inputs.TaskDefinitionMountPointArgs>());
+            set => _mountPoints = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-name
         /// </summary>
-        [Input("Name")]
+        [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("PortMappings")]
-        private InputList<Inputs.TaskDefinitionPortMappingArgs>? _PortMappings;
+        [Input("portMappings")]
+        private InputList<Inputs.TaskDefinitionPortMappingArgs>? _portMappings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-portmappings
         /// </summary>
         public InputList<Inputs.TaskDefinitionPortMappingArgs> PortMappings
         {
-            get => _PortMappings ?? (_PortMappings = new InputList<Inputs.TaskDefinitionPortMappingArgs>());
-            set => _PortMappings = value;
+            get => _portMappings ?? (_portMappings = new InputList<Inputs.TaskDefinitionPortMappingArgs>());
+            set => _portMappings = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-privileged
         /// </summary>
-        [Input("Privileged")]
+        [Input("privileged")]
         public Input<bool>? Privileged { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-pseudoterminal
         /// </summary>
-        [Input("PseudoTerminal")]
+        [Input("pseudoTerminal")]
         public Input<bool>? PseudoTerminal { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem
         /// </summary>
-        [Input("ReadonlyRootFilesystem")]
+        [Input("readonlyRootFilesystem")]
         public Input<bool>? ReadonlyRootFilesystem { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
         /// </summary>
-        [Input("RepositoryCredentials")]
+        [Input("repositoryCredentials")]
         public Input<Inputs.TaskDefinitionRepositoryCredentialsArgs>? RepositoryCredentials { get; set; }
 
-        [Input("ResourceRequirements")]
-        private InputList<Inputs.TaskDefinitionResourceRequirementArgs>? _ResourceRequirements;
+        [Input("resourceRequirements")]
+        private InputList<Inputs.TaskDefinitionResourceRequirementArgs>? _resourceRequirements;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements
         /// </summary>
         public InputList<Inputs.TaskDefinitionResourceRequirementArgs> ResourceRequirements
         {
-            get => _ResourceRequirements ?? (_ResourceRequirements = new InputList<Inputs.TaskDefinitionResourceRequirementArgs>());
-            set => _ResourceRequirements = value;
+            get => _resourceRequirements ?? (_resourceRequirements = new InputList<Inputs.TaskDefinitionResourceRequirementArgs>());
+            set => _resourceRequirements = value;
         }
 
-        [Input("Secrets")]
-        private InputList<Inputs.TaskDefinitionSecretArgs>? _Secrets;
+        [Input("secrets")]
+        private InputList<Inputs.TaskDefinitionSecretArgs>? _secrets;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets
         /// </summary>
         public InputList<Inputs.TaskDefinitionSecretArgs> Secrets
         {
-            get => _Secrets ?? (_Secrets = new InputList<Inputs.TaskDefinitionSecretArgs>());
-            set => _Secrets = value;
+            get => _secrets ?? (_secrets = new InputList<Inputs.TaskDefinitionSecretArgs>());
+            set => _secrets = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-starttimeout
         /// </summary>
-        [Input("StartTimeout")]
+        [Input("startTimeout")]
         public Input<int>? StartTimeout { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-stoptimeout
         /// </summary>
-        [Input("StopTimeout")]
+        [Input("stopTimeout")]
         public Input<int>? StopTimeout { get; set; }
 
-        [Input("SystemControls")]
-        private InputList<Inputs.TaskDefinitionSystemControlArgs>? _SystemControls;
+        [Input("systemControls")]
+        private InputList<Inputs.TaskDefinitionSystemControlArgs>? _systemControls;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols
         /// </summary>
         public InputList<Inputs.TaskDefinitionSystemControlArgs> SystemControls
         {
-            get => _SystemControls ?? (_SystemControls = new InputList<Inputs.TaskDefinitionSystemControlArgs>());
-            set => _SystemControls = value;
+            get => _systemControls ?? (_systemControls = new InputList<Inputs.TaskDefinitionSystemControlArgs>());
+            set => _systemControls = value;
         }
 
-        [Input("Ulimits")]
-        private InputList<Inputs.TaskDefinitionUlimitArgs>? _Ulimits;
+        [Input("ulimits")]
+        private InputList<Inputs.TaskDefinitionUlimitArgs>? _ulimits;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
         /// </summary>
         public InputList<Inputs.TaskDefinitionUlimitArgs> Ulimits
         {
-            get => _Ulimits ?? (_Ulimits = new InputList<Inputs.TaskDefinitionUlimitArgs>());
-            set => _Ulimits = value;
+            get => _ulimits ?? (_ulimits = new InputList<Inputs.TaskDefinitionUlimitArgs>());
+            set => _ulimits = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-user
         /// </summary>
-        [Input("User")]
+        [Input("user")]
         public Input<string>? User { get; set; }
 
-        [Input("VolumesFrom")]
-        private InputList<Inputs.TaskDefinitionVolumeFromArgs>? _VolumesFrom;
+        [Input("volumesFrom")]
+        private InputList<Inputs.TaskDefinitionVolumeFromArgs>? _volumesFrom;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom
         /// </summary>
         public InputList<Inputs.TaskDefinitionVolumeFromArgs> VolumesFrom
         {
-            get => _VolumesFrom ?? (_VolumesFrom = new InputList<Inputs.TaskDefinitionVolumeFromArgs>());
-            set => _VolumesFrom = value;
+            get => _volumesFrom ?? (_volumesFrom = new InputList<Inputs.TaskDefinitionVolumeFromArgs>());
+            set => _volumesFrom = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-workingdirectory
         /// </summary>
-        [Input("WorkingDirectory")]
+        [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }
 
         public TaskDefinitionContainerDefinitionArgs()

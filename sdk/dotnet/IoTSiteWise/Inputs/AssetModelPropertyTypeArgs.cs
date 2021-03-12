@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-attribute
         /// </summary>
-        [Input("Attribute")]
+        [Input("attribute")]
         public Input<Inputs.AssetModelAttributeArgs>? Attribute { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-metric
         /// </summary>
-        [Input("Metric")]
+        [Input("metric")]
         public Input<Inputs.AssetModelMetricArgs>? Metric { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-transform
         /// </summary>
-        [Input("Transform")]
+        [Input("transform")]
         public Input<Inputs.AssetModelTransformArgs>? Transform { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-typename
         /// </summary>
-        [Input("TypeName", required: true)]
+        [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 
         public AssetModelPropertyTypeArgs()

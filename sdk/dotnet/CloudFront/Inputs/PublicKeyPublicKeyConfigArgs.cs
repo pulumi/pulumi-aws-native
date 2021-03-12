@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-callerreference
         /// </summary>
-        [Input("CallerReference", required: true)]
+        [Input("callerReference", required: true)]
         public Input<string> CallerReference { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-comment
         /// </summary>
-        [Input("Comment")]
+        [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-encodedkey
         /// </summary>
-        [Input("EncodedKey", required: true)]
+        [Input("encodedKey", required: true)]
         public Input<string> EncodedKey { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         public PublicKeyPublicKeyConfigArgs()

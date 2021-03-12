@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html#cfn-sagemaker-modelbiasjobdefinition-constraintsresource-s3uri
         /// </summary>
-        [Input("S3Uri")]
+        [Input("s3Uri")]
         public Input<string>? S3Uri { get; set; }
 
         public ModelBiasJobDefinitionConstraintsResourceArgs()

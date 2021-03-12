@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-pipelineexecutionstartcondition
         /// </summary>
-        [Input("PipelineExecutionStartCondition")]
+        [Input("pipelineExecutionStartCondition")]
         public Input<string>? PipelineExecutionStartCondition { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-scheduleexpression
         /// </summary>
-        [Input("ScheduleExpression")]
+        [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
 
         public ImagePipelineScheduleArgs()

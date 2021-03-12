@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
         [OutputConstructor]
         private OriginRequestPolicyQueryStringsConfig(
-            string QueryStringBehavior,
+            string queryStringBehavior,
 
-            ImmutableArray<string> QueryStrings)
+            ImmutableArray<string> queryStrings)
         {
-            this.QueryStringBehavior = QueryStringBehavior;
-            this.QueryStrings = QueryStrings;
+            QueryStringBehavior = queryStringBehavior;
+            QueryStrings = queryStrings;
         }
     }
 }

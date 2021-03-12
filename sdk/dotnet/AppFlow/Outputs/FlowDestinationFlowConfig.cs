@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowDestinationFlowConfig(
-            string? ConnectorProfileName,
+            string? connectorProfileName,
 
-            string ConnectorType,
+            string connectorType,
 
-            Outputs.FlowDestinationConnectorProperties DestinationConnectorProperties)
+            Outputs.FlowDestinationConnectorProperties destinationConnectorProperties)
         {
-            this.ConnectorProfileName = ConnectorProfileName;
-            this.ConnectorType = ConnectorType;
-            this.DestinationConnectorProperties = DestinationConnectorProperties;
+            ConnectorProfileName = connectorProfileName;
+            ConnectorType = connectorType;
+            DestinationConnectorProperties = destinationConnectorProperties;
         }
     }
 }

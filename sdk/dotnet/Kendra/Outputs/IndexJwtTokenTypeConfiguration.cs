@@ -44,27 +44,27 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private IndexJwtTokenTypeConfiguration(
-            string? ClaimRegex,
+            string? claimRegex,
 
-            string? GroupAttributeField,
+            string? groupAttributeField,
 
-            string? Issuer,
+            string? issuer,
 
-            string KeyLocation,
+            string keyLocation,
 
-            string? SecretManagerArn,
+            string? secretManagerArn,
 
-            string? URL,
+            string? uRL,
 
-            string? UserNameAttributeField)
+            string? userNameAttributeField)
         {
-            this.ClaimRegex = ClaimRegex;
-            this.GroupAttributeField = GroupAttributeField;
-            this.Issuer = Issuer;
-            this.KeyLocation = KeyLocation;
-            this.SecretManagerArn = SecretManagerArn;
-            this.URL = URL;
-            this.UserNameAttributeField = UserNameAttributeField;
+            ClaimRegex = claimRegex;
+            GroupAttributeField = groupAttributeField;
+            Issuer = issuer;
+            KeyLocation = keyLocation;
+            SecretManagerArn = secretManagerArn;
+            URL = uRL;
+            UserNameAttributeField = userNameAttributeField;
         }
     }
 }

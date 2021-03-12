@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceSalesforceStandardObjectConfigurationListArgs : Pulumi.ResourceArgs
     {
-        [Input("SalesforceStandardObjectConfigurationList")]
-        private InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs>? _SalesforceStandardObjectConfigurationList;
+        [Input("salesforceStandardObjectConfigurationList")]
+        private InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs>? _salesforceStandardObjectConfigurationList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html#cfn-kendra-datasource-salesforcestandardobjectconfigurationlist-salesforcestandardobjectconfigurationlist
         /// </summary>
         public InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs> SalesforceStandardObjectConfigurationList
         {
-            get => _SalesforceStandardObjectConfigurationList ?? (_SalesforceStandardObjectConfigurationList = new InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs>());
-            set => _SalesforceStandardObjectConfigurationList = value;
+            get => _salesforceStandardObjectConfigurationList ?? (_salesforceStandardObjectConfigurationList = new InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs>());
+            set => _salesforceStandardObjectConfigurationList = value;
         }
 
         public DataSourceSalesforceStandardObjectConfigurationListArgs()

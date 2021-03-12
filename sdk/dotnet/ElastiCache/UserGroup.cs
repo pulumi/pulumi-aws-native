@@ -15,34 +15,34 @@ namespace Pulumi.AwsNative.ElastiCache
     [AwsNativeResourceType("aws-native:ElastiCache:UserGroup")]
     public partial class UserGroup : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
         /// </summary>
-        [Output("Engine")]
+        [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
-        [Output("PendingChanges")]
+        [Output("pendingChanges")]
         public Output<Outputs.UserGroupUserGroupPendingChanges> PendingChanges { get; private set; } = null!;
 
-        [Output("ReplicationGroupIds")]
+        [Output("replicationGroupIds")]
         public Output<Outputs.UserGroupReplicationGroupIdList> ReplicationGroupIds { get; private set; } = null!;
 
-        [Output("Status")]
+        [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
         /// </summary>
-        [Output("UserGroupId")]
+        [Output("userGroupId")]
         public Output<string> UserGroupId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
         /// </summary>
-        [Output("UserIds")]
+        [Output("userIds")]
         public Output<Outputs.UserGroupUserIdList?> UserIds { get; private set; } = null!;
 
 
@@ -93,19 +93,19 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
         /// </summary>
-        [Input("Engine", required: true)]
+        [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
         /// </summary>
-        [Input("UserGroupId", required: true)]
+        [Input("userGroupId", required: true)]
         public Input<string> UserGroupId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
         /// </summary>
-        [Input("UserIds")]
+        [Input("userIds")]
         public Input<Inputs.UserGroupUserIdListArgs>? UserIds { get; set; }
 
         public UserGroupArgs()

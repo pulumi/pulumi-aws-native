@@ -18,28 +18,28 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("DeviceFleetName")]
+        [Output("deviceFleetName")]
         public Output<string> DeviceFleetName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
         /// </summary>
-        [Output("OutputConfig")]
+        [Output("outputConfig")]
         public Output<Outputs.DeviceFleetEdgeOutputConfig> OutputConfig { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
         /// </summary>
-        [Output("RoleArn")]
+        [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<Pulumi.AwsNative.Outputs.Tag?> Tags { get; private set; } = null!;
 
 
@@ -90,25 +90,25 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
         /// </summary>
-        [Input("OutputConfig", required: true)]
+        [Input("outputConfig", required: true)]
         public Input<Inputs.DeviceFleetEdgeOutputConfigArgs> OutputConfig { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
         /// </summary>
-        [Input("Tags")]
+        [Input("tags")]
         public Input<Pulumi.AwsNative.Inputs.TagArgs>? Tags { get; set; }
 
         public DeviceFleetArgs()

@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileMarketoConnectorProfileCredentials(
-            string? AccessToken,
+            string? accessToken,
 
-            string ClientId,
+            string clientId,
 
-            string ClientSecret,
+            string clientSecret,
 
-            Outputs.ConnectorProfileConnectorOAuthRequest? ConnectorOAuthRequest)
+            Outputs.ConnectorProfileConnectorOAuthRequest? connectorOAuthRequest)
         {
-            this.AccessToken = AccessToken;
-            this.ClientId = ClientId;
-            this.ClientSecret = ClientSecret;
-            this.ConnectorOAuthRequest = ConnectorOAuthRequest;
+            AccessToken = accessToken;
+            ClientId = clientId;
+            ClientSecret = clientSecret;
+            ConnectorOAuthRequest = connectorOAuthRequest;
         }
     }
 }

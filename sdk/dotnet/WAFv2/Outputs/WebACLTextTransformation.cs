@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLTextTransformation(
-            int Priority,
+            int priority,
 
-            string Type)
+            string type)
         {
-            this.Priority = Priority;
-            this.Type = Type;
+            Priority = priority;
+            Type = type;
         }
     }
 }

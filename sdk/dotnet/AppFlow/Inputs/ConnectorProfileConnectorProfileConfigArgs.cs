@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
         /// </summary>
-        [Input("ConnectorProfileCredentials", required: true)]
+        [Input("connectorProfileCredentials", required: true)]
         public Input<Inputs.ConnectorProfileConnectorProfileCredentialsArgs> ConnectorProfileCredentials { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
         /// </summary>
-        [Input("ConnectorProfileProperties")]
+        [Input("connectorProfileProperties")]
         public Input<Inputs.ConnectorProfileConnectorProfilePropertiesArgs>? ConnectorProfileProperties { get; set; }
 
         public ConnectorProfileConnectorProfileConfigArgs()

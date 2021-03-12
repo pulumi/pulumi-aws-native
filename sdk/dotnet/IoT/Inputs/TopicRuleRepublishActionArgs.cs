@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos
         /// </summary>
-        [Input("Qos")]
+        [Input("qos")]
         public Input<int>? Qos { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-topic
         /// </summary>
-        [Input("Topic", required: true)]
+        [Input("topic", required: true)]
         public Input<string> Topic { get; set; } = null!;
 
         public TopicRuleRepublishActionArgs()

@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.Athena.Outputs
 
         [OutputConstructor]
         private WorkGroupResultConfigurationUpdates(
-            Outputs.WorkGroupEncryptionConfiguration? EncryptionConfiguration,
+            Outputs.WorkGroupEncryptionConfiguration? encryptionConfiguration,
 
-            string? OutputLocation,
+            string? outputLocation,
 
-            bool? RemoveEncryptionConfiguration,
+            bool? removeEncryptionConfiguration,
 
-            bool? RemoveOutputLocation)
+            bool? removeOutputLocation)
         {
-            this.EncryptionConfiguration = EncryptionConfiguration;
-            this.OutputLocation = OutputLocation;
-            this.RemoveEncryptionConfiguration = RemoveEncryptionConfiguration;
-            this.RemoveOutputLocation = RemoveOutputLocation;
+            EncryptionConfiguration = encryptionConfiguration;
+            OutputLocation = outputLocation;
+            RemoveEncryptionConfiguration = removeEncryptionConfiguration;
+            RemoveOutputLocation = removeOutputLocation;
         }
     }
 }

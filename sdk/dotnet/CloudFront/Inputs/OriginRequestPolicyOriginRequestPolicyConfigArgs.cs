@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
         /// </summary>
-        [Input("Comment")]
+        [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
         /// </summary>
-        [Input("CookiesConfig", required: true)]
+        [Input("cookiesConfig", required: true)]
         public Input<Inputs.OriginRequestPolicyCookiesConfigArgs> CookiesConfig { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
         /// </summary>
-        [Input("HeadersConfig", required: true)]
+        [Input("headersConfig", required: true)]
         public Input<Inputs.OriginRequestPolicyHeadersConfigArgs> HeadersConfig { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
         /// </summary>
-        [Input("QueryStringsConfig", required: true)]
+        [Input("queryStringsConfig", required: true)]
         public Input<Inputs.OriginRequestPolicyQueryStringsConfigArgs> QueryStringsConfig { get; set; } = null!;
 
         public OriginRequestPolicyOriginRequestPolicyConfigArgs()

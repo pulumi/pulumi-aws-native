@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileDatadogConnectorProfileCredentials(
-            string ApiKey,
+            string apiKey,
 
-            string ApplicationKey)
+            string applicationKey)
         {
-            this.ApiKey = ApiKey;
-            this.ApplicationKey = ApplicationKey;
+            ApiKey = apiKey;
+            ApplicationKey = applicationKey;
         }
     }
 }

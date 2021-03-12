@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-baseliningjobname
         /// </summary>
-        [Input("BaseliningJobName")]
+        [Input("baseliningJobName")]
         public Input<string>? BaseliningJobName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-constraintsresource
         /// </summary>
-        [Input("ConstraintsResource")]
+        [Input("constraintsResource")]
         public Input<Inputs.ModelBiasJobDefinitionConstraintsResourceArgs>? ConstraintsResource { get; set; }
 
         public ModelBiasJobDefinitionModelBiasBaselineConfigArgs()

@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceDatabaseConfiguration(
-            Outputs.DataSourceAclConfiguration? AclConfiguration,
+            Outputs.DataSourceAclConfiguration? aclConfiguration,
 
-            Outputs.DataSourceColumnConfiguration ColumnConfiguration,
+            Outputs.DataSourceColumnConfiguration columnConfiguration,
 
-            Outputs.DataSourceConnectionConfiguration ConnectionConfiguration,
+            Outputs.DataSourceConnectionConfiguration connectionConfiguration,
 
-            string DatabaseEngineType,
+            string databaseEngineType,
 
-            Outputs.DataSourceSqlConfiguration? SqlConfiguration,
+            Outputs.DataSourceSqlConfiguration? sqlConfiguration,
 
-            Outputs.DataSourceDataSourceVpcConfiguration? VpcConfiguration)
+            Outputs.DataSourceDataSourceVpcConfiguration? vpcConfiguration)
         {
-            this.AclConfiguration = AclConfiguration;
-            this.ColumnConfiguration = ColumnConfiguration;
-            this.ConnectionConfiguration = ConnectionConfiguration;
-            this.DatabaseEngineType = DatabaseEngineType;
-            this.SqlConfiguration = SqlConfiguration;
-            this.VpcConfiguration = VpcConfiguration;
+            AclConfiguration = aclConfiguration;
+            ColumnConfiguration = columnConfiguration;
+            ConnectionConfiguration = connectionConfiguration;
+            DatabaseEngineType = databaseEngineType;
+            SqlConfiguration = sqlConfiguration;
+            VpcConfiguration = vpcConfiguration;
         }
     }
 }

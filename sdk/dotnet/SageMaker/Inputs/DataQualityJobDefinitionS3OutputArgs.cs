@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-localpath
         /// </summary>
-        [Input("LocalPath", required: true)]
+        [Input("localPath", required: true)]
         public Input<string> LocalPath { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uploadmode
         /// </summary>
-        [Input("S3UploadMode")]
+        [Input("s3UploadMode")]
         public Input<string>? S3UploadMode { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uri
         /// </summary>
-        [Input("S3Uri", required: true)]
+        [Input("s3Uri", required: true)]
         public Input<string> S3Uri { get; set; } = null!;
 
         public DataQualityJobDefinitionS3OutputArgs()

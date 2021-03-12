@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-constantinitializationvector
         /// </summary>
-        [Input("ConstantInitializationVector")]
+        [Input("constantInitializationVector")]
         public Input<string>? ConstantInitializationVector { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-encryptionmethod
         /// </summary>
-        [Input("EncryptionMethod")]
+        [Input("encryptionMethod")]
         public Input<string>? EncryptionMethod { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-keyrotationintervalseconds
         /// </summary>
-        [Input("KeyRotationIntervalSeconds")]
+        [Input("keyRotationIntervalSeconds")]
         public Input<int>? KeyRotationIntervalSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-repeatextxkey
         /// </summary>
-        [Input("RepeatExtXKey")]
+        [Input("repeatExtXKey")]
         public Input<bool>? RepeatExtXKey { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-spekekeyprovider
         /// </summary>
-        [Input("SpekeKeyProvider", required: true)]
+        [Input("spekeKeyProvider", required: true)]
         public Input<Inputs.OriginEndpointSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;
 
         public OriginEndpointHlsEncryptionArgs()

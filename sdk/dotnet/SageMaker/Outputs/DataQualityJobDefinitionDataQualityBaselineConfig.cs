@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private DataQualityJobDefinitionDataQualityBaselineConfig(
-            string? BaseliningJobName,
+            string? baseliningJobName,
 
-            Outputs.DataQualityJobDefinitionConstraintsResource? ConstraintsResource,
+            Outputs.DataQualityJobDefinitionConstraintsResource? constraintsResource,
 
-            Outputs.DataQualityJobDefinitionStatisticsResource? StatisticsResource)
+            Outputs.DataQualityJobDefinitionStatisticsResource? statisticsResource)
         {
-            this.BaseliningJobName = BaseliningJobName;
-            this.ConstraintsResource = ConstraintsResource;
-            this.StatisticsResource = StatisticsResource;
+            BaseliningJobName = baseliningJobName;
+            ConstraintsResource = constraintsResource;
+            StatisticsResource = statisticsResource;
         }
     }
 }

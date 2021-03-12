@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         public readonly string AlarmMetricName;
 
         [OutputConstructor]
-        private ApplicationAlarmMetric(string AlarmMetricName)
+        private ApplicationAlarmMetric(string alarmMetricName)
         {
-            this.AlarmMetricName = AlarmMetricName;
+            AlarmMetricName = alarmMetricName;
         }
     }
 }

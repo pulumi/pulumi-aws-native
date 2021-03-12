@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamSerializer(
-            Outputs.DeliveryStreamOrcSerDe? OrcSerDe,
+            Outputs.DeliveryStreamOrcSerDe? orcSerDe,
 
-            Outputs.DeliveryStreamParquetSerDe? ParquetSerDe)
+            Outputs.DeliveryStreamParquetSerDe? parquetSerDe)
         {
-            this.OrcSerDe = OrcSerDe;
-            this.ParquetSerDe = ParquetSerDe;
+            OrcSerDe = orcSerDe;
+            ParquetSerDe = parquetSerDe;
         }
     }
 }

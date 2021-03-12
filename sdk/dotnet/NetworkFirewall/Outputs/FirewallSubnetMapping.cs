@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly string SubnetId;
 
         [OutputConstructor]
-        private FirewallSubnetMapping(string SubnetId)
+        private FirewallSubnetMapping(string subnetId)
         {
-            this.SubnetId = SubnetId;
+            SubnetId = subnetId;
         }
     }
 }

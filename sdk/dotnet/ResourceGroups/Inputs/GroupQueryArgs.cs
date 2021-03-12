@@ -15,34 +15,34 @@ namespace Pulumi.AwsNative.ResourceGroups.Inputs
     /// </summary>
     public sealed class GroupQueryArgs : Pulumi.ResourceArgs
     {
-        [Input("ResourceTypeFilters")]
-        private InputList<string>? _ResourceTypeFilters;
+        [Input("resourceTypeFilters")]
+        private InputList<string>? _resourceTypeFilters;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
         /// </summary>
         public InputList<string> ResourceTypeFilters
         {
-            get => _ResourceTypeFilters ?? (_ResourceTypeFilters = new InputList<string>());
-            set => _ResourceTypeFilters = value;
+            get => _resourceTypeFilters ?? (_resourceTypeFilters = new InputList<string>());
+            set => _resourceTypeFilters = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
         /// </summary>
-        [Input("StackIdentifier")]
+        [Input("stackIdentifier")]
         public Input<string>? StackIdentifier { get; set; }
 
-        [Input("TagFilters")]
-        private InputList<Inputs.GroupTagFilterArgs>? _TagFilters;
+        [Input("tagFilters")]
+        private InputList<Inputs.GroupTagFilterArgs>? _tagFilters;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
         /// </summary>
         public InputList<Inputs.GroupTagFilterArgs> TagFilters
         {
-            get => _TagFilters ?? (_TagFilters = new InputList<Inputs.GroupTagFilterArgs>());
-            set => _TagFilters = value;
+            get => _tagFilters ?? (_tagFilters = new InputList<Inputs.GroupTagFilterArgs>());
+            set => _tagFilters = value;
         }
 
         public GroupQueryArgs()

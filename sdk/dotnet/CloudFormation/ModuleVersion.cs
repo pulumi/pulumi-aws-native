@@ -15,40 +15,40 @@ namespace Pulumi.AwsNative.CloudFormation
     [AwsNativeResourceType("aws-native:CloudFormation:ModuleVersion")]
     public partial class ModuleVersion : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("Description")]
+        [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        [Output("DocumentationUrl")]
+        [Output("documentationUrl")]
         public Output<string> DocumentationUrl { get; private set; } = null!;
 
-        [Output("IsDefaultVersion")]
+        [Output("isDefaultVersion")]
         public Output<bool> IsDefaultVersion { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
         /// </summary>
-        [Output("ModuleName")]
+        [Output("moduleName")]
         public Output<string> ModuleName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
         /// </summary>
-        [Output("ModulePackage")]
+        [Output("modulePackage")]
         public Output<string?> ModulePackage { get; private set; } = null!;
 
-        [Output("Schema")]
+        [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
-        [Output("TimeCreated")]
+        [Output("timeCreated")]
         public Output<string> TimeCreated { get; private set; } = null!;
 
-        [Output("VersionId")]
+        [Output("versionId")]
         public Output<string> VersionId { get; private set; } = null!;
 
-        [Output("Visibility")]
+        [Output("visibility")]
         public Output<string> Visibility { get; private set; } = null!;
 
 
@@ -99,13 +99,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
         /// </summary>
-        [Input("ModuleName", required: true)]
+        [Input("moduleName", required: true)]
         public Input<string> ModuleName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
         /// </summary>
-        [Input("ModulePackage")]
+        [Input("modulePackage")]
         public Input<string>? ModulePackage { get; set; }
 
         public ModuleVersionArgs()

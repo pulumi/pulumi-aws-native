@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
         /// </summary>
-        [Input("TargetValue", required: true)]
+        [Input("targetValue", required: true)]
         public Input<double> TargetValue { get; set; } = null!;
 
         public GameServerGroupTargetTrackingConfigurationArgs()

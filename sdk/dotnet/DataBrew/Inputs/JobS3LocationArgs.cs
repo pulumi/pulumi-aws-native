@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-bucket
         /// </summary>
-        [Input("Bucket", required: true)]
+        [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-key
         /// </summary>
-        [Input("Key")]
+        [Input("key")]
         public Input<string>? Key { get; set; }
 
         public JobS3LocationArgs()

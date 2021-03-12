@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ModelBiasJobDefinitionMonitoringOutputConfig(
-            string? KmsKeyId,
+            string? kmsKeyId,
 
-            ImmutableArray<Outputs.ModelBiasJobDefinitionMonitoringOutput> MonitoringOutputs)
+            ImmutableArray<Outputs.ModelBiasJobDefinitionMonitoringOutput> monitoringOutputs)
         {
-            this.KmsKeyId = KmsKeyId;
-            this.MonitoringOutputs = MonitoringOutputs;
+            KmsKeyId = kmsKeyId;
+            MonitoringOutputs = monitoringOutputs;
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<Outputs.DataSourceConfluenceBlogToIndexFieldMapping> ConfluenceBlogFieldMappingsList;
 
         [OutputConstructor]
-        private DataSourceConfluenceBlogFieldMappingsList(ImmutableArray<Outputs.DataSourceConfluenceBlogToIndexFieldMapping> ConfluenceBlogFieldMappingsList)
+        private DataSourceConfluenceBlogFieldMappingsList(ImmutableArray<Outputs.DataSourceConfluenceBlogToIndexFieldMapping> confluenceBlogFieldMappingsList)
         {
-            this.ConfluenceBlogFieldMappingsList = ConfluenceBlogFieldMappingsList;
+            ConfluenceBlogFieldMappingsList = confluenceBlogFieldMappingsList;
         }
     }
 }

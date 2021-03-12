@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Signer.Outputs
 
         [OutputConstructor]
         private SigningProfileSignatureValidityPeriod(
-            string? Type,
+            string? type,
 
-            int? Value)
+            int? value)
         {
-            this.Type = Type;
-            this.Value = Value;
+            Type = type;
+            Value = value;
         }
     }
 }

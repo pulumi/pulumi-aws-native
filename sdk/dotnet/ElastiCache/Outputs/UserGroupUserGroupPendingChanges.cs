@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ElastiCache.Outputs
 
         [OutputConstructor]
         private UserGroupUserGroupPendingChanges(
-            ImmutableArray<string> UserIdsToAdd,
+            ImmutableArray<string> userIdsToAdd,
 
-            ImmutableArray<string> UserIdsToRemove)
+            ImmutableArray<string> userIdsToRemove)
         {
-            this.UserIdsToAdd = UserIdsToAdd;
-            this.UserIdsToRemove = UserIdsToRemove;
+            UserIdsToAdd = userIdsToAdd;
+            UserIdsToRemove = userIdsToRemove;
         }
     }
 }

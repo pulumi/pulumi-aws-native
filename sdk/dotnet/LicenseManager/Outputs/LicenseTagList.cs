@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> TagList;
 
         [OutputConstructor]
-        private LicenseTagList(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> TagList)
+        private LicenseTagList(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tagList)
         {
-            this.TagList = TagList;
+            TagList = tagList;
         }
     }
 }

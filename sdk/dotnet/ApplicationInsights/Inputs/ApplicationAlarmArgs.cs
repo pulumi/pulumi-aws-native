@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-alarmname
         /// </summary>
-        [Input("AlarmName", required: true)]
+        [Input("alarmName", required: true)]
         public Input<string> AlarmName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-severity
         /// </summary>
-        [Input("Severity")]
+        [Input("severity")]
         public Input<string>? Severity { get; set; }
 
         public ApplicationAlarmArgs()

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-portal
         /// </summary>
-        [Input("Portal")]
+        [Input("portal")]
         public Input<Inputs.AccessPolicyPortalArgs>? Portal { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-project
         /// </summary>
-        [Input("Project")]
+        [Input("project")]
         public Input<Inputs.AccessPolicyProjectArgs>? Project { get; set; }
 
         public AccessPolicyAccessPolicyResourceArgs()

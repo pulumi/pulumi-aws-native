@@ -60,39 +60,39 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
         [OutputConstructor]
         private ComponentVersionLambdaExecutionParameters(
-            ImmutableDictionary<string, string>? EnvironmentVariables,
+            ImmutableDictionary<string, string>? environmentVariables,
 
-            ImmutableArray<Outputs.ComponentVersionLambdaEventSource> EventSources,
+            ImmutableArray<Outputs.ComponentVersionLambdaEventSource> eventSources,
 
-            ImmutableArray<string> ExecArgs,
+            ImmutableArray<string> execArgs,
 
-            string? InputPayloadEncodingType,
+            string? inputPayloadEncodingType,
 
-            Outputs.ComponentVersionLambdaLinuxProcessParams? LinuxProcessParams,
+            Outputs.ComponentVersionLambdaLinuxProcessParams? linuxProcessParams,
 
-            int? MaxIdleTimeInSeconds,
+            int? maxIdleTimeInSeconds,
 
-            int? MaxInstancesCount,
+            int? maxInstancesCount,
 
-            int? MaxQueueSize,
+            int? maxQueueSize,
 
-            bool? Pinned,
+            bool? pinned,
 
-            int? StatusTimeoutInSeconds,
+            int? statusTimeoutInSeconds,
 
-            int? TimeoutInSeconds)
+            int? timeoutInSeconds)
         {
-            this.EnvironmentVariables = EnvironmentVariables;
-            this.EventSources = EventSources;
-            this.ExecArgs = ExecArgs;
-            this.InputPayloadEncodingType = InputPayloadEncodingType;
-            this.LinuxProcessParams = LinuxProcessParams;
-            this.MaxIdleTimeInSeconds = MaxIdleTimeInSeconds;
-            this.MaxInstancesCount = MaxInstancesCount;
-            this.MaxQueueSize = MaxQueueSize;
-            this.Pinned = Pinned;
-            this.StatusTimeoutInSeconds = StatusTimeoutInSeconds;
-            this.TimeoutInSeconds = TimeoutInSeconds;
+            EnvironmentVariables = environmentVariables;
+            EventSources = eventSources;
+            ExecArgs = execArgs;
+            InputPayloadEncodingType = inputPayloadEncodingType;
+            LinuxProcessParams = linuxProcessParams;
+            MaxIdleTimeInSeconds = maxIdleTimeInSeconds;
+            MaxInstancesCount = maxInstancesCount;
+            MaxQueueSize = maxQueueSize;
+            Pinned = pinned;
+            StatusTimeoutInSeconds = statusTimeoutInSeconds;
+            TimeoutInSeconds = timeoutInSeconds;
         }
     }
 }

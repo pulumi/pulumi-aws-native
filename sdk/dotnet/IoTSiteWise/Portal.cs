@@ -15,49 +15,49 @@ namespace Pulumi.AwsNative.IoTSiteWise
     [AwsNativeResourceType("aws-native:IoTSiteWise:Portal")]
     public partial class Portal : Pulumi.CustomResource
     {
-        [Output("PortalArn")]
+        [Output("portalArn")]
         public Output<string> PortalArn { get; private set; } = null!;
 
-        [Output("PortalClientId")]
+        [Output("portalClientId")]
         public Output<string> PortalClientId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
         /// </summary>
-        [Output("PortalContactEmail")]
+        [Output("portalContactEmail")]
         public Output<string> PortalContactEmail { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
         /// </summary>
-        [Output("PortalDescription")]
+        [Output("portalDescription")]
         public Output<string?> PortalDescription { get; private set; } = null!;
 
-        [Output("PortalId")]
+        [Output("portalId")]
         public Output<string> PortalId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
         /// </summary>
-        [Output("PortalName")]
+        [Output("portalName")]
         public Output<string> PortalName { get; private set; } = null!;
 
-        [Output("PortalStartUrl")]
+        [Output("portalStartUrl")]
         public Output<string> PortalStartUrl { get; private set; } = null!;
 
-        [Output("PortalStatus")]
+        [Output("portalStatus")]
         public Output<Outputs.PortalPortalStatus> PortalStatus { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
         /// </summary>
-        [Output("RoleArn")]
+        [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -108,37 +108,37 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
         /// </summary>
-        [Input("PortalContactEmail", required: true)]
+        [Input("portalContactEmail", required: true)]
         public Input<string> PortalContactEmail { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
         /// </summary>
-        [Input("PortalDescription")]
+        [Input("portalDescription")]
         public Input<string>? PortalDescription { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
         /// </summary>
-        [Input("PortalName", required: true)]
+        [Input("portalName", required: true)]
         public Input<string> PortalName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public PortalArgs()

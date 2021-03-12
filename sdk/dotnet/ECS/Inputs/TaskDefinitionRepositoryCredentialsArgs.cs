@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html#cfn-ecs-taskdefinition-repositorycredentials-credentialsparameter
         /// </summary>
-        [Input("CredentialsParameter")]
+        [Input("credentialsParameter")]
         public Input<string>? CredentialsParameter { get; set; }
 
         public TaskDefinitionRepositoryCredentialsArgs()

@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private RuleGroupRegexPatternSetReferenceStatement(
-            string Arn,
+            string arn,
 
-            Outputs.RuleGroupFieldToMatch FieldToMatch,
+            Outputs.RuleGroupFieldToMatch fieldToMatch,
 
-            ImmutableArray<Outputs.RuleGroupTextTransformation> TextTransformations)
+            ImmutableArray<Outputs.RuleGroupTextTransformation> textTransformations)
         {
-            this.Arn = Arn;
-            this.FieldToMatch = FieldToMatch;
-            this.TextTransformations = TextTransformations;
+            Arn = arn;
+            FieldToMatch = fieldToMatch;
+            TextTransformations = textTransformations;
         }
     }
 }

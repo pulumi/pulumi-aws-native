@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-containername
         /// </summary>
-        [Input("ContainerName", required: true)]
+        [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
-        [Input("ProxyConfigurationProperties")]
-        private InputList<Inputs.TaskDefinitionKeyValuePairArgs>? _ProxyConfigurationProperties;
+        [Input("proxyConfigurationProperties")]
+        private InputList<Inputs.TaskDefinitionKeyValuePairArgs>? _proxyConfigurationProperties;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties
         /// </summary>
         public InputList<Inputs.TaskDefinitionKeyValuePairArgs> ProxyConfigurationProperties
         {
-            get => _ProxyConfigurationProperties ?? (_ProxyConfigurationProperties = new InputList<Inputs.TaskDefinitionKeyValuePairArgs>());
-            set => _ProxyConfigurationProperties = value;
+            get => _proxyConfigurationProperties ?? (_proxyConfigurationProperties = new InputList<Inputs.TaskDefinitionKeyValuePairArgs>());
+            set => _proxyConfigurationProperties = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-type
         /// </summary>
-        [Input("Type")]
+        [Input("type")]
         public Input<string>? Type { get; set; }
 
         public TaskDefinitionProxyConfigurationArgs()

@@ -15,94 +15,94 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// </summary>
     public sealed class OriginEndpointDashPackageArgs : Pulumi.ResourceArgs
     {
-        [Input("AdTriggers")]
-        private InputList<string>? _AdTriggers;
+        [Input("adTriggers")]
+        private InputList<string>? _adTriggers;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers
         /// </summary>
         public InputList<string> AdTriggers
         {
-            get => _AdTriggers ?? (_AdTriggers = new InputList<string>());
-            set => _AdTriggers = value;
+            get => _adTriggers ?? (_adTriggers = new InputList<string>());
+            set => _adTriggers = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adsondeliveryrestrictions
         /// </summary>
-        [Input("AdsOnDeliveryRestrictions")]
+        [Input("adsOnDeliveryRestrictions")]
         public Input<string>? AdsOnDeliveryRestrictions { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-encryption
         /// </summary>
-        [Input("Encryption")]
+        [Input("encryption")]
         public Input<Inputs.OriginEndpointDashEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestlayout
         /// </summary>
-        [Input("ManifestLayout")]
+        [Input("manifestLayout")]
         public Input<string>? ManifestLayout { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestwindowseconds
         /// </summary>
-        [Input("ManifestWindowSeconds")]
+        [Input("manifestWindowSeconds")]
         public Input<int>? ManifestWindowSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minbuffertimeseconds
         /// </summary>
-        [Input("MinBufferTimeSeconds")]
+        [Input("minBufferTimeSeconds")]
         public Input<int>? MinBufferTimeSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minupdateperiodseconds
         /// </summary>
-        [Input("MinUpdatePeriodSeconds")]
+        [Input("minUpdatePeriodSeconds")]
         public Input<int>? MinUpdatePeriodSeconds { get; set; }
 
-        [Input("PeriodTriggers")]
-        private InputList<string>? _PeriodTriggers;
+        [Input("periodTriggers")]
+        private InputList<string>? _periodTriggers;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-periodtriggers
         /// </summary>
         public InputList<string> PeriodTriggers
         {
-            get => _PeriodTriggers ?? (_PeriodTriggers = new InputList<string>());
-            set => _PeriodTriggers = value;
+            get => _periodTriggers ?? (_periodTriggers = new InputList<string>());
+            set => _periodTriggers = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-profile
         /// </summary>
-        [Input("Profile")]
+        [Input("profile")]
         public Input<string>? Profile { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmentdurationseconds
         /// </summary>
-        [Input("SegmentDurationSeconds")]
+        [Input("segmentDurationSeconds")]
         public Input<int>? SegmentDurationSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmenttemplateformat
         /// </summary>
-        [Input("SegmentTemplateFormat")]
+        [Input("segmentTemplateFormat")]
         public Input<string>? SegmentTemplateFormat { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-streamselection
         /// </summary>
-        [Input("StreamSelection")]
+        [Input("streamSelection")]
         public Input<Inputs.OriginEndpointStreamSelectionArgs>? StreamSelection { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
         /// </summary>
-        [Input("SuggestedPresentationDelaySeconds")]
+        [Input("suggestedPresentationDelaySeconds")]
         public Input<int>? SuggestedPresentationDelaySeconds { get; set; }
 
         public OriginEndpointDashPackageArgs()

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-signkey
         /// </summary>
-        [Input("SignKey")]
+        [Input("signKey")]
         public Input<string>? SignKey { get; set; }
 
         public LicenseIssuerDataArgs()

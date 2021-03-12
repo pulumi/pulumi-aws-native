@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.WAFv2
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
         /// </summary>
-        [Output("ResourceArn")]
+        [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
         /// </summary>
-        [Output("WebACLArn")]
+        [Output("webACLArn")]
         public Output<string> WebACLArn { get; private set; } = null!;
 
 
@@ -75,13 +75,13 @@ namespace Pulumi.AwsNative.WAFv2
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
         /// </summary>
-        [Input("ResourceArn", required: true)]
+        [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
         /// </summary>
-        [Input("WebACLArn", required: true)]
+        [Input("webACLArn", required: true)]
         public Input<string> WebACLArn { get; set; } = null!;
 
         public WebACLAssociationArgs()

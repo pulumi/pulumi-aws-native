@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ModelBiasJobDefinitionModelBiasJobInput(
-            Outputs.ModelBiasJobDefinitionEndpointInput EndpointInput,
+            Outputs.ModelBiasJobDefinitionEndpointInput endpointInput,
 
-            Outputs.ModelBiasJobDefinitionMonitoringGroundTruthS3Input GroundTruthS3Input)
+            Outputs.ModelBiasJobDefinitionMonitoringGroundTruthS3Input groundTruthS3Input)
         {
-            this.EndpointInput = EndpointInput;
-            this.GroundTruthS3Input = GroundTruthS3Input;
+            EndpointInput = endpointInput;
+            GroundTruthS3Input = groundTruthS3Input;
         }
     }
 }

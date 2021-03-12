@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLForwardedIPConfiguration(
-            string FallbackBehavior,
+            string fallbackBehavior,
 
-            string HeaderName)
+            string headerName)
         {
-            this.FallbackBehavior = FallbackBehavior;
-            this.HeaderName = HeaderName;
+            FallbackBehavior = fallbackBehavior;
+            HeaderName = headerName;
         }
     }
 }

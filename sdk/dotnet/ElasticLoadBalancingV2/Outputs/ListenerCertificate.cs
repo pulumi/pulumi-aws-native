@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         public readonly string? CertificateArn;
 
         [OutputConstructor]
-        private ListenerCertificate(string? CertificateArn)
+        private ListenerCertificate(string? certificateArn)
         {
-            this.CertificateArn = CertificateArn;
+            CertificateArn = certificateArn;
         }
     }
 }

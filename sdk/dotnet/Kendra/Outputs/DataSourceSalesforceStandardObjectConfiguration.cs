@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceSalesforceStandardObjectConfiguration(
-            string DocumentDataFieldName,
+            string documentDataFieldName,
 
-            string? DocumentTitleFieldName,
+            string? documentTitleFieldName,
 
-            Outputs.DataSourceDataSourceToIndexFieldMappingList? FieldMappings,
+            Outputs.DataSourceDataSourceToIndexFieldMappingList? fieldMappings,
 
-            string Name)
+            string name)
         {
-            this.DocumentDataFieldName = DocumentDataFieldName;
-            this.DocumentTitleFieldName = DocumentTitleFieldName;
-            this.FieldMappings = FieldMappings;
-            this.Name = Name;
+            DocumentDataFieldName = documentDataFieldName;
+            DocumentTitleFieldName = documentTitleFieldName;
+            FieldMappings = fieldMappings;
+            Name = name;
         }
     }
 }

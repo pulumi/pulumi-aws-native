@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationLogPatternSet(
-            ImmutableArray<Outputs.ApplicationLogPattern> LogPatterns,
+            ImmutableArray<Outputs.ApplicationLogPattern> logPatterns,
 
-            string PatternSetName)
+            string patternSetName)
         {
-            this.LogPatterns = LogPatterns;
-            this.PatternSetName = PatternSetName;
+            LogPatterns = logPatterns;
+            PatternSetName = patternSetName;
         }
     }
 }

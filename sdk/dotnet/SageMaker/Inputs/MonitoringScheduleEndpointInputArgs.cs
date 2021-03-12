@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-endpointname
         /// </summary>
-        [Input("EndpointName", required: true)]
+        [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-localpath
         /// </summary>
-        [Input("LocalPath", required: true)]
+        [Input("localPath", required: true)]
         public Input<string> LocalPath { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-s3datadistributiontype
         /// </summary>
-        [Input("S3DataDistributionType")]
+        [Input("s3DataDistributionType")]
         public Input<string>? S3DataDistributionType { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-s3inputmode
         /// </summary>
-        [Input("S3InputMode")]
+        [Input("s3InputMode")]
         public Input<string>? S3InputMode { get; set; }
 
         public MonitoringScheduleEndpointInputArgs()

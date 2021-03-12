@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
     /// </summary>
     public sealed class DomainNameEndpointConfigurationArgs : Pulumi.ResourceArgs
     {
-        [Input("Types")]
-        private InputList<string>? _Types;
+        [Input("types")]
+        private InputList<string>? _types;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html#cfn-apigateway-domainname-endpointconfiguration-types
         /// </summary>
         public InputList<string> Types
         {
-            get => _Types ?? (_Types = new InputList<string>());
-            set => _Types = value;
+            get => _types ?? (_types = new InputList<string>());
+            set => _types = value;
         }
 
         public DomainNameEndpointConfigurationArgs()

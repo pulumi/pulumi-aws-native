@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment
         /// </summary>
-        [Input("Comment")]
+        [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-defaultttl
         /// </summary>
-        [Input("DefaultTTL", required: true)]
+        [Input("defaultTTL", required: true)]
         public Input<double> DefaultTTL { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-maxttl
         /// </summary>
-        [Input("MaxTTL", required: true)]
+        [Input("maxTTL", required: true)]
         public Input<double> MaxTTL { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-minttl
         /// </summary>
-        [Input("MinTTL", required: true)]
+        [Input("minTTL", required: true)]
         public Input<double> MinTTL { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
         /// </summary>
-        [Input("ParametersInCacheKeyAndForwardedToOrigin", required: true)]
+        [Input("parametersInCacheKeyAndForwardedToOrigin", required: true)]
         public Input<Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs> ParametersInCacheKeyAndForwardedToOrigin { get; set; } = null!;
 
         public CachePolicyCachePolicyConfigArgs()

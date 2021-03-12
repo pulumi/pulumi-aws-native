@@ -68,45 +68,45 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private OriginEndpointDashPackage(
-            ImmutableArray<string> AdTriggers,
+            ImmutableArray<string> adTriggers,
 
-            string? AdsOnDeliveryRestrictions,
+            string? adsOnDeliveryRestrictions,
 
-            Outputs.OriginEndpointDashEncryption? Encryption,
+            Outputs.OriginEndpointDashEncryption? encryption,
 
-            string? ManifestLayout,
+            string? manifestLayout,
 
-            int? ManifestWindowSeconds,
+            int? manifestWindowSeconds,
 
-            int? MinBufferTimeSeconds,
+            int? minBufferTimeSeconds,
 
-            int? MinUpdatePeriodSeconds,
+            int? minUpdatePeriodSeconds,
 
-            ImmutableArray<string> PeriodTriggers,
+            ImmutableArray<string> periodTriggers,
 
-            string? Profile,
+            string? profile,
 
-            int? SegmentDurationSeconds,
+            int? segmentDurationSeconds,
 
-            string? SegmentTemplateFormat,
+            string? segmentTemplateFormat,
 
-            Outputs.OriginEndpointStreamSelection? StreamSelection,
+            Outputs.OriginEndpointStreamSelection? streamSelection,
 
-            int? SuggestedPresentationDelaySeconds)
+            int? suggestedPresentationDelaySeconds)
         {
-            this.AdTriggers = AdTriggers;
-            this.AdsOnDeliveryRestrictions = AdsOnDeliveryRestrictions;
-            this.Encryption = Encryption;
-            this.ManifestLayout = ManifestLayout;
-            this.ManifestWindowSeconds = ManifestWindowSeconds;
-            this.MinBufferTimeSeconds = MinBufferTimeSeconds;
-            this.MinUpdatePeriodSeconds = MinUpdatePeriodSeconds;
-            this.PeriodTriggers = PeriodTriggers;
-            this.Profile = Profile;
-            this.SegmentDurationSeconds = SegmentDurationSeconds;
-            this.SegmentTemplateFormat = SegmentTemplateFormat;
-            this.StreamSelection = StreamSelection;
-            this.SuggestedPresentationDelaySeconds = SuggestedPresentationDelaySeconds;
+            AdTriggers = adTriggers;
+            AdsOnDeliveryRestrictions = adsOnDeliveryRestrictions;
+            Encryption = encryption;
+            ManifestLayout = manifestLayout;
+            ManifestWindowSeconds = manifestWindowSeconds;
+            MinBufferTimeSeconds = minBufferTimeSeconds;
+            MinUpdatePeriodSeconds = minUpdatePeriodSeconds;
+            PeriodTriggers = periodTriggers;
+            Profile = profile;
+            SegmentDurationSeconds = segmentDurationSeconds;
+            SegmentTemplateFormat = segmentTemplateFormat;
+            StreamSelection = streamSelection;
+            SuggestedPresentationDelaySeconds = suggestedPresentationDelaySeconds;
         }
     }
 }

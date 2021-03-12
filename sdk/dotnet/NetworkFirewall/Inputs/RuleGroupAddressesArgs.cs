@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class RuleGroupAddressesArgs : Pulumi.ResourceArgs
     {
-        [Input("Addresses")]
-        private InputList<Inputs.RuleGroupAddressArgs>? _Addresses;
+        [Input("addresses")]
+        private InputList<Inputs.RuleGroupAddressArgs>? _addresses;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html#cfn-networkfirewall-rulegroup-addresses-addresses
         /// </summary>
         public InputList<Inputs.RuleGroupAddressArgs> Addresses
         {
-            get => _Addresses ?? (_Addresses = new InputList<Inputs.RuleGroupAddressArgs>());
-            set => _Addresses = value;
+            get => _addresses ?? (_addresses = new InputList<Inputs.RuleGroupAddressArgs>());
+            set => _addresses = value;
         }
 
         public RuleGroupAddressesArgs()

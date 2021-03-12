@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleAssetPropertyTimestamp(
-            string? OffsetInNanos,
+            string? offsetInNanos,
 
-            string TimeInSeconds)
+            string timeInSeconds)
         {
-            this.OffsetInNanos = OffsetInNanos;
-            this.TimeInSeconds = TimeInSeconds;
+            OffsetInNanos = offsetInNanos;
+            TimeInSeconds = timeInSeconds;
         }
     }
 }

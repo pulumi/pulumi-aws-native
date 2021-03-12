@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleIotSiteWiseAction(
-            ImmutableArray<Outputs.TopicRulePutAssetPropertyValueEntry> PutAssetPropertyValueEntries,
+            ImmutableArray<Outputs.TopicRulePutAssetPropertyValueEntry> putAssetPropertyValueEntries,
 
-            string RoleArn)
+            string roleArn)
         {
-            this.PutAssetPropertyValueEntries = PutAssetPropertyValueEntries;
-            this.RoleArn = RoleArn;
+            PutAssetPropertyValueEntries = putAssetPropertyValueEntries;
+            RoleArn = roleArn;
         }
     }
 }

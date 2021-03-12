@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
         /// </summary>
-        [Output("CachePolicyConfig")]
+        [Output("cachePolicyConfig")]
         public Output<Outputs.CachePolicyCachePolicyConfig> CachePolicyConfig { get; private set; } = null!;
 
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
-        [Output("LastModifiedTime")]
+        [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
 
@@ -75,7 +75,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
         /// </summary>
-        [Input("CachePolicyConfig", required: true)]
+        [Input("cachePolicyConfig", required: true)]
         public Input<Inputs.CachePolicyCachePolicyConfigArgs> CachePolicyConfig { get; set; } = null!;
 
         public CachePolicyArgs()

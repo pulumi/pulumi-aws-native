@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
         [OutputConstructor]
         private AssetAssetProperty(
-            string? Alias,
+            string? alias,
 
-            string LogicalId,
+            string logicalId,
 
-            string? NotificationState)
+            string? notificationState)
         {
-            this.Alias = Alias;
-            this.LogicalId = LogicalId;
-            this.NotificationState = NotificationState;
+            Alias = alias;
+            LogicalId = logicalId;
+            NotificationState = notificationState;
         }
     }
 }

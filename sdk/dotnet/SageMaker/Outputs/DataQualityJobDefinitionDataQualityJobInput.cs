@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly Outputs.DataQualityJobDefinitionEndpointInput EndpointInput;
 
         [OutputConstructor]
-        private DataQualityJobDefinitionDataQualityJobInput(Outputs.DataQualityJobDefinitionEndpointInput EndpointInput)
+        private DataQualityJobDefinitionDataQualityJobInput(Outputs.DataQualityJobDefinitionEndpointInput endpointInput)
         {
-            this.EndpointInput = EndpointInput;
+            EndpointInput = endpointInput;
         }
     }
 }

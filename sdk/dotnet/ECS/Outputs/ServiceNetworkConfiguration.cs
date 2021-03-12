@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ECS.Outputs
         public readonly Outputs.ServiceAwsVpcConfiguration? AwsvpcConfiguration;
 
         [OutputConstructor]
-        private ServiceNetworkConfiguration(Outputs.ServiceAwsVpcConfiguration? AwsvpcConfiguration)
+        private ServiceNetworkConfiguration(Outputs.ServiceAwsVpcConfiguration? awsvpcConfiguration)
         {
-            this.AwsvpcConfiguration = AwsvpcConfiguration;
+            AwsvpcConfiguration = awsvpcConfiguration;
         }
     }
 }

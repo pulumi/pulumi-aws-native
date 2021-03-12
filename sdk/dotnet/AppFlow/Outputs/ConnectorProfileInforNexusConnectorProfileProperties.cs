@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string InstanceUrl;
 
         [OutputConstructor]
-        private ConnectorProfileInforNexusConnectorProfileProperties(string InstanceUrl)
+        private ConnectorProfileInforNexusConnectorProfileProperties(string instanceUrl)
         {
-            this.InstanceUrl = InstanceUrl;
+            InstanceUrl = instanceUrl;
         }
     }
 }

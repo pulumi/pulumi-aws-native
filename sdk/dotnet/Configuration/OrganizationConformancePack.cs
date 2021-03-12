@@ -18,43 +18,43 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
         /// </summary>
-        [Output("ConformancePackInputParameters")]
+        [Output("conformancePackInputParameters")]
         public Output<ImmutableArray<Outputs.OrganizationConformancePackConformancePackInputParameter>> ConformancePackInputParameters { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
         /// </summary>
-        [Output("DeliveryS3Bucket")]
+        [Output("deliveryS3Bucket")]
         public Output<string?> DeliveryS3Bucket { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
         /// </summary>
-        [Output("DeliveryS3KeyPrefix")]
+        [Output("deliveryS3KeyPrefix")]
         public Output<string?> DeliveryS3KeyPrefix { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
         /// </summary>
-        [Output("ExcludedAccounts")]
+        [Output("excludedAccounts")]
         public Output<ImmutableArray<string>> ExcludedAccounts { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
         /// </summary>
-        [Output("OrganizationConformancePackName")]
+        [Output("organizationConformancePackName")]
         public Output<string> OrganizationConformancePackName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
         /// </summary>
-        [Output("TemplateBody")]
+        [Output("templateBody")]
         public Output<string?> TemplateBody { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
         /// </summary>
-        [Output("TemplateS3Uri")]
+        [Output("templateS3Uri")]
         public Output<string?> TemplateS3Uri { get; private set; } = null!;
 
 
@@ -102,58 +102,58 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class OrganizationConformancePackArgs : Pulumi.ResourceArgs
     {
-        [Input("ConformancePackInputParameters")]
-        private InputList<Inputs.OrganizationConformancePackConformancePackInputParameterArgs>? _ConformancePackInputParameters;
+        [Input("conformancePackInputParameters")]
+        private InputList<Inputs.OrganizationConformancePackConformancePackInputParameterArgs>? _conformancePackInputParameters;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
         /// </summary>
         public InputList<Inputs.OrganizationConformancePackConformancePackInputParameterArgs> ConformancePackInputParameters
         {
-            get => _ConformancePackInputParameters ?? (_ConformancePackInputParameters = new InputList<Inputs.OrganizationConformancePackConformancePackInputParameterArgs>());
-            set => _ConformancePackInputParameters = value;
+            get => _conformancePackInputParameters ?? (_conformancePackInputParameters = new InputList<Inputs.OrganizationConformancePackConformancePackInputParameterArgs>());
+            set => _conformancePackInputParameters = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
         /// </summary>
-        [Input("DeliveryS3Bucket")]
+        [Input("deliveryS3Bucket")]
         public Input<string>? DeliveryS3Bucket { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
         /// </summary>
-        [Input("DeliveryS3KeyPrefix")]
+        [Input("deliveryS3KeyPrefix")]
         public Input<string>? DeliveryS3KeyPrefix { get; set; }
 
-        [Input("ExcludedAccounts")]
-        private InputList<string>? _ExcludedAccounts;
+        [Input("excludedAccounts")]
+        private InputList<string>? _excludedAccounts;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
         /// </summary>
         public InputList<string> ExcludedAccounts
         {
-            get => _ExcludedAccounts ?? (_ExcludedAccounts = new InputList<string>());
-            set => _ExcludedAccounts = value;
+            get => _excludedAccounts ?? (_excludedAccounts = new InputList<string>());
+            set => _excludedAccounts = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
         /// </summary>
-        [Input("OrganizationConformancePackName", required: true)]
+        [Input("organizationConformancePackName", required: true)]
         public Input<string> OrganizationConformancePackName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
         /// </summary>
-        [Input("TemplateBody")]
+        [Input("templateBody")]
         public Input<string>? TemplateBody { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
         /// </summary>
-        [Input("TemplateS3Uri")]
+        [Input("templateS3Uri")]
         public Input<string>? TemplateS3Uri { get; set; }
 
         public OrganizationConformancePackArgs()

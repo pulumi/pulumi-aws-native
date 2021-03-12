@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid
         /// </summary>
-        [Input("FleetId")]
+        [Input("fleetId")]
         public Input<string>? FleetId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
         /// </summary>
-        [Input("Message")]
+        [Input("message")]
         public Input<string>? Message { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
         /// </summary>
-        [Input("Type")]
+        [Input("type")]
         public Input<string>? Type { get; set; }
 
         public AliasRoutingStrategyArgs()

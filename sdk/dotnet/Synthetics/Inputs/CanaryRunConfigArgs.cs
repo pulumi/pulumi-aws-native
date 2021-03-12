@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
         /// </summary>
-        [Input("ActiveTracing")]
+        [Input("activeTracing")]
         public Input<bool>? ActiveTracing { get; set; }
 
-        [Input("EnvironmentVariables")]
-        private InputMap<string>? _EnvironmentVariables;
+        [Input("environmentVariables")]
+        private InputMap<string>? _environmentVariables;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
         /// </summary>
         public InputMap<string> EnvironmentVariables
         {
-            get => _EnvironmentVariables ?? (_EnvironmentVariables = new InputMap<string>());
-            set => _EnvironmentVariables = value;
+            get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
+            set => _environmentVariables = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
         /// </summary>
-        [Input("MemoryInMB")]
+        [Input("memoryInMB")]
         public Input<int>? MemoryInMB { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
         /// </summary>
-        [Input("TimeoutInSeconds", required: true)]
+        [Input("timeoutInSeconds", required: true)]
         public Input<int> TimeoutInSeconds { get; set; } = null!;
 
         public CanaryRunConfigArgs()

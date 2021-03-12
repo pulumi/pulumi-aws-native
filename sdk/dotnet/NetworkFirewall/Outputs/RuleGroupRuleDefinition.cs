@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private RuleGroupRuleDefinition(
-            ImmutableArray<string> Actions,
+            ImmutableArray<string> actions,
 
-            Outputs.RuleGroupMatchAttributes MatchAttributes)
+            Outputs.RuleGroupMatchAttributes matchAttributes)
         {
-            this.Actions = Actions;
-            this.MatchAttributes = MatchAttributes;
+            Actions = actions;
+            MatchAttributes = matchAttributes;
         }
     }
 }

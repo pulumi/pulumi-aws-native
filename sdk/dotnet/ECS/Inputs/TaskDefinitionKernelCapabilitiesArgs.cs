@@ -15,28 +15,28 @@ namespace Pulumi.AwsNative.ECS.Inputs
     /// </summary>
     public sealed class TaskDefinitionKernelCapabilitiesArgs : Pulumi.ResourceArgs
     {
-        [Input("Add")]
-        private InputList<string>? _Add;
+        [Input("add")]
+        private InputList<string>? _add;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-add
         /// </summary>
         public InputList<string> Add
         {
-            get => _Add ?? (_Add = new InputList<string>());
-            set => _Add = value;
+            get => _add ?? (_add = new InputList<string>());
+            set => _add = value;
         }
 
-        [Input("Drop")]
-        private InputList<string>? _Drop;
+        [Input("drop")]
+        private InputList<string>? _drop;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-drop
         /// </summary>
         public InputList<string> Drop
         {
-            get => _Drop ?? (_Drop = new InputList<string>());
-            set => _Drop = value;
+            get => _drop ?? (_drop = new InputList<string>());
+            set => _drop = value;
         }
 
         public TaskDefinitionKernelCapabilitiesArgs()

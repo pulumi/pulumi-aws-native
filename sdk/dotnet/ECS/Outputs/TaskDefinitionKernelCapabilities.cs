@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionKernelCapabilities(
-            ImmutableArray<string> Add,
+            ImmutableArray<string> add,
 
-            ImmutableArray<string> Drop)
+            ImmutableArray<string> drop)
         {
-            this.Add = Add;
-            this.Drop = Drop;
+            Add = add;
+            Drop = drop;
         }
     }
 }

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails
         /// </summary>
-        [Input("SubComponentConfigurationDetails", required: true)]
+        [Input("subComponentConfigurationDetails", required: true)]
         public Input<Inputs.ApplicationSubComponentConfigurationDetailsArgs> SubComponentConfigurationDetails { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype
         /// </summary>
-        [Input("SubComponentType", required: true)]
+        [Input("subComponentType", required: true)]
         public Input<string> SubComponentType { get; set; } = null!;
 
         public ApplicationSubComponentTypeConfigurationArgs()

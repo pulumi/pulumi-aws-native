@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private AssessmentTags(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
+        private AssessmentTags(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
-            this.Tags = Tags;
+            Tags = tags;
         }
     }
 }

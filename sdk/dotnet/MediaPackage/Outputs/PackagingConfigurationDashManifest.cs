@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private PackagingConfigurationDashManifest(
-            string? ManifestLayout,
+            string? manifestLayout,
 
-            string? ManifestName,
+            string? manifestName,
 
-            int? MinBufferTimeSeconds,
+            int? minBufferTimeSeconds,
 
-            string? Profile,
+            string? profile,
 
-            Outputs.PackagingConfigurationStreamSelection? StreamSelection)
+            Outputs.PackagingConfigurationStreamSelection? streamSelection)
         {
-            this.ManifestLayout = ManifestLayout;
-            this.ManifestName = ManifestName;
-            this.MinBufferTimeSeconds = MinBufferTimeSeconds;
-            this.Profile = Profile;
-            this.StreamSelection = StreamSelection;
+            ManifestLayout = manifestLayout;
+            ManifestName = manifestName;
+            MinBufferTimeSeconds = minBufferTimeSeconds;
+            Profile = profile;
+            StreamSelection = streamSelection;
         }
     }
 }

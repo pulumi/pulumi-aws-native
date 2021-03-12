@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLRuleAction(
-            Union<System.Text.Json.JsonElement, string>? Allow,
+            Union<System.Text.Json.JsonElement, string>? allow,
 
-            Union<System.Text.Json.JsonElement, string>? Block,
+            Union<System.Text.Json.JsonElement, string>? block,
 
-            Union<System.Text.Json.JsonElement, string>? Count)
+            Union<System.Text.Json.JsonElement, string>? count)
         {
-            this.Allow = Allow;
-            this.Block = Block;
-            this.Count = Count;
+            Allow = allow;
+            Block = block;
+            Count = count;
         }
     }
 }

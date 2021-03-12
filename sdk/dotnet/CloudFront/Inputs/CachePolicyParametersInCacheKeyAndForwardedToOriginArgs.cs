@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
         /// </summary>
-        [Input("CookiesConfig", required: true)]
+        [Input("cookiesConfig", required: true)]
         public Input<Inputs.CachePolicyCookiesConfigArgs> CookiesConfig { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli
         /// </summary>
-        [Input("EnableAcceptEncodingBrotli")]
+        [Input("enableAcceptEncodingBrotli")]
         public Input<bool>? EnableAcceptEncodingBrotli { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodinggzip
         /// </summary>
-        [Input("EnableAcceptEncodingGzip", required: true)]
+        [Input("enableAcceptEncodingGzip", required: true)]
         public Input<bool> EnableAcceptEncodingGzip { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
         /// </summary>
-        [Input("HeadersConfig", required: true)]
+        [Input("headersConfig", required: true)]
         public Input<Inputs.CachePolicyHeadersConfigArgs> HeadersConfig { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
         /// </summary>
-        [Input("QueryStringsConfig", required: true)]
+        [Input("queryStringsConfig", required: true)]
         public Input<Inputs.CachePolicyQueryStringsConfigArgs> QueryStringsConfig { get; set; } = null!;
 
         public CachePolicyParametersInCacheKeyAndForwardedToOriginArgs()

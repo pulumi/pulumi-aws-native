@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ECS.Outputs
         public readonly Outputs.TaskSetAwsVpcConfiguration? AwsVpcConfiguration;
 
         [OutputConstructor]
-        private TaskSetNetworkConfiguration(Outputs.TaskSetAwsVpcConfiguration? AwsVpcConfiguration)
+        private TaskSetNetworkConfiguration(Outputs.TaskSetAwsVpcConfiguration? awsVpcConfiguration)
         {
-            this.AwsVpcConfiguration = AwsVpcConfiguration;
+            AwsVpcConfiguration = awsVpcConfiguration;
         }
     }
 }

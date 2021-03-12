@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-encoding
         /// </summary>
-        [Input("Encoding")]
+        [Input("encoding")]
         public Input<string>? Encoding { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-loggroupname
         /// </summary>
-        [Input("LogGroupName")]
+        [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logpath
         /// </summary>
-        [Input("LogPath")]
+        [Input("logPath")]
         public Input<string>? LogPath { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logtype
         /// </summary>
-        [Input("LogType", required: true)]
+        [Input("logType", required: true)]
         public Input<string> LogType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-patternset
         /// </summary>
-        [Input("PatternSet")]
+        [Input("patternSet")]
         public Input<string>? PatternSet { get; set; }
 
         public ApplicationLogArgs()

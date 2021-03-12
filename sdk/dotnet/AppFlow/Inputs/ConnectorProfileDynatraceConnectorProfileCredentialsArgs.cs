@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-dynatraceconnectorprofilecredentials-apitoken
         /// </summary>
-        [Input("ApiToken", required: true)]
+        [Input("apiToken", required: true)]
         public Input<string> ApiToken { get; set; } = null!;
 
         public ConnectorProfileDynatraceConnectorProfileCredentialsArgs()

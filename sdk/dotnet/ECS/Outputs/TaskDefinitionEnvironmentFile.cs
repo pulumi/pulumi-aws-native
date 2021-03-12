@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionEnvironmentFile(
-            string? Type,
+            string? type,
 
-            string? Value)
+            string? value)
         {
-            this.Type = Type;
-            this.Value = Value;
+            Type = type;
+            Value = value;
         }
     }
 }

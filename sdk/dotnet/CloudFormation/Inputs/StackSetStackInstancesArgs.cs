@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
         /// </summary>
-        [Input("DeploymentTargets", required: true)]
+        [Input("deploymentTargets", required: true)]
         public Input<Inputs.StackSetDeploymentTargetsArgs> DeploymentTargets { get; set; } = null!;
 
-        [Input("ParameterOverrides")]
-        private InputList<Inputs.StackSetParameterArgs>? _ParameterOverrides;
+        [Input("parameterOverrides")]
+        private InputList<Inputs.StackSetParameterArgs>? _parameterOverrides;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
         /// </summary>
         public InputList<Inputs.StackSetParameterArgs> ParameterOverrides
         {
-            get => _ParameterOverrides ?? (_ParameterOverrides = new InputList<Inputs.StackSetParameterArgs>());
-            set => _ParameterOverrides = value;
+            get => _parameterOverrides ?? (_parameterOverrides = new InputList<Inputs.StackSetParameterArgs>());
+            set => _parameterOverrides = value;
         }
 
-        [Input("Regions", required: true)]
-        private InputList<string>? _Regions;
+        [Input("regions", required: true)]
+        private InputList<string>? _regions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
         /// </summary>
         public InputList<string> Regions
         {
-            get => _Regions ?? (_Regions = new InputList<string>());
-            set => _Regions = value;
+            get => _regions ?? (_regions = new InputList<string>());
+            set => _regions = value;
         }
 
         public StackSetStackInstancesArgs()

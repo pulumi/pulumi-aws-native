@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private ServiceServiceRegistry(
-            string? ContainerName,
+            string? containerName,
 
-            int? ContainerPort,
+            int? containerPort,
 
-            int? Port,
+            int? port,
 
-            string? RegistryArn)
+            string? registryArn)
         {
-            this.ContainerName = ContainerName;
-            this.ContainerPort = ContainerPort;
-            this.Port = Port;
-            this.RegistryArn = RegistryArn;
+            ContainerName = containerName;
+            ContainerPort = containerPort;
+            Port = port;
+            RegistryArn = registryArn;
         }
     }
 }

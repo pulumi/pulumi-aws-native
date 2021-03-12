@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html#cfn-appflow-flow-incrementalpullconfig-datetimetypefieldname
         /// </summary>
-        [Input("DatetimeTypeFieldName")]
+        [Input("datetimeTypeFieldName")]
         public Input<string>? DatetimeTypeFieldName { get; set; }
 
         public FlowIncrementalPullConfigArgs()

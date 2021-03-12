@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class IndexValueImportanceItemsArgs : Pulumi.ResourceArgs
     {
-        [Input("ValueImportanceItems")]
-        private InputList<Inputs.IndexValueImportanceItemArgs>? _ValueImportanceItems;
+        [Input("valueImportanceItems")]
+        private InputList<Inputs.IndexValueImportanceItemArgs>? _valueImportanceItems;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems
         /// </summary>
         public InputList<Inputs.IndexValueImportanceItemArgs> ValueImportanceItems
         {
-            get => _ValueImportanceItems ?? (_ValueImportanceItems = new InputList<Inputs.IndexValueImportanceItemArgs>());
-            set => _ValueImportanceItems = value;
+            get => _valueImportanceItems ?? (_valueImportanceItems = new InputList<Inputs.IndexValueImportanceItemArgs>());
+            set => _valueImportanceItems = value;
         }
 
         public IndexValueImportanceItemsArgs()

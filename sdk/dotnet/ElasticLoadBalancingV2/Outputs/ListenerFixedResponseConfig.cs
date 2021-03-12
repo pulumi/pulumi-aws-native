@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerFixedResponseConfig(
-            string? ContentType,
+            string? contentType,
 
-            string? MessageBody,
+            string? messageBody,
 
-            string StatusCode)
+            string statusCode)
         {
-            this.ContentType = ContentType;
-            this.MessageBody = MessageBody;
-            this.StatusCode = StatusCode;
+            ContentType = contentType;
+            MessageBody = messageBody;
+            StatusCode = statusCode;
         }
     }
 }

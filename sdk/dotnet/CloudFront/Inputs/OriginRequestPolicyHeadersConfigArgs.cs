@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headerbehavior
         /// </summary>
-        [Input("HeaderBehavior", required: true)]
+        [Input("headerBehavior", required: true)]
         public Input<string> HeaderBehavior { get; set; } = null!;
 
-        [Input("Headers")]
-        private InputList<string>? _Headers;
+        [Input("headers")]
+        private InputList<string>? _headers;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headers
         /// </summary>
         public InputList<string> Headers
         {
-            get => _Headers ?? (_Headers = new InputList<string>());
-            set => _Headers = value;
+            get => _headers ?? (_headers = new InputList<string>());
+            set => _headers = value;
         }
 
         public OriginRequestPolicyHeadersConfigArgs()

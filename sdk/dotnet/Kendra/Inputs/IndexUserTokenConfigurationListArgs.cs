@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class IndexUserTokenConfigurationListArgs : Pulumi.ResourceArgs
     {
-        [Input("UserTokenConfigurationList")]
-        private InputList<Inputs.IndexUserTokenConfigurationArgs>? _UserTokenConfigurationList;
+        [Input("userTokenConfigurationList")]
+        private InputList<Inputs.IndexUserTokenConfigurationArgs>? _userTokenConfigurationList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
         /// </summary>
         public InputList<Inputs.IndexUserTokenConfigurationArgs> UserTokenConfigurationList
         {
-            get => _UserTokenConfigurationList ?? (_UserTokenConfigurationList = new InputList<Inputs.IndexUserTokenConfigurationArgs>());
-            set => _UserTokenConfigurationList = value;
+            get => _userTokenConfigurationList ?? (_userTokenConfigurationList = new InputList<Inputs.IndexUserTokenConfigurationArgs>());
+            set => _userTokenConfigurationList = value;
         }
 
         public IndexUserTokenConfigurationListArgs()

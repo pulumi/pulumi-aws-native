@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
 
         [OutputConstructor]
         private StateMachineS3Location(
-            string Bucket,
+            string bucket,
 
-            string Key,
+            string key,
 
-            string? Version)
+            string? version)
         {
-            this.Bucket = Bucket;
-            this.Key = Key;
-            this.Version = Version;
+            Bucket = bucket;
+            Key = key;
+            Version = version;
         }
     }
 }

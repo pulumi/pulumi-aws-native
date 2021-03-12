@@ -44,27 +44,27 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceDataSourceConfiguration(
-            Outputs.DataSourceConfluenceConfiguration? ConfluenceConfiguration,
+            Outputs.DataSourceConfluenceConfiguration? confluenceConfiguration,
 
-            Outputs.DataSourceDatabaseConfiguration? DatabaseConfiguration,
+            Outputs.DataSourceDatabaseConfiguration? databaseConfiguration,
 
-            Outputs.DataSourceOneDriveConfiguration? OneDriveConfiguration,
+            Outputs.DataSourceOneDriveConfiguration? oneDriveConfiguration,
 
-            Outputs.DataSourceS3DataSourceConfiguration? S3Configuration,
+            Outputs.DataSourceS3DataSourceConfiguration? s3Configuration,
 
-            Outputs.DataSourceSalesforceConfiguration? SalesforceConfiguration,
+            Outputs.DataSourceSalesforceConfiguration? salesforceConfiguration,
 
-            Outputs.DataSourceServiceNowConfiguration? ServiceNowConfiguration,
+            Outputs.DataSourceServiceNowConfiguration? serviceNowConfiguration,
 
-            Outputs.DataSourceSharePointConfiguration? SharePointConfiguration)
+            Outputs.DataSourceSharePointConfiguration? sharePointConfiguration)
         {
-            this.ConfluenceConfiguration = ConfluenceConfiguration;
-            this.DatabaseConfiguration = DatabaseConfiguration;
-            this.OneDriveConfiguration = OneDriveConfiguration;
-            this.S3Configuration = S3Configuration;
-            this.SalesforceConfiguration = SalesforceConfiguration;
-            this.ServiceNowConfiguration = ServiceNowConfiguration;
-            this.SharePointConfiguration = SharePointConfiguration;
+            ConfluenceConfiguration = confluenceConfiguration;
+            DatabaseConfiguration = databaseConfiguration;
+            OneDriveConfiguration = oneDriveConfiguration;
+            S3Configuration = s3Configuration;
+            SalesforceConfiguration = salesforceConfiguration;
+            ServiceNowConfiguration = serviceNowConfiguration;
+            SharePointConfiguration = sharePointConfiguration;
         }
     }
 }

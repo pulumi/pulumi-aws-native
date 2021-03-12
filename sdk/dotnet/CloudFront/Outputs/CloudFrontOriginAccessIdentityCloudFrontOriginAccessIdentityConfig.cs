@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly string Comment;
 
         [OutputConstructor]
-        private CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig(string Comment)
+        private CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig(string comment)
         {
-            this.Comment = Comment;
+            Comment = comment;
         }
     }
 }

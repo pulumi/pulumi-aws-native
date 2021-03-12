@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleRepublishAction(
-            int? Qos,
+            int? qos,
 
-            string RoleArn,
+            string roleArn,
 
-            string Topic)
+            string topic)
         {
-            this.Qos = Qos;
-            this.RoleArn = RoleArn;
-            this.Topic = Topic;
+            Qos = qos;
+            RoleArn = roleArn;
+            Topic = topic;
         }
     }
 }

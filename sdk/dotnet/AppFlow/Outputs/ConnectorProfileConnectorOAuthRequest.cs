@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileConnectorOAuthRequest(
-            string? AuthCode,
+            string? authCode,
 
-            string? RedirectUri)
+            string? redirectUri)
         {
-            this.AuthCode = AuthCode;
-            this.RedirectUri = RedirectUri;
+            AuthCode = authCode;
+            RedirectUri = redirectUri;
         }
     }
 }

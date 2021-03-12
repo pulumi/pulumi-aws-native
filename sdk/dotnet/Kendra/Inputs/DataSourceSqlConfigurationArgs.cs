@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sqlconfiguration.html#cfn-kendra-datasource-sqlconfiguration-queryidentifiersenclosingoption
         /// </summary>
-        [Input("QueryIdentifiersEnclosingOption")]
+        [Input("queryIdentifiersEnclosingOption")]
         public Input<string>? QueryIdentifiersEnclosingOption { get; set; }
 
         public DataSourceSqlConfigurationArgs()

@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceS3DataSourceConfiguration(
-            Outputs.DataSourceAccessControlListConfiguration? AccessControlListConfiguration,
+            Outputs.DataSourceAccessControlListConfiguration? accessControlListConfiguration,
 
-            string BucketName,
+            string bucketName,
 
-            Outputs.DataSourceDocumentsMetadataConfiguration? DocumentsMetadataConfiguration,
+            Outputs.DataSourceDocumentsMetadataConfiguration? documentsMetadataConfiguration,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? ExclusionPatterns,
+            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? exclusionPatterns,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? InclusionPatterns,
+            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? inclusionPatterns,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? InclusionPrefixes)
+            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? inclusionPrefixes)
         {
-            this.AccessControlListConfiguration = AccessControlListConfiguration;
-            this.BucketName = BucketName;
-            this.DocumentsMetadataConfiguration = DocumentsMetadataConfiguration;
-            this.ExclusionPatterns = ExclusionPatterns;
-            this.InclusionPatterns = InclusionPatterns;
-            this.InclusionPrefixes = InclusionPrefixes;
+            AccessControlListConfiguration = accessControlListConfiguration;
+            BucketName = bucketName;
+            DocumentsMetadataConfiguration = documentsMetadataConfiguration;
+            ExclusionPatterns = exclusionPatterns;
+            InclusionPatterns = inclusionPatterns;
+            InclusionPrefixes = inclusionPrefixes;
         }
     }
 }

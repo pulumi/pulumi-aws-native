@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
         [OutputConstructor]
         private RealtimeLogConfigKinesisStreamConfig(
-            string RoleArn,
+            string roleArn,
 
-            string StreamArn)
+            string streamArn)
         {
-            this.RoleArn = RoleArn;
-            this.StreamArn = StreamArn;
+            RoleArn = roleArn;
+            StreamArn = streamArn;
         }
     }
 }

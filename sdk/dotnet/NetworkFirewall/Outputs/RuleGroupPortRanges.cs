@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<Outputs.RuleGroupPortRange> PortRanges;
 
         [OutputConstructor]
-        private RuleGroupPortRanges(ImmutableArray<Outputs.RuleGroupPortRange> PortRanges)
+        private RuleGroupPortRanges(ImmutableArray<Outputs.RuleGroupPortRange> portRanges)
         {
-            this.PortRanges = PortRanges;
+            PortRanges = portRanges;
         }
     }
 }

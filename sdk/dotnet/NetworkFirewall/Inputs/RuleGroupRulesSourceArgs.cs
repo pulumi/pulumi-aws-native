@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulessourcelist
         /// </summary>
-        [Input("RulesSourceList")]
+        [Input("rulesSourceList")]
         public Input<Inputs.RuleGroupRulesSourceListArgs>? RulesSourceList { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulesstring
         /// </summary>
-        [Input("RulesString")]
+        [Input("rulesString")]
         public Input<string>? RulesString { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules
         /// </summary>
-        [Input("StatefulRules")]
+        [Input("statefulRules")]
         public Input<Inputs.RuleGroupStatefulRulesArgs>? StatefulRules { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions
         /// </summary>
-        [Input("StatelessRulesAndCustomActions")]
+        [Input("statelessRulesAndCustomActions")]
         public Input<Inputs.RuleGroupStatelessRulesAndCustomActionsArgs>? StatelessRulesAndCustomActions { get; set; }
 
         public RuleGroupRulesSourceArgs()

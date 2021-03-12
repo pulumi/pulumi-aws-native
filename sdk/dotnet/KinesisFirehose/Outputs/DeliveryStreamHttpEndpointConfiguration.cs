@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamHttpEndpointConfiguration(
-            string? AccessKey,
+            string? accessKey,
 
-            string? Name,
+            string? name,
 
-            string Url)
+            string url)
         {
-            this.AccessKey = AccessKey;
-            this.Name = Name;
-            this.Url = Url;
+            AccessKey = accessKey;
+            Name = name;
+            Url = url;
         }
     }
 }

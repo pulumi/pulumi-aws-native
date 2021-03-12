@@ -44,27 +44,27 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionLinuxParameters(
-            Outputs.TaskDefinitionKernelCapabilities? Capabilities,
+            Outputs.TaskDefinitionKernelCapabilities? capabilities,
 
-            ImmutableArray<Outputs.TaskDefinitionDevice> Devices,
+            ImmutableArray<Outputs.TaskDefinitionDevice> devices,
 
-            bool? InitProcessEnabled,
+            bool? initProcessEnabled,
 
-            int? MaxSwap,
+            int? maxSwap,
 
-            int? SharedMemorySize,
+            int? sharedMemorySize,
 
-            int? Swappiness,
+            int? swappiness,
 
-            ImmutableArray<Outputs.TaskDefinitionTmpfs> Tmpfs)
+            ImmutableArray<Outputs.TaskDefinitionTmpfs> tmpfs)
         {
-            this.Capabilities = Capabilities;
-            this.Devices = Devices;
-            this.InitProcessEnabled = InitProcessEnabled;
-            this.MaxSwap = MaxSwap;
-            this.SharedMemorySize = SharedMemorySize;
-            this.Swappiness = Swappiness;
-            this.Tmpfs = Tmpfs;
+            Capabilities = capabilities;
+            Devices = devices;
+            InitProcessEnabled = initProcessEnabled;
+            MaxSwap = maxSwap;
+            SharedMemorySize = sharedMemorySize;
+            Swappiness = swappiness;
+            Tmpfs = tmpfs;
         }
     }
 }

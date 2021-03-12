@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
 
         [OutputConstructor]
         private DomainNameMutualTlsAuthentication(
-            string? TruststoreUri,
+            string? truststoreUri,
 
-            string? TruststoreVersion)
+            string? truststoreVersion)
         {
-            this.TruststoreUri = TruststoreUri;
-            this.TruststoreVersion = TruststoreVersion;
+            TruststoreUri = truststoreUri;
+            TruststoreVersion = truststoreVersion;
         }
     }
 }

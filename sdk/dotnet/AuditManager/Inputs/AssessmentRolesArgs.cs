@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
     /// </summary>
     public sealed class AssessmentRolesArgs : Pulumi.ResourceArgs
     {
-        [Input("Roles")]
-        private InputList<Inputs.AssessmentRoleArgs>? _Roles;
+        [Input("roles")]
+        private InputList<Inputs.AssessmentRoleArgs>? _roles;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html#cfn-auditmanager-assessment-roles-roles
         /// </summary>
         public InputList<Inputs.AssessmentRoleArgs> Roles
         {
-            get => _Roles ?? (_Roles = new InputList<Inputs.AssessmentRoleArgs>());
-            set => _Roles = value;
+            get => _roles ?? (_roles = new InputList<Inputs.AssessmentRoleArgs>());
+            set => _roles = value;
         }
 
         public AssessmentRolesArgs()

@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerRedirectConfig(
-            string? Host,
+            string? host,
 
-            string? Path,
+            string? path,
 
-            string? Port,
+            string? port,
 
-            string? Protocol,
+            string? protocol,
 
-            string? Query,
+            string? query,
 
-            string StatusCode)
+            string statusCode)
         {
-            this.Host = Host;
-            this.Path = Path;
-            this.Port = Port;
-            this.Protocol = Protocol;
-            this.Query = Query;
-            this.StatusCode = StatusCode;
+            Host = host;
+            Path = path;
+            Port = port;
+            Protocol = protocol;
+            Query = query;
+            StatusCode = statusCode;
         }
     }
 }

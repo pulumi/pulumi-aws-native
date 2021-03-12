@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html#cfn-iotsitewise-gateway-greengrass-grouparn
         /// </summary>
-        [Input("GroupArn", required: true)]
+        [Input("groupArn", required: true)]
         public Input<string> GroupArn { get; set; } = null!;
 
         public GatewayGreengrassArgs()

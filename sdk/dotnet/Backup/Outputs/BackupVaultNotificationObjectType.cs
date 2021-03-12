@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
         [OutputConstructor]
         private BackupVaultNotificationObjectType(
-            ImmutableArray<string> BackupVaultEvents,
+            ImmutableArray<string> backupVaultEvents,
 
-            string SNSTopicArn)
+            string sNSTopicArn)
         {
-            this.BackupVaultEvents = BackupVaultEvents;
-            this.SNSTopicArn = SNSTopicArn;
+            BackupVaultEvents = backupVaultEvents;
+            SNSTopicArn = sNSTopicArn;
         }
     }
 }

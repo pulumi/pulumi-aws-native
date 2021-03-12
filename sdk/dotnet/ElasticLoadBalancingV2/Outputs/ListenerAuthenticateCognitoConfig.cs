@@ -48,30 +48,30 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerAuthenticateCognitoConfig(
-            ImmutableDictionary<string, string>? AuthenticationRequestExtraParams,
+            ImmutableDictionary<string, string>? authenticationRequestExtraParams,
 
-            string? OnUnauthenticatedRequest,
+            string? onUnauthenticatedRequest,
 
-            string? Scope,
+            string? scope,
 
-            string? SessionCookieName,
+            string? sessionCookieName,
 
-            string? SessionTimeout,
+            string? sessionTimeout,
 
-            string UserPoolArn,
+            string userPoolArn,
 
-            string UserPoolClientId,
+            string userPoolClientId,
 
-            string UserPoolDomain)
+            string userPoolDomain)
         {
-            this.AuthenticationRequestExtraParams = AuthenticationRequestExtraParams;
-            this.OnUnauthenticatedRequest = OnUnauthenticatedRequest;
-            this.Scope = Scope;
-            this.SessionCookieName = SessionCookieName;
-            this.SessionTimeout = SessionTimeout;
-            this.UserPoolArn = UserPoolArn;
-            this.UserPoolClientId = UserPoolClientId;
-            this.UserPoolDomain = UserPoolDomain;
+            AuthenticationRequestExtraParams = authenticationRequestExtraParams;
+            OnUnauthenticatedRequest = onUnauthenticatedRequest;
+            Scope = scope;
+            SessionCookieName = sessionCookieName;
+            SessionTimeout = sessionTimeout;
+            UserPoolArn = userPoolArn;
+            UserPoolClientId = userPoolClientId;
+            UserPoolDomain = userPoolDomain;
         }
     }
 }

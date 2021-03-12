@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
         /// </summary>
-        [Output("DocumentationVersion")]
+        [Output("documentationVersion")]
         public Output<string> DocumentationVersionValue { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
         /// </summary>
-        [Output("RestApiId")]
+        [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
 
@@ -81,19 +81,19 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
         /// </summary>
-        [Input("DocumentationVersion", required: true)]
+        [Input("documentationVersion", required: true)]
         public Input<string> DocumentationVersionValue { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
         /// </summary>
-        [Input("RestApiId", required: true)]
+        [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
         public DocumentationVersionArgs()

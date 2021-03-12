@@ -15,70 +15,70 @@ namespace Pulumi.AwsNative.Kendra
     [AwsNativeResourceType("aws-native:Kendra:Index")]
     public partial class Index : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
         /// </summary>
-        [Output("CapacityUnits")]
+        [Output("capacityUnits")]
         public Output<Outputs.IndexCapacityUnitsConfiguration?> CapacityUnits { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
         /// </summary>
-        [Output("DocumentMetadataConfigurations")]
+        [Output("documentMetadataConfigurations")]
         public Output<Outputs.IndexDocumentMetadataConfigurationList?> DocumentMetadataConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
         /// </summary>
-        [Output("Edition")]
+        [Output("edition")]
         public Output<string> Edition { get; private set; } = null!;
 
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
         /// </summary>
-        [Output("RoleArn")]
+        [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
         /// </summary>
-        [Output("ServerSideEncryptionConfiguration")]
+        [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.IndexServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<Outputs.IndexTagList?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
         /// </summary>
-        [Output("UserContextPolicy")]
+        [Output("userContextPolicy")]
         public Output<string?> UserContextPolicy { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
         /// </summary>
-        [Output("UserTokenConfigurations")]
+        [Output("userTokenConfigurations")]
         public Output<Outputs.IndexUserTokenConfigurationList?> UserTokenConfigurations { get; private set; } = null!;
 
 
@@ -129,61 +129,61 @@ namespace Pulumi.AwsNative.Kendra
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
         /// </summary>
-        [Input("CapacityUnits")]
+        [Input("capacityUnits")]
         public Input<Inputs.IndexCapacityUnitsConfigurationArgs>? CapacityUnits { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
         /// </summary>
-        [Input("DocumentMetadataConfigurations")]
+        [Input("documentMetadataConfigurations")]
         public Input<Inputs.IndexDocumentMetadataConfigurationListArgs>? DocumentMetadataConfigurations { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
         /// </summary>
-        [Input("Edition", required: true)]
+        [Input("edition", required: true)]
         public Input<string> Edition { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
         /// </summary>
-        [Input("ServerSideEncryptionConfiguration")]
+        [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.IndexServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
         /// </summary>
-        [Input("Tags")]
+        [Input("tags")]
         public Input<Inputs.IndexTagListArgs>? Tags { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
         /// </summary>
-        [Input("UserContextPolicy")]
+        [Input("userContextPolicy")]
         public Input<string>? UserContextPolicy { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
         /// </summary>
-        [Input("UserTokenConfigurations")]
+        [Input("userTokenConfigurations")]
         public Input<Inputs.IndexUserTokenConfigurationListArgs>? UserTokenConfigurations { get; set; }
 
         public IndexArgs()

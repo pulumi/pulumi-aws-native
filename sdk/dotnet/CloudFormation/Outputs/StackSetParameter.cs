@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
 
         [OutputConstructor]
         private StackSetParameter(
-            string ParameterKey,
+            string parameterKey,
 
-            string ParameterValue)
+            string parameterValue)
         {
-            this.ParameterKey = ParameterKey;
-            this.ParameterValue = ParameterValue;
+            ParameterKey = parameterKey;
+            ParameterValue = parameterValue;
         }
     }
 }

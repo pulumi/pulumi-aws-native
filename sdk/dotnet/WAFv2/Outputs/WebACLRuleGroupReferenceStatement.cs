@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLRuleGroupReferenceStatement(
-            string Arn,
+            string arn,
 
-            ImmutableArray<Outputs.WebACLExcludedRule> ExcludedRules)
+            ImmutableArray<Outputs.WebACLExcludedRule> excludedRules)
         {
-            this.Arn = Arn;
-            this.ExcludedRules = ExcludedRules;
+            Arn = arn;
+            ExcludedRules = excludedRules;
         }
     }
 }

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ServiceCatalog.Outputs
 
         [OutputConstructor]
         private CloudFormationProvisionedProductProvisioningParameter(
-            string Key,
+            string key,
 
-            string Value)
+            string value)
         {
-            this.Key = Key;
-            this.Value = Value;
+            Key = key;
+            Value = value;
         }
     }
 }

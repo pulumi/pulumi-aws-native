@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html#cfn-networkfirewall-rulegroup-publishmetricaction-dimensions
         /// </summary>
-        [Input("Dimensions", required: true)]
+        [Input("dimensions", required: true)]
         public Input<Inputs.RuleGroupDimensionsArgs> Dimensions { get; set; } = null!;
 
         public RuleGroupPublishMetricActionArgs()

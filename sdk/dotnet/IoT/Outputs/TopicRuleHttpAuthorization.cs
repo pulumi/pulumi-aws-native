@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
         public readonly Outputs.TopicRuleSigV4Authorization? Sigv4;
 
         [OutputConstructor]
-        private TopicRuleHttpAuthorization(Outputs.TopicRuleSigV4Authorization? Sigv4)
+        private TopicRuleHttpAuthorization(Outputs.TopicRuleSigV4Authorization? sigv4)
         {
-            this.Sigv4 = Sigv4;
+            Sigv4 = sigv4;
         }
     }
 }

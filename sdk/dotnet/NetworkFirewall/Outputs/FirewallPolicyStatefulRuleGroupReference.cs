@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly string ResourceArn;
 
         [OutputConstructor]
-        private FirewallPolicyStatefulRuleGroupReference(string ResourceArn)
+        private FirewallPolicyStatefulRuleGroupReference(string resourceArn)
         {
-            this.ResourceArn = ResourceArn;
+            ResourceArn = resourceArn;
         }
     }
 }

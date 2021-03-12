@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleIotAnalyticsAction(
-            string ChannelName,
+            string channelName,
 
-            string RoleArn)
+            string roleArn)
         {
-            this.ChannelName = ChannelName;
-            this.RoleArn = RoleArn;
+            ChannelName = channelName;
+            RoleArn = roleArn;
         }
     }
 }

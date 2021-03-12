@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreference-resourcearn
         /// </summary>
-        [Input("ResourceArn", required: true)]
+        [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
         public FirewallPolicyStatefulRuleGroupReferenceArgs()

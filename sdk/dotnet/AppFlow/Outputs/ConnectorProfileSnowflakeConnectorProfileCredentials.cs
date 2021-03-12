@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileSnowflakeConnectorProfileCredentials(
-            string Password,
+            string password,
 
-            string Username)
+            string username)
         {
-            this.Password = Password;
-            this.Username = Username;
+            Password = password;
+            Username = username;
         }
     }
 }

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem
         /// </summary>
-        [Input("PutItem")]
+        [Input("putItem")]
         public Input<Inputs.TopicRulePutItemInputArgs>? PutItem { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn
         /// </summary>
-        [Input("RoleArn")]
+        [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         public TopicRuleDynamoDBv2ActionArgs()

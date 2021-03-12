@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
         /// </summary>
-        [Input("BaseliningJobName")]
+        [Input("baseliningJobName")]
         public Input<string>? BaseliningJobName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource
         /// </summary>
-        [Input("ConstraintsResource")]
+        [Input("constraintsResource")]
         public Input<Inputs.ModelExplainabilityJobDefinitionConstraintsResourceArgs>? ConstraintsResource { get; set; }
 
         public ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs()

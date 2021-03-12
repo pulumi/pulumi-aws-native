@@ -18,64 +18,64 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn
         /// </summary>
-        [Output("DeliverLogsPermissionArn")]
+        [Output("deliverLogsPermissionArn")]
         public Output<string?> DeliverLogsPermissionArn { get; private set; } = null!;
 
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination
         /// </summary>
-        [Output("LogDestination")]
+        [Output("logDestination")]
         public Output<string?> LogDestination { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype
         /// </summary>
-        [Output("LogDestinationType")]
+        [Output("logDestinationType")]
         public Output<string?> LogDestinationType { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
         /// </summary>
-        [Output("LogFormat")]
+        [Output("logFormat")]
         public Output<string?> LogFormat { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
         /// </summary>
-        [Output("LogGroupName")]
+        [Output("logGroupName")]
         public Output<string?> LogGroupName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
         /// </summary>
-        [Output("MaxAggregationInterval")]
+        [Output("maxAggregationInterval")]
         public Output<int?> MaxAggregationInterval { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
         /// </summary>
-        [Output("ResourceId")]
+        [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
         /// </summary>
-        [Output("ResourceType")]
+        [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
         /// </summary>
-        [Output("TrafficType")]
+        [Output("trafficType")]
         public Output<string> TrafficType { get; private set; } = null!;
 
 
@@ -126,67 +126,67 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn
         /// </summary>
-        [Input("DeliverLogsPermissionArn")]
+        [Input("deliverLogsPermissionArn")]
         public Input<string>? DeliverLogsPermissionArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination
         /// </summary>
-        [Input("LogDestination")]
+        [Input("logDestination")]
         public Input<string>? LogDestination { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype
         /// </summary>
-        [Input("LogDestinationType")]
+        [Input("logDestinationType")]
         public Input<string>? LogDestinationType { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
         /// </summary>
-        [Input("LogFormat")]
+        [Input("logFormat")]
         public Input<string>? LogFormat { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
         /// </summary>
-        [Input("LogGroupName")]
+        [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
         /// </summary>
-        [Input("MaxAggregationInterval")]
+        [Input("maxAggregationInterval")]
         public Input<int>? MaxAggregationInterval { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
         /// </summary>
-        [Input("ResourceId", required: true)]
+        [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
         /// </summary>
-        [Input("ResourceType", required: true)]
+        [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
         /// </summary>
-        [Input("TrafficType", required: true)]
+        [Input("trafficType", required: true)]
         public Input<string> TrafficType { get; set; } = null!;
 
         public FlowLogArgs()

@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
         /// </summary>
-        [Output("Actions")]
+        [Output("actions")]
         public Output<ImmutableArray<Outputs.ListenerRuleAction>> Actions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
         /// </summary>
-        [Output("Conditions")]
+        [Output("conditions")]
         public Output<ImmutableArray<Outputs.ListenerRuleRuleCondition>> Conditions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
         /// </summary>
-        [Output("ListenerArn")]
+        [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
         /// </summary>
-        [Output("Priority")]
+        [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
 
@@ -84,40 +84,40 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class ListenerRuleArgs : Pulumi.ResourceArgs
     {
-        [Input("Actions", required: true)]
-        private InputList<Inputs.ListenerRuleActionArgs>? _Actions;
+        [Input("actions", required: true)]
+        private InputList<Inputs.ListenerRuleActionArgs>? _actions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
         /// </summary>
         public InputList<Inputs.ListenerRuleActionArgs> Actions
         {
-            get => _Actions ?? (_Actions = new InputList<Inputs.ListenerRuleActionArgs>());
-            set => _Actions = value;
+            get => _actions ?? (_actions = new InputList<Inputs.ListenerRuleActionArgs>());
+            set => _actions = value;
         }
 
-        [Input("Conditions", required: true)]
-        private InputList<Inputs.ListenerRuleRuleConditionArgs>? _Conditions;
+        [Input("conditions", required: true)]
+        private InputList<Inputs.ListenerRuleRuleConditionArgs>? _conditions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
         /// </summary>
         public InputList<Inputs.ListenerRuleRuleConditionArgs> Conditions
         {
-            get => _Conditions ?? (_Conditions = new InputList<Inputs.ListenerRuleRuleConditionArgs>());
-            set => _Conditions = value;
+            get => _conditions ?? (_conditions = new InputList<Inputs.ListenerRuleRuleConditionArgs>());
+            set => _conditions = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
         /// </summary>
-        [Input("ListenerArn", required: true)]
+        [Input("listenerArn", required: true)]
         public Input<string> ListenerArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
         /// </summary>
-        [Input("Priority", required: true)]
+        [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
         public ListenerRuleArgs()

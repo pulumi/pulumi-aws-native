@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector
         /// </summary>
-        [Input("ConstantInitializationVector")]
+        [Input("constantInitializationVector")]
         public Input<string>? ConstantInitializationVector { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
         /// </summary>
-        [Input("EncryptionMethod")]
+        [Input("encryptionMethod")]
         public Input<string>? EncryptionMethod { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
         /// </summary>
-        [Input("SpekeKeyProvider", required: true)]
+        [Input("spekeKeyProvider", required: true)]
         public Input<object> SpekeKeyProvider { get; set; } = null!;
 
         public PackagingConfigurationHlsEncryptionArgs()

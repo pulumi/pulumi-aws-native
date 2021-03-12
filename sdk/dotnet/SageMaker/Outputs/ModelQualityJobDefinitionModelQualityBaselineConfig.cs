@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ModelQualityJobDefinitionModelQualityBaselineConfig(
-            string? BaseliningJobName,
+            string? baseliningJobName,
 
-            Outputs.ModelQualityJobDefinitionConstraintsResource? ConstraintsResource)
+            Outputs.ModelQualityJobDefinitionConstraintsResource? constraintsResource)
         {
-            this.BaseliningJobName = BaseliningJobName;
-            this.ConstraintsResource = ConstraintsResource;
+            BaseliningJobName = baseliningJobName;
+            ConstraintsResource = constraintsResource;
         }
     }
 }

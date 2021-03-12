@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html#cfn-sagemaker-monitoringschedule-monitoringresources-clusterconfig
         /// </summary>
-        [Input("ClusterConfig", required: true)]
+        [Input("clusterConfig", required: true)]
         public Input<Inputs.MonitoringScheduleClusterConfigArgs> ClusterConfig { get; set; } = null!;
 
         public MonitoringScheduleMonitoringResourcesArgs()

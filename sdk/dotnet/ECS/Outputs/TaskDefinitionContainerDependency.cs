@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionContainerDependency(
-            string? Condition,
+            string? condition,
 
-            string? ContainerName)
+            string? containerName)
         {
-            this.Condition = Condition;
-            this.ContainerName = ContainerName;
+            Condition = condition;
+            ContainerName = containerName;
         }
     }
 }

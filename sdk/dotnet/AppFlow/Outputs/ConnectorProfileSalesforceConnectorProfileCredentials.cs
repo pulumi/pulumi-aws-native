@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileSalesforceConnectorProfileCredentials(
-            string? AccessToken,
+            string? accessToken,
 
-            string? ClientCredentialsArn,
+            string? clientCredentialsArn,
 
-            Outputs.ConnectorProfileConnectorOAuthRequest? ConnectorOAuthRequest,
+            Outputs.ConnectorProfileConnectorOAuthRequest? connectorOAuthRequest,
 
-            string? RefreshToken)
+            string? refreshToken)
         {
-            this.AccessToken = AccessToken;
-            this.ClientCredentialsArn = ClientCredentialsArn;
-            this.ConnectorOAuthRequest = ConnectorOAuthRequest;
-            this.RefreshToken = RefreshToken;
+            AccessToken = accessToken;
+            ClientCredentialsArn = clientCredentialsArn;
+            ConnectorOAuthRequest = connectorOAuthRequest;
+            RefreshToken = refreshToken;
         }
     }
 }

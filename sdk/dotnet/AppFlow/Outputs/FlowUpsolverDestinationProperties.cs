@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowUpsolverDestinationProperties(
-            string BucketName,
+            string bucketName,
 
-            string? BucketPrefix,
+            string? bucketPrefix,
 
-            Outputs.FlowUpsolverS3OutputFormatConfig S3OutputFormatConfig)
+            Outputs.FlowUpsolverS3OutputFormatConfig s3OutputFormatConfig)
         {
-            this.BucketName = BucketName;
-            this.BucketPrefix = BucketPrefix;
-            this.S3OutputFormatConfig = S3OutputFormatConfig;
+            BucketName = bucketName;
+            BucketPrefix = bucketPrefix;
+            S3OutputFormatConfig = s3OutputFormatConfig;
         }
     }
 }

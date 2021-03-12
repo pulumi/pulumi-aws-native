@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private MonitoringScheduleMonitoringScheduleConfig(
-            Outputs.MonitoringScheduleMonitoringJobDefinition? MonitoringJobDefinition,
+            Outputs.MonitoringScheduleMonitoringJobDefinition? monitoringJobDefinition,
 
-            string? MonitoringJobDefinitionName,
+            string? monitoringJobDefinitionName,
 
-            string? MonitoringType,
+            string? monitoringType,
 
-            Outputs.MonitoringScheduleScheduleConfig? ScheduleConfig)
+            Outputs.MonitoringScheduleScheduleConfig? scheduleConfig)
         {
-            this.MonitoringJobDefinition = MonitoringJobDefinition;
-            this.MonitoringJobDefinitionName = MonitoringJobDefinitionName;
-            this.MonitoringType = MonitoringType;
-            this.ScheduleConfig = ScheduleConfig;
+            MonitoringJobDefinition = monitoringJobDefinition;
+            MonitoringJobDefinitionName = monitoringJobDefinitionName;
+            MonitoringType = monitoringType;
+            ScheduleConfig = scheduleConfig;
         }
     }
 }

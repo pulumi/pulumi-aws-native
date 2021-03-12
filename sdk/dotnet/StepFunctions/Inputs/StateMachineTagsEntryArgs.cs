@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-key
         /// </summary>
-        [Input("Key", required: true)]
+        [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-value
         /// </summary>
-        [Input("Value", required: true)]
+        [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
         public StateMachineTagsEntryArgs()

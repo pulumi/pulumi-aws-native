@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
-        private ListenerRuleSourceIpConfig(ImmutableArray<string> Values)
+        private ListenerRuleSourceIpConfig(ImmutableArray<string> values)
         {
-            this.Values = Values;
+            Values = values;
         }
     }
 }

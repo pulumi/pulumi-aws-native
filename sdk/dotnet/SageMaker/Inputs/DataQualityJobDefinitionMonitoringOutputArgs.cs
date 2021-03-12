@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
         /// </summary>
-        [Input("S3Output", required: true)]
+        [Input("s3Output", required: true)]
         public Input<Inputs.DataQualityJobDefinitionS3OutputArgs> S3Output { get; set; } = null!;
 
         public DataQualityJobDefinitionMonitoringOutputArgs()

@@ -18,28 +18,28 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
         /// </summary>
-        [Output("Certificate")]
+        [Output("certificate")]
         public Output<string> Certificate { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
         /// </summary>
-        [Output("CertificateAuthorityArn")]
+        [Output("certificateAuthorityArn")]
         public Output<string> CertificateAuthorityArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
         /// </summary>
-        [Output("CertificateChain")]
+        [Output("certificateChain")]
         public Output<string?> CertificateChain { get; private set; } = null!;
 
-        [Output("CompleteCertificateChain")]
+        [Output("completeCertificateChain")]
         public Output<string> CompleteCertificateChain { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
         /// </summary>
-        [Output("Status")]
+        [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
 
@@ -90,25 +90,25 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
         /// </summary>
-        [Input("Certificate", required: true)]
+        [Input("certificate", required: true)]
         public Input<string> Certificate { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
         /// </summary>
-        [Input("CertificateAuthorityArn", required: true)]
+        [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
         /// </summary>
-        [Input("CertificateChain")]
+        [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
         /// </summary>
-        [Input("Status")]
+        [Input("status")]
         public Input<string>? Status { get; set; }
 
         public CertificateAuthorityActivationArgs()

@@ -18,67 +18,67 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-datadog
         /// </summary>
-        [Input("Datadog")]
+        [Input("datadog")]
         public Input<Inputs.ConnectorProfileDatadogConnectorProfilePropertiesArgs>? Datadog { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-dynatrace
         /// </summary>
-        [Input("Dynatrace")]
+        [Input("dynatrace")]
         public Input<Inputs.ConnectorProfileDynatraceConnectorProfilePropertiesArgs>? Dynatrace { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-infornexus
         /// </summary>
-        [Input("InforNexus")]
+        [Input("inforNexus")]
         public Input<Inputs.ConnectorProfileInforNexusConnectorProfilePropertiesArgs>? InforNexus { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-marketo
         /// </summary>
-        [Input("Marketo")]
+        [Input("marketo")]
         public Input<Inputs.ConnectorProfileMarketoConnectorProfilePropertiesArgs>? Marketo { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-redshift
         /// </summary>
-        [Input("Redshift")]
+        [Input("redshift")]
         public Input<Inputs.ConnectorProfileRedshiftConnectorProfilePropertiesArgs>? Redshift { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-salesforce
         /// </summary>
-        [Input("Salesforce")]
+        [Input("salesforce")]
         public Input<Inputs.ConnectorProfileSalesforceConnectorProfilePropertiesArgs>? Salesforce { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-servicenow
         /// </summary>
-        [Input("ServiceNow")]
+        [Input("serviceNow")]
         public Input<Inputs.ConnectorProfileServiceNowConnectorProfilePropertiesArgs>? ServiceNow { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-slack
         /// </summary>
-        [Input("Slack")]
+        [Input("slack")]
         public Input<Inputs.ConnectorProfileSlackConnectorProfilePropertiesArgs>? Slack { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-snowflake
         /// </summary>
-        [Input("Snowflake")]
+        [Input("snowflake")]
         public Input<Inputs.ConnectorProfileSnowflakeConnectorProfilePropertiesArgs>? Snowflake { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-veeva
         /// </summary>
-        [Input("Veeva")]
+        [Input("veeva")]
         public Input<Inputs.ConnectorProfileVeevaConnectorProfilePropertiesArgs>? Veeva { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-zendesk
         /// </summary>
-        [Input("Zendesk")]
+        [Input("zendesk")]
         public Input<Inputs.ConnectorProfileZendeskConnectorProfilePropertiesArgs>? Zendesk { get; set; }
 
         public ConnectorProfileConnectorProfilePropertiesArgs()

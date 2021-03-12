@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private FirewallPolicyFirewallPolicy(
-            Outputs.FirewallPolicyStatefulRuleGroupReferences? StatefulRuleGroupReferences,
+            Outputs.FirewallPolicyStatefulRuleGroupReferences? statefulRuleGroupReferences,
 
-            Outputs.FirewallPolicyCustomActions? StatelessCustomActions,
+            Outputs.FirewallPolicyCustomActions? statelessCustomActions,
 
-            Outputs.FirewallPolicyStatelessActions StatelessDefaultActions,
+            Outputs.FirewallPolicyStatelessActions statelessDefaultActions,
 
-            Outputs.FirewallPolicyStatelessActions StatelessFragmentDefaultActions,
+            Outputs.FirewallPolicyStatelessActions statelessFragmentDefaultActions,
 
-            Outputs.FirewallPolicyStatelessRuleGroupReferences? StatelessRuleGroupReferences)
+            Outputs.FirewallPolicyStatelessRuleGroupReferences? statelessRuleGroupReferences)
         {
-            this.StatefulRuleGroupReferences = StatefulRuleGroupReferences;
-            this.StatelessCustomActions = StatelessCustomActions;
-            this.StatelessDefaultActions = StatelessDefaultActions;
-            this.StatelessFragmentDefaultActions = StatelessFragmentDefaultActions;
-            this.StatelessRuleGroupReferences = StatelessRuleGroupReferences;
+            StatefulRuleGroupReferences = statefulRuleGroupReferences;
+            StatelessCustomActions = statelessCustomActions;
+            StatelessDefaultActions = statelessDefaultActions;
+            StatelessFragmentDefaultActions = statelessFragmentDefaultActions;
+            StatelessRuleGroupReferences = statelessRuleGroupReferences;
         }
     }
 }

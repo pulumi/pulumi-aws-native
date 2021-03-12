@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowS3SourceProperties(
-            string BucketName,
+            string bucketName,
 
-            string BucketPrefix)
+            string bucketPrefix)
         {
-            this.BucketName = BucketName;
-            this.BucketPrefix = BucketPrefix;
+            BucketName = bucketName;
+            BucketPrefix = bucketPrefix;
         }
     }
 }

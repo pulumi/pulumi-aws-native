@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
 
         [OutputConstructor]
         private MissionProfileDataflowEdge(
-            string? Destination,
+            string? destination,
 
-            string? Source)
+            string? source)
         {
-            this.Destination = Destination;
-            this.Source = Source;
+            Destination = destination;
+            Source = source;
         }
     }
 }

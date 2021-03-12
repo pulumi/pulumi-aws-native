@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleCloudwatchAlarmAction(
-            string AlarmName,
+            string alarmName,
 
-            string RoleArn,
+            string roleArn,
 
-            string StateReason,
+            string stateReason,
 
-            string StateValue)
+            string stateValue)
         {
-            this.AlarmName = AlarmName;
-            this.RoleArn = RoleArn;
-            this.StateReason = StateReason;
-            this.StateValue = StateValue;
+            AlarmName = alarmName;
+            RoleArn = roleArn;
+            StateReason = stateReason;
+            StateValue = stateValue;
         }
     }
 }

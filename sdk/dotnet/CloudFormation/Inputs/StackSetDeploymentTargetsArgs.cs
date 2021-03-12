@@ -15,28 +15,28 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
     /// </summary>
     public sealed class StackSetDeploymentTargetsArgs : Pulumi.ResourceArgs
     {
-        [Input("Accounts")]
-        private InputList<string>? _Accounts;
+        [Input("accounts")]
+        private InputList<string>? _accounts;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
         /// </summary>
         public InputList<string> Accounts
         {
-            get => _Accounts ?? (_Accounts = new InputList<string>());
-            set => _Accounts = value;
+            get => _accounts ?? (_accounts = new InputList<string>());
+            set => _accounts = value;
         }
 
-        [Input("OrganizationalUnitIds")]
-        private InputList<string>? _OrganizationalUnitIds;
+        [Input("organizationalUnitIds")]
+        private InputList<string>? _organizationalUnitIds;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
         /// </summary>
         public InputList<string> OrganizationalUnitIds
         {
-            get => _OrganizationalUnitIds ?? (_OrganizationalUnitIds = new InputList<string>());
-            set => _OrganizationalUnitIds = value;
+            get => _organizationalUnitIds ?? (_organizationalUnitIds = new InputList<string>());
+            set => _organizationalUnitIds = value;
         }
 
         public StackSetDeploymentTargetsArgs()

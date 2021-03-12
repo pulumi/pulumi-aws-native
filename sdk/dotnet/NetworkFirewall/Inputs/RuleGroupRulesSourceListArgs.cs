@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-generatedrulestype
         /// </summary>
-        [Input("GeneratedRulesType", required: true)]
+        [Input("generatedRulesType", required: true)]
         public Input<string> GeneratedRulesType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
         /// </summary>
-        [Input("TargetTypes", required: true)]
+        [Input("targetTypes", required: true)]
         public Input<Inputs.RuleGroupTargetTypesArgs> TargetTypes { get; set; } = null!;
 
-        [Input("Targets", required: true)]
-        private InputList<string>? _Targets;
+        [Input("targets", required: true)]
+        private InputList<string>? _targets;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets
         /// </summary>
         public InputList<string> Targets
         {
-            get => _Targets ?? (_Targets = new InputList<string>());
-            set => _Targets = value;
+            get => _targets ?? (_targets = new InputList<string>());
+            set => _targets = value;
         }
 
         public RuleGroupRulesSourceListArgs()

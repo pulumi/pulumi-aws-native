@@ -44,27 +44,27 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ModelQualityJobDefinitionModelQualityAppSpecification(
-            ImmutableArray<string> ContainerArguments,
+            ImmutableArray<string> containerArguments,
 
-            ImmutableArray<string> ContainerEntrypoint,
+            ImmutableArray<string> containerEntrypoint,
 
-            Outputs.ModelQualityJobDefinitionEnvironment? Environment,
+            Outputs.ModelQualityJobDefinitionEnvironment? environment,
 
-            string ImageUri,
+            string imageUri,
 
-            string? PostAnalyticsProcessorSourceUri,
+            string? postAnalyticsProcessorSourceUri,
 
-            string ProblemType,
+            string problemType,
 
-            string? RecordPreprocessorSourceUri)
+            string? recordPreprocessorSourceUri)
         {
-            this.ContainerArguments = ContainerArguments;
-            this.ContainerEntrypoint = ContainerEntrypoint;
-            this.Environment = Environment;
-            this.ImageUri = ImageUri;
-            this.PostAnalyticsProcessorSourceUri = PostAnalyticsProcessorSourceUri;
-            this.ProblemType = ProblemType;
-            this.RecordPreprocessorSourceUri = RecordPreprocessorSourceUri;
+            ContainerArguments = containerArguments;
+            ContainerEntrypoint = containerEntrypoint;
+            Environment = environment;
+            ImageUri = imageUri;
+            PostAnalyticsProcessorSourceUri = postAnalyticsProcessorSourceUri;
+            ProblemType = problemType;
+            RecordPreprocessorSourceUri = recordPreprocessorSourceUri;
         }
     }
 }

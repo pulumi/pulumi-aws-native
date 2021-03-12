@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html#cfn-ecs-taskdefinition-volumes-host-sourcepath
         /// </summary>
-        [Input("SourcePath")]
+        [Input("sourcePath")]
         public Input<string>? SourcePath { get; set; }
 
         public TaskDefinitionHostVolumePropertiesArgs()

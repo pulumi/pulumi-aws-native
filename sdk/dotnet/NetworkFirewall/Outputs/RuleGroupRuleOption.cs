@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private RuleGroupRuleOption(
-            string Keyword,
+            string keyword,
 
-            ImmutableArray<string> Settings)
+            ImmutableArray<string> settings)
         {
-            this.Keyword = Keyword;
-            this.Settings = Settings;
+            Keyword = keyword;
+            Settings = settings;
         }
     }
 }

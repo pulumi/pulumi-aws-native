@@ -18,43 +18,43 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator
         /// </summary>
-        [Input("ConnectorOperator")]
+        [Input("connectorOperator")]
         public Input<Inputs.FlowConnectorOperatorArgs>? ConnectorOperator { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-destinationfield
         /// </summary>
-        [Input("DestinationField")]
+        [Input("destinationField")]
         public Input<string>? DestinationField { get; set; }
 
-        [Input("SourceFields", required: true)]
-        private InputList<string>? _SourceFields;
+        [Input("sourceFields", required: true)]
+        private InputList<string>? _sourceFields;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-sourcefields
         /// </summary>
         public InputList<string> SourceFields
         {
-            get => _SourceFields ?? (_SourceFields = new InputList<string>());
-            set => _SourceFields = value;
+            get => _sourceFields ?? (_sourceFields = new InputList<string>());
+            set => _sourceFields = value;
         }
 
-        [Input("TaskProperties")]
-        private InputList<Inputs.FlowTaskPropertiesObjectArgs>? _TaskProperties;
+        [Input("taskProperties")]
+        private InputList<Inputs.FlowTaskPropertiesObjectArgs>? _taskProperties;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
         /// </summary>
         public InputList<Inputs.FlowTaskPropertiesObjectArgs> TaskProperties
         {
-            get => _TaskProperties ?? (_TaskProperties = new InputList<Inputs.FlowTaskPropertiesObjectArgs>());
-            set => _TaskProperties = value;
+            get => _taskProperties ?? (_taskProperties = new InputList<Inputs.FlowTaskPropertiesObjectArgs>());
+            set => _taskProperties = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-tasktype
         /// </summary>
-        [Input("TaskType", required: true)]
+        [Input("taskType", required: true)]
         public Input<string> TaskType { get; set; } = null!;
 
         public FlowTaskArgs()

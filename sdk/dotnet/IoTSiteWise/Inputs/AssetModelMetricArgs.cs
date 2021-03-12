@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-expression
         /// </summary>
-        [Input("Expression", required: true)]
+        [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 
-        [Input("Variables", required: true)]
-        private InputList<Inputs.AssetModelExpressionVariableArgs>? _Variables;
+        [Input("variables", required: true)]
+        private InputList<Inputs.AssetModelExpressionVariableArgs>? _variables;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-variables
         /// </summary>
         public InputList<Inputs.AssetModelExpressionVariableArgs> Variables
         {
-            get => _Variables ?? (_Variables = new InputList<Inputs.AssetModelExpressionVariableArgs>());
-            set => _Variables = value;
+            get => _variables ?? (_variables = new InputList<Inputs.AssetModelExpressionVariableArgs>());
+            set => _variables = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-window
         /// </summary>
-        [Input("Window", required: true)]
+        [Input("window", required: true)]
         public Input<Inputs.AssetModelMetricWindowArgs> Window { get; set; } = null!;
 
         public AssetModelMetricArgs()

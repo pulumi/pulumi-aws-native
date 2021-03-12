@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html#cfn-kinesisfirehose-deliverystream-elasticsearchbufferinghints-intervalinseconds
         /// </summary>
-        [Input("IntervalInSeconds")]
+        [Input("intervalInSeconds")]
         public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html#cfn-kinesisfirehose-deliverystream-elasticsearchbufferinghints-sizeinmbs
         /// </summary>
-        [Input("SizeInMBs")]
+        [Input("sizeInMBs")]
         public Input<int>? SizeInMBs { get; set; }
 
         public DeliveryStreamElasticsearchBufferingHintsArgs()

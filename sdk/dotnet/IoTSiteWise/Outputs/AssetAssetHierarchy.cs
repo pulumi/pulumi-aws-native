@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
         [OutputConstructor]
         private AssetAssetHierarchy(
-            string ChildAssetId,
+            string childAssetId,
 
-            string LogicalId)
+            string logicalId)
         {
-            this.ChildAssetId = ChildAssetId;
-            this.LogicalId = LogicalId;
+            ChildAssetId = childAssetId;
+            LogicalId = logicalId;
         }
     }
 }

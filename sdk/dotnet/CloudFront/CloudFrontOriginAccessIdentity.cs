@@ -18,10 +18,10 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
         /// </summary>
-        [Output("CloudFrontOriginAccessIdentityConfig")]
+        [Output("cloudFrontOriginAccessIdentityConfig")]
         public Output<Outputs.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig> CloudFrontOriginAccessIdentityConfig { get; private set; } = null!;
 
-        [Output("S3CanonicalUserId")]
+        [Output("s3CanonicalUserId")]
         public Output<string> S3CanonicalUserId { get; private set; } = null!;
 
 
@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
         /// </summary>
-        [Input("CloudFrontOriginAccessIdentityConfig", required: true)]
+        [Input("cloudFrontOriginAccessIdentityConfig", required: true)]
         public Input<Inputs.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs> CloudFrontOriginAccessIdentityConfig { get; set; } = null!;
 
         public CloudFrontOriginAccessIdentityArgs()

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly string ScheduleExpression;
 
         [OutputConstructor]
-        private MonitoringScheduleScheduleConfig(string ScheduleExpression)
+        private MonitoringScheduleScheduleConfig(string scheduleExpression)
         {
-            this.ScheduleExpression = ScheduleExpression;
+            ScheduleExpression = scheduleExpression;
         }
     }
 }

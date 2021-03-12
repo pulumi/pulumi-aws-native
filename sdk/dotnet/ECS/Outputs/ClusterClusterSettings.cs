@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private ClusterClusterSettings(
-            string? Name,
+            string? name,
 
-            string? Value)
+            string? value)
         {
-            this.Name = Name;
-            this.Value = Value;
+            Name = name;
+            Value = value;
         }
     }
 }

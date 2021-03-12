@@ -15,52 +15,52 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
     /// </summary>
     public sealed class ComponentVersionLambdaFunctionRecipeSourceArgs : Pulumi.ResourceArgs
     {
-        [Input("ComponentDependencies")]
-        private InputMap<Inputs.ComponentVersionComponentDependencyRequirementArgs>? _ComponentDependencies;
+        [Input("componentDependencies")]
+        private InputMap<Inputs.ComponentVersionComponentDependencyRequirementArgs>? _componentDependencies;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentdependencies
         /// </summary>
         public InputMap<Inputs.ComponentVersionComponentDependencyRequirementArgs> ComponentDependencies
         {
-            get => _ComponentDependencies ?? (_ComponentDependencies = new InputMap<Inputs.ComponentVersionComponentDependencyRequirementArgs>());
-            set => _ComponentDependencies = value;
+            get => _componentDependencies ?? (_componentDependencies = new InputMap<Inputs.ComponentVersionComponentDependencyRequirementArgs>());
+            set => _componentDependencies = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentlambdaparameters
         /// </summary>
-        [Input("ComponentLambdaParameters")]
+        [Input("componentLambdaParameters")]
         public Input<Inputs.ComponentVersionLambdaExecutionParametersArgs>? ComponentLambdaParameters { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentname
         /// </summary>
-        [Input("ComponentName")]
+        [Input("componentName")]
         public Input<string>? ComponentName { get; set; }
 
-        [Input("ComponentPlatforms")]
-        private InputList<Inputs.ComponentVersionComponentPlatformArgs>? _ComponentPlatforms;
+        [Input("componentPlatforms")]
+        private InputList<Inputs.ComponentVersionComponentPlatformArgs>? _componentPlatforms;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentplatforms
         /// </summary>
         public InputList<Inputs.ComponentVersionComponentPlatformArgs> ComponentPlatforms
         {
-            get => _ComponentPlatforms ?? (_ComponentPlatforms = new InputList<Inputs.ComponentVersionComponentPlatformArgs>());
-            set => _ComponentPlatforms = value;
+            get => _componentPlatforms ?? (_componentPlatforms = new InputList<Inputs.ComponentVersionComponentPlatformArgs>());
+            set => _componentPlatforms = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentversion
         /// </summary>
-        [Input("ComponentVersion")]
+        [Input("componentVersion")]
         public Input<string>? ComponentVersion { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-lambdaarn
         /// </summary>
-        [Input("LambdaArn")]
+        [Input("lambdaArn")]
         public Input<string>? LambdaArn { get; set; }
 
         public ComponentVersionLambdaFunctionRecipeSourceArgs()

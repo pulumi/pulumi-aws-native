@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamDeliveryStreamEncryptionConfigurationInput(
-            string? KeyARN,
+            string? keyARN,
 
-            string KeyType)
+            string keyType)
         {
-            this.KeyARN = KeyARN;
-            this.KeyType = KeyType;
+            KeyARN = keyARN;
+            KeyType = keyType;
         }
     }
 }

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
         [OutputConstructor]
         private BackupPlanCopyActionResourceType(
-            string DestinationBackupVaultArn,
+            string destinationBackupVaultArn,
 
-            Outputs.BackupPlanLifecycleResourceType? Lifecycle)
+            Outputs.BackupPlanLifecycleResourceType? lifecycle)
         {
-            this.DestinationBackupVaultArn = DestinationBackupVaultArn;
-            this.Lifecycle = Lifecycle;
+            DestinationBackupVaultArn = destinationBackupVaultArn;
+            Lifecycle = lifecycle;
         }
     }
 }

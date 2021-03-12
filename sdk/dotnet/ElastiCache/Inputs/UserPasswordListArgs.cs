@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
     /// </summary>
     public sealed class UserPasswordListArgs : Pulumi.ResourceArgs
     {
-        [Input("PasswordList")]
-        private InputList<string>? _PasswordList;
+        [Input("passwordList")]
+        private InputList<string>? _passwordList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist
         /// </summary>
         public InputList<string> PasswordList
         {
-            get => _PasswordList ?? (_PasswordList = new InputList<string>());
-            set => _PasswordList = value;
+            get => _passwordList ?? (_passwordList = new InputList<string>());
+            set => _passwordList = value;
         }
 
         public UserPasswordListArgs()

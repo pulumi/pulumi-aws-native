@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private PackagingGroupAuthorization(
-            string CdnIdentifierSecret,
+            string cdnIdentifierSecret,
 
-            string SecretsRoleArn)
+            string secretsRoleArn)
         {
-            this.CdnIdentifierSecret = CdnIdentifierSecret;
-            this.SecretsRoleArn = SecretsRoleArn;
+            CdnIdentifierSecret = cdnIdentifierSecret;
+            SecretsRoleArn = secretsRoleArn;
         }
     }
 }

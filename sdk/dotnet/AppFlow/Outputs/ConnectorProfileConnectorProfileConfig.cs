@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileConnectorProfileConfig(
-            Outputs.ConnectorProfileConnectorProfileCredentials ConnectorProfileCredentials,
+            Outputs.ConnectorProfileConnectorProfileCredentials connectorProfileCredentials,
 
-            Outputs.ConnectorProfileConnectorProfileProperties? ConnectorProfileProperties)
+            Outputs.ConnectorProfileConnectorProfileProperties? connectorProfileProperties)
         {
-            this.ConnectorProfileCredentials = ConnectorProfileCredentials;
-            this.ConnectorProfileProperties = ConnectorProfileProperties;
+            ConnectorProfileCredentials = connectorProfileCredentials;
+            ConnectorProfileProperties = connectorProfileProperties;
         }
     }
 }

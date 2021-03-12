@@ -15,40 +15,40 @@ namespace Pulumi.AwsNative.IoTSiteWise
     [AwsNativeResourceType("aws-native:IoTSiteWise:AssetModel")]
     public partial class AssetModel : Pulumi.CustomResource
     {
-        [Output("AssetModelArn")]
+        [Output("assetModelArn")]
         public Output<string> AssetModelArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
         /// </summary>
-        [Output("AssetModelDescription")]
+        [Output("assetModelDescription")]
         public Output<string?> AssetModelDescription { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
         /// </summary>
-        [Output("AssetModelHierarchies")]
+        [Output("assetModelHierarchies")]
         public Output<ImmutableArray<Outputs.AssetModelAssetModelHierarchy>> AssetModelHierarchies { get; private set; } = null!;
 
-        [Output("AssetModelId")]
+        [Output("assetModelId")]
         public Output<string> AssetModelId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
         /// </summary>
-        [Output("AssetModelName")]
+        [Output("assetModelName")]
         public Output<string> AssetModelName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
         /// </summary>
-        [Output("AssetModelProperties")]
+        [Output("assetModelProperties")]
         public Output<ImmutableArray<Outputs.AssetModelAssetModelProperty>> AssetModelProperties { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -99,49 +99,49 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
         /// </summary>
-        [Input("AssetModelDescription")]
+        [Input("assetModelDescription")]
         public Input<string>? AssetModelDescription { get; set; }
 
-        [Input("AssetModelHierarchies")]
-        private InputList<Inputs.AssetModelAssetModelHierarchyArgs>? _AssetModelHierarchies;
+        [Input("assetModelHierarchies")]
+        private InputList<Inputs.AssetModelAssetModelHierarchyArgs>? _assetModelHierarchies;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
         /// </summary>
         public InputList<Inputs.AssetModelAssetModelHierarchyArgs> AssetModelHierarchies
         {
-            get => _AssetModelHierarchies ?? (_AssetModelHierarchies = new InputList<Inputs.AssetModelAssetModelHierarchyArgs>());
-            set => _AssetModelHierarchies = value;
+            get => _assetModelHierarchies ?? (_assetModelHierarchies = new InputList<Inputs.AssetModelAssetModelHierarchyArgs>());
+            set => _assetModelHierarchies = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
         /// </summary>
-        [Input("AssetModelName", required: true)]
+        [Input("assetModelName", required: true)]
         public Input<string> AssetModelName { get; set; } = null!;
 
-        [Input("AssetModelProperties")]
-        private InputList<Inputs.AssetModelAssetModelPropertyArgs>? _AssetModelProperties;
+        [Input("assetModelProperties")]
+        private InputList<Inputs.AssetModelAssetModelPropertyArgs>? _assetModelProperties;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
         /// </summary>
         public InputList<Inputs.AssetModelAssetModelPropertyArgs> AssetModelProperties
         {
-            get => _AssetModelProperties ?? (_AssetModelProperties = new InputList<Inputs.AssetModelAssetModelPropertyArgs>());
-            set => _AssetModelProperties = value;
+            get => _assetModelProperties ?? (_assetModelProperties = new InputList<Inputs.AssetModelAssetModelPropertyArgs>());
+            set => _assetModelProperties = value;
         }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public AssetModelArgs()

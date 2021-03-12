@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-kmskeyid
         /// </summary>
-        [Input("KmsKeyId")]
+        [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        [Input("MonitoringOutputs", required: true)]
-        private InputList<Inputs.MonitoringScheduleMonitoringOutputArgs>? _MonitoringOutputs;
+        [Input("monitoringOutputs", required: true)]
+        private InputList<Inputs.MonitoringScheduleMonitoringOutputArgs>? _monitoringOutputs;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-monitoringoutputs
         /// </summary>
         public InputList<Inputs.MonitoringScheduleMonitoringOutputArgs> MonitoringOutputs
         {
-            get => _MonitoringOutputs ?? (_MonitoringOutputs = new InputList<Inputs.MonitoringScheduleMonitoringOutputArgs>());
-            set => _MonitoringOutputs = value;
+            get => _monitoringOutputs ?? (_monitoringOutputs = new InputList<Inputs.MonitoringScheduleMonitoringOutputArgs>());
+            set => _monitoringOutputs = value;
         }
 
         public MonitoringScheduleMonitoringOutputConfigArgs()

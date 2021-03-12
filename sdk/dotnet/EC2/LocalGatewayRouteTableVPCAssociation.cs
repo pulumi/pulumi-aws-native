@@ -15,31 +15,31 @@ namespace Pulumi.AwsNative.EC2
     [AwsNativeResourceType("aws-native:EC2:LocalGatewayRouteTableVPCAssociation")]
     public partial class LocalGatewayRouteTableVPCAssociation : Pulumi.CustomResource
     {
-        [Output("LocalGatewayId")]
+        [Output("localGatewayId")]
         public Output<string> LocalGatewayId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
         /// </summary>
-        [Output("LocalGatewayRouteTableId")]
+        [Output("localGatewayRouteTableId")]
         public Output<string> LocalGatewayRouteTableId { get; private set; } = null!;
 
-        [Output("LocalGatewayRouteTableVpcAssociationId")]
+        [Output("localGatewayRouteTableVpcAssociationId")]
         public Output<string> LocalGatewayRouteTableVpcAssociationId { get; private set; } = null!;
 
-        [Output("State")]
+        [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<Outputs.LocalGatewayRouteTableVPCAssociationTags?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
         /// </summary>
-        [Output("VpcId")]
+        [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
 
@@ -90,19 +90,19 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
         /// </summary>
-        [Input("LocalGatewayRouteTableId", required: true)]
+        [Input("localGatewayRouteTableId", required: true)]
         public Input<string> LocalGatewayRouteTableId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
         /// </summary>
-        [Input("Tags")]
+        [Input("tags")]
         public Input<Inputs.LocalGatewayRouteTableVPCAssociationTagsArgs>? Tags { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
         /// </summary>
-        [Input("VpcId", required: true)]
+        [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
         public LocalGatewayRouteTableVPCAssociationArgs()

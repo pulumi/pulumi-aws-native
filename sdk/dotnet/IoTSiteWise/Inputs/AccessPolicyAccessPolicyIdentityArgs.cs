@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
         /// </summary>
-        [Input("User")]
+        [Input("user")]
         public Input<Inputs.AccessPolicyUserArgs>? User { get; set; }
 
         public AccessPolicyAccessPolicyIdentityArgs()

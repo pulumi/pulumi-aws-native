@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-enable
         /// </summary>
-        [Input("Enable", required: true)]
+        [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-rollback
         /// </summary>
-        [Input("Rollback", required: true)]
+        [Input("rollback", required: true)]
         public Input<bool> Rollback { get; set; } = null!;
 
         public ServiceDeploymentCircuitBreakerArgs()

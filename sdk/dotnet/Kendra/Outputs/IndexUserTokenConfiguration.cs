@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private IndexUserTokenConfiguration(
-            Outputs.IndexJsonTokenTypeConfiguration? JsonTokenTypeConfiguration,
+            Outputs.IndexJsonTokenTypeConfiguration? jsonTokenTypeConfiguration,
 
-            Outputs.IndexJwtTokenTypeConfiguration? JwtTokenTypeConfiguration)
+            Outputs.IndexJwtTokenTypeConfiguration? jwtTokenTypeConfiguration)
         {
-            this.JsonTokenTypeConfiguration = JsonTokenTypeConfiguration;
-            this.JwtTokenTypeConfiguration = JwtTokenTypeConfiguration;
+            JsonTokenTypeConfiguration = jsonTokenTypeConfiguration;
+            JwtTokenTypeConfiguration = jwtTokenTypeConfiguration;
         }
     }
 }

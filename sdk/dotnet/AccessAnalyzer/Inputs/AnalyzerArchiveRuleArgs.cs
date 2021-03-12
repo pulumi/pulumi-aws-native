@@ -15,22 +15,22 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
     /// </summary>
     public sealed class AnalyzerArchiveRuleArgs : Pulumi.ResourceArgs
     {
-        [Input("Filter", required: true)]
-        private InputList<Inputs.AnalyzerFilterArgs>? _Filter;
+        [Input("filter", required: true)]
+        private InputList<Inputs.AnalyzerFilterArgs>? _filter;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
         /// </summary>
         public InputList<Inputs.AnalyzerFilterArgs> Filter
         {
-            get => _Filter ?? (_Filter = new InputList<Inputs.AnalyzerFilterArgs>());
-            set => _Filter = value;
+            get => _filter ?? (_filter = new InputList<Inputs.AnalyzerFilterArgs>());
+            set => _filter = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
         /// </summary>
-        [Input("RuleName", required: true)]
+        [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
         public AnalyzerArchiveRuleArgs()

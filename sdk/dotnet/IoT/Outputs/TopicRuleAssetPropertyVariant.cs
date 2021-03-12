@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleAssetPropertyVariant(
-            string? BooleanValue,
+            string? booleanValue,
 
-            string? DoubleValue,
+            string? doubleValue,
 
-            string? IntegerValue,
+            string? integerValue,
 
-            string? StringValue)
+            string? stringValue)
         {
-            this.BooleanValue = BooleanValue;
-            this.DoubleValue = DoubleValue;
-            this.IntegerValue = IntegerValue;
-            this.StringValue = StringValue;
+            BooleanValue = booleanValue;
+            DoubleValue = doubleValue;
+            IntegerValue = integerValue;
+            StringValue = stringValue;
         }
     }
 }

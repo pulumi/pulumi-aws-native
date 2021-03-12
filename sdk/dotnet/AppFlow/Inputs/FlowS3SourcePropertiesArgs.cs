@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketname
         /// </summary>
-        [Input("BucketName", required: true)]
+        [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketprefix
         /// </summary>
-        [Input("BucketPrefix", required: true)]
+        [Input("bucketPrefix", required: true)]
         public Input<string> BucketPrefix { get; set; } = null!;
 
         public FlowS3SourcePropertiesArgs()

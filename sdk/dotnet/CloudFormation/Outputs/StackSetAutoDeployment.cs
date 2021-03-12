@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
 
         [OutputConstructor]
         private StackSetAutoDeployment(
-            bool? Enabled,
+            bool? enabled,
 
-            bool? RetainStacksOnAccountRemoval)
+            bool? retainStacksOnAccountRemoval)
         {
-            this.Enabled = Enabled;
-            this.RetainStacksOnAccountRemoval = RetainStacksOnAccountRemoval;
+            Enabled = enabled;
+            RetainStacksOnAccountRemoval = retainStacksOnAccountRemoval;
         }
     }
 }

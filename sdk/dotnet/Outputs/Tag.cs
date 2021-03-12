@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Outputs
 
         [OutputConstructor]
         private Tag(
-            string Key,
+            string key,
 
-            string Value)
+            string value)
         {
-            this.Key = Key;
-            this.Value = Value;
+            Key = key;
+            Value = value;
         }
     }
 }

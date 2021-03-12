@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval
         /// </summary>
-        [Input("Interval", required: true)]
+        [Input("interval", required: true)]
         public Input<string> Interval { get; set; } = null!;
 
         public AssetModelTumblingWindowArgs()

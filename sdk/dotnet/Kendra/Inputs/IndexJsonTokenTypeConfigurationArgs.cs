@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html#cfn-kendra-index-jsontokentypeconfiguration-groupattributefield
         /// </summary>
-        [Input("GroupAttributeField", required: true)]
+        [Input("groupAttributeField", required: true)]
         public Input<string> GroupAttributeField { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html#cfn-kendra-index-jsontokentypeconfiguration-usernameattributefield
         /// </summary>
-        [Input("UserNameAttributeField", required: true)]
+        [Input("userNameAttributeField", required: true)]
         public Input<string> UserNameAttributeField { get; set; } = null!;
 
         public IndexJsonTokenTypeConfigurationArgs()

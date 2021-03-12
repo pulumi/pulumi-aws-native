@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.S3.Outputs
 
         [OutputConstructor]
         private StorageLensS3BucketDestination(
-            string AccountId,
+            string accountId,
 
-            string Arn,
+            string arn,
 
-            Outputs.StorageLensEncryption? Encryption,
+            Outputs.StorageLensEncryption? encryption,
 
-            string Format,
+            string format,
 
-            string OutputSchemaVersion,
+            string outputSchemaVersion,
 
-            string? Prefix)
+            string? prefix)
         {
-            this.AccountId = AccountId;
-            this.Arn = Arn;
-            this.Encryption = Encryption;
-            this.Format = Format;
-            this.OutputSchemaVersion = OutputSchemaVersion;
-            this.Prefix = Prefix;
+            AccountId = accountId;
+            Arn = arn;
+            Encryption = encryption;
+            Format = format;
+            OutputSchemaVersion = outputSchemaVersion;
+            Prefix = prefix;
         }
     }
 }

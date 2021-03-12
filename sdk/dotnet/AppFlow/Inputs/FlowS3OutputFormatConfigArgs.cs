@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-aggregationconfig
         /// </summary>
-        [Input("AggregationConfig")]
+        [Input("aggregationConfig")]
         public Input<Inputs.FlowAggregationConfigArgs>? AggregationConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-filetype
         /// </summary>
-        [Input("FileType")]
+        [Input("fileType")]
         public Input<string>? FileType { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-prefixconfig
         /// </summary>
-        [Input("PrefixConfig")]
+        [Input("prefixConfig")]
         public Input<Inputs.FlowPrefixConfigArgs>? PrefixConfig { get; set; }
 
         public FlowS3OutputFormatConfigArgs()

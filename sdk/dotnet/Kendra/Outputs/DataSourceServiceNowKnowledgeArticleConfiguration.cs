@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceServiceNowKnowledgeArticleConfiguration(
-            bool? CrawlAttachments,
+            bool? crawlAttachments,
 
-            string DocumentDataFieldName,
+            string documentDataFieldName,
 
-            string? DocumentTitleFieldName,
+            string? documentTitleFieldName,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? ExcludeAttachmentFilePatterns,
+            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? excludeAttachmentFilePatterns,
 
-            Outputs.DataSourceDataSourceToIndexFieldMappingList? FieldMappings,
+            Outputs.DataSourceDataSourceToIndexFieldMappingList? fieldMappings,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? IncludeAttachmentFilePatterns)
+            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? includeAttachmentFilePatterns)
         {
-            this.CrawlAttachments = CrawlAttachments;
-            this.DocumentDataFieldName = DocumentDataFieldName;
-            this.DocumentTitleFieldName = DocumentTitleFieldName;
-            this.ExcludeAttachmentFilePatterns = ExcludeAttachmentFilePatterns;
-            this.FieldMappings = FieldMappings;
-            this.IncludeAttachmentFilePatterns = IncludeAttachmentFilePatterns;
+            CrawlAttachments = crawlAttachments;
+            DocumentDataFieldName = documentDataFieldName;
+            DocumentTitleFieldName = documentTitleFieldName;
+            ExcludeAttachmentFilePatterns = excludeAttachmentFilePatterns;
+            FieldMappings = fieldMappings;
+            IncludeAttachmentFilePatterns = includeAttachmentFilePatterns;
         }
     }
 }

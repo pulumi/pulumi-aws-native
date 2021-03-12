@@ -15,46 +15,46 @@ namespace Pulumi.AwsNative.ACMPCA
     [AwsNativeResourceType("aws-native:ACMPCA:CertificateAuthority")]
     public partial class CertificateAuthority : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("CertificateSigningRequest")]
+        [Output("certificateSigningRequest")]
         public Output<string> CertificateSigningRequest { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
         /// </summary>
-        [Output("KeyAlgorithm")]
+        [Output("keyAlgorithm")]
         public Output<string> KeyAlgorithm { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
         /// </summary>
-        [Output("RevocationConfiguration")]
+        [Output("revocationConfiguration")]
         public Output<Outputs.CertificateAuthorityRevocationConfiguration?> RevocationConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
         /// </summary>
-        [Output("SigningAlgorithm")]
+        [Output("signingAlgorithm")]
         public Output<string> SigningAlgorithm { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
         /// </summary>
-        [Output("Subject")]
+        [Output("subject")]
         public Output<Outputs.CertificateAuthoritySubject> Subject { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
         /// </summary>
-        [Output("Type")]
+        [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
 
@@ -105,43 +105,43 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
         /// </summary>
-        [Input("KeyAlgorithm", required: true)]
+        [Input("keyAlgorithm", required: true)]
         public Input<string> KeyAlgorithm { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
         /// </summary>
-        [Input("RevocationConfiguration")]
+        [Input("revocationConfiguration")]
         public Input<Inputs.CertificateAuthorityRevocationConfigurationArgs>? RevocationConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
         /// </summary>
-        [Input("SigningAlgorithm", required: true)]
+        [Input("signingAlgorithm", required: true)]
         public Input<string> SigningAlgorithm { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
         /// </summary>
-        [Input("Subject", required: true)]
+        [Input("subject", required: true)]
         public Input<Inputs.CertificateAuthoritySubjectArgs> Subject { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
         /// </summary>
-        [Input("Type", required: true)]
+        [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         public CertificateAuthorityArgs()

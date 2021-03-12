@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceChangeDetectingColumnsArgs : Pulumi.ResourceArgs
     {
-        [Input("ChangeDetectingColumns")]
-        private InputList<string>? _ChangeDetectingColumns;
+        [Input("changeDetectingColumns")]
+        private InputList<string>? _changeDetectingColumns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-changedetectingcolumns.html#cfn-kendra-datasource-changedetectingcolumns-changedetectingcolumns
         /// </summary>
         public InputList<string> ChangeDetectingColumns
         {
-            get => _ChangeDetectingColumns ?? (_ChangeDetectingColumns = new InputList<string>());
-            set => _ChangeDetectingColumns = value;
+            get => _changeDetectingColumns ?? (_changeDetectingColumns = new InputList<string>());
+            set => _changeDetectingColumns = value;
         }
 
         public DataSourceChangeDetectingColumnsArgs()

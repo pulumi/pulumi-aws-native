@@ -15,19 +15,19 @@ namespace Pulumi.AwsNative.S3
     [AwsNativeResourceType("aws-native:S3:StorageLens")]
     public partial class StorageLens : Pulumi.CustomResource
     {
-        [Output("StorageLensArn")]
+        [Output("storageLensArn")]
         public Output<string> StorageLensArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
         /// </summary>
-        [Output("StorageLensConfiguration")]
+        [Output("storageLensConfiguration")]
         public Output<Outputs.StorageLensStorageLensConfiguration> StorageLensConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -78,19 +78,19 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
         /// </summary>
-        [Input("StorageLensConfiguration", required: true)]
+        [Input("storageLensConfiguration", required: true)]
         public Input<Inputs.StorageLensStorageLensConfigurationArgs> StorageLensConfiguration { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public StorageLensArgs()

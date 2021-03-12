@@ -18,16 +18,16 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
         /// </summary>
-        [Output("Schema")]
+        [Output("schema")]
         public Output<Outputs.SchemaVersionSchema> Schema { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
         /// </summary>
-        [Output("SchemaDefinition")]
+        [Output("schemaDefinition")]
         public Output<string> SchemaDefinition { get; private set; } = null!;
 
-        [Output("VersionId")]
+        [Output("versionId")]
         public Output<string> VersionId { get; private set; } = null!;
 
 
@@ -78,13 +78,13 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
         /// </summary>
-        [Input("Schema", required: true)]
+        [Input("schema", required: true)]
         public Input<Inputs.SchemaVersionSchemaArgs> Schema { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
         /// </summary>
-        [Input("SchemaDefinition", required: true)]
+        [Input("schemaDefinition", required: true)]
         public Input<string> SchemaDefinition { get; set; } = null!;
 
         public SchemaVersionArgs()

@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.Detective
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
         /// </summary>
-        [Output("GraphArn")]
+        [Output("graphArn")]
         public Output<string> GraphArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
         /// </summary>
-        [Output("MemberEmailAddress")]
+        [Output("memberEmailAddress")]
         public Output<string> MemberEmailAddress { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
         /// </summary>
-        [Output("MemberId")]
+        [Output("memberId")]
         public Output<string> MemberId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
         /// </summary>
-        [Output("Message")]
+        [Output("message")]
         public Output<string?> Message { get; private set; } = null!;
 
 
@@ -87,25 +87,25 @@ namespace Pulumi.AwsNative.Detective
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
         /// </summary>
-        [Input("GraphArn", required: true)]
+        [Input("graphArn", required: true)]
         public Input<string> GraphArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
         /// </summary>
-        [Input("MemberEmailAddress", required: true)]
+        [Input("memberEmailAddress", required: true)]
         public Input<string> MemberEmailAddress { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
         /// </summary>
-        [Input("MemberId", required: true)]
+        [Input("memberId", required: true)]
         public Input<string> MemberId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
         /// </summary>
-        [Input("Message")]
+        [Input("message")]
         public Input<string>? Message { get; set; }
 
         public MemberInvitationArgs()

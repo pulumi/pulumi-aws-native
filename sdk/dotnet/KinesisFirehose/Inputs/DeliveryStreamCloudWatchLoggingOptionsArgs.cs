@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html#cfn-kinesisfirehose-deliverystream-cloudwatchloggingoptions-enabled
         /// </summary>
-        [Input("Enabled")]
+        [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html#cfn-kinesisfirehose-deliverystream-cloudwatchloggingoptions-loggroupname
         /// </summary>
-        [Input("LogGroupName")]
+        [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html#cfn-kinesisfirehose-deliverystream-cloudwatchloggingoptions-logstreamname
         /// </summary>
-        [Input("LogStreamName")]
+        [Input("logStreamName")]
         public Input<string>? LogStreamName { get; set; }
 
         public DeliveryStreamCloudWatchLoggingOptionsArgs()
