@@ -563,52 +563,31 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		return nil, err
 	}
 
-	resourceSpec, ok := p.schema.ResourceTypes[resourceType]
-	if !ok {
-		return nil, errors.Errorf("unknown resource type %v", resourceType)
+	ops, err := schema.DiffToPatch(p.schema, resourceType, diff)
+	if err != nil {
+		return nil, errors.Wrapf(err, "calculating diff patch")
 	}
 
-	var ops []*cloudformation.PatchOperation
-	for cfnName := range resourceSpec.Properties {
-		sdkName := schema.ToPropertyName(cfnName)
-		if v, ok := diff.Updates[resource.PropertyKey(sdkName)]; ok {
-			op := cloudformation.PatchOperation{
-				Op:           aws.String("replace"),
-				Path:         aws.String(cfnName),
-			}
-			// TODO: Handle all possible types correctly.
-			switch {
-			case v.New.IsNumber():
-				op.IntegerValue = aws.Int64(int64(v.New.NumberValue()))
-			case v.New.IsString():
-				op.StringValue = aws.String(v.New.StringValue())
-			}
-			ops = append(ops, &op)
-		}
+	clientToken := uuid.New().String()
+	glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %q", label, resourceType, id, clientToken, ops)
+	res, err := p.cfn.UpdateResourceWithContext(ctx, &cloudformation.UpdateResourceInput{
+		ClientToken:     aws.String(clientToken),
+		TypeName:        aws.String(resourceType),
+		Identifier:      aws.String(id),
+		PatchOperations: ops,
+	})
+	if err != nil {
+		return nil, err
 	}
-	// TODO: Handle Adds and Deletes.
-	// The below if len(ops) > 0 is there to avoid errors when we miss an update or a delete of a property.
-	if len(ops) > 0 {
-		clientToken := uuid.New().String()
-		glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %q", label, resourceType, id, clientToken, ops)
-		res, err := p.cfn.UpdateResourceWithContext(ctx, &cloudformation.UpdateResourceInput{
-			ClientToken:     aws.String(clientToken),
-			TypeName:        aws.String(resourceType),
-			Identifier:      aws.String(id),
-			PatchOperations: ops,
-		})
-		if err != nil {
-			return nil, err
-		}
-		if _, err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
-			return nil, err
-		}
+	if _, err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
+		return nil, err
 	}
 
-	outputs, err := p.readResourceState(ctx, resourceType, id)
+	resourceState, err := p.readResourceState(ctx, resourceType, id)
 	if err != nil {
 		return nil, errors.Wrapf(err, "reading resource state")
 	}
+	outputs := schema.CfnToSdk(resourceState)
 
 	// Read the inputs to persist them into state.
 	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
