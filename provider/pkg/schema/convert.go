@@ -26,37 +26,39 @@ func (c *sdkToCfnConverter) sdkToCfn(properties map[string]interface{}) map[stri
 	result := map[string]interface{}{}
 	for k, prop := range spec.PropertyTypeSpec.Properties {
 		if v, ok := properties[ToPropertyName(k)]; ok {
-			result[k] = c.convertTypedValue(prop.Type, prop.ItemType, v)
+			result[k] = c.convertTypedValue(prop.Type, prop.PrimitiveType, prop.ItemType, v)
 		}
 	}
-	for k, prop := range spec.Attributes {
+	for k, attr := range spec.Attributes {
 		if v, ok := properties[ToPropertyName(k)]; ok {
-			result[k] = c.convertTypedValue(prop.Type, prop.ItemType, v)
+			result[k] = c.convertTypedValue(attr.Type, attr.PrimitiveType, attr.ItemType, v)
 		}
 	}
 	return result
 }
 
-func (c *sdkToCfnConverter) convertTypedValue(propType, propItemType string, v interface{}) interface{} {
-	switch propType {
+func (c *sdkToCfnConverter) convertTypedValue(typ, primitiveType, itemType string, v interface{}) interface{} {
+	if primitiveType != "" {
+		return v
+	}
+
+	switch typ {
 	case "List":
 		array := v.([]interface{})
 		vs := make([]interface{}, len(array))
 		for i, item := range array {
-			vs[i] = c.convertPropertyValue(propItemType, item)
+			vs[i] = c.convertPropertyValue(itemType, item)
 		}
 		return vs
 	case "Map":
 		sourceMap := v.(map[string]interface{})
 		vs := map[string]interface{}{}
 		for n, item := range sourceMap {
-			vs[n] = c.convertPropertyValue(propItemType, item)
+			vs[n] = c.convertPropertyValue(itemType, item)
 		}
 		return vs
-	case "":
-		return v
 	default:
-		return c.convertPropertyValue(propType, v)
+		return c.convertPropertyValue(typ, v)
 	}
 }
 
@@ -79,7 +81,7 @@ func (c *sdkToCfnConverter) convertPropertyValue(propertyType string, value inte
 	result := map[string]interface{}{}
 	for k, prop := range propertySpec.Properties {
 		if v, ok := properties[ToPropertyName(k)]; ok {
-			result[k] = c.convertTypedValue(prop.Type, prop.ItemType, v)
+			result[k] = c.convertTypedValue(prop.Type, prop.PrimitiveType, prop.ItemType, v)
 		}
 	}
 	return result
