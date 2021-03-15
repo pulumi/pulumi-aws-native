@@ -36,6 +36,7 @@ import (
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	pbstruct "github.com/golang/protobuf/ptypes/struct"
 	"github.com/google/uuid"
+	"github.com/jpillora/backoff"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
@@ -728,6 +729,13 @@ func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifie
 }
 
 func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *cloudformation.ProgressEvent) (*cloudformation.ProgressEvent, error) {
+	// TODO: Consider using ExponentialJitterBackoff from the AWS Go SDK v2 when we switch over.
+	retryPolicy := backoff.Backoff{
+		Min:    1 * time.Second,
+		Max:    30 * time.Second,
+		Factor: 1.5,
+		Jitter: true,
+	}
 	for {
 		status := aws.StringValue(pi.OperationStatus)
 		glog.V(9).Infof("waiting for resource %q: status %q", pi.Identifier, status)
@@ -737,8 +745,13 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *cloud
 		case "FAILED":
 			return pi, errors.Errorf("operation %s failed with %q: %s", aws.StringValue(pi.Operation), aws.StringValue(pi.ErrorCode), aws.StringValue(pi.StatusMessage))
 		case "IN_PROGRESS":
-			// TODO: back-off?
-			time.Sleep(1 * time.Second)
+			var pause time.Duration
+			if pi.RetryAfter != nil {
+				pause = pi.RetryAfter.Sub(time.Now())
+			} else {
+				pause = retryPolicy.Duration()
+			}
+			time.Sleep(pause)
 		default:
 			return nil, errors.Errorf("unknown status %q: %+v", status, pi)
 		}
