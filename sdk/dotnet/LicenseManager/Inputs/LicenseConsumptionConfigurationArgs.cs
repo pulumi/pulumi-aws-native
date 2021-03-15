@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration
         /// </summary>
-        [Input("BorrowConfiguration")]
+        [Input("borrowConfiguration")]
         public Input<Inputs.LicenseBorrowConfigurationArgs>? BorrowConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-provisionalconfiguration
         /// </summary>
-        [Input("ProvisionalConfiguration")]
+        [Input("provisionalConfiguration")]
         public Input<Inputs.LicenseProvisionalConfigurationArgs>? ProvisionalConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-renewtype
         /// </summary>
-        [Input("RenewType")]
+        [Input("renewType")]
         public Input<string>? RenewType { get; set; }
 
         public LicenseConsumptionConfigurationArgs()

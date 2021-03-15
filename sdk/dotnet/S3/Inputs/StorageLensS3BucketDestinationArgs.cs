@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.S3.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
         /// </summary>
-        [Input("AccountId", required: true)]
+        [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
         /// </summary>
-        [Input("Arn", required: true)]
+        [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
         /// </summary>
-        [Input("Encryption")]
+        [Input("encryption")]
         public Input<Inputs.StorageLensEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
         /// </summary>
-        [Input("Format", required: true)]
+        [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
         /// </summary>
-        [Input("OutputSchemaVersion", required: true)]
+        [Input("outputSchemaVersion", required: true)]
         public Input<string> OutputSchemaVersion { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
         /// </summary>
-        [Input("Prefix")]
+        [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
         public StorageLensS3BucketDestinationArgs()

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private RuleGroupRuleVariables(
-            ImmutableDictionary<string, Outputs.RuleGroupIPSet>? IPSets,
+            ImmutableDictionary<string, Outputs.RuleGroupIPSet>? iPSets,
 
-            ImmutableDictionary<string, Outputs.RuleGroupPortSet>? PortSets)
+            ImmutableDictionary<string, Outputs.RuleGroupPortSet>? portSets)
         {
-            this.IPSets = IPSets;
-            this.PortSets = PortSets;
+            IPSets = iPSets;
+            PortSets = portSets;
         }
     }
 }

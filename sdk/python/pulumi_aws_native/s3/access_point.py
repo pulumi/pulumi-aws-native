@@ -94,7 +94,7 @@ class AccessPoint(pulumi.CustomResource):
         return AccessPoint(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Bucket")
+    @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
@@ -102,7 +102,7 @@ class AccessPoint(pulumi.CustomResource):
         return pulumi.get(self, "bucket")
 
     @property
-    @pulumi.getter(name="CreationDate")
+    @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
@@ -110,7 +110,7 @@ class AccessPoint(pulumi.CustomResource):
         return pulumi.get(self, "creation_date")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
@@ -118,7 +118,7 @@ class AccessPoint(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="NetworkOrigin")
+    @pulumi.getter(name="networkOrigin")
     def network_origin(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
@@ -126,7 +126,7 @@ class AccessPoint(pulumi.CustomResource):
         return pulumi.get(self, "network_origin")
 
     @property
-    @pulumi.getter(name="Policy")
+    @pulumi.getter
     def policy(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
@@ -134,7 +134,7 @@ class AccessPoint(pulumi.CustomResource):
         return pulumi.get(self, "policy")
 
     @property
-    @pulumi.getter(name="PolicyStatus")
+    @pulumi.getter(name="policyStatus")
     def policy_status(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
@@ -142,7 +142,7 @@ class AccessPoint(pulumi.CustomResource):
         return pulumi.get(self, "policy_status")
 
     @property
-    @pulumi.getter(name="PublicAccessBlockConfiguration")
+    @pulumi.getter(name="publicAccessBlockConfiguration")
     def public_access_block_configuration(self) -> pulumi.Output[Optional['outputs.AccessPointPublicAccessBlockConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
@@ -150,7 +150,7 @@ class AccessPoint(pulumi.CustomResource):
         return pulumi.get(self, "public_access_block_configuration")
 
     @property
-    @pulumi.getter(name="VpcConfiguration")
+    @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Output[Optional['outputs.AccessPointVpcConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration

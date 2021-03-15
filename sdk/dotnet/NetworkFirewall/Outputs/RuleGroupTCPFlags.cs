@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<Outputs.RuleGroupTCPFlagField> TCPFlags;
 
         [OutputConstructor]
-        private RuleGroupTCPFlags(ImmutableArray<Outputs.RuleGroupTCPFlagField> TCPFlags)
+        private RuleGroupTCPFlags(ImmutableArray<Outputs.RuleGroupTCPFlagField> tCPFlags)
         {
-            this.TCPFlags = TCPFlags;
+            TCPFlags = tCPFlags;
         }
     }
 }

@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceServiceNowConfiguration(
-            string HostUrl,
+            string hostUrl,
 
-            Outputs.DataSourceServiceNowKnowledgeArticleConfiguration? KnowledgeArticleConfiguration,
+            Outputs.DataSourceServiceNowKnowledgeArticleConfiguration? knowledgeArticleConfiguration,
 
-            string SecretArn,
+            string secretArn,
 
-            Outputs.DataSourceServiceNowServiceCatalogConfiguration? ServiceCatalogConfiguration,
+            Outputs.DataSourceServiceNowServiceCatalogConfiguration? serviceCatalogConfiguration,
 
-            string ServiceNowBuildVersion)
+            string serviceNowBuildVersion)
         {
-            this.HostUrl = HostUrl;
-            this.KnowledgeArticleConfiguration = KnowledgeArticleConfiguration;
-            this.SecretArn = SecretArn;
-            this.ServiceCatalogConfiguration = ServiceCatalogConfiguration;
-            this.ServiceNowBuildVersion = ServiceNowBuildVersion;
+            HostUrl = hostUrl;
+            KnowledgeArticleConfiguration = knowledgeArticleConfiguration;
+            SecretArn = secretArn;
+            ServiceCatalogConfiguration = serviceCatalogConfiguration;
+            ServiceNowBuildVersion = serviceNowBuildVersion;
         }
     }
 }

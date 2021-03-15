@@ -38,21 +38,21 @@ export class BackupVault extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
      */
-    public readonly AccessPolicy!: pulumi.Output<any | string | undefined>;
-    public /*out*/ readonly BackupVaultArn!: pulumi.Output<string>;
-    public readonly BackupVaultName!: pulumi.Output<string>;
+    public readonly accessPolicy!: pulumi.Output<any | string | undefined>;
+    public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
+    public readonly backupVaultName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
      */
-    public readonly BackupVaultTags!: pulumi.Output<any | string | undefined>;
+    public readonly backupVaultTags!: pulumi.Output<any | string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
      */
-    public readonly EncryptionKeyArn!: pulumi.Output<string | undefined>;
+    public readonly encryptionKeyArn!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
      */
-    public readonly Notifications!: pulumi.Output<outputs.Backup.BackupVaultNotificationObjectType | undefined>;
+    public readonly notifications!: pulumi.Output<outputs.Backup.BackupVaultNotificationObjectType | undefined>;
 
     /**
      * Create a BackupVault resource with the given unique name, arguments, and options.
@@ -64,22 +64,22 @@ export class BackupVault extends pulumi.CustomResource {
     constructor(name: string, args: BackupVaultArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.BackupVaultName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'BackupVaultName'");
+            if ((!args || args.backupVaultName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'backupVaultName'");
             }
-            inputs["AccessPolicy"] = args ? args.AccessPolicy : undefined;
-            inputs["BackupVaultName"] = args ? args.BackupVaultName : undefined;
-            inputs["BackupVaultTags"] = args ? args.BackupVaultTags : undefined;
-            inputs["EncryptionKeyArn"] = args ? args.EncryptionKeyArn : undefined;
-            inputs["Notifications"] = args ? args.Notifications : undefined;
-            inputs["BackupVaultArn"] = undefined /*out*/;
+            inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
+            inputs["backupVaultName"] = args ? args.backupVaultName : undefined;
+            inputs["backupVaultTags"] = args ? args.backupVaultTags : undefined;
+            inputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
+            inputs["notifications"] = args ? args.notifications : undefined;
+            inputs["backupVaultArn"] = undefined /*out*/;
         } else {
-            inputs["AccessPolicy"] = undefined /*out*/;
-            inputs["BackupVaultArn"] = undefined /*out*/;
-            inputs["BackupVaultName"] = undefined /*out*/;
-            inputs["BackupVaultTags"] = undefined /*out*/;
-            inputs["EncryptionKeyArn"] = undefined /*out*/;
-            inputs["Notifications"] = undefined /*out*/;
+            inputs["accessPolicy"] = undefined /*out*/;
+            inputs["backupVaultArn"] = undefined /*out*/;
+            inputs["backupVaultName"] = undefined /*out*/;
+            inputs["backupVaultTags"] = undefined /*out*/;
+            inputs["encryptionKeyArn"] = undefined /*out*/;
+            inputs["notifications"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -99,21 +99,21 @@ export interface BackupVaultArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
      */
-    readonly AccessPolicy?: pulumi.Input<any | string>;
+    readonly accessPolicy?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
      */
-    readonly BackupVaultName: pulumi.Input<string>;
+    readonly backupVaultName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
      */
-    readonly BackupVaultTags?: pulumi.Input<any | string>;
+    readonly backupVaultTags?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
      */
-    readonly EncryptionKeyArn?: pulumi.Input<string>;
+    readonly encryptionKeyArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
      */
-    readonly Notifications?: pulumi.Input<inputs.Backup.BackupVaultNotificationObjectType>;
+    readonly notifications?: pulumi.Input<inputs.Backup.BackupVaultNotificationObjectType>;
 }

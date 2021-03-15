@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private CarrierGatewayTags(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
+        private CarrierGatewayTags(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
-            this.Tags = Tags;
+            Tags = tags;
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<Outputs.FirewallPolicyDimension> Dimensions;
 
         [OutputConstructor]
-        private FirewallPolicyDimensions(ImmutableArray<Outputs.FirewallPolicyDimension> Dimensions)
+        private FirewallPolicyDimensions(ImmutableArray<Outputs.FirewallPolicyDimension> dimensions)
         {
-            this.Dimensions = Dimensions;
+            Dimensions = dimensions;
         }
     }
 }

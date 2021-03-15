@@ -15,28 +15,28 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelQualityJobDefinitionVpcConfigArgs : Pulumi.ResourceArgs
     {
-        [Input("SecurityGroupIds", required: true)]
-        private InputList<string>? _SecurityGroupIds;
+        [Input("securityGroupIds", required: true)]
+        private InputList<string>? _securityGroupIds;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-securitygroupids
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
-            get => _SecurityGroupIds ?? (_SecurityGroupIds = new InputList<string>());
-            set => _SecurityGroupIds = value;
+            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
+            set => _securityGroupIds = value;
         }
 
-        [Input("Subnets", required: true)]
-        private InputList<string>? _Subnets;
+        [Input("subnets", required: true)]
+        private InputList<string>? _subnets;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-subnets
         /// </summary>
         public InputList<string> Subnets
         {
-            get => _Subnets ?? (_Subnets = new InputList<string>());
-            set => _Subnets = value;
+            get => _subnets ?? (_subnets = new InputList<string>());
+            set => _subnets = value;
         }
 
         public ModelQualityJobDefinitionVpcConfigArgs()

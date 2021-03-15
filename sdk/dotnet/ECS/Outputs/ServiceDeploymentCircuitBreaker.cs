@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private ServiceDeploymentCircuitBreaker(
-            bool Enable,
+            bool enable,
 
-            bool Rollback)
+            bool rollback)
         {
-            this.Enable = Enable;
-            this.Rollback = Rollback;
+            Enable = enable;
+            Rollback = rollback;
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
         public readonly ImmutableArray<string> Types;
 
         [OutputConstructor]
-        private DomainNameEndpointConfiguration(ImmutableArray<string> Types)
+        private DomainNameEndpointConfiguration(ImmutableArray<string> types)
         {
-            this.Types = Types;
+            Types = types;
         }
     }
 }

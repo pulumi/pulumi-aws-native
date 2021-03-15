@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keyarn
         /// </summary>
-        [Input("KeyARN")]
+        [Input("keyARN")]
         public Input<string>? KeyARN { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keytype
         /// </summary>
-        [Input("KeyType", required: true)]
+        [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;
 
         public DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs()

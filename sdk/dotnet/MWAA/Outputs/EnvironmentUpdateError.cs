@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.MWAA.Outputs
 
         [OutputConstructor]
         private EnvironmentUpdateError(
-            string? ErrorCode,
+            string? errorCode,
 
-            string? ErrorMessage)
+            string? errorMessage)
         {
-            this.ErrorCode = ErrorCode;
-            this.ErrorMessage = ErrorMessage;
+            ErrorCode = errorCode;
+            ErrorMessage = errorMessage;
         }
     }
 }

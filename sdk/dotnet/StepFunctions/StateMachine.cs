@@ -15,64 +15,64 @@ namespace Pulumi.AwsNative.StepFunctions
     [AwsNativeResourceType("aws-native:StepFunctions:StateMachine")]
     public partial class StateMachine : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
         /// </summary>
-        [Output("DefinitionS3Location")]
+        [Output("definitionS3Location")]
         public Output<Outputs.StateMachineS3Location?> DefinitionS3Location { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
         /// </summary>
-        [Output("DefinitionString")]
+        [Output("definitionString")]
         public Output<string?> DefinitionString { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
         /// </summary>
-        [Output("DefinitionSubstitutions")]
+        [Output("definitionSubstitutions")]
         public Output<Outputs.StateMachineDefinitionSubstitutions?> DefinitionSubstitutions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
         /// </summary>
-        [Output("LoggingConfiguration")]
+        [Output("loggingConfiguration")]
         public Output<Outputs.StateMachineLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
         /// </summary>
-        [Output("RoleArn")]
+        [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
         /// </summary>
-        [Output("StateMachineName")]
+        [Output("stateMachineName")]
         public Output<string?> StateMachineName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
         /// </summary>
-        [Output("StateMachineType")]
+        [Output("stateMachineType")]
         public Output<string?> StateMachineType { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Outputs.StateMachineTagsEntry>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
         /// </summary>
-        [Output("TracingConfiguration")]
+        [Output("tracingConfiguration")]
         public Output<Outputs.StateMachineTracingConfiguration?> TracingConfiguration { get; private set; } = null!;
 
 
@@ -123,61 +123,61 @@ namespace Pulumi.AwsNative.StepFunctions
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
         /// </summary>
-        [Input("DefinitionS3Location")]
+        [Input("definitionS3Location")]
         public Input<Inputs.StateMachineS3LocationArgs>? DefinitionS3Location { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
         /// </summary>
-        [Input("DefinitionString")]
+        [Input("definitionString")]
         public Input<string>? DefinitionString { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
         /// </summary>
-        [Input("DefinitionSubstitutions")]
+        [Input("definitionSubstitutions")]
         public Input<Inputs.StateMachineDefinitionSubstitutionsArgs>? DefinitionSubstitutions { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
         /// </summary>
-        [Input("LoggingConfiguration")]
+        [Input("loggingConfiguration")]
         public Input<Inputs.StateMachineLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
         /// </summary>
-        [Input("StateMachineName")]
+        [Input("stateMachineName")]
         public Input<string>? StateMachineName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
         /// </summary>
-        [Input("StateMachineType")]
+        [Input("stateMachineType")]
         public Input<string>? StateMachineType { get; set; }
 
-        [Input("Tags")]
-        private InputList<Inputs.StateMachineTagsEntryArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Inputs.StateMachineTagsEntryArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
         /// </summary>
         public InputList<Inputs.StateMachineTagsEntryArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Inputs.StateMachineTagsEntryArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Inputs.StateMachineTagsEntryArgs>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
         /// </summary>
-        [Input("TracingConfiguration")]
+        [Input("tracingConfiguration")]
         public Input<Inputs.StateMachineTracingConfigurationArgs>? TracingConfiguration { get; set; }
 
         public StateMachineArgs()

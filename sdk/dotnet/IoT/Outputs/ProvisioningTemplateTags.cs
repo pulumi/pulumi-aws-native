@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
         public readonly ImmutableArray<object> Tags;
 
         [OutputConstructor]
-        private ProvisioningTemplateTags(ImmutableArray<object> Tags)
+        private ProvisioningTemplateTags(ImmutableArray<object> tags)
         {
-            this.Tags = Tags;
+            Tags = tags;
         }
     }
 }

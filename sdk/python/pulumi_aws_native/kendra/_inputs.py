@@ -87,7 +87,7 @@ class DataSourceAccessControlListConfigurationArgs:
             pulumi.set(__self__, "key_path", key_path)
 
     @property
-    @pulumi.getter(name="KeyPath")
+    @pulumi.getter(name="keyPath")
     def key_path(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-accesscontrollistconfiguration.html#cfn-kendra-datasource-accesscontrollistconfiguration-keypath
@@ -110,7 +110,7 @@ class DataSourceAclConfigurationArgs:
         pulumi.set(__self__, "allowed_groups_column_name", allowed_groups_column_name)
 
     @property
-    @pulumi.getter(name="AllowedGroupsColumnName")
+    @pulumi.getter(name="allowedGroupsColumnName")
     def allowed_groups_column_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html#cfn-kendra-datasource-aclconfiguration-allowedgroupscolumnname
@@ -134,7 +134,7 @@ class DataSourceChangeDetectingColumnsArgs:
             pulumi.set(__self__, "change_detecting_columns", change_detecting_columns)
 
     @property
-    @pulumi.getter(name="ChangeDetectingColumns")
+    @pulumi.getter(name="changeDetectingColumns")
     def change_detecting_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-changedetectingcolumns.html#cfn-kendra-datasource-changedetectingcolumns-changedetectingcolumns
@@ -171,7 +171,7 @@ class DataSourceColumnConfigurationArgs:
             pulumi.set(__self__, "field_mappings", field_mappings)
 
     @property
-    @pulumi.getter(name="ChangeDetectingColumns")
+    @pulumi.getter(name="changeDetectingColumns")
     def change_detecting_columns(self) -> pulumi.Input['DataSourceChangeDetectingColumnsArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
@@ -183,7 +183,7 @@ class DataSourceColumnConfigurationArgs:
         pulumi.set(self, "change_detecting_columns", value)
 
     @property
-    @pulumi.getter(name="DocumentDataColumnName")
+    @pulumi.getter(name="documentDataColumnName")
     def document_data_column_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentdatacolumnname
@@ -195,7 +195,7 @@ class DataSourceColumnConfigurationArgs:
         pulumi.set(self, "document_data_column_name", value)
 
     @property
-    @pulumi.getter(name="DocumentIdColumnName")
+    @pulumi.getter(name="documentIdColumnName")
     def document_id_column_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentidcolumnname
@@ -207,7 +207,7 @@ class DataSourceColumnConfigurationArgs:
         pulumi.set(self, "document_id_column_name", value)
 
     @property
-    @pulumi.getter(name="DocumentTitleColumnName")
+    @pulumi.getter(name="documentTitleColumnName")
     def document_title_column_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documenttitlecolumnname
@@ -219,7 +219,7 @@ class DataSourceColumnConfigurationArgs:
         pulumi.set(self, "document_title_column_name", value)
 
     @property
-    @pulumi.getter(name="FieldMappings")
+    @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input['DataSourceDataSourceToIndexFieldMappingListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
@@ -247,7 +247,7 @@ class DataSourceConfluenceAttachmentConfigurationArgs:
             pulumi.set(__self__, "crawl_attachments", crawl_attachments)
 
     @property
-    @pulumi.getter(name="AttachmentFieldMappings")
+    @pulumi.getter(name="attachmentFieldMappings")
     def attachment_field_mappings(self) -> Optional[pulumi.Input['DataSourceConfluenceAttachmentFieldMappingsListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings
@@ -259,7 +259,7 @@ class DataSourceConfluenceAttachmentConfigurationArgs:
         pulumi.set(self, "attachment_field_mappings", value)
 
     @property
-    @pulumi.getter(name="CrawlAttachments")
+    @pulumi.getter(name="crawlAttachments")
     def crawl_attachments(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-crawlattachments
@@ -283,7 +283,7 @@ class DataSourceConfluenceAttachmentFieldMappingsListArgs:
             pulumi.set(__self__, "confluence_attachment_field_mappings_list", confluence_attachment_field_mappings_list)
 
     @property
-    @pulumi.getter(name="ConfluenceAttachmentFieldMappingsList")
+    @pulumi.getter(name="confluenceAttachmentFieldMappingsList")
     def confluence_attachment_field_mappings_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html#cfn-kendra-datasource-confluenceattachmentfieldmappingslist-confluenceattachmentfieldmappingslist
@@ -313,7 +313,7 @@ class DataSourceConfluenceAttachmentToIndexFieldMappingArgs:
             pulumi.set(__self__, "date_field_format", date_field_format)
 
     @property
-    @pulumi.getter(name="DataSourceFieldName")
+    @pulumi.getter(name="dataSourceFieldName")
     def data_source_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html#cfn-kendra-datasource-confluenceattachmenttoindexfieldmapping-datasourcefieldname
@@ -325,7 +325,7 @@ class DataSourceConfluenceAttachmentToIndexFieldMappingArgs:
         pulumi.set(self, "data_source_field_name", value)
 
     @property
-    @pulumi.getter(name="IndexFieldName")
+    @pulumi.getter(name="indexFieldName")
     def index_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html#cfn-kendra-datasource-confluenceattachmenttoindexfieldmapping-indexfieldname
@@ -337,7 +337,7 @@ class DataSourceConfluenceAttachmentToIndexFieldMappingArgs:
         pulumi.set(self, "index_field_name", value)
 
     @property
-    @pulumi.getter(name="DateFieldFormat")
+    @pulumi.getter(name="dateFieldFormat")
     def date_field_format(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html#cfn-kendra-datasource-confluenceattachmenttoindexfieldmapping-datefieldformat
@@ -361,7 +361,7 @@ class DataSourceConfluenceBlogConfigurationArgs:
             pulumi.set(__self__, "blog_field_mappings", blog_field_mappings)
 
     @property
-    @pulumi.getter(name="BlogFieldMappings")
+    @pulumi.getter(name="blogFieldMappings")
     def blog_field_mappings(self) -> Optional[pulumi.Input['DataSourceConfluenceBlogFieldMappingsListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html#cfn-kendra-datasource-confluenceblogconfiguration-blogfieldmappings
@@ -385,7 +385,7 @@ class DataSourceConfluenceBlogFieldMappingsListArgs:
             pulumi.set(__self__, "confluence_blog_field_mappings_list", confluence_blog_field_mappings_list)
 
     @property
-    @pulumi.getter(name="ConfluenceBlogFieldMappingsList")
+    @pulumi.getter(name="confluenceBlogFieldMappingsList")
     def confluence_blog_field_mappings_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html#cfn-kendra-datasource-confluenceblogfieldmappingslist-confluenceblogfieldmappingslist
@@ -415,7 +415,7 @@ class DataSourceConfluenceBlogToIndexFieldMappingArgs:
             pulumi.set(__self__, "date_field_format", date_field_format)
 
     @property
-    @pulumi.getter(name="DataSourceFieldName")
+    @pulumi.getter(name="dataSourceFieldName")
     def data_source_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html#cfn-kendra-datasource-confluenceblogtoindexfieldmapping-datasourcefieldname
@@ -427,7 +427,7 @@ class DataSourceConfluenceBlogToIndexFieldMappingArgs:
         pulumi.set(self, "data_source_field_name", value)
 
     @property
-    @pulumi.getter(name="IndexFieldName")
+    @pulumi.getter(name="indexFieldName")
     def index_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html#cfn-kendra-datasource-confluenceblogtoindexfieldmapping-indexfieldname
@@ -439,7 +439,7 @@ class DataSourceConfluenceBlogToIndexFieldMappingArgs:
         pulumi.set(self, "index_field_name", value)
 
     @property
-    @pulumi.getter(name="DateFieldFormat")
+    @pulumi.getter(name="dateFieldFormat")
     def date_field_format(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html#cfn-kendra-datasource-confluenceblogtoindexfieldmapping-datefieldformat
@@ -496,7 +496,7 @@ class DataSourceConfluenceConfigurationArgs:
             pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
-    @pulumi.getter(name="SecretArn")
+    @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-secretarn
@@ -508,7 +508,7 @@ class DataSourceConfluenceConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
     @property
-    @pulumi.getter(name="ServerUrl")
+    @pulumi.getter(name="serverUrl")
     def server_url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-serverurl
@@ -520,7 +520,7 @@ class DataSourceConfluenceConfigurationArgs:
         pulumi.set(self, "server_url", value)
 
     @property
-    @pulumi.getter(name="Version")
+    @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-version
@@ -532,7 +532,7 @@ class DataSourceConfluenceConfigurationArgs:
         pulumi.set(self, "version", value)
 
     @property
-    @pulumi.getter(name="AttachmentConfiguration")
+    @pulumi.getter(name="attachmentConfiguration")
     def attachment_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceAttachmentConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-attachmentconfiguration
@@ -544,7 +544,7 @@ class DataSourceConfluenceConfigurationArgs:
         pulumi.set(self, "attachment_configuration", value)
 
     @property
-    @pulumi.getter(name="BlogConfiguration")
+    @pulumi.getter(name="blogConfiguration")
     def blog_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceBlogConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-blogconfiguration
@@ -556,7 +556,7 @@ class DataSourceConfluenceConfigurationArgs:
         pulumi.set(self, "blog_configuration", value)
 
     @property
-    @pulumi.getter(name="ExclusionPatterns")
+    @pulumi.getter(name="exclusionPatterns")
     def exclusion_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns
@@ -568,7 +568,7 @@ class DataSourceConfluenceConfigurationArgs:
         pulumi.set(self, "exclusion_patterns", value)
 
     @property
-    @pulumi.getter(name="InclusionPatterns")
+    @pulumi.getter(name="inclusionPatterns")
     def inclusion_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns
@@ -580,7 +580,7 @@ class DataSourceConfluenceConfigurationArgs:
         pulumi.set(self, "inclusion_patterns", value)
 
     @property
-    @pulumi.getter(name="PageConfiguration")
+    @pulumi.getter(name="pageConfiguration")
     def page_configuration(self) -> Optional[pulumi.Input['DataSourceConfluencePageConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-pageconfiguration
@@ -592,7 +592,7 @@ class DataSourceConfluenceConfigurationArgs:
         pulumi.set(self, "page_configuration", value)
 
     @property
-    @pulumi.getter(name="SpaceConfiguration")
+    @pulumi.getter(name="spaceConfiguration")
     def space_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceSpaceConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-spaceconfiguration
@@ -604,7 +604,7 @@ class DataSourceConfluenceConfigurationArgs:
         pulumi.set(self, "space_configuration", value)
 
     @property
-    @pulumi.getter(name="VpcConfiguration")
+    @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceDataSourceVpcConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-vpcconfiguration
@@ -628,7 +628,7 @@ class DataSourceConfluencePageConfigurationArgs:
             pulumi.set(__self__, "page_field_mappings", page_field_mappings)
 
     @property
-    @pulumi.getter(name="PageFieldMappings")
+    @pulumi.getter(name="pageFieldMappings")
     def page_field_mappings(self) -> Optional[pulumi.Input['DataSourceConfluencePageFieldMappingsListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html#cfn-kendra-datasource-confluencepageconfiguration-pagefieldmappings
@@ -652,7 +652,7 @@ class DataSourceConfluencePageFieldMappingsListArgs:
             pulumi.set(__self__, "confluence_page_field_mappings_list", confluence_page_field_mappings_list)
 
     @property
-    @pulumi.getter(name="ConfluencePageFieldMappingsList")
+    @pulumi.getter(name="confluencePageFieldMappingsList")
     def confluence_page_field_mappings_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html#cfn-kendra-datasource-confluencepagefieldmappingslist-confluencepagefieldmappingslist
@@ -682,7 +682,7 @@ class DataSourceConfluencePageToIndexFieldMappingArgs:
             pulumi.set(__self__, "date_field_format", date_field_format)
 
     @property
-    @pulumi.getter(name="DataSourceFieldName")
+    @pulumi.getter(name="dataSourceFieldName")
     def data_source_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagetoindexfieldmapping.html#cfn-kendra-datasource-confluencepagetoindexfieldmapping-datasourcefieldname
@@ -694,7 +694,7 @@ class DataSourceConfluencePageToIndexFieldMappingArgs:
         pulumi.set(self, "data_source_field_name", value)
 
     @property
-    @pulumi.getter(name="IndexFieldName")
+    @pulumi.getter(name="indexFieldName")
     def index_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagetoindexfieldmapping.html#cfn-kendra-datasource-confluencepagetoindexfieldmapping-indexfieldname
@@ -706,7 +706,7 @@ class DataSourceConfluencePageToIndexFieldMappingArgs:
         pulumi.set(self, "index_field_name", value)
 
     @property
-    @pulumi.getter(name="DateFieldFormat")
+    @pulumi.getter(name="dateFieldFormat")
     def date_field_format(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagetoindexfieldmapping.html#cfn-kendra-datasource-confluencepagetoindexfieldmapping-datefieldformat
@@ -746,7 +746,7 @@ class DataSourceConfluenceSpaceConfigurationArgs:
             pulumi.set(__self__, "space_field_mappings", space_field_mappings)
 
     @property
-    @pulumi.getter(name="CrawlArchivedSpaces")
+    @pulumi.getter(name="crawlArchivedSpaces")
     def crawl_archived_spaces(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlarchivedspaces
@@ -758,7 +758,7 @@ class DataSourceConfluenceSpaceConfigurationArgs:
         pulumi.set(self, "crawl_archived_spaces", value)
 
     @property
-    @pulumi.getter(name="CrawlPersonalSpaces")
+    @pulumi.getter(name="crawlPersonalSpaces")
     def crawl_personal_spaces(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlpersonalspaces
@@ -770,7 +770,7 @@ class DataSourceConfluenceSpaceConfigurationArgs:
         pulumi.set(self, "crawl_personal_spaces", value)
 
     @property
-    @pulumi.getter(name="ExcludeSpaces")
+    @pulumi.getter(name="excludeSpaces")
     def exclude_spaces(self) -> Optional[pulumi.Input['DataSourceConfluenceSpaceListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
@@ -782,7 +782,7 @@ class DataSourceConfluenceSpaceConfigurationArgs:
         pulumi.set(self, "exclude_spaces", value)
 
     @property
-    @pulumi.getter(name="IncludeSpaces")
+    @pulumi.getter(name="includeSpaces")
     def include_spaces(self) -> Optional[pulumi.Input['DataSourceConfluenceSpaceListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
@@ -794,7 +794,7 @@ class DataSourceConfluenceSpaceConfigurationArgs:
         pulumi.set(self, "include_spaces", value)
 
     @property
-    @pulumi.getter(name="SpaceFieldMappings")
+    @pulumi.getter(name="spaceFieldMappings")
     def space_field_mappings(self) -> Optional[pulumi.Input['DataSourceConfluenceSpaceFieldMappingsListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
@@ -818,7 +818,7 @@ class DataSourceConfluenceSpaceFieldMappingsListArgs:
             pulumi.set(__self__, "confluence_space_field_mappings_list", confluence_space_field_mappings_list)
 
     @property
-    @pulumi.getter(name="ConfluenceSpaceFieldMappingsList")
+    @pulumi.getter(name="confluenceSpaceFieldMappingsList")
     def confluence_space_field_mappings_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html#cfn-kendra-datasource-confluencespacefieldmappingslist-confluencespacefieldmappingslist
@@ -842,7 +842,7 @@ class DataSourceConfluenceSpaceListArgs:
             pulumi.set(__self__, "confluence_space_list", confluence_space_list)
 
     @property
-    @pulumi.getter(name="ConfluenceSpaceList")
+    @pulumi.getter(name="confluenceSpaceList")
     def confluence_space_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacelist.html#cfn-kendra-datasource-confluencespacelist-confluencespacelist
@@ -872,7 +872,7 @@ class DataSourceConfluenceSpaceToIndexFieldMappingArgs:
             pulumi.set(__self__, "date_field_format", date_field_format)
 
     @property
-    @pulumi.getter(name="DataSourceFieldName")
+    @pulumi.getter(name="dataSourceFieldName")
     def data_source_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacetoindexfieldmapping.html#cfn-kendra-datasource-confluencespacetoindexfieldmapping-datasourcefieldname
@@ -884,7 +884,7 @@ class DataSourceConfluenceSpaceToIndexFieldMappingArgs:
         pulumi.set(self, "data_source_field_name", value)
 
     @property
-    @pulumi.getter(name="IndexFieldName")
+    @pulumi.getter(name="indexFieldName")
     def index_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacetoindexfieldmapping.html#cfn-kendra-datasource-confluencespacetoindexfieldmapping-indexfieldname
@@ -896,7 +896,7 @@ class DataSourceConfluenceSpaceToIndexFieldMappingArgs:
         pulumi.set(self, "index_field_name", value)
 
     @property
-    @pulumi.getter(name="DateFieldFormat")
+    @pulumi.getter(name="dateFieldFormat")
     def date_field_format(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacetoindexfieldmapping.html#cfn-kendra-datasource-confluencespacetoindexfieldmapping-datefieldformat
@@ -931,7 +931,7 @@ class DataSourceConnectionConfigurationArgs:
         pulumi.set(__self__, "table_name", table_name)
 
     @property
-    @pulumi.getter(name="DatabaseHost")
+    @pulumi.getter(name="databaseHost")
     def database_host(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databasehost
@@ -943,7 +943,7 @@ class DataSourceConnectionConfigurationArgs:
         pulumi.set(self, "database_host", value)
 
     @property
-    @pulumi.getter(name="DatabaseName")
+    @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databasename
@@ -955,7 +955,7 @@ class DataSourceConnectionConfigurationArgs:
         pulumi.set(self, "database_name", value)
 
     @property
-    @pulumi.getter(name="DatabasePort")
+    @pulumi.getter(name="databasePort")
     def database_port(self) -> pulumi.Input[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databaseport
@@ -967,7 +967,7 @@ class DataSourceConnectionConfigurationArgs:
         pulumi.set(self, "database_port", value)
 
     @property
-    @pulumi.getter(name="SecretArn")
+    @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-secretarn
@@ -979,7 +979,7 @@ class DataSourceConnectionConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
     @property
-    @pulumi.getter(name="TableName")
+    @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-tablename
@@ -1027,7 +1027,7 @@ class DataSourceDataSourceConfigurationArgs:
             pulumi.set(__self__, "share_point_configuration", share_point_configuration)
 
     @property
-    @pulumi.getter(name="ConfluenceConfiguration")
+    @pulumi.getter(name="confluenceConfiguration")
     def confluence_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-confluenceconfiguration
@@ -1039,7 +1039,7 @@ class DataSourceDataSourceConfigurationArgs:
         pulumi.set(self, "confluence_configuration", value)
 
     @property
-    @pulumi.getter(name="DatabaseConfiguration")
+    @pulumi.getter(name="databaseConfiguration")
     def database_configuration(self) -> Optional[pulumi.Input['DataSourceDatabaseConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-databaseconfiguration
@@ -1051,7 +1051,7 @@ class DataSourceDataSourceConfigurationArgs:
         pulumi.set(self, "database_configuration", value)
 
     @property
-    @pulumi.getter(name="OneDriveConfiguration")
+    @pulumi.getter(name="oneDriveConfiguration")
     def one_drive_configuration(self) -> Optional[pulumi.Input['DataSourceOneDriveConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
@@ -1063,7 +1063,7 @@ class DataSourceDataSourceConfigurationArgs:
         pulumi.set(self, "one_drive_configuration", value)
 
     @property
-    @pulumi.getter(name="S3Configuration")
+    @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-s3configuration
@@ -1075,7 +1075,7 @@ class DataSourceDataSourceConfigurationArgs:
         pulumi.set(self, "s3_configuration", value)
 
     @property
-    @pulumi.getter(name="SalesforceConfiguration")
+    @pulumi.getter(name="salesforceConfiguration")
     def salesforce_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-salesforceconfiguration
@@ -1087,7 +1087,7 @@ class DataSourceDataSourceConfigurationArgs:
         pulumi.set(self, "salesforce_configuration", value)
 
     @property
-    @pulumi.getter(name="ServiceNowConfiguration")
+    @pulumi.getter(name="serviceNowConfiguration")
     def service_now_configuration(self) -> Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-servicenowconfiguration
@@ -1099,7 +1099,7 @@ class DataSourceDataSourceConfigurationArgs:
         pulumi.set(self, "service_now_configuration", value)
 
     @property
-    @pulumi.getter(name="SharePointConfiguration")
+    @pulumi.getter(name="sharePointConfiguration")
     def share_point_configuration(self) -> Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-sharepointconfiguration
@@ -1123,7 +1123,7 @@ class DataSourceDataSourceInclusionsExclusionsStringsArgs:
             pulumi.set(__self__, "data_source_inclusions_exclusions_strings", data_source_inclusions_exclusions_strings)
 
     @property
-    @pulumi.getter(name="DataSourceInclusionsExclusionsStrings")
+    @pulumi.getter(name="dataSourceInclusionsExclusionsStrings")
     def data_source_inclusions_exclusions_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceinclusionsexclusionsstrings.html#cfn-kendra-datasource-datasourceinclusionsexclusionsstrings-datasourceinclusionsexclusionsstrings
@@ -1153,7 +1153,7 @@ class DataSourceDataSourceToIndexFieldMappingArgs:
             pulumi.set(__self__, "date_field_format", date_field_format)
 
     @property
-    @pulumi.getter(name="DataSourceFieldName")
+    @pulumi.getter(name="dataSourceFieldName")
     def data_source_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmapping.html#cfn-kendra-datasource-datasourcetoindexfieldmapping-datasourcefieldname
@@ -1165,7 +1165,7 @@ class DataSourceDataSourceToIndexFieldMappingArgs:
         pulumi.set(self, "data_source_field_name", value)
 
     @property
-    @pulumi.getter(name="IndexFieldName")
+    @pulumi.getter(name="indexFieldName")
     def index_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmapping.html#cfn-kendra-datasource-datasourcetoindexfieldmapping-indexfieldname
@@ -1177,7 +1177,7 @@ class DataSourceDataSourceToIndexFieldMappingArgs:
         pulumi.set(self, "index_field_name", value)
 
     @property
-    @pulumi.getter(name="DateFieldFormat")
+    @pulumi.getter(name="dateFieldFormat")
     def date_field_format(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmapping.html#cfn-kendra-datasource-datasourcetoindexfieldmapping-datefieldformat
@@ -1201,7 +1201,7 @@ class DataSourceDataSourceToIndexFieldMappingListArgs:
             pulumi.set(__self__, "data_source_to_index_field_mapping_list", data_source_to_index_field_mapping_list)
 
     @property
-    @pulumi.getter(name="DataSourceToIndexFieldMappingList")
+    @pulumi.getter(name="dataSourceToIndexFieldMappingList")
     def data_source_to_index_field_mapping_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html#cfn-kendra-datasource-datasourcetoindexfieldmappinglist-datasourcetoindexfieldmappinglist
@@ -1227,7 +1227,7 @@ class DataSourceDataSourceVpcConfigurationArgs:
         pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
-    @pulumi.getter(name="SecurityGroupIds")
+    @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcevpcconfiguration.html#cfn-kendra-datasource-datasourcevpcconfiguration-securitygroupids
@@ -1239,7 +1239,7 @@ class DataSourceDataSourceVpcConfigurationArgs:
         pulumi.set(self, "security_group_ids", value)
 
     @property
-    @pulumi.getter(name="SubnetIds")
+    @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcevpcconfiguration.html#cfn-kendra-datasource-datasourcevpcconfiguration-subnetids
@@ -1280,7 +1280,7 @@ class DataSourceDatabaseConfigurationArgs:
             pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
-    @pulumi.getter(name="ColumnConfiguration")
+    @pulumi.getter(name="columnConfiguration")
     def column_configuration(self) -> pulumi.Input['DataSourceColumnConfigurationArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-columnconfiguration
@@ -1292,7 +1292,7 @@ class DataSourceDatabaseConfigurationArgs:
         pulumi.set(self, "column_configuration", value)
 
     @property
-    @pulumi.getter(name="ConnectionConfiguration")
+    @pulumi.getter(name="connectionConfiguration")
     def connection_configuration(self) -> pulumi.Input['DataSourceConnectionConfigurationArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-connectionconfiguration
@@ -1304,7 +1304,7 @@ class DataSourceDatabaseConfigurationArgs:
         pulumi.set(self, "connection_configuration", value)
 
     @property
-    @pulumi.getter(name="DatabaseEngineType")
+    @pulumi.getter(name="databaseEngineType")
     def database_engine_type(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-databaseenginetype
@@ -1316,7 +1316,7 @@ class DataSourceDatabaseConfigurationArgs:
         pulumi.set(self, "database_engine_type", value)
 
     @property
-    @pulumi.getter(name="AclConfiguration")
+    @pulumi.getter(name="aclConfiguration")
     def acl_configuration(self) -> Optional[pulumi.Input['DataSourceAclConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-aclconfiguration
@@ -1328,7 +1328,7 @@ class DataSourceDatabaseConfigurationArgs:
         pulumi.set(self, "acl_configuration", value)
 
     @property
-    @pulumi.getter(name="SqlConfiguration")
+    @pulumi.getter(name="sqlConfiguration")
     def sql_configuration(self) -> Optional[pulumi.Input['DataSourceSqlConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-sqlconfiguration
@@ -1340,7 +1340,7 @@ class DataSourceDatabaseConfigurationArgs:
         pulumi.set(self, "sql_configuration", value)
 
     @property
-    @pulumi.getter(name="VpcConfiguration")
+    @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceDataSourceVpcConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-vpcconfiguration
@@ -1364,7 +1364,7 @@ class DataSourceDocumentsMetadataConfigurationArgs:
             pulumi.set(__self__, "s3_prefix", s3_prefix)
 
     @property
-    @pulumi.getter(name="S3Prefix")
+    @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentsmetadataconfiguration.html#cfn-kendra-datasource-documentsmetadataconfiguration-s3prefix
@@ -1409,7 +1409,7 @@ class DataSourceOneDriveConfigurationArgs:
             pulumi.set(__self__, "inclusion_patterns", inclusion_patterns)
 
     @property
-    @pulumi.getter(name="OneDriveUsers")
+    @pulumi.getter(name="oneDriveUsers")
     def one_drive_users(self) -> pulumi.Input['DataSourceOneDriveUsersArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-onedriveusers
@@ -1421,7 +1421,7 @@ class DataSourceOneDriveConfigurationArgs:
         pulumi.set(self, "one_drive_users", value)
 
     @property
-    @pulumi.getter(name="SecretArn")
+    @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-secretarn
@@ -1433,7 +1433,7 @@ class DataSourceOneDriveConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
     @property
-    @pulumi.getter(name="TenantDomain")
+    @pulumi.getter(name="tenantDomain")
     def tenant_domain(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-tenantdomain
@@ -1445,7 +1445,7 @@ class DataSourceOneDriveConfigurationArgs:
         pulumi.set(self, "tenant_domain", value)
 
     @property
-    @pulumi.getter(name="DisableLocalGroups")
+    @pulumi.getter(name="disableLocalGroups")
     def disable_local_groups(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-disablelocalgroups
@@ -1457,7 +1457,7 @@ class DataSourceOneDriveConfigurationArgs:
         pulumi.set(self, "disable_local_groups", value)
 
     @property
-    @pulumi.getter(name="ExclusionPatterns")
+    @pulumi.getter(name="exclusionPatterns")
     def exclusion_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-exclusionpatterns
@@ -1469,7 +1469,7 @@ class DataSourceOneDriveConfigurationArgs:
         pulumi.set(self, "exclusion_patterns", value)
 
     @property
-    @pulumi.getter(name="FieldMappings")
+    @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input['DataSourceDataSourceToIndexFieldMappingListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-fieldmappings
@@ -1481,7 +1481,7 @@ class DataSourceOneDriveConfigurationArgs:
         pulumi.set(self, "field_mappings", value)
 
     @property
-    @pulumi.getter(name="InclusionPatterns")
+    @pulumi.getter(name="inclusionPatterns")
     def inclusion_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-inclusionpatterns
@@ -1505,7 +1505,7 @@ class DataSourceOneDriveUserListArgs:
             pulumi.set(__self__, "one_drive_user_list", one_drive_user_list)
 
     @property
-    @pulumi.getter(name="OneDriveUserList")
+    @pulumi.getter(name="oneDriveUserList")
     def one_drive_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveuserlist.html#cfn-kendra-datasource-onedriveuserlist-onedriveuserlist
@@ -1533,7 +1533,7 @@ class DataSourceOneDriveUsersArgs:
             pulumi.set(__self__, "one_drive_user_s3_path", one_drive_user_s3_path)
 
     @property
-    @pulumi.getter(name="OneDriveUserList")
+    @pulumi.getter(name="oneDriveUserList")
     def one_drive_user_list(self) -> Optional[pulumi.Input['DataSourceOneDriveUserListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
@@ -1545,7 +1545,7 @@ class DataSourceOneDriveUsersArgs:
         pulumi.set(self, "one_drive_user_list", value)
 
     @property
-    @pulumi.getter(name="OneDriveUserS3Path")
+    @pulumi.getter(name="oneDriveUserS3Path")
     def one_drive_user_s3_path(self) -> Optional[pulumi.Input['DataSourceS3PathArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path
@@ -1588,7 +1588,7 @@ class DataSourceS3DataSourceConfigurationArgs:
             pulumi.set(__self__, "inclusion_prefixes", inclusion_prefixes)
 
     @property
-    @pulumi.getter(name="BucketName")
+    @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-bucketname
@@ -1600,7 +1600,7 @@ class DataSourceS3DataSourceConfigurationArgs:
         pulumi.set(self, "bucket_name", value)
 
     @property
-    @pulumi.getter(name="AccessControlListConfiguration")
+    @pulumi.getter(name="accessControlListConfiguration")
     def access_control_list_configuration(self) -> Optional[pulumi.Input['DataSourceAccessControlListConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-accesscontrollistconfiguration
@@ -1612,7 +1612,7 @@ class DataSourceS3DataSourceConfigurationArgs:
         pulumi.set(self, "access_control_list_configuration", value)
 
     @property
-    @pulumi.getter(name="DocumentsMetadataConfiguration")
+    @pulumi.getter(name="documentsMetadataConfiguration")
     def documents_metadata_configuration(self) -> Optional[pulumi.Input['DataSourceDocumentsMetadataConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-documentsmetadataconfiguration
@@ -1624,7 +1624,7 @@ class DataSourceS3DataSourceConfigurationArgs:
         pulumi.set(self, "documents_metadata_configuration", value)
 
     @property
-    @pulumi.getter(name="ExclusionPatterns")
+    @pulumi.getter(name="exclusionPatterns")
     def exclusion_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
@@ -1636,7 +1636,7 @@ class DataSourceS3DataSourceConfigurationArgs:
         pulumi.set(self, "exclusion_patterns", value)
 
     @property
-    @pulumi.getter(name="InclusionPatterns")
+    @pulumi.getter(name="inclusionPatterns")
     def inclusion_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
@@ -1648,7 +1648,7 @@ class DataSourceS3DataSourceConfigurationArgs:
         pulumi.set(self, "inclusion_patterns", value)
 
     @property
-    @pulumi.getter(name="InclusionPrefixes")
+    @pulumi.getter(name="inclusionPrefixes")
     def inclusion_prefixes(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionprefixes
@@ -1674,7 +1674,7 @@ class DataSourceS3PathArgs:
         pulumi.set(__self__, "key", key)
 
     @property
-    @pulumi.getter(name="Bucket")
+    @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html#cfn-kendra-datasource-s3path-bucket
@@ -1686,7 +1686,7 @@ class DataSourceS3PathArgs:
         pulumi.set(self, "bucket", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html#cfn-kendra-datasource-s3path-key
@@ -1721,7 +1721,7 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
             pulumi.set(__self__, "include_filter_types", include_filter_types)
 
     @property
-    @pulumi.getter(name="DocumentDataFieldName")
+    @pulumi.getter(name="documentDataFieldName")
     def document_data_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documentdatafieldname
@@ -1733,7 +1733,7 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
         pulumi.set(self, "document_data_field_name", value)
 
     @property
-    @pulumi.getter(name="DocumentTitleFieldName")
+    @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documenttitlefieldname
@@ -1745,7 +1745,7 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
         pulumi.set(self, "document_title_field_name", value)
 
     @property
-    @pulumi.getter(name="FieldMappings")
+    @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input['DataSourceDataSourceToIndexFieldMappingListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings
@@ -1757,7 +1757,7 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
         pulumi.set(self, "field_mappings", value)
 
     @property
-    @pulumi.getter(name="IncludeFilterTypes")
+    @pulumi.getter(name="includeFilterTypes")
     def include_filter_types(self) -> Optional[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterTypesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-includefiltertypes
@@ -1781,7 +1781,7 @@ class DataSourceSalesforceChatterFeedIncludeFilterTypesArgs:
             pulumi.set(__self__, "salesforce_chatter_feed_include_filter_types", salesforce_chatter_feed_include_filter_types)
 
     @property
-    @pulumi.getter(name="SalesforceChatterFeedIncludeFilterTypes")
+    @pulumi.getter(name="salesforceChatterFeedIncludeFilterTypes")
     def salesforce_chatter_feed_include_filter_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedincludefiltertypes.html#cfn-kendra-datasource-salesforcechatterfeedincludefiltertypes-salesforcechatterfeedincludefiltertypes
@@ -1835,7 +1835,7 @@ class DataSourceSalesforceConfigurationArgs:
             pulumi.set(__self__, "standard_object_configurations", standard_object_configurations)
 
     @property
-    @pulumi.getter(name="SecretArn")
+    @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-secretarn
@@ -1847,7 +1847,7 @@ class DataSourceSalesforceConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
     @property
-    @pulumi.getter(name="ServerUrl")
+    @pulumi.getter(name="serverUrl")
     def server_url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-serverurl
@@ -1859,7 +1859,7 @@ class DataSourceSalesforceConfigurationArgs:
         pulumi.set(self, "server_url", value)
 
     @property
-    @pulumi.getter(name="ChatterFeedConfiguration")
+    @pulumi.getter(name="chatterFeedConfiguration")
     def chatter_feed_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceChatterFeedConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-chatterfeedconfiguration
@@ -1871,7 +1871,7 @@ class DataSourceSalesforceConfigurationArgs:
         pulumi.set(self, "chatter_feed_configuration", value)
 
     @property
-    @pulumi.getter(name="CrawlAttachments")
+    @pulumi.getter(name="crawlAttachments")
     def crawl_attachments(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-crawlattachments
@@ -1883,7 +1883,7 @@ class DataSourceSalesforceConfigurationArgs:
         pulumi.set(self, "crawl_attachments", value)
 
     @property
-    @pulumi.getter(name="ExcludeAttachmentFilePatterns")
+    @pulumi.getter(name="excludeAttachmentFilePatterns")
     def exclude_attachment_file_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns
@@ -1895,7 +1895,7 @@ class DataSourceSalesforceConfigurationArgs:
         pulumi.set(self, "exclude_attachment_file_patterns", value)
 
     @property
-    @pulumi.getter(name="IncludeAttachmentFilePatterns")
+    @pulumi.getter(name="includeAttachmentFilePatterns")
     def include_attachment_file_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns
@@ -1907,7 +1907,7 @@ class DataSourceSalesforceConfigurationArgs:
         pulumi.set(self, "include_attachment_file_patterns", value)
 
     @property
-    @pulumi.getter(name="KnowledgeArticleConfiguration")
+    @pulumi.getter(name="knowledgeArticleConfiguration")
     def knowledge_article_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceKnowledgeArticleConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
@@ -1919,7 +1919,7 @@ class DataSourceSalesforceConfigurationArgs:
         pulumi.set(self, "knowledge_article_configuration", value)
 
     @property
-    @pulumi.getter(name="StandardObjectAttachmentConfiguration")
+    @pulumi.getter(name="standardObjectAttachmentConfiguration")
     def standard_object_attachment_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceStandardObjectAttachmentConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectattachmentconfiguration
@@ -1931,7 +1931,7 @@ class DataSourceSalesforceConfigurationArgs:
         pulumi.set(self, "standard_object_attachment_configuration", value)
 
     @property
-    @pulumi.getter(name="StandardObjectConfigurations")
+    @pulumi.getter(name="standardObjectConfigurations")
     def standard_object_configurations(self) -> Optional[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
@@ -1965,7 +1965,7 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs:
             pulumi.set(__self__, "field_mappings", field_mappings)
 
     @property
-    @pulumi.getter(name="DocumentDataFieldName")
+    @pulumi.getter(name="documentDataFieldName")
     def document_data_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-documentdatafieldname
@@ -1977,7 +1977,7 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs:
         pulumi.set(self, "document_data_field_name", value)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-name
@@ -1989,7 +1989,7 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="DocumentTitleFieldName")
+    @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-documenttitlefieldname
@@ -2001,7 +2001,7 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs:
         pulumi.set(self, "document_title_field_name", value)
 
     @property
-    @pulumi.getter(name="FieldMappings")
+    @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input['DataSourceDataSourceToIndexFieldMappingListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-fieldmappings
@@ -2025,7 +2025,7 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs:
             pulumi.set(__self__, "salesforce_custom_knowledge_article_type_configuration_list", salesforce_custom_knowledge_article_type_configuration_list)
 
     @property
-    @pulumi.getter(name="SalesforceCustomKnowledgeArticleTypeConfigurationList")
+    @pulumi.getter(name="salesforceCustomKnowledgeArticleTypeConfigurationList")
     def salesforce_custom_knowledge_article_type_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist-salesforcecustomknowledgearticletypeconfigurationlist
@@ -2056,7 +2056,7 @@ class DataSourceSalesforceKnowledgeArticleConfigurationArgs:
             pulumi.set(__self__, "standard_knowledge_article_type_configuration", standard_knowledge_article_type_configuration)
 
     @property
-    @pulumi.getter(name="IncludedStates")
+    @pulumi.getter(name="includedStates")
     def included_states(self) -> pulumi.Input['DataSourceSalesforceKnowledgeArticleStateListArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
@@ -2068,7 +2068,7 @@ class DataSourceSalesforceKnowledgeArticleConfigurationArgs:
         pulumi.set(self, "included_states", value)
 
     @property
-    @pulumi.getter(name="CustomKnowledgeArticleTypeConfigurations")
+    @pulumi.getter(name="customKnowledgeArticleTypeConfigurations")
     def custom_knowledge_article_type_configurations(self) -> Optional[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
@@ -2080,7 +2080,7 @@ class DataSourceSalesforceKnowledgeArticleConfigurationArgs:
         pulumi.set(self, "custom_knowledge_article_type_configurations", value)
 
     @property
-    @pulumi.getter(name="StandardKnowledgeArticleTypeConfiguration")
+    @pulumi.getter(name="standardKnowledgeArticleTypeConfiguration")
     def standard_knowledge_article_type_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration
@@ -2104,7 +2104,7 @@ class DataSourceSalesforceKnowledgeArticleStateListArgs:
             pulumi.set(__self__, "salesforce_knowledge_article_state_list", salesforce_knowledge_article_state_list)
 
     @property
-    @pulumi.getter(name="SalesforceKnowledgeArticleStateList")
+    @pulumi.getter(name="salesforceKnowledgeArticleStateList")
     def salesforce_knowledge_article_state_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticlestatelist.html#cfn-kendra-datasource-salesforceknowledgearticlestatelist-salesforceknowledgearticlestatelist
@@ -2135,7 +2135,7 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
             pulumi.set(__self__, "field_mappings", field_mappings)
 
     @property
-    @pulumi.getter(name="DocumentDataFieldName")
+    @pulumi.getter(name="documentDataFieldName")
     def document_data_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-documentdatafieldname
@@ -2147,7 +2147,7 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
         pulumi.set(self, "document_data_field_name", value)
 
     @property
-    @pulumi.getter(name="DocumentTitleFieldName")
+    @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-documenttitlefieldname
@@ -2159,7 +2159,7 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
         pulumi.set(self, "document_title_field_name", value)
 
     @property
-    @pulumi.getter(name="FieldMappings")
+    @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input['DataSourceDataSourceToIndexFieldMappingListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-fieldmappings
@@ -2187,7 +2187,7 @@ class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs:
             pulumi.set(__self__, "field_mappings", field_mappings)
 
     @property
-    @pulumi.getter(name="DocumentTitleFieldName")
+    @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-documenttitlefieldname
@@ -2199,7 +2199,7 @@ class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs:
         pulumi.set(self, "document_title_field_name", value)
 
     @property
-    @pulumi.getter(name="FieldMappings")
+    @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input['DataSourceDataSourceToIndexFieldMappingListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-fieldmappings
@@ -2233,7 +2233,7 @@ class DataSourceSalesforceStandardObjectConfigurationArgs:
             pulumi.set(__self__, "field_mappings", field_mappings)
 
     @property
-    @pulumi.getter(name="DocumentDataFieldName")
+    @pulumi.getter(name="documentDataFieldName")
     def document_data_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-documentdatafieldname
@@ -2245,7 +2245,7 @@ class DataSourceSalesforceStandardObjectConfigurationArgs:
         pulumi.set(self, "document_data_field_name", value)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-name
@@ -2257,7 +2257,7 @@ class DataSourceSalesforceStandardObjectConfigurationArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="DocumentTitleFieldName")
+    @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-documenttitlefieldname
@@ -2269,7 +2269,7 @@ class DataSourceSalesforceStandardObjectConfigurationArgs:
         pulumi.set(self, "document_title_field_name", value)
 
     @property
-    @pulumi.getter(name="FieldMappings")
+    @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input['DataSourceDataSourceToIndexFieldMappingListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-fieldmappings
@@ -2293,7 +2293,7 @@ class DataSourceSalesforceStandardObjectConfigurationListArgs:
             pulumi.set(__self__, "salesforce_standard_object_configuration_list", salesforce_standard_object_configuration_list)
 
     @property
-    @pulumi.getter(name="SalesforceStandardObjectConfigurationList")
+    @pulumi.getter(name="salesforceStandardObjectConfigurationList")
     def salesforce_standard_object_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html#cfn-kendra-datasource-salesforcestandardobjectconfigurationlist-salesforcestandardobjectconfigurationlist
@@ -2330,7 +2330,7 @@ class DataSourceServiceNowConfigurationArgs:
             pulumi.set(__self__, "service_catalog_configuration", service_catalog_configuration)
 
     @property
-    @pulumi.getter(name="HostUrl")
+    @pulumi.getter(name="hostUrl")
     def host_url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-hosturl
@@ -2342,7 +2342,7 @@ class DataSourceServiceNowConfigurationArgs:
         pulumi.set(self, "host_url", value)
 
     @property
-    @pulumi.getter(name="SecretArn")
+    @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-secretarn
@@ -2354,7 +2354,7 @@ class DataSourceServiceNowConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
     @property
-    @pulumi.getter(name="ServiceNowBuildVersion")
+    @pulumi.getter(name="serviceNowBuildVersion")
     def service_now_build_version(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-servicenowbuildversion
@@ -2366,7 +2366,7 @@ class DataSourceServiceNowConfigurationArgs:
         pulumi.set(self, "service_now_build_version", value)
 
     @property
-    @pulumi.getter(name="KnowledgeArticleConfiguration")
+    @pulumi.getter(name="knowledgeArticleConfiguration")
     def knowledge_article_configuration(self) -> Optional[pulumi.Input['DataSourceServiceNowKnowledgeArticleConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-knowledgearticleconfiguration
@@ -2378,7 +2378,7 @@ class DataSourceServiceNowConfigurationArgs:
         pulumi.set(self, "knowledge_article_configuration", value)
 
     @property
-    @pulumi.getter(name="ServiceCatalogConfiguration")
+    @pulumi.getter(name="serviceCatalogConfiguration")
     def service_catalog_configuration(self) -> Optional[pulumi.Input['DataSourceServiceNowServiceCatalogConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-servicecatalogconfiguration
@@ -2421,7 +2421,7 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
             pulumi.set(__self__, "include_attachment_file_patterns", include_attachment_file_patterns)
 
     @property
-    @pulumi.getter(name="DocumentDataFieldName")
+    @pulumi.getter(name="documentDataFieldName")
     def document_data_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-documentdatafieldname
@@ -2433,7 +2433,7 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
         pulumi.set(self, "document_data_field_name", value)
 
     @property
-    @pulumi.getter(name="CrawlAttachments")
+    @pulumi.getter(name="crawlAttachments")
     def crawl_attachments(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-crawlattachments
@@ -2445,7 +2445,7 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
         pulumi.set(self, "crawl_attachments", value)
 
     @property
-    @pulumi.getter(name="DocumentTitleFieldName")
+    @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-documenttitlefieldname
@@ -2457,7 +2457,7 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
         pulumi.set(self, "document_title_field_name", value)
 
     @property
-    @pulumi.getter(name="ExcludeAttachmentFilePatterns")
+    @pulumi.getter(name="excludeAttachmentFilePatterns")
     def exclude_attachment_file_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-excludeattachmentfilepatterns
@@ -2469,7 +2469,7 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
         pulumi.set(self, "exclude_attachment_file_patterns", value)
 
     @property
-    @pulumi.getter(name="FieldMappings")
+    @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input['DataSourceDataSourceToIndexFieldMappingListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-fieldmappings
@@ -2481,7 +2481,7 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
         pulumi.set(self, "field_mappings", value)
 
     @property
-    @pulumi.getter(name="IncludeAttachmentFilePatterns")
+    @pulumi.getter(name="includeAttachmentFilePatterns")
     def include_attachment_file_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-includeattachmentfilepatterns
@@ -2524,7 +2524,7 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
             pulumi.set(__self__, "include_attachment_file_patterns", include_attachment_file_patterns)
 
     @property
-    @pulumi.getter(name="DocumentDataFieldName")
+    @pulumi.getter(name="documentDataFieldName")
     def document_data_field_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-documentdatafieldname
@@ -2536,7 +2536,7 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
         pulumi.set(self, "document_data_field_name", value)
 
     @property
-    @pulumi.getter(name="CrawlAttachments")
+    @pulumi.getter(name="crawlAttachments")
     def crawl_attachments(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-crawlattachments
@@ -2548,7 +2548,7 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
         pulumi.set(self, "crawl_attachments", value)
 
     @property
-    @pulumi.getter(name="DocumentTitleFieldName")
+    @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-documenttitlefieldname
@@ -2560,7 +2560,7 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
         pulumi.set(self, "document_title_field_name", value)
 
     @property
-    @pulumi.getter(name="ExcludeAttachmentFilePatterns")
+    @pulumi.getter(name="excludeAttachmentFilePatterns")
     def exclude_attachment_file_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-excludeattachmentfilepatterns
@@ -2572,7 +2572,7 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
         pulumi.set(self, "exclude_attachment_file_patterns", value)
 
     @property
-    @pulumi.getter(name="FieldMappings")
+    @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input['DataSourceDataSourceToIndexFieldMappingListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-fieldmappings
@@ -2584,7 +2584,7 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
         pulumi.set(self, "field_mappings", value)
 
     @property
-    @pulumi.getter(name="IncludeAttachmentFilePatterns")
+    @pulumi.getter(name="includeAttachmentFilePatterns")
     def include_attachment_file_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-includeattachmentfilepatterns
@@ -2645,7 +2645,7 @@ class DataSourceSharePointConfigurationArgs:
             pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
-    @pulumi.getter(name="SecretArn")
+    @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-secretarn
@@ -2657,7 +2657,7 @@ class DataSourceSharePointConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
     @property
-    @pulumi.getter(name="SharePointVersion")
+    @pulumi.getter(name="sharePointVersion")
     def share_point_version(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-sharepointversion
@@ -2669,7 +2669,7 @@ class DataSourceSharePointConfigurationArgs:
         pulumi.set(self, "share_point_version", value)
 
     @property
-    @pulumi.getter(name="Urls")
+    @pulumi.getter
     def urls(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-urls
@@ -2681,7 +2681,7 @@ class DataSourceSharePointConfigurationArgs:
         pulumi.set(self, "urls", value)
 
     @property
-    @pulumi.getter(name="CrawlAttachments")
+    @pulumi.getter(name="crawlAttachments")
     def crawl_attachments(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-crawlattachments
@@ -2693,7 +2693,7 @@ class DataSourceSharePointConfigurationArgs:
         pulumi.set(self, "crawl_attachments", value)
 
     @property
-    @pulumi.getter(name="DisableLocalGroups")
+    @pulumi.getter(name="disableLocalGroups")
     def disable_local_groups(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-disablelocalgroups
@@ -2705,7 +2705,7 @@ class DataSourceSharePointConfigurationArgs:
         pulumi.set(self, "disable_local_groups", value)
 
     @property
-    @pulumi.getter(name="DocumentTitleFieldName")
+    @pulumi.getter(name="documentTitleFieldName")
     def document_title_field_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-documenttitlefieldname
@@ -2717,7 +2717,7 @@ class DataSourceSharePointConfigurationArgs:
         pulumi.set(self, "document_title_field_name", value)
 
     @property
-    @pulumi.getter(name="ExclusionPatterns")
+    @pulumi.getter(name="exclusionPatterns")
     def exclusion_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-exclusionpatterns
@@ -2729,7 +2729,7 @@ class DataSourceSharePointConfigurationArgs:
         pulumi.set(self, "exclusion_patterns", value)
 
     @property
-    @pulumi.getter(name="FieldMappings")
+    @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[pulumi.Input['DataSourceDataSourceToIndexFieldMappingListArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-fieldmappings
@@ -2741,7 +2741,7 @@ class DataSourceSharePointConfigurationArgs:
         pulumi.set(self, "field_mappings", value)
 
     @property
-    @pulumi.getter(name="InclusionPatterns")
+    @pulumi.getter(name="inclusionPatterns")
     def inclusion_patterns(self) -> Optional[pulumi.Input['DataSourceDataSourceInclusionsExclusionsStringsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-inclusionpatterns
@@ -2753,7 +2753,7 @@ class DataSourceSharePointConfigurationArgs:
         pulumi.set(self, "inclusion_patterns", value)
 
     @property
-    @pulumi.getter(name="UseChangeLog")
+    @pulumi.getter(name="useChangeLog")
     def use_change_log(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-usechangelog
@@ -2765,7 +2765,7 @@ class DataSourceSharePointConfigurationArgs:
         pulumi.set(self, "use_change_log", value)
 
     @property
-    @pulumi.getter(name="VpcConfiguration")
+    @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceDataSourceVpcConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-vpcconfiguration
@@ -2789,7 +2789,7 @@ class DataSourceSqlConfigurationArgs:
             pulumi.set(__self__, "query_identifiers_enclosing_option", query_identifiers_enclosing_option)
 
     @property
-    @pulumi.getter(name="QueryIdentifiersEnclosingOption")
+    @pulumi.getter(name="queryIdentifiersEnclosingOption")
     def query_identifiers_enclosing_option(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sqlconfiguration.html#cfn-kendra-datasource-sqlconfiguration-queryidentifiersenclosingoption
@@ -2813,7 +2813,7 @@ class DataSourceTagListArgs:
             pulumi.set(__self__, "tag_list", tag_list)
 
     @property
-    @pulumi.getter(name="TagList")
+    @pulumi.getter(name="tagList")
     def tag_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html#cfn-kendra-datasource-taglist-taglist
@@ -2839,7 +2839,7 @@ class FaqS3PathArgs:
         pulumi.set(__self__, "key", key)
 
     @property
-    @pulumi.getter(name="Bucket")
+    @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-s3path.html#cfn-kendra-faq-s3path-bucket
@@ -2851,7 +2851,7 @@ class FaqS3PathArgs:
         pulumi.set(self, "bucket", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-s3path.html#cfn-kendra-faq-s3path-key
@@ -2875,7 +2875,7 @@ class FaqTagListArgs:
             pulumi.set(__self__, "tag_list", tag_list)
 
     @property
-    @pulumi.getter(name="TagList")
+    @pulumi.getter(name="tagList")
     def tag_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html#cfn-kendra-faq-taglist-taglist
@@ -2901,7 +2901,7 @@ class IndexCapacityUnitsConfigurationArgs:
         pulumi.set(__self__, "storage_capacity_units", storage_capacity_units)
 
     @property
-    @pulumi.getter(name="QueryCapacityUnits")
+    @pulumi.getter(name="queryCapacityUnits")
     def query_capacity_units(self) -> pulumi.Input[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-querycapacityunits
@@ -2913,7 +2913,7 @@ class IndexCapacityUnitsConfigurationArgs:
         pulumi.set(self, "query_capacity_units", value)
 
     @property
-    @pulumi.getter(name="StorageCapacityUnits")
+    @pulumi.getter(name="storageCapacityUnits")
     def storage_capacity_units(self) -> pulumi.Input[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-storagecapacityunits
@@ -2947,7 +2947,7 @@ class IndexDocumentMetadataConfigurationArgs:
             pulumi.set(__self__, "search", search)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-name
@@ -2959,7 +2959,7 @@ class IndexDocumentMetadataConfigurationArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-type
@@ -2971,7 +2971,7 @@ class IndexDocumentMetadataConfigurationArgs:
         pulumi.set(self, "type", value)
 
     @property
-    @pulumi.getter(name="Relevance")
+    @pulumi.getter
     def relevance(self) -> Optional[pulumi.Input['IndexRelevanceArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-relevance
@@ -2983,7 +2983,7 @@ class IndexDocumentMetadataConfigurationArgs:
         pulumi.set(self, "relevance", value)
 
     @property
-    @pulumi.getter(name="Search")
+    @pulumi.getter
     def search(self) -> Optional[pulumi.Input['IndexSearchArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-search
@@ -3007,7 +3007,7 @@ class IndexDocumentMetadataConfigurationListArgs:
             pulumi.set(__self__, "document_metadata_configuration_list", document_metadata_configuration_list)
 
     @property
-    @pulumi.getter(name="DocumentMetadataConfigurationList")
+    @pulumi.getter(name="documentMetadataConfigurationList")
     def document_metadata_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html#cfn-kendra-index-documentmetadataconfigurationlist-documentmetadataconfigurationlist
@@ -3033,7 +3033,7 @@ class IndexJsonTokenTypeConfigurationArgs:
         pulumi.set(__self__, "user_name_attribute_field", user_name_attribute_field)
 
     @property
-    @pulumi.getter(name="GroupAttributeField")
+    @pulumi.getter(name="groupAttributeField")
     def group_attribute_field(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html#cfn-kendra-index-jsontokentypeconfiguration-groupattributefield
@@ -3045,7 +3045,7 @@ class IndexJsonTokenTypeConfigurationArgs:
         pulumi.set(self, "group_attribute_field", value)
 
     @property
-    @pulumi.getter(name="UserNameAttributeField")
+    @pulumi.getter(name="userNameAttributeField")
     def user_name_attribute_field(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html#cfn-kendra-index-jsontokentypeconfiguration-usernameattributefield
@@ -3065,7 +3065,7 @@ class IndexJwtTokenTypeConfigurationArgs:
                  group_attribute_field: Optional[pulumi.Input[str]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
                  secret_manager_arn: Optional[pulumi.Input[str]] = None,
-                 url: Optional[pulumi.Input[str]] = None,
+                 u_rl: Optional[pulumi.Input[str]] = None,
                  user_name_attribute_field: Optional[pulumi.Input[str]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html
@@ -3074,7 +3074,7 @@ class IndexJwtTokenTypeConfigurationArgs:
         :param pulumi.Input[str] group_attribute_field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-groupattributefield
         :param pulumi.Input[str] issuer: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-issuer
         :param pulumi.Input[str] secret_manager_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-secretmanagerarn
-        :param pulumi.Input[str] url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-url
+        :param pulumi.Input[str] u_rl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-url
         :param pulumi.Input[str] user_name_attribute_field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-usernameattributefield
         """
         pulumi.set(__self__, "key_location", key_location)
@@ -3086,13 +3086,13 @@ class IndexJwtTokenTypeConfigurationArgs:
             pulumi.set(__self__, "issuer", issuer)
         if secret_manager_arn is not None:
             pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
+        if u_rl is not None:
+            pulumi.set(__self__, "u_rl", u_rl)
         if user_name_attribute_field is not None:
             pulumi.set(__self__, "user_name_attribute_field", user_name_attribute_field)
 
     @property
-    @pulumi.getter(name="KeyLocation")
+    @pulumi.getter(name="keyLocation")
     def key_location(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-keylocation
@@ -3104,7 +3104,7 @@ class IndexJwtTokenTypeConfigurationArgs:
         pulumi.set(self, "key_location", value)
 
     @property
-    @pulumi.getter(name="ClaimRegex")
+    @pulumi.getter(name="claimRegex")
     def claim_regex(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-claimregex
@@ -3116,7 +3116,7 @@ class IndexJwtTokenTypeConfigurationArgs:
         pulumi.set(self, "claim_regex", value)
 
     @property
-    @pulumi.getter(name="GroupAttributeField")
+    @pulumi.getter(name="groupAttributeField")
     def group_attribute_field(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-groupattributefield
@@ -3128,7 +3128,7 @@ class IndexJwtTokenTypeConfigurationArgs:
         pulumi.set(self, "group_attribute_field", value)
 
     @property
-    @pulumi.getter(name="Issuer")
+    @pulumi.getter
     def issuer(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-issuer
@@ -3140,7 +3140,7 @@ class IndexJwtTokenTypeConfigurationArgs:
         pulumi.set(self, "issuer", value)
 
     @property
-    @pulumi.getter(name="SecretManagerArn")
+    @pulumi.getter(name="secretManagerArn")
     def secret_manager_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-secretmanagerarn
@@ -3152,19 +3152,19 @@ class IndexJwtTokenTypeConfigurationArgs:
         pulumi.set(self, "secret_manager_arn", value)
 
     @property
-    @pulumi.getter(name="URL")
-    def url(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="uRL")
+    def u_rl(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-url
         """
-        return pulumi.get(self, "url")
+        return pulumi.get(self, "u_rl")
 
-    @url.setter
-    def url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "url", value)
+    @u_rl.setter
+    def u_rl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "u_rl", value)
 
     @property
-    @pulumi.getter(name="UserNameAttributeField")
+    @pulumi.getter(name="userNameAttributeField")
     def user_name_attribute_field(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-usernameattributefield
@@ -3204,7 +3204,7 @@ class IndexRelevanceArgs:
             pulumi.set(__self__, "value_importance_items", value_importance_items)
 
     @property
-    @pulumi.getter(name="Duration")
+    @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-duration
@@ -3216,7 +3216,7 @@ class IndexRelevanceArgs:
         pulumi.set(self, "duration", value)
 
     @property
-    @pulumi.getter(name="Freshness")
+    @pulumi.getter
     def freshness(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-freshness
@@ -3228,7 +3228,7 @@ class IndexRelevanceArgs:
         pulumi.set(self, "freshness", value)
 
     @property
-    @pulumi.getter(name="Importance")
+    @pulumi.getter
     def importance(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-importance
@@ -3240,7 +3240,7 @@ class IndexRelevanceArgs:
         pulumi.set(self, "importance", value)
 
     @property
-    @pulumi.getter(name="RankOrder")
+    @pulumi.getter(name="rankOrder")
     def rank_order(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-rankorder
@@ -3252,7 +3252,7 @@ class IndexRelevanceArgs:
         pulumi.set(self, "rank_order", value)
 
     @property
-    @pulumi.getter(name="ValueImportanceItems")
+    @pulumi.getter(name="valueImportanceItems")
     def value_importance_items(self) -> Optional[pulumi.Input['IndexValueImportanceItemsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
@@ -3288,7 +3288,7 @@ class IndexSearchArgs:
             pulumi.set(__self__, "sortable", sortable)
 
     @property
-    @pulumi.getter(name="Displayable")
+    @pulumi.getter
     def displayable(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html#cfn-kendra-index-search-displayable
@@ -3300,7 +3300,7 @@ class IndexSearchArgs:
         pulumi.set(self, "displayable", value)
 
     @property
-    @pulumi.getter(name="Facetable")
+    @pulumi.getter
     def facetable(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html#cfn-kendra-index-search-facetable
@@ -3312,7 +3312,7 @@ class IndexSearchArgs:
         pulumi.set(self, "facetable", value)
 
     @property
-    @pulumi.getter(name="Searchable")
+    @pulumi.getter
     def searchable(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html#cfn-kendra-index-search-searchable
@@ -3324,7 +3324,7 @@ class IndexSearchArgs:
         pulumi.set(self, "searchable", value)
 
     @property
-    @pulumi.getter(name="Sortable")
+    @pulumi.getter
     def sortable(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html#cfn-kendra-index-search-sortable
@@ -3348,7 +3348,7 @@ class IndexServerSideEncryptionConfigurationArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
-    @pulumi.getter(name="KmsKeyId")
+    @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-serversideencryptionconfiguration.html#cfn-kendra-index-serversideencryptionconfiguration-kmskeyid
@@ -3372,7 +3372,7 @@ class IndexTagListArgs:
             pulumi.set(__self__, "tag_list", tag_list)
 
     @property
-    @pulumi.getter(name="TagList")
+    @pulumi.getter(name="tagList")
     def tag_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html#cfn-kendra-index-taglist-taglist
@@ -3400,7 +3400,7 @@ class IndexUserTokenConfigurationArgs:
             pulumi.set(__self__, "jwt_token_type_configuration", jwt_token_type_configuration)
 
     @property
-    @pulumi.getter(name="JsonTokenTypeConfiguration")
+    @pulumi.getter(name="jsonTokenTypeConfiguration")
     def json_token_type_configuration(self) -> Optional[pulumi.Input['IndexJsonTokenTypeConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jsontokentypeconfiguration
@@ -3412,7 +3412,7 @@ class IndexUserTokenConfigurationArgs:
         pulumi.set(self, "json_token_type_configuration", value)
 
     @property
-    @pulumi.getter(name="JwtTokenTypeConfiguration")
+    @pulumi.getter(name="jwtTokenTypeConfiguration")
     def jwt_token_type_configuration(self) -> Optional[pulumi.Input['IndexJwtTokenTypeConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jwttokentypeconfiguration
@@ -3436,7 +3436,7 @@ class IndexUserTokenConfigurationListArgs:
             pulumi.set(__self__, "user_token_configuration_list", user_token_configuration_list)
 
     @property
-    @pulumi.getter(name="UserTokenConfigurationList")
+    @pulumi.getter(name="userTokenConfigurationList")
     def user_token_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
@@ -3464,7 +3464,7 @@ class IndexValueImportanceItemArgs:
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitem.html#cfn-kendra-index-valueimportanceitem-key
@@ -3476,7 +3476,7 @@ class IndexValueImportanceItemArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitem.html#cfn-kendra-index-valueimportanceitem-value
@@ -3500,7 +3500,7 @@ class IndexValueImportanceItemsArgs:
             pulumi.set(__self__, "value_importance_items", value_importance_items)
 
     @property
-    @pulumi.getter(name="ValueImportanceItems")
+    @pulumi.getter(name="valueImportanceItems")
     def value_importance_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems

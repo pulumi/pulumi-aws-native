@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
         [OutputConstructor]
         private ComponentVersionLambdaLinuxProcessParams(
-            Outputs.ComponentVersionLambdaContainerParams? ContainerParams,
+            Outputs.ComponentVersionLambdaContainerParams? containerParams,
 
-            string? IsolationMode)
+            string? isolationMode)
         {
-            this.ContainerParams = ContainerParams;
-            this.IsolationMode = IsolationMode;
+            ContainerParams = containerParams;
+            IsolationMode = isolationMode;
         }
     }
 }

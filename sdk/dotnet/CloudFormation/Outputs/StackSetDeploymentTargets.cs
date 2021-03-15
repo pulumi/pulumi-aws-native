@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
 
         [OutputConstructor]
         private StackSetDeploymentTargets(
-            ImmutableArray<string> Accounts,
+            ImmutableArray<string> accounts,
 
-            ImmutableArray<string> OrganizationalUnitIds)
+            ImmutableArray<string> organizationalUnitIds)
         {
-            this.Accounts = Accounts;
-            this.OrganizationalUnitIds = OrganizationalUnitIds;
+            Accounts = accounts;
+            OrganizationalUnitIds = organizationalUnitIds;
         }
     }
 }

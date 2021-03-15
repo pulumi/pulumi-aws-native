@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-compressionformat
         /// </summary>
-        [Input("CompressionFormat")]
+        [Input("compressionFormat")]
         public Input<string>? CompressionFormat { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-format
         /// </summary>
-        [Input("Format")]
+        [Input("format")]
         public Input<string>? Format { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
         /// </summary>
-        [Input("Location", required: true)]
+        [Input("location", required: true)]
         public Input<Inputs.JobS3LocationArgs> Location { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-overwrite
         /// </summary>
-        [Input("Overwrite")]
+        [Input("overwrite")]
         public Input<bool>? Overwrite { get; set; }
 
-        [Input("PartitionColumns")]
-        private InputList<string>? _PartitionColumns;
+        [Input("partitionColumns")]
+        private InputList<string>? _partitionColumns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-partitioncolumns
         /// </summary>
         public InputList<string> PartitionColumns
         {
-            get => _PartitionColumns ?? (_PartitionColumns = new InputList<string>());
-            set => _PartitionColumns = value;
+            get => _partitionColumns ?? (_partitionColumns = new InputList<string>());
+            set => _partitionColumns = value;
         }
 
         public JobOutputArgs()

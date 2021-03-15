@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<Outputs.DataSourceConfluenceAttachmentToIndexFieldMapping> ConfluenceAttachmentFieldMappingsList;
 
         [OutputConstructor]
-        private DataSourceConfluenceAttachmentFieldMappingsList(ImmutableArray<Outputs.DataSourceConfluenceAttachmentToIndexFieldMapping> ConfluenceAttachmentFieldMappingsList)
+        private DataSourceConfluenceAttachmentFieldMappingsList(ImmutableArray<Outputs.DataSourceConfluenceAttachmentToIndexFieldMapping> confluenceAttachmentFieldMappingsList)
         {
-            this.ConfluenceAttachmentFieldMappingsList = ConfluenceAttachmentFieldMappingsList;
+            ConfluenceAttachmentFieldMappingsList = confluenceAttachmentFieldMappingsList;
         }
     }
 }

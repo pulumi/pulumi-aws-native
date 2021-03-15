@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
         [OutputConstructor]
         private AssetModelPropertyType(
-            Outputs.AssetModelAttribute? Attribute,
+            Outputs.AssetModelAttribute? attribute,
 
-            Outputs.AssetModelMetric? Metric,
+            Outputs.AssetModelMetric? metric,
 
-            Outputs.AssetModelTransform? Transform,
+            Outputs.AssetModelTransform? transform,
 
-            string TypeName)
+            string typeName)
         {
-            this.Attribute = Attribute;
-            this.Metric = Metric;
-            this.Transform = Transform;
-            this.TypeName = TypeName;
+            Attribute = attribute;
+            Metric = metric;
+            Transform = transform;
+            TypeName = typeName;
         }
     }
 }

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
 
         [OutputConstructor]
         private LicenseValidityDateFormat(
-            string Begin,
+            string begin,
 
-            string End)
+            string end)
         {
-            this.Begin = Begin;
-            this.End = End;
+            Begin = begin;
+            End = end;
         }
     }
 }

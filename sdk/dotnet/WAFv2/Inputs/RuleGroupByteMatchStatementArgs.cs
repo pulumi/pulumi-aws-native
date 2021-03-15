@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-fieldtomatch
         /// </summary>
-        [Input("FieldToMatch", required: true)]
+        [Input("fieldToMatch", required: true)]
         public Input<Inputs.RuleGroupFieldToMatchArgs> FieldToMatch { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-positionalconstraint
         /// </summary>
-        [Input("PositionalConstraint", required: true)]
+        [Input("positionalConstraint", required: true)]
         public Input<string> PositionalConstraint { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstring
         /// </summary>
-        [Input("SearchString")]
+        [Input("searchString")]
         public Input<string>? SearchString { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstringbase64
         /// </summary>
-        [Input("SearchStringBase64")]
+        [Input("searchStringBase64")]
         public Input<string>? SearchStringBase64 { get; set; }
 
-        [Input("TextTransformations", required: true)]
-        private InputList<Inputs.RuleGroupTextTransformationArgs>? _TextTransformations;
+        [Input("textTransformations", required: true)]
+        private InputList<Inputs.RuleGroupTextTransformationArgs>? _textTransformations;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-texttransformations
         /// </summary>
         public InputList<Inputs.RuleGroupTextTransformationArgs> TextTransformations
         {
-            get => _TextTransformations ?? (_TextTransformations = new InputList<Inputs.RuleGroupTextTransformationArgs>());
-            set => _TextTransformations = value;
+            get => _textTransformations ?? (_textTransformations = new InputList<Inputs.RuleGroupTextTransformationArgs>());
+            set => _textTransformations = value;
         }
 
         public RuleGroupByteMatchStatementArgs()

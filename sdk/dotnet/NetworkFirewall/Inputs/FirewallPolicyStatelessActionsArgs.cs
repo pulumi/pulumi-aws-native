@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class FirewallPolicyStatelessActionsArgs : Pulumi.ResourceArgs
     {
-        [Input("StatelessActions")]
-        private InputList<string>? _StatelessActions;
+        [Input("statelessActions")]
+        private InputList<string>? _statelessActions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessactions.html#cfn-networkfirewall-firewallpolicy-statelessactions-statelessactions
         /// </summary>
         public InputList<string> StatelessActions
         {
-            get => _StatelessActions ?? (_StatelessActions = new InputList<string>());
-            set => _StatelessActions = value;
+            get => _statelessActions ?? (_statelessActions = new InputList<string>());
+            set => _statelessActions = value;
         }
 
         public FirewallPolicyStatelessActionsArgs()

@@ -75,12 +75,12 @@ class KeyGroup(pulumi.CustomResource):
         return KeyGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="KeyGroupConfig")
+    @pulumi.getter(name="keyGroupConfig")
     def key_group_config(self) -> pulumi.Output['outputs.KeyGroupKeyGroupConfig']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
@@ -88,7 +88,7 @@ class KeyGroup(pulumi.CustomResource):
         return pulumi.get(self, "key_group_config")
 
     @property
-    @pulumi.getter(name="LastModifiedTime")
+    @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "last_modified_time")
 

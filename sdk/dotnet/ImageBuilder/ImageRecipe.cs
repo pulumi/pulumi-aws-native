@@ -15,55 +15,55 @@ namespace Pulumi.AwsNative.ImageBuilder
     [AwsNativeResourceType("aws-native:ImageBuilder:ImageRecipe")]
     public partial class ImageRecipe : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
         /// </summary>
-        [Output("BlockDeviceMappings")]
+        [Output("blockDeviceMappings")]
         public Output<ImmutableArray<Outputs.ImageRecipeInstanceBlockDeviceMapping>> BlockDeviceMappings { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
         /// </summary>
-        [Output("Components")]
+        [Output("components")]
         public Output<ImmutableArray<Outputs.ImageRecipeComponentConfiguration>> Components { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
         /// </summary>
-        [Output("ParentImage")]
+        [Output("parentImage")]
         public Output<string> ParentImage { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
         /// </summary>
-        [Output("Version")]
+        [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
         /// </summary>
-        [Output("WorkingDirectory")]
+        [Output("workingDirectory")]
         public Output<string?> WorkingDirectory { get; private set; } = null!;
 
 
@@ -111,70 +111,70 @@ namespace Pulumi.AwsNative.ImageBuilder
 
     public sealed class ImageRecipeArgs : Pulumi.ResourceArgs
     {
-        [Input("BlockDeviceMappings")]
-        private InputList<Inputs.ImageRecipeInstanceBlockDeviceMappingArgs>? _BlockDeviceMappings;
+        [Input("blockDeviceMappings")]
+        private InputList<Inputs.ImageRecipeInstanceBlockDeviceMappingArgs>? _blockDeviceMappings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
         /// </summary>
         public InputList<Inputs.ImageRecipeInstanceBlockDeviceMappingArgs> BlockDeviceMappings
         {
-            get => _BlockDeviceMappings ?? (_BlockDeviceMappings = new InputList<Inputs.ImageRecipeInstanceBlockDeviceMappingArgs>());
-            set => _BlockDeviceMappings = value;
+            get => _blockDeviceMappings ?? (_blockDeviceMappings = new InputList<Inputs.ImageRecipeInstanceBlockDeviceMappingArgs>());
+            set => _blockDeviceMappings = value;
         }
 
-        [Input("Components", required: true)]
-        private InputList<Inputs.ImageRecipeComponentConfigurationArgs>? _Components;
+        [Input("components", required: true)]
+        private InputList<Inputs.ImageRecipeComponentConfigurationArgs>? _components;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
         /// </summary>
         public InputList<Inputs.ImageRecipeComponentConfigurationArgs> Components
         {
-            get => _Components ?? (_Components = new InputList<Inputs.ImageRecipeComponentConfigurationArgs>());
-            set => _Components = value;
+            get => _components ?? (_components = new InputList<Inputs.ImageRecipeComponentConfigurationArgs>());
+            set => _components = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
         /// </summary>
-        [Input("ParentImage", required: true)]
+        [Input("parentImage", required: true)]
         public Input<string> ParentImage { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputMap<string>? _Tags;
+        [Input("tags")]
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
         /// </summary>
         public InputMap<string> Tags
         {
-            get => _Tags ?? (_Tags = new InputMap<string>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
         /// </summary>
-        [Input("Version", required: true)]
+        [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
         /// </summary>
-        [Input("WorkingDirectory")]
+        [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }
 
         public ImageRecipeArgs()

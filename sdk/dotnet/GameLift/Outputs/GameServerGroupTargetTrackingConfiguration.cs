@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         public readonly double TargetValue;
 
         [OutputConstructor]
-        private GameServerGroupTargetTrackingConfiguration(double TargetValue)
+        private GameServerGroupTargetTrackingConfiguration(double targetValue)
         {
-            this.TargetValue = TargetValue;
+            TargetValue = targetValue;
         }
     }
 }

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamHttpEndpointCommonAttribute(
-            string AttributeName,
+            string attributeName,
 
-            string AttributeValue)
+            string attributeValue)
         {
-            this.AttributeName = AttributeName;
-            this.AttributeValue = AttributeValue;
+            AttributeName = attributeName;
+            AttributeValue = attributeValue;
         }
     }
 }

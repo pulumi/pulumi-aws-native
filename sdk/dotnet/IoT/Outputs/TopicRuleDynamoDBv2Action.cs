@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleDynamoDBv2Action(
-            Outputs.TopicRulePutItemInput? PutItem,
+            Outputs.TopicRulePutItemInput? putItem,
 
-            string? RoleArn)
+            string? roleArn)
         {
-            this.PutItem = PutItem;
-            this.RoleArn = RoleArn;
+            PutItem = putItem;
+            RoleArn = roleArn;
         }
     }
 }

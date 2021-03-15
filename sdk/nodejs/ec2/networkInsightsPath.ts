@@ -35,37 +35,37 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInsightsPath.__pulumiType;
     }
 
-    public /*out*/ readonly CreatedDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
      */
-    public readonly Destination!: pulumi.Output<string>;
+    public readonly destination!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
      */
-    public readonly DestinationIp!: pulumi.Output<string | undefined>;
+    public readonly destinationIp!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
      */
-    public readonly DestinationPort!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly NetworkInsightsPathArn!: pulumi.Output<string>;
-    public /*out*/ readonly NetworkInsightsPathId!: pulumi.Output<string>;
+    public readonly destinationPort!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly networkInsightsPathArn!: pulumi.Output<string>;
+    public /*out*/ readonly networkInsightsPathId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
      */
-    public readonly Protocol!: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
      */
-    public readonly Source!: pulumi.Output<string>;
+    public readonly source!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
      */
-    public readonly SourceIp!: pulumi.Output<string | undefined>;
+    public readonly sourceIp!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a NetworkInsightsPath resource with the given unique name, arguments, and options.
@@ -77,36 +77,36 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     constructor(name: string, args: NetworkInsightsPathArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Destination === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Destination'");
+            if ((!args || args.destination === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'destination'");
             }
-            if ((!args || args.Protocol === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Protocol'");
+            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.Source === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Source'");
+            if ((!args || args.source === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'source'");
             }
-            inputs["Destination"] = args ? args.Destination : undefined;
-            inputs["DestinationIp"] = args ? args.DestinationIp : undefined;
-            inputs["DestinationPort"] = args ? args.DestinationPort : undefined;
-            inputs["Protocol"] = args ? args.Protocol : undefined;
-            inputs["Source"] = args ? args.Source : undefined;
-            inputs["SourceIp"] = args ? args.SourceIp : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["CreatedDate"] = undefined /*out*/;
-            inputs["NetworkInsightsPathArn"] = undefined /*out*/;
-            inputs["NetworkInsightsPathId"] = undefined /*out*/;
+            inputs["destination"] = args ? args.destination : undefined;
+            inputs["destinationIp"] = args ? args.destinationIp : undefined;
+            inputs["destinationPort"] = args ? args.destinationPort : undefined;
+            inputs["protocol"] = args ? args.protocol : undefined;
+            inputs["source"] = args ? args.source : undefined;
+            inputs["sourceIp"] = args ? args.sourceIp : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["networkInsightsPathArn"] = undefined /*out*/;
+            inputs["networkInsightsPathId"] = undefined /*out*/;
         } else {
-            inputs["CreatedDate"] = undefined /*out*/;
-            inputs["Destination"] = undefined /*out*/;
-            inputs["DestinationIp"] = undefined /*out*/;
-            inputs["DestinationPort"] = undefined /*out*/;
-            inputs["NetworkInsightsPathArn"] = undefined /*out*/;
-            inputs["NetworkInsightsPathId"] = undefined /*out*/;
-            inputs["Protocol"] = undefined /*out*/;
-            inputs["Source"] = undefined /*out*/;
-            inputs["SourceIp"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["destination"] = undefined /*out*/;
+            inputs["destinationIp"] = undefined /*out*/;
+            inputs["destinationPort"] = undefined /*out*/;
+            inputs["networkInsightsPathArn"] = undefined /*out*/;
+            inputs["networkInsightsPathId"] = undefined /*out*/;
+            inputs["protocol"] = undefined /*out*/;
+            inputs["source"] = undefined /*out*/;
+            inputs["sourceIp"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -126,29 +126,29 @@ export interface NetworkInsightsPathArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
      */
-    readonly Destination: pulumi.Input<string>;
+    readonly destination: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
      */
-    readonly DestinationIp?: pulumi.Input<string>;
+    readonly destinationIp?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
      */
-    readonly DestinationPort?: pulumi.Input<number>;
+    readonly destinationPort?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
      */
-    readonly Protocol: pulumi.Input<string>;
+    readonly protocol: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
      */
-    readonly Source: pulumi.Input<string>;
+    readonly source: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
      */
-    readonly SourceIp?: pulumi.Input<string>;
+    readonly sourceIp?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

@@ -18,28 +18,28 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
         /// </summary>
-        [Output("GatewayCapabilitySummaries")]
+        [Output("gatewayCapabilitySummaries")]
         public Output<ImmutableArray<Outputs.GatewayGatewayCapabilitySummary>> GatewayCapabilitySummaries { get; private set; } = null!;
 
-        [Output("GatewayId")]
+        [Output("gatewayId")]
         public Output<string> GatewayId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
         /// </summary>
-        [Output("GatewayName")]
+        [Output("gatewayName")]
         public Output<string> GatewayName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
         /// </summary>
-        [Output("GatewayPlatform")]
+        [Output("gatewayPlatform")]
         public Output<Outputs.GatewayGatewayPlatform> GatewayPlatform { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -87,40 +87,40 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
     public sealed class GatewayArgs : Pulumi.ResourceArgs
     {
-        [Input("GatewayCapabilitySummaries")]
-        private InputList<Inputs.GatewayGatewayCapabilitySummaryArgs>? _GatewayCapabilitySummaries;
+        [Input("gatewayCapabilitySummaries")]
+        private InputList<Inputs.GatewayGatewayCapabilitySummaryArgs>? _gatewayCapabilitySummaries;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
         /// </summary>
         public InputList<Inputs.GatewayGatewayCapabilitySummaryArgs> GatewayCapabilitySummaries
         {
-            get => _GatewayCapabilitySummaries ?? (_GatewayCapabilitySummaries = new InputList<Inputs.GatewayGatewayCapabilitySummaryArgs>());
-            set => _GatewayCapabilitySummaries = value;
+            get => _gatewayCapabilitySummaries ?? (_gatewayCapabilitySummaries = new InputList<Inputs.GatewayGatewayCapabilitySummaryArgs>());
+            set => _gatewayCapabilitySummaries = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
         /// </summary>
-        [Input("GatewayName", required: true)]
+        [Input("gatewayName", required: true)]
         public Input<string> GatewayName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
         /// </summary>
-        [Input("GatewayPlatform", required: true)]
+        [Input("gatewayPlatform", required: true)]
         public Input<Inputs.GatewayGatewayPlatformArgs> GatewayPlatform { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public GatewayArgs()

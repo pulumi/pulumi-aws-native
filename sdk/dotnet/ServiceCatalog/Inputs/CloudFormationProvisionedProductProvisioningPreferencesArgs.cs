@@ -15,58 +15,58 @@ namespace Pulumi.AwsNative.ServiceCatalog.Inputs
     /// </summary>
     public sealed class CloudFormationProvisionedProductProvisioningPreferencesArgs : Pulumi.ResourceArgs
     {
-        [Input("StackSetAccounts")]
-        private InputList<string>? _StackSetAccounts;
+        [Input("stackSetAccounts")]
+        private InputList<string>? _stackSetAccounts;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetaccounts
         /// </summary>
         public InputList<string> StackSetAccounts
         {
-            get => _StackSetAccounts ?? (_StackSetAccounts = new InputList<string>());
-            set => _StackSetAccounts = value;
+            get => _stackSetAccounts ?? (_stackSetAccounts = new InputList<string>());
+            set => _stackSetAccounts = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancecount
         /// </summary>
-        [Input("StackSetFailureToleranceCount")]
+        [Input("stackSetFailureToleranceCount")]
         public Input<int>? StackSetFailureToleranceCount { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancepercentage
         /// </summary>
-        [Input("StackSetFailureTolerancePercentage")]
+        [Input("stackSetFailureTolerancePercentage")]
         public Input<int>? StackSetFailureTolerancePercentage { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencycount
         /// </summary>
-        [Input("StackSetMaxConcurrencyCount")]
+        [Input("stackSetMaxConcurrencyCount")]
         public Input<int>? StackSetMaxConcurrencyCount { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencypercentage
         /// </summary>
-        [Input("StackSetMaxConcurrencyPercentage")]
+        [Input("stackSetMaxConcurrencyPercentage")]
         public Input<int>? StackSetMaxConcurrencyPercentage { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetoperationtype
         /// </summary>
-        [Input("StackSetOperationType")]
+        [Input("stackSetOperationType")]
         public Input<string>? StackSetOperationType { get; set; }
 
-        [Input("StackSetRegions")]
-        private InputList<string>? _StackSetRegions;
+        [Input("stackSetRegions")]
+        private InputList<string>? _stackSetRegions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetregions
         /// </summary>
         public InputList<string> StackSetRegions
         {
-            get => _StackSetRegions ?? (_StackSetRegions = new InputList<string>());
-            set => _StackSetRegions = value;
+            get => _stackSetRegions ?? (_stackSetRegions = new InputList<string>());
+            set => _stackSetRegions = value;
         }
 
         public CloudFormationProvisionedProductProvisioningPreferencesArgs()

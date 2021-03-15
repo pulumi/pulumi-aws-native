@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class IndexDocumentMetadataConfigurationListArgs : Pulumi.ResourceArgs
     {
-        [Input("DocumentMetadataConfigurationList")]
-        private InputList<Inputs.IndexDocumentMetadataConfigurationArgs>? _DocumentMetadataConfigurationList;
+        [Input("documentMetadataConfigurationList")]
+        private InputList<Inputs.IndexDocumentMetadataConfigurationArgs>? _documentMetadataConfigurationList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html#cfn-kendra-index-documentmetadataconfigurationlist-documentmetadataconfigurationlist
         /// </summary>
         public InputList<Inputs.IndexDocumentMetadataConfigurationArgs> DocumentMetadataConfigurationList
         {
-            get => _DocumentMetadataConfigurationList ?? (_DocumentMetadataConfigurationList = new InputList<Inputs.IndexDocumentMetadataConfigurationArgs>());
-            set => _DocumentMetadataConfigurationList = value;
+            get => _documentMetadataConfigurationList ?? (_documentMetadataConfigurationList = new InputList<Inputs.IndexDocumentMetadataConfigurationArgs>());
+            set => _documentMetadataConfigurationList = value;
         }
 
         public IndexDocumentMetadataConfigurationListArgs()

@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class RuleGroupTargetTypesArgs : Pulumi.ResourceArgs
     {
-        [Input("TargetTypes")]
-        private InputList<string>? _TargetTypes;
+        [Input("targetTypes")]
+        private InputList<string>? _targetTypes;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-targettypes.html#cfn-networkfirewall-rulegroup-targettypes-targettypes
         /// </summary>
         public InputList<string> TargetTypes
         {
-            get => _TargetTypes ?? (_TargetTypes = new InputList<string>());
-            set => _TargetTypes = value;
+            get => _targetTypes ?? (_targetTypes = new InputList<string>());
+            set => _targetTypes = value;
         }
 
         public RuleGroupTargetTypesArgs()

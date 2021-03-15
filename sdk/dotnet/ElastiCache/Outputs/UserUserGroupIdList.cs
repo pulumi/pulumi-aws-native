@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ElastiCache.Outputs
         public readonly ImmutableArray<string> UserGroupIdList;
 
         [OutputConstructor]
-        private UserUserGroupIdList(ImmutableArray<string> UserGroupIdList)
+        private UserUserGroupIdList(ImmutableArray<string> userGroupIdList)
         {
-            this.UserGroupIdList = UserGroupIdList;
+            UserGroupIdList = userGroupIdList;
         }
     }
 }

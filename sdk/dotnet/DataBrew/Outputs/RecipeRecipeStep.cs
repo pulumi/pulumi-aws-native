@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 
         [OutputConstructor]
         private RecipeRecipeStep(
-            Outputs.RecipeAction Action,
+            Outputs.RecipeAction action,
 
-            ImmutableArray<Outputs.RecipeConditionExpression> ConditionExpressions)
+            ImmutableArray<Outputs.RecipeConditionExpression> conditionExpressions)
         {
-            this.Action = Action;
-            this.ConditionExpressions = ConditionExpressions;
+            Action = action;
+            ConditionExpressions = conditionExpressions;
         }
     }
 }

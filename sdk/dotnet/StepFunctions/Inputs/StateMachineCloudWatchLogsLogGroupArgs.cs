@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
         /// </summary>
-        [Input("LogGroupArn")]
+        [Input("logGroupArn")]
         public Input<string>? LogGroupArn { get; set; }
 
         public StateMachineCloudWatchLogsLogGroupArgs()

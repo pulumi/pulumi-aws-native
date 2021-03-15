@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectorprofilename
         /// </summary>
-        [Input("ConnectorProfileName")]
+        [Input("connectorProfileName")]
         public Input<string>? ConnectorProfileName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectortype
         /// </summary>
-        [Input("ConnectorType", required: true)]
+        [Input("connectorType", required: true)]
         public Input<string> ConnectorType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-incrementalpullconfig
         /// </summary>
-        [Input("IncrementalPullConfig")]
+        [Input("incrementalPullConfig")]
         public Input<Inputs.FlowIncrementalPullConfigArgs>? IncrementalPullConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-sourceconnectorproperties
         /// </summary>
-        [Input("SourceConnectorProperties", required: true)]
+        [Input("sourceConnectorProperties", required: true)]
         public Input<Inputs.FlowSourceConnectorPropertiesArgs> SourceConnectorProperties { get; set; } = null!;
 
         public FlowSourceFlowConfigArgs()

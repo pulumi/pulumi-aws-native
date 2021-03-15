@@ -18,46 +18,46 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
         /// </summary>
-        [Output("ActionsEnabled")]
+        [Output("actionsEnabled")]
         public Output<bool?> ActionsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
         /// </summary>
-        [Output("AlarmActions")]
+        [Output("alarmActions")]
         public Output<ImmutableArray<string>> AlarmActions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
         /// </summary>
-        [Output("AlarmDescription")]
+        [Output("alarmDescription")]
         public Output<string?> AlarmDescription { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
         /// </summary>
-        [Output("AlarmName")]
+        [Output("alarmName")]
         public Output<string> AlarmName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
         /// </summary>
-        [Output("AlarmRule")]
+        [Output("alarmRule")]
         public Output<string> AlarmRule { get; private set; } = null!;
 
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
         /// </summary>
-        [Output("InsufficientDataActions")]
+        [Output("insufficientDataActions")]
         public Output<ImmutableArray<string>> InsufficientDataActions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
         /// </summary>
-        [Output("OKActions")]
+        [Output("oKActions")]
         public Output<ImmutableArray<string>> OKActions { get; private set; } = null!;
 
 
@@ -108,61 +108,61 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
         /// </summary>
-        [Input("ActionsEnabled")]
+        [Input("actionsEnabled")]
         public Input<bool>? ActionsEnabled { get; set; }
 
-        [Input("AlarmActions")]
-        private InputList<string>? _AlarmActions;
+        [Input("alarmActions")]
+        private InputList<string>? _alarmActions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
         /// </summary>
         public InputList<string> AlarmActions
         {
-            get => _AlarmActions ?? (_AlarmActions = new InputList<string>());
-            set => _AlarmActions = value;
+            get => _alarmActions ?? (_alarmActions = new InputList<string>());
+            set => _alarmActions = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
         /// </summary>
-        [Input("AlarmDescription")]
+        [Input("alarmDescription")]
         public Input<string>? AlarmDescription { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
         /// </summary>
-        [Input("AlarmName", required: true)]
+        [Input("alarmName", required: true)]
         public Input<string> AlarmName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
         /// </summary>
-        [Input("AlarmRule", required: true)]
+        [Input("alarmRule", required: true)]
         public Input<string> AlarmRule { get; set; } = null!;
 
-        [Input("InsufficientDataActions")]
-        private InputList<string>? _InsufficientDataActions;
+        [Input("insufficientDataActions")]
+        private InputList<string>? _insufficientDataActions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
         /// </summary>
         public InputList<string> InsufficientDataActions
         {
-            get => _InsufficientDataActions ?? (_InsufficientDataActions = new InputList<string>());
-            set => _InsufficientDataActions = value;
+            get => _insufficientDataActions ?? (_insufficientDataActions = new InputList<string>());
+            set => _insufficientDataActions = value;
         }
 
-        [Input("OKActions")]
-        private InputList<string>? _OKActions;
+        [Input("oKActions")]
+        private InputList<string>? _oKActions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
         /// </summary>
         public InputList<string> OKActions
         {
-            get => _OKActions ?? (_OKActions = new InputList<string>());
-            set => _OKActions = value;
+            get => _oKActions ?? (_oKActions = new InputList<string>());
+            set => _oKActions = value;
         }
 
         public CompositeAlarmArgs()

@@ -15,22 +15,22 @@ namespace Pulumi.AwsNative.Macie
     [AwsNativeResourceType("aws-native:Macie:Session")]
     public partial class Session : Pulumi.CustomResource
     {
-        [Output("AwsAccountId")]
+        [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
         /// </summary>
-        [Output("FindingPublishingFrequency")]
+        [Output("findingPublishingFrequency")]
         public Output<string?> FindingPublishingFrequency { get; private set; } = null!;
 
-        [Output("ServiceRole")]
+        [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
         /// </summary>
-        [Output("Status")]
+        [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
 
@@ -81,13 +81,13 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
         /// </summary>
-        [Input("FindingPublishingFrequency")]
+        [Input("findingPublishingFrequency")]
         public Input<string>? FindingPublishingFrequency { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
         /// </summary>
-        [Input("Status")]
+        [Input("status")]
         public Input<string>? Status { get; set; }
 
         public SessionArgs()

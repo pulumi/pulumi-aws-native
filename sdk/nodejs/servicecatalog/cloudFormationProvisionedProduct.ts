@@ -38,55 +38,55 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
      */
-    public readonly AcceptLanguage!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly CloudformationStackArn!: pulumi.Output<string>;
+    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly cloudformationStackArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
      */
-    public readonly NotificationArns!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly Outputs!: pulumi.Output<{[key: string]: string}>;
+    public readonly notificationArns!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
      */
-    public readonly PathId!: pulumi.Output<string | undefined>;
+    public readonly pathId!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
      */
-    public readonly PathName!: pulumi.Output<string | undefined>;
+    public readonly pathName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
      */
-    public readonly ProductId!: pulumi.Output<string | undefined>;
+    public readonly productId!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
      */
-    public readonly ProductName!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly ProvisionedProductId!: pulumi.Output<string>;
+    public readonly productName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisionedProductId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
      */
-    public readonly ProvisionedProductName!: pulumi.Output<string | undefined>;
+    public readonly provisionedProductName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
      */
-    public readonly ProvisioningArtifactId!: pulumi.Output<string | undefined>;
+    public readonly provisioningArtifactId!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
      */
-    public readonly ProvisioningArtifactName!: pulumi.Output<string | undefined>;
+    public readonly provisioningArtifactName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
      */
-    public readonly ProvisioningParameters!: pulumi.Output<outputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningParameter[] | undefined>;
+    public readonly provisioningParameters!: pulumi.Output<outputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningParameter[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
      */
-    public readonly ProvisioningPreferences!: pulumi.Output<outputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferences | undefined>;
-    public /*out*/ readonly RecordId!: pulumi.Output<string>;
+    public readonly provisioningPreferences!: pulumi.Output<outputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferences | undefined>;
+    public /*out*/ readonly recordId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CloudFormationProvisionedProduct resource with the given unique name, arguments, and options.
@@ -98,39 +98,39 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
     constructor(name: string, args?: CloudFormationProvisionedProductArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["AcceptLanguage"] = args ? args.AcceptLanguage : undefined;
-            inputs["NotificationArns"] = args ? args.NotificationArns : undefined;
-            inputs["PathId"] = args ? args.PathId : undefined;
-            inputs["PathName"] = args ? args.PathName : undefined;
-            inputs["ProductId"] = args ? args.ProductId : undefined;
-            inputs["ProductName"] = args ? args.ProductName : undefined;
-            inputs["ProvisionedProductName"] = args ? args.ProvisionedProductName : undefined;
-            inputs["ProvisioningArtifactId"] = args ? args.ProvisioningArtifactId : undefined;
-            inputs["ProvisioningArtifactName"] = args ? args.ProvisioningArtifactName : undefined;
-            inputs["ProvisioningParameters"] = args ? args.ProvisioningParameters : undefined;
-            inputs["ProvisioningPreferences"] = args ? args.ProvisioningPreferences : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["CloudformationStackArn"] = undefined /*out*/;
-            inputs["Outputs"] = undefined /*out*/;
-            inputs["ProvisionedProductId"] = undefined /*out*/;
-            inputs["RecordId"] = undefined /*out*/;
+            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            inputs["notificationArns"] = args ? args.notificationArns : undefined;
+            inputs["pathId"] = args ? args.pathId : undefined;
+            inputs["pathName"] = args ? args.pathName : undefined;
+            inputs["productId"] = args ? args.productId : undefined;
+            inputs["productName"] = args ? args.productName : undefined;
+            inputs["provisionedProductName"] = args ? args.provisionedProductName : undefined;
+            inputs["provisioningArtifactId"] = args ? args.provisioningArtifactId : undefined;
+            inputs["provisioningArtifactName"] = args ? args.provisioningArtifactName : undefined;
+            inputs["provisioningParameters"] = args ? args.provisioningParameters : undefined;
+            inputs["provisioningPreferences"] = args ? args.provisioningPreferences : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["cloudformationStackArn"] = undefined /*out*/;
+            inputs["outputs"] = undefined /*out*/;
+            inputs["provisionedProductId"] = undefined /*out*/;
+            inputs["recordId"] = undefined /*out*/;
         } else {
-            inputs["AcceptLanguage"] = undefined /*out*/;
-            inputs["CloudformationStackArn"] = undefined /*out*/;
-            inputs["NotificationArns"] = undefined /*out*/;
-            inputs["Outputs"] = undefined /*out*/;
-            inputs["PathId"] = undefined /*out*/;
-            inputs["PathName"] = undefined /*out*/;
-            inputs["ProductId"] = undefined /*out*/;
-            inputs["ProductName"] = undefined /*out*/;
-            inputs["ProvisionedProductId"] = undefined /*out*/;
-            inputs["ProvisionedProductName"] = undefined /*out*/;
-            inputs["ProvisioningArtifactId"] = undefined /*out*/;
-            inputs["ProvisioningArtifactName"] = undefined /*out*/;
-            inputs["ProvisioningParameters"] = undefined /*out*/;
-            inputs["ProvisioningPreferences"] = undefined /*out*/;
-            inputs["RecordId"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["acceptLanguage"] = undefined /*out*/;
+            inputs["cloudformationStackArn"] = undefined /*out*/;
+            inputs["notificationArns"] = undefined /*out*/;
+            inputs["outputs"] = undefined /*out*/;
+            inputs["pathId"] = undefined /*out*/;
+            inputs["pathName"] = undefined /*out*/;
+            inputs["productId"] = undefined /*out*/;
+            inputs["productName"] = undefined /*out*/;
+            inputs["provisionedProductId"] = undefined /*out*/;
+            inputs["provisionedProductName"] = undefined /*out*/;
+            inputs["provisioningArtifactId"] = undefined /*out*/;
+            inputs["provisioningArtifactName"] = undefined /*out*/;
+            inputs["provisioningParameters"] = undefined /*out*/;
+            inputs["provisioningPreferences"] = undefined /*out*/;
+            inputs["recordId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -150,49 +150,49 @@ export interface CloudFormationProvisionedProductArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
      */
-    readonly AcceptLanguage?: pulumi.Input<string>;
+    readonly acceptLanguage?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
      */
-    readonly NotificationArns?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
      */
-    readonly PathId?: pulumi.Input<string>;
+    readonly pathId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
      */
-    readonly PathName?: pulumi.Input<string>;
+    readonly pathName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
      */
-    readonly ProductId?: pulumi.Input<string>;
+    readonly productId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
      */
-    readonly ProductName?: pulumi.Input<string>;
+    readonly productName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
      */
-    readonly ProvisionedProductName?: pulumi.Input<string>;
+    readonly provisionedProductName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
      */
-    readonly ProvisioningArtifactId?: pulumi.Input<string>;
+    readonly provisioningArtifactId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
      */
-    readonly ProvisioningArtifactName?: pulumi.Input<string>;
+    readonly provisioningArtifactName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
      */
-    readonly ProvisioningParameters?: pulumi.Input<pulumi.Input<inputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningParameter>[]>;
+    readonly provisioningParameters?: pulumi.Input<pulumi.Input<inputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningParameter>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
      */
-    readonly ProvisioningPreferences?: pulumi.Input<inputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferences>;
+    readonly provisioningPreferences?: pulumi.Input<inputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferences>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

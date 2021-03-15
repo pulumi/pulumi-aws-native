@@ -18,43 +18,43 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-claimregex
         /// </summary>
-        [Input("ClaimRegex")]
+        [Input("claimRegex")]
         public Input<string>? ClaimRegex { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-groupattributefield
         /// </summary>
-        [Input("GroupAttributeField")]
+        [Input("groupAttributeField")]
         public Input<string>? GroupAttributeField { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-issuer
         /// </summary>
-        [Input("Issuer")]
+        [Input("issuer")]
         public Input<string>? Issuer { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-keylocation
         /// </summary>
-        [Input("KeyLocation", required: true)]
+        [Input("keyLocation", required: true)]
         public Input<string> KeyLocation { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-secretmanagerarn
         /// </summary>
-        [Input("SecretManagerArn")]
+        [Input("secretManagerArn")]
         public Input<string>? SecretManagerArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-url
         /// </summary>
-        [Input("URL")]
+        [Input("uRL")]
         public Input<string>? URL { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-usernameattributefield
         /// </summary>
-        [Input("UserNameAttributeField")]
+        [Input("userNameAttributeField")]
         public Input<string>? UserNameAttributeField { get; set; }
 
         public IndexJwtTokenTypeConfigurationArgs()

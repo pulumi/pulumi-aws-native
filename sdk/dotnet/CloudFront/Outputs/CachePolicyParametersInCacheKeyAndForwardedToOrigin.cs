@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
         [OutputConstructor]
         private CachePolicyParametersInCacheKeyAndForwardedToOrigin(
-            Outputs.CachePolicyCookiesConfig CookiesConfig,
+            Outputs.CachePolicyCookiesConfig cookiesConfig,
 
-            bool? EnableAcceptEncodingBrotli,
+            bool? enableAcceptEncodingBrotli,
 
-            bool EnableAcceptEncodingGzip,
+            bool enableAcceptEncodingGzip,
 
-            Outputs.CachePolicyHeadersConfig HeadersConfig,
+            Outputs.CachePolicyHeadersConfig headersConfig,
 
-            Outputs.CachePolicyQueryStringsConfig QueryStringsConfig)
+            Outputs.CachePolicyQueryStringsConfig queryStringsConfig)
         {
-            this.CookiesConfig = CookiesConfig;
-            this.EnableAcceptEncodingBrotli = EnableAcceptEncodingBrotli;
-            this.EnableAcceptEncodingGzip = EnableAcceptEncodingGzip;
-            this.HeadersConfig = HeadersConfig;
-            this.QueryStringsConfig = QueryStringsConfig;
+            CookiesConfig = cookiesConfig;
+            EnableAcceptEncodingBrotli = enableAcceptEncodingBrotli;
+            EnableAcceptEncodingGzip = enableAcceptEncodingGzip;
+            HeadersConfig = headersConfig;
+            QueryStringsConfig = queryStringsConfig;
         }
     }
 }

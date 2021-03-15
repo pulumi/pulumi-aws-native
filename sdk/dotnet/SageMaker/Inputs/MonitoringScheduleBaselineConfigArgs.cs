@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource
         /// </summary>
-        [Input("ConstraintsResource")]
+        [Input("constraintsResource")]
         public Input<Inputs.MonitoringScheduleConstraintsResourceArgs>? ConstraintsResource { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-statisticsresource
         /// </summary>
-        [Input("StatisticsResource")]
+        [Input("statisticsResource")]
         public Input<Inputs.MonitoringScheduleStatisticsResourceArgs>? StatisticsResource { get; set; }
 
         public MonitoringScheduleBaselineConfigArgs()

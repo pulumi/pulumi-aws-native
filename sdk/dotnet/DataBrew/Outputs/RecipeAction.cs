@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 
         [OutputConstructor]
         private RecipeAction(
-            string Operation,
+            string operation,
 
-            object? Parameters)
+            object? parameters)
         {
-            this.Operation = Operation;
-            this.Parameters = Parameters;
+            Operation = operation;
+            Parameters = parameters;
         }
     }
 }

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringkeyvalue.html#cfn-elasticloadbalancingv2-listenerrule-querystringkeyvalue-key
         /// </summary>
-        [Input("Key")]
+        [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringkeyvalue.html#cfn-elasticloadbalancingv2-listenerrule-querystringkeyvalue-value
         /// </summary>
-        [Input("Value")]
+        [Input("value")]
         public Input<string>? Value { get; set; }
 
         public ListenerRuleQueryStringKeyValueArgs()

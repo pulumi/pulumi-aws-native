@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowErrorHandlingConfig(
-            string? BucketName,
+            string? bucketName,
 
-            string? BucketPrefix,
+            string? bucketPrefix,
 
-            bool? FailOnFirstError)
+            bool? failOnFirstError)
         {
-            this.BucketName = BucketName;
-            this.BucketPrefix = BucketPrefix;
-            this.FailOnFirstError = FailOnFirstError;
+            BucketName = bucketName;
+            BucketPrefix = bucketPrefix;
+            FailOnFirstError = failOnFirstError;
         }
     }
 }

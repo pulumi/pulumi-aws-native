@@ -35,48 +35,48 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === ModelQualityJobDefinition.__pulumiType;
     }
 
-    public /*out*/ readonly CreationTime!: pulumi.Output<string>;
-    public /*out*/ readonly JobDefinitionArn!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly jobDefinitionArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
      */
-    public readonly JobDefinitionName!: pulumi.Output<string | undefined>;
+    public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
      */
-    public readonly JobResources!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionMonitoringResources>;
+    public readonly jobResources!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionMonitoringResources>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
      */
-    public readonly ModelQualityAppSpecification!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionModelQualityAppSpecification>;
+    public readonly modelQualityAppSpecification!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionModelQualityAppSpecification>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
      */
-    public readonly ModelQualityBaselineConfig!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionModelQualityBaselineConfig | undefined>;
+    public readonly modelQualityBaselineConfig!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionModelQualityBaselineConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
      */
-    public readonly ModelQualityJobInput!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionModelQualityJobInput>;
+    public readonly modelQualityJobInput!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionModelQualityJobInput>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
      */
-    public readonly ModelQualityJobOutputConfig!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionMonitoringOutputConfig>;
+    public readonly modelQualityJobOutputConfig!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionMonitoringOutputConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
      */
-    public readonly NetworkConfig!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionNetworkConfig | undefined>;
+    public readonly networkConfig!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionNetworkConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
      */
-    public readonly RoleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
      */
-    public readonly StoppingCondition!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionStoppingCondition | undefined>;
+    public readonly stoppingCondition!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionStoppingCondition | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ModelQualityJobDefinition resource with the given unique name, arguments, and options.
@@ -88,46 +88,46 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
     constructor(name: string, args: ModelQualityJobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.JobResources === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'JobResources'");
+            if ((!args || args.jobResources === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'jobResources'");
             }
-            if ((!args || args.ModelQualityAppSpecification === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ModelQualityAppSpecification'");
+            if ((!args || args.modelQualityAppSpecification === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'modelQualityAppSpecification'");
             }
-            if ((!args || args.ModelQualityJobInput === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ModelQualityJobInput'");
+            if ((!args || args.modelQualityJobInput === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'modelQualityJobInput'");
             }
-            if ((!args || args.ModelQualityJobOutputConfig === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ModelQualityJobOutputConfig'");
+            if ((!args || args.modelQualityJobOutputConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'modelQualityJobOutputConfig'");
             }
-            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RoleArn'");
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'roleArn'");
             }
-            inputs["JobDefinitionName"] = args ? args.JobDefinitionName : undefined;
-            inputs["JobResources"] = args ? args.JobResources : undefined;
-            inputs["ModelQualityAppSpecification"] = args ? args.ModelQualityAppSpecification : undefined;
-            inputs["ModelQualityBaselineConfig"] = args ? args.ModelQualityBaselineConfig : undefined;
-            inputs["ModelQualityJobInput"] = args ? args.ModelQualityJobInput : undefined;
-            inputs["ModelQualityJobOutputConfig"] = args ? args.ModelQualityJobOutputConfig : undefined;
-            inputs["NetworkConfig"] = args ? args.NetworkConfig : undefined;
-            inputs["RoleArn"] = args ? args.RoleArn : undefined;
-            inputs["StoppingCondition"] = args ? args.StoppingCondition : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["CreationTime"] = undefined /*out*/;
-            inputs["JobDefinitionArn"] = undefined /*out*/;
+            inputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
+            inputs["jobResources"] = args ? args.jobResources : undefined;
+            inputs["modelQualityAppSpecification"] = args ? args.modelQualityAppSpecification : undefined;
+            inputs["modelQualityBaselineConfig"] = args ? args.modelQualityBaselineConfig : undefined;
+            inputs["modelQualityJobInput"] = args ? args.modelQualityJobInput : undefined;
+            inputs["modelQualityJobOutputConfig"] = args ? args.modelQualityJobOutputConfig : undefined;
+            inputs["networkConfig"] = args ? args.networkConfig : undefined;
+            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["stoppingCondition"] = args ? args.stoppingCondition : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["jobDefinitionArn"] = undefined /*out*/;
         } else {
-            inputs["CreationTime"] = undefined /*out*/;
-            inputs["JobDefinitionArn"] = undefined /*out*/;
-            inputs["JobDefinitionName"] = undefined /*out*/;
-            inputs["JobResources"] = undefined /*out*/;
-            inputs["ModelQualityAppSpecification"] = undefined /*out*/;
-            inputs["ModelQualityBaselineConfig"] = undefined /*out*/;
-            inputs["ModelQualityJobInput"] = undefined /*out*/;
-            inputs["ModelQualityJobOutputConfig"] = undefined /*out*/;
-            inputs["NetworkConfig"] = undefined /*out*/;
-            inputs["RoleArn"] = undefined /*out*/;
-            inputs["StoppingCondition"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["jobDefinitionArn"] = undefined /*out*/;
+            inputs["jobDefinitionName"] = undefined /*out*/;
+            inputs["jobResources"] = undefined /*out*/;
+            inputs["modelQualityAppSpecification"] = undefined /*out*/;
+            inputs["modelQualityBaselineConfig"] = undefined /*out*/;
+            inputs["modelQualityJobInput"] = undefined /*out*/;
+            inputs["modelQualityJobOutputConfig"] = undefined /*out*/;
+            inputs["networkConfig"] = undefined /*out*/;
+            inputs["roleArn"] = undefined /*out*/;
+            inputs["stoppingCondition"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -147,41 +147,41 @@ export interface ModelQualityJobDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
      */
-    readonly JobDefinitionName?: pulumi.Input<string>;
+    readonly jobDefinitionName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
      */
-    readonly JobResources: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionMonitoringResources>;
+    readonly jobResources: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionMonitoringResources>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
      */
-    readonly ModelQualityAppSpecification: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionModelQualityAppSpecification>;
+    readonly modelQualityAppSpecification: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionModelQualityAppSpecification>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
      */
-    readonly ModelQualityBaselineConfig?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionModelQualityBaselineConfig>;
+    readonly modelQualityBaselineConfig?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionModelQualityBaselineConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
      */
-    readonly ModelQualityJobInput: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionModelQualityJobInput>;
+    readonly modelQualityJobInput: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionModelQualityJobInput>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
      */
-    readonly ModelQualityJobOutputConfig: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionMonitoringOutputConfig>;
+    readonly modelQualityJobOutputConfig: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionMonitoringOutputConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
      */
-    readonly NetworkConfig?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionNetworkConfig>;
+    readonly networkConfig?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionNetworkConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
      */
-    readonly RoleArn: pulumi.Input<string>;
+    readonly roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
      */
-    readonly StoppingCondition?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionStoppingCondition>;
+    readonly stoppingCondition?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionStoppingCondition>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

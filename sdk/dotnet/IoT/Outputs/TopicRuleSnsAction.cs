@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleSnsAction(
-            string? MessageFormat,
+            string? messageFormat,
 
-            string RoleArn,
+            string roleArn,
 
-            string TargetArn)
+            string targetArn)
         {
-            this.MessageFormat = MessageFormat;
-            this.RoleArn = RoleArn;
-            this.TargetArn = TargetArn;
+            MessageFormat = messageFormat;
+            RoleArn = roleArn;
+            TargetArn = targetArn;
         }
     }
 }

@@ -68,45 +68,45 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamElasticsearchDestinationConfiguration(
-            Outputs.DeliveryStreamElasticsearchBufferingHints? BufferingHints,
+            Outputs.DeliveryStreamElasticsearchBufferingHints? bufferingHints,
 
-            Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions,
+            Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
-            string? ClusterEndpoint,
+            string? clusterEndpoint,
 
-            string? DomainARN,
+            string? domainARN,
 
-            string IndexName,
+            string indexName,
 
-            string? IndexRotationPeriod,
+            string? indexRotationPeriod,
 
-            Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration,
+            Outputs.DeliveryStreamProcessingConfiguration? processingConfiguration,
 
-            Outputs.DeliveryStreamElasticsearchRetryOptions? RetryOptions,
+            Outputs.DeliveryStreamElasticsearchRetryOptions? retryOptions,
 
-            string RoleARN,
+            string roleARN,
 
-            string? S3BackupMode,
+            string? s3BackupMode,
 
-            Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration,
+            Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration,
 
-            string? TypeName,
+            string? typeName,
 
-            Outputs.DeliveryStreamVpcConfiguration? VpcConfiguration)
+            Outputs.DeliveryStreamVpcConfiguration? vpcConfiguration)
         {
-            this.BufferingHints = BufferingHints;
-            this.CloudWatchLoggingOptions = CloudWatchLoggingOptions;
-            this.ClusterEndpoint = ClusterEndpoint;
-            this.DomainARN = DomainARN;
-            this.IndexName = IndexName;
-            this.IndexRotationPeriod = IndexRotationPeriod;
-            this.ProcessingConfiguration = ProcessingConfiguration;
-            this.RetryOptions = RetryOptions;
-            this.RoleARN = RoleARN;
-            this.S3BackupMode = S3BackupMode;
-            this.S3Configuration = S3Configuration;
-            this.TypeName = TypeName;
-            this.VpcConfiguration = VpcConfiguration;
+            BufferingHints = bufferingHints;
+            CloudWatchLoggingOptions = cloudWatchLoggingOptions;
+            ClusterEndpoint = clusterEndpoint;
+            DomainARN = domainARN;
+            IndexName = indexName;
+            IndexRotationPeriod = indexRotationPeriod;
+            ProcessingConfiguration = processingConfiguration;
+            RetryOptions = retryOptions;
+            RoleARN = roleARN;
+            S3BackupMode = s3BackupMode;
+            S3Configuration = s3Configuration;
+            TypeName = typeName;
+            VpcConfiguration = vpcConfiguration;
         }
     }
 }

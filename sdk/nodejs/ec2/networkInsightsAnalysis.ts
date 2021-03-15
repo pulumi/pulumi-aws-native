@@ -35,31 +35,31 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInsightsAnalysis.__pulumiType;
     }
 
-    public /*out*/ readonly AlternatePathHints!: pulumi.Output<outputs.EC2.NetworkInsightsAnalysisAlternatePathHint[]>;
-    public /*out*/ readonly Explanations!: pulumi.Output<outputs.EC2.NetworkInsightsAnalysisExplanation[]>;
+    public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.EC2.NetworkInsightsAnalysisAlternatePathHint[]>;
+    public /*out*/ readonly explanations!: pulumi.Output<outputs.EC2.NetworkInsightsAnalysisExplanation[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
      */
-    public readonly FilterInArns!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly ForwardPathComponents!: pulumi.Output<outputs.EC2.NetworkInsightsAnalysisPathComponent[]>;
-    public /*out*/ readonly NetworkInsightsAnalysisArn!: pulumi.Output<string>;
-    public /*out*/ readonly NetworkInsightsAnalysisId!: pulumi.Output<string>;
+    public readonly filterInArns!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.EC2.NetworkInsightsAnalysisPathComponent[]>;
+    public /*out*/ readonly networkInsightsAnalysisArn!: pulumi.Output<string>;
+    public /*out*/ readonly networkInsightsAnalysisId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
      */
-    public readonly NetworkInsightsPathId!: pulumi.Output<string>;
-    public /*out*/ readonly NetworkPathFound!: pulumi.Output<boolean>;
-    public /*out*/ readonly ReturnPathComponents!: pulumi.Output<outputs.EC2.NetworkInsightsAnalysisPathComponent[]>;
-    public /*out*/ readonly StartDate!: pulumi.Output<string>;
-    public /*out*/ readonly Status!: pulumi.Output<string>;
+    public readonly networkInsightsPathId!: pulumi.Output<string>;
+    public /*out*/ readonly networkPathFound!: pulumi.Output<boolean>;
+    public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.EC2.NetworkInsightsAnalysisPathComponent[]>;
+    public /*out*/ readonly startDate!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
      */
-    public readonly StatusMessage!: pulumi.Output<string | undefined>;
+    public readonly statusMessage!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a NetworkInsightsAnalysis resource with the given unique name, arguments, and options.
@@ -71,36 +71,36 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     constructor(name: string, args: NetworkInsightsAnalysisArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.NetworkInsightsPathId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'NetworkInsightsPathId'");
+            if ((!args || args.networkInsightsPathId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'networkInsightsPathId'");
             }
-            inputs["FilterInArns"] = args ? args.FilterInArns : undefined;
-            inputs["NetworkInsightsPathId"] = args ? args.NetworkInsightsPathId : undefined;
-            inputs["StatusMessage"] = args ? args.StatusMessage : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["AlternatePathHints"] = undefined /*out*/;
-            inputs["Explanations"] = undefined /*out*/;
-            inputs["ForwardPathComponents"] = undefined /*out*/;
-            inputs["NetworkInsightsAnalysisArn"] = undefined /*out*/;
-            inputs["NetworkInsightsAnalysisId"] = undefined /*out*/;
-            inputs["NetworkPathFound"] = undefined /*out*/;
-            inputs["ReturnPathComponents"] = undefined /*out*/;
-            inputs["StartDate"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
+            inputs["filterInArns"] = args ? args.filterInArns : undefined;
+            inputs["networkInsightsPathId"] = args ? args.networkInsightsPathId : undefined;
+            inputs["statusMessage"] = args ? args.statusMessage : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["alternatePathHints"] = undefined /*out*/;
+            inputs["explanations"] = undefined /*out*/;
+            inputs["forwardPathComponents"] = undefined /*out*/;
+            inputs["networkInsightsAnalysisArn"] = undefined /*out*/;
+            inputs["networkInsightsAnalysisId"] = undefined /*out*/;
+            inputs["networkPathFound"] = undefined /*out*/;
+            inputs["returnPathComponents"] = undefined /*out*/;
+            inputs["startDate"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
         } else {
-            inputs["AlternatePathHints"] = undefined /*out*/;
-            inputs["Explanations"] = undefined /*out*/;
-            inputs["FilterInArns"] = undefined /*out*/;
-            inputs["ForwardPathComponents"] = undefined /*out*/;
-            inputs["NetworkInsightsAnalysisArn"] = undefined /*out*/;
-            inputs["NetworkInsightsAnalysisId"] = undefined /*out*/;
-            inputs["NetworkInsightsPathId"] = undefined /*out*/;
-            inputs["NetworkPathFound"] = undefined /*out*/;
-            inputs["ReturnPathComponents"] = undefined /*out*/;
-            inputs["StartDate"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
-            inputs["StatusMessage"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["alternatePathHints"] = undefined /*out*/;
+            inputs["explanations"] = undefined /*out*/;
+            inputs["filterInArns"] = undefined /*out*/;
+            inputs["forwardPathComponents"] = undefined /*out*/;
+            inputs["networkInsightsAnalysisArn"] = undefined /*out*/;
+            inputs["networkInsightsAnalysisId"] = undefined /*out*/;
+            inputs["networkInsightsPathId"] = undefined /*out*/;
+            inputs["networkPathFound"] = undefined /*out*/;
+            inputs["returnPathComponents"] = undefined /*out*/;
+            inputs["startDate"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["statusMessage"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -120,17 +120,17 @@ export interface NetworkInsightsAnalysisArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
      */
-    readonly FilterInArns?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly filterInArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
      */
-    readonly NetworkInsightsPathId: pulumi.Input<string>;
+    readonly networkInsightsPathId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
      */
-    readonly StatusMessage?: pulumi.Input<string>;
+    readonly statusMessage?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

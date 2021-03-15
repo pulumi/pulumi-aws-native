@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.S3.Outputs
         public readonly bool? IsEnabled;
 
         [OutputConstructor]
-        private StorageLensActivityMetrics(bool? IsEnabled)
+        private StorageLensActivityMetrics(bool? isEnabled)
         {
-            this.IsEnabled = IsEnabled;
+            IsEnabled = isEnabled;
         }
     }
 }

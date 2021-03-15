@@ -38,23 +38,23 @@ export class DataCatalog extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-parameters
      */
-    public readonly Parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Athena.DataCatalogTags | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Athena.DataCatalogTags | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-type
      */
-    public readonly Type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a DataCatalog resource with the given unique name, arguments, and options.
@@ -66,23 +66,23 @@ export class DataCatalog extends pulumi.CustomResource {
     constructor(name: string, args: DataCatalogArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.Type === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Type'");
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'type'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Parameters"] = args ? args.Parameters : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Type"] = args ? args.Type : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["Description"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Parameters"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Type"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["parameters"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,21 +102,21 @@ export interface DataCatalogArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-parameters
      */
-    readonly Parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-tags
      */
-    readonly Tags?: pulumi.Input<inputs.Athena.DataCatalogTags>;
+    readonly tags?: pulumi.Input<inputs.Athena.DataCatalogTags>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-type
      */
-    readonly Type: pulumi.Input<string>;
+    readonly type: pulumi.Input<string>;
 }

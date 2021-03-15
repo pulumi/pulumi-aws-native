@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-accesscontrollistconfiguration.html#cfn-kendra-datasource-accesscontrollistconfiguration-keypath
         /// </summary>
-        [Input("KeyPath")]
+        [Input("keyPath")]
         public Input<string>? KeyPath { get; set; }
 
         public DataSourceAccessControlListConfigurationArgs()

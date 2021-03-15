@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionVolume(
-            Outputs.TaskDefinitionDockerVolumeConfiguration? DockerVolumeConfiguration,
+            Outputs.TaskDefinitionDockerVolumeConfiguration? dockerVolumeConfiguration,
 
-            Outputs.TaskDefinitionEFSVolumeConfiguration? EFSVolumeConfiguration,
+            Outputs.TaskDefinitionEFSVolumeConfiguration? eFSVolumeConfiguration,
 
-            Outputs.TaskDefinitionHostVolumeProperties? Host,
+            Outputs.TaskDefinitionHostVolumeProperties? host,
 
-            string? Name)
+            string? name)
         {
-            this.DockerVolumeConfiguration = DockerVolumeConfiguration;
-            this.EFSVolumeConfiguration = EFSVolumeConfiguration;
-            this.Host = Host;
-            this.Name = Name;
+            DockerVolumeConfiguration = dockerVolumeConfiguration;
+            EFSVolumeConfiguration = eFSVolumeConfiguration;
+            Host = host;
+            Name = name;
         }
     }
 }

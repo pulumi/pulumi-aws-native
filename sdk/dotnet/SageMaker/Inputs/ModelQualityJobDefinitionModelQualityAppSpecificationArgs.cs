@@ -15,58 +15,58 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelQualityJobDefinitionModelQualityAppSpecificationArgs : Pulumi.ResourceArgs
     {
-        [Input("ContainerArguments")]
-        private InputList<string>? _ContainerArguments;
+        [Input("containerArguments")]
+        private InputList<string>? _containerArguments;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerarguments
         /// </summary>
         public InputList<string> ContainerArguments
         {
-            get => _ContainerArguments ?? (_ContainerArguments = new InputList<string>());
-            set => _ContainerArguments = value;
+            get => _containerArguments ?? (_containerArguments = new InputList<string>());
+            set => _containerArguments = value;
         }
 
-        [Input("ContainerEntrypoint")]
-        private InputList<string>? _ContainerEntrypoint;
+        [Input("containerEntrypoint")]
+        private InputList<string>? _containerEntrypoint;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerentrypoint
         /// </summary>
         public InputList<string> ContainerEntrypoint
         {
-            get => _ContainerEntrypoint ?? (_ContainerEntrypoint = new InputList<string>());
-            set => _ContainerEntrypoint = value;
+            get => _containerEntrypoint ?? (_containerEntrypoint = new InputList<string>());
+            set => _containerEntrypoint = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
         /// </summary>
-        [Input("Environment")]
+        [Input("environment")]
         public Input<Inputs.ModelQualityJobDefinitionEnvironmentArgs>? Environment { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
         /// </summary>
-        [Input("ImageUri", required: true)]
+        [Input("imageUri", required: true)]
         public Input<string> ImageUri { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-postanalyticsprocessorsourceuri
         /// </summary>
-        [Input("PostAnalyticsProcessorSourceUri")]
+        [Input("postAnalyticsProcessorSourceUri")]
         public Input<string>? PostAnalyticsProcessorSourceUri { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-problemtype
         /// </summary>
-        [Input("ProblemType", required: true)]
+        [Input("problemType", required: true)]
         public Input<string> ProblemType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-recordpreprocessorsourceuri
         /// </summary>
-        [Input("RecordPreprocessorSourceUri")]
+        [Input("recordPreprocessorSourceUri")]
         public Input<string>? RecordPreprocessorSourceUri { get; set; }
 
         public ModelQualityJobDefinitionModelQualityAppSpecificationArgs()

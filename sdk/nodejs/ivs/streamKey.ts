@@ -35,16 +35,16 @@ export class StreamKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamKey.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
      */
-    public readonly ChannelArn!: pulumi.Output<string>;
+    public readonly channelArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    public /*out*/ readonly Value!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public /*out*/ readonly value!: pulumi.Output<string>;
 
     /**
      * Create a StreamKey resource with the given unique name, arguments, and options.
@@ -56,18 +56,18 @@ export class StreamKey extends pulumi.CustomResource {
     constructor(name: string, args: StreamKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ChannelArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ChannelArn'");
+            if ((!args || args.channelArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'channelArn'");
             }
-            inputs["ChannelArn"] = args ? args.ChannelArn : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Value"] = undefined /*out*/;
+            inputs["channelArn"] = args ? args.channelArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["value"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["ChannelArn"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Value"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["channelArn"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["value"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -87,9 +87,9 @@ export interface StreamKeyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
      */
-    readonly ChannelArn: pulumi.Input<string>;
+    readonly channelArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

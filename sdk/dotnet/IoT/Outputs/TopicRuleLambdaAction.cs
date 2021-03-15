@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
         public readonly string? FunctionArn;
 
         [OutputConstructor]
-        private TopicRuleLambdaAction(string? FunctionArn)
+        private TopicRuleLambdaAction(string? functionArn)
         {
-            this.FunctionArn = FunctionArn;
+            FunctionArn = functionArn;
         }
     }
 }

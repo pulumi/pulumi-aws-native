@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private ServiceCapacityProviderStrategyItem(
-            int? Base,
+            int? @base,
 
-            string? CapacityProvider,
+            string? capacityProvider,
 
-            int? Weight)
+            int? weight)
         {
-            this.Base = Base;
-            this.CapacityProvider = CapacityProvider;
-            this.Weight = Weight;
+            Base = @base;
+            CapacityProvider = capacityProvider;
+            Weight = weight;
         }
     }
 }

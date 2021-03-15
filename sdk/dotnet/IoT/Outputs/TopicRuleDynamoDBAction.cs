@@ -52,33 +52,33 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleDynamoDBAction(
-            string HashKeyField,
+            string hashKeyField,
 
-            string? HashKeyType,
+            string? hashKeyType,
 
-            string HashKeyValue,
+            string hashKeyValue,
 
-            string? PayloadField,
+            string? payloadField,
 
-            string? RangeKeyField,
+            string? rangeKeyField,
 
-            string? RangeKeyType,
+            string? rangeKeyType,
 
-            string? RangeKeyValue,
+            string? rangeKeyValue,
 
-            string RoleArn,
+            string roleArn,
 
-            string TableName)
+            string tableName)
         {
-            this.HashKeyField = HashKeyField;
-            this.HashKeyType = HashKeyType;
-            this.HashKeyValue = HashKeyValue;
-            this.PayloadField = PayloadField;
-            this.RangeKeyField = RangeKeyField;
-            this.RangeKeyType = RangeKeyType;
-            this.RangeKeyValue = RangeKeyValue;
-            this.RoleArn = RoleArn;
-            this.TableName = TableName;
+            HashKeyField = hashKeyField;
+            HashKeyType = hashKeyType;
+            HashKeyValue = hashKeyValue;
+            PayloadField = payloadField;
+            RangeKeyField = rangeKeyField;
+            RangeKeyType = rangeKeyType;
+            RangeKeyValue = rangeKeyValue;
+            RoleArn = roleArn;
+            TableName = tableName;
         }
     }
 }

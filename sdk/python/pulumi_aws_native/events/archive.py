@@ -84,17 +84,17 @@ class Archive(pulumi.CustomResource):
         return Archive(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="ArchiveName")
+    @pulumi.getter(name="archiveName")
     def archive_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "archive_name")
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
@@ -102,7 +102,7 @@ class Archive(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="EventPattern")
+    @pulumi.getter(name="eventPattern")
     def event_pattern(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
@@ -110,7 +110,7 @@ class Archive(pulumi.CustomResource):
         return pulumi.get(self, "event_pattern")
 
     @property
-    @pulumi.getter(name="RetentionDays")
+    @pulumi.getter(name="retentionDays")
     def retention_days(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
@@ -118,7 +118,7 @@ class Archive(pulumi.CustomResource):
         return pulumi.get(self, "retention_days")
 
     @property
-    @pulumi.getter(name="SourceArn")
+    @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn

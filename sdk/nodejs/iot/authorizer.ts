@@ -35,35 +35,35 @@ export class Authorizer extends pulumi.CustomResource {
         return obj['__pulumiType'] === Authorizer.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
      */
-    public readonly AuthorizerFunctionArn!: pulumi.Output<string>;
+    public readonly authorizerFunctionArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
      */
-    public readonly AuthorizerName!: pulumi.Output<string | undefined>;
+    public readonly authorizerName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
      */
-    public readonly SigningDisabled!: pulumi.Output<boolean | undefined>;
+    public readonly signingDisabled!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
      */
-    public readonly Status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.IoT.AuthorizerTags | undefined>;
+    public readonly tags!: pulumi.Output<outputs.IoT.AuthorizerTags | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
      */
-    public readonly TokenKeyName!: pulumi.Output<string | undefined>;
+    public readonly tokenKeyName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
      */
-    public readonly TokenSigningPublicKeys!: pulumi.Output<outputs.IoT.AuthorizerTokenSigningPublicKeys | undefined>;
+    public readonly tokenSigningPublicKeys!: pulumi.Output<outputs.IoT.AuthorizerTokenSigningPublicKeys | undefined>;
 
     /**
      * Create a Authorizer resource with the given unique name, arguments, and options.
@@ -75,26 +75,26 @@ export class Authorizer extends pulumi.CustomResource {
     constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.AuthorizerFunctionArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'AuthorizerFunctionArn'");
+            if ((!args || args.authorizerFunctionArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'authorizerFunctionArn'");
             }
-            inputs["AuthorizerFunctionArn"] = args ? args.AuthorizerFunctionArn : undefined;
-            inputs["AuthorizerName"] = args ? args.AuthorizerName : undefined;
-            inputs["SigningDisabled"] = args ? args.SigningDisabled : undefined;
-            inputs["Status"] = args ? args.Status : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["TokenKeyName"] = args ? args.TokenKeyName : undefined;
-            inputs["TokenSigningPublicKeys"] = args ? args.TokenSigningPublicKeys : undefined;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["authorizerFunctionArn"] = args ? args.authorizerFunctionArn : undefined;
+            inputs["authorizerName"] = args ? args.authorizerName : undefined;
+            inputs["signingDisabled"] = args ? args.signingDisabled : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["tokenKeyName"] = args ? args.tokenKeyName : undefined;
+            inputs["tokenSigningPublicKeys"] = args ? args.tokenSigningPublicKeys : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["AuthorizerFunctionArn"] = undefined /*out*/;
-            inputs["AuthorizerName"] = undefined /*out*/;
-            inputs["SigningDisabled"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["TokenKeyName"] = undefined /*out*/;
-            inputs["TokenSigningPublicKeys"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["authorizerFunctionArn"] = undefined /*out*/;
+            inputs["authorizerName"] = undefined /*out*/;
+            inputs["signingDisabled"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["tokenKeyName"] = undefined /*out*/;
+            inputs["tokenSigningPublicKeys"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -114,29 +114,29 @@ export interface AuthorizerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
      */
-    readonly AuthorizerFunctionArn: pulumi.Input<string>;
+    readonly authorizerFunctionArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
      */
-    readonly AuthorizerName?: pulumi.Input<string>;
+    readonly authorizerName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
      */
-    readonly SigningDisabled?: pulumi.Input<boolean>;
+    readonly signingDisabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
      */
-    readonly Status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
      */
-    readonly Tags?: pulumi.Input<inputs.IoT.AuthorizerTags>;
+    readonly tags?: pulumi.Input<inputs.IoT.AuthorizerTags>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
      */
-    readonly TokenKeyName?: pulumi.Input<string>;
+    readonly tokenKeyName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
      */
-    readonly TokenSigningPublicKeys?: pulumi.Input<inputs.IoT.AuthorizerTokenSigningPublicKeys>;
+    readonly tokenSigningPublicKeys?: pulumi.Input<inputs.IoT.AuthorizerTokenSigningPublicKeys>;
 }

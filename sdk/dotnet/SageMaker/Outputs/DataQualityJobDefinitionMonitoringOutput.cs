@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly Outputs.DataQualityJobDefinitionS3Output S3Output;
 
         [OutputConstructor]
-        private DataQualityJobDefinitionMonitoringOutput(Outputs.DataQualityJobDefinitionS3Output S3Output)
+        private DataQualityJobDefinitionMonitoringOutput(Outputs.DataQualityJobDefinitionS3Output s3Output)
         {
-            this.S3Output = S3Output;
+            S3Output = s3Output;
         }
     }
 }

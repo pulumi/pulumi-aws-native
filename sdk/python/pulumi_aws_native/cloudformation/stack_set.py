@@ -114,7 +114,7 @@ class StackSet(pulumi.CustomResource):
         return StackSet(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AdministrationRoleARN")
+    @pulumi.getter(name="administrationRoleARN")
     def administration_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
@@ -122,7 +122,7 @@ class StackSet(pulumi.CustomResource):
         return pulumi.get(self, "administration_role_arn")
 
     @property
-    @pulumi.getter(name="AutoDeployment")
+    @pulumi.getter(name="autoDeployment")
     def auto_deployment(self) -> pulumi.Output[Optional['outputs.StackSetAutoDeployment']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
@@ -130,7 +130,7 @@ class StackSet(pulumi.CustomResource):
         return pulumi.get(self, "auto_deployment")
 
     @property
-    @pulumi.getter(name="Capabilities")
+    @pulumi.getter
     def capabilities(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
@@ -138,7 +138,7 @@ class StackSet(pulumi.CustomResource):
         return pulumi.get(self, "capabilities")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
@@ -146,7 +146,7 @@ class StackSet(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="ExecutionRoleName")
+    @pulumi.getter(name="executionRoleName")
     def execution_role_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
@@ -154,7 +154,7 @@ class StackSet(pulumi.CustomResource):
         return pulumi.get(self, "execution_role_name")
 
     @property
-    @pulumi.getter(name="OperationPreferences")
+    @pulumi.getter(name="operationPreferences")
     def operation_preferences(self) -> pulumi.Output[Optional['outputs.StackSetOperationPreferences']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
@@ -162,7 +162,7 @@ class StackSet(pulumi.CustomResource):
         return pulumi.get(self, "operation_preferences")
 
     @property
-    @pulumi.getter(name="Parameters")
+    @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.StackSetParameter']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
@@ -170,7 +170,7 @@ class StackSet(pulumi.CustomResource):
         return pulumi.get(self, "parameters")
 
     @property
-    @pulumi.getter(name="PermissionModel")
+    @pulumi.getter(name="permissionModel")
     def permission_model(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
@@ -178,7 +178,7 @@ class StackSet(pulumi.CustomResource):
         return pulumi.get(self, "permission_model")
 
     @property
-    @pulumi.getter(name="StackInstancesGroup")
+    @pulumi.getter(name="stackInstancesGroup")
     def stack_instances_group(self) -> pulumi.Output[Optional[Sequence['outputs.StackSetStackInstances']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
@@ -186,12 +186,12 @@ class StackSet(pulumi.CustomResource):
         return pulumi.get(self, "stack_instances_group")
 
     @property
-    @pulumi.getter(name="StackSetId")
+    @pulumi.getter(name="stackSetId")
     def stack_set_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "stack_set_id")
 
     @property
-    @pulumi.getter(name="StackSetName")
+    @pulumi.getter(name="stackSetName")
     def stack_set_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
@@ -199,7 +199,7 @@ class StackSet(pulumi.CustomResource):
         return pulumi.get(self, "stack_set_name")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
@@ -207,7 +207,7 @@ class StackSet(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="TemplateBody")
+    @pulumi.getter(name="templateBody")
     def template_body(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
@@ -215,7 +215,7 @@ class StackSet(pulumi.CustomResource):
         return pulumi.get(self, "template_body")
 
     @property
-    @pulumi.getter(name="TemplateURL")
+    @pulumi.getter(name="templateURL")
     def template_url(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl

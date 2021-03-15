@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-configurationdetails
         /// </summary>
-        [Input("ConfigurationDetails")]
+        [Input("configurationDetails")]
         public Input<Inputs.ApplicationConfigurationDetailsArgs>? ConfigurationDetails { get; set; }
 
-        [Input("SubComponentTypeConfigurations")]
-        private InputList<Inputs.ApplicationSubComponentTypeConfigurationArgs>? _SubComponentTypeConfigurations;
+        [Input("subComponentTypeConfigurations")]
+        private InputList<Inputs.ApplicationSubComponentTypeConfigurationArgs>? _subComponentTypeConfigurations;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-subcomponenttypeconfigurations
         /// </summary>
         public InputList<Inputs.ApplicationSubComponentTypeConfigurationArgs> SubComponentTypeConfigurations
         {
-            get => _SubComponentTypeConfigurations ?? (_SubComponentTypeConfigurations = new InputList<Inputs.ApplicationSubComponentTypeConfigurationArgs>());
-            set => _SubComponentTypeConfigurations = value;
+            get => _subComponentTypeConfigurations ?? (_subComponentTypeConfigurations = new InputList<Inputs.ApplicationSubComponentTypeConfigurationArgs>());
+            set => _subComponentTypeConfigurations = value;
         }
 
         public ApplicationComponentConfigurationArgs()

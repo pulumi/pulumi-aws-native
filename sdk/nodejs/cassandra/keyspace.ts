@@ -37,7 +37,7 @@ export class Keyspace extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
      */
-    public readonly KeyspaceName!: pulumi.Output<string | undefined>;
+    public readonly keyspaceName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Keyspace resource with the given unique name, arguments, and options.
@@ -49,9 +49,9 @@ export class Keyspace extends pulumi.CustomResource {
     constructor(name: string, args?: KeyspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["KeyspaceName"] = args ? args.KeyspaceName : undefined;
+            inputs["keyspaceName"] = args ? args.keyspaceName : undefined;
         } else {
-            inputs["KeyspaceName"] = undefined /*out*/;
+            inputs["keyspaceName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -71,5 +71,5 @@ export interface KeyspaceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
      */
-    readonly KeyspaceName?: pulumi.Input<string>;
+    readonly keyspaceName?: pulumi.Input<string>;
 }

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametername
         /// </summary>
-        [Input("ParameterName", required: true)]
+        [Input("parameterName", required: true)]
         public Input<string> ParameterName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametervalue
         /// </summary>
-        [Input("ParameterValue", required: true)]
+        [Input("parameterValue", required: true)]
         public Input<string> ParameterValue { get; set; } = null!;
 
         public ConformancePackConformancePackInputParameterArgs()

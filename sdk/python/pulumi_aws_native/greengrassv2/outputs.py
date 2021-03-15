@@ -40,7 +40,7 @@ class ComponentVersionComponentDependencyRequirement(dict):
             pulumi.set(__self__, "version_requirement", version_requirement)
 
     @property
-    @pulumi.getter(name="DependencyType")
+    @pulumi.getter(name="dependencyType")
     def dependency_type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-dependencytype
@@ -48,7 +48,7 @@ class ComponentVersionComponentDependencyRequirement(dict):
         return pulumi.get(self, "dependency_type")
 
     @property
-    @pulumi.getter(name="VersionRequirement")
+    @pulumi.getter(name="versionRequirement")
     def version_requirement(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-versionrequirement
@@ -78,7 +78,7 @@ class ComponentVersionComponentPlatform(dict):
             pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter(name="Attributes")
+    @pulumi.getter
     def attributes(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-attributes
@@ -86,7 +86,7 @@ class ComponentVersionComponentPlatform(dict):
         return pulumi.get(self, "attributes")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-name
@@ -124,7 +124,7 @@ class ComponentVersionLambdaContainerParams(dict):
             pulumi.set(__self__, "volumes", volumes)
 
     @property
-    @pulumi.getter(name="Devices")
+    @pulumi.getter
     def devices(self) -> Optional[Sequence['outputs.ComponentVersionLambdaDeviceMount']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-devices
@@ -132,7 +132,7 @@ class ComponentVersionLambdaContainerParams(dict):
         return pulumi.get(self, "devices")
 
     @property
-    @pulumi.getter(name="MemorySizeInKB")
+    @pulumi.getter(name="memorySizeInKB")
     def memory_size_in_kb(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-memorysizeinkb
@@ -140,7 +140,7 @@ class ComponentVersionLambdaContainerParams(dict):
         return pulumi.get(self, "memory_size_in_kb")
 
     @property
-    @pulumi.getter(name="MountROSysfs")
+    @pulumi.getter(name="mountROSysfs")
     def mount_ro_sysfs(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-mountrosysfs
@@ -148,7 +148,7 @@ class ComponentVersionLambdaContainerParams(dict):
         return pulumi.get(self, "mount_ro_sysfs")
 
     @property
-    @pulumi.getter(name="Volumes")
+    @pulumi.getter
     def volumes(self) -> Optional[Sequence['outputs.ComponentVersionLambdaVolumeMount']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-volumes
@@ -182,7 +182,7 @@ class ComponentVersionLambdaDeviceMount(dict):
             pulumi.set(__self__, "permission", permission)
 
     @property
-    @pulumi.getter(name="AddGroupOwner")
+    @pulumi.getter(name="addGroupOwner")
     def add_group_owner(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-addgroupowner
@@ -190,7 +190,7 @@ class ComponentVersionLambdaDeviceMount(dict):
         return pulumi.get(self, "add_group_owner")
 
     @property
-    @pulumi.getter(name="Path")
+    @pulumi.getter
     def path(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-path
@@ -198,7 +198,7 @@ class ComponentVersionLambdaDeviceMount(dict):
         return pulumi.get(self, "path")
 
     @property
-    @pulumi.getter(name="Permission")
+    @pulumi.getter
     def permission(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-permission
@@ -228,7 +228,7 @@ class ComponentVersionLambdaEventSource(dict):
             pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="Topic")
+    @pulumi.getter
     def topic(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html#cfn-greengrassv2-componentversion-lambdaeventsource-topic
@@ -236,7 +236,7 @@ class ComponentVersionLambdaEventSource(dict):
         return pulumi.get(self, "topic")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html#cfn-greengrassv2-componentversion-lambdaeventsource-type
@@ -302,7 +302,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
             pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
 
     @property
-    @pulumi.getter(name="EnvironmentVariables")
+    @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-environmentvariables
@@ -310,7 +310,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
         return pulumi.get(self, "environment_variables")
 
     @property
-    @pulumi.getter(name="EventSources")
+    @pulumi.getter(name="eventSources")
     def event_sources(self) -> Optional[Sequence['outputs.ComponentVersionLambdaEventSource']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-eventsources
@@ -318,7 +318,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
         return pulumi.get(self, "event_sources")
 
     @property
-    @pulumi.getter(name="ExecArgs")
+    @pulumi.getter(name="execArgs")
     def exec_args(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-execargs
@@ -326,7 +326,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
         return pulumi.get(self, "exec_args")
 
     @property
-    @pulumi.getter(name="InputPayloadEncodingType")
+    @pulumi.getter(name="inputPayloadEncodingType")
     def input_payload_encoding_type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-inputpayloadencodingtype
@@ -334,7 +334,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
         return pulumi.get(self, "input_payload_encoding_type")
 
     @property
-    @pulumi.getter(name="LinuxProcessParams")
+    @pulumi.getter(name="linuxProcessParams")
     def linux_process_params(self) -> Optional['outputs.ComponentVersionLambdaLinuxProcessParams']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-linuxprocessparams
@@ -342,7 +342,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
         return pulumi.get(self, "linux_process_params")
 
     @property
-    @pulumi.getter(name="MaxIdleTimeInSeconds")
+    @pulumi.getter(name="maxIdleTimeInSeconds")
     def max_idle_time_in_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxidletimeinseconds
@@ -350,7 +350,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
         return pulumi.get(self, "max_idle_time_in_seconds")
 
     @property
-    @pulumi.getter(name="MaxInstancesCount")
+    @pulumi.getter(name="maxInstancesCount")
     def max_instances_count(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxinstancescount
@@ -358,7 +358,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
         return pulumi.get(self, "max_instances_count")
 
     @property
-    @pulumi.getter(name="MaxQueueSize")
+    @pulumi.getter(name="maxQueueSize")
     def max_queue_size(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxqueuesize
@@ -366,7 +366,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
         return pulumi.get(self, "max_queue_size")
 
     @property
-    @pulumi.getter(name="Pinned")
+    @pulumi.getter
     def pinned(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-pinned
@@ -374,7 +374,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
         return pulumi.get(self, "pinned")
 
     @property
-    @pulumi.getter(name="StatusTimeoutInSeconds")
+    @pulumi.getter(name="statusTimeoutInSeconds")
     def status_timeout_in_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-statustimeoutinseconds
@@ -382,7 +382,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
         return pulumi.get(self, "status_timeout_in_seconds")
 
     @property
-    @pulumi.getter(name="TimeoutInSeconds")
+    @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-timeoutinseconds
@@ -428,7 +428,7 @@ class ComponentVersionLambdaFunctionRecipeSource(dict):
             pulumi.set(__self__, "lambda_arn", lambda_arn)
 
     @property
-    @pulumi.getter(name="ComponentDependencies")
+    @pulumi.getter(name="componentDependencies")
     def component_dependencies(self) -> Optional[Mapping[str, 'outputs.ComponentVersionComponentDependencyRequirement']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentdependencies
@@ -436,7 +436,7 @@ class ComponentVersionLambdaFunctionRecipeSource(dict):
         return pulumi.get(self, "component_dependencies")
 
     @property
-    @pulumi.getter(name="ComponentLambdaParameters")
+    @pulumi.getter(name="componentLambdaParameters")
     def component_lambda_parameters(self) -> Optional['outputs.ComponentVersionLambdaExecutionParameters']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentlambdaparameters
@@ -444,7 +444,7 @@ class ComponentVersionLambdaFunctionRecipeSource(dict):
         return pulumi.get(self, "component_lambda_parameters")
 
     @property
-    @pulumi.getter(name="ComponentName")
+    @pulumi.getter(name="componentName")
     def component_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentname
@@ -452,7 +452,7 @@ class ComponentVersionLambdaFunctionRecipeSource(dict):
         return pulumi.get(self, "component_name")
 
     @property
-    @pulumi.getter(name="ComponentPlatforms")
+    @pulumi.getter(name="componentPlatforms")
     def component_platforms(self) -> Optional[Sequence['outputs.ComponentVersionComponentPlatform']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentplatforms
@@ -460,7 +460,7 @@ class ComponentVersionLambdaFunctionRecipeSource(dict):
         return pulumi.get(self, "component_platforms")
 
     @property
-    @pulumi.getter(name="ComponentVersion")
+    @pulumi.getter(name="componentVersion")
     def component_version(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentversion
@@ -468,7 +468,7 @@ class ComponentVersionLambdaFunctionRecipeSource(dict):
         return pulumi.get(self, "component_version")
 
     @property
-    @pulumi.getter(name="LambdaArn")
+    @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-lambdaarn
@@ -498,7 +498,7 @@ class ComponentVersionLambdaLinuxProcessParams(dict):
             pulumi.set(__self__, "isolation_mode", isolation_mode)
 
     @property
-    @pulumi.getter(name="ContainerParams")
+    @pulumi.getter(name="containerParams")
     def container_params(self) -> Optional['outputs.ComponentVersionLambdaContainerParams']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-containerparams
@@ -506,7 +506,7 @@ class ComponentVersionLambdaLinuxProcessParams(dict):
         return pulumi.get(self, "container_params")
 
     @property
-    @pulumi.getter(name="IsolationMode")
+    @pulumi.getter(name="isolationMode")
     def isolation_mode(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-isolationmode
@@ -544,7 +544,7 @@ class ComponentVersionLambdaVolumeMount(dict):
             pulumi.set(__self__, "source_path", source_path)
 
     @property
-    @pulumi.getter(name="AddGroupOwner")
+    @pulumi.getter(name="addGroupOwner")
     def add_group_owner(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-addgroupowner
@@ -552,7 +552,7 @@ class ComponentVersionLambdaVolumeMount(dict):
         return pulumi.get(self, "add_group_owner")
 
     @property
-    @pulumi.getter(name="DestinationPath")
+    @pulumi.getter(name="destinationPath")
     def destination_path(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-destinationpath
@@ -560,7 +560,7 @@ class ComponentVersionLambdaVolumeMount(dict):
         return pulumi.get(self, "destination_path")
 
     @property
-    @pulumi.getter(name="Permission")
+    @pulumi.getter
     def permission(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-permission
@@ -568,7 +568,7 @@ class ComponentVersionLambdaVolumeMount(dict):
         return pulumi.get(self, "permission")
 
     @property
-    @pulumi.getter(name="SourcePath")
+    @pulumi.getter(name="sourcePath")
     def source_path(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-sourcepath

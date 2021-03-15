@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinition
         /// </summary>
-        [Input("MonitoringJobDefinition")]
+        [Input("monitoringJobDefinition")]
         public Input<Inputs.MonitoringScheduleMonitoringJobDefinitionArgs>? MonitoringJobDefinition { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinitionname
         /// </summary>
-        [Input("MonitoringJobDefinitionName")]
+        [Input("monitoringJobDefinitionName")]
         public Input<string>? MonitoringJobDefinitionName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringtype
         /// </summary>
-        [Input("MonitoringType")]
+        [Input("monitoringType")]
         public Input<string>? MonitoringType { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-scheduleconfig
         /// </summary>
-        [Input("ScheduleConfig")]
+        [Input("scheduleConfig")]
         public Input<Inputs.MonitoringScheduleScheduleConfigArgs>? ScheduleConfig { get; set; }
 
         public MonitoringScheduleMonitoringScheduleConfigArgs()

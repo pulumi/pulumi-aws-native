@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enableintercontainertrafficencryption
         /// </summary>
-        [Input("EnableInterContainerTrafficEncryption")]
+        [Input("enableInterContainerTrafficEncryption")]
         public Input<bool>? EnableInterContainerTrafficEncryption { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enablenetworkisolation
         /// </summary>
-        [Input("EnableNetworkIsolation")]
+        [Input("enableNetworkIsolation")]
         public Input<bool>? EnableNetworkIsolation { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-vpcconfig
         /// </summary>
-        [Input("VpcConfig")]
+        [Input("vpcConfig")]
         public Input<Inputs.ModelBiasJobDefinitionVpcConfigArgs>? VpcConfig { get; set; }
 
         public ModelBiasJobDefinitionNetworkConfigArgs()

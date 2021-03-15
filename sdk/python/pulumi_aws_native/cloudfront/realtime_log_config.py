@@ -89,12 +89,12 @@ class RealtimeLogConfig(pulumi.CustomResource):
         return RealtimeLogConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="EndPoints")
+    @pulumi.getter(name="endPoints")
     def end_points(self) -> pulumi.Output[Sequence['outputs.RealtimeLogConfigEndPoint']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
@@ -102,7 +102,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
         return pulumi.get(self, "end_points")
 
     @property
-    @pulumi.getter(name="Fields")
+    @pulumi.getter
     def fields(self) -> pulumi.Output[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
@@ -110,7 +110,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
         return pulumi.get(self, "fields")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
@@ -118,7 +118,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="SamplingRate")
+    @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> pulumi.Output[float]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate

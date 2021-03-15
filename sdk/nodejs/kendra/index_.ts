@@ -35,48 +35,48 @@ export class Index extends pulumi.CustomResource {
         return obj['__pulumiType'] === Index.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
      */
-    public readonly CapacityUnits!: pulumi.Output<outputs.Kendra.IndexCapacityUnitsConfiguration | undefined>;
+    public readonly capacityUnits!: pulumi.Output<outputs.Kendra.IndexCapacityUnitsConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
      */
-    public readonly DocumentMetadataConfigurations!: pulumi.Output<outputs.Kendra.IndexDocumentMetadataConfigurationList | undefined>;
+    public readonly documentMetadataConfigurations!: pulumi.Output<outputs.Kendra.IndexDocumentMetadataConfigurationList | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
      */
-    public readonly Edition!: pulumi.Output<string>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly edition!: pulumi.Output<string>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
      */
-    public readonly RoleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
      */
-    public readonly ServerSideEncryptionConfiguration!: pulumi.Output<outputs.Kendra.IndexServerSideEncryptionConfiguration | undefined>;
+    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.Kendra.IndexServerSideEncryptionConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Kendra.IndexTagList | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Kendra.IndexTagList | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
      */
-    public readonly UserContextPolicy!: pulumi.Output<string | undefined>;
+    public readonly userContextPolicy!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
      */
-    public readonly UserTokenConfigurations!: pulumi.Output<outputs.Kendra.IndexUserTokenConfigurationList | undefined>;
+    public readonly userTokenConfigurations!: pulumi.Output<outputs.Kendra.IndexUserTokenConfigurationList | undefined>;
 
     /**
      * Create a Index resource with the given unique name, arguments, and options.
@@ -88,40 +88,40 @@ export class Index extends pulumi.CustomResource {
     constructor(name: string, args: IndexArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Edition === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Edition'");
+            if ((!args || args.edition === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'edition'");
             }
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RoleArn'");
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'roleArn'");
             }
-            inputs["CapacityUnits"] = args ? args.CapacityUnits : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["DocumentMetadataConfigurations"] = args ? args.DocumentMetadataConfigurations : undefined;
-            inputs["Edition"] = args ? args.Edition : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["RoleArn"] = args ? args.RoleArn : undefined;
-            inputs["ServerSideEncryptionConfiguration"] = args ? args.ServerSideEncryptionConfiguration : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["UserContextPolicy"] = args ? args.UserContextPolicy : undefined;
-            inputs["UserTokenConfigurations"] = args ? args.UserTokenConfigurations : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
+            inputs["capacityUnits"] = args ? args.capacityUnits : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["documentMetadataConfigurations"] = args ? args.documentMetadataConfigurations : undefined;
+            inputs["edition"] = args ? args.edition : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["userContextPolicy"] = args ? args.userContextPolicy : undefined;
+            inputs["userTokenConfigurations"] = args ? args.userTokenConfigurations : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CapacityUnits"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["DocumentMetadataConfigurations"] = undefined /*out*/;
-            inputs["Edition"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["RoleArn"] = undefined /*out*/;
-            inputs["ServerSideEncryptionConfiguration"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["UserContextPolicy"] = undefined /*out*/;
-            inputs["UserTokenConfigurations"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["capacityUnits"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["documentMetadataConfigurations"] = undefined /*out*/;
+            inputs["edition"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["roleArn"] = undefined /*out*/;
+            inputs["serverSideEncryptionConfiguration"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["userContextPolicy"] = undefined /*out*/;
+            inputs["userTokenConfigurations"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -141,41 +141,41 @@ export interface IndexArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
      */
-    readonly CapacityUnits?: pulumi.Input<inputs.Kendra.IndexCapacityUnitsConfiguration>;
+    readonly capacityUnits?: pulumi.Input<inputs.Kendra.IndexCapacityUnitsConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
      */
-    readonly DocumentMetadataConfigurations?: pulumi.Input<inputs.Kendra.IndexDocumentMetadataConfigurationList>;
+    readonly documentMetadataConfigurations?: pulumi.Input<inputs.Kendra.IndexDocumentMetadataConfigurationList>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
      */
-    readonly Edition: pulumi.Input<string>;
+    readonly edition: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
      */
-    readonly RoleArn: pulumi.Input<string>;
+    readonly roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
      */
-    readonly ServerSideEncryptionConfiguration?: pulumi.Input<inputs.Kendra.IndexServerSideEncryptionConfiguration>;
+    readonly serverSideEncryptionConfiguration?: pulumi.Input<inputs.Kendra.IndexServerSideEncryptionConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
      */
-    readonly Tags?: pulumi.Input<inputs.Kendra.IndexTagList>;
+    readonly tags?: pulumi.Input<inputs.Kendra.IndexTagList>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
      */
-    readonly UserContextPolicy?: pulumi.Input<string>;
+    readonly userContextPolicy?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
      */
-    readonly UserTokenConfigurations?: pulumi.Input<inputs.Kendra.IndexUserTokenConfigurationList>;
+    readonly userTokenConfigurations?: pulumi.Input<inputs.Kendra.IndexUserTokenConfigurationList>;
 }

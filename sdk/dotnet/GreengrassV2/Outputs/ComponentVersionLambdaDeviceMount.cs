@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
         [OutputConstructor]
         private ComponentVersionLambdaDeviceMount(
-            bool? AddGroupOwner,
+            bool? addGroupOwner,
 
-            string? Path,
+            string? path,
 
-            string? Permission)
+            string? permission)
         {
-            this.AddGroupOwner = AddGroupOwner;
-            this.Path = Path;
-            this.Permission = Permission;
+            AddGroupOwner = addGroupOwner;
+            Path = path;
+            Permission = permission;
         }
     }
 }

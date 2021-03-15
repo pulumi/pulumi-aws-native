@@ -15,28 +15,28 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:IoT:TopicRuleDestination")]
     public partial class TopicRuleDestination : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
         /// </summary>
-        [Output("HttpUrlProperties")]
+        [Output("httpUrlProperties")]
         public Output<Outputs.TopicRuleDestinationHttpUrlDestinationSummary?> HttpUrlProperties { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
         /// </summary>
-        [Output("Status")]
+        [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
-        [Output("StatusReason")]
+        [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
         /// </summary>
-        [Output("VpcProperties")]
+        [Output("vpcProperties")]
         public Output<Outputs.TopicRuleDestinationVpcDestinationProperties?> VpcProperties { get; private set; } = null!;
 
 
@@ -87,19 +87,19 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
         /// </summary>
-        [Input("HttpUrlProperties")]
+        [Input("httpUrlProperties")]
         public Input<Inputs.TopicRuleDestinationHttpUrlDestinationSummaryArgs>? HttpUrlProperties { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
         /// </summary>
-        [Input("Status")]
+        [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
         /// </summary>
-        [Input("VpcProperties")]
+        [Input("vpcProperties")]
         public Input<Inputs.TopicRuleDestinationVpcDestinationPropertiesArgs>? VpcProperties { get; set; }
 
         public TopicRuleDestinationArgs()

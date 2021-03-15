@@ -105,12 +105,12 @@ class Component(pulumi.CustomResource):
         return Component(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="ChangeDescription")
+    @pulumi.getter(name="changeDescription")
     def change_description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
@@ -118,7 +118,7 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "change_description")
 
     @property
-    @pulumi.getter(name="Data")
+    @pulumi.getter
     def data(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
@@ -126,7 +126,7 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "data")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
@@ -134,12 +134,12 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="Encrypted")
+    @pulumi.getter
     def encrypted(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "encrypted")
 
     @property
-    @pulumi.getter(name="KmsKeyId")
+    @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
@@ -147,7 +147,7 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_id")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
@@ -155,7 +155,7 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Platform")
+    @pulumi.getter
     def platform(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
@@ -163,7 +163,7 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "platform")
 
     @property
-    @pulumi.getter(name="SupportedOsVersions")
+    @pulumi.getter(name="supportedOsVersions")
     def supported_os_versions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
@@ -171,7 +171,7 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "supported_os_versions")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
@@ -179,12 +179,12 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="Uri")
+    @pulumi.getter
     def uri(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
@@ -192,7 +192,7 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "uri")
 
     @property
-    @pulumi.getter(name="Version")
+    @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version

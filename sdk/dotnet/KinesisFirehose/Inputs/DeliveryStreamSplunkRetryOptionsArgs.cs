@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkretryoptions.html#cfn-kinesisfirehose-deliverystream-splunkretryoptions-durationinseconds
         /// </summary>
-        [Input("DurationInSeconds")]
+        [Input("durationInSeconds")]
         public Input<int>? DurationInSeconds { get; set; }
 
         public DeliveryStreamSplunkRetryOptionsArgs()

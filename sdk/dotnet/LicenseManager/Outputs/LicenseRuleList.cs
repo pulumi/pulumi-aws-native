@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
         public readonly ImmutableArray<Outputs.LicenseRule> RuleList;
 
         [OutputConstructor]
-        private LicenseRuleList(ImmutableArray<Outputs.LicenseRule> RuleList)
+        private LicenseRuleList(ImmutableArray<Outputs.LicenseRule> ruleList)
         {
-            this.RuleList = RuleList;
+            RuleList = ruleList;
         }
     }
 }

@@ -72,48 +72,48 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowConnectorOperator(
-            string? Amplitude,
+            string? amplitude,
 
-            string? Datadog,
+            string? datadog,
 
-            string? Dynatrace,
+            string? dynatrace,
 
-            string? GoogleAnalytics,
+            string? googleAnalytics,
 
-            string? InforNexus,
+            string? inforNexus,
 
-            string? Marketo,
+            string? marketo,
 
-            string? S3,
+            string? s3,
 
-            string? Salesforce,
+            string? salesforce,
 
-            string? ServiceNow,
+            string? serviceNow,
 
-            string? Singular,
+            string? singular,
 
-            string? Slack,
+            string? slack,
 
-            string? Trendmicro,
+            string? trendmicro,
 
-            string? Veeva,
+            string? veeva,
 
-            string? Zendesk)
+            string? zendesk)
         {
-            this.Amplitude = Amplitude;
-            this.Datadog = Datadog;
-            this.Dynatrace = Dynatrace;
-            this.GoogleAnalytics = GoogleAnalytics;
-            this.InforNexus = InforNexus;
-            this.Marketo = Marketo;
-            this.S3 = S3;
-            this.Salesforce = Salesforce;
-            this.ServiceNow = ServiceNow;
-            this.Singular = Singular;
-            this.Slack = Slack;
-            this.Trendmicro = Trendmicro;
-            this.Veeva = Veeva;
-            this.Zendesk = Zendesk;
+            Amplitude = amplitude;
+            Datadog = datadog;
+            Dynatrace = dynatrace;
+            GoogleAnalytics = googleAnalytics;
+            InforNexus = inforNexus;
+            Marketo = marketo;
+            S3 = s3;
+            Salesforce = salesforce;
+            ServiceNow = serviceNow;
+            Singular = singular;
+            Slack = slack;
+            Trendmicro = trendmicro;
+            Veeva = veeva;
+            Zendesk = zendesk;
         }
     }
 }

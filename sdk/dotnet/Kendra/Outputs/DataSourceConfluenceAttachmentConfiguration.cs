@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceConfluenceAttachmentConfiguration(
-            Outputs.DataSourceConfluenceAttachmentFieldMappingsList? AttachmentFieldMappings,
+            Outputs.DataSourceConfluenceAttachmentFieldMappingsList? attachmentFieldMappings,
 
-            bool? CrawlAttachments)
+            bool? crawlAttachments)
         {
-            this.AttachmentFieldMappings = AttachmentFieldMappings;
-            this.CrawlAttachments = CrawlAttachments;
+            AttachmentFieldMappings = attachmentFieldMappings;
+            CrawlAttachments = crawlAttachments;
         }
     }
 }

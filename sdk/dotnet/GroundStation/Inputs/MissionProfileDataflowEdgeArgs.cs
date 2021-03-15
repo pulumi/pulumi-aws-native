@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-destination
         /// </summary>
-        [Input("Destination")]
+        [Input("destination")]
         public Input<string>? Destination { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-source
         /// </summary>
-        [Input("Source")]
+        [Input("source")]
         public Input<string>? Source { get; set; }
 
         public MissionProfileDataflowEdgeArgs()

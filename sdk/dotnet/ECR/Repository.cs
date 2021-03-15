@@ -15,43 +15,43 @@ namespace Pulumi.AwsNative.ECR
     [AwsNativeResourceType("aws-native:ECR:Repository")]
     public partial class Repository : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
         /// </summary>
-        [Output("ImageScanningConfiguration")]
+        [Output("imageScanningConfiguration")]
         public Output<Union<System.Text.Json.JsonElement, string>?> ImageScanningConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
         /// </summary>
-        [Output("ImageTagMutability")]
+        [Output("imageTagMutability")]
         public Output<string?> ImageTagMutability { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
         /// </summary>
-        [Output("LifecyclePolicy")]
+        [Output("lifecyclePolicy")]
         public Output<Outputs.RepositoryLifecyclePolicy?> LifecyclePolicy { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
         /// </summary>
-        [Output("RepositoryName")]
+        [Output("repositoryName")]
         public Output<string?> RepositoryName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
         /// </summary>
-        [Output("RepositoryPolicyText")]
+        [Output("repositoryPolicyText")]
         public Output<object?> RepositoryPolicyText { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -102,43 +102,43 @@ namespace Pulumi.AwsNative.ECR
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
         /// </summary>
-        [Input("ImageScanningConfiguration")]
+        [Input("imageScanningConfiguration")]
         public InputUnion<System.Text.Json.JsonElement, string>? ImageScanningConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
         /// </summary>
-        [Input("ImageTagMutability")]
+        [Input("imageTagMutability")]
         public Input<string>? ImageTagMutability { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
         /// </summary>
-        [Input("LifecyclePolicy")]
+        [Input("lifecyclePolicy")]
         public Input<Inputs.RepositoryLifecyclePolicyArgs>? LifecyclePolicy { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
         /// </summary>
-        [Input("RepositoryName")]
+        [Input("repositoryName")]
         public Input<string>? RepositoryName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
         /// </summary>
-        [Input("RepositoryPolicyText")]
+        [Input("repositoryPolicyText")]
         public Input<object>? RepositoryPolicyText { get; set; }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public RepositoryArgs()

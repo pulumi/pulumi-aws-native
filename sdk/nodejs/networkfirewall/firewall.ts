@@ -38,42 +38,42 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
      */
-    public readonly DeleteProtection!: pulumi.Output<boolean | undefined>;
+    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly EndpointIds!: pulumi.Output<string[]>;
-    public /*out*/ readonly FirewallArn!: pulumi.Output<string>;
-    public /*out*/ readonly FirewallId!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly endpointIds!: pulumi.Output<string[]>;
+    public /*out*/ readonly firewallArn!: pulumi.Output<string>;
+    public /*out*/ readonly firewallId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
      */
-    public readonly FirewallName!: pulumi.Output<string>;
+    public readonly firewallName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
      */
-    public readonly FirewallPolicyArn!: pulumi.Output<string>;
+    public readonly firewallPolicyArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
      */
-    public readonly FirewallPolicyChangeProtection!: pulumi.Output<boolean | undefined>;
+    public readonly firewallPolicyChangeProtection!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
      */
-    public readonly SubnetChangeProtection!: pulumi.Output<boolean | undefined>;
+    public readonly subnetChangeProtection!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
      */
-    public readonly SubnetMappings!: pulumi.Output<outputs.NetworkFirewall.FirewallSubnetMapping[]>;
+    public readonly subnetMappings!: pulumi.Output<outputs.NetworkFirewall.FirewallSubnetMapping[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
      */
-    public readonly VpcId!: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a Firewall resource with the given unique name, arguments, and options.
@@ -85,43 +85,43 @@ export class Firewall extends pulumi.CustomResource {
     constructor(name: string, args: FirewallArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.FirewallName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'FirewallName'");
+            if ((!args || args.firewallName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'firewallName'");
             }
-            if ((!args || args.FirewallPolicyArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'FirewallPolicyArn'");
+            if ((!args || args.firewallPolicyArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'firewallPolicyArn'");
             }
-            if ((!args || args.SubnetMappings === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SubnetMappings'");
+            if ((!args || args.subnetMappings === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'subnetMappings'");
             }
-            if ((!args || args.VpcId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'VpcId'");
+            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'vpcId'");
             }
-            inputs["DeleteProtection"] = args ? args.DeleteProtection : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["FirewallName"] = args ? args.FirewallName : undefined;
-            inputs["FirewallPolicyArn"] = args ? args.FirewallPolicyArn : undefined;
-            inputs["FirewallPolicyChangeProtection"] = args ? args.FirewallPolicyChangeProtection : undefined;
-            inputs["SubnetChangeProtection"] = args ? args.SubnetChangeProtection : undefined;
-            inputs["SubnetMappings"] = args ? args.SubnetMappings : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["VpcId"] = args ? args.VpcId : undefined;
-            inputs["EndpointIds"] = undefined /*out*/;
-            inputs["FirewallArn"] = undefined /*out*/;
-            inputs["FirewallId"] = undefined /*out*/;
+            inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["firewallName"] = args ? args.firewallName : undefined;
+            inputs["firewallPolicyArn"] = args ? args.firewallPolicyArn : undefined;
+            inputs["firewallPolicyChangeProtection"] = args ? args.firewallPolicyChangeProtection : undefined;
+            inputs["subnetChangeProtection"] = args ? args.subnetChangeProtection : undefined;
+            inputs["subnetMappings"] = args ? args.subnetMappings : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["endpointIds"] = undefined /*out*/;
+            inputs["firewallArn"] = undefined /*out*/;
+            inputs["firewallId"] = undefined /*out*/;
         } else {
-            inputs["DeleteProtection"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["EndpointIds"] = undefined /*out*/;
-            inputs["FirewallArn"] = undefined /*out*/;
-            inputs["FirewallId"] = undefined /*out*/;
-            inputs["FirewallName"] = undefined /*out*/;
-            inputs["FirewallPolicyArn"] = undefined /*out*/;
-            inputs["FirewallPolicyChangeProtection"] = undefined /*out*/;
-            inputs["SubnetChangeProtection"] = undefined /*out*/;
-            inputs["SubnetMappings"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["VpcId"] = undefined /*out*/;
+            inputs["deleteProtection"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["endpointIds"] = undefined /*out*/;
+            inputs["firewallArn"] = undefined /*out*/;
+            inputs["firewallId"] = undefined /*out*/;
+            inputs["firewallName"] = undefined /*out*/;
+            inputs["firewallPolicyArn"] = undefined /*out*/;
+            inputs["firewallPolicyChangeProtection"] = undefined /*out*/;
+            inputs["subnetChangeProtection"] = undefined /*out*/;
+            inputs["subnetMappings"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["vpcId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -141,37 +141,37 @@ export interface FirewallArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
      */
-    readonly DeleteProtection?: pulumi.Input<boolean>;
+    readonly deleteProtection?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
      */
-    readonly FirewallName: pulumi.Input<string>;
+    readonly firewallName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
      */
-    readonly FirewallPolicyArn: pulumi.Input<string>;
+    readonly firewallPolicyArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
      */
-    readonly FirewallPolicyChangeProtection?: pulumi.Input<boolean>;
+    readonly firewallPolicyChangeProtection?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
      */
-    readonly SubnetChangeProtection?: pulumi.Input<boolean>;
+    readonly subnetChangeProtection?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
      */
-    readonly SubnetMappings: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallSubnetMapping>[]>;
+    readonly subnetMappings: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallSubnetMapping>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
      */
-    readonly VpcId: pulumi.Input<string>;
+    readonly vpcId: pulumi.Input<string>;
 }

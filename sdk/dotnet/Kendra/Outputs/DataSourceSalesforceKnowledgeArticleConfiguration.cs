@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceSalesforceKnowledgeArticleConfiguration(
-            Outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList? CustomKnowledgeArticleTypeConfigurations,
+            Outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList? customKnowledgeArticleTypeConfigurations,
 
-            Outputs.DataSourceSalesforceKnowledgeArticleStateList IncludedStates,
+            Outputs.DataSourceSalesforceKnowledgeArticleStateList includedStates,
 
-            Outputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration? StandardKnowledgeArticleTypeConfiguration)
+            Outputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration? standardKnowledgeArticleTypeConfiguration)
         {
-            this.CustomKnowledgeArticleTypeConfigurations = CustomKnowledgeArticleTypeConfigurations;
-            this.IncludedStates = IncludedStates;
-            this.StandardKnowledgeArticleTypeConfiguration = StandardKnowledgeArticleTypeConfiguration;
+            CustomKnowledgeArticleTypeConfigurations = customKnowledgeArticleTypeConfigurations;
+            IncludedStates = includedStates;
+            StandardKnowledgeArticleTypeConfiguration = standardKnowledgeArticleTypeConfiguration;
         }
     }
 }

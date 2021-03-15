@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly string Value;
 
         [OutputConstructor]
-        private FirewallPolicyDimension(string Value)
+        private FirewallPolicyDimension(string value)
         {
-            this.Value = Value;
+            Value = value;
         }
     }
 }

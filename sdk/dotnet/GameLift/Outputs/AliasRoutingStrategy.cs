@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 
         [OutputConstructor]
         private AliasRoutingStrategy(
-            string? FleetId,
+            string? fleetId,
 
-            string? Message,
+            string? message,
 
-            string? Type)
+            string? type)
         {
-            this.FleetId = FleetId;
-            this.Message = Message;
-            this.Type = Type;
+            FleetId = fleetId;
+            Message = message;
+            Type = type;
         }
     }
 }

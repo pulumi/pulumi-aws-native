@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-authcode
         /// </summary>
-        [Input("AuthCode")]
+        [Input("authCode")]
         public Input<string>? AuthCode { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-redirecturi
         /// </summary>
-        [Input("RedirectUri")]
+        [Input("redirectUri")]
         public Input<string>? RedirectUri { get; set; }
 
         public ConnectorProfileConnectorOAuthRequestArgs()

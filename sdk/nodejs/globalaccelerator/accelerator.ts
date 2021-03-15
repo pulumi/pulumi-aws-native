@@ -35,28 +35,28 @@ export class Accelerator extends pulumi.CustomResource {
         return obj['__pulumiType'] === Accelerator.__pulumiType;
     }
 
-    public /*out*/ readonly AcceleratorArn!: pulumi.Output<string>;
-    public /*out*/ readonly DnsName!: pulumi.Output<string>;
+    public /*out*/ readonly acceleratorArn!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
      */
-    public readonly Enabled!: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
      */
-    public readonly IpAddressType!: pulumi.Output<string | undefined>;
+    public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
      */
-    public readonly IpAddresses!: pulumi.Output<string[] | undefined>;
+    public readonly ipAddresses!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Accelerator resource with the given unique name, arguments, and options.
@@ -68,24 +68,24 @@ export class Accelerator extends pulumi.CustomResource {
     constructor(name: string, args: AcceleratorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            inputs["Enabled"] = args ? args.Enabled : undefined;
-            inputs["IpAddressType"] = args ? args.IpAddressType : undefined;
-            inputs["IpAddresses"] = args ? args.IpAddresses : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["AcceleratorArn"] = undefined /*out*/;
-            inputs["DnsName"] = undefined /*out*/;
+            inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            inputs["ipAddresses"] = args ? args.ipAddresses : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["acceleratorArn"] = undefined /*out*/;
+            inputs["dnsName"] = undefined /*out*/;
         } else {
-            inputs["AcceleratorArn"] = undefined /*out*/;
-            inputs["DnsName"] = undefined /*out*/;
-            inputs["Enabled"] = undefined /*out*/;
-            inputs["IpAddressType"] = undefined /*out*/;
-            inputs["IpAddresses"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["acceleratorArn"] = undefined /*out*/;
+            inputs["dnsName"] = undefined /*out*/;
+            inputs["enabled"] = undefined /*out*/;
+            inputs["ipAddressType"] = undefined /*out*/;
+            inputs["ipAddresses"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,21 +105,21 @@ export interface AcceleratorArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
      */
-    readonly Enabled?: pulumi.Input<boolean>;
+    readonly enabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
      */
-    readonly IpAddressType?: pulumi.Input<string>;
+    readonly ipAddressType?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
      */
-    readonly IpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

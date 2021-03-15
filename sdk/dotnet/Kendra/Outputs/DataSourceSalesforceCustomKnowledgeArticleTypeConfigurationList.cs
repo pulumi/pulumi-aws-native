@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<Outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration> SalesforceCustomKnowledgeArticleTypeConfigurationList;
 
         [OutputConstructor]
-        private DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList(ImmutableArray<Outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration> SalesforceCustomKnowledgeArticleTypeConfigurationList)
+        private DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList(ImmutableArray<Outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration> salesforceCustomKnowledgeArticleTypeConfigurationList)
         {
-            this.SalesforceCustomKnowledgeArticleTypeConfigurationList = SalesforceCustomKnowledgeArticleTypeConfigurationList;
+            SalesforceCustomKnowledgeArticleTypeConfigurationList = salesforceCustomKnowledgeArticleTypeConfigurationList;
         }
     }
 }

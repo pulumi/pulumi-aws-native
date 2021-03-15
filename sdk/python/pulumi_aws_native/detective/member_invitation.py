@@ -84,7 +84,7 @@ class MemberInvitation(pulumi.CustomResource):
         return MemberInvitation(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="GraphArn")
+    @pulumi.getter(name="graphArn")
     def graph_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
@@ -92,7 +92,7 @@ class MemberInvitation(pulumi.CustomResource):
         return pulumi.get(self, "graph_arn")
 
     @property
-    @pulumi.getter(name="MemberEmailAddress")
+    @pulumi.getter(name="memberEmailAddress")
     def member_email_address(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
@@ -100,7 +100,7 @@ class MemberInvitation(pulumi.CustomResource):
         return pulumi.get(self, "member_email_address")
 
     @property
-    @pulumi.getter(name="MemberId")
+    @pulumi.getter(name="memberId")
     def member_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
@@ -108,7 +108,7 @@ class MemberInvitation(pulumi.CustomResource):
         return pulumi.get(self, "member_id")
 
     @property
-    @pulumi.getter(name="Message")
+    @pulumi.getter
     def message(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message

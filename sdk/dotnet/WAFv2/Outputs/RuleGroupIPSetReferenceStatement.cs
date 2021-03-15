@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private RuleGroupIPSetReferenceStatement(
-            string Arn,
+            string arn,
 
-            Outputs.RuleGroupIPSetForwardedIPConfiguration? IPSetForwardedIPConfig)
+            Outputs.RuleGroupIPSetForwardedIPConfiguration? iPSetForwardedIPConfig)
         {
-            this.Arn = Arn;
-            this.IPSetForwardedIPConfig = IPSetForwardedIPConfig;
+            Arn = arn;
+            IPSetForwardedIPConfig = iPSetForwardedIPConfig;
         }
     }
 }

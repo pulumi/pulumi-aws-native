@@ -30,7 +30,7 @@ class ApiKeyStageKeyArgs:
             pulumi.set(__self__, "stage_name", stage_name)
 
     @property
-    @pulumi.getter(name="RestApiId")
+    @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
@@ -42,7 +42,7 @@ class ApiKeyStageKeyArgs:
         pulumi.set(self, "rest_api_id", value)
 
     @property
-    @pulumi.getter(name="StageName")
+    @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
@@ -66,7 +66,7 @@ class DomainNameEndpointConfigurationArgs:
             pulumi.set(__self__, "types", types)
 
     @property
-    @pulumi.getter(name="Types")
+    @pulumi.getter
     def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html#cfn-apigateway-domainname-endpointconfiguration-types
@@ -94,7 +94,7 @@ class DomainNameMutualTlsAuthenticationArgs:
             pulumi.set(__self__, "truststore_version", truststore_version)
 
     @property
-    @pulumi.getter(name="TruststoreUri")
+    @pulumi.getter(name="truststoreUri")
     def truststore_uri(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreuri
@@ -106,7 +106,7 @@ class DomainNameMutualTlsAuthenticationArgs:
         pulumi.set(self, "truststore_uri", value)
 
     @property
-    @pulumi.getter(name="TruststoreVersion")
+    @pulumi.getter(name="truststoreVersion")
     def truststore_version(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreversion

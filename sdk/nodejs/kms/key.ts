@@ -35,40 +35,40 @@ export class Key extends pulumi.CustomResource {
         return obj['__pulumiType'] === Key.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
      */
-    public readonly EnableKeyRotation!: pulumi.Output<boolean | undefined>;
+    public readonly enableKeyRotation!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
      */
-    public readonly Enabled!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly KeyId!: pulumi.Output<string>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly keyId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
      */
-    public readonly KeyPolicy!: pulumi.Output<any>;
+    public readonly keyPolicy!: pulumi.Output<any>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
      */
-    public readonly KeySpec!: pulumi.Output<string | undefined>;
+    public readonly keySpec!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
      */
-    public readonly KeyUsage!: pulumi.Output<string | undefined>;
+    public readonly keyUsage!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
      */
-    public readonly PendingWindowInDays!: pulumi.Output<number | undefined>;
+    public readonly pendingWindowInDays!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -80,30 +80,30 @@ export class Key extends pulumi.CustomResource {
     constructor(name: string, args: KeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.KeyPolicy === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'KeyPolicy'");
+            if ((!args || args.keyPolicy === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'keyPolicy'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["EnableKeyRotation"] = args ? args.EnableKeyRotation : undefined;
-            inputs["Enabled"] = args ? args.Enabled : undefined;
-            inputs["KeyPolicy"] = args ? args.KeyPolicy : undefined;
-            inputs["KeySpec"] = args ? args.KeySpec : undefined;
-            inputs["KeyUsage"] = args ? args.KeyUsage : undefined;
-            inputs["PendingWindowInDays"] = args ? args.PendingWindowInDays : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["KeyId"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["enableKeyRotation"] = args ? args.enableKeyRotation : undefined;
+            inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["keyPolicy"] = args ? args.keyPolicy : undefined;
+            inputs["keySpec"] = args ? args.keySpec : undefined;
+            inputs["keyUsage"] = args ? args.keyUsage : undefined;
+            inputs["pendingWindowInDays"] = args ? args.pendingWindowInDays : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["keyId"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["EnableKeyRotation"] = undefined /*out*/;
-            inputs["Enabled"] = undefined /*out*/;
-            inputs["KeyId"] = undefined /*out*/;
-            inputs["KeyPolicy"] = undefined /*out*/;
-            inputs["KeySpec"] = undefined /*out*/;
-            inputs["KeyUsage"] = undefined /*out*/;
-            inputs["PendingWindowInDays"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["enableKeyRotation"] = undefined /*out*/;
+            inputs["enabled"] = undefined /*out*/;
+            inputs["keyId"] = undefined /*out*/;
+            inputs["keyPolicy"] = undefined /*out*/;
+            inputs["keySpec"] = undefined /*out*/;
+            inputs["keyUsage"] = undefined /*out*/;
+            inputs["pendingWindowInDays"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -123,33 +123,33 @@ export interface KeyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
      */
-    readonly EnableKeyRotation?: pulumi.Input<boolean>;
+    readonly enableKeyRotation?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
      */
-    readonly Enabled?: pulumi.Input<boolean>;
+    readonly enabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
      */
-    readonly KeyPolicy: any;
+    readonly keyPolicy: any;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
      */
-    readonly KeySpec?: pulumi.Input<string>;
+    readonly keySpec?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
      */
-    readonly KeyUsage?: pulumi.Input<string>;
+    readonly keyUsage?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
      */
-    readonly PendingWindowInDays?: pulumi.Input<number>;
+    readonly pendingWindowInDays?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

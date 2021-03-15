@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLRegexPatternSetReferenceStatement(
-            string Arn,
+            string arn,
 
-            Outputs.WebACLFieldToMatch FieldToMatch,
+            Outputs.WebACLFieldToMatch fieldToMatch,
 
-            ImmutableArray<Outputs.WebACLTextTransformation> TextTransformations)
+            ImmutableArray<Outputs.WebACLTextTransformation> textTransformations)
         {
-            this.Arn = Arn;
-            this.FieldToMatch = FieldToMatch;
-            this.TextTransformations = TextTransformations;
+            Arn = arn;
+            FieldToMatch = fieldToMatch;
+            TextTransformations = textTransformations;
         }
     }
 }

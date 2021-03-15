@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleFirehoseAction(
-            string DeliveryStreamName,
+            string deliveryStreamName,
 
-            string RoleArn,
+            string roleArn,
 
-            string? Separator)
+            string? separator)
         {
-            this.DeliveryStreamName = DeliveryStreamName;
-            this.RoleArn = RoleArn;
-            this.Separator = Separator;
+            DeliveryStreamName = deliveryStreamName;
+            RoleArn = roleArn;
+            Separator = separator;
         }
     }
 }

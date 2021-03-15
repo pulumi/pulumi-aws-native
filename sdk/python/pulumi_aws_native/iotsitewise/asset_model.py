@@ -89,12 +89,12 @@ class AssetModel(pulumi.CustomResource):
         return AssetModel(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AssetModelArn")
+    @pulumi.getter(name="assetModelArn")
     def asset_model_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "asset_model_arn")
 
     @property
-    @pulumi.getter(name="AssetModelDescription")
+    @pulumi.getter(name="assetModelDescription")
     def asset_model_description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
@@ -102,7 +102,7 @@ class AssetModel(pulumi.CustomResource):
         return pulumi.get(self, "asset_model_description")
 
     @property
-    @pulumi.getter(name="AssetModelHierarchies")
+    @pulumi.getter(name="assetModelHierarchies")
     def asset_model_hierarchies(self) -> pulumi.Output[Optional[Sequence['outputs.AssetModelAssetModelHierarchy']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
@@ -110,12 +110,12 @@ class AssetModel(pulumi.CustomResource):
         return pulumi.get(self, "asset_model_hierarchies")
 
     @property
-    @pulumi.getter(name="AssetModelId")
+    @pulumi.getter(name="assetModelId")
     def asset_model_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "asset_model_id")
 
     @property
-    @pulumi.getter(name="AssetModelName")
+    @pulumi.getter(name="assetModelName")
     def asset_model_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
@@ -123,7 +123,7 @@ class AssetModel(pulumi.CustomResource):
         return pulumi.get(self, "asset_model_name")
 
     @property
-    @pulumi.getter(name="AssetModelProperties")
+    @pulumi.getter(name="assetModelProperties")
     def asset_model_properties(self) -> pulumi.Output[Optional[Sequence['outputs.AssetModelAssetModelProperty']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
@@ -131,7 +131,7 @@ class AssetModel(pulumi.CustomResource):
         return pulumi.get(self, "asset_model_properties")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags

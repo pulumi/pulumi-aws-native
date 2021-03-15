@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Athena.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-encryptionconfiguration
         /// </summary>
-        [Input("EncryptionConfiguration")]
+        [Input("encryptionConfiguration")]
         public Input<Inputs.WorkGroupEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-outputlocation
         /// </summary>
-        [Input("OutputLocation")]
+        [Input("outputLocation")]
         public Input<string>? OutputLocation { get; set; }
 
         public WorkGroupResultConfigurationArgs()

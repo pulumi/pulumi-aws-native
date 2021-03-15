@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-maxvideobitspersecond
         /// </summary>
-        [Input("MaxVideoBitsPerSecond")]
+        [Input("maxVideoBitsPerSecond")]
         public Input<int>? MaxVideoBitsPerSecond { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-minvideobitspersecond
         /// </summary>
-        [Input("MinVideoBitsPerSecond")]
+        [Input("minVideoBitsPerSecond")]
         public Input<int>? MinVideoBitsPerSecond { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-streamorder
         /// </summary>
-        [Input("StreamOrder")]
+        [Input("streamOrder")]
         public Input<string>? StreamOrder { get; set; }
 
         public PackagingConfigurationStreamSelectionArgs()

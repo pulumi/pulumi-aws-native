@@ -38,21 +38,21 @@ export class Project extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
      */
-    public readonly PortalId!: pulumi.Output<string>;
-    public /*out*/ readonly ProjectArn!: pulumi.Output<string>;
+    public readonly portalId!: pulumi.Output<string>;
+    public /*out*/ readonly projectArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
      */
-    public readonly ProjectDescription!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly ProjectId!: pulumi.Output<string>;
+    public readonly projectDescription!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly projectId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
      */
-    public readonly ProjectName!: pulumi.Output<string>;
+    public readonly projectName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -64,25 +64,25 @@ export class Project extends pulumi.CustomResource {
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.PortalId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PortalId'");
+            if ((!args || args.portalId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'portalId'");
             }
-            if ((!args || args.ProjectName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ProjectName'");
+            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'projectName'");
             }
-            inputs["PortalId"] = args ? args.PortalId : undefined;
-            inputs["ProjectDescription"] = args ? args.ProjectDescription : undefined;
-            inputs["ProjectName"] = args ? args.ProjectName : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["ProjectArn"] = undefined /*out*/;
-            inputs["ProjectId"] = undefined /*out*/;
+            inputs["portalId"] = args ? args.portalId : undefined;
+            inputs["projectDescription"] = args ? args.projectDescription : undefined;
+            inputs["projectName"] = args ? args.projectName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["projectArn"] = undefined /*out*/;
+            inputs["projectId"] = undefined /*out*/;
         } else {
-            inputs["PortalId"] = undefined /*out*/;
-            inputs["ProjectArn"] = undefined /*out*/;
-            inputs["ProjectDescription"] = undefined /*out*/;
-            inputs["ProjectId"] = undefined /*out*/;
-            inputs["ProjectName"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["portalId"] = undefined /*out*/;
+            inputs["projectArn"] = undefined /*out*/;
+            inputs["projectDescription"] = undefined /*out*/;
+            inputs["projectId"] = undefined /*out*/;
+            inputs["projectName"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,17 +102,17 @@ export interface ProjectArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
      */
-    readonly PortalId: pulumi.Input<string>;
+    readonly portalId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
      */
-    readonly ProjectDescription?: pulumi.Input<string>;
+    readonly projectDescription?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
      */
-    readonly ProjectName: pulumi.Input<string>;
+    readonly projectName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

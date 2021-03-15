@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html#cfn-elasticloadbalancingv2-listener-certificate-certificatearn
         /// </summary>
-        [Input("CertificateArn")]
+        [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
         public ListenerCertificateArgs()

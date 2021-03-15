@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
 
         [OutputConstructor]
         private TableColumn(
-            string ColumnName,
+            string columnName,
 
-            string ColumnType)
+            string columnType)
         {
-            this.ColumnName = ColumnName;
-            this.ColumnType = ColumnType;
+            ColumnName = columnName;
+            ColumnType = columnType;
         }
     }
 }

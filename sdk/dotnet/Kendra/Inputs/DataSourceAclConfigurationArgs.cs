@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html#cfn-kendra-datasource-aclconfiguration-allowedgroupscolumnname
         /// </summary>
-        [Input("AllowedGroupsColumnName", required: true)]
+        [Input("allowedGroupsColumnName", required: true)]
         public Input<string> AllowedGroupsColumnName { get; set; } = null!;
 
         public DataSourceAclConfigurationArgs()

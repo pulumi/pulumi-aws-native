@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html#cfn-appflow-connectorprofile-dynatraceconnectorprofileproperties-instanceurl
         /// </summary>
-        [Input("InstanceUrl", required: true)]
+        [Input("instanceUrl", required: true)]
         public Input<string> InstanceUrl { get; set; } = null!;
 
         public ConnectorProfileDynatraceConnectorProfilePropertiesArgs()

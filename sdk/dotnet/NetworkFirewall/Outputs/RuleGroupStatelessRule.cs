@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private RuleGroupStatelessRule(
-            int Priority,
+            int priority,
 
-            Outputs.RuleGroupRuleDefinition RuleDefinition)
+            Outputs.RuleGroupRuleDefinition ruleDefinition)
         {
-            this.Priority = Priority;
-            this.RuleDefinition = RuleDefinition;
+            Priority = priority;
+            RuleDefinition = ruleDefinition;
         }
     }
 }

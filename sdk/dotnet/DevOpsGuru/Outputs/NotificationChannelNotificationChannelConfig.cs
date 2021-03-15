@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.DevOpsGuru.Outputs
         public readonly Outputs.NotificationChannelSnsChannelConfig? Sns;
 
         [OutputConstructor]
-        private NotificationChannelNotificationChannelConfig(Outputs.NotificationChannelSnsChannelConfig? Sns)
+        private NotificationChannelNotificationChannelConfig(Outputs.NotificationChannelSnsChannelConfig? sns)
         {
-            this.Sns = Sns;
+            Sns = sns;
         }
     }
 }

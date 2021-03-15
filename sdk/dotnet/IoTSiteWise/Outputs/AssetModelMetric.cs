@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
         [OutputConstructor]
         private AssetModelMetric(
-            string Expression,
+            string expression,
 
-            ImmutableArray<Outputs.AssetModelExpressionVariable> Variables,
+            ImmutableArray<Outputs.AssetModelExpressionVariable> variables,
 
-            Outputs.AssetModelMetricWindow Window)
+            Outputs.AssetModelMetricWindow window)
         {
-            this.Expression = Expression;
-            this.Variables = Variables;
-            this.Window = Window;
+            Expression = expression;
+            Variables = variables;
+            Window = window;
         }
     }
 }

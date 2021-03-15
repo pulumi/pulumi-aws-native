@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private GameServerGroupTags(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags)
+        private GameServerGroupTags(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
-            this.Tags = Tags;
+            Tags = tags;
         }
     }
 }

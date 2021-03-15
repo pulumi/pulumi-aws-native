@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.NetworkManager.Outputs
 
         [OutputConstructor]
         private DeviceLocation(
-            string? Address,
+            string? address,
 
-            string? Latitude,
+            string? latitude,
 
-            string? Longitude)
+            string? longitude)
         {
-            this.Address = Address;
-            this.Latitude = Latitude;
-            this.Longitude = Longitude;
+            Address = address;
+            Latitude = latitude;
+            Longitude = longitude;
         }
     }
 }

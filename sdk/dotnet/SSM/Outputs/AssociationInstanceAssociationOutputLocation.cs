@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SSM.Outputs
         public readonly Outputs.AssociationS3OutputLocation? S3Location;
 
         [OutputConstructor]
-        private AssociationInstanceAssociationOutputLocation(Outputs.AssociationS3OutputLocation? S3Location)
+        private AssociationInstanceAssociationOutputLocation(Outputs.AssociationS3OutputLocation? s3Location)
         {
-            this.S3Location = S3Location;
+            S3Location = s3Location;
         }
     }
 }

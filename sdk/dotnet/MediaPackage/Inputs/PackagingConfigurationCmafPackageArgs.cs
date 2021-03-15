@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption
         /// </summary>
-        [Input("Encryption")]
+        [Input("encryption")]
         public Input<Inputs.PackagingConfigurationCmafEncryptionArgs>? Encryption { get; set; }
 
-        [Input("HlsManifests", required: true)]
-        private InputList<Inputs.PackagingConfigurationHlsManifestArgs>? _HlsManifests;
+        [Input("hlsManifests", required: true)]
+        private InputList<Inputs.PackagingConfigurationHlsManifestArgs>? _hlsManifests;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
         /// </summary>
         public InputList<Inputs.PackagingConfigurationHlsManifestArgs> HlsManifests
         {
-            get => _HlsManifests ?? (_HlsManifests = new InputList<Inputs.PackagingConfigurationHlsManifestArgs>());
-            set => _HlsManifests = value;
+            get => _hlsManifests ?? (_hlsManifests = new InputList<Inputs.PackagingConfigurationHlsManifestArgs>());
+            set => _hlsManifests = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
         /// </summary>
-        [Input("SegmentDurationSeconds")]
+        [Input("segmentDurationSeconds")]
         public Input<int>? SegmentDurationSeconds { get; set; }
 
         public PackagingConfigurationCmafPackageArgs()

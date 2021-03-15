@@ -15,40 +15,40 @@ namespace Pulumi.AwsNative.ECS.Inputs
     /// </summary>
     public sealed class TaskDefinitionHealthCheckArgs : Pulumi.ResourceArgs
     {
-        [Input("Command")]
-        private InputList<string>? _Command;
+        [Input("command")]
+        private InputList<string>? _command;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command
         /// </summary>
         public InputList<string> Command
         {
-            get => _Command ?? (_Command = new InputList<string>());
-            set => _Command = value;
+            get => _command ?? (_command = new InputList<string>());
+            set => _command = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-interval
         /// </summary>
-        [Input("Interval")]
+        [Input("interval")]
         public Input<int>? Interval { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-retries
         /// </summary>
-        [Input("Retries")]
+        [Input("retries")]
         public Input<int>? Retries { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-startperiod
         /// </summary>
-        [Input("StartPeriod")]
+        [Input("startPeriod")]
         public Input<int>? StartPeriod { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-timeout
         /// </summary>
-        [Input("Timeout")]
+        [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
         public TaskDefinitionHealthCheckArgs()

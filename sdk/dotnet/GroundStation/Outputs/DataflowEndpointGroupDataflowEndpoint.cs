@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
 
         [OutputConstructor]
         private DataflowEndpointGroupDataflowEndpoint(
-            Outputs.DataflowEndpointGroupSocketAddress? Address,
+            Outputs.DataflowEndpointGroupSocketAddress? address,
 
-            int? Mtu,
+            int? mtu,
 
-            string? Name,
+            string? name,
 
-            string? Status)
+            string? status)
         {
-            this.Address = Address;
-            this.Mtu = Mtu;
-            this.Name = Name;
-            this.Status = Status;
+            Address = address;
+            Mtu = mtu;
+            Name = name;
+            Status = status;
         }
     }
 }

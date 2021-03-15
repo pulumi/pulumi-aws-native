@@ -15,40 +15,40 @@ namespace Pulumi.AwsNative.ACMPCA
     [AwsNativeResourceType("aws-native:ACMPCA:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("Certificate")]
+        [Output("certificate")]
         public Output<string> CertificateValue { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
         /// </summary>
-        [Output("CertificateAuthorityArn")]
+        [Output("certificateAuthorityArn")]
         public Output<string> CertificateAuthorityArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
         /// </summary>
-        [Output("CertificateSigningRequest")]
+        [Output("certificateSigningRequest")]
         public Output<string> CertificateSigningRequest { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
         /// </summary>
-        [Output("SigningAlgorithm")]
+        [Output("signingAlgorithm")]
         public Output<string> SigningAlgorithm { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
         /// </summary>
-        [Output("TemplateArn")]
+        [Output("templateArn")]
         public Output<string?> TemplateArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
         /// </summary>
-        [Output("Validity")]
+        [Output("validity")]
         public Output<Outputs.CertificateValidity> Validity { get; private set; } = null!;
 
 
@@ -99,31 +99,31 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
         /// </summary>
-        [Input("CertificateAuthorityArn", required: true)]
+        [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
         /// </summary>
-        [Input("CertificateSigningRequest", required: true)]
+        [Input("certificateSigningRequest", required: true)]
         public Input<string> CertificateSigningRequest { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
         /// </summary>
-        [Input("SigningAlgorithm", required: true)]
+        [Input("signingAlgorithm", required: true)]
         public Input<string> SigningAlgorithm { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
         /// </summary>
-        [Input("TemplateArn")]
+        [Input("templateArn")]
         public Input<string>? TemplateArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
         /// </summary>
-        [Input("Validity", required: true)]
+        [Input("validity", required: true)]
         public Input<Inputs.CertificateValidityArgs> Validity { get; set; } = null!;
 
         public CertificateArgs()

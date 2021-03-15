@@ -37,15 +37,15 @@ export class SchemaVersionMetadata extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
      */
-    public readonly Key!: pulumi.Output<string>;
+    public readonly key!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
      */
-    public readonly SchemaVersionId!: pulumi.Output<string>;
+    public readonly schemaVersionId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
      */
-    public readonly Value!: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string>;
 
     /**
      * Create a SchemaVersionMetadata resource with the given unique name, arguments, and options.
@@ -57,22 +57,22 @@ export class SchemaVersionMetadata extends pulumi.CustomResource {
     constructor(name: string, args: SchemaVersionMetadataArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Key === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Key'");
+            if ((!args || args.key === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.SchemaVersionId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SchemaVersionId'");
+            if ((!args || args.schemaVersionId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'schemaVersionId'");
             }
-            if ((!args || args.Value === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Value'");
+            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'value'");
             }
-            inputs["Key"] = args ? args.Key : undefined;
-            inputs["SchemaVersionId"] = args ? args.SchemaVersionId : undefined;
-            inputs["Value"] = args ? args.Value : undefined;
+            inputs["key"] = args ? args.key : undefined;
+            inputs["schemaVersionId"] = args ? args.schemaVersionId : undefined;
+            inputs["value"] = args ? args.value : undefined;
         } else {
-            inputs["Key"] = undefined /*out*/;
-            inputs["SchemaVersionId"] = undefined /*out*/;
-            inputs["Value"] = undefined /*out*/;
+            inputs["key"] = undefined /*out*/;
+            inputs["schemaVersionId"] = undefined /*out*/;
+            inputs["value"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -92,13 +92,13 @@ export interface SchemaVersionMetadataArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
      */
-    readonly Key: pulumi.Input<string>;
+    readonly key: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
      */
-    readonly SchemaVersionId: pulumi.Input<string>;
+    readonly schemaVersionId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
      */
-    readonly Value: pulumi.Input<string>;
+    readonly value: pulumi.Input<string>;
 }

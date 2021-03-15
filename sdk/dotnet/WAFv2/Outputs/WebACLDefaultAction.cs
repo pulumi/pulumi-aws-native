@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLDefaultAction(
-            Union<System.Text.Json.JsonElement, string>? Allow,
+            Union<System.Text.Json.JsonElement, string>? allow,
 
-            Union<System.Text.Json.JsonElement, string>? Block)
+            Union<System.Text.Json.JsonElement, string>? block)
         {
-            this.Allow = Allow;
-            this.Block = Block;
+            Allow = allow;
+            Block = block;
         }
     }
 }

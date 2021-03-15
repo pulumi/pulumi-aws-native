@@ -18,22 +18,22 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
         /// </summary>
-        [Output("BackupPlan")]
+        [Output("backupPlan")]
         public Output<Outputs.BackupPlanBackupPlanResourceType> BackupPlanValue { get; private set; } = null!;
 
-        [Output("BackupPlanArn")]
+        [Output("backupPlanArn")]
         public Output<string> BackupPlanArn { get; private set; } = null!;
 
-        [Output("BackupPlanId")]
+        [Output("backupPlanId")]
         public Output<string> BackupPlanId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
         /// </summary>
-        [Output("BackupPlanTags")]
+        [Output("backupPlanTags")]
         public Output<Union<System.Text.Json.JsonElement, string>?> BackupPlanTags { get; private set; } = null!;
 
-        [Output("VersionId")]
+        [Output("versionId")]
         public Output<string> VersionId { get; private set; } = null!;
 
 
@@ -84,13 +84,13 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
         /// </summary>
-        [Input("BackupPlan", required: true)]
+        [Input("backupPlan", required: true)]
         public Input<Inputs.BackupPlanBackupPlanResourceTypeArgs> BackupPlanValue { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
         /// </summary>
-        [Input("BackupPlanTags")]
+        [Input("backupPlanTags")]
         public InputUnion<System.Text.Json.JsonElement, string>? BackupPlanTags { get; set; }
 
         public BackupPlanArgs()

@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-condition
         /// </summary>
-        [Input("Condition", required: true)]
+        [Input("condition", required: true)]
         public Input<string> Condition { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-targetcolumn
         /// </summary>
-        [Input("TargetColumn", required: true)]
+        [Input("targetColumn", required: true)]
         public Input<string> TargetColumn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-value
         /// </summary>
-        [Input("Value")]
+        [Input("value")]
         public Input<string>? Value { get; set; }
 
         public RecipeConditionExpressionArgs()

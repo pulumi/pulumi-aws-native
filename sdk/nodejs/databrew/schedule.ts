@@ -38,19 +38,19 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-cronexpression
      */
-    public readonly CronExpression!: pulumi.Output<string>;
+    public readonly cronExpression!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-jobnames
      */
-    public readonly JobNames!: pulumi.Output<string[] | undefined>;
+    public readonly jobNames!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -62,21 +62,21 @@ export class Schedule extends pulumi.CustomResource {
     constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.CronExpression === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'CronExpression'");
+            if ((!args || args.cronExpression === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'cronExpression'");
             }
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            inputs["CronExpression"] = args ? args.CronExpression : undefined;
-            inputs["JobNames"] = args ? args.JobNames : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["cronExpression"] = args ? args.cronExpression : undefined;
+            inputs["jobNames"] = args ? args.jobNames : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["CronExpression"] = undefined /*out*/;
-            inputs["JobNames"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["cronExpression"] = undefined /*out*/;
+            inputs["jobNames"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -96,17 +96,17 @@ export interface ScheduleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-cronexpression
      */
-    readonly CronExpression: pulumi.Input<string>;
+    readonly cronExpression: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-jobnames
      */
-    readonly JobNames?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly jobNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

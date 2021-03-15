@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.OpsWorksCM.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-name
         /// </summary>
-        [Input("Name")]
+        [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-value
         /// </summary>
-        [Input("Value")]
+        [Input("value")]
         public Input<string>? Value { get; set; }
 
         public ServerEngineAttributeArgs()

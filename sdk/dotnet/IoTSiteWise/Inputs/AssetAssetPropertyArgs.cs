@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-alias
         /// </summary>
-        [Input("Alias")]
+        [Input("alias")]
         public Input<string>? Alias { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-logicalid
         /// </summary>
-        [Input("LogicalId", required: true)]
+        [Input("logicalId", required: true)]
         public Input<string> LogicalId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-notificationstate
         /// </summary>
-        [Input("NotificationState")]
+        [Input("notificationState")]
         public Input<string>? NotificationState { get; set; }
 
         public AssetAssetPropertyArgs()

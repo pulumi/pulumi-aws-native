@@ -15,25 +15,25 @@ namespace Pulumi.AwsNative.EC2
     [AwsNativeResourceType("aws-native:EC2:CarrierGateway")]
     public partial class CarrierGateway : Pulumi.CustomResource
     {
-        [Output("CarrierGatewayId")]
+        [Output("carrierGatewayId")]
         public Output<string> CarrierGatewayId { get; private set; } = null!;
 
-        [Output("OwnerId")]
+        [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
-        [Output("State")]
+        [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<Outputs.CarrierGatewayTags?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
         /// </summary>
-        [Output("VpcId")]
+        [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
 
@@ -84,13 +84,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
         /// </summary>
-        [Input("Tags")]
+        [Input("tags")]
         public Input<Inputs.CarrierGatewayTagsArgs>? Tags { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
         /// </summary>
-        [Input("VpcId", required: true)]
+        [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
         public CarrierGatewayArgs()

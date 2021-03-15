@@ -104,12 +104,12 @@ class Schema(pulumi.CustomResource):
         return Schema(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="CheckpointVersion")
+    @pulumi.getter(name="checkpointVersion")
     def checkpoint_version(self) -> pulumi.Output[Optional['outputs.SchemaSchemaVersion']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
@@ -117,7 +117,7 @@ class Schema(pulumi.CustomResource):
         return pulumi.get(self, "checkpoint_version")
 
     @property
-    @pulumi.getter(name="Compatibility")
+    @pulumi.getter
     def compatibility(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
@@ -125,7 +125,7 @@ class Schema(pulumi.CustomResource):
         return pulumi.get(self, "compatibility")
 
     @property
-    @pulumi.getter(name="DataFormat")
+    @pulumi.getter(name="dataFormat")
     def data_format(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
@@ -133,7 +133,7 @@ class Schema(pulumi.CustomResource):
         return pulumi.get(self, "data_format")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
@@ -141,12 +141,12 @@ class Schema(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="InitialSchemaVersionId")
+    @pulumi.getter(name="initialSchemaVersionId")
     def initial_schema_version_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "initial_schema_version_id")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
@@ -154,7 +154,7 @@ class Schema(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Registry")
+    @pulumi.getter
     def registry(self) -> pulumi.Output[Optional['outputs.SchemaRegistry']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
@@ -162,7 +162,7 @@ class Schema(pulumi.CustomResource):
         return pulumi.get(self, "registry")
 
     @property
-    @pulumi.getter(name="SchemaDefinition")
+    @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
@@ -170,7 +170,7 @@ class Schema(pulumi.CustomResource):
         return pulumi.get(self, "schema_definition")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags

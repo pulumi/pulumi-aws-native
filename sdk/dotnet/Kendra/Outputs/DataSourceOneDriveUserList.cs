@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<string> OneDriveUserList;
 
         [OutputConstructor]
-        private DataSourceOneDriveUserList(ImmutableArray<string> OneDriveUserList)
+        private DataSourceOneDriveUserList(ImmutableArray<string> oneDriveUserList)
         {
-            this.OneDriveUserList = OneDriveUserList;
+            OneDriveUserList = oneDriveUserList;
         }
     }
 }

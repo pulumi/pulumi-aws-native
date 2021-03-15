@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-customcname
         /// </summary>
-        [Input("CustomCname")]
+        [Input("customCname")]
         public Input<string>? CustomCname { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-enabled
         /// </summary>
-        [Input("Enabled")]
+        [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-expirationindays
         /// </summary>
-        [Input("ExpirationInDays")]
+        [Input("expirationInDays")]
         public Input<int>? ExpirationInDays { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname
         /// </summary>
-        [Input("S3BucketName")]
+        [Input("s3BucketName")]
         public Input<string>? S3BucketName { get; set; }
 
         public CertificateAuthorityCrlConfigurationArgs()

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         public readonly Outputs.AccessPolicyUser? User;
 
         [OutputConstructor]
-        private AccessPolicyAccessPolicyIdentity(Outputs.AccessPolicyUser? User)
+        private AccessPolicyAccessPolicyIdentity(Outputs.AccessPolicyUser? user)
         {
-            this.User = User;
+            User = user;
         }
     }
 }

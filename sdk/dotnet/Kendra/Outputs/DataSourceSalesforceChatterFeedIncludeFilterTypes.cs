@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<string> SalesforceChatterFeedIncludeFilterTypes;
 
         [OutputConstructor]
-        private DataSourceSalesforceChatterFeedIncludeFilterTypes(ImmutableArray<string> SalesforceChatterFeedIncludeFilterTypes)
+        private DataSourceSalesforceChatterFeedIncludeFilterTypes(ImmutableArray<string> salesforceChatterFeedIncludeFilterTypes)
         {
-            this.SalesforceChatterFeedIncludeFilterTypes = SalesforceChatterFeedIncludeFilterTypes;
+            SalesforceChatterFeedIncludeFilterTypes = salesforceChatterFeedIncludeFilterTypes;
         }
     }
 }

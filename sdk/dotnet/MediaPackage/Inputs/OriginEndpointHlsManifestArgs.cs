@@ -18,67 +18,67 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-admarkers
         /// </summary>
-        [Input("AdMarkers")]
+        [Input("adMarkers")]
         public Input<string>? AdMarkers { get; set; }
 
-        [Input("AdTriggers")]
-        private InputList<string>? _AdTriggers;
+        [Input("adTriggers")]
+        private InputList<string>? _adTriggers;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adtriggers
         /// </summary>
         public InputList<string> AdTriggers
         {
-            get => _AdTriggers ?? (_AdTriggers = new InputList<string>());
-            set => _AdTriggers = value;
+            get => _adTriggers ?? (_adTriggers = new InputList<string>());
+            set => _adTriggers = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adsondeliveryrestrictions
         /// </summary>
-        [Input("AdsOnDeliveryRestrictions")]
+        [Input("adsOnDeliveryRestrictions")]
         public Input<string>? AdsOnDeliveryRestrictions { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-id
         /// </summary>
-        [Input("Id", required: true)]
+        [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-includeiframeonlystream
         /// </summary>
-        [Input("IncludeIframeOnlyStream")]
+        [Input("includeIframeOnlyStream")]
         public Input<bool>? IncludeIframeOnlyStream { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-manifestname
         /// </summary>
-        [Input("ManifestName")]
+        [Input("manifestName")]
         public Input<string>? ManifestName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlisttype
         /// </summary>
-        [Input("PlaylistType")]
+        [Input("playlistType")]
         public Input<string>? PlaylistType { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlistwindowseconds
         /// </summary>
-        [Input("PlaylistWindowSeconds")]
+        [Input("playlistWindowSeconds")]
         public Input<int>? PlaylistWindowSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-programdatetimeintervalseconds
         /// </summary>
-        [Input("ProgramDateTimeIntervalSeconds")]
+        [Input("programDateTimeIntervalSeconds")]
         public Input<int>? ProgramDateTimeIntervalSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-url
         /// </summary>
-        [Input("Url")]
+        [Input("url")]
         public Input<string>? Url { get; set; }
 
         public OriginEndpointHlsManifestArgs()

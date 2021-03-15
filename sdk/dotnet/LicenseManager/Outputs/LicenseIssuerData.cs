@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
 
         [OutputConstructor]
         private LicenseIssuerData(
-            string Name,
+            string name,
 
-            string? SignKey)
+            string? signKey)
         {
-            this.Name = Name;
-            this.SignKey = SignKey;
+            Name = name;
+            SignKey = signKey;
         }
     }
 }

@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationLog(
-            string? Encoding,
+            string? encoding,
 
-            string? LogGroupName,
+            string? logGroupName,
 
-            string? LogPath,
+            string? logPath,
 
-            string LogType,
+            string logType,
 
-            string? PatternSet)
+            string? patternSet)
         {
-            this.Encoding = Encoding;
-            this.LogGroupName = LogGroupName;
-            this.LogPath = LogPath;
-            this.LogType = LogType;
-            this.PatternSet = PatternSet;
+            Encoding = encoding;
+            LogGroupName = logGroupName;
+            LogPath = logPath;
+            LogType = logType;
+            PatternSet = patternSet;
         }
     }
 }

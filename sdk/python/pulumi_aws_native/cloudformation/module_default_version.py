@@ -75,7 +75,7 @@ class ModuleDefaultVersion(pulumi.CustomResource):
         return ModuleDefaultVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
@@ -83,7 +83,7 @@ class ModuleDefaultVersion(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="ModuleName")
+    @pulumi.getter(name="moduleName")
     def module_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
@@ -91,7 +91,7 @@ class ModuleDefaultVersion(pulumi.CustomResource):
         return pulumi.get(self, "module_name")
 
     @property
-    @pulumi.getter(name="VersionId")
+    @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid

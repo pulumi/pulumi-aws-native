@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowPrefixConfig(
-            string? PrefixFormat,
+            string? prefixFormat,
 
-            string? PrefixType)
+            string? prefixType)
         {
-            this.PrefixFormat = PrefixFormat;
-            this.PrefixType = PrefixType;
+            PrefixFormat = prefixFormat;
+            PrefixType = prefixType;
         }
     }
 }

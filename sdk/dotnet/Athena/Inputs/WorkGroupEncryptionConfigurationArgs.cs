@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Athena.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-encryptionoption
         /// </summary>
-        [Input("EncryptionOption", required: true)]
+        [Input("encryptionOption", required: true)]
         public Input<string> EncryptionOption { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-kmskey
         /// </summary>
-        [Input("KmsKey")]
+        [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
 
         public WorkGroupEncryptionConfigurationArgs()

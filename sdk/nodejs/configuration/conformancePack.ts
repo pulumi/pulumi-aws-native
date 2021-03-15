@@ -38,27 +38,27 @@ export class ConformancePack extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
      */
-    public readonly ConformancePackInputParameters!: pulumi.Output<outputs.Configuration.ConformancePackConformancePackInputParameter[] | undefined>;
+    public readonly conformancePackInputParameters!: pulumi.Output<outputs.Configuration.ConformancePackConformancePackInputParameter[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
      */
-    public readonly ConformancePackName!: pulumi.Output<string>;
+    public readonly conformancePackName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
      */
-    public readonly DeliveryS3Bucket!: pulumi.Output<string | undefined>;
+    public readonly deliveryS3Bucket!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
      */
-    public readonly DeliveryS3KeyPrefix!: pulumi.Output<string | undefined>;
+    public readonly deliveryS3KeyPrefix!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
      */
-    public readonly TemplateBody!: pulumi.Output<string | undefined>;
+    public readonly templateBody!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
      */
-    public readonly TemplateS3Uri!: pulumi.Output<string | undefined>;
+    public readonly templateS3Uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ConformancePack resource with the given unique name, arguments, and options.
@@ -70,22 +70,22 @@ export class ConformancePack extends pulumi.CustomResource {
     constructor(name: string, args: ConformancePackArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ConformancePackName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ConformancePackName'");
+            if ((!args || args.conformancePackName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'conformancePackName'");
             }
-            inputs["ConformancePackInputParameters"] = args ? args.ConformancePackInputParameters : undefined;
-            inputs["ConformancePackName"] = args ? args.ConformancePackName : undefined;
-            inputs["DeliveryS3Bucket"] = args ? args.DeliveryS3Bucket : undefined;
-            inputs["DeliveryS3KeyPrefix"] = args ? args.DeliveryS3KeyPrefix : undefined;
-            inputs["TemplateBody"] = args ? args.TemplateBody : undefined;
-            inputs["TemplateS3Uri"] = args ? args.TemplateS3Uri : undefined;
+            inputs["conformancePackInputParameters"] = args ? args.conformancePackInputParameters : undefined;
+            inputs["conformancePackName"] = args ? args.conformancePackName : undefined;
+            inputs["deliveryS3Bucket"] = args ? args.deliveryS3Bucket : undefined;
+            inputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
+            inputs["templateBody"] = args ? args.templateBody : undefined;
+            inputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
         } else {
-            inputs["ConformancePackInputParameters"] = undefined /*out*/;
-            inputs["ConformancePackName"] = undefined /*out*/;
-            inputs["DeliveryS3Bucket"] = undefined /*out*/;
-            inputs["DeliveryS3KeyPrefix"] = undefined /*out*/;
-            inputs["TemplateBody"] = undefined /*out*/;
-            inputs["TemplateS3Uri"] = undefined /*out*/;
+            inputs["conformancePackInputParameters"] = undefined /*out*/;
+            inputs["conformancePackName"] = undefined /*out*/;
+            inputs["deliveryS3Bucket"] = undefined /*out*/;
+            inputs["deliveryS3KeyPrefix"] = undefined /*out*/;
+            inputs["templateBody"] = undefined /*out*/;
+            inputs["templateS3Uri"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,25 +105,25 @@ export interface ConformancePackArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
      */
-    readonly ConformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.Configuration.ConformancePackConformancePackInputParameter>[]>;
+    readonly conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.Configuration.ConformancePackConformancePackInputParameter>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
      */
-    readonly ConformancePackName: pulumi.Input<string>;
+    readonly conformancePackName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
      */
-    readonly DeliveryS3Bucket?: pulumi.Input<string>;
+    readonly deliveryS3Bucket?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
      */
-    readonly DeliveryS3KeyPrefix?: pulumi.Input<string>;
+    readonly deliveryS3KeyPrefix?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
      */
-    readonly TemplateBody?: pulumi.Input<string>;
+    readonly templateBody?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
      */
-    readonly TemplateS3Uri?: pulumi.Input<string>;
+    readonly templateS3Uri?: pulumi.Input<string>;
 }

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html#cfn-kendra-datasource-confluencepageconfiguration-pagefieldmappings
         /// </summary>
-        [Input("PageFieldMappings")]
+        [Input("pageFieldMappings")]
         public Input<Inputs.DataSourceConfluencePageFieldMappingsListArgs>? PageFieldMappings { get; set; }
 
         public DataSourceConfluencePageConfigurationArgs()

@@ -38,35 +38,35 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
      */
-    public readonly CertificateArn!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly DistributionDomainName!: pulumi.Output<string>;
-    public /*out*/ readonly DistributionHostedZoneId!: pulumi.Output<string>;
+    public readonly certificateArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly distributionDomainName!: pulumi.Output<string>;
+    public /*out*/ readonly distributionHostedZoneId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
      */
-    public readonly DomainName!: pulumi.Output<string | undefined>;
+    public readonly domainName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
      */
-    public readonly EndpointConfiguration!: pulumi.Output<outputs.ApiGateway.DomainNameEndpointConfiguration | undefined>;
+    public readonly endpointConfiguration!: pulumi.Output<outputs.ApiGateway.DomainNameEndpointConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
      */
-    public readonly MutualTlsAuthentication!: pulumi.Output<outputs.ApiGateway.DomainNameMutualTlsAuthentication | undefined>;
+    public readonly mutualTlsAuthentication!: pulumi.Output<outputs.ApiGateway.DomainNameMutualTlsAuthentication | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
      */
-    public readonly RegionalCertificateArn!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly RegionalDomainName!: pulumi.Output<string>;
-    public /*out*/ readonly RegionalHostedZoneId!: pulumi.Output<string>;
+    public readonly regionalCertificateArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
+    public /*out*/ readonly regionalHostedZoneId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
      */
-    public readonly SecurityPolicy!: pulumi.Output<string | undefined>;
+    public readonly securityPolicy!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -78,29 +78,29 @@ export class DomainName extends pulumi.CustomResource {
     constructor(name: string, args?: DomainNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["CertificateArn"] = args ? args.CertificateArn : undefined;
-            inputs["DomainName"] = args ? args.DomainName : undefined;
-            inputs["EndpointConfiguration"] = args ? args.EndpointConfiguration : undefined;
-            inputs["MutualTlsAuthentication"] = args ? args.MutualTlsAuthentication : undefined;
-            inputs["RegionalCertificateArn"] = args ? args.RegionalCertificateArn : undefined;
-            inputs["SecurityPolicy"] = args ? args.SecurityPolicy : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["DistributionDomainName"] = undefined /*out*/;
-            inputs["DistributionHostedZoneId"] = undefined /*out*/;
-            inputs["RegionalDomainName"] = undefined /*out*/;
-            inputs["RegionalHostedZoneId"] = undefined /*out*/;
+            inputs["certificateArn"] = args ? args.certificateArn : undefined;
+            inputs["domainName"] = args ? args.domainName : undefined;
+            inputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
+            inputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
+            inputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
+            inputs["securityPolicy"] = args ? args.securityPolicy : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["distributionDomainName"] = undefined /*out*/;
+            inputs["distributionHostedZoneId"] = undefined /*out*/;
+            inputs["regionalDomainName"] = undefined /*out*/;
+            inputs["regionalHostedZoneId"] = undefined /*out*/;
         } else {
-            inputs["CertificateArn"] = undefined /*out*/;
-            inputs["DistributionDomainName"] = undefined /*out*/;
-            inputs["DistributionHostedZoneId"] = undefined /*out*/;
-            inputs["DomainName"] = undefined /*out*/;
-            inputs["EndpointConfiguration"] = undefined /*out*/;
-            inputs["MutualTlsAuthentication"] = undefined /*out*/;
-            inputs["RegionalCertificateArn"] = undefined /*out*/;
-            inputs["RegionalDomainName"] = undefined /*out*/;
-            inputs["RegionalHostedZoneId"] = undefined /*out*/;
-            inputs["SecurityPolicy"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["certificateArn"] = undefined /*out*/;
+            inputs["distributionDomainName"] = undefined /*out*/;
+            inputs["distributionHostedZoneId"] = undefined /*out*/;
+            inputs["domainName"] = undefined /*out*/;
+            inputs["endpointConfiguration"] = undefined /*out*/;
+            inputs["mutualTlsAuthentication"] = undefined /*out*/;
+            inputs["regionalCertificateArn"] = undefined /*out*/;
+            inputs["regionalDomainName"] = undefined /*out*/;
+            inputs["regionalHostedZoneId"] = undefined /*out*/;
+            inputs["securityPolicy"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -120,29 +120,29 @@ export interface DomainNameArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
      */
-    readonly CertificateArn?: pulumi.Input<string>;
+    readonly certificateArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
      */
-    readonly DomainName?: pulumi.Input<string>;
+    readonly domainName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
      */
-    readonly EndpointConfiguration?: pulumi.Input<inputs.ApiGateway.DomainNameEndpointConfiguration>;
+    readonly endpointConfiguration?: pulumi.Input<inputs.ApiGateway.DomainNameEndpointConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
      */
-    readonly MutualTlsAuthentication?: pulumi.Input<inputs.ApiGateway.DomainNameMutualTlsAuthentication>;
+    readonly mutualTlsAuthentication?: pulumi.Input<inputs.ApiGateway.DomainNameMutualTlsAuthentication>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
      */
-    readonly RegionalCertificateArn?: pulumi.Input<string>;
+    readonly regionalCertificateArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
      */
-    readonly SecurityPolicy?: pulumi.Input<string>;
+    readonly securityPolicy?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

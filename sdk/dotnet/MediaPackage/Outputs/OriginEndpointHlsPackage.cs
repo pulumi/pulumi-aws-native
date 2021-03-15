@@ -60,39 +60,39 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private OriginEndpointHlsPackage(
-            string? AdMarkers,
+            string? adMarkers,
 
-            ImmutableArray<string> AdTriggers,
+            ImmutableArray<string> adTriggers,
 
-            string? AdsOnDeliveryRestrictions,
+            string? adsOnDeliveryRestrictions,
 
-            Outputs.OriginEndpointHlsEncryption? Encryption,
+            Outputs.OriginEndpointHlsEncryption? encryption,
 
-            bool? IncludeIframeOnlyStream,
+            bool? includeIframeOnlyStream,
 
-            string? PlaylistType,
+            string? playlistType,
 
-            int? PlaylistWindowSeconds,
+            int? playlistWindowSeconds,
 
-            int? ProgramDateTimeIntervalSeconds,
+            int? programDateTimeIntervalSeconds,
 
-            int? SegmentDurationSeconds,
+            int? segmentDurationSeconds,
 
-            Outputs.OriginEndpointStreamSelection? StreamSelection,
+            Outputs.OriginEndpointStreamSelection? streamSelection,
 
-            bool? UseAudioRenditionGroup)
+            bool? useAudioRenditionGroup)
         {
-            this.AdMarkers = AdMarkers;
-            this.AdTriggers = AdTriggers;
-            this.AdsOnDeliveryRestrictions = AdsOnDeliveryRestrictions;
-            this.Encryption = Encryption;
-            this.IncludeIframeOnlyStream = IncludeIframeOnlyStream;
-            this.PlaylistType = PlaylistType;
-            this.PlaylistWindowSeconds = PlaylistWindowSeconds;
-            this.ProgramDateTimeIntervalSeconds = ProgramDateTimeIntervalSeconds;
-            this.SegmentDurationSeconds = SegmentDurationSeconds;
-            this.StreamSelection = StreamSelection;
-            this.UseAudioRenditionGroup = UseAudioRenditionGroup;
+            AdMarkers = adMarkers;
+            AdTriggers = adTriggers;
+            AdsOnDeliveryRestrictions = adsOnDeliveryRestrictions;
+            Encryption = encryption;
+            IncludeIframeOnlyStream = includeIframeOnlyStream;
+            PlaylistType = playlistType;
+            PlaylistWindowSeconds = playlistWindowSeconds;
+            ProgramDateTimeIntervalSeconds = programDateTimeIntervalSeconds;
+            SegmentDurationSeconds = segmentDurationSeconds;
+            StreamSelection = streamSelection;
+            UseAudioRenditionGroup = useAudioRenditionGroup;
         }
     }
 }

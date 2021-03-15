@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectorprofilename
         /// </summary>
-        [Input("ConnectorProfileName")]
+        [Input("connectorProfileName")]
         public Input<string>? ConnectorProfileName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectortype
         /// </summary>
-        [Input("ConnectorType", required: true)]
+        [Input("connectorType", required: true)]
         public Input<string> ConnectorType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-destinationconnectorproperties
         /// </summary>
-        [Input("DestinationConnectorProperties", required: true)]
+        [Input("destinationConnectorProperties", required: true)]
         public Input<Inputs.FlowDestinationConnectorPropertiesArgs> DestinationConnectorProperties { get; set; } = null!;
 
         public FlowDestinationFlowConfigArgs()

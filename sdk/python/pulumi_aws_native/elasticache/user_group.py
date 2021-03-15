@@ -85,12 +85,12 @@ class UserGroup(pulumi.CustomResource):
         return UserGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Engine")
+    @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
@@ -98,22 +98,22 @@ class UserGroup(pulumi.CustomResource):
         return pulumi.get(self, "engine")
 
     @property
-    @pulumi.getter(name="PendingChanges")
+    @pulumi.getter(name="pendingChanges")
     def pending_changes(self) -> pulumi.Output['outputs.UserGroupUserGroupPendingChanges']:
         return pulumi.get(self, "pending_changes")
 
     @property
-    @pulumi.getter(name="ReplicationGroupIds")
+    @pulumi.getter(name="replicationGroupIds")
     def replication_group_ids(self) -> pulumi.Output['outputs.UserGroupReplicationGroupIdList']:
         return pulumi.get(self, "replication_group_ids")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="UserGroupId")
+    @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
@@ -121,7 +121,7 @@ class UserGroup(pulumi.CustomResource):
         return pulumi.get(self, "user_group_id")
 
     @property
-    @pulumi.getter(name="UserIds")
+    @pulumi.getter(name="userIds")
     def user_ids(self) -> pulumi.Output[Optional['outputs.UserGroupUserIdList']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids

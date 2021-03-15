@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
         [OutputConstructor]
         private AssetModelVariableValue(
-            string? HierarchyLogicalId,
+            string? hierarchyLogicalId,
 
-            string PropertyLogicalId)
+            string propertyLogicalId)
         {
-            this.HierarchyLogicalId = HierarchyLogicalId;
-            this.PropertyLogicalId = PropertyLogicalId;
+            HierarchyLogicalId = hierarchyLogicalId;
+            PropertyLogicalId = propertyLogicalId;
         }
     }
 }

@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
         /// </summary>
-        [Input("AmiDistributionConfiguration")]
+        [Input("amiDistributionConfiguration")]
         public InputUnion<System.Text.Json.JsonElement, string>? AmiDistributionConfiguration { get; set; }
 
-        [Input("LicenseConfigurationArns")]
-        private InputList<string>? _LicenseConfigurationArns;
+        [Input("licenseConfigurationArns")]
+        private InputList<string>? _licenseConfigurationArns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
         /// </summary>
         public InputList<string> LicenseConfigurationArns
         {
-            get => _LicenseConfigurationArns ?? (_LicenseConfigurationArns = new InputList<string>());
-            set => _LicenseConfigurationArns = value;
+            get => _licenseConfigurationArns ?? (_licenseConfigurationArns = new InputList<string>());
+            set => _licenseConfigurationArns = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
         /// </summary>
-        [Input("Region", required: true)]
+        [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
         public DistributionConfigurationDistributionArgs()

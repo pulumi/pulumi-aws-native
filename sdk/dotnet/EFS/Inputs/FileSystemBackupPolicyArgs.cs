@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.EFS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
         /// </summary>
-        [Input("Status", required: true)]
+        [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
         public FileSystemBackupPolicyArgs()

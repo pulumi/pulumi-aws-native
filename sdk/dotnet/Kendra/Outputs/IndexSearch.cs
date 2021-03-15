@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private IndexSearch(
-            bool? Displayable,
+            bool? displayable,
 
-            bool? Facetable,
+            bool? facetable,
 
-            bool? Searchable,
+            bool? searchable,
 
-            bool? Sortable)
+            bool? sortable)
         {
-            this.Displayable = Displayable;
-            this.Facetable = Facetable;
-            this.Searchable = Searchable;
-            this.Sortable = Sortable;
+            Displayable = displayable;
+            Facetable = facetable;
+            Searchable = searchable;
+            Sortable = sortable;
         }
     }
 }

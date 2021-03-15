@@ -37,15 +37,15 @@ export class ModuleDefaultVersion extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
      */
-    public readonly Arn!: pulumi.Output<string | undefined>;
+    public readonly arn!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
      */
-    public readonly ModuleName!: pulumi.Output<string | undefined>;
+    public readonly moduleName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
      */
-    public readonly VersionId!: pulumi.Output<string | undefined>;
+    public readonly versionId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ModuleDefaultVersion resource with the given unique name, arguments, and options.
@@ -57,13 +57,13 @@ export class ModuleDefaultVersion extends pulumi.CustomResource {
     constructor(name: string, args?: ModuleDefaultVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["Arn"] = args ? args.Arn : undefined;
-            inputs["ModuleName"] = args ? args.ModuleName : undefined;
-            inputs["VersionId"] = args ? args.VersionId : undefined;
+            inputs["arn"] = args ? args.arn : undefined;
+            inputs["moduleName"] = args ? args.moduleName : undefined;
+            inputs["versionId"] = args ? args.versionId : undefined;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["ModuleName"] = undefined /*out*/;
-            inputs["VersionId"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["moduleName"] = undefined /*out*/;
+            inputs["versionId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -83,13 +83,13 @@ export interface ModuleDefaultVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
      */
-    readonly Arn?: pulumi.Input<string>;
+    readonly arn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
      */
-    readonly ModuleName?: pulumi.Input<string>;
+    readonly moduleName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
      */
-    readonly VersionId?: pulumi.Input<string>;
+    readonly versionId?: pulumi.Input<string>;
 }

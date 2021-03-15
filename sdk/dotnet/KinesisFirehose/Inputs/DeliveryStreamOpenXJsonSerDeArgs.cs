@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-caseinsensitive
         /// </summary>
-        [Input("CaseInsensitive")]
+        [Input("caseInsensitive")]
         public Input<bool>? CaseInsensitive { get; set; }
 
-        [Input("ColumnToJsonKeyMappings")]
-        private InputMap<string>? _ColumnToJsonKeyMappings;
+        [Input("columnToJsonKeyMappings")]
+        private InputMap<string>? _columnToJsonKeyMappings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-columntojsonkeymappings
         /// </summary>
         public InputMap<string> ColumnToJsonKeyMappings
         {
-            get => _ColumnToJsonKeyMappings ?? (_ColumnToJsonKeyMappings = new InputMap<string>());
-            set => _ColumnToJsonKeyMappings = value;
+            get => _columnToJsonKeyMappings ?? (_columnToJsonKeyMappings = new InputMap<string>());
+            set => _columnToJsonKeyMappings = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-convertdotsinjsonkeystounderscores
         /// </summary>
-        [Input("ConvertDotsInJsonKeysToUnderscores")]
+        [Input("convertDotsInJsonKeysToUnderscores")]
         public Input<bool>? ConvertDotsInJsonKeysToUnderscores { get; set; }
 
         public DeliveryStreamOpenXJsonSerDeArgs()

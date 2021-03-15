@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<string> StatelessActions;
 
         [OutputConstructor]
-        private FirewallPolicyStatelessActions(ImmutableArray<string> StatelessActions)
+        private FirewallPolicyStatelessActions(ImmutableArray<string> statelessActions)
         {
-            this.StatelessActions = StatelessActions;
+            StatelessActions = statelessActions;
         }
     }
 }

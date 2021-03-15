@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
         [OutputConstructor]
         private ComponentVersionLambdaEventSource(
-            string? Topic,
+            string? topic,
 
-            string? Type)
+            string? type)
         {
-            this.Topic = Topic;
-            this.Type = Type;
+            Topic = topic;
+            Type = type;
         }
     }
 }

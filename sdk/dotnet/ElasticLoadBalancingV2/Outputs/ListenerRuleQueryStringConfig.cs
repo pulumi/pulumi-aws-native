@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         public readonly ImmutableArray<Outputs.ListenerRuleQueryStringKeyValue> Values;
 
         [OutputConstructor]
-        private ListenerRuleQueryStringConfig(ImmutableArray<Outputs.ListenerRuleQueryStringKeyValue> Values)
+        private ListenerRuleQueryStringConfig(ImmutableArray<Outputs.ListenerRuleQueryStringKeyValue> values)
         {
-            this.Values = Values;
+            Values = values;
         }
     }
 }

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Configuration.Outputs
 
         [OutputConstructor]
         private ConformancePackConformancePackInputParameter(
-            string ParameterName,
+            string parameterName,
 
-            string ParameterValue)
+            string parameterValue)
         {
-            this.ParameterName = ParameterName;
-            this.ParameterValue = ParameterValue;
+            ParameterName = parameterName;
+            ParameterValue = parameterValue;
         }
     }
 }

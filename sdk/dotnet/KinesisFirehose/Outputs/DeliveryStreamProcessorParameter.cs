@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamProcessorParameter(
-            string ParameterName,
+            string parameterName,
 
-            string ParameterValue)
+            string parameterValue)
         {
-            this.ParameterName = ParameterName;
-            this.ParameterValue = ParameterValue;
+            ParameterName = parameterName;
+            ParameterValue = parameterValue;
         }
     }
 }

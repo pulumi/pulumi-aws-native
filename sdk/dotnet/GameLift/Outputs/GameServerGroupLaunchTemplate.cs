@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 
         [OutputConstructor]
         private GameServerGroupLaunchTemplate(
-            string? LaunchTemplateId,
+            string? launchTemplateId,
 
-            string? LaunchTemplateName,
+            string? launchTemplateName,
 
-            string? Version)
+            string? version)
         {
-            this.LaunchTemplateId = LaunchTemplateId;
-            this.LaunchTemplateName = LaunchTemplateName;
-            this.Version = Version;
+            LaunchTemplateId = launchTemplateId;
+            LaunchTemplateName = launchTemplateName;
+            Version = version;
         }
     }
 }

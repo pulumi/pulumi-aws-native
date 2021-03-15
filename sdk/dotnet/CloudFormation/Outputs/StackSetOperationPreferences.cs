@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
 
         [OutputConstructor]
         private StackSetOperationPreferences(
-            int? FailureToleranceCount,
+            int? failureToleranceCount,
 
-            int? FailureTolerancePercentage,
+            int? failureTolerancePercentage,
 
-            int? MaxConcurrentCount,
+            int? maxConcurrentCount,
 
-            int? MaxConcurrentPercentage,
+            int? maxConcurrentPercentage,
 
-            ImmutableArray<string> RegionOrder)
+            ImmutableArray<string> regionOrder)
         {
-            this.FailureToleranceCount = FailureToleranceCount;
-            this.FailureTolerancePercentage = FailureTolerancePercentage;
-            this.MaxConcurrentCount = MaxConcurrentCount;
-            this.MaxConcurrentPercentage = MaxConcurrentPercentage;
-            this.RegionOrder = RegionOrder;
+            FailureToleranceCount = failureToleranceCount;
+            FailureTolerancePercentage = failureTolerancePercentage;
+            MaxConcurrentCount = maxConcurrentCount;
+            MaxConcurrentPercentage = maxConcurrentPercentage;
+            RegionOrder = regionOrder;
         }
     }
 }

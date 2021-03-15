@@ -48,30 +48,30 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerRuleRuleCondition(
-            string? Field,
+            string? field,
 
-            Outputs.ListenerRuleHostHeaderConfig? HostHeaderConfig,
+            Outputs.ListenerRuleHostHeaderConfig? hostHeaderConfig,
 
-            Outputs.ListenerRuleHttpHeaderConfig? HttpHeaderConfig,
+            Outputs.ListenerRuleHttpHeaderConfig? httpHeaderConfig,
 
-            Outputs.ListenerRuleHttpRequestMethodConfig? HttpRequestMethodConfig,
+            Outputs.ListenerRuleHttpRequestMethodConfig? httpRequestMethodConfig,
 
-            Outputs.ListenerRulePathPatternConfig? PathPatternConfig,
+            Outputs.ListenerRulePathPatternConfig? pathPatternConfig,
 
-            Outputs.ListenerRuleQueryStringConfig? QueryStringConfig,
+            Outputs.ListenerRuleQueryStringConfig? queryStringConfig,
 
-            Outputs.ListenerRuleSourceIpConfig? SourceIpConfig,
+            Outputs.ListenerRuleSourceIpConfig? sourceIpConfig,
 
-            ImmutableArray<string> Values)
+            ImmutableArray<string> values)
         {
-            this.Field = Field;
-            this.HostHeaderConfig = HostHeaderConfig;
-            this.HttpHeaderConfig = HttpHeaderConfig;
-            this.HttpRequestMethodConfig = HttpRequestMethodConfig;
-            this.PathPatternConfig = PathPatternConfig;
-            this.QueryStringConfig = QueryStringConfig;
-            this.SourceIpConfig = SourceIpConfig;
-            this.Values = Values;
+            Field = field;
+            HostHeaderConfig = hostHeaderConfig;
+            HttpHeaderConfig = httpHeaderConfig;
+            HttpRequestMethodConfig = httpRequestMethodConfig;
+            PathPatternConfig = pathPatternConfig;
+            QueryStringConfig = queryStringConfig;
+            SourceIpConfig = sourceIpConfig;
+            Values = values;
         }
     }
 }

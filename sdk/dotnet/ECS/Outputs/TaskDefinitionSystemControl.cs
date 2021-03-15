@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionSystemControl(
-            string? Namespace,
+            string? @namespace,
 
-            string? Value)
+            string? value)
         {
-            this.Namespace = Namespace;
-            this.Value = Value;
+            Namespace = @namespace;
+            Value = value;
         }
     }
 }

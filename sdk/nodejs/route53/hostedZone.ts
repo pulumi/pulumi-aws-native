@@ -38,25 +38,25 @@ export class HostedZone extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
      */
-    public readonly HostedZoneConfig!: pulumi.Output<outputs.Route53.HostedZoneHostedZoneConfig | undefined>;
+    public readonly hostedZoneConfig!: pulumi.Output<outputs.Route53.HostedZoneHostedZoneConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
      */
-    public readonly HostedZoneTags!: pulumi.Output<outputs.Route53.HostedZoneHostedZoneTag[] | undefined>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly hostedZoneTags!: pulumi.Output<outputs.Route53.HostedZoneHostedZoneTag[] | undefined>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
      */
-    public readonly Name!: pulumi.Output<string>;
-    public /*out*/ readonly NameServers!: pulumi.Output<string[]>;
+    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
      */
-    public readonly QueryLoggingConfig!: pulumi.Output<outputs.Route53.HostedZoneQueryLoggingConfig | undefined>;
+    public readonly queryLoggingConfig!: pulumi.Output<outputs.Route53.HostedZoneQueryLoggingConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
      */
-    public readonly VPCs!: pulumi.Output<outputs.Route53.HostedZoneVPC[] | undefined>;
+    public readonly vPCs!: pulumi.Output<outputs.Route53.HostedZoneVPC[] | undefined>;
 
     /**
      * Create a HostedZone resource with the given unique name, arguments, and options.
@@ -68,24 +68,24 @@ export class HostedZone extends pulumi.CustomResource {
     constructor(name: string, args: HostedZoneArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            inputs["HostedZoneConfig"] = args ? args.HostedZoneConfig : undefined;
-            inputs["HostedZoneTags"] = args ? args.HostedZoneTags : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["QueryLoggingConfig"] = args ? args.QueryLoggingConfig : undefined;
-            inputs["VPCs"] = args ? args.VPCs : undefined;
-            inputs["Id"] = undefined /*out*/;
-            inputs["NameServers"] = undefined /*out*/;
+            inputs["hostedZoneConfig"] = args ? args.hostedZoneConfig : undefined;
+            inputs["hostedZoneTags"] = args ? args.hostedZoneTags : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["queryLoggingConfig"] = args ? args.queryLoggingConfig : undefined;
+            inputs["vPCs"] = args ? args.vPCs : undefined;
+            inputs["id"] = undefined /*out*/;
+            inputs["nameServers"] = undefined /*out*/;
         } else {
-            inputs["HostedZoneConfig"] = undefined /*out*/;
-            inputs["HostedZoneTags"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["NameServers"] = undefined /*out*/;
-            inputs["QueryLoggingConfig"] = undefined /*out*/;
-            inputs["VPCs"] = undefined /*out*/;
+            inputs["hostedZoneConfig"] = undefined /*out*/;
+            inputs["hostedZoneTags"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["nameServers"] = undefined /*out*/;
+            inputs["queryLoggingConfig"] = undefined /*out*/;
+            inputs["vPCs"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,21 +105,21 @@ export interface HostedZoneArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
      */
-    readonly HostedZoneConfig?: pulumi.Input<inputs.Route53.HostedZoneHostedZoneConfig>;
+    readonly hostedZoneConfig?: pulumi.Input<inputs.Route53.HostedZoneHostedZoneConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
      */
-    readonly HostedZoneTags?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneHostedZoneTag>[]>;
+    readonly hostedZoneTags?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneHostedZoneTag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
      */
-    readonly QueryLoggingConfig?: pulumi.Input<inputs.Route53.HostedZoneQueryLoggingConfig>;
+    readonly queryLoggingConfig?: pulumi.Input<inputs.Route53.HostedZoneQueryLoggingConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
      */
-    readonly VPCs?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneVPC>[]>;
+    readonly vPCs?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneVPC>[]>;
 }

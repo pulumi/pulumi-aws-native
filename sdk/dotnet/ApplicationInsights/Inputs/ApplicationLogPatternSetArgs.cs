@@ -15,22 +15,22 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// </summary>
     public sealed class ApplicationLogPatternSetArgs : Pulumi.ResourceArgs
     {
-        [Input("LogPatterns", required: true)]
-        private InputList<Inputs.ApplicationLogPatternArgs>? _LogPatterns;
+        [Input("logPatterns", required: true)]
+        private InputList<Inputs.ApplicationLogPatternArgs>? _logPatterns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
         /// </summary>
         public InputList<Inputs.ApplicationLogPatternArgs> LogPatterns
         {
-            get => _LogPatterns ?? (_LogPatterns = new InputList<Inputs.ApplicationLogPatternArgs>());
-            set => _LogPatterns = value;
+            get => _logPatterns ?? (_logPatterns = new InputList<Inputs.ApplicationLogPatternArgs>());
+            set => _logPatterns = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
         /// </summary>
-        [Input("PatternSetName", required: true)]
+        [Input("patternSetName", required: true)]
         public Input<string> PatternSetName { get; set; } = null!;
 
         public ApplicationLogPatternSetArgs()

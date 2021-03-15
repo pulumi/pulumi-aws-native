@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
         /// </summary>
-        [Input("KinesisStreamConfig", required: true)]
+        [Input("kinesisStreamConfig", required: true)]
         public Input<Inputs.RealtimeLogConfigKinesisStreamConfigArgs> KinesisStreamConfig { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype
         /// </summary>
-        [Input("StreamType", required: true)]
+        [Input("streamType", required: true)]
         public Input<string> StreamType { get; set; } = null!;
 
         public RealtimeLogConfigEndPointArgs()

@@ -82,12 +82,12 @@ class Alias(pulumi.CustomResource):
         return Alias(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AliasId")
+    @pulumi.getter(name="aliasId")
     def alias_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "alias_id")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
@@ -95,7 +95,7 @@ class Alias(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
@@ -103,7 +103,7 @@ class Alias(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="RoutingStrategy")
+    @pulumi.getter(name="routingStrategy")
     def routing_strategy(self) -> pulumi.Output['outputs.AliasRoutingStrategy']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy

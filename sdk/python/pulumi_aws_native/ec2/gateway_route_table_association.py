@@ -77,12 +77,12 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
         return GatewayRouteTableAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AssociationId")
+    @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "association_id")
 
     @property
-    @pulumi.getter(name="GatewayId")
+    @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
@@ -90,7 +90,7 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
         return pulumi.get(self, "gateway_id")
 
     @property
-    @pulumi.getter(name="RouteTableId")
+    @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid

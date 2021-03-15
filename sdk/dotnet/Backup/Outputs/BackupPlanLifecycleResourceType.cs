@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
         [OutputConstructor]
         private BackupPlanLifecycleResourceType(
-            double? DeleteAfterDays,
+            double? deleteAfterDays,
 
-            double? MoveToColdStorageAfterDays)
+            double? moveToColdStorageAfterDays)
         {
-            this.DeleteAfterDays = DeleteAfterDays;
-            this.MoveToColdStorageAfterDays = MoveToColdStorageAfterDays;
+            DeleteAfterDays = deleteAfterDays;
+            MoveToColdStorageAfterDays = moveToColdStorageAfterDays;
         }
     }
 }

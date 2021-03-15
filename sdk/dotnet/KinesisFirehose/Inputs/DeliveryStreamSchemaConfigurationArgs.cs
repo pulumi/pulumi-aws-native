@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-catalogid
         /// </summary>
-        [Input("CatalogId")]
+        [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-databasename
         /// </summary>
-        [Input("DatabaseName")]
+        [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-region
         /// </summary>
-        [Input("Region")]
+        [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-rolearn
         /// </summary>
-        [Input("RoleARN")]
+        [Input("roleARN")]
         public Input<string>? RoleARN { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-tablename
         /// </summary>
-        [Input("TableName")]
+        [Input("tableName")]
         public Input<string>? TableName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-versionid
         /// </summary>
-        [Input("VersionId")]
+        [Input("versionId")]
         public Input<string>? VersionId { get; set; }
 
         public DeliveryStreamSchemaConfigurationArgs()

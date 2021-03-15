@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-blocksizebytes
         /// </summary>
-        [Input("BlockSizeBytes")]
+        [Input("blockSizeBytes")]
         public Input<int>? BlockSizeBytes { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-compression
         /// </summary>
-        [Input("Compression")]
+        [Input("compression")]
         public Input<string>? Compression { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-enabledictionarycompression
         /// </summary>
-        [Input("EnableDictionaryCompression")]
+        [Input("enableDictionaryCompression")]
         public Input<bool>? EnableDictionaryCompression { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-maxpaddingbytes
         /// </summary>
-        [Input("MaxPaddingBytes")]
+        [Input("maxPaddingBytes")]
         public Input<int>? MaxPaddingBytes { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-pagesizebytes
         /// </summary>
-        [Input("PageSizeBytes")]
+        [Input("pageSizeBytes")]
         public Input<int>? PageSizeBytes { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-writerversion
         /// </summary>
-        [Input("WriterVersion")]
+        [Input("writerVersion")]
         public Input<string>? WriterVersion { get; set; }
 
         public DeliveryStreamParquetSerDeArgs()

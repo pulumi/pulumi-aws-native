@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerRuleTargetGroupStickinessConfig(
-            int? DurationSeconds,
+            int? durationSeconds,
 
-            bool? Enabled)
+            bool? enabled)
         {
-            this.DurationSeconds = DurationSeconds;
-            this.Enabled = Enabled;
+            DurationSeconds = durationSeconds;
+            Enabled = enabled;
         }
     }
 }

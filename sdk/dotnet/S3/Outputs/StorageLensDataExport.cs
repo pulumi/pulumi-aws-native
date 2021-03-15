@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.S3.Outputs
         public readonly Outputs.StorageLensS3BucketDestination S3BucketDestination;
 
         [OutputConstructor]
-        private StorageLensDataExport(Outputs.StorageLensS3BucketDestination S3BucketDestination)
+        private StorageLensDataExport(Outputs.StorageLensS3BucketDestination s3BucketDestination)
         {
-            this.S3BucketDestination = S3BucketDestination;
+            S3BucketDestination = s3BucketDestination;
         }
     }
 }

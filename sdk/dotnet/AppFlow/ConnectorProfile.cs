@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
         /// </summary>
-        [Output("ConnectionMode")]
+        [Output("connectionMode")]
         public Output<string> ConnectionMode { get; private set; } = null!;
 
-        [Output("ConnectorProfileArn")]
+        [Output("connectorProfileArn")]
         public Output<string> ConnectorProfileArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
         /// </summary>
-        [Output("ConnectorProfileConfig")]
+        [Output("connectorProfileConfig")]
         public Output<Outputs.ConnectorProfileConnectorProfileConfig?> ConnectorProfileConfig { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
         /// </summary>
-        [Output("ConnectorProfileName")]
+        [Output("connectorProfileName")]
         public Output<string> ConnectorProfileName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
         /// </summary>
-        [Output("ConnectorType")]
+        [Output("connectorType")]
         public Output<string> ConnectorType { get; private set; } = null!;
 
-        [Output("CredentialsArn")]
+        [Output("credentialsArn")]
         public Output<string> CredentialsArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
         /// </summary>
-        [Output("KMSArn")]
+        [Output("kMSArn")]
         public Output<string?> KMSArn { get; private set; } = null!;
 
 
@@ -99,31 +99,31 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
         /// </summary>
-        [Input("ConnectionMode", required: true)]
+        [Input("connectionMode", required: true)]
         public Input<string> ConnectionMode { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
         /// </summary>
-        [Input("ConnectorProfileConfig")]
+        [Input("connectorProfileConfig")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigArgs>? ConnectorProfileConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
         /// </summary>
-        [Input("ConnectorProfileName", required: true)]
+        [Input("connectorProfileName", required: true)]
         public Input<string> ConnectorProfileName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
         /// </summary>
-        [Input("ConnectorType", required: true)]
+        [Input("connectorType", required: true)]
         public Input<string> ConnectorType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
         /// </summary>
-        [Input("KMSArn")]
+        [Input("kMSArn")]
         public Input<string>? KMSArn { get; set; }
 
         public ConnectorProfileArgs()

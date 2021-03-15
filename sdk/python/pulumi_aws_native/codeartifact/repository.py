@@ -98,12 +98,12 @@ class Repository(pulumi.CustomResource):
         return Repository(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
@@ -111,17 +111,17 @@ class Repository(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="DomainName")
+    @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "domain_name")
 
     @property
-    @pulumi.getter(name="DomainOwner")
+    @pulumi.getter(name="domainOwner")
     def domain_owner(self) -> pulumi.Output[str]:
         return pulumi.get(self, "domain_owner")
 
     @property
-    @pulumi.getter(name="ExternalConnections")
+    @pulumi.getter(name="externalConnections")
     def external_connections(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
@@ -129,12 +129,12 @@ class Repository(pulumi.CustomResource):
         return pulumi.get(self, "external_connections")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="PermissionsPolicyDocument")
+    @pulumi.getter(name="permissionsPolicyDocument")
     def permissions_policy_document(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
@@ -142,7 +142,7 @@ class Repository(pulumi.CustomResource):
         return pulumi.get(self, "permissions_policy_document")
 
     @property
-    @pulumi.getter(name="RepositoryName")
+    @pulumi.getter(name="repositoryName")
     def repository_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
@@ -150,7 +150,7 @@ class Repository(pulumi.CustomResource):
         return pulumi.get(self, "repository_name")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
@@ -158,7 +158,7 @@ class Repository(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Upstreams")
+    @pulumi.getter
     def upstreams(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams

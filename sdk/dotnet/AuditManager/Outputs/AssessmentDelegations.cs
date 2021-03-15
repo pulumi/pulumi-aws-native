@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
         public readonly ImmutableArray<Outputs.AssessmentDelegation> Delegations;
 
         [OutputConstructor]
-        private AssessmentDelegations(ImmutableArray<Outputs.AssessmentDelegation> Delegations)
+        private AssessmentDelegations(ImmutableArray<Outputs.AssessmentDelegation> delegations)
         {
-            this.Delegations = Delegations;
+            Delegations = delegations;
         }
     }
 }

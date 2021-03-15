@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.DevOpsGuru.Outputs
         public readonly ImmutableArray<string> StackNames;
 
         [OutputConstructor]
-        private ResourceCollectionCloudFormationCollectionFilter(ImmutableArray<string> StackNames)
+        private ResourceCollectionCloudFormationCollectionFilter(ImmutableArray<string> stackNames)
         {
-            this.StackNames = StackNames;
+            StackNames = stackNames;
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         public readonly string Name;
 
         [OutputConstructor]
-        private WebACLExcludedRule(string Name)
+        private WebACLExcludedRule(string name)
         {
-            this.Name = Name;
+            Name = name;
         }
     }
 }

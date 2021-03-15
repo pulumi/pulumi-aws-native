@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<string> ChangeDetectingColumns;
 
         [OutputConstructor]
-        private DataSourceChangeDetectingColumns(ImmutableArray<string> ChangeDetectingColumns)
+        private DataSourceChangeDetectingColumns(ImmutableArray<string> changeDetectingColumns)
         {
-            this.ChangeDetectingColumns = ChangeDetectingColumns;
+            ChangeDetectingColumns = changeDetectingColumns;
         }
     }
 }

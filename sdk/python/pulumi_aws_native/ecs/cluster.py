@@ -86,12 +86,12 @@ class Cluster(pulumi.CustomResource):
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="CapacityProviders")
+    @pulumi.getter(name="capacityProviders")
     def capacity_providers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-capacityproviders
@@ -99,7 +99,7 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "capacity_providers")
 
     @property
-    @pulumi.getter(name="ClusterName")
+    @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
@@ -107,7 +107,7 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "cluster_name")
 
     @property
-    @pulumi.getter(name="ClusterSettings")
+    @pulumi.getter(name="clusterSettings")
     def cluster_settings(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterClusterSettings']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
@@ -115,7 +115,7 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "cluster_settings")
 
     @property
-    @pulumi.getter(name="DefaultCapacityProviderStrategy")
+    @pulumi.getter(name="defaultCapacityProviderStrategy")
     def default_capacity_provider_strategy(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterCapacityProviderStrategyItem']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
@@ -123,7 +123,7 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "default_capacity_provider_strategy")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed
         /// </summary>
-        [Input("DownloadSpeed")]
+        [Input("downloadSpeed")]
         public Input<int>? DownloadSpeed { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed
         /// </summary>
-        [Input("UploadSpeed")]
+        [Input("uploadSpeed")]
         public Input<int>? UploadSpeed { get; set; }
 
         public LinkBandwidthArgs()

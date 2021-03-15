@@ -72,23 +72,21 @@ func getPropertiesReplaces(schema CloudFormationSchema, spec PropertyTypeSpec, r
 	}
 
 	var paths []string
-	for k, itemDiff := range diff.Updates {
-		var propertyPath string
-		if path == "" {
-			propertyPath = string(k)
-		} else {
-			propertyPath = fmt.Sprintf("%s.%s", path, k)
+	for n, propertySpec := range spec.Properties {
+		sdkName := ToPropertyName(n)
+		if itemDiff, ok := diff.Updates[resource.PropertyKey(sdkName)]; ok {
+			var propertyPath string
+			if path == "" {
+				propertyPath = sdkName
+			} else {
+				propertyPath = fmt.Sprintf("%s.%s", path, sdkName)
+			}
+			ps, err := getPropertyReplaces(schema, propertySpec, resourceType, propertyPath, itemDiff)
+			if err != nil {
+				return nil, err
+			}
+			paths = append(paths, ps...)
 		}
-
-		propertySpec, ok := spec.Properties[string(k)]
-		if !ok {
-			return nil, errors.Errorf("unknown property '%v'", path)
-		}
-		ps, err := getPropertyReplaces(schema, propertySpec, resourceType, propertyPath, itemDiff)
-		if err != nil {
-			return nil, err
-		}
-		paths = append(paths, ps...)
 	}
 	return paths, nil
 }

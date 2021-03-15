@@ -34,19 +34,19 @@ export class RegistryPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegistryPolicy.__pulumiType;
     }
 
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
      */
-    public readonly Policy!: pulumi.Output<any | string>;
+    public readonly policy!: pulumi.Output<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
      */
-    public readonly RegistryName!: pulumi.Output<string>;
+    public readonly registryName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
      */
-    public readonly RevisionId!: pulumi.Output<string | undefined>;
+    public readonly revisionId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RegistryPolicy resource with the given unique name, arguments, and options.
@@ -58,21 +58,21 @@ export class RegistryPolicy extends pulumi.CustomResource {
     constructor(name: string, args: RegistryPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Policy === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Policy'");
+            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.RegistryName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RegistryName'");
+            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'registryName'");
             }
-            inputs["Policy"] = args ? args.Policy : undefined;
-            inputs["RegistryName"] = args ? args.RegistryName : undefined;
-            inputs["RevisionId"] = args ? args.RevisionId : undefined;
-            inputs["Id"] = undefined /*out*/;
+            inputs["policy"] = args ? args.policy : undefined;
+            inputs["registryName"] = args ? args.registryName : undefined;
+            inputs["revisionId"] = args ? args.revisionId : undefined;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Id"] = undefined /*out*/;
-            inputs["Policy"] = undefined /*out*/;
-            inputs["RegistryName"] = undefined /*out*/;
-            inputs["RevisionId"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["policy"] = undefined /*out*/;
+            inputs["registryName"] = undefined /*out*/;
+            inputs["revisionId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -92,13 +92,13 @@ export interface RegistryPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
      */
-    readonly Policy: pulumi.Input<any | string>;
+    readonly policy: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
      */
-    readonly RegistryName: pulumi.Input<string>;
+    readonly registryName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
      */
-    readonly RevisionId?: pulumi.Input<string>;
+    readonly revisionId?: pulumi.Input<string>;
 }

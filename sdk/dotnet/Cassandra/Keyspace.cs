@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Cassandra
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
         /// </summary>
-        [Output("KeyspaceName")]
+        [Output("keyspaceName")]
         public Output<string?> KeyspaceName { get; private set; } = null!;
 
 
@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.Cassandra
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
         /// </summary>
-        [Input("KeyspaceName")]
+        [Input("keyspaceName")]
         public Input<string>? KeyspaceName { get; set; }
 
         public KeyspaceArgs()

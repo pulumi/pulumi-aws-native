@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
         /// </summary>
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
         /// </summary>
-        [Output("ModuleName")]
+        [Output("moduleName")]
         public Output<string?> ModuleName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
         /// </summary>
-        [Output("VersionId")]
+        [Output("versionId")]
         public Output<string?> VersionId { get; private set; } = null!;
 
 
@@ -81,19 +81,19 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
         /// </summary>
-        [Input("Arn")]
+        [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
         /// </summary>
-        [Input("ModuleName")]
+        [Input("moduleName")]
         public Input<string>? ModuleName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
         /// </summary>
-        [Input("VersionId")]
+        [Input("versionId")]
         public Input<string>? VersionId { get; set; }
 
         public ModuleDefaultVersionArgs()

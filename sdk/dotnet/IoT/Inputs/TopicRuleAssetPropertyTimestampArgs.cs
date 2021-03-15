@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-offsetinnanos
         /// </summary>
-        [Input("OffsetInNanos")]
+        [Input("offsetInNanos")]
         public Input<string>? OffsetInNanos { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-timeinseconds
         /// </summary>
-        [Input("TimeInSeconds", required: true)]
+        [Input("timeInSeconds", required: true)]
         public Input<string> TimeInSeconds { get; set; } = null!;
 
         public TopicRuleAssetPropertyTimestampArgs()

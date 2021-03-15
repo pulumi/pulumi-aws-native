@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationComponentMonitoringSetting(
-            string? ComponentARN,
+            string? componentARN,
 
-            string? ComponentConfigurationMode,
+            string? componentConfigurationMode,
 
-            string? ComponentName,
+            string? componentName,
 
-            Outputs.ApplicationComponentConfiguration? CustomComponentConfiguration,
+            Outputs.ApplicationComponentConfiguration? customComponentConfiguration,
 
-            Outputs.ApplicationComponentConfiguration? DefaultOverwriteComponentConfiguration,
+            Outputs.ApplicationComponentConfiguration? defaultOverwriteComponentConfiguration,
 
-            string? Tier)
+            string? tier)
         {
-            this.ComponentARN = ComponentARN;
-            this.ComponentConfigurationMode = ComponentConfigurationMode;
-            this.ComponentName = ComponentName;
-            this.CustomComponentConfiguration = CustomComponentConfiguration;
-            this.DefaultOverwriteComponentConfiguration = DefaultOverwriteComponentConfiguration;
-            this.Tier = Tier;
+            ComponentARN = componentARN;
+            ComponentConfigurationMode = componentConfigurationMode;
+            ComponentName = componentName;
+            CustomComponentConfiguration = customComponentConfiguration;
+            DefaultOverwriteComponentConfiguration = defaultOverwriteComponentConfiguration;
+            Tier = tier;
         }
     }
 }

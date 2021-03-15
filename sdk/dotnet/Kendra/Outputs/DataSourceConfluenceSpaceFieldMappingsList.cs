@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<Outputs.DataSourceConfluenceSpaceToIndexFieldMapping> ConfluenceSpaceFieldMappingsList;
 
         [OutputConstructor]
-        private DataSourceConfluenceSpaceFieldMappingsList(ImmutableArray<Outputs.DataSourceConfluenceSpaceToIndexFieldMapping> ConfluenceSpaceFieldMappingsList)
+        private DataSourceConfluenceSpaceFieldMappingsList(ImmutableArray<Outputs.DataSourceConfluenceSpaceToIndexFieldMapping> confluenceSpaceFieldMappingsList)
         {
-            this.ConfluenceSpaceFieldMappingsList = ConfluenceSpaceFieldMappingsList;
+            ConfluenceSpaceFieldMappingsList = confluenceSpaceFieldMappingsList;
         }
     }
 }

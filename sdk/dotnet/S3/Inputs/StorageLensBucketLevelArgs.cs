@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.S3.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
         /// </summary>
-        [Input("ActivityMetrics")]
+        [Input("activityMetrics")]
         public Input<Inputs.StorageLensActivityMetricsArgs>? ActivityMetrics { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
         /// </summary>
-        [Input("PrefixLevel")]
+        [Input("prefixLevel")]
         public Input<Inputs.StorageLensPrefixLevelArgs>? PrefixLevel { get; set; }
 
         public StorageLensBucketLevelArgs()

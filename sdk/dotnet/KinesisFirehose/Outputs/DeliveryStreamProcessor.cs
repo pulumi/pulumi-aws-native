@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamProcessor(
-            ImmutableArray<Outputs.DeliveryStreamProcessorParameter> Parameters,
+            ImmutableArray<Outputs.DeliveryStreamProcessorParameter> parameters,
 
-            string Type)
+            string type)
         {
-            this.Parameters = Parameters;
-            this.Type = Type;
+            Parameters = parameters;
+            Type = type;
         }
     }
 }

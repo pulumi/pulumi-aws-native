@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamParquetSerDe(
-            int? BlockSizeBytes,
+            int? blockSizeBytes,
 
-            string? Compression,
+            string? compression,
 
-            bool? EnableDictionaryCompression,
+            bool? enableDictionaryCompression,
 
-            int? MaxPaddingBytes,
+            int? maxPaddingBytes,
 
-            int? PageSizeBytes,
+            int? pageSizeBytes,
 
-            string? WriterVersion)
+            string? writerVersion)
         {
-            this.BlockSizeBytes = BlockSizeBytes;
-            this.Compression = Compression;
-            this.EnableDictionaryCompression = EnableDictionaryCompression;
-            this.MaxPaddingBytes = MaxPaddingBytes;
-            this.PageSizeBytes = PageSizeBytes;
-            this.WriterVersion = WriterVersion;
+            BlockSizeBytes = blockSizeBytes;
+            Compression = compression;
+            EnableDictionaryCompression = enableDictionaryCompression;
+            MaxPaddingBytes = maxPaddingBytes;
+            PageSizeBytes = pageSizeBytes;
+            WriterVersion = writerVersion;
         }
     }
 }

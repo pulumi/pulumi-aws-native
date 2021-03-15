@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         public readonly Outputs.GatewayGreengrass Greengrass;
 
         [OutputConstructor]
-        private GatewayGatewayPlatform(Outputs.GatewayGreengrass Greengrass)
+        private GatewayGatewayPlatform(Outputs.GatewayGreengrass greengrass)
         {
-            this.Greengrass = Greengrass;
+            Greengrass = greengrass;
         }
     }
 }

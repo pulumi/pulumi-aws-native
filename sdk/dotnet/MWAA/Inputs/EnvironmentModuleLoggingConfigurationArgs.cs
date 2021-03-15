@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.MWAA.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-cloudwatchloggrouparn
         /// </summary>
-        [Input("CloudWatchLogGroupArn")]
+        [Input("cloudWatchLogGroupArn")]
         public Input<string>? CloudWatchLogGroupArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-enabled
         /// </summary>
-        [Input("Enabled")]
+        [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-loglevel
         /// </summary>
-        [Input("LogLevel")]
+        [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
 
         public EnvironmentModuleLoggingConfigurationArgs()

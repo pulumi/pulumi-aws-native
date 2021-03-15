@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceConfluencePageToIndexFieldMapping(
-            string DataSourceFieldName,
+            string dataSourceFieldName,
 
-            string? DateFieldFormat,
+            string? dateFieldFormat,
 
-            string IndexFieldName)
+            string indexFieldName)
         {
-            this.DataSourceFieldName = DataSourceFieldName;
-            this.DateFieldFormat = DateFieldFormat;
-            this.IndexFieldName = IndexFieldName;
+            DataSourceFieldName = dataSourceFieldName;
+            DateFieldFormat = dateFieldFormat;
+            IndexFieldName = indexFieldName;
         }
     }
 }

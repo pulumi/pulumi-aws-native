@@ -37,15 +37,15 @@ export class DocumentationVersion extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
      */
-    public readonly DocumentationVersion!: pulumi.Output<string>;
+    public readonly documentationVersion!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
      */
-    public readonly RestApiId!: pulumi.Output<string>;
+    public readonly restApiId!: pulumi.Output<string>;
 
     /**
      * Create a DocumentationVersion resource with the given unique name, arguments, and options.
@@ -57,19 +57,19 @@ export class DocumentationVersion extends pulumi.CustomResource {
     constructor(name: string, args: DocumentationVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.DocumentationVersion === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DocumentationVersion'");
+            if ((!args || args.documentationVersion === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'documentationVersion'");
             }
-            if ((!args || args.RestApiId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RestApiId'");
+            if ((!args || args.restApiId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'restApiId'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["DocumentationVersion"] = args ? args.DocumentationVersion : undefined;
-            inputs["RestApiId"] = args ? args.RestApiId : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["documentationVersion"] = args ? args.documentationVersion : undefined;
+            inputs["restApiId"] = args ? args.restApiId : undefined;
         } else {
-            inputs["Description"] = undefined /*out*/;
-            inputs["DocumentationVersion"] = undefined /*out*/;
-            inputs["RestApiId"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["documentationVersion"] = undefined /*out*/;
+            inputs["restApiId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -89,13 +89,13 @@ export interface DocumentationVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
      */
-    readonly DocumentationVersion: pulumi.Input<string>;
+    readonly documentationVersion: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
      */
-    readonly RestApiId: pulumi.Input<string>;
+    readonly restApiId: pulumi.Input<string>;
 }

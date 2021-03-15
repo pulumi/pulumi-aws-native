@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleSqsAction(
-            string QueueUrl,
+            string queueUrl,
 
-            string RoleArn,
+            string roleArn,
 
-            bool? UseBase64)
+            bool? useBase64)
         {
-            this.QueueUrl = QueueUrl;
-            this.RoleArn = RoleArn;
-            this.UseBase64 = UseBase64;
+            QueueUrl = queueUrl;
+            RoleArn = roleArn;
+            UseBase64 = useBase64;
         }
     }
 }

@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowRedshiftDestinationProperties(
-            string? BucketPrefix,
+            string? bucketPrefix,
 
-            Outputs.FlowErrorHandlingConfig? ErrorHandlingConfig,
+            Outputs.FlowErrorHandlingConfig? errorHandlingConfig,
 
-            string IntermediateBucketName,
+            string intermediateBucketName,
 
-            string Object)
+            string @object)
         {
-            this.BucketPrefix = BucketPrefix;
-            this.ErrorHandlingConfig = ErrorHandlingConfig;
-            this.IntermediateBucketName = IntermediateBucketName;
-            this.Object = Object;
+            BucketPrefix = bucketPrefix;
+            ErrorHandlingConfig = errorHandlingConfig;
+            IntermediateBucketName = intermediateBucketName;
+            Object = @object;
         }
     }
 }

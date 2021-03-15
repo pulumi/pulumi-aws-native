@@ -75,7 +75,7 @@ class CachePolicy(pulumi.CustomResource):
         return CachePolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="CachePolicyConfig")
+    @pulumi.getter(name="cachePolicyConfig")
     def cache_policy_config(self) -> pulumi.Output['outputs.CachePolicyCachePolicyConfig']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
@@ -83,12 +83,12 @@ class CachePolicy(pulumi.CustomResource):
         return pulumi.get(self, "cache_policy_config")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="LastModifiedTime")
+    @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "last_modified_time")
 

@@ -112,12 +112,12 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         return DataQualityJobDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="CreationTime")
+    @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "creation_time")
 
     @property
-    @pulumi.getter(name="DataQualityAppSpecification")
+    @pulumi.getter(name="dataQualityAppSpecification")
     def data_quality_app_specification(self) -> pulumi.Output['outputs.DataQualityJobDefinitionDataQualityAppSpecification']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification
@@ -125,7 +125,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         return pulumi.get(self, "data_quality_app_specification")
 
     @property
-    @pulumi.getter(name="DataQualityBaselineConfig")
+    @pulumi.getter(name="dataQualityBaselineConfig")
     def data_quality_baseline_config(self) -> pulumi.Output[Optional['outputs.DataQualityJobDefinitionDataQualityBaselineConfig']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig
@@ -133,7 +133,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         return pulumi.get(self, "data_quality_baseline_config")
 
     @property
-    @pulumi.getter(name="DataQualityJobInput")
+    @pulumi.getter(name="dataQualityJobInput")
     def data_quality_job_input(self) -> pulumi.Output['outputs.DataQualityJobDefinitionDataQualityJobInput']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput
@@ -141,7 +141,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         return pulumi.get(self, "data_quality_job_input")
 
     @property
-    @pulumi.getter(name="DataQualityJobOutputConfig")
+    @pulumi.getter(name="dataQualityJobOutputConfig")
     def data_quality_job_output_config(self) -> pulumi.Output['outputs.DataQualityJobDefinitionMonitoringOutputConfig']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjoboutputconfig
@@ -149,12 +149,12 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         return pulumi.get(self, "data_quality_job_output_config")
 
     @property
-    @pulumi.getter(name="JobDefinitionArn")
+    @pulumi.getter(name="jobDefinitionArn")
     def job_definition_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "job_definition_arn")
 
     @property
-    @pulumi.getter(name="JobDefinitionName")
+    @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobdefinitionname
@@ -162,7 +162,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         return pulumi.get(self, "job_definition_name")
 
     @property
-    @pulumi.getter(name="JobResources")
+    @pulumi.getter(name="jobResources")
     def job_resources(self) -> pulumi.Output['outputs.DataQualityJobDefinitionMonitoringResources']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobresources
@@ -170,7 +170,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         return pulumi.get(self, "job_resources")
 
     @property
-    @pulumi.getter(name="NetworkConfig")
+    @pulumi.getter(name="networkConfig")
     def network_config(self) -> pulumi.Output[Optional['outputs.DataQualityJobDefinitionNetworkConfig']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig
@@ -178,7 +178,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         return pulumi.get(self, "network_config")
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-rolearn
@@ -186,7 +186,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="StoppingCondition")
+    @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> pulumi.Output[Optional['outputs.DataQualityJobDefinitionStoppingCondition']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition
@@ -194,7 +194,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         return pulumi.get(self, "stopping_condition")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-tags

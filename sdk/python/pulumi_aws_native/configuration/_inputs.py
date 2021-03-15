@@ -27,7 +27,7 @@ class ConformancePackConformancePackInputParameterArgs:
         pulumi.set(__self__, "parameter_value", parameter_value)
 
     @property
-    @pulumi.getter(name="ParameterName")
+    @pulumi.getter(name="parameterName")
     def parameter_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametername
@@ -39,7 +39,7 @@ class ConformancePackConformancePackInputParameterArgs:
         pulumi.set(self, "parameter_name", value)
 
     @property
-    @pulumi.getter(name="ParameterValue")
+    @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametervalue
@@ -65,7 +65,7 @@ class OrganizationConformancePackConformancePackInputParameterArgs:
         pulumi.set(__self__, "parameter_value", parameter_value)
 
     @property
-    @pulumi.getter(name="ParameterName")
+    @pulumi.getter(name="parameterName")
     def parameter_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametername
@@ -77,7 +77,7 @@ class OrganizationConformancePackConformancePackInputParameterArgs:
         pulumi.set(self, "parameter_name", value)
 
     @property
-    @pulumi.getter(name="ParameterValue")
+    @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametervalue

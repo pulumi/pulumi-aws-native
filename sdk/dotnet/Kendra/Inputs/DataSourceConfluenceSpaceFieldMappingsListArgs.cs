@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceConfluenceSpaceFieldMappingsListArgs : Pulumi.ResourceArgs
     {
-        [Input("ConfluenceSpaceFieldMappingsList")]
-        private InputList<Inputs.DataSourceConfluenceSpaceToIndexFieldMappingArgs>? _ConfluenceSpaceFieldMappingsList;
+        [Input("confluenceSpaceFieldMappingsList")]
+        private InputList<Inputs.DataSourceConfluenceSpaceToIndexFieldMappingArgs>? _confluenceSpaceFieldMappingsList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html#cfn-kendra-datasource-confluencespacefieldmappingslist-confluencespacefieldmappingslist
         /// </summary>
         public InputList<Inputs.DataSourceConfluenceSpaceToIndexFieldMappingArgs> ConfluenceSpaceFieldMappingsList
         {
-            get => _ConfluenceSpaceFieldMappingsList ?? (_ConfluenceSpaceFieldMappingsList = new InputList<Inputs.DataSourceConfluenceSpaceToIndexFieldMappingArgs>());
-            set => _ConfluenceSpaceFieldMappingsList = value;
+            get => _confluenceSpaceFieldMappingsList ?? (_confluenceSpaceFieldMappingsList = new InputList<Inputs.DataSourceConfluenceSpaceToIndexFieldMappingArgs>());
+            set => _confluenceSpaceFieldMappingsList = value;
         }
 
         public DataSourceConfluenceSpaceFieldMappingsListArgs()

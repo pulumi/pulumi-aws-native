@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceSalesforceChatterFeedIncludeFilterTypesArgs : Pulumi.ResourceArgs
     {
-        [Input("SalesforceChatterFeedIncludeFilterTypes")]
-        private InputList<string>? _SalesforceChatterFeedIncludeFilterTypes;
+        [Input("salesforceChatterFeedIncludeFilterTypes")]
+        private InputList<string>? _salesforceChatterFeedIncludeFilterTypes;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedincludefiltertypes.html#cfn-kendra-datasource-salesforcechatterfeedincludefiltertypes-salesforcechatterfeedincludefiltertypes
         /// </summary>
         public InputList<string> SalesforceChatterFeedIncludeFilterTypes
         {
-            get => _SalesforceChatterFeedIncludeFilterTypes ?? (_SalesforceChatterFeedIncludeFilterTypes = new InputList<string>());
-            set => _SalesforceChatterFeedIncludeFilterTypes = value;
+            get => _salesforceChatterFeedIncludeFilterTypes ?? (_salesforceChatterFeedIncludeFilterTypes = new InputList<string>());
+            set => _salesforceChatterFeedIncludeFilterTypes = value;
         }
 
         public DataSourceSalesforceChatterFeedIncludeFilterTypesArgs()

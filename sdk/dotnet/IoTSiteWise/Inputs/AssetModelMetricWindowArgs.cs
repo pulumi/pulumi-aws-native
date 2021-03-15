@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
         /// </summary>
-        [Input("Tumbling")]
+        [Input("tumbling")]
         public Input<Inputs.AssetModelTumblingWindowArgs>? Tumbling { get; set; }
 
         public AssetModelMetricWindowArgs()

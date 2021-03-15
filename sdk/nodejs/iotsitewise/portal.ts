@@ -35,31 +35,31 @@ export class Portal extends pulumi.CustomResource {
         return obj['__pulumiType'] === Portal.__pulumiType;
     }
 
-    public /*out*/ readonly PortalArn!: pulumi.Output<string>;
-    public /*out*/ readonly PortalClientId!: pulumi.Output<string>;
+    public /*out*/ readonly portalArn!: pulumi.Output<string>;
+    public /*out*/ readonly portalClientId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
      */
-    public readonly PortalContactEmail!: pulumi.Output<string>;
+    public readonly portalContactEmail!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
      */
-    public readonly PortalDescription!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly PortalId!: pulumi.Output<string>;
+    public readonly portalDescription!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly portalId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
      */
-    public readonly PortalName!: pulumi.Output<string>;
-    public /*out*/ readonly PortalStartUrl!: pulumi.Output<string>;
-    public /*out*/ readonly PortalStatus!: pulumi.Output<outputs.IoTSiteWise.PortalPortalStatus>;
+    public readonly portalName!: pulumi.Output<string>;
+    public /*out*/ readonly portalStartUrl!: pulumi.Output<string>;
+    public /*out*/ readonly portalStatus!: pulumi.Output<outputs.IoTSiteWise.PortalPortalStatus>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
      */
-    public readonly RoleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Portal resource with the given unique name, arguments, and options.
@@ -71,36 +71,36 @@ export class Portal extends pulumi.CustomResource {
     constructor(name: string, args: PortalArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.PortalContactEmail === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PortalContactEmail'");
+            if ((!args || args.portalContactEmail === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'portalContactEmail'");
             }
-            if ((!args || args.PortalName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PortalName'");
+            if ((!args || args.portalName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'portalName'");
             }
-            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RoleArn'");
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'roleArn'");
             }
-            inputs["PortalContactEmail"] = args ? args.PortalContactEmail : undefined;
-            inputs["PortalDescription"] = args ? args.PortalDescription : undefined;
-            inputs["PortalName"] = args ? args.PortalName : undefined;
-            inputs["RoleArn"] = args ? args.RoleArn : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["PortalArn"] = undefined /*out*/;
-            inputs["PortalClientId"] = undefined /*out*/;
-            inputs["PortalId"] = undefined /*out*/;
-            inputs["PortalStartUrl"] = undefined /*out*/;
-            inputs["PortalStatus"] = undefined /*out*/;
+            inputs["portalContactEmail"] = args ? args.portalContactEmail : undefined;
+            inputs["portalDescription"] = args ? args.portalDescription : undefined;
+            inputs["portalName"] = args ? args.portalName : undefined;
+            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["portalArn"] = undefined /*out*/;
+            inputs["portalClientId"] = undefined /*out*/;
+            inputs["portalId"] = undefined /*out*/;
+            inputs["portalStartUrl"] = undefined /*out*/;
+            inputs["portalStatus"] = undefined /*out*/;
         } else {
-            inputs["PortalArn"] = undefined /*out*/;
-            inputs["PortalClientId"] = undefined /*out*/;
-            inputs["PortalContactEmail"] = undefined /*out*/;
-            inputs["PortalDescription"] = undefined /*out*/;
-            inputs["PortalId"] = undefined /*out*/;
-            inputs["PortalName"] = undefined /*out*/;
-            inputs["PortalStartUrl"] = undefined /*out*/;
-            inputs["PortalStatus"] = undefined /*out*/;
-            inputs["RoleArn"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["portalArn"] = undefined /*out*/;
+            inputs["portalClientId"] = undefined /*out*/;
+            inputs["portalContactEmail"] = undefined /*out*/;
+            inputs["portalDescription"] = undefined /*out*/;
+            inputs["portalId"] = undefined /*out*/;
+            inputs["portalName"] = undefined /*out*/;
+            inputs["portalStartUrl"] = undefined /*out*/;
+            inputs["portalStatus"] = undefined /*out*/;
+            inputs["roleArn"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -120,21 +120,21 @@ export interface PortalArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
      */
-    readonly PortalContactEmail: pulumi.Input<string>;
+    readonly portalContactEmail: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
      */
-    readonly PortalDescription?: pulumi.Input<string>;
+    readonly portalDescription?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
      */
-    readonly PortalName: pulumi.Input<string>;
+    readonly portalName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
      */
-    readonly RoleArn: pulumi.Input<string>;
+    readonly roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

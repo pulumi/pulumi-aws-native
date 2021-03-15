@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private PackagingConfigurationDashPackage(
-            ImmutableArray<Outputs.PackagingConfigurationDashManifest> DashManifests,
+            ImmutableArray<Outputs.PackagingConfigurationDashManifest> dashManifests,
 
-            Outputs.PackagingConfigurationDashEncryption? Encryption,
+            Outputs.PackagingConfigurationDashEncryption? encryption,
 
-            ImmutableArray<string> PeriodTriggers,
+            ImmutableArray<string> periodTriggers,
 
-            int? SegmentDurationSeconds,
+            int? segmentDurationSeconds,
 
-            string? SegmentTemplateFormat)
+            string? segmentTemplateFormat)
         {
-            this.DashManifests = DashManifests;
-            this.Encryption = Encryption;
-            this.PeriodTriggers = PeriodTriggers;
-            this.SegmentDurationSeconds = SegmentDurationSeconds;
-            this.SegmentTemplateFormat = SegmentTemplateFormat;
+            DashManifests = dashManifests;
+            Encryption = encryption;
+            PeriodTriggers = periodTriggers;
+            SegmentDurationSeconds = segmentDurationSeconds;
+            SegmentTemplateFormat = segmentTemplateFormat;
         }
     }
 }

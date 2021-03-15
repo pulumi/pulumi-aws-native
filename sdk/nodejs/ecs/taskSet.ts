@@ -38,44 +38,44 @@ export class TaskSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
      */
-    public readonly Cluster!: pulumi.Output<string>;
+    public readonly cluster!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
      */
-    public readonly ExternalId!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly externalId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
      */
-    public readonly LaunchType!: pulumi.Output<string | undefined>;
+    public readonly launchType!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
      */
-    public readonly LoadBalancers!: pulumi.Output<outputs.ECS.TaskSetLoadBalancer[] | undefined>;
+    public readonly loadBalancers!: pulumi.Output<outputs.ECS.TaskSetLoadBalancer[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
      */
-    public readonly NetworkConfiguration!: pulumi.Output<outputs.ECS.TaskSetNetworkConfiguration | undefined>;
+    public readonly networkConfiguration!: pulumi.Output<outputs.ECS.TaskSetNetworkConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
      */
-    public readonly PlatformVersion!: pulumi.Output<string | undefined>;
+    public readonly platformVersion!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
      */
-    public readonly Scale!: pulumi.Output<outputs.ECS.TaskSetScale | undefined>;
+    public readonly scale!: pulumi.Output<outputs.ECS.TaskSetScale | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
      */
-    public readonly Service!: pulumi.Output<string>;
+    public readonly service!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
      */
-    public readonly ServiceRegistries!: pulumi.Output<outputs.ECS.TaskSetServiceRegistry[] | undefined>;
+    public readonly serviceRegistries!: pulumi.Output<outputs.ECS.TaskSetServiceRegistry[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
      */
-    public readonly TaskDefinition!: pulumi.Output<string>;
+    public readonly taskDefinition!: pulumi.Output<string>;
 
     /**
      * Create a TaskSet resource with the given unique name, arguments, and options.
@@ -87,38 +87,38 @@ export class TaskSet extends pulumi.CustomResource {
     constructor(name: string, args: TaskSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Cluster === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Cluster'");
+            if ((!args || args.cluster === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'cluster'");
             }
-            if ((!args || args.Service === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Service'");
+            if ((!args || args.service === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'service'");
             }
-            if ((!args || args.TaskDefinition === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'TaskDefinition'");
+            if ((!args || args.taskDefinition === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'taskDefinition'");
             }
-            inputs["Cluster"] = args ? args.Cluster : undefined;
-            inputs["ExternalId"] = args ? args.ExternalId : undefined;
-            inputs["LaunchType"] = args ? args.LaunchType : undefined;
-            inputs["LoadBalancers"] = args ? args.LoadBalancers : undefined;
-            inputs["NetworkConfiguration"] = args ? args.NetworkConfiguration : undefined;
-            inputs["PlatformVersion"] = args ? args.PlatformVersion : undefined;
-            inputs["Scale"] = args ? args.Scale : undefined;
-            inputs["Service"] = args ? args.Service : undefined;
-            inputs["ServiceRegistries"] = args ? args.ServiceRegistries : undefined;
-            inputs["TaskDefinition"] = args ? args.TaskDefinition : undefined;
-            inputs["Id"] = undefined /*out*/;
+            inputs["cluster"] = args ? args.cluster : undefined;
+            inputs["externalId"] = args ? args.externalId : undefined;
+            inputs["launchType"] = args ? args.launchType : undefined;
+            inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
+            inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            inputs["platformVersion"] = args ? args.platformVersion : undefined;
+            inputs["scale"] = args ? args.scale : undefined;
+            inputs["service"] = args ? args.service : undefined;
+            inputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
+            inputs["taskDefinition"] = args ? args.taskDefinition : undefined;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Cluster"] = undefined /*out*/;
-            inputs["ExternalId"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["LaunchType"] = undefined /*out*/;
-            inputs["LoadBalancers"] = undefined /*out*/;
-            inputs["NetworkConfiguration"] = undefined /*out*/;
-            inputs["PlatformVersion"] = undefined /*out*/;
-            inputs["Scale"] = undefined /*out*/;
-            inputs["Service"] = undefined /*out*/;
-            inputs["ServiceRegistries"] = undefined /*out*/;
-            inputs["TaskDefinition"] = undefined /*out*/;
+            inputs["cluster"] = undefined /*out*/;
+            inputs["externalId"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["launchType"] = undefined /*out*/;
+            inputs["loadBalancers"] = undefined /*out*/;
+            inputs["networkConfiguration"] = undefined /*out*/;
+            inputs["platformVersion"] = undefined /*out*/;
+            inputs["scale"] = undefined /*out*/;
+            inputs["service"] = undefined /*out*/;
+            inputs["serviceRegistries"] = undefined /*out*/;
+            inputs["taskDefinition"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -138,41 +138,41 @@ export interface TaskSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
      */
-    readonly Cluster: pulumi.Input<string>;
+    readonly cluster: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
      */
-    readonly ExternalId?: pulumi.Input<string>;
+    readonly externalId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
      */
-    readonly LaunchType?: pulumi.Input<string>;
+    readonly launchType?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
      */
-    readonly LoadBalancers?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetLoadBalancer>[]>;
+    readonly loadBalancers?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetLoadBalancer>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
      */
-    readonly NetworkConfiguration?: pulumi.Input<inputs.ECS.TaskSetNetworkConfiguration>;
+    readonly networkConfiguration?: pulumi.Input<inputs.ECS.TaskSetNetworkConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
      */
-    readonly PlatformVersion?: pulumi.Input<string>;
+    readonly platformVersion?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
      */
-    readonly Scale?: pulumi.Input<inputs.ECS.TaskSetScale>;
+    readonly scale?: pulumi.Input<inputs.ECS.TaskSetScale>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
      */
-    readonly Service: pulumi.Input<string>;
+    readonly service: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
      */
-    readonly ServiceRegistries?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetServiceRegistry>[]>;
+    readonly serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetServiceRegistry>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
      */
-    readonly TaskDefinition: pulumi.Input<string>;
+    readonly taskDefinition: pulumi.Input<string>;
 }

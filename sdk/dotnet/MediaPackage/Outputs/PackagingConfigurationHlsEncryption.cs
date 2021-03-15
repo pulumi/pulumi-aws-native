@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private PackagingConfigurationHlsEncryption(
-            string? ConstantInitializationVector,
+            string? constantInitializationVector,
 
-            string? EncryptionMethod,
+            string? encryptionMethod,
 
-            object SpekeKeyProvider)
+            object spekeKeyProvider)
         {
-            this.ConstantInitializationVector = ConstantInitializationVector;
-            this.EncryptionMethod = EncryptionMethod;
-            this.SpekeKeyProvider = SpekeKeyProvider;
+            ConstantInitializationVector = constantInitializationVector;
+            EncryptionMethod = encryptionMethod;
+            SpekeKeyProvider = spekeKeyProvider;
         }
     }
 }

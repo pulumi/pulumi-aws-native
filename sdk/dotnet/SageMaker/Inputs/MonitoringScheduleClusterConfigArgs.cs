@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancecount
         /// </summary>
-        [Input("InstanceCount", required: true)]
+        [Input("instanceCount", required: true)]
         public Input<int> InstanceCount { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancetype
         /// </summary>
-        [Input("InstanceType", required: true)]
+        [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumekmskeyid
         /// </summary>
-        [Input("VolumeKmsKeyId")]
+        [Input("volumeKmsKeyId")]
         public Input<string>? VolumeKmsKeyId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumesizeingb
         /// </summary>
-        [Input("VolumeSizeInGB", required: true)]
+        [Input("volumeSizeInGB", required: true)]
         public Input<int> VolumeSizeInGB { get; set; } = null!;
 
         public MonitoringScheduleClusterConfigArgs()

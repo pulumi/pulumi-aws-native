@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
         [OutputConstructor]
         private ComponentVersionLambdaContainerParams(
-            ImmutableArray<Outputs.ComponentVersionLambdaDeviceMount> Devices,
+            ImmutableArray<Outputs.ComponentVersionLambdaDeviceMount> devices,
 
-            int? MemorySizeInKB,
+            int? memorySizeInKB,
 
-            bool? MountROSysfs,
+            bool? mountROSysfs,
 
-            ImmutableArray<Outputs.ComponentVersionLambdaVolumeMount> Volumes)
+            ImmutableArray<Outputs.ComponentVersionLambdaVolumeMount> volumes)
         {
-            this.Devices = Devices;
-            this.MemorySizeInKB = MemorySizeInKB;
-            this.MountROSysfs = MountROSysfs;
-            this.Volumes = Volumes;
+            Devices = devices;
+            MemorySizeInKB = memorySizeInKB;
+            MountROSysfs = mountROSysfs;
+            Volumes = volumes;
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string? KeyPath;
 
         [OutputConstructor]
-        private DataSourceAccessControlListConfiguration(string? KeyPath)
+        private DataSourceAccessControlListConfiguration(string? keyPath)
         {
-            this.KeyPath = KeyPath;
+            KeyPath = keyPath;
         }
     }
 }

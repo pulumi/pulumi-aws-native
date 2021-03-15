@@ -15,7 +15,7 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ca_certificate_pem: Optional[pulumi.Input[str]] = None,
+                 c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input[str]] = None,
                  certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class Certificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] ca_certificate_pem: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
+        :param pulumi.Input[str] c_a_certificate_pem: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
         :param pulumi.Input[str] certificate_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
         :param pulumi.Input[str] certificate_pem: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
         :param pulumi.Input[str] certificate_signing_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
@@ -51,7 +51,7 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['ca_certificate_pem'] = ca_certificate_pem
+            __props__['c_a_certificate_pem'] = c_a_certificate_pem
             __props__['certificate_mode'] = certificate_mode
             __props__['certificate_pem'] = certificate_pem
             __props__['certificate_signing_request'] = certificate_signing_request
@@ -85,20 +85,20 @@ class Certificate(pulumi.CustomResource):
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="CACertificatePem")
-    def ca_certificate_pem(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="cACertificatePem")
+    def c_a_certificate_pem(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
         """
-        return pulumi.get(self, "ca_certificate_pem")
+        return pulumi.get(self, "c_a_certificate_pem")
 
     @property
-    @pulumi.getter(name="CertificateMode")
+    @pulumi.getter(name="certificateMode")
     def certificate_mode(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
@@ -106,7 +106,7 @@ class Certificate(pulumi.CustomResource):
         return pulumi.get(self, "certificate_mode")
 
     @property
-    @pulumi.getter(name="CertificatePem")
+    @pulumi.getter(name="certificatePem")
     def certificate_pem(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
@@ -114,7 +114,7 @@ class Certificate(pulumi.CustomResource):
         return pulumi.get(self, "certificate_pem")
 
     @property
-    @pulumi.getter(name="CertificateSigningRequest")
+    @pulumi.getter(name="certificateSigningRequest")
     def certificate_signing_request(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
@@ -122,12 +122,12 @@ class Certificate(pulumi.CustomResource):
         return pulumi.get(self, "certificate_signing_request")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status

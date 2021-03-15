@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ResourceGroups.Outputs
 
         [OutputConstructor]
         private GroupQuery(
-            ImmutableArray<string> ResourceTypeFilters,
+            ImmutableArray<string> resourceTypeFilters,
 
-            string? StackIdentifier,
+            string? stackIdentifier,
 
-            ImmutableArray<Outputs.GroupTagFilter> TagFilters)
+            ImmutableArray<Outputs.GroupTagFilter> tagFilters)
         {
-            this.ResourceTypeFilters = ResourceTypeFilters;
-            this.StackIdentifier = StackIdentifier;
-            this.TagFilters = TagFilters;
+            ResourceTypeFilters = resourceTypeFilters;
+            StackIdentifier = stackIdentifier;
+            TagFilters = tagFilters;
         }
     }
 }

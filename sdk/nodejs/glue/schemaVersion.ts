@@ -38,12 +38,12 @@ export class SchemaVersion extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
      */
-    public readonly Schema!: pulumi.Output<outputs.Glue.SchemaVersionSchema>;
+    public readonly schema!: pulumi.Output<outputs.Glue.SchemaVersionSchema>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
      */
-    public readonly SchemaDefinition!: pulumi.Output<string>;
-    public /*out*/ readonly VersionId!: pulumi.Output<string>;
+    public readonly schemaDefinition!: pulumi.Output<string>;
+    public /*out*/ readonly versionId!: pulumi.Output<string>;
 
     /**
      * Create a SchemaVersion resource with the given unique name, arguments, and options.
@@ -55,19 +55,19 @@ export class SchemaVersion extends pulumi.CustomResource {
     constructor(name: string, args: SchemaVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Schema === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Schema'");
+            if ((!args || args.schema === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.SchemaDefinition === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SchemaDefinition'");
+            if ((!args || args.schemaDefinition === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'schemaDefinition'");
             }
-            inputs["Schema"] = args ? args.Schema : undefined;
-            inputs["SchemaDefinition"] = args ? args.SchemaDefinition : undefined;
-            inputs["VersionId"] = undefined /*out*/;
+            inputs["schema"] = args ? args.schema : undefined;
+            inputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
+            inputs["versionId"] = undefined /*out*/;
         } else {
-            inputs["Schema"] = undefined /*out*/;
-            inputs["SchemaDefinition"] = undefined /*out*/;
-            inputs["VersionId"] = undefined /*out*/;
+            inputs["schema"] = undefined /*out*/;
+            inputs["schemaDefinition"] = undefined /*out*/;
+            inputs["versionId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -87,9 +87,9 @@ export interface SchemaVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
      */
-    readonly Schema: pulumi.Input<inputs.Glue.SchemaVersionSchema>;
+    readonly schema: pulumi.Input<inputs.Glue.SchemaVersionSchema>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
      */
-    readonly SchemaDefinition: pulumi.Input<string>;
+    readonly schemaDefinition: pulumi.Input<string>;
 }

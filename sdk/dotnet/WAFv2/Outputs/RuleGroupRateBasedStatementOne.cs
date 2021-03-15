@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private RuleGroupRateBasedStatementOne(
-            string AggregateKeyType,
+            string aggregateKeyType,
 
-            Outputs.RuleGroupForwardedIPConfiguration? ForwardedIPConfig,
+            Outputs.RuleGroupForwardedIPConfiguration? forwardedIPConfig,
 
-            int Limit,
+            int limit,
 
-            Outputs.RuleGroupStatementTwo? ScopeDownStatement)
+            Outputs.RuleGroupStatementTwo? scopeDownStatement)
         {
-            this.AggregateKeyType = AggregateKeyType;
-            this.ForwardedIPConfig = ForwardedIPConfig;
-            this.Limit = Limit;
-            this.ScopeDownStatement = ScopeDownStatement;
+            AggregateKeyType = aggregateKeyType;
+            ForwardedIPConfig = forwardedIPConfig;
+            Limit = limit;
+            ScopeDownStatement = scopeDownStatement;
         }
     }
 }

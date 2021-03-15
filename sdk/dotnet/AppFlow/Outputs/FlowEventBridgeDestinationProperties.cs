@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowEventBridgeDestinationProperties(
-            Outputs.FlowErrorHandlingConfig? ErrorHandlingConfig,
+            Outputs.FlowErrorHandlingConfig? errorHandlingConfig,
 
-            string Object)
+            string @object)
         {
-            this.ErrorHandlingConfig = ErrorHandlingConfig;
-            this.Object = Object;
+            ErrorHandlingConfig = errorHandlingConfig;
+            Object = @object;
         }
     }
 }

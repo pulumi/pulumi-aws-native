@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly string Value;
 
         [OutputConstructor]
-        private RuleGroupDimension(string Value)
+        private RuleGroupDimension(string value)
         {
-            this.Value = Value;
+            Value = value;
         }
     }
 }

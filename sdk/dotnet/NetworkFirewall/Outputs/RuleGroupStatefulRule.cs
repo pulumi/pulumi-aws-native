@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private RuleGroupStatefulRule(
-            string Action,
+            string action,
 
-            Outputs.RuleGroupHeader Header,
+            Outputs.RuleGroupHeader header,
 
-            Outputs.RuleGroupRuleOptions RuleOptions)
+            Outputs.RuleGroupRuleOptions ruleOptions)
         {
-            this.Action = Action;
-            this.Header = Header;
-            this.RuleOptions = RuleOptions;
+            Action = action;
+            Header = header;
+            RuleOptions = ruleOptions;
         }
     }
 }

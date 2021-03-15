@@ -15,52 +15,52 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class DataQualityJobDefinitionDataQualityAppSpecificationArgs : Pulumi.ResourceArgs
     {
-        [Input("ContainerArguments")]
-        private InputList<string>? _ContainerArguments;
+        [Input("containerArguments")]
+        private InputList<string>? _containerArguments;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerarguments
         /// </summary>
         public InputList<string> ContainerArguments
         {
-            get => _ContainerArguments ?? (_ContainerArguments = new InputList<string>());
-            set => _ContainerArguments = value;
+            get => _containerArguments ?? (_containerArguments = new InputList<string>());
+            set => _containerArguments = value;
         }
 
-        [Input("ContainerEntrypoint")]
-        private InputList<string>? _ContainerEntrypoint;
+        [Input("containerEntrypoint")]
+        private InputList<string>? _containerEntrypoint;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerentrypoint
         /// </summary>
         public InputList<string> ContainerEntrypoint
         {
-            get => _ContainerEntrypoint ?? (_ContainerEntrypoint = new InputList<string>());
-            set => _ContainerEntrypoint = value;
+            get => _containerEntrypoint ?? (_containerEntrypoint = new InputList<string>());
+            set => _containerEntrypoint = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
         /// </summary>
-        [Input("Environment")]
+        [Input("environment")]
         public Input<Inputs.DataQualityJobDefinitionEnvironmentArgs>? Environment { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
         /// </summary>
-        [Input("ImageUri", required: true)]
+        [Input("imageUri", required: true)]
         public Input<string> ImageUri { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-postanalyticsprocessorsourceuri
         /// </summary>
-        [Input("PostAnalyticsProcessorSourceUri")]
+        [Input("postAnalyticsProcessorSourceUri")]
         public Input<string>? PostAnalyticsProcessorSourceUri { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-recordpreprocessorsourceuri
         /// </summary>
-        [Input("RecordPreprocessorSourceUri")]
+        [Input("recordPreprocessorSourceUri")]
         public Input<string>? RecordPreprocessorSourceUri { get; set; }
 
         public DataQualityJobDefinitionDataQualityAppSpecificationArgs()

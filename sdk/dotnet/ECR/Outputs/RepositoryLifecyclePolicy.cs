@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECR.Outputs
 
         [OutputConstructor]
         private RepositoryLifecyclePolicy(
-            string? LifecyclePolicyText,
+            string? lifecyclePolicyText,
 
-            string? RegistryId)
+            string? registryId)
         {
-            this.LifecyclePolicyText = LifecyclePolicyText;
-            this.RegistryId = RegistryId;
+            LifecyclePolicyText = lifecyclePolicyText;
+            RegistryId = registryId;
         }
     }
 }

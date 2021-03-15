@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamVpcConfiguration(
-            string RoleARN,
+            string roleARN,
 
-            ImmutableArray<string> SecurityGroupIds,
+            ImmutableArray<string> securityGroupIds,
 
-            ImmutableArray<string> SubnetIds)
+            ImmutableArray<string> subnetIds)
         {
-            this.RoleARN = RoleARN;
-            this.SecurityGroupIds = SecurityGroupIds;
-            this.SubnetIds = SubnetIds;
+            RoleARN = roleARN;
+            SecurityGroupIds = securityGroupIds;
+            SubnetIds = subnetIds;
         }
     }
 }

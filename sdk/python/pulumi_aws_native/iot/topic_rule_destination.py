@@ -79,12 +79,12 @@ class TopicRuleDestination(pulumi.CustomResource):
         return TopicRuleDestination(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="HttpUrlProperties")
+    @pulumi.getter(name="httpUrlProperties")
     def http_url_properties(self) -> pulumi.Output[Optional['outputs.TopicRuleDestinationHttpUrlDestinationSummary']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
@@ -92,7 +92,7 @@ class TopicRuleDestination(pulumi.CustomResource):
         return pulumi.get(self, "http_url_properties")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
@@ -100,12 +100,12 @@ class TopicRuleDestination(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="StatusReason")
+    @pulumi.getter(name="statusReason")
     def status_reason(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status_reason")
 
     @property
-    @pulumi.getter(name="VpcProperties")
+    @pulumi.getter(name="vpcProperties")
     def vpc_properties(self) -> pulumi.Output[Optional['outputs.TopicRuleDestinationVpcDestinationProperties']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties

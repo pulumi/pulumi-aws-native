@@ -105,12 +105,12 @@ class ImagePipeline(pulumi.CustomResource):
         return ImagePipeline(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
@@ -118,7 +118,7 @@ class ImagePipeline(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="DistributionConfigurationArn")
+    @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
@@ -126,7 +126,7 @@ class ImagePipeline(pulumi.CustomResource):
         return pulumi.get(self, "distribution_configuration_arn")
 
     @property
-    @pulumi.getter(name="EnhancedImageMetadataEnabled")
+    @pulumi.getter(name="enhancedImageMetadataEnabled")
     def enhanced_image_metadata_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
@@ -134,7 +134,7 @@ class ImagePipeline(pulumi.CustomResource):
         return pulumi.get(self, "enhanced_image_metadata_enabled")
 
     @property
-    @pulumi.getter(name="ImageRecipeArn")
+    @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
@@ -142,7 +142,7 @@ class ImagePipeline(pulumi.CustomResource):
         return pulumi.get(self, "image_recipe_arn")
 
     @property
-    @pulumi.getter(name="ImageTestsConfiguration")
+    @pulumi.getter(name="imageTestsConfiguration")
     def image_tests_configuration(self) -> pulumi.Output[Optional['outputs.ImagePipelineImageTestsConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
@@ -150,7 +150,7 @@ class ImagePipeline(pulumi.CustomResource):
         return pulumi.get(self, "image_tests_configuration")
 
     @property
-    @pulumi.getter(name="InfrastructureConfigurationArn")
+    @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
@@ -158,7 +158,7 @@ class ImagePipeline(pulumi.CustomResource):
         return pulumi.get(self, "infrastructure_configuration_arn")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-name
@@ -166,7 +166,7 @@ class ImagePipeline(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Schedule")
+    @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional['outputs.ImagePipelineSchedule']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
@@ -174,7 +174,7 @@ class ImagePipeline(pulumi.CustomResource):
         return pulumi.get(self, "schedule")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
@@ -182,7 +182,7 @@ class ImagePipeline(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-tags

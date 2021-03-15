@@ -35,20 +35,20 @@ export class PackagingGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === PackagingGroup.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
      */
-    public readonly Authorization!: pulumi.Output<outputs.MediaPackage.PackagingGroupAuthorization | undefined>;
-    public /*out*/ readonly DomainName!: pulumi.Output<string>;
+    public readonly authorization!: pulumi.Output<outputs.MediaPackage.PackagingGroupAuthorization | undefined>;
+    public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
      */
-    public readonly Id!: pulumi.Output<string>;
+    public readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PackagingGroup resource with the given unique name, arguments, and options.
@@ -60,20 +60,20 @@ export class PackagingGroup extends pulumi.CustomResource {
     constructor(name: string, args: PackagingGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Id === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Id'");
+            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'id'");
             }
-            inputs["Authorization"] = args ? args.Authorization : undefined;
-            inputs["Id"] = args ? args.Id : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["DomainName"] = undefined /*out*/;
+            inputs["authorization"] = args ? args.authorization : undefined;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["domainName"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Authorization"] = undefined /*out*/;
-            inputs["DomainName"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["authorization"] = undefined /*out*/;
+            inputs["domainName"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,13 +93,13 @@ export interface PackagingGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
      */
-    readonly Authorization?: pulumi.Input<inputs.MediaPackage.PackagingGroupAuthorization>;
+    readonly authorization?: pulumi.Input<inputs.MediaPackage.PackagingGroupAuthorization>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
      */
-    readonly Id: pulumi.Input<string>;
+    readonly id: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

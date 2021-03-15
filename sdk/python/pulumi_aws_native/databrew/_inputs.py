@@ -43,7 +43,7 @@ class JobOutputArgs:
             pulumi.set(__self__, "partition_columns", partition_columns)
 
     @property
-    @pulumi.getter(name="Location")
+    @pulumi.getter
     def location(self) -> pulumi.Input['JobS3LocationArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
@@ -55,7 +55,7 @@ class JobOutputArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="CompressionFormat")
+    @pulumi.getter(name="compressionFormat")
     def compression_format(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-compressionformat
@@ -67,7 +67,7 @@ class JobOutputArgs:
         pulumi.set(self, "compression_format", value)
 
     @property
-    @pulumi.getter(name="Format")
+    @pulumi.getter
     def format(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-format
@@ -79,7 +79,7 @@ class JobOutputArgs:
         pulumi.set(self, "format", value)
 
     @property
-    @pulumi.getter(name="Overwrite")
+    @pulumi.getter
     def overwrite(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-overwrite
@@ -91,7 +91,7 @@ class JobOutputArgs:
         pulumi.set(self, "overwrite", value)
 
     @property
-    @pulumi.getter(name="PartitionColumns")
+    @pulumi.getter(name="partitionColumns")
     def partition_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-partitioncolumns
@@ -118,7 +118,7 @@ class JobS3LocationArgs:
             pulumi.set(__self__, "key", key)
 
     @property
-    @pulumi.getter(name="Bucket")
+    @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-bucket
@@ -130,7 +130,7 @@ class JobS3LocationArgs:
         pulumi.set(self, "bucket", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-key
@@ -157,7 +157,7 @@ class RecipeActionArgs:
             pulumi.set(__self__, "parameters", parameters)
 
     @property
-    @pulumi.getter(name="Operation")
+    @pulumi.getter
     def operation(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
@@ -169,7 +169,7 @@ class RecipeActionArgs:
         pulumi.set(self, "operation", value)
 
     @property
-    @pulumi.getter(name="Parameters")
+    @pulumi.getter
     def parameters(self) -> Optional[Any]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
@@ -199,7 +199,7 @@ class RecipeConditionExpressionArgs:
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Condition")
+    @pulumi.getter
     def condition(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-condition
@@ -211,7 +211,7 @@ class RecipeConditionExpressionArgs:
         pulumi.set(self, "condition", value)
 
     @property
-    @pulumi.getter(name="TargetColumn")
+    @pulumi.getter(name="targetColumn")
     def target_column(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-targetcolumn
@@ -223,7 +223,7 @@ class RecipeConditionExpressionArgs:
         pulumi.set(self, "target_column", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-value
@@ -250,7 +250,7 @@ class RecipeRecipeStepArgs:
             pulumi.set(__self__, "condition_expressions", condition_expressions)
 
     @property
-    @pulumi.getter(name="Action")
+    @pulumi.getter
     def action(self) -> pulumi.Input['RecipeActionArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-action
@@ -262,7 +262,7 @@ class RecipeRecipeStepArgs:
         pulumi.set(self, "action", value)
 
     @property
-    @pulumi.getter(name="ConditionExpressions")
+    @pulumi.getter(name="conditionExpressions")
     def condition_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions

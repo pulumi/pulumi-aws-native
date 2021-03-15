@@ -84,7 +84,7 @@ class Schedule(pulumi.CustomResource):
         return Schedule(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="CronExpression")
+    @pulumi.getter(name="cronExpression")
     def cron_expression(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-cronexpression
@@ -92,7 +92,7 @@ class Schedule(pulumi.CustomResource):
         return pulumi.get(self, "cron_expression")
 
     @property
-    @pulumi.getter(name="JobNames")
+    @pulumi.getter(name="jobNames")
     def job_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-jobnames
@@ -100,7 +100,7 @@ class Schedule(pulumi.CustomResource):
         return pulumi.get(self, "job_names")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-name
@@ -108,7 +108,7 @@ class Schedule(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-tags

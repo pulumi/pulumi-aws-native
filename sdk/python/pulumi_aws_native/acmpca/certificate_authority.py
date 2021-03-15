@@ -98,17 +98,17 @@ class CertificateAuthority(pulumi.CustomResource):
         return CertificateAuthority(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="CertificateSigningRequest")
+    @pulumi.getter(name="certificateSigningRequest")
     def certificate_signing_request(self) -> pulumi.Output[str]:
         return pulumi.get(self, "certificate_signing_request")
 
     @property
-    @pulumi.getter(name="KeyAlgorithm")
+    @pulumi.getter(name="keyAlgorithm")
     def key_algorithm(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
@@ -116,7 +116,7 @@ class CertificateAuthority(pulumi.CustomResource):
         return pulumi.get(self, "key_algorithm")
 
     @property
-    @pulumi.getter(name="RevocationConfiguration")
+    @pulumi.getter(name="revocationConfiguration")
     def revocation_configuration(self) -> pulumi.Output[Optional['outputs.CertificateAuthorityRevocationConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
@@ -124,7 +124,7 @@ class CertificateAuthority(pulumi.CustomResource):
         return pulumi.get(self, "revocation_configuration")
 
     @property
-    @pulumi.getter(name="SigningAlgorithm")
+    @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
@@ -132,7 +132,7 @@ class CertificateAuthority(pulumi.CustomResource):
         return pulumi.get(self, "signing_algorithm")
 
     @property
-    @pulumi.getter(name="Subject")
+    @pulumi.getter
     def subject(self) -> pulumi.Output['outputs.CertificateAuthoritySubject']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
@@ -140,7 +140,7 @@ class CertificateAuthority(pulumi.CustomResource):
         return pulumi.get(self, "subject")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
@@ -148,7 +148,7 @@ class CertificateAuthority(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type

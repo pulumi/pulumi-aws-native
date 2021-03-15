@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private MonitoringScheduleMonitoringAppSpecification(
-            ImmutableArray<string> ContainerArguments,
+            ImmutableArray<string> containerArguments,
 
-            ImmutableArray<string> ContainerEntrypoint,
+            ImmutableArray<string> containerEntrypoint,
 
-            string ImageUri,
+            string imageUri,
 
-            string? PostAnalyticsProcessorSourceUri,
+            string? postAnalyticsProcessorSourceUri,
 
-            string? RecordPreprocessorSourceUri)
+            string? recordPreprocessorSourceUri)
         {
-            this.ContainerArguments = ContainerArguments;
-            this.ContainerEntrypoint = ContainerEntrypoint;
-            this.ImageUri = ImageUri;
-            this.PostAnalyticsProcessorSourceUri = PostAnalyticsProcessorSourceUri;
-            this.RecordPreprocessorSourceUri = RecordPreprocessorSourceUri;
+            ContainerArguments = containerArguments;
+            ContainerEntrypoint = containerEntrypoint;
+            ImageUri = imageUri;
+            PostAnalyticsProcessorSourceUri = postAnalyticsProcessorSourceUri;
+            RecordPreprocessorSourceUri = recordPreprocessorSourceUri;
         }
     }
 }

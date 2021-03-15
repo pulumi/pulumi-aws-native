@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private IndexDocumentMetadataConfiguration(
-            string Name,
+            string name,
 
-            Outputs.IndexRelevance? Relevance,
+            Outputs.IndexRelevance? relevance,
 
-            Outputs.IndexSearch? Search,
+            Outputs.IndexSearch? search,
 
-            string Type)
+            string type)
         {
-            this.Name = Name;
-            this.Relevance = Relevance;
-            this.Search = Search;
-            this.Type = Type;
+            Name = name;
+            Relevance = relevance;
+            Search = search;
+            Type = type;
         }
     }
 }

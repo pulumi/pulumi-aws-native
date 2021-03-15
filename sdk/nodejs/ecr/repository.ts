@@ -35,31 +35,31 @@ export class Repository extends pulumi.CustomResource {
         return obj['__pulumiType'] === Repository.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
      */
-    public readonly ImageScanningConfiguration!: pulumi.Output<any | string | undefined>;
+    public readonly imageScanningConfiguration!: pulumi.Output<any | string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
      */
-    public readonly ImageTagMutability!: pulumi.Output<string | undefined>;
+    public readonly imageTagMutability!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
      */
-    public readonly LifecyclePolicy!: pulumi.Output<outputs.ECR.RepositoryLifecyclePolicy | undefined>;
+    public readonly lifecyclePolicy!: pulumi.Output<outputs.ECR.RepositoryLifecyclePolicy | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
      */
-    public readonly RepositoryName!: pulumi.Output<string | undefined>;
+    public readonly repositoryName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
      */
-    public readonly RepositoryPolicyText!: pulumi.Output<any | undefined>;
+    public readonly repositoryPolicyText!: pulumi.Output<any | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -71,21 +71,21 @@ export class Repository extends pulumi.CustomResource {
     constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["ImageScanningConfiguration"] = args ? args.ImageScanningConfiguration : undefined;
-            inputs["ImageTagMutability"] = args ? args.ImageTagMutability : undefined;
-            inputs["LifecyclePolicy"] = args ? args.LifecyclePolicy : undefined;
-            inputs["RepositoryName"] = args ? args.RepositoryName : undefined;
-            inputs["RepositoryPolicyText"] = args ? args.RepositoryPolicyText : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
+            inputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
+            inputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
+            inputs["repositoryName"] = args ? args.repositoryName : undefined;
+            inputs["repositoryPolicyText"] = args ? args.repositoryPolicyText : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["ImageScanningConfiguration"] = undefined /*out*/;
-            inputs["ImageTagMutability"] = undefined /*out*/;
-            inputs["LifecyclePolicy"] = undefined /*out*/;
-            inputs["RepositoryName"] = undefined /*out*/;
-            inputs["RepositoryPolicyText"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["imageScanningConfiguration"] = undefined /*out*/;
+            inputs["imageTagMutability"] = undefined /*out*/;
+            inputs["lifecyclePolicy"] = undefined /*out*/;
+            inputs["repositoryName"] = undefined /*out*/;
+            inputs["repositoryPolicyText"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,25 +105,25 @@ export interface RepositoryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
      */
-    readonly ImageScanningConfiguration?: pulumi.Input<any | string>;
+    readonly imageScanningConfiguration?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
      */
-    readonly ImageTagMutability?: pulumi.Input<string>;
+    readonly imageTagMutability?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
      */
-    readonly LifecyclePolicy?: pulumi.Input<inputs.ECR.RepositoryLifecyclePolicy>;
+    readonly lifecyclePolicy?: pulumi.Input<inputs.ECR.RepositoryLifecyclePolicy>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
      */
-    readonly RepositoryName?: pulumi.Input<string>;
+    readonly repositoryName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
      */
-    readonly RepositoryPolicyText?: any;
+    readonly repositoryPolicyText?: any;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private CapacityProviderAutoScalingGroupProvider(
-            string AutoScalingGroupArn,
+            string autoScalingGroupArn,
 
-            Outputs.CapacityProviderManagedScaling? ManagedScaling,
+            Outputs.CapacityProviderManagedScaling? managedScaling,
 
-            string? ManagedTerminationProtection)
+            string? managedTerminationProtection)
         {
-            this.AutoScalingGroupArn = AutoScalingGroupArn;
-            this.ManagedScaling = ManagedScaling;
-            this.ManagedTerminationProtection = ManagedTerminationProtection;
+            AutoScalingGroupArn = autoScalingGroupArn;
+            ManagedScaling = managedScaling;
+            ManagedTerminationProtection = managedTerminationProtection;
         }
     }
 }

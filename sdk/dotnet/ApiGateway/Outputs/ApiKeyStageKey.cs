@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
 
         [OutputConstructor]
         private ApiKeyStageKey(
-            string? RestApiId,
+            string? restApiId,
 
-            string? StageName)
+            string? stageName)
         {
-            this.RestApiId = RestApiId;
-            this.StageName = StageName;
+            RestApiId = restApiId;
+            StageName = stageName;
         }
     }
 }

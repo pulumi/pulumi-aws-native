@@ -38,20 +38,20 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
      */
-    public readonly GatewayCapabilitySummaries!: pulumi.Output<outputs.IoTSiteWise.GatewayGatewayCapabilitySummary[] | undefined>;
-    public /*out*/ readonly GatewayId!: pulumi.Output<string>;
+    public readonly gatewayCapabilitySummaries!: pulumi.Output<outputs.IoTSiteWise.GatewayGatewayCapabilitySummary[] | undefined>;
+    public /*out*/ readonly gatewayId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
      */
-    public readonly GatewayName!: pulumi.Output<string>;
+    public readonly gatewayName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
      */
-    public readonly GatewayPlatform!: pulumi.Output<outputs.IoTSiteWise.GatewayGatewayPlatform>;
+    public readonly gatewayPlatform!: pulumi.Output<outputs.IoTSiteWise.GatewayGatewayPlatform>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -63,23 +63,23 @@ export class Gateway extends pulumi.CustomResource {
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.GatewayName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'GatewayName'");
+            if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.GatewayPlatform === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'GatewayPlatform'");
+            if ((!args || args.gatewayPlatform === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'gatewayPlatform'");
             }
-            inputs["GatewayCapabilitySummaries"] = args ? args.GatewayCapabilitySummaries : undefined;
-            inputs["GatewayName"] = args ? args.GatewayName : undefined;
-            inputs["GatewayPlatform"] = args ? args.GatewayPlatform : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["GatewayId"] = undefined /*out*/;
+            inputs["gatewayCapabilitySummaries"] = args ? args.gatewayCapabilitySummaries : undefined;
+            inputs["gatewayName"] = args ? args.gatewayName : undefined;
+            inputs["gatewayPlatform"] = args ? args.gatewayPlatform : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["gatewayId"] = undefined /*out*/;
         } else {
-            inputs["GatewayCapabilitySummaries"] = undefined /*out*/;
-            inputs["GatewayId"] = undefined /*out*/;
-            inputs["GatewayName"] = undefined /*out*/;
-            inputs["GatewayPlatform"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["gatewayCapabilitySummaries"] = undefined /*out*/;
+            inputs["gatewayId"] = undefined /*out*/;
+            inputs["gatewayName"] = undefined /*out*/;
+            inputs["gatewayPlatform"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -99,17 +99,17 @@ export interface GatewayArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
      */
-    readonly GatewayCapabilitySummaries?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.GatewayGatewayCapabilitySummary>[]>;
+    readonly gatewayCapabilitySummaries?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.GatewayGatewayCapabilitySummary>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
      */
-    readonly GatewayName: pulumi.Input<string>;
+    readonly gatewayName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
      */
-    readonly GatewayPlatform: pulumi.Input<inputs.IoTSiteWise.GatewayGatewayPlatform>;
+    readonly gatewayPlatform: pulumi.Input<inputs.IoTSiteWise.GatewayGatewayPlatform>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

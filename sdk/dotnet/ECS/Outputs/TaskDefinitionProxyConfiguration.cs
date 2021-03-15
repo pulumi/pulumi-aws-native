@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionProxyConfiguration(
-            string ContainerName,
+            string containerName,
 
-            ImmutableArray<Outputs.TaskDefinitionKeyValuePair> ProxyConfigurationProperties,
+            ImmutableArray<Outputs.TaskDefinitionKeyValuePair> proxyConfigurationProperties,
 
-            string? Type)
+            string? type)
         {
-            this.ContainerName = ContainerName;
-            this.ProxyConfigurationProperties = ProxyConfigurationProperties;
-            this.Type = Type;
+            ContainerName = containerName;
+            ProxyConfigurationProperties = proxyConfigurationProperties;
+            Type = type;
         }
     }
 }

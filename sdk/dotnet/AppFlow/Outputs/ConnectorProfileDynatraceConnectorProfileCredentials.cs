@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string ApiToken;
 
         [OutputConstructor]
-        private ConnectorProfileDynatraceConnectorProfileCredentials(string ApiToken)
+        private ConnectorProfileDynatraceConnectorProfileCredentials(string apiToken)
         {
-            this.ApiToken = ApiToken;
+            ApiToken = apiToken;
         }
     }
 }

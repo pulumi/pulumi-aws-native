@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
         [OutputConstructor]
         private NetworkInsightsAnalysisAnalysisComponent(
-            string? Arn,
+            string? arn,
 
-            string? Id)
+            string? id)
         {
-            this.Arn = Arn;
-            this.Id = Id;
+            Arn = arn;
+            Id = id;
         }
     }
 }

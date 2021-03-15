@@ -38,35 +38,35 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-customerid
      */
-    public readonly CustomerId!: pulumi.Output<string | undefined>;
+    public readonly customerId!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-enabled
      */
-    public readonly Enabled!: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-generatedistinctid
      */
-    public readonly GenerateDistinctId!: pulumi.Output<boolean | undefined>;
+    public readonly generateDistinctId!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-name
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys
      */
-    public readonly StageKeys!: pulumi.Output<outputs.ApiGateway.ApiKeyStageKey[] | undefined>;
+    public readonly stageKeys!: pulumi.Output<outputs.ApiGateway.ApiKeyStageKey[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-value
      */
-    public readonly Value!: pulumi.Output<string | undefined>;
+    public readonly value!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -78,23 +78,23 @@ export class ApiKey extends pulumi.CustomResource {
     constructor(name: string, args?: ApiKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["CustomerId"] = args ? args.CustomerId : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["Enabled"] = args ? args.Enabled : undefined;
-            inputs["GenerateDistinctId"] = args ? args.GenerateDistinctId : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["StageKeys"] = args ? args.StageKeys : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Value"] = args ? args.Value : undefined;
+            inputs["customerId"] = args ? args.customerId : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["generateDistinctId"] = args ? args.generateDistinctId : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["stageKeys"] = args ? args.stageKeys : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["value"] = args ? args.value : undefined;
         } else {
-            inputs["CustomerId"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["Enabled"] = undefined /*out*/;
-            inputs["GenerateDistinctId"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["StageKeys"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Value"] = undefined /*out*/;
+            inputs["customerId"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["enabled"] = undefined /*out*/;
+            inputs["generateDistinctId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["stageKeys"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["value"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -114,33 +114,33 @@ export interface ApiKeyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-customerid
      */
-    readonly CustomerId?: pulumi.Input<string>;
+    readonly customerId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-enabled
      */
-    readonly Enabled?: pulumi.Input<boolean>;
+    readonly enabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-generatedistinctid
      */
-    readonly GenerateDistinctId?: pulumi.Input<boolean>;
+    readonly generateDistinctId?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-name
      */
-    readonly Name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys
      */
-    readonly StageKeys?: pulumi.Input<pulumi.Input<inputs.ApiGateway.ApiKeyStageKey>[]>;
+    readonly stageKeys?: pulumi.Input<pulumi.Input<inputs.ApiGateway.ApiKeyStageKey>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-value
      */
-    readonly Value?: pulumi.Input<string>;
+    readonly value?: pulumi.Input<string>;
 }

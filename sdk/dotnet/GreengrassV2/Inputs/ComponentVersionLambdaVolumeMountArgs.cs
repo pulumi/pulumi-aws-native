@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-addgroupowner
         /// </summary>
-        [Input("AddGroupOwner")]
+        [Input("addGroupOwner")]
         public Input<bool>? AddGroupOwner { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-destinationpath
         /// </summary>
-        [Input("DestinationPath")]
+        [Input("destinationPath")]
         public Input<string>? DestinationPath { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-permission
         /// </summary>
-        [Input("Permission")]
+        [Input("permission")]
         public Input<string>? Permission { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-sourcepath
         /// </summary>
-        [Input("SourcePath")]
+        [Input("sourcePath")]
         public Input<string>? SourcePath { get; set; }
 
         public ComponentVersionLambdaVolumeMountArgs()

@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs : Pulumi.ResourceArgs
     {
-        [Input("SalesforceCustomKnowledgeArticleTypeConfigurationList")]
-        private InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs>? _SalesforceCustomKnowledgeArticleTypeConfigurationList;
+        [Input("salesforceCustomKnowledgeArticleTypeConfigurationList")]
+        private InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs>? _salesforceCustomKnowledgeArticleTypeConfigurationList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist-salesforcecustomknowledgearticletypeconfigurationlist
         /// </summary>
         public InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs> SalesforceCustomKnowledgeArticleTypeConfigurationList
         {
-            get => _SalesforceCustomKnowledgeArticleTypeConfigurationList ?? (_SalesforceCustomKnowledgeArticleTypeConfigurationList = new InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs>());
-            set => _SalesforceCustomKnowledgeArticleTypeConfigurationList = value;
+            get => _salesforceCustomKnowledgeArticleTypeConfigurationList ?? (_salesforceCustomKnowledgeArticleTypeConfigurationList = new InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs>());
+            set => _salesforceCustomKnowledgeArticleTypeConfigurationList = value;
         }
 
         public DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs()

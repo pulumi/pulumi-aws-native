@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ModelBiasJobDefinitionModelBiasAppSpecification(
-            string ConfigUri,
+            string configUri,
 
-            Outputs.ModelBiasJobDefinitionEnvironment? Environment,
+            Outputs.ModelBiasJobDefinitionEnvironment? environment,
 
-            string ImageUri)
+            string imageUri)
         {
-            this.ConfigUri = ConfigUri;
-            this.Environment = Environment;
-            this.ImageUri = ImageUri;
+            ConfigUri = configUri;
+            Environment = environment;
+            ImageUri = imageUri;
         }
     }
 }

@@ -76,7 +76,7 @@ class NotificationChannel(pulumi.CustomResource):
         return NotificationChannel(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="SnsRoleName")
+    @pulumi.getter(name="snsRoleName")
     def sns_role_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
@@ -84,7 +84,7 @@ class NotificationChannel(pulumi.CustomResource):
         return pulumi.get(self, "sns_role_name")
 
     @property
-    @pulumi.getter(name="SnsTopicArn")
+    @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn

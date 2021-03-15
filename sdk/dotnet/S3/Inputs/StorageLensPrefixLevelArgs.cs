@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
         /// </summary>
-        [Input("StorageMetrics", required: true)]
+        [Input("storageMetrics", required: true)]
         public Input<Inputs.StorageLensPrefixLevelStorageMetricsArgs> StorageMetrics { get; set; } = null!;
 
         public StorageLensPrefixLevelArgs()

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceOneDriveUsers(
-            Outputs.DataSourceOneDriveUserList? OneDriveUserList,
+            Outputs.DataSourceOneDriveUserList? oneDriveUserList,
 
-            Outputs.DataSourceS3Path? OneDriveUserS3Path)
+            Outputs.DataSourceS3Path? oneDriveUserS3Path)
         {
-            this.OneDriveUserList = OneDriveUserList;
-            this.OneDriveUserS3Path = OneDriveUserS3Path;
+            OneDriveUserList = oneDriveUserList;
+            OneDriveUserS3Path = oneDriveUserS3Path;
         }
     }
 }

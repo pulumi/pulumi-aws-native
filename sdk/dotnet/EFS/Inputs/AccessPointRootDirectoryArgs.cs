@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.EFS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-creationinfo
         /// </summary>
-        [Input("CreationInfo")]
+        [Input("creationInfo")]
         public Input<Inputs.AccessPointCreationInfoArgs>? CreationInfo { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path
         /// </summary>
-        [Input("Path")]
+        [Input("path")]
         public Input<string>? Path { get; set; }
 
         public AccessPointRootDirectoryArgs()

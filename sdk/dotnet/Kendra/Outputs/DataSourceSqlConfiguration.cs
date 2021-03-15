@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string? QueryIdentifiersEnclosingOption;
 
         [OutputConstructor]
-        private DataSourceSqlConfiguration(string? QueryIdentifiersEnclosingOption)
+        private DataSourceSqlConfiguration(string? queryIdentifiersEnclosingOption)
         {
-            this.QueryIdentifiersEnclosingOption = QueryIdentifiersEnclosingOption;
+            QueryIdentifiersEnclosingOption = queryIdentifiersEnclosingOption;
         }
     }
 }

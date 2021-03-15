@@ -56,36 +56,36 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceConfluenceConfiguration(
-            Outputs.DataSourceConfluenceAttachmentConfiguration? AttachmentConfiguration,
+            Outputs.DataSourceConfluenceAttachmentConfiguration? attachmentConfiguration,
 
-            Outputs.DataSourceConfluenceBlogConfiguration? BlogConfiguration,
+            Outputs.DataSourceConfluenceBlogConfiguration? blogConfiguration,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? ExclusionPatterns,
+            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? exclusionPatterns,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? InclusionPatterns,
+            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? inclusionPatterns,
 
-            Outputs.DataSourceConfluencePageConfiguration? PageConfiguration,
+            Outputs.DataSourceConfluencePageConfiguration? pageConfiguration,
 
-            string SecretArn,
+            string secretArn,
 
-            string ServerUrl,
+            string serverUrl,
 
-            Outputs.DataSourceConfluenceSpaceConfiguration? SpaceConfiguration,
+            Outputs.DataSourceConfluenceSpaceConfiguration? spaceConfiguration,
 
-            string Version,
+            string version,
 
-            Outputs.DataSourceDataSourceVpcConfiguration? VpcConfiguration)
+            Outputs.DataSourceDataSourceVpcConfiguration? vpcConfiguration)
         {
-            this.AttachmentConfiguration = AttachmentConfiguration;
-            this.BlogConfiguration = BlogConfiguration;
-            this.ExclusionPatterns = ExclusionPatterns;
-            this.InclusionPatterns = InclusionPatterns;
-            this.PageConfiguration = PageConfiguration;
-            this.SecretArn = SecretArn;
-            this.ServerUrl = ServerUrl;
-            this.SpaceConfiguration = SpaceConfiguration;
-            this.Version = Version;
-            this.VpcConfiguration = VpcConfiguration;
+            AttachmentConfiguration = attachmentConfiguration;
+            BlogConfiguration = blogConfiguration;
+            ExclusionPatterns = exclusionPatterns;
+            InclusionPatterns = inclusionPatterns;
+            PageConfiguration = pageConfiguration;
+            SecretArn = secretArn;
+            ServerUrl = serverUrl;
+            SpaceConfiguration = spaceConfiguration;
+            Version = version;
+            VpcConfiguration = vpcConfiguration;
         }
     }
 }

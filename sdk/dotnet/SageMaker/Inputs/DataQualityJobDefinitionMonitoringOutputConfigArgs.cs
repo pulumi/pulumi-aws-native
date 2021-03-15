@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-kmskeyid
         /// </summary>
-        [Input("KmsKeyId")]
+        [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        [Input("MonitoringOutputs", required: true)]
-        private InputList<Inputs.DataQualityJobDefinitionMonitoringOutputArgs>? _MonitoringOutputs;
+        [Input("monitoringOutputs", required: true)]
+        private InputList<Inputs.DataQualityJobDefinitionMonitoringOutputArgs>? _monitoringOutputs;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
         /// </summary>
         public InputList<Inputs.DataQualityJobDefinitionMonitoringOutputArgs> MonitoringOutputs
         {
-            get => _MonitoringOutputs ?? (_MonitoringOutputs = new InputList<Inputs.DataQualityJobDefinitionMonitoringOutputArgs>());
-            set => _MonitoringOutputs = value;
+            get => _monitoringOutputs ?? (_monitoringOutputs = new InputList<Inputs.DataQualityJobDefinitionMonitoringOutputArgs>());
+            set => _monitoringOutputs = value;
         }
 
         public DataQualityJobDefinitionMonitoringOutputConfigArgs()

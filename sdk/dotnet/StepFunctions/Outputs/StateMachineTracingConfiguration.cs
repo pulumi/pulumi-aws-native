@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
         public readonly bool? Enabled;
 
         [OutputConstructor]
-        private StateMachineTracingConfiguration(bool? Enabled)
+        private StateMachineTracingConfiguration(bool? enabled)
         {
-            this.Enabled = Enabled;
+            Enabled = enabled;
         }
     }
 }

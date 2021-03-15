@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionHostEntry(
-            string? Hostname,
+            string? hostname,
 
-            string? IpAddress)
+            string? ipAddress)
         {
-            this.Hostname = Hostname;
-            this.IpAddress = IpAddress;
+            Hostname = hostname;
+            IpAddress = ipAddress;
         }
     }
 }

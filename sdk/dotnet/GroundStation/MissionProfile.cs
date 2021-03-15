@@ -15,55 +15,55 @@ namespace Pulumi.AwsNative.GroundStation
     [AwsNativeResourceType("aws-native:GroundStation:MissionProfile")]
     public partial class MissionProfile : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
         /// </summary>
-        [Output("ContactPostPassDurationSeconds")]
+        [Output("contactPostPassDurationSeconds")]
         public Output<int?> ContactPostPassDurationSeconds { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
         /// </summary>
-        [Output("ContactPrePassDurationSeconds")]
+        [Output("contactPrePassDurationSeconds")]
         public Output<int?> ContactPrePassDurationSeconds { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
         /// </summary>
-        [Output("DataflowEdges")]
+        [Output("dataflowEdges")]
         public Output<ImmutableArray<Outputs.MissionProfileDataflowEdge>> DataflowEdges { get; private set; } = null!;
 
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
         /// </summary>
-        [Output("MinimumViableContactDurationSeconds")]
+        [Output("minimumViableContactDurationSeconds")]
         public Output<int> MinimumViableContactDurationSeconds { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("Region")]
+        [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
         /// </summary>
-        [Output("TrackingConfigArn")]
+        [Output("trackingConfigArn")]
         public Output<string> TrackingConfigArn { get; private set; } = null!;
 
 
@@ -114,55 +114,55 @@ namespace Pulumi.AwsNative.GroundStation
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
         /// </summary>
-        [Input("ContactPostPassDurationSeconds")]
+        [Input("contactPostPassDurationSeconds")]
         public Input<int>? ContactPostPassDurationSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
         /// </summary>
-        [Input("ContactPrePassDurationSeconds")]
+        [Input("contactPrePassDurationSeconds")]
         public Input<int>? ContactPrePassDurationSeconds { get; set; }
 
-        [Input("DataflowEdges", required: true)]
-        private InputList<Inputs.MissionProfileDataflowEdgeArgs>? _DataflowEdges;
+        [Input("dataflowEdges", required: true)]
+        private InputList<Inputs.MissionProfileDataflowEdgeArgs>? _dataflowEdges;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
         /// </summary>
         public InputList<Inputs.MissionProfileDataflowEdgeArgs> DataflowEdges
         {
-            get => _DataflowEdges ?? (_DataflowEdges = new InputList<Inputs.MissionProfileDataflowEdgeArgs>());
-            set => _DataflowEdges = value;
+            get => _dataflowEdges ?? (_dataflowEdges = new InputList<Inputs.MissionProfileDataflowEdgeArgs>());
+            set => _dataflowEdges = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
         /// </summary>
-        [Input("MinimumViableContactDurationSeconds", required: true)]
+        [Input("minimumViableContactDurationSeconds", required: true)]
         public Input<int> MinimumViableContactDurationSeconds { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
         /// </summary>
-        [Input("TrackingConfigArn", required: true)]
+        [Input("trackingConfigArn", required: true)]
         public Input<string> TrackingConfigArn { get; set; } = null!;
 
         public MissionProfileArgs()

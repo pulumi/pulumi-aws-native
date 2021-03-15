@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
         [OutputConstructor]
         private ImageRecipeInstanceBlockDeviceMapping(
-            string? DeviceName,
+            string? deviceName,
 
-            Outputs.ImageRecipeEbsInstanceBlockDeviceSpecification? Ebs,
+            Outputs.ImageRecipeEbsInstanceBlockDeviceSpecification? ebs,
 
-            string? NoDevice,
+            string? noDevice,
 
-            string? VirtualName)
+            string? virtualName)
         {
-            this.DeviceName = DeviceName;
-            this.Ebs = Ebs;
-            this.NoDevice = NoDevice;
-            this.VirtualName = VirtualName;
+            DeviceName = deviceName;
+            Ebs = ebs;
+            NoDevice = noDevice;
+            VirtualName = virtualName;
         }
     }
 }

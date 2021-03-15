@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoption.html#cfn-networkfirewall-rulegroup-ruleoption-keyword
         /// </summary>
-        [Input("Keyword", required: true)]
+        [Input("keyword", required: true)]
         public Input<string> Keyword { get; set; } = null!;
 
-        [Input("Settings")]
-        private InputList<string>? _Settings;
+        [Input("settings")]
+        private InputList<string>? _settings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoption.html#cfn-networkfirewall-rulegroup-ruleoption-settings
         /// </summary>
         public InputList<string> Settings
         {
-            get => _Settings ?? (_Settings = new InputList<string>());
-            set => _Settings = value;
+            get => _settings ?? (_settings = new InputList<string>());
+            set => _settings = value;
         }
 
         public RuleGroupRuleOptionArgs()

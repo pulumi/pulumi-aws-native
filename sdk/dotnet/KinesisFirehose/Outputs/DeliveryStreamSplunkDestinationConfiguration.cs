@@ -52,33 +52,33 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamSplunkDestinationConfiguration(
-            Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions,
+            Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
-            int? HECAcknowledgmentTimeoutInSeconds,
+            int? hECAcknowledgmentTimeoutInSeconds,
 
-            string HECEndpoint,
+            string hECEndpoint,
 
-            string HECEndpointType,
+            string hECEndpointType,
 
-            string HECToken,
+            string hECToken,
 
-            Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration,
+            Outputs.DeliveryStreamProcessingConfiguration? processingConfiguration,
 
-            Outputs.DeliveryStreamSplunkRetryOptions? RetryOptions,
+            Outputs.DeliveryStreamSplunkRetryOptions? retryOptions,
 
-            string? S3BackupMode,
+            string? s3BackupMode,
 
-            Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration)
+            Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration)
         {
-            this.CloudWatchLoggingOptions = CloudWatchLoggingOptions;
-            this.HECAcknowledgmentTimeoutInSeconds = HECAcknowledgmentTimeoutInSeconds;
-            this.HECEndpoint = HECEndpoint;
-            this.HECEndpointType = HECEndpointType;
-            this.HECToken = HECToken;
-            this.ProcessingConfiguration = ProcessingConfiguration;
-            this.RetryOptions = RetryOptions;
-            this.S3BackupMode = S3BackupMode;
-            this.S3Configuration = S3Configuration;
+            CloudWatchLoggingOptions = cloudWatchLoggingOptions;
+            HECAcknowledgmentTimeoutInSeconds = hECAcknowledgmentTimeoutInSeconds;
+            HECEndpoint = hECEndpoint;
+            HECEndpointType = hECEndpointType;
+            HECToken = hECToken;
+            ProcessingConfiguration = processingConfiguration;
+            RetryOptions = retryOptions;
+            S3BackupMode = s3BackupMode;
+            S3Configuration = s3Configuration;
         }
     }
 }

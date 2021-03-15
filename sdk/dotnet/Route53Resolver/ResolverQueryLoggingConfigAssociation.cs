@@ -15,31 +15,31 @@ namespace Pulumi.AwsNative.Route53Resolver
     [AwsNativeResourceType("aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation")]
     public partial class ResolverQueryLoggingConfigAssociation : Pulumi.CustomResource
     {
-        [Output("CreationTime")]
+        [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
-        [Output("Error")]
+        [Output("error")]
         public Output<string> Error { get; private set; } = null!;
 
-        [Output("ErrorMessage")]
+        [Output("errorMessage")]
         public Output<string> ErrorMessage { get; private set; } = null!;
 
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
         /// </summary>
-        [Output("ResolverQueryLogConfigId")]
+        [Output("resolverQueryLogConfigId")]
         public Output<string?> ResolverQueryLogConfigId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
         /// </summary>
-        [Output("ResourceId")]
+        [Output("resourceId")]
         public Output<string?> ResourceId { get; private set; } = null!;
 
-        [Output("Status")]
+        [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
 
@@ -90,13 +90,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
         /// </summary>
-        [Input("ResolverQueryLogConfigId")]
+        [Input("resolverQueryLogConfigId")]
         public Input<string>? ResolverQueryLogConfigId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
         /// </summary>
-        [Input("ResourceId")]
+        [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
         public ResolverQueryLoggingConfigAssociationArgs()

@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private PackagingConfigurationHlsManifest(
-            string? AdMarkers,
+            string? adMarkers,
 
-            bool? IncludeIframeOnlyStream,
+            bool? includeIframeOnlyStream,
 
-            string? ManifestName,
+            string? manifestName,
 
-            int? ProgramDateTimeIntervalSeconds,
+            int? programDateTimeIntervalSeconds,
 
-            bool? RepeatExtXKey,
+            bool? repeatExtXKey,
 
-            Outputs.PackagingConfigurationStreamSelection? StreamSelection)
+            Outputs.PackagingConfigurationStreamSelection? streamSelection)
         {
-            this.AdMarkers = AdMarkers;
-            this.IncludeIframeOnlyStream = IncludeIframeOnlyStream;
-            this.ManifestName = ManifestName;
-            this.ProgramDateTimeIntervalSeconds = ProgramDateTimeIntervalSeconds;
-            this.RepeatExtXKey = RepeatExtXKey;
-            this.StreamSelection = StreamSelection;
+            AdMarkers = adMarkers;
+            IncludeIframeOnlyStream = includeIframeOnlyStream;
+            ManifestName = manifestName;
+            ProgramDateTimeIntervalSeconds = programDateTimeIntervalSeconds;
+            RepeatExtXKey = repeatExtXKey;
+            StreamSelection = streamSelection;
         }
     }
 }

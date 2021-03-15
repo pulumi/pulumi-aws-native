@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreference-priority
         /// </summary>
-        [Input("Priority", required: true)]
+        [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreference-resourcearn
         /// </summary>
-        [Input("ResourceArn", required: true)]
+        [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
         public FirewallPolicyStatelessRuleGroupReferenceArgs()

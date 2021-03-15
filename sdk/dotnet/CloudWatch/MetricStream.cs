@@ -15,52 +15,52 @@ namespace Pulumi.AwsNative.CloudWatch
     [AwsNativeResourceType("aws-native:CloudWatch:MetricStream")]
     public partial class MetricStream : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("CreationDate")]
+        [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
         /// </summary>
-        [Output("ExcludeFilters")]
+        [Output("excludeFilters")]
         public Output<ImmutableArray<Outputs.MetricStreamMetricStreamFilter>> ExcludeFilters { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
         /// </summary>
-        [Output("FirehoseArn")]
+        [Output("firehoseArn")]
         public Output<string> FirehoseArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
         /// </summary>
-        [Output("IncludeFilters")]
+        [Output("includeFilters")]
         public Output<ImmutableArray<Outputs.MetricStreamMetricStreamFilter>> IncludeFilters { get; private set; } = null!;
 
-        [Output("LastUpdateDate")]
+        [Output("lastUpdateDate")]
         public Output<string> LastUpdateDate { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
         /// </summary>
-        [Output("RoleArn")]
+        [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        [Output("State")]
+        [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -108,58 +108,58 @@ namespace Pulumi.AwsNative.CloudWatch
 
     public sealed class MetricStreamArgs : Pulumi.ResourceArgs
     {
-        [Input("ExcludeFilters")]
-        private InputList<Inputs.MetricStreamMetricStreamFilterArgs>? _ExcludeFilters;
+        [Input("excludeFilters")]
+        private InputList<Inputs.MetricStreamMetricStreamFilterArgs>? _excludeFilters;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
         /// </summary>
         public InputList<Inputs.MetricStreamMetricStreamFilterArgs> ExcludeFilters
         {
-            get => _ExcludeFilters ?? (_ExcludeFilters = new InputList<Inputs.MetricStreamMetricStreamFilterArgs>());
-            set => _ExcludeFilters = value;
+            get => _excludeFilters ?? (_excludeFilters = new InputList<Inputs.MetricStreamMetricStreamFilterArgs>());
+            set => _excludeFilters = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
         /// </summary>
-        [Input("FirehoseArn", required: true)]
+        [Input("firehoseArn", required: true)]
         public Input<string> FirehoseArn { get; set; } = null!;
 
-        [Input("IncludeFilters")]
-        private InputList<Inputs.MetricStreamMetricStreamFilterArgs>? _IncludeFilters;
+        [Input("includeFilters")]
+        private InputList<Inputs.MetricStreamMetricStreamFilterArgs>? _includeFilters;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
         /// </summary>
         public InputList<Inputs.MetricStreamMetricStreamFilterArgs> IncludeFilters
         {
-            get => _IncludeFilters ?? (_IncludeFilters = new InputList<Inputs.MetricStreamMetricStreamFilterArgs>());
-            set => _IncludeFilters = value;
+            get => _includeFilters ?? (_includeFilters = new InputList<Inputs.MetricStreamMetricStreamFilterArgs>());
+            set => _includeFilters = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
         /// </summary>
-        [Input("Name")]
+        [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public MetricStreamArgs()

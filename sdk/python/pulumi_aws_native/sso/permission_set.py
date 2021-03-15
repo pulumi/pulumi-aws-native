@@ -97,7 +97,7 @@ class PermissionSet(pulumi.CustomResource):
         return PermissionSet(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
@@ -105,7 +105,7 @@ class PermissionSet(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="InlinePolicy")
+    @pulumi.getter(name="inlinePolicy")
     def inline_policy(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
@@ -113,7 +113,7 @@ class PermissionSet(pulumi.CustomResource):
         return pulumi.get(self, "inline_policy")
 
     @property
-    @pulumi.getter(name="InstanceArn")
+    @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
@@ -121,7 +121,7 @@ class PermissionSet(pulumi.CustomResource):
         return pulumi.get(self, "instance_arn")
 
     @property
-    @pulumi.getter(name="ManagedPolicies")
+    @pulumi.getter(name="managedPolicies")
     def managed_policies(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies
@@ -129,7 +129,7 @@ class PermissionSet(pulumi.CustomResource):
         return pulumi.get(self, "managed_policies")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
@@ -137,12 +137,12 @@ class PermissionSet(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="PermissionSetArn")
+    @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "permission_set_arn")
 
     @property
-    @pulumi.getter(name="RelayStateType")
+    @pulumi.getter(name="relayStateType")
     def relay_state_type(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype
@@ -150,7 +150,7 @@ class PermissionSet(pulumi.CustomResource):
         return pulumi.get(self, "relay_state_type")
 
     @property
-    @pulumi.getter(name="SessionDuration")
+    @pulumi.getter(name="sessionDuration")
     def session_duration(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration
@@ -158,7 +158,7 @@ class PermissionSet(pulumi.CustomResource):
         return pulumi.get(self, "session_duration")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-tags

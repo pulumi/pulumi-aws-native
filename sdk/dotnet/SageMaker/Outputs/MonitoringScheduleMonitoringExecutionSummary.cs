@@ -48,30 +48,30 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private MonitoringScheduleMonitoringExecutionSummary(
-            string CreationTime,
+            string creationTime,
 
-            string? EndpointName,
+            string? endpointName,
 
-            string? FailureReason,
+            string? failureReason,
 
-            string LastModifiedTime,
+            string lastModifiedTime,
 
-            string MonitoringExecutionStatus,
+            string monitoringExecutionStatus,
 
-            string MonitoringScheduleName,
+            string monitoringScheduleName,
 
-            string? ProcessingJobArn,
+            string? processingJobArn,
 
-            string ScheduledTime)
+            string scheduledTime)
         {
-            this.CreationTime = CreationTime;
-            this.EndpointName = EndpointName;
-            this.FailureReason = FailureReason;
-            this.LastModifiedTime = LastModifiedTime;
-            this.MonitoringExecutionStatus = MonitoringExecutionStatus;
-            this.MonitoringScheduleName = MonitoringScheduleName;
-            this.ProcessingJobArn = ProcessingJobArn;
-            this.ScheduledTime = ScheduledTime;
+            CreationTime = creationTime;
+            EndpointName = endpointName;
+            FailureReason = failureReason;
+            LastModifiedTime = lastModifiedTime;
+            MonitoringExecutionStatus = monitoringExecutionStatus;
+            MonitoringScheduleName = monitoringScheduleName;
+            ProcessingJobArn = processingJobArn;
+            ScheduledTime = scheduledTime;
         }
     }
 }

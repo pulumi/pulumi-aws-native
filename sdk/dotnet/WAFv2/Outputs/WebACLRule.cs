@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLRule(
-            Outputs.WebACLRuleAction? Action,
+            Outputs.WebACLRuleAction? action,
 
-            string Name,
+            string name,
 
-            Outputs.WebACLOverrideAction? OverrideAction,
+            Outputs.WebACLOverrideAction? overrideAction,
 
-            int Priority,
+            int priority,
 
-            Outputs.WebACLStatementOne Statement,
+            Outputs.WebACLStatementOne statement,
 
-            Outputs.WebACLVisibilityConfig VisibilityConfig)
+            Outputs.WebACLVisibilityConfig visibilityConfig)
         {
-            this.Action = Action;
-            this.Name = Name;
-            this.OverrideAction = OverrideAction;
-            this.Priority = Priority;
-            this.Statement = Statement;
-            this.VisibilityConfig = VisibilityConfig;
+            Action = action;
+            Name = name;
+            OverrideAction = overrideAction;
+            Priority = priority;
+            Statement = statement;
+            VisibilityConfig = visibilityConfig;
         }
     }
 }

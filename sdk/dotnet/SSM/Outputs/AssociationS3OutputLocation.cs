@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.SSM.Outputs
 
         [OutputConstructor]
         private AssociationS3OutputLocation(
-            string? OutputS3BucketName,
+            string? outputS3BucketName,
 
-            string? OutputS3KeyPrefix,
+            string? outputS3KeyPrefix,
 
-            string? OutputS3Region)
+            string? outputS3Region)
         {
-            this.OutputS3BucketName = OutputS3BucketName;
-            this.OutputS3KeyPrefix = OutputS3KeyPrefix;
-            this.OutputS3Region = OutputS3Region;
+            OutputS3BucketName = outputS3BucketName;
+            OutputS3KeyPrefix = outputS3KeyPrefix;
+            OutputS3Region = outputS3Region;
         }
     }
 }

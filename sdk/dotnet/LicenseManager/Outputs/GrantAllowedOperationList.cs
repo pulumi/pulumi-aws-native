@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
         public readonly ImmutableArray<string> AllowedOperationList;
 
         [OutputConstructor]
-        private GrantAllowedOperationList(ImmutableArray<string> AllowedOperationList)
+        private GrantAllowedOperationList(ImmutableArray<string> allowedOperationList)
         {
-            this.AllowedOperationList = AllowedOperationList;
+            AllowedOperationList = allowedOperationList;
         }
     }
 }

@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// </summary>
     public sealed class CodeSigningConfigAllowedPublishersArgs : Pulumi.ResourceArgs
     {
-        [Input("SigningProfileVersionArns", required: true)]
-        private InputList<string>? _SigningProfileVersionArns;
+        [Input("signingProfileVersionArns", required: true)]
+        private InputList<string>? _signingProfileVersionArns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html#cfn-lambda-codesigningconfig-allowedpublishers-signingprofileversionarns
         /// </summary>
         public InputList<string> SigningProfileVersionArns
         {
-            get => _SigningProfileVersionArns ?? (_SigningProfileVersionArns = new InputList<string>());
-            set => _SigningProfileVersionArns = value;
+            get => _signingProfileVersionArns ?? (_signingProfileVersionArns = new InputList<string>());
+            set => _signingProfileVersionArns = value;
         }
 
         public CodeSigningConfigAllowedPublishersArgs()

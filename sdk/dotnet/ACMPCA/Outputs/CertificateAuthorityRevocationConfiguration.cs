@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
         public readonly Outputs.CertificateAuthorityCrlConfiguration? CrlConfiguration;
 
         [OutputConstructor]
-        private CertificateAuthorityRevocationConfiguration(Outputs.CertificateAuthorityCrlConfiguration? CrlConfiguration)
+        private CertificateAuthorityRevocationConfiguration(Outputs.CertificateAuthorityCrlConfiguration? crlConfiguration)
         {
-            this.CrlConfiguration = CrlConfiguration;
+            CrlConfiguration = crlConfiguration;
         }
     }
 }

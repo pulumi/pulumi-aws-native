@@ -34,7 +34,7 @@ class GroupQueryArgs:
             pulumi.set(__self__, "tag_filters", tag_filters)
 
     @property
-    @pulumi.getter(name="ResourceTypeFilters")
+    @pulumi.getter(name="resourceTypeFilters")
     def resource_type_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
@@ -46,7 +46,7 @@ class GroupQueryArgs:
         pulumi.set(self, "resource_type_filters", value)
 
     @property
-    @pulumi.getter(name="StackIdentifier")
+    @pulumi.getter(name="stackIdentifier")
     def stack_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
@@ -58,7 +58,7 @@ class GroupQueryArgs:
         pulumi.set(self, "stack_identifier", value)
 
     @property
-    @pulumi.getter(name="TagFilters")
+    @pulumi.getter(name="tagFilters")
     def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagFilterArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
@@ -86,7 +86,7 @@ class GroupResourceQueryArgs:
             pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="Query")
+    @pulumi.getter
     def query(self) -> Optional[pulumi.Input['GroupQueryArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
@@ -98,7 +98,7 @@ class GroupResourceQueryArgs:
         pulumi.set(self, "query", value)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
@@ -126,7 +126,7 @@ class GroupTagFilterArgs:
             pulumi.set(__self__, "values", values)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-key
@@ -138,7 +138,7 @@ class GroupTagFilterArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Values")
+    @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-values

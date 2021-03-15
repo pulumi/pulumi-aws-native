@@ -18,103 +18,103 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm
         /// </summary>
-        [Input("CloudwatchAlarm")]
+        [Input("cloudwatchAlarm")]
         public Input<Inputs.TopicRuleCloudwatchAlarmActionArgs>? CloudwatchAlarm { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchmetric
         /// </summary>
-        [Input("CloudwatchMetric")]
+        [Input("cloudwatchMetric")]
         public Input<Inputs.TopicRuleCloudwatchMetricActionArgs>? CloudwatchMetric { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodb
         /// </summary>
-        [Input("DynamoDB")]
+        [Input("dynamoDB")]
         public Input<Inputs.TopicRuleDynamoDBActionArgs>? DynamoDB { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodbv2
         /// </summary>
-        [Input("DynamoDBv2")]
+        [Input("dynamoDBv2")]
         public Input<Inputs.TopicRuleDynamoDBv2ActionArgs>? DynamoDBv2 { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-elasticsearch
         /// </summary>
-        [Input("Elasticsearch")]
+        [Input("elasticsearch")]
         public Input<Inputs.TopicRuleElasticsearchActionArgs>? Elasticsearch { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose
         /// </summary>
-        [Input("Firehose")]
+        [Input("firehose")]
         public Input<Inputs.TopicRuleFirehoseActionArgs>? Firehose { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http
         /// </summary>
-        [Input("Http")]
+        [Input("http")]
         public Input<Inputs.TopicRuleHttpActionArgs>? Http { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
         /// </summary>
-        [Input("IotAnalytics")]
+        [Input("iotAnalytics")]
         public Input<Inputs.TopicRuleIotAnalyticsActionArgs>? IotAnalytics { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents
         /// </summary>
-        [Input("IotEvents")]
+        [Input("iotEvents")]
         public Input<Inputs.TopicRuleIotEventsActionArgs>? IotEvents { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise
         /// </summary>
-        [Input("IotSiteWise")]
+        [Input("iotSiteWise")]
         public Input<Inputs.TopicRuleIotSiteWiseActionArgs>? IotSiteWise { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
         /// </summary>
-        [Input("Kinesis")]
+        [Input("kinesis")]
         public Input<Inputs.TopicRuleKinesisActionArgs>? Kinesis { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-lambda
         /// </summary>
-        [Input("Lambda")]
+        [Input("lambda")]
         public Input<Inputs.TopicRuleLambdaActionArgs>? Lambda { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-republish
         /// </summary>
-        [Input("Republish")]
+        [Input("republish")]
         public Input<Inputs.TopicRuleRepublishActionArgs>? Republish { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-s3
         /// </summary>
-        [Input("S3")]
+        [Input("s3")]
         public Input<Inputs.TopicRuleS3ActionArgs>? S3 { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sns
         /// </summary>
-        [Input("Sns")]
+        [Input("sns")]
         public Input<Inputs.TopicRuleSnsActionArgs>? Sns { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs
         /// </summary>
-        [Input("Sqs")]
+        [Input("sqs")]
         public Input<Inputs.TopicRuleSqsActionArgs>? Sqs { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
         /// </summary>
-        [Input("StepFunctions")]
+        [Input("stepFunctions")]
         public Input<Inputs.TopicRuleStepFunctionsActionArgs>? StepFunctions { get; set; }
 
         public TopicRuleActionArgs()

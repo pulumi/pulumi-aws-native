@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs
         /// </summary>
-        [Input("LogDestinationConfigs", required: true)]
+        [Input("logDestinationConfigs", required: true)]
         public Input<Inputs.LoggingConfigurationLogDestinationConfigsArgs> LogDestinationConfigs { get; set; } = null!;
 
         public LoggingConfigurationLoggingConfigurationArgs()

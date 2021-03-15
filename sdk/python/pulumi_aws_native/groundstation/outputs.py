@@ -44,7 +44,7 @@ class DataflowEndpointGroupDataflowEndpoint(dict):
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="Address")
+    @pulumi.getter
     def address(self) -> Optional['outputs.DataflowEndpointGroupSocketAddress']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-address
@@ -52,7 +52,7 @@ class DataflowEndpointGroupDataflowEndpoint(dict):
         return pulumi.get(self, "address")
 
     @property
-    @pulumi.getter(name="Mtu")
+    @pulumi.getter
     def mtu(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-mtu
@@ -60,7 +60,7 @@ class DataflowEndpointGroupDataflowEndpoint(dict):
         return pulumi.get(self, "mtu")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
@@ -68,7 +68,7 @@ class DataflowEndpointGroupDataflowEndpoint(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
@@ -98,7 +98,7 @@ class DataflowEndpointGroupEndpointDetails(dict):
             pulumi.set(__self__, "security_details", security_details)
 
     @property
-    @pulumi.getter(name="Endpoint")
+    @pulumi.getter
     def endpoint(self) -> Optional['outputs.DataflowEndpointGroupDataflowEndpoint']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-endpoint
@@ -106,7 +106,7 @@ class DataflowEndpointGroupEndpointDetails(dict):
         return pulumi.get(self, "endpoint")
 
     @property
-    @pulumi.getter(name="SecurityDetails")
+    @pulumi.getter(name="securityDetails")
     def security_details(self) -> Optional['outputs.DataflowEndpointGroupSecurityDetails']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-securitydetails
@@ -140,7 +140,7 @@ class DataflowEndpointGroupSecurityDetails(dict):
             pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html#cfn-groundstation-dataflowendpointgroup-securitydetails-rolearn
@@ -148,7 +148,7 @@ class DataflowEndpointGroupSecurityDetails(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="SecurityGroupIds")
+    @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html#cfn-groundstation-dataflowendpointgroup-securitydetails-securitygroupids
@@ -156,7 +156,7 @@ class DataflowEndpointGroupSecurityDetails(dict):
         return pulumi.get(self, "security_group_ids")
 
     @property
-    @pulumi.getter(name="SubnetIds")
+    @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html#cfn-groundstation-dataflowendpointgroup-securitydetails-subnetids
@@ -186,7 +186,7 @@ class DataflowEndpointGroupSocketAddress(dict):
             pulumi.set(__self__, "port", port)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html#cfn-groundstation-dataflowendpointgroup-socketaddress-name
@@ -194,7 +194,7 @@ class DataflowEndpointGroupSocketAddress(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Port")
+    @pulumi.getter
     def port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html#cfn-groundstation-dataflowendpointgroup-socketaddress-port
@@ -224,7 +224,7 @@ class MissionProfileDataflowEdge(dict):
             pulumi.set(__self__, "source", source)
 
     @property
-    @pulumi.getter(name="Destination")
+    @pulumi.getter
     def destination(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-destination
@@ -232,7 +232,7 @@ class MissionProfileDataflowEdge(dict):
         return pulumi.get(self, "destination")
 
     @property
-    @pulumi.getter(name="Source")
+    @pulumi.getter
     def source(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-source

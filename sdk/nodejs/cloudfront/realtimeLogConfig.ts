@@ -35,23 +35,23 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === RealtimeLogConfig.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
      */
-    public readonly EndPoints!: pulumi.Output<outputs.CloudFront.RealtimeLogConfigEndPoint[]>;
+    public readonly endPoints!: pulumi.Output<outputs.CloudFront.RealtimeLogConfigEndPoint[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
      */
-    public readonly Fields!: pulumi.Output<string[]>;
+    public readonly fields!: pulumi.Output<string[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
      */
-    public readonly SamplingRate!: pulumi.Output<number>;
+    public readonly samplingRate!: pulumi.Output<number>;
 
     /**
      * Create a RealtimeLogConfig resource with the given unique name, arguments, and options.
@@ -63,29 +63,29 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
     constructor(name: string, args: RealtimeLogConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.EndPoints === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'EndPoints'");
+            if ((!args || args.endPoints === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'endPoints'");
             }
-            if ((!args || args.Fields === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Fields'");
+            if ((!args || args.fields === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'fields'");
             }
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.SamplingRate === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SamplingRate'");
+            if ((!args || args.samplingRate === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'samplingRate'");
             }
-            inputs["EndPoints"] = args ? args.EndPoints : undefined;
-            inputs["Fields"] = args ? args.Fields : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["SamplingRate"] = args ? args.SamplingRate : undefined;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["endPoints"] = args ? args.endPoints : undefined;
+            inputs["fields"] = args ? args.fields : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["samplingRate"] = args ? args.samplingRate : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["EndPoints"] = undefined /*out*/;
-            inputs["Fields"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["SamplingRate"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["endPoints"] = undefined /*out*/;
+            inputs["fields"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["samplingRate"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,17 +105,17 @@ export interface RealtimeLogConfigArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
      */
-    readonly EndPoints: pulumi.Input<pulumi.Input<inputs.CloudFront.RealtimeLogConfigEndPoint>[]>;
+    readonly endPoints: pulumi.Input<pulumi.Input<inputs.CloudFront.RealtimeLogConfigEndPoint>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
      */
-    readonly Fields: pulumi.Input<pulumi.Input<string>[]>;
+    readonly fields: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
      */
-    readonly SamplingRate: pulumi.Input<number>;
+    readonly samplingRate: pulumi.Input<number>;
 }

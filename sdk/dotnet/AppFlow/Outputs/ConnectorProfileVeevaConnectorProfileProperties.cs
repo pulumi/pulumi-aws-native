@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string InstanceUrl;
 
         [OutputConstructor]
-        private ConnectorProfileVeevaConnectorProfileProperties(string InstanceUrl)
+        private ConnectorProfileVeevaConnectorProfileProperties(string instanceUrl)
         {
-            this.InstanceUrl = InstanceUrl;
+            InstanceUrl = instanceUrl;
         }
     }
 }

@@ -15,34 +15,34 @@ namespace Pulumi.AwsNative.Backup.Inputs
     /// </summary>
     public sealed class BackupPlanBackupPlanResourceTypeArgs : Pulumi.ResourceArgs
     {
-        [Input("AdvancedBackupSettings")]
-        private InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs>? _AdvancedBackupSettings;
+        [Input("advancedBackupSettings")]
+        private InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs>? _advancedBackupSettings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
         /// </summary>
         public InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs> AdvancedBackupSettings
         {
-            get => _AdvancedBackupSettings ?? (_AdvancedBackupSettings = new InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs>());
-            set => _AdvancedBackupSettings = value;
+            get => _advancedBackupSettings ?? (_advancedBackupSettings = new InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs>());
+            set => _advancedBackupSettings = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
         /// </summary>
-        [Input("BackupPlanName", required: true)]
+        [Input("backupPlanName", required: true)]
         public Input<string> BackupPlanName { get; set; } = null!;
 
-        [Input("BackupPlanRule", required: true)]
-        private InputList<Inputs.BackupPlanBackupRuleResourceTypeArgs>? _BackupPlanRule;
+        [Input("backupPlanRule", required: true)]
+        private InputList<Inputs.BackupPlanBackupRuleResourceTypeArgs>? _backupPlanRule;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
         /// </summary>
         public InputList<Inputs.BackupPlanBackupRuleResourceTypeArgs> BackupPlanRule
         {
-            get => _BackupPlanRule ?? (_BackupPlanRule = new InputList<Inputs.BackupPlanBackupRuleResourceTypeArgs>());
-            set => _BackupPlanRule = value;
+            get => _backupPlanRule ?? (_backupPlanRule = new InputList<Inputs.BackupPlanBackupRuleResourceTypeArgs>());
+            set => _backupPlanRule = value;
         }
 
         public BackupPlanBackupPlanResourceTypeArgs()

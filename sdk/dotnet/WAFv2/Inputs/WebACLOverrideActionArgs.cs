@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count
         /// </summary>
-        [Input("Count")]
+        [Input("count")]
         public InputUnion<System.Text.Json.JsonElement, string>? Count { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
         /// </summary>
-        [Input("None")]
+        [Input("none")]
         public InputUnion<System.Text.Json.JsonElement, string>? None { get; set; }
 
         public WebACLOverrideActionArgs()

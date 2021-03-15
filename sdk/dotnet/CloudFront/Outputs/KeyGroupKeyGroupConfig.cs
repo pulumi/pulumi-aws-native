@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
         [OutputConstructor]
         private KeyGroupKeyGroupConfig(
-            string? Comment,
+            string? comment,
 
-            ImmutableArray<string> Items,
+            ImmutableArray<string> items,
 
-            string Name)
+            string name)
         {
-            this.Comment = Comment;
-            this.Items = Items;
-            this.Name = Name;
+            Comment = comment;
+            Items = items;
+            Name = name;
         }
     }
 }

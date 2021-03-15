@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         public readonly string? Destination;
 
         [OutputConstructor]
-        private EventSourceMappingOnFailure(string? Destination)
+        private EventSourceMappingOnFailure(string? destination)
         {
-            this.Destination = Destination;
+            Destination = destination;
         }
     }
 }

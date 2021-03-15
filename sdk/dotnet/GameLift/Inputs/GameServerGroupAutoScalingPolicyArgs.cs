@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
         /// </summary>
-        [Input("EstimatedInstanceWarmup")]
+        [Input("estimatedInstanceWarmup")]
         public Input<double>? EstimatedInstanceWarmup { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
         /// </summary>
-        [Input("TargetTrackingConfiguration", required: true)]
+        [Input("targetTrackingConfiguration", required: true)]
         public Input<Inputs.GameServerGroupTargetTrackingConfigurationArgs> TargetTrackingConfiguration { get; set; } = null!;
 
         public GameServerGroupAutoScalingPolicyArgs()

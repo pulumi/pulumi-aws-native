@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.QLDB.Outputs
 
         [OutputConstructor]
         private StreamKinesisConfiguration(
-            bool? AggregationEnabled,
+            bool? aggregationEnabled,
 
-            string? StreamArn)
+            string? streamArn)
         {
-            this.AggregationEnabled = AggregationEnabled;
-            this.StreamArn = StreamArn;
+            AggregationEnabled = aggregationEnabled;
+            StreamArn = streamArn;
         }
     }
 }

@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
         /// </summary>
-        [Input("ChangeDetectingColumns", required: true)]
+        [Input("changeDetectingColumns", required: true)]
         public Input<Inputs.DataSourceChangeDetectingColumnsArgs> ChangeDetectingColumns { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentdatacolumnname
         /// </summary>
-        [Input("DocumentDataColumnName", required: true)]
+        [Input("documentDataColumnName", required: true)]
         public Input<string> DocumentDataColumnName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentidcolumnname
         /// </summary>
-        [Input("DocumentIdColumnName", required: true)]
+        [Input("documentIdColumnName", required: true)]
         public Input<string> DocumentIdColumnName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documenttitlecolumnname
         /// </summary>
-        [Input("DocumentTitleColumnName")]
+        [Input("documentTitleColumnName")]
         public Input<string>? DocumentTitleColumnName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
         /// </summary>
-        [Input("FieldMappings")]
+        [Input("fieldMappings")]
         public Input<Inputs.DataSourceDataSourceToIndexFieldMappingListArgs>? FieldMappings { get; set; }
 
         public DataSourceColumnConfigurationArgs()

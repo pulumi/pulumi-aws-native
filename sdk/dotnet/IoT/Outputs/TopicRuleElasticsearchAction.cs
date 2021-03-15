@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleElasticsearchAction(
-            string Endpoint,
+            string endpoint,
 
-            string Id,
+            string id,
 
-            string Index,
+            string index,
 
-            string RoleArn,
+            string roleArn,
 
-            string Type)
+            string type)
         {
-            this.Endpoint = Endpoint;
-            this.Id = Id;
-            this.Index = Index;
-            this.RoleArn = RoleArn;
-            this.Type = Type;
+            Endpoint = endpoint;
+            Id = id;
+            Index = index;
+            RoleArn = roleArn;
+            Type = type;
         }
     }
 }

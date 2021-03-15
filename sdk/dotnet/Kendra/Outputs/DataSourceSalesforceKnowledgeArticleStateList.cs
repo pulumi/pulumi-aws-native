@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<string> SalesforceKnowledgeArticleStateList;
 
         [OutputConstructor]
-        private DataSourceSalesforceKnowledgeArticleStateList(ImmutableArray<string> SalesforceKnowledgeArticleStateList)
+        private DataSourceSalesforceKnowledgeArticleStateList(ImmutableArray<string> salesforceKnowledgeArticleStateList)
         {
-            this.SalesforceKnowledgeArticleStateList = SalesforceKnowledgeArticleStateList;
+            SalesforceKnowledgeArticleStateList = salesforceKnowledgeArticleStateList;
         }
     }
 }

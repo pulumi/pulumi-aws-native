@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionLogConfiguration(
-            string LogDriver,
+            string logDriver,
 
-            ImmutableDictionary<string, string>? Options,
+            ImmutableDictionary<string, string>? options,
 
-            ImmutableArray<Outputs.TaskDefinitionSecret> SecretOptions)
+            ImmutableArray<Outputs.TaskDefinitionSecret> secretOptions)
         {
-            this.LogDriver = LogDriver;
-            this.Options = Options;
-            this.SecretOptions = SecretOptions;
+            LogDriver = logDriver;
+            Options = options;
+            SecretOptions = secretOptions;
         }
     }
 }

@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleAssetPropertyValue(
-            string? Quality,
+            string? quality,
 
-            Outputs.TopicRuleAssetPropertyTimestamp Timestamp,
+            Outputs.TopicRuleAssetPropertyTimestamp timestamp,
 
-            Outputs.TopicRuleAssetPropertyVariant Value)
+            Outputs.TopicRuleAssetPropertyVariant value)
         {
-            this.Quality = Quality;
-            this.Timestamp = Timestamp;
-            this.Value = Value;
+            Quality = quality;
+            Timestamp = timestamp;
+            Value = value;
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly Outputs.MonitoringScheduleClusterConfig ClusterConfig;
 
         [OutputConstructor]
-        private MonitoringScheduleMonitoringResources(Outputs.MonitoringScheduleClusterConfig ClusterConfig)
+        private MonitoringScheduleMonitoringResources(Outputs.MonitoringScheduleClusterConfig clusterConfig)
         {
-            this.ClusterConfig = ClusterConfig;
+            ClusterConfig = clusterConfig;
         }
     }
 }

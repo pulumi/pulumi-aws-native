@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceDataSourceVpcConfiguration(
-            ImmutableArray<string> SecurityGroupIds,
+            ImmutableArray<string> securityGroupIds,
 
-            ImmutableArray<string> SubnetIds)
+            ImmutableArray<string> subnetIds)
         {
-            this.SecurityGroupIds = SecurityGroupIds;
-            this.SubnetIds = SubnetIds;
+            SecurityGroupIds = securityGroupIds;
+            SubnetIds = subnetIds;
         }
     }
 }

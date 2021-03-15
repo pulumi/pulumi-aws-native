@@ -15,28 +15,28 @@ namespace Pulumi.AwsNative.IoTSiteWise
     [AwsNativeResourceType("aws-native:IoTSiteWise:AccessPolicy")]
     public partial class AccessPolicy : Pulumi.CustomResource
     {
-        [Output("AccessPolicyArn")]
+        [Output("accessPolicyArn")]
         public Output<string> AccessPolicyArn { get; private set; } = null!;
 
-        [Output("AccessPolicyId")]
+        [Output("accessPolicyId")]
         public Output<string> AccessPolicyId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
         /// </summary>
-        [Output("AccessPolicyIdentity")]
+        [Output("accessPolicyIdentity")]
         public Output<Outputs.AccessPolicyAccessPolicyIdentity> AccessPolicyIdentity { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
         /// </summary>
-        [Output("AccessPolicyPermission")]
+        [Output("accessPolicyPermission")]
         public Output<string> AccessPolicyPermission { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
         /// </summary>
-        [Output("AccessPolicyResource")]
+        [Output("accessPolicyResource")]
         public Output<Outputs.AccessPolicyAccessPolicyResource> AccessPolicyResource { get; private set; } = null!;
 
 
@@ -87,19 +87,19 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
         /// </summary>
-        [Input("AccessPolicyIdentity", required: true)]
+        [Input("accessPolicyIdentity", required: true)]
         public Input<Inputs.AccessPolicyAccessPolicyIdentityArgs> AccessPolicyIdentity { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
         /// </summary>
-        [Input("AccessPolicyPermission", required: true)]
+        [Input("accessPolicyPermission", required: true)]
         public Input<string> AccessPolicyPermission { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
         /// </summary>
-        [Input("AccessPolicyResource", required: true)]
+        [Input("accessPolicyResource", required: true)]
         public Input<Inputs.AccessPolicyAccessPolicyResourceArgs> AccessPolicyResource { get; set; } = null!;
 
         public AccessPolicyArgs()

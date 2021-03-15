@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private RuleGroupRulesSource(
-            Outputs.RuleGroupRulesSourceList? RulesSourceList,
+            Outputs.RuleGroupRulesSourceList? rulesSourceList,
 
-            string? RulesString,
+            string? rulesString,
 
-            Outputs.RuleGroupStatefulRules? StatefulRules,
+            Outputs.RuleGroupStatefulRules? statefulRules,
 
-            Outputs.RuleGroupStatelessRulesAndCustomActions? StatelessRulesAndCustomActions)
+            Outputs.RuleGroupStatelessRulesAndCustomActions? statelessRulesAndCustomActions)
         {
-            this.RulesSourceList = RulesSourceList;
-            this.RulesString = RulesString;
-            this.StatefulRules = StatefulRules;
-            this.StatelessRulesAndCustomActions = StatelessRulesAndCustomActions;
+            RulesSourceList = rulesSourceList;
+            RulesString = rulesString;
+            StatefulRules = statefulRules;
+            StatelessRulesAndCustomActions = statelessRulesAndCustomActions;
         }
     }
 }

@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
     /// </summary>
     public sealed class LicenseStringListArgs : Pulumi.ResourceArgs
     {
-        [Input("StringList")]
-        private InputList<string>? _StringList;
+        [Input("stringList")]
+        private InputList<string>? _stringList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-stringlist.html#cfn-licensemanager-license-stringlist-stringlist
         /// </summary>
         public InputList<string> StringList
         {
-            get => _StringList ?? (_StringList = new InputList<string>());
-            set => _StringList = value;
+            get => _stringList ?? (_stringList = new InputList<string>());
+            set => _stringList = value;
         }
 
         public LicenseStringListArgs()

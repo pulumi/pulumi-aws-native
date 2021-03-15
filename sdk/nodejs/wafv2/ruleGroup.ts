@@ -35,36 +35,36 @@ export class RuleGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleGroup.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
      */
-    public readonly Capacity!: pulumi.Output<number>;
+    public readonly capacity!: pulumi.Output<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
      */
-    public readonly Rules!: pulumi.Output<outputs.WAFv2.RuleGroupRule[] | undefined>;
+    public readonly rules!: pulumi.Output<outputs.WAFv2.RuleGroupRule[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
      */
-    public readonly Scope!: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
      */
-    public readonly VisibilityConfig!: pulumi.Output<outputs.WAFv2.RuleGroupVisibilityConfig>;
+    public readonly visibilityConfig!: pulumi.Output<outputs.WAFv2.RuleGroupVisibilityConfig>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -76,34 +76,34 @@ export class RuleGroup extends pulumi.CustomResource {
     constructor(name: string, args: RuleGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Capacity === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Capacity'");
+            if ((!args || args.capacity === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.Scope === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Scope'");
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.VisibilityConfig === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'VisibilityConfig'");
+            if ((!args || args.visibilityConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'visibilityConfig'");
             }
-            inputs["Capacity"] = args ? args.Capacity : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Rules"] = args ? args.Rules : undefined;
-            inputs["Scope"] = args ? args.Scope : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["VisibilityConfig"] = args ? args.VisibilityConfig : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
+            inputs["capacity"] = args ? args.capacity : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["rules"] = args ? args.rules : undefined;
+            inputs["scope"] = args ? args.scope : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Capacity"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Rules"] = undefined /*out*/;
-            inputs["Scope"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["VisibilityConfig"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["capacity"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["rules"] = undefined /*out*/;
+            inputs["scope"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["visibilityConfig"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -123,29 +123,29 @@ export interface RuleGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
      */
-    readonly Capacity: pulumi.Input<number>;
+    readonly capacity: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
      */
-    readonly Name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
      */
-    readonly Rules?: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupRule>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupRule>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
      */
-    readonly Scope: pulumi.Input<string>;
+    readonly scope: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
      */
-    readonly VisibilityConfig: pulumi.Input<inputs.WAFv2.RuleGroupVisibilityConfig>;
+    readonly visibilityConfig: pulumi.Input<inputs.WAFv2.RuleGroupVisibilityConfig>;
 }

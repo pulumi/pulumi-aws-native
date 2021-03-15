@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private MonitoringScheduleMonitoringOutputConfig(
-            string? KmsKeyId,
+            string? kmsKeyId,
 
-            ImmutableArray<Outputs.MonitoringScheduleMonitoringOutput> MonitoringOutputs)
+            ImmutableArray<Outputs.MonitoringScheduleMonitoringOutput> monitoringOutputs)
         {
-            this.KmsKeyId = KmsKeyId;
-            this.MonitoringOutputs = MonitoringOutputs;
+            KmsKeyId = kmsKeyId;
+            MonitoringOutputs = monitoringOutputs;
         }
     }
 }

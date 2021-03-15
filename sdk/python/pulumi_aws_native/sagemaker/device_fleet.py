@@ -87,7 +87,7 @@ class DeviceFleet(pulumi.CustomResource):
         return DeviceFleet(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
@@ -95,12 +95,12 @@ class DeviceFleet(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="DeviceFleetName")
+    @pulumi.getter(name="deviceFleetName")
     def device_fleet_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "device_fleet_name")
 
     @property
-    @pulumi.getter(name="OutputConfig")
+    @pulumi.getter(name="outputConfig")
     def output_config(self) -> pulumi.Output['outputs.DeviceFleetEdgeOutputConfig']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
@@ -108,7 +108,7 @@ class DeviceFleet(pulumi.CustomResource):
         return pulumi.get(self, "output_config")
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
@@ -116,7 +116,7 @@ class DeviceFleet(pulumi.CustomResource):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional['_root_outputs.Tag']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags

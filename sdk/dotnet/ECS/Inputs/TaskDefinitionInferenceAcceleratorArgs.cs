@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicename
         /// </summary>
-        [Input("DeviceName")]
+        [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicetype
         /// </summary>
-        [Input("DeviceType")]
+        [Input("deviceType")]
         public Input<string>? DeviceType { get; set; }
 
         public TaskDefinitionInferenceAcceleratorArgs()

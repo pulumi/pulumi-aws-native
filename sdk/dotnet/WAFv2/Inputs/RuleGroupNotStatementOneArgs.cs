@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html#cfn-wafv2-rulegroup-notstatementone-statement
         /// </summary>
-        [Input("Statement", required: true)]
+        [Input("statement", required: true)]
         public Input<Inputs.RuleGroupStatementTwoArgs> Statement { get; set; } = null!;
 
         public RuleGroupNotStatementOneArgs()

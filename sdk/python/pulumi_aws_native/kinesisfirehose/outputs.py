@@ -66,7 +66,7 @@ class DeliveryStreamBufferingHints(dict):
             pulumi.set(__self__, "size_in_mbs", size_in_mbs)
 
     @property
-    @pulumi.getter(name="IntervalInSeconds")
+    @pulumi.getter(name="intervalInSeconds")
     def interval_in_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html#cfn-kinesisfirehose-deliverystream-bufferinghints-intervalinseconds
@@ -74,7 +74,7 @@ class DeliveryStreamBufferingHints(dict):
         return pulumi.get(self, "interval_in_seconds")
 
     @property
-    @pulumi.getter(name="SizeInMBs")
+    @pulumi.getter(name="sizeInMBs")
     def size_in_mbs(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html#cfn-kinesisfirehose-deliverystream-bufferinghints-sizeinmbs
@@ -108,7 +108,7 @@ class DeliveryStreamCloudWatchLoggingOptions(dict):
             pulumi.set(__self__, "log_stream_name", log_stream_name)
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html#cfn-kinesisfirehose-deliverystream-cloudwatchloggingoptions-enabled
@@ -116,7 +116,7 @@ class DeliveryStreamCloudWatchLoggingOptions(dict):
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="LogGroupName")
+    @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html#cfn-kinesisfirehose-deliverystream-cloudwatchloggingoptions-loggroupname
@@ -124,7 +124,7 @@ class DeliveryStreamCloudWatchLoggingOptions(dict):
         return pulumi.get(self, "log_group_name")
 
     @property
-    @pulumi.getter(name="LogStreamName")
+    @pulumi.getter(name="logStreamName")
     def log_stream_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html#cfn-kinesisfirehose-deliverystream-cloudwatchloggingoptions-logstreamname
@@ -157,7 +157,7 @@ class DeliveryStreamCopyCommand(dict):
             pulumi.set(__self__, "data_table_columns", data_table_columns)
 
     @property
-    @pulumi.getter(name="DataTableName")
+    @pulumi.getter(name="dataTableName")
     def data_table_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-datatablename
@@ -165,7 +165,7 @@ class DeliveryStreamCopyCommand(dict):
         return pulumi.get(self, "data_table_name")
 
     @property
-    @pulumi.getter(name="CopyOptions")
+    @pulumi.getter(name="copyOptions")
     def copy_options(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-copyoptions
@@ -173,7 +173,7 @@ class DeliveryStreamCopyCommand(dict):
         return pulumi.get(self, "copy_options")
 
     @property
-    @pulumi.getter(name="DataTableColumns")
+    @pulumi.getter(name="dataTableColumns")
     def data_table_columns(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-datatablecolumns
@@ -211,7 +211,7 @@ class DeliveryStreamDataFormatConversionConfiguration(dict):
             pulumi.set(__self__, "schema_configuration", schema_configuration)
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-enabled
@@ -219,7 +219,7 @@ class DeliveryStreamDataFormatConversionConfiguration(dict):
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="InputFormatConfiguration")
+    @pulumi.getter(name="inputFormatConfiguration")
     def input_format_configuration(self) -> Optional['outputs.DeliveryStreamInputFormatConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-inputformatconfiguration
@@ -227,7 +227,7 @@ class DeliveryStreamDataFormatConversionConfiguration(dict):
         return pulumi.get(self, "input_format_configuration")
 
     @property
-    @pulumi.getter(name="OutputFormatConfiguration")
+    @pulumi.getter(name="outputFormatConfiguration")
     def output_format_configuration(self) -> Optional['outputs.DeliveryStreamOutputFormatConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-outputformatconfiguration
@@ -235,7 +235,7 @@ class DeliveryStreamDataFormatConversionConfiguration(dict):
         return pulumi.get(self, "output_format_configuration")
 
     @property
-    @pulumi.getter(name="SchemaConfiguration")
+    @pulumi.getter(name="schemaConfiguration")
     def schema_configuration(self) -> Optional['outputs.DeliveryStreamSchemaConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-schemaconfiguration
@@ -264,7 +264,7 @@ class DeliveryStreamDeliveryStreamEncryptionConfigurationInput(dict):
             pulumi.set(__self__, "key_arn", key_arn)
 
     @property
-    @pulumi.getter(name="KeyType")
+    @pulumi.getter(name="keyType")
     def key_type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keytype
@@ -272,7 +272,7 @@ class DeliveryStreamDeliveryStreamEncryptionConfigurationInput(dict):
         return pulumi.get(self, "key_type")
 
     @property
-    @pulumi.getter(name="KeyARN")
+    @pulumi.getter(name="keyARN")
     def key_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keyarn
@@ -290,19 +290,19 @@ class DeliveryStreamDeserializer(dict):
     """
     def __init__(__self__, *,
                  hive_json_ser_de: Optional['outputs.DeliveryStreamHiveJsonSerDe'] = None,
-                 open_xjson_ser_de: Optional['outputs.DeliveryStreamOpenXJsonSerDe'] = None):
+                 open_x_json_ser_de: Optional['outputs.DeliveryStreamOpenXJsonSerDe'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html
         :param 'DeliveryStreamHiveJsonSerDeArgs' hive_json_ser_de: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-hivejsonserde
-        :param 'DeliveryStreamOpenXJsonSerDeArgs' open_xjson_ser_de: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-openxjsonserde
+        :param 'DeliveryStreamOpenXJsonSerDeArgs' open_x_json_ser_de: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-openxjsonserde
         """
         if hive_json_ser_de is not None:
             pulumi.set(__self__, "hive_json_ser_de", hive_json_ser_de)
-        if open_xjson_ser_de is not None:
-            pulumi.set(__self__, "open_xjson_ser_de", open_xjson_ser_de)
+        if open_x_json_ser_de is not None:
+            pulumi.set(__self__, "open_x_json_ser_de", open_x_json_ser_de)
 
     @property
-    @pulumi.getter(name="HiveJsonSerDe")
+    @pulumi.getter(name="hiveJsonSerDe")
     def hive_json_ser_de(self) -> Optional['outputs.DeliveryStreamHiveJsonSerDe']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-hivejsonserde
@@ -310,12 +310,12 @@ class DeliveryStreamDeserializer(dict):
         return pulumi.get(self, "hive_json_ser_de")
 
     @property
-    @pulumi.getter(name="OpenXJsonSerDe")
-    def open_xjson_ser_de(self) -> Optional['outputs.DeliveryStreamOpenXJsonSerDe']:
+    @pulumi.getter(name="openXJsonSerDe")
+    def open_x_json_ser_de(self) -> Optional['outputs.DeliveryStreamOpenXJsonSerDe']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-openxjsonserde
         """
-        return pulumi.get(self, "open_xjson_ser_de")
+        return pulumi.get(self, "open_x_json_ser_de")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -340,7 +340,7 @@ class DeliveryStreamElasticsearchBufferingHints(dict):
             pulumi.set(__self__, "size_in_mbs", size_in_mbs)
 
     @property
-    @pulumi.getter(name="IntervalInSeconds")
+    @pulumi.getter(name="intervalInSeconds")
     def interval_in_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html#cfn-kinesisfirehose-deliverystream-elasticsearchbufferinghints-intervalinseconds
@@ -348,7 +348,7 @@ class DeliveryStreamElasticsearchBufferingHints(dict):
         return pulumi.get(self, "interval_in_seconds")
 
     @property
-    @pulumi.getter(name="SizeInMBs")
+    @pulumi.getter(name="sizeInMBs")
     def size_in_mbs(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html#cfn-kinesisfirehose-deliverystream-elasticsearchbufferinghints-sizeinmbs
@@ -419,7 +419,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
             pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
-    @pulumi.getter(name="IndexName")
+    @pulumi.getter(name="indexName")
     def index_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-indexname
@@ -427,7 +427,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "index_name")
 
     @property
-    @pulumi.getter(name="RoleARN")
+    @pulumi.getter(name="roleARN")
     def role_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-rolearn
@@ -435,7 +435,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="S3Configuration")
+    @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-s3configuration
@@ -443,7 +443,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "s3_configuration")
 
     @property
-    @pulumi.getter(name="BufferingHints")
+    @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamElasticsearchBufferingHints']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-bufferinghints
@@ -451,7 +451,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "buffering_hints")
 
     @property
-    @pulumi.getter(name="CloudWatchLoggingOptions")
+    @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-cloudwatchloggingoptions
@@ -459,7 +459,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "cloud_watch_logging_options")
 
     @property
-    @pulumi.getter(name="ClusterEndpoint")
+    @pulumi.getter(name="clusterEndpoint")
     def cluster_endpoint(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-clusterendpoint
@@ -467,7 +467,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "cluster_endpoint")
 
     @property
-    @pulumi.getter(name="DomainARN")
+    @pulumi.getter(name="domainARN")
     def domain_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-domainarn
@@ -475,7 +475,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "domain_arn")
 
     @property
-    @pulumi.getter(name="IndexRotationPeriod")
+    @pulumi.getter(name="indexRotationPeriod")
     def index_rotation_period(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-indexrotationperiod
@@ -483,7 +483,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "index_rotation_period")
 
     @property
-    @pulumi.getter(name="ProcessingConfiguration")
+    @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-processingconfiguration
@@ -491,7 +491,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "processing_configuration")
 
     @property
-    @pulumi.getter(name="RetryOptions")
+    @pulumi.getter(name="retryOptions")
     def retry_options(self) -> Optional['outputs.DeliveryStreamElasticsearchRetryOptions']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-retryoptions
@@ -499,7 +499,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "retry_options")
 
     @property
-    @pulumi.getter(name="S3BackupMode")
+    @pulumi.getter(name="s3BackupMode")
     def s3_backup_mode(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-s3backupmode
@@ -507,7 +507,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "s3_backup_mode")
 
     @property
-    @pulumi.getter(name="TypeName")
+    @pulumi.getter(name="typeName")
     def type_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-typename
@@ -515,7 +515,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "type_name")
 
     @property
-    @pulumi.getter(name="VpcConfiguration")
+    @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional['outputs.DeliveryStreamVpcConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-vpcconfiguration
@@ -541,7 +541,7 @@ class DeliveryStreamElasticsearchRetryOptions(dict):
             pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
 
     @property
-    @pulumi.getter(name="DurationInSeconds")
+    @pulumi.getter(name="durationInSeconds")
     def duration_in_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchretryoptions.html#cfn-kinesisfirehose-deliverystream-elasticsearchretryoptions-durationinseconds
@@ -558,28 +558,28 @@ class DeliveryStreamEncryptionConfiguration(dict):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html
     """
     def __init__(__self__, *,
-                 kms_encryption_config: Optional['outputs.DeliveryStreamKMSEncryptionConfig'] = None,
+                 k_ms_encryption_config: Optional['outputs.DeliveryStreamKMSEncryptionConfig'] = None,
                  no_encryption_config: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html
-        :param 'DeliveryStreamKMSEncryptionConfigArgs' kms_encryption_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-kmsencryptionconfig
+        :param 'DeliveryStreamKMSEncryptionConfigArgs' k_ms_encryption_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-kmsencryptionconfig
         :param str no_encryption_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-noencryptionconfig
         """
-        if kms_encryption_config is not None:
-            pulumi.set(__self__, "kms_encryption_config", kms_encryption_config)
+        if k_ms_encryption_config is not None:
+            pulumi.set(__self__, "k_ms_encryption_config", k_ms_encryption_config)
         if no_encryption_config is not None:
             pulumi.set(__self__, "no_encryption_config", no_encryption_config)
 
     @property
-    @pulumi.getter(name="KMSEncryptionConfig")
-    def kms_encryption_config(self) -> Optional['outputs.DeliveryStreamKMSEncryptionConfig']:
+    @pulumi.getter(name="kMSEncryptionConfig")
+    def k_ms_encryption_config(self) -> Optional['outputs.DeliveryStreamKMSEncryptionConfig']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-kmsencryptionconfig
         """
-        return pulumi.get(self, "kms_encryption_config")
+        return pulumi.get(self, "k_ms_encryption_config")
 
     @property
-    @pulumi.getter(name="NoEncryptionConfig")
+    @pulumi.getter(name="noEncryptionConfig")
     def no_encryption_config(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-noencryptionconfig
@@ -647,7 +647,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
-    @pulumi.getter(name="BucketARN")
+    @pulumi.getter(name="bucketARN")
     def bucket_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bucketarn
@@ -655,7 +655,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         return pulumi.get(self, "bucket_arn")
 
     @property
-    @pulumi.getter(name="RoleARN")
+    @pulumi.getter(name="roleARN")
     def role_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-rolearn
@@ -663,7 +663,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="BufferingHints")
+    @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamBufferingHints']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bufferinghints
@@ -671,7 +671,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         return pulumi.get(self, "buffering_hints")
 
     @property
-    @pulumi.getter(name="CloudWatchLoggingOptions")
+    @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-cloudwatchloggingoptions
@@ -679,7 +679,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         return pulumi.get(self, "cloud_watch_logging_options")
 
     @property
-    @pulumi.getter(name="CompressionFormat")
+    @pulumi.getter(name="compressionFormat")
     def compression_format(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-compressionformat
@@ -687,7 +687,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         return pulumi.get(self, "compression_format")
 
     @property
-    @pulumi.getter(name="DataFormatConversionConfiguration")
+    @pulumi.getter(name="dataFormatConversionConfiguration")
     def data_format_conversion_configuration(self) -> Optional['outputs.DeliveryStreamDataFormatConversionConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dataformatconversionconfiguration
@@ -695,7 +695,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         return pulumi.get(self, "data_format_conversion_configuration")
 
     @property
-    @pulumi.getter(name="EncryptionConfiguration")
+    @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional['outputs.DeliveryStreamEncryptionConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
@@ -703,7 +703,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         return pulumi.get(self, "encryption_configuration")
 
     @property
-    @pulumi.getter(name="ErrorOutputPrefix")
+    @pulumi.getter(name="errorOutputPrefix")
     def error_output_prefix(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-erroroutputprefix
@@ -711,7 +711,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         return pulumi.get(self, "error_output_prefix")
 
     @property
-    @pulumi.getter(name="Prefix")
+    @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-prefix
@@ -719,7 +719,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         return pulumi.get(self, "prefix")
 
     @property
-    @pulumi.getter(name="ProcessingConfiguration")
+    @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-processingconfiguration
@@ -727,7 +727,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         return pulumi.get(self, "processing_configuration")
 
     @property
-    @pulumi.getter(name="S3BackupConfiguration")
+    @pulumi.getter(name="s3BackupConfiguration")
     def s3_backup_configuration(self) -> Optional['outputs.DeliveryStreamS3DestinationConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupconfiguration
@@ -735,7 +735,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         return pulumi.get(self, "s3_backup_configuration")
 
     @property
-    @pulumi.getter(name="S3BackupMode")
+    @pulumi.getter(name="s3BackupMode")
     def s3_backup_mode(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupmode
@@ -761,7 +761,7 @@ class DeliveryStreamHiveJsonSerDe(dict):
             pulumi.set(__self__, "timestamp_formats", timestamp_formats)
 
     @property
-    @pulumi.getter(name="TimestampFormats")
+    @pulumi.getter(name="timestampFormats")
     def timestamp_formats(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-hivejsonserde.html#cfn-kinesisfirehose-deliverystream-hivejsonserde-timestampformats
@@ -789,7 +789,7 @@ class DeliveryStreamHttpEndpointCommonAttribute(dict):
         pulumi.set(__self__, "attribute_value", attribute_value)
 
     @property
-    @pulumi.getter(name="AttributeName")
+    @pulumi.getter(name="attributeName")
     def attribute_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributename
@@ -797,7 +797,7 @@ class DeliveryStreamHttpEndpointCommonAttribute(dict):
         return pulumi.get(self, "attribute_name")
 
     @property
-    @pulumi.getter(name="AttributeValue")
+    @pulumi.getter(name="attributeValue")
     def attribute_value(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributevalue
@@ -830,7 +830,7 @@ class DeliveryStreamHttpEndpointConfiguration(dict):
             pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter(name="Url")
+    @pulumi.getter
     def url(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-url
@@ -838,7 +838,7 @@ class DeliveryStreamHttpEndpointConfiguration(dict):
         return pulumi.get(self, "url")
 
     @property
-    @pulumi.getter(name="AccessKey")
+    @pulumi.getter(name="accessKey")
     def access_key(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-accesskey
@@ -846,7 +846,7 @@ class DeliveryStreamHttpEndpointConfiguration(dict):
         return pulumi.get(self, "access_key")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-name
@@ -902,7 +902,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
-    @pulumi.getter(name="EndpointConfiguration")
+    @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> 'outputs.DeliveryStreamHttpEndpointConfiguration':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-endpointconfiguration
@@ -910,7 +910,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
         return pulumi.get(self, "endpoint_configuration")
 
     @property
-    @pulumi.getter(name="S3Configuration")
+    @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3configuration
@@ -918,7 +918,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
         return pulumi.get(self, "s3_configuration")
 
     @property
-    @pulumi.getter(name="BufferingHints")
+    @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamBufferingHints']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-bufferinghints
@@ -926,7 +926,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
         return pulumi.get(self, "buffering_hints")
 
     @property
-    @pulumi.getter(name="CloudWatchLoggingOptions")
+    @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-cloudwatchloggingoptions
@@ -934,7 +934,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
         return pulumi.get(self, "cloud_watch_logging_options")
 
     @property
-    @pulumi.getter(name="ProcessingConfiguration")
+    @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-processingconfiguration
@@ -942,7 +942,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
         return pulumi.get(self, "processing_configuration")
 
     @property
-    @pulumi.getter(name="RequestConfiguration")
+    @pulumi.getter(name="requestConfiguration")
     def request_configuration(self) -> Optional['outputs.DeliveryStreamHttpEndpointRequestConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-requestconfiguration
@@ -950,7 +950,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
         return pulumi.get(self, "request_configuration")
 
     @property
-    @pulumi.getter(name="RetryOptions")
+    @pulumi.getter(name="retryOptions")
     def retry_options(self) -> Optional['outputs.DeliveryStreamRetryOptions']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-retryoptions
@@ -958,7 +958,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
         return pulumi.get(self, "retry_options")
 
     @property
-    @pulumi.getter(name="RoleARN")
+    @pulumi.getter(name="roleARN")
     def role_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-rolearn
@@ -966,7 +966,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="S3BackupMode")
+    @pulumi.getter(name="s3BackupMode")
     def s3_backup_mode(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3backupmode
@@ -996,7 +996,7 @@ class DeliveryStreamHttpEndpointRequestConfiguration(dict):
             pulumi.set(__self__, "content_encoding", content_encoding)
 
     @property
-    @pulumi.getter(name="CommonAttributes")
+    @pulumi.getter(name="commonAttributes")
     def common_attributes(self) -> Optional[Sequence['outputs.DeliveryStreamHttpEndpointCommonAttribute']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-commonattributes
@@ -1004,7 +1004,7 @@ class DeliveryStreamHttpEndpointRequestConfiguration(dict):
         return pulumi.get(self, "common_attributes")
 
     @property
-    @pulumi.getter(name="ContentEncoding")
+    @pulumi.getter(name="contentEncoding")
     def content_encoding(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-contentencoding
@@ -1030,7 +1030,7 @@ class DeliveryStreamInputFormatConfiguration(dict):
             pulumi.set(__self__, "deserializer", deserializer)
 
     @property
-    @pulumi.getter(name="Deserializer")
+    @pulumi.getter
     def deserializer(self) -> Optional['outputs.DeliveryStreamDeserializer']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-inputformatconfiguration-deserializer
@@ -1047,20 +1047,20 @@ class DeliveryStreamKMSEncryptionConfig(dict):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html
     """
     def __init__(__self__, *,
-                 awskms_key_arn: str):
+                 a_wskms_key_arn: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html
-        :param str awskms_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html#cfn-kinesisfirehose-deliverystream-kmsencryptionconfig-awskmskeyarn
+        :param str a_wskms_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html#cfn-kinesisfirehose-deliverystream-kmsencryptionconfig-awskmskeyarn
         """
-        pulumi.set(__self__, "awskms_key_arn", awskms_key_arn)
+        pulumi.set(__self__, "a_wskms_key_arn", a_wskms_key_arn)
 
     @property
-    @pulumi.getter(name="AWSKMSKeyARN")
-    def awskms_key_arn(self) -> str:
+    @pulumi.getter(name="aWSKMSKeyARN")
+    def a_wskms_key_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html#cfn-kinesisfirehose-deliverystream-kmsencryptionconfig-awskmskeyarn
         """
-        return pulumi.get(self, "awskms_key_arn")
+        return pulumi.get(self, "a_wskms_key_arn")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1083,7 +1083,7 @@ class DeliveryStreamKinesisStreamSourceConfiguration(dict):
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="KinesisStreamARN")
+    @pulumi.getter(name="kinesisStreamARN")
     def kinesis_stream_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration-kinesisstreamarn
@@ -1091,7 +1091,7 @@ class DeliveryStreamKinesisStreamSourceConfiguration(dict):
         return pulumi.get(self, "kinesis_stream_arn")
 
     @property
-    @pulumi.getter(name="RoleARN")
+    @pulumi.getter(name="roleARN")
     def role_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration-rolearn
@@ -1125,7 +1125,7 @@ class DeliveryStreamOpenXJsonSerDe(dict):
             pulumi.set(__self__, "convert_dots_in_json_keys_to_underscores", convert_dots_in_json_keys_to_underscores)
 
     @property
-    @pulumi.getter(name="CaseInsensitive")
+    @pulumi.getter(name="caseInsensitive")
     def case_insensitive(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-caseinsensitive
@@ -1133,7 +1133,7 @@ class DeliveryStreamOpenXJsonSerDe(dict):
         return pulumi.get(self, "case_insensitive")
 
     @property
-    @pulumi.getter(name="ColumnToJsonKeyMappings")
+    @pulumi.getter(name="columnToJsonKeyMappings")
     def column_to_json_key_mappings(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-columntojsonkeymappings
@@ -1141,7 +1141,7 @@ class DeliveryStreamOpenXJsonSerDe(dict):
         return pulumi.get(self, "column_to_json_key_mappings")
 
     @property
-    @pulumi.getter(name="ConvertDotsInJsonKeysToUnderscores")
+    @pulumi.getter(name="convertDotsInJsonKeysToUnderscores")
     def convert_dots_in_json_keys_to_underscores(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-convertdotsinjsonkeystounderscores
@@ -1203,7 +1203,7 @@ class DeliveryStreamOrcSerDe(dict):
             pulumi.set(__self__, "stripe_size_bytes", stripe_size_bytes)
 
     @property
-    @pulumi.getter(name="BlockSizeBytes")
+    @pulumi.getter(name="blockSizeBytes")
     def block_size_bytes(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-blocksizebytes
@@ -1211,7 +1211,7 @@ class DeliveryStreamOrcSerDe(dict):
         return pulumi.get(self, "block_size_bytes")
 
     @property
-    @pulumi.getter(name="BloomFilterColumns")
+    @pulumi.getter(name="bloomFilterColumns")
     def bloom_filter_columns(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-bloomfiltercolumns
@@ -1219,7 +1219,7 @@ class DeliveryStreamOrcSerDe(dict):
         return pulumi.get(self, "bloom_filter_columns")
 
     @property
-    @pulumi.getter(name="BloomFilterFalsePositiveProbability")
+    @pulumi.getter(name="bloomFilterFalsePositiveProbability")
     def bloom_filter_false_positive_probability(self) -> Optional[float]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-bloomfilterfalsepositiveprobability
@@ -1227,7 +1227,7 @@ class DeliveryStreamOrcSerDe(dict):
         return pulumi.get(self, "bloom_filter_false_positive_probability")
 
     @property
-    @pulumi.getter(name="Compression")
+    @pulumi.getter
     def compression(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-compression
@@ -1235,7 +1235,7 @@ class DeliveryStreamOrcSerDe(dict):
         return pulumi.get(self, "compression")
 
     @property
-    @pulumi.getter(name="DictionaryKeyThreshold")
+    @pulumi.getter(name="dictionaryKeyThreshold")
     def dictionary_key_threshold(self) -> Optional[float]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-dictionarykeythreshold
@@ -1243,7 +1243,7 @@ class DeliveryStreamOrcSerDe(dict):
         return pulumi.get(self, "dictionary_key_threshold")
 
     @property
-    @pulumi.getter(name="EnablePadding")
+    @pulumi.getter(name="enablePadding")
     def enable_padding(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-enablepadding
@@ -1251,7 +1251,7 @@ class DeliveryStreamOrcSerDe(dict):
         return pulumi.get(self, "enable_padding")
 
     @property
-    @pulumi.getter(name="FormatVersion")
+    @pulumi.getter(name="formatVersion")
     def format_version(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-formatversion
@@ -1259,7 +1259,7 @@ class DeliveryStreamOrcSerDe(dict):
         return pulumi.get(self, "format_version")
 
     @property
-    @pulumi.getter(name="PaddingTolerance")
+    @pulumi.getter(name="paddingTolerance")
     def padding_tolerance(self) -> Optional[float]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-paddingtolerance
@@ -1267,7 +1267,7 @@ class DeliveryStreamOrcSerDe(dict):
         return pulumi.get(self, "padding_tolerance")
 
     @property
-    @pulumi.getter(name="RowIndexStride")
+    @pulumi.getter(name="rowIndexStride")
     def row_index_stride(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-rowindexstride
@@ -1275,7 +1275,7 @@ class DeliveryStreamOrcSerDe(dict):
         return pulumi.get(self, "row_index_stride")
 
     @property
-    @pulumi.getter(name="StripeSizeBytes")
+    @pulumi.getter(name="stripeSizeBytes")
     def stripe_size_bytes(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-stripesizebytes
@@ -1301,7 +1301,7 @@ class DeliveryStreamOutputFormatConfiguration(dict):
             pulumi.set(__self__, "serializer", serializer)
 
     @property
-    @pulumi.getter(name="Serializer")
+    @pulumi.getter
     def serializer(self) -> Optional['outputs.DeliveryStreamSerializer']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-outputformatconfiguration-serializer
@@ -1347,7 +1347,7 @@ class DeliveryStreamParquetSerDe(dict):
             pulumi.set(__self__, "writer_version", writer_version)
 
     @property
-    @pulumi.getter(name="BlockSizeBytes")
+    @pulumi.getter(name="blockSizeBytes")
     def block_size_bytes(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-blocksizebytes
@@ -1355,7 +1355,7 @@ class DeliveryStreamParquetSerDe(dict):
         return pulumi.get(self, "block_size_bytes")
 
     @property
-    @pulumi.getter(name="Compression")
+    @pulumi.getter
     def compression(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-compression
@@ -1363,7 +1363,7 @@ class DeliveryStreamParquetSerDe(dict):
         return pulumi.get(self, "compression")
 
     @property
-    @pulumi.getter(name="EnableDictionaryCompression")
+    @pulumi.getter(name="enableDictionaryCompression")
     def enable_dictionary_compression(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-enabledictionarycompression
@@ -1371,7 +1371,7 @@ class DeliveryStreamParquetSerDe(dict):
         return pulumi.get(self, "enable_dictionary_compression")
 
     @property
-    @pulumi.getter(name="MaxPaddingBytes")
+    @pulumi.getter(name="maxPaddingBytes")
     def max_padding_bytes(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-maxpaddingbytes
@@ -1379,7 +1379,7 @@ class DeliveryStreamParquetSerDe(dict):
         return pulumi.get(self, "max_padding_bytes")
 
     @property
-    @pulumi.getter(name="PageSizeBytes")
+    @pulumi.getter(name="pageSizeBytes")
     def page_size_bytes(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-pagesizebytes
@@ -1387,7 +1387,7 @@ class DeliveryStreamParquetSerDe(dict):
         return pulumi.get(self, "page_size_bytes")
 
     @property
-    @pulumi.getter(name="WriterVersion")
+    @pulumi.getter(name="writerVersion")
     def writer_version(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-writerversion
@@ -1417,7 +1417,7 @@ class DeliveryStreamProcessingConfiguration(dict):
             pulumi.set(__self__, "processors", processors)
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-enabled
@@ -1425,7 +1425,7 @@ class DeliveryStreamProcessingConfiguration(dict):
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="Processors")
+    @pulumi.getter
     def processors(self) -> Optional[Sequence['outputs.DeliveryStreamProcessor']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-processors
@@ -1454,7 +1454,7 @@ class DeliveryStreamProcessor(dict):
             pulumi.set(__self__, "parameters", parameters)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-type
@@ -1462,7 +1462,7 @@ class DeliveryStreamProcessor(dict):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="Parameters")
+    @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.DeliveryStreamProcessorParameter']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-parameters
@@ -1490,7 +1490,7 @@ class DeliveryStreamProcessorParameter(dict):
         pulumi.set(__self__, "parameter_value", parameter_value)
 
     @property
-    @pulumi.getter(name="ParameterName")
+    @pulumi.getter(name="parameterName")
     def parameter_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametername
@@ -1498,7 +1498,7 @@ class DeliveryStreamProcessorParameter(dict):
         return pulumi.get(self, "parameter_name")
 
     @property
-    @pulumi.getter(name="ParameterValue")
+    @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametervalue
@@ -1558,7 +1558,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
-    @pulumi.getter(name="ClusterJDBCURL")
+    @pulumi.getter(name="clusterJDBCURL")
     def cluster_jdbcurl(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-clusterjdbcurl
@@ -1566,7 +1566,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         return pulumi.get(self, "cluster_jdbcurl")
 
     @property
-    @pulumi.getter(name="CopyCommand")
+    @pulumi.getter(name="copyCommand")
     def copy_command(self) -> 'outputs.DeliveryStreamCopyCommand':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-copycommand
@@ -1574,7 +1574,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         return pulumi.get(self, "copy_command")
 
     @property
-    @pulumi.getter(name="Password")
+    @pulumi.getter
     def password(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-password
@@ -1582,7 +1582,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         return pulumi.get(self, "password")
 
     @property
-    @pulumi.getter(name="RoleARN")
+    @pulumi.getter(name="roleARN")
     def role_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-rolearn
@@ -1590,7 +1590,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="S3Configuration")
+    @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3configuration
@@ -1598,7 +1598,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         return pulumi.get(self, "s3_configuration")
 
     @property
-    @pulumi.getter(name="Username")
+    @pulumi.getter
     def username(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-username
@@ -1606,7 +1606,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         return pulumi.get(self, "username")
 
     @property
-    @pulumi.getter(name="CloudWatchLoggingOptions")
+    @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-cloudwatchloggingoptions
@@ -1614,7 +1614,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         return pulumi.get(self, "cloud_watch_logging_options")
 
     @property
-    @pulumi.getter(name="ProcessingConfiguration")
+    @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-processingconfiguration
@@ -1622,7 +1622,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         return pulumi.get(self, "processing_configuration")
 
     @property
-    @pulumi.getter(name="RetryOptions")
+    @pulumi.getter(name="retryOptions")
     def retry_options(self) -> Optional['outputs.DeliveryStreamRedshiftRetryOptions']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-retryoptions
@@ -1630,7 +1630,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         return pulumi.get(self, "retry_options")
 
     @property
-    @pulumi.getter(name="S3BackupConfiguration")
+    @pulumi.getter(name="s3BackupConfiguration")
     def s3_backup_configuration(self) -> Optional['outputs.DeliveryStreamS3DestinationConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupconfiguration
@@ -1638,7 +1638,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         return pulumi.get(self, "s3_backup_configuration")
 
     @property
-    @pulumi.getter(name="S3BackupMode")
+    @pulumi.getter(name="s3BackupMode")
     def s3_backup_mode(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupmode
@@ -1664,7 +1664,7 @@ class DeliveryStreamRedshiftRetryOptions(dict):
             pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
 
     @property
-    @pulumi.getter(name="DurationInSeconds")
+    @pulumi.getter(name="durationInSeconds")
     def duration_in_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html#cfn-kinesisfirehose-deliverystream-redshiftretryoptions-durationinseconds
@@ -1690,7 +1690,7 @@ class DeliveryStreamRetryOptions(dict):
             pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
 
     @property
-    @pulumi.getter(name="DurationInSeconds")
+    @pulumi.getter(name="durationInSeconds")
     def duration_in_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html#cfn-kinesisfirehose-deliverystream-retryoptions-durationinseconds
@@ -1742,7 +1742,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
             pulumi.set(__self__, "prefix", prefix)
 
     @property
-    @pulumi.getter(name="BucketARN")
+    @pulumi.getter(name="bucketARN")
     def bucket_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-bucketarn
@@ -1750,7 +1750,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
         return pulumi.get(self, "bucket_arn")
 
     @property
-    @pulumi.getter(name="RoleARN")
+    @pulumi.getter(name="roleARN")
     def role_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-rolearn
@@ -1758,7 +1758,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="BufferingHints")
+    @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamBufferingHints']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-bufferinghints
@@ -1766,7 +1766,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
         return pulumi.get(self, "buffering_hints")
 
     @property
-    @pulumi.getter(name="CloudWatchLoggingOptions")
+    @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-cloudwatchloggingoptions
@@ -1774,7 +1774,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
         return pulumi.get(self, "cloud_watch_logging_options")
 
     @property
-    @pulumi.getter(name="CompressionFormat")
+    @pulumi.getter(name="compressionFormat")
     def compression_format(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-compressionformat
@@ -1782,7 +1782,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
         return pulumi.get(self, "compression_format")
 
     @property
-    @pulumi.getter(name="EncryptionConfiguration")
+    @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional['outputs.DeliveryStreamEncryptionConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-encryptionconfiguration
@@ -1790,7 +1790,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
         return pulumi.get(self, "encryption_configuration")
 
     @property
-    @pulumi.getter(name="ErrorOutputPrefix")
+    @pulumi.getter(name="errorOutputPrefix")
     def error_output_prefix(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-erroroutputprefix
@@ -1798,7 +1798,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
         return pulumi.get(self, "error_output_prefix")
 
     @property
-    @pulumi.getter(name="Prefix")
+    @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-prefix
@@ -1844,7 +1844,7 @@ class DeliveryStreamSchemaConfiguration(dict):
             pulumi.set(__self__, "version_id", version_id)
 
     @property
-    @pulumi.getter(name="CatalogId")
+    @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-catalogid
@@ -1852,7 +1852,7 @@ class DeliveryStreamSchemaConfiguration(dict):
         return pulumi.get(self, "catalog_id")
 
     @property
-    @pulumi.getter(name="DatabaseName")
+    @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-databasename
@@ -1860,7 +1860,7 @@ class DeliveryStreamSchemaConfiguration(dict):
         return pulumi.get(self, "database_name")
 
     @property
-    @pulumi.getter(name="Region")
+    @pulumi.getter
     def region(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-region
@@ -1868,7 +1868,7 @@ class DeliveryStreamSchemaConfiguration(dict):
         return pulumi.get(self, "region")
 
     @property
-    @pulumi.getter(name="RoleARN")
+    @pulumi.getter(name="roleARN")
     def role_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-rolearn
@@ -1876,7 +1876,7 @@ class DeliveryStreamSchemaConfiguration(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="TableName")
+    @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-tablename
@@ -1884,7 +1884,7 @@ class DeliveryStreamSchemaConfiguration(dict):
         return pulumi.get(self, "table_name")
 
     @property
-    @pulumi.getter(name="VersionId")
+    @pulumi.getter(name="versionId")
     def version_id(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-versionid
@@ -1914,7 +1914,7 @@ class DeliveryStreamSerializer(dict):
             pulumi.set(__self__, "parquet_ser_de", parquet_ser_de)
 
     @property
-    @pulumi.getter(name="OrcSerDe")
+    @pulumi.getter(name="orcSerDe")
     def orc_ser_de(self) -> Optional['outputs.DeliveryStreamOrcSerDe']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-orcserde
@@ -1922,7 +1922,7 @@ class DeliveryStreamSerializer(dict):
         return pulumi.get(self, "orc_ser_de")
 
     @property
-    @pulumi.getter(name="ParquetSerDe")
+    @pulumi.getter(name="parquetSerDe")
     def parquet_ser_de(self) -> Optional['outputs.DeliveryStreamParquetSerDe']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-parquetserde
@@ -1939,35 +1939,35 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html
     """
     def __init__(__self__, *,
-                 hec_endpoint: str,
-                 hec_endpoint_type: str,
-                 hec_token: str,
+                 h_ec_endpoint: str,
+                 h_ec_endpoint_type: str,
+                 h_ec_token: str,
                  s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
-                 hec_acknowledgment_timeout_in_seconds: Optional[int] = None,
+                 h_ec_acknowledgment_timeout_in_seconds: Optional[int] = None,
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
                  retry_options: Optional['outputs.DeliveryStreamSplunkRetryOptions'] = None,
                  s3_backup_mode: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html
-        :param str hec_endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecendpoint
-        :param str hec_endpoint_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecendpointtype
-        :param str hec_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hectoken
+        :param str h_ec_endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecendpoint
+        :param str h_ec_endpoint_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecendpointtype
+        :param str h_ec_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hectoken
         :param 'DeliveryStreamS3DestinationConfigurationArgs' s3_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3configuration
         :param 'DeliveryStreamCloudWatchLoggingOptionsArgs' cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-cloudwatchloggingoptions
-        :param int hec_acknowledgment_timeout_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecacknowledgmenttimeoutinseconds
+        :param int h_ec_acknowledgment_timeout_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecacknowledgmenttimeoutinseconds
         :param 'DeliveryStreamProcessingConfigurationArgs' processing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-processingconfiguration
         :param 'DeliveryStreamSplunkRetryOptionsArgs' retry_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-retryoptions
         :param str s3_backup_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3backupmode
         """
-        pulumi.set(__self__, "hec_endpoint", hec_endpoint)
-        pulumi.set(__self__, "hec_endpoint_type", hec_endpoint_type)
-        pulumi.set(__self__, "hec_token", hec_token)
+        pulumi.set(__self__, "h_ec_endpoint", h_ec_endpoint)
+        pulumi.set(__self__, "h_ec_endpoint_type", h_ec_endpoint_type)
+        pulumi.set(__self__, "h_ec_token", h_ec_token)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
-        if hec_acknowledgment_timeout_in_seconds is not None:
-            pulumi.set(__self__, "hec_acknowledgment_timeout_in_seconds", hec_acknowledgment_timeout_in_seconds)
+        if h_ec_acknowledgment_timeout_in_seconds is not None:
+            pulumi.set(__self__, "h_ec_acknowledgment_timeout_in_seconds", h_ec_acknowledgment_timeout_in_seconds)
         if processing_configuration is not None:
             pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_options is not None:
@@ -1976,31 +1976,31 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
-    @pulumi.getter(name="HECEndpoint")
-    def hec_endpoint(self) -> str:
+    @pulumi.getter(name="hECEndpoint")
+    def h_ec_endpoint(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecendpoint
         """
-        return pulumi.get(self, "hec_endpoint")
+        return pulumi.get(self, "h_ec_endpoint")
 
     @property
-    @pulumi.getter(name="HECEndpointType")
-    def hec_endpoint_type(self) -> str:
+    @pulumi.getter(name="hECEndpointType")
+    def h_ec_endpoint_type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecendpointtype
         """
-        return pulumi.get(self, "hec_endpoint_type")
+        return pulumi.get(self, "h_ec_endpoint_type")
 
     @property
-    @pulumi.getter(name="HECToken")
-    def hec_token(self) -> str:
+    @pulumi.getter(name="hECToken")
+    def h_ec_token(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hectoken
         """
-        return pulumi.get(self, "hec_token")
+        return pulumi.get(self, "h_ec_token")
 
     @property
-    @pulumi.getter(name="S3Configuration")
+    @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3configuration
@@ -2008,7 +2008,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
         return pulumi.get(self, "s3_configuration")
 
     @property
-    @pulumi.getter(name="CloudWatchLoggingOptions")
+    @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-cloudwatchloggingoptions
@@ -2016,15 +2016,15 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
         return pulumi.get(self, "cloud_watch_logging_options")
 
     @property
-    @pulumi.getter(name="HECAcknowledgmentTimeoutInSeconds")
-    def hec_acknowledgment_timeout_in_seconds(self) -> Optional[int]:
+    @pulumi.getter(name="hECAcknowledgmentTimeoutInSeconds")
+    def h_ec_acknowledgment_timeout_in_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecacknowledgmenttimeoutinseconds
         """
-        return pulumi.get(self, "hec_acknowledgment_timeout_in_seconds")
+        return pulumi.get(self, "h_ec_acknowledgment_timeout_in_seconds")
 
     @property
-    @pulumi.getter(name="ProcessingConfiguration")
+    @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-processingconfiguration
@@ -2032,7 +2032,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
         return pulumi.get(self, "processing_configuration")
 
     @property
-    @pulumi.getter(name="RetryOptions")
+    @pulumi.getter(name="retryOptions")
     def retry_options(self) -> Optional['outputs.DeliveryStreamSplunkRetryOptions']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-retryoptions
@@ -2040,7 +2040,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
         return pulumi.get(self, "retry_options")
 
     @property
-    @pulumi.getter(name="S3BackupMode")
+    @pulumi.getter(name="s3BackupMode")
     def s3_backup_mode(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3backupmode
@@ -2066,7 +2066,7 @@ class DeliveryStreamSplunkRetryOptions(dict):
             pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
 
     @property
-    @pulumi.getter(name="DurationInSeconds")
+    @pulumi.getter(name="durationInSeconds")
     def duration_in_seconds(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkretryoptions.html#cfn-kinesisfirehose-deliverystream-splunkretryoptions-durationinseconds
@@ -2097,7 +2097,7 @@ class DeliveryStreamVpcConfiguration(dict):
         pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
-    @pulumi.getter(name="RoleARN")
+    @pulumi.getter(name="roleARN")
     def role_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-rolearn
@@ -2105,7 +2105,7 @@ class DeliveryStreamVpcConfiguration(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="SecurityGroupIds")
+    @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-securitygroupids
@@ -2113,7 +2113,7 @@ class DeliveryStreamVpcConfiguration(dict):
         return pulumi.get(self, "security_group_ids")
 
     @property
-    @pulumi.getter(name="SubnetIds")
+    @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-subnetids

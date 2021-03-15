@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ECR.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext
         /// </summary>
-        [Input("LifecyclePolicyText")]
+        [Input("lifecyclePolicyText")]
         public Input<string>? LifecyclePolicyText { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid
         /// </summary>
-        [Input("RegistryId")]
+        [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 
         public RepositoryLifecyclePolicyArgs()

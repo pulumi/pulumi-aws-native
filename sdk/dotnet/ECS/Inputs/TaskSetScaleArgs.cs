@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-unit
         /// </summary>
-        [Input("Unit")]
+        [Input("unit")]
         public Input<string>? Unit { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-value
         /// </summary>
-        [Input("Value")]
+        [Input("value")]
         public Input<double>? Value { get; set; }
 
         public TaskSetScaleArgs()

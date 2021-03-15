@@ -178,6 +178,10 @@ namespace Pulumi.AwsNative.EC2.Outputs
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Vpc;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcendpoint
+        /// </summary>
+        public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpcEndpoint;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcpeeringconnection
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpcPeeringConnection;
@@ -189,148 +193,144 @@ namespace Pulumi.AwsNative.EC2.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpngateway
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpnGateway;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcendpoint
-        /// </summary>
-        public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpcEndpoint;
 
         [OutputConstructor]
         private NetworkInsightsAnalysisExplanation(
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? Acl,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? acl,
 
-            Outputs.NetworkInsightsAnalysisAnalysisAclRule? AclRule,
+            Outputs.NetworkInsightsAnalysisAnalysisAclRule? aclRule,
 
-            string? Address,
+            string? address,
 
-            ImmutableArray<string> Addresses,
+            ImmutableArray<string> addresses,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? AttachedTo,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? attachedTo,
 
-            ImmutableArray<string> AvailabilityZones,
+            ImmutableArray<string> availabilityZones,
 
-            ImmutableArray<string> Cidrs,
+            ImmutableArray<string> cidrs,
 
-            Outputs.NetworkInsightsAnalysisAnalysisLoadBalancerListener? ClassicLoadBalancerListener,
+            Outputs.NetworkInsightsAnalysisAnalysisLoadBalancerListener? classicLoadBalancerListener,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? Component,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? component,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? CustomerGateway,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? customerGateway,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? Destination,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? destination,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? DestinationVpc,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? destinationVpc,
 
-            string? Direction,
+            string? direction,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? ElasticLoadBalancerListener,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? elasticLoadBalancerListener,
 
-            string? ExplanationCode,
+            string? explanationCode,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? IngressRouteTable,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? ingressRouteTable,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? InternetGateway,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? internetGateway,
 
-            string? LoadBalancerArn,
+            string? loadBalancerArn,
 
-            int? LoadBalancerListenerPort,
+            int? loadBalancerListenerPort,
 
-            Outputs.NetworkInsightsAnalysisAnalysisLoadBalancerTarget? LoadBalancerTarget,
+            Outputs.NetworkInsightsAnalysisAnalysisLoadBalancerTarget? loadBalancerTarget,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? LoadBalancerTargetGroup,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? loadBalancerTargetGroup,
 
-            ImmutableArray<Outputs.NetworkInsightsAnalysisAnalysisComponent> LoadBalancerTargetGroups,
+            ImmutableArray<Outputs.NetworkInsightsAnalysisAnalysisComponent> loadBalancerTargetGroups,
 
-            int? LoadBalancerTargetPort,
+            int? loadBalancerTargetPort,
 
-            string? MissingComponent,
+            string? missingComponent,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? NatGateway,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? natGateway,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? NetworkInterface,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? networkInterface,
 
-            string? PacketField,
+            string? packetField,
 
-            int? Port,
+            int? port,
 
-            ImmutableArray<Outputs.NetworkInsightsAnalysisPortRange> PortRanges,
+            ImmutableArray<Outputs.NetworkInsightsAnalysisPortRange> portRanges,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? PrefixList,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? prefixList,
 
-            ImmutableArray<string> Protocols,
+            ImmutableArray<string> protocols,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? RouteTable,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? routeTable,
 
-            Outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute? RouteTableRoute,
+            Outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute? routeTableRoute,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? SecurityGroup,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? securityGroup,
 
-            Outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule? SecurityGroupRule,
+            Outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule? securityGroupRule,
 
-            ImmutableArray<Outputs.NetworkInsightsAnalysisAnalysisComponent> SecurityGroups,
+            ImmutableArray<Outputs.NetworkInsightsAnalysisAnalysisComponent> securityGroups,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? SourceVpc,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? sourceVpc,
 
-            string? State,
+            string? state,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? Subnet,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? subnet,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? SubnetRouteTable,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? subnetRouteTable,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? Vpc,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? vpc,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? VpcPeeringConnection,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? vpcEndpoint,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? VpnConnection,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? vpcPeeringConnection,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? VpnGateway,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? vpnConnection,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? vpcEndpoint)
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? vpnGateway)
         {
-            this.Acl = Acl;
-            this.AclRule = AclRule;
-            this.Address = Address;
-            this.Addresses = Addresses;
-            this.AttachedTo = AttachedTo;
-            this.AvailabilityZones = AvailabilityZones;
-            this.Cidrs = Cidrs;
-            this.ClassicLoadBalancerListener = ClassicLoadBalancerListener;
-            this.Component = Component;
-            this.CustomerGateway = CustomerGateway;
-            this.Destination = Destination;
-            this.DestinationVpc = DestinationVpc;
-            this.Direction = Direction;
-            this.ElasticLoadBalancerListener = ElasticLoadBalancerListener;
-            this.ExplanationCode = ExplanationCode;
-            this.IngressRouteTable = IngressRouteTable;
-            this.InternetGateway = InternetGateway;
-            this.LoadBalancerArn = LoadBalancerArn;
-            this.LoadBalancerListenerPort = LoadBalancerListenerPort;
-            this.LoadBalancerTarget = LoadBalancerTarget;
-            this.LoadBalancerTargetGroup = LoadBalancerTargetGroup;
-            this.LoadBalancerTargetGroups = LoadBalancerTargetGroups;
-            this.LoadBalancerTargetPort = LoadBalancerTargetPort;
-            this.MissingComponent = MissingComponent;
-            this.NatGateway = NatGateway;
-            this.NetworkInterface = NetworkInterface;
-            this.PacketField = PacketField;
-            this.Port = Port;
-            this.PortRanges = PortRanges;
-            this.PrefixList = PrefixList;
-            this.Protocols = Protocols;
-            this.RouteTable = RouteTable;
-            this.RouteTableRoute = RouteTableRoute;
-            this.SecurityGroup = SecurityGroup;
-            this.SecurityGroupRule = SecurityGroupRule;
-            this.SecurityGroups = SecurityGroups;
-            this.SourceVpc = SourceVpc;
-            this.State = State;
-            this.Subnet = Subnet;
-            this.SubnetRouteTable = SubnetRouteTable;
-            this.Vpc = Vpc;
-            this.VpcPeeringConnection = VpcPeeringConnection;
-            this.VpnConnection = VpnConnection;
-            this.VpnGateway = VpnGateway;
+            Acl = acl;
+            AclRule = aclRule;
+            Address = address;
+            Addresses = addresses;
+            AttachedTo = attachedTo;
+            AvailabilityZones = availabilityZones;
+            Cidrs = cidrs;
+            ClassicLoadBalancerListener = classicLoadBalancerListener;
+            Component = component;
+            CustomerGateway = customerGateway;
+            Destination = destination;
+            DestinationVpc = destinationVpc;
+            Direction = direction;
+            ElasticLoadBalancerListener = elasticLoadBalancerListener;
+            ExplanationCode = explanationCode;
+            IngressRouteTable = ingressRouteTable;
+            InternetGateway = internetGateway;
+            LoadBalancerArn = loadBalancerArn;
+            LoadBalancerListenerPort = loadBalancerListenerPort;
+            LoadBalancerTarget = loadBalancerTarget;
+            LoadBalancerTargetGroup = loadBalancerTargetGroup;
+            LoadBalancerTargetGroups = loadBalancerTargetGroups;
+            LoadBalancerTargetPort = loadBalancerTargetPort;
+            MissingComponent = missingComponent;
+            NatGateway = natGateway;
+            NetworkInterface = networkInterface;
+            PacketField = packetField;
+            Port = port;
+            PortRanges = portRanges;
+            PrefixList = prefixList;
+            Protocols = protocols;
+            RouteTable = routeTable;
+            RouteTableRoute = routeTableRoute;
+            SecurityGroup = securityGroup;
+            SecurityGroupRule = securityGroupRule;
+            SecurityGroups = securityGroups;
+            SourceVpc = sourceVpc;
+            State = state;
+            Subnet = subnet;
+            SubnetRouteTable = subnetRouteTable;
+            Vpc = vpc;
             VpcEndpoint = vpcEndpoint;
+            VpcPeeringConnection = vpcPeeringConnection;
+            VpnConnection = vpnConnection;
+            VpnGateway = vpnGateway;
         }
     }
 }

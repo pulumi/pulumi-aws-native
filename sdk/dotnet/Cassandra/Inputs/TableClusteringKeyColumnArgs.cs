@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-column
         /// </summary>
-        [Input("Column", required: true)]
+        [Input("column", required: true)]
         public Input<Inputs.TableColumnArgs> Column { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-orderby
         /// </summary>
-        [Input("OrderBy")]
+        [Input("orderBy")]
         public Input<string>? OrderBy { get; set; }
 
         public TableClusteringKeyColumnArgs()

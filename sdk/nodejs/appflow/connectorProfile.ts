@@ -38,25 +38,25 @@ export class ConnectorProfile extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
      */
-    public readonly ConnectionMode!: pulumi.Output<string>;
-    public /*out*/ readonly ConnectorProfileArn!: pulumi.Output<string>;
+    public readonly connectionMode!: pulumi.Output<string>;
+    public /*out*/ readonly connectorProfileArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
      */
-    public readonly ConnectorProfileConfig!: pulumi.Output<outputs.AppFlow.ConnectorProfileConnectorProfileConfig | undefined>;
+    public readonly connectorProfileConfig!: pulumi.Output<outputs.AppFlow.ConnectorProfileConnectorProfileConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
      */
-    public readonly ConnectorProfileName!: pulumi.Output<string>;
+    public readonly connectorProfileName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
      */
-    public readonly ConnectorType!: pulumi.Output<string>;
-    public /*out*/ readonly CredentialsArn!: pulumi.Output<string>;
+    public readonly connectorType!: pulumi.Output<string>;
+    public /*out*/ readonly credentialsArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
      */
-    public readonly KMSArn!: pulumi.Output<string | undefined>;
+    public readonly kMSArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ConnectorProfile resource with the given unique name, arguments, and options.
@@ -68,30 +68,30 @@ export class ConnectorProfile extends pulumi.CustomResource {
     constructor(name: string, args: ConnectorProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ConnectionMode === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ConnectionMode'");
+            if ((!args || args.connectionMode === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'connectionMode'");
             }
-            if ((!args || args.ConnectorProfileName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ConnectorProfileName'");
+            if ((!args || args.connectorProfileName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'connectorProfileName'");
             }
-            if ((!args || args.ConnectorType === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ConnectorType'");
+            if ((!args || args.connectorType === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'connectorType'");
             }
-            inputs["ConnectionMode"] = args ? args.ConnectionMode : undefined;
-            inputs["ConnectorProfileConfig"] = args ? args.ConnectorProfileConfig : undefined;
-            inputs["ConnectorProfileName"] = args ? args.ConnectorProfileName : undefined;
-            inputs["ConnectorType"] = args ? args.ConnectorType : undefined;
-            inputs["KMSArn"] = args ? args.KMSArn : undefined;
-            inputs["ConnectorProfileArn"] = undefined /*out*/;
-            inputs["CredentialsArn"] = undefined /*out*/;
+            inputs["connectionMode"] = args ? args.connectionMode : undefined;
+            inputs["connectorProfileConfig"] = args ? args.connectorProfileConfig : undefined;
+            inputs["connectorProfileName"] = args ? args.connectorProfileName : undefined;
+            inputs["connectorType"] = args ? args.connectorType : undefined;
+            inputs["kMSArn"] = args ? args.kMSArn : undefined;
+            inputs["connectorProfileArn"] = undefined /*out*/;
+            inputs["credentialsArn"] = undefined /*out*/;
         } else {
-            inputs["ConnectionMode"] = undefined /*out*/;
-            inputs["ConnectorProfileArn"] = undefined /*out*/;
-            inputs["ConnectorProfileConfig"] = undefined /*out*/;
-            inputs["ConnectorProfileName"] = undefined /*out*/;
-            inputs["ConnectorType"] = undefined /*out*/;
-            inputs["CredentialsArn"] = undefined /*out*/;
-            inputs["KMSArn"] = undefined /*out*/;
+            inputs["connectionMode"] = undefined /*out*/;
+            inputs["connectorProfileArn"] = undefined /*out*/;
+            inputs["connectorProfileConfig"] = undefined /*out*/;
+            inputs["connectorProfileName"] = undefined /*out*/;
+            inputs["connectorType"] = undefined /*out*/;
+            inputs["credentialsArn"] = undefined /*out*/;
+            inputs["kMSArn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -111,21 +111,21 @@ export interface ConnectorProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
      */
-    readonly ConnectionMode: pulumi.Input<string>;
+    readonly connectionMode: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
      */
-    readonly ConnectorProfileConfig?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorProfileConfig>;
+    readonly connectorProfileConfig?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorProfileConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
      */
-    readonly ConnectorProfileName: pulumi.Input<string>;
+    readonly connectorProfileName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
      */
-    readonly ConnectorType: pulumi.Input<string>;
+    readonly connectorType: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
      */
-    readonly KMSArn?: pulumi.Input<string>;
+    readonly kMSArn?: pulumi.Input<string>;
 }

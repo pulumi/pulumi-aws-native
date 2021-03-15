@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.MWAA.Inputs
     /// </summary>
     public sealed class EnvironmentSecurityGroupListArgs : Pulumi.ResourceArgs
     {
-        [Input("SecurityGroupList")]
-        private InputList<string>? _SecurityGroupList;
+        [Input("securityGroupList")]
+        private InputList<string>? _securityGroupList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-securitygrouplist.html#cfn-mwaa-environment-securitygrouplist-securitygrouplist
         /// </summary>
         public InputList<string> SecurityGroupList
         {
-            get => _SecurityGroupList ?? (_SecurityGroupList = new InputList<string>());
-            set => _SecurityGroupList = value;
+            get => _securityGroupList ?? (_securityGroupList = new InputList<string>());
+            set => _securityGroupList = value;
         }
 
         public EnvironmentSecurityGroupListArgs()

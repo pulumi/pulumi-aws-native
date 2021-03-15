@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Macie.Outputs
         public readonly Outputs.FindingsFilterCriterion? Criterion;
 
         [OutputConstructor]
-        private FindingsFilterFindingCriteria(Outputs.FindingsFilterCriterion? Criterion)
+        private FindingsFilterFindingCriteria(Outputs.FindingsFilterCriterion? criterion)
         {
-            this.Criterion = Criterion;
+            Criterion = criterion;
         }
     }
 }

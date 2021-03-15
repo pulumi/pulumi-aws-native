@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly Outputs.DataSourceConfluenceBlogFieldMappingsList? BlogFieldMappings;
 
         [OutputConstructor]
-        private DataSourceConfluenceBlogConfiguration(Outputs.DataSourceConfluenceBlogFieldMappingsList? BlogFieldMappings)
+        private DataSourceConfluenceBlogConfiguration(Outputs.DataSourceConfluenceBlogFieldMappingsList? blogFieldMappings)
         {
-            this.BlogFieldMappings = BlogFieldMappings;
+            BlogFieldMappings = blogFieldMappings;
         }
     }
 }

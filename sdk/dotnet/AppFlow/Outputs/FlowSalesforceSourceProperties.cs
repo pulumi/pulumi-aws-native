@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowSalesforceSourceProperties(
-            bool? EnableDynamicFieldUpdate,
+            bool? enableDynamicFieldUpdate,
 
-            bool? IncludeDeletedRecords,
+            bool? includeDeletedRecords,
 
-            string Object)
+            string @object)
         {
-            this.EnableDynamicFieldUpdate = EnableDynamicFieldUpdate;
-            this.IncludeDeletedRecords = IncludeDeletedRecords;
-            this.Object = Object;
+            EnableDynamicFieldUpdate = enableDynamicFieldUpdate;
+            IncludeDeletedRecords = includeDeletedRecords;
+            Object = @object;
         }
     }
 }

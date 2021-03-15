@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketname
         /// </summary>
-        [Input("BucketName", required: true)]
+        [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketprefix
         /// </summary>
-        [Input("BucketPrefix")]
+        [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-s3outputformatconfig
         /// </summary>
-        [Input("S3OutputFormatConfig")]
+        [Input("s3OutputFormatConfig")]
         public Input<Inputs.FlowS3OutputFormatConfigArgs>? S3OutputFormatConfig { get; set; }
 
         public FlowS3DestinationPropertiesArgs()

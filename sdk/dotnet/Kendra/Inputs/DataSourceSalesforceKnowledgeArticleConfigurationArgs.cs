@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
         /// </summary>
-        [Input("CustomKnowledgeArticleTypeConfigurations")]
+        [Input("customKnowledgeArticleTypeConfigurations")]
         public Input<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs>? CustomKnowledgeArticleTypeConfigurations { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
         /// </summary>
-        [Input("IncludedStates", required: true)]
+        [Input("includedStates", required: true)]
         public Input<Inputs.DataSourceSalesforceKnowledgeArticleStateListArgs> IncludedStates { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration
         /// </summary>
-        [Input("StandardKnowledgeArticleTypeConfiguration")]
+        [Input("standardKnowledgeArticleTypeConfiguration")]
         public Input<Inputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs>? StandardKnowledgeArticleTypeConfiguration { get; set; }
 
         public DataSourceSalesforceKnowledgeArticleConfigurationArgs()

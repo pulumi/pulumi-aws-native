@@ -38,20 +38,20 @@ export class DeviceFleet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly DeviceFleetName!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly deviceFleetName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
      */
-    public readonly OutputConfig!: pulumi.Output<outputs.SageMaker.DeviceFleetEdgeOutputConfig>;
+    public readonly outputConfig!: pulumi.Output<outputs.SageMaker.DeviceFleetEdgeOutputConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
      */
-    public readonly RoleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag | undefined>;
 
     /**
      * Create a DeviceFleet resource with the given unique name, arguments, and options.
@@ -63,23 +63,23 @@ export class DeviceFleet extends pulumi.CustomResource {
     constructor(name: string, args: DeviceFleetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.OutputConfig === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'OutputConfig'");
+            if ((!args || args.outputConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'outputConfig'");
             }
-            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RoleArn'");
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'roleArn'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["OutputConfig"] = args ? args.OutputConfig : undefined;
-            inputs["RoleArn"] = args ? args.RoleArn : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["DeviceFleetName"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["outputConfig"] = args ? args.outputConfig : undefined;
+            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["deviceFleetName"] = undefined /*out*/;
         } else {
-            inputs["Description"] = undefined /*out*/;
-            inputs["DeviceFleetName"] = undefined /*out*/;
-            inputs["OutputConfig"] = undefined /*out*/;
-            inputs["RoleArn"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["deviceFleetName"] = undefined /*out*/;
+            inputs["outputConfig"] = undefined /*out*/;
+            inputs["roleArn"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -99,17 +99,17 @@ export interface DeviceFleetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
      */
-    readonly OutputConfig: pulumi.Input<inputs.SageMaker.DeviceFleetEdgeOutputConfig>;
+    readonly outputConfig: pulumi.Input<inputs.SageMaker.DeviceFleetEdgeOutputConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
      */
-    readonly RoleArn: pulumi.Input<string>;
+    readonly roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
      */
-    readonly Tags?: pulumi.Input<inputs.Tag>;
+    readonly tags?: pulumi.Input<inputs.Tag>;
 }

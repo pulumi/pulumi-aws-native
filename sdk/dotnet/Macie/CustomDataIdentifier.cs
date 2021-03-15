@@ -15,52 +15,52 @@ namespace Pulumi.AwsNative.Macie
     [AwsNativeResourceType("aws-native:Macie:CustomDataIdentifier")]
     public partial class CustomDataIdentifier : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("CreatedAt")]
+        [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        [Output("Deleted")]
+        [Output("deleted")]
         public Output<bool> Deleted { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-ignorewords
         /// </summary>
-        [Output("IgnoreWords")]
+        [Output("ignoreWords")]
         public Output<ImmutableArray<string>> IgnoreWords { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-keywords
         /// </summary>
-        [Output("Keywords")]
+        [Output("keywords")]
         public Output<ImmutableArray<string>> Keywords { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-maximummatchdistance
         /// </summary>
-        [Output("MaximumMatchDistance")]
+        [Output("maximumMatchDistance")]
         public Output<int?> MaximumMatchDistance { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-regex
         /// </summary>
-        [Output("Regex")]
+        [Output("regex")]
         public Output<string> Regex { get; private set; } = null!;
 
 
@@ -111,49 +111,49 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("IgnoreWords")]
-        private InputList<string>? _IgnoreWords;
+        [Input("ignoreWords")]
+        private InputList<string>? _ignoreWords;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-ignorewords
         /// </summary>
         public InputList<string> IgnoreWords
         {
-            get => _IgnoreWords ?? (_IgnoreWords = new InputList<string>());
-            set => _IgnoreWords = value;
+            get => _ignoreWords ?? (_ignoreWords = new InputList<string>());
+            set => _ignoreWords = value;
         }
 
-        [Input("Keywords")]
-        private InputList<string>? _Keywords;
+        [Input("keywords")]
+        private InputList<string>? _keywords;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-keywords
         /// </summary>
         public InputList<string> Keywords
         {
-            get => _Keywords ?? (_Keywords = new InputList<string>());
-            set => _Keywords = value;
+            get => _keywords ?? (_keywords = new InputList<string>());
+            set => _keywords = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-maximummatchdistance
         /// </summary>
-        [Input("MaximumMatchDistance")]
+        [Input("maximumMatchDistance")]
         public Input<int>? MaximumMatchDistance { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-regex
         /// </summary>
-        [Input("Regex", required: true)]
+        [Input("regex", required: true)]
         public Input<string> Regex { get; set; } = null!;
 
         public CustomDataIdentifierArgs()

@@ -48,30 +48,30 @@ namespace Pulumi.AwsNative.S3.Outputs
 
         [OutputConstructor]
         private StorageLensStorageLensConfiguration(
-            Outputs.StorageLensAccountLevel AccountLevel,
+            Outputs.StorageLensAccountLevel accountLevel,
 
-            Outputs.StorageLensAwsOrg? AwsOrg,
+            Outputs.StorageLensAwsOrg? awsOrg,
 
-            Outputs.StorageLensDataExport? DataExport,
+            Outputs.StorageLensDataExport? dataExport,
 
-            Outputs.StorageLensBucketsAndRegions? Exclude,
+            Outputs.StorageLensBucketsAndRegions? exclude,
 
-            string Id,
+            string id,
 
-            Outputs.StorageLensBucketsAndRegions? Include,
+            Outputs.StorageLensBucketsAndRegions? include,
 
-            bool IsEnabled,
+            bool isEnabled,
 
-            string? StorageLensArn)
+            string? storageLensArn)
         {
-            this.AccountLevel = AccountLevel;
-            this.AwsOrg = AwsOrg;
-            this.DataExport = DataExport;
-            this.Exclude = Exclude;
-            this.Id = Id;
-            this.Include = Include;
-            this.IsEnabled = IsEnabled;
-            this.StorageLensArn = StorageLensArn;
+            AccountLevel = accountLevel;
+            AwsOrg = awsOrg;
+            DataExport = dataExport;
+            Exclude = exclude;
+            Id = id;
+            Include = include;
+            IsEnabled = isEnabled;
+            StorageLensArn = storageLensArn;
         }
     }
 }

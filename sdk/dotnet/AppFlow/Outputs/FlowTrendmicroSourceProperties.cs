@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string Object;
 
         [OutputConstructor]
-        private FlowTrendmicroSourceProperties(string Object)
+        private FlowTrendmicroSourceProperties(string @object)
         {
-            this.Object = Object;
+            Object = @object;
         }
     }
 }

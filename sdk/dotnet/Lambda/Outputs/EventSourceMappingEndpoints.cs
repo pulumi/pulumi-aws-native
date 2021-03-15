@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         public readonly ImmutableArray<string> KafkaBootstrapServers;
 
         [OutputConstructor]
-        private EventSourceMappingEndpoints(ImmutableArray<string> KafkaBootstrapServers)
+        private EventSourceMappingEndpoints(ImmutableArray<string> kafkaBootstrapServers)
         {
-            this.KafkaBootstrapServers = KafkaBootstrapServers;
+            KafkaBootstrapServers = kafkaBootstrapServers;
         }
     }
 }

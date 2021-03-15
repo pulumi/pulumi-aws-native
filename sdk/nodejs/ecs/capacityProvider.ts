@@ -38,15 +38,15 @@ export class CapacityProvider extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider
      */
-    public readonly AutoScalingGroupProvider!: pulumi.Output<outputs.ECS.CapacityProviderAutoScalingGroupProvider>;
+    public readonly autoScalingGroupProvider!: pulumi.Output<outputs.ECS.CapacityProviderAutoScalingGroupProvider>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-name
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CapacityProvider resource with the given unique name, arguments, and options.
@@ -58,16 +58,16 @@ export class CapacityProvider extends pulumi.CustomResource {
     constructor(name: string, args: CapacityProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.AutoScalingGroupProvider === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'AutoScalingGroupProvider'");
+            if ((!args || args.autoScalingGroupProvider === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'autoScalingGroupProvider'");
             }
-            inputs["AutoScalingGroupProvider"] = args ? args.AutoScalingGroupProvider : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["autoScalingGroupProvider"] = args ? args.autoScalingGroupProvider : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["AutoScalingGroupProvider"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["autoScalingGroupProvider"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -87,13 +87,13 @@ export interface CapacityProviderArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider
      */
-    readonly AutoScalingGroupProvider: pulumi.Input<inputs.ECS.CapacityProviderAutoScalingGroupProvider>;
+    readonly autoScalingGroupProvider: pulumi.Input<inputs.ECS.CapacityProviderAutoScalingGroupProvider>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-name
      */
-    readonly Name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

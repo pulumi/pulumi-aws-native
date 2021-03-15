@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Macie.Outputs
 
         [OutputConstructor]
         private FindingsFilterFindingsFilterListItem(
-            string? Id,
+            string? id,
 
-            string? Name)
+            string? name)
         {
-            this.Id = Id;
-            this.Name = Name;
+            Id = id;
+            Name = name;
         }
     }
 }

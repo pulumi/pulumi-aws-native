@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
         /// </summary>
-        [Output("AllowedPublishers")]
+        [Output("allowedPublishers")]
         public Output<Outputs.CodeSigningConfigAllowedPublishers> AllowedPublishers { get; private set; } = null!;
 
-        [Output("CodeSigningConfigArn")]
+        [Output("codeSigningConfigArn")]
         public Output<string> CodeSigningConfigArn { get; private set; } = null!;
 
-        [Output("CodeSigningConfigId")]
+        [Output("codeSigningConfigId")]
         public Output<string> CodeSigningConfigId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
         /// </summary>
-        [Output("CodeSigningPolicies")]
+        [Output("codeSigningPolicies")]
         public Output<Outputs.CodeSigningConfigCodeSigningPolicies?> CodeSigningPolicies { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
 
@@ -87,19 +87,19 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
         /// </summary>
-        [Input("AllowedPublishers", required: true)]
+        [Input("allowedPublishers", required: true)]
         public Input<Inputs.CodeSigningConfigAllowedPublishersArgs> AllowedPublishers { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
         /// </summary>
-        [Input("CodeSigningPolicies")]
+        [Input("codeSigningPolicies")]
         public Input<Inputs.CodeSigningConfigCodeSigningPoliciesArgs>? CodeSigningPolicies { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         public CodeSigningConfigArgs()

@@ -29,7 +29,7 @@ class StreamStreamEncryption(dict):
         pulumi.set(__self__, "key_id", key_id)
 
     @property
-    @pulumi.getter(name="EncryptionType")
+    @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-encryptiontype
@@ -37,7 +37,7 @@ class StreamStreamEncryption(dict):
         return pulumi.get(self, "encryption_type")
 
     @property
-    @pulumi.getter(name="KeyId")
+    @pulumi.getter(name="keyId")
     def key_id(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-keyid

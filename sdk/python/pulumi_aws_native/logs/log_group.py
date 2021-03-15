@@ -76,12 +76,12 @@ class LogGroup(pulumi.CustomResource):
         return LogGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="KmsKeyId")
+    @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
@@ -89,7 +89,7 @@ class LogGroup(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_id")
 
     @property
-    @pulumi.getter(name="LogGroupName")
+    @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
@@ -97,7 +97,7 @@ class LogGroup(pulumi.CustomResource):
         return pulumi.get(self, "log_group_name")
 
     @property
-    @pulumi.getter(name="RetentionInDays")
+    @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays

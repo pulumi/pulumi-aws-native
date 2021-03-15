@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-inputformatconfiguration-deserializer
         /// </summary>
-        [Input("Deserializer")]
+        [Input("deserializer")]
         public Input<Inputs.DeliveryStreamDeserializerArgs>? Deserializer { get; set; }
 
         public DeliveryStreamInputFormatConfigurationArgs()

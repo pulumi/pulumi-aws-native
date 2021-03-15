@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-certificatearn
         /// </summary>
-        [Input("CertificateArn")]
+        [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-resourceid
         /// </summary>
-        [Input("ResourceId", required: true)]
+        [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        [Input("SystemIds", required: true)]
-        private InputList<string>? _SystemIds;
+        [Input("systemIds", required: true)]
+        private InputList<string>? _systemIds;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-systemids
         /// </summary>
         public InputList<string> SystemIds
         {
-            get => _SystemIds ?? (_SystemIds = new InputList<string>());
-            set => _SystemIds = value;
+            get => _systemIds ?? (_systemIds = new InputList<string>());
+            set => _systemIds = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-url
         /// </summary>
-        [Input("Url", required: true)]
+        [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
         public OriginEndpointSpekeKeyProviderArgs()

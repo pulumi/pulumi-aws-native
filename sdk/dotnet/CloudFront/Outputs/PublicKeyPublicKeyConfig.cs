@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
         [OutputConstructor]
         private PublicKeyPublicKeyConfig(
-            string CallerReference,
+            string callerReference,
 
-            string? Comment,
+            string? comment,
 
-            string EncodedKey,
+            string encodedKey,
 
-            string Name)
+            string name)
         {
-            this.CallerReference = CallerReference;
-            this.Comment = Comment;
-            this.EncodedKey = EncodedKey;
-            this.Name = Name;
+            CallerReference = callerReference;
+            Comment = comment;
+            EncodedKey = encodedKey;
+            Name = name;
         }
     }
 }

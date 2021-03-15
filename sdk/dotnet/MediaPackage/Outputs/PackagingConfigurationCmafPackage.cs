@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private PackagingConfigurationCmafPackage(
-            Outputs.PackagingConfigurationCmafEncryption? Encryption,
+            Outputs.PackagingConfigurationCmafEncryption? encryption,
 
-            ImmutableArray<Outputs.PackagingConfigurationHlsManifest> HlsManifests,
+            ImmutableArray<Outputs.PackagingConfigurationHlsManifest> hlsManifests,
 
-            int? SegmentDurationSeconds)
+            int? segmentDurationSeconds)
         {
-            this.Encryption = Encryption;
-            this.HlsManifests = HlsManifests;
-            this.SegmentDurationSeconds = SegmentDurationSeconds;
+            Encryption = encryption;
+            HlsManifests = hlsManifests;
+            SegmentDurationSeconds = segmentDurationSeconds;
         }
     }
 }

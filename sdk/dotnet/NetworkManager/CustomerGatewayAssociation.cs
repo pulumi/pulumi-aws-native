@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
         /// </summary>
-        [Output("CustomerGatewayArn")]
+        [Output("customerGatewayArn")]
         public Output<string> CustomerGatewayArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
         /// </summary>
-        [Output("DeviceId")]
+        [Output("deviceId")]
         public Output<string> DeviceId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
         /// </summary>
-        [Output("GlobalNetworkId")]
+        [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
         /// </summary>
-        [Output("LinkId")]
+        [Output("linkId")]
         public Output<string?> LinkId { get; private set; } = null!;
 
 
@@ -87,25 +87,25 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
         /// </summary>
-        [Input("CustomerGatewayArn", required: true)]
+        [Input("customerGatewayArn", required: true)]
         public Input<string> CustomerGatewayArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
         /// </summary>
-        [Input("DeviceId", required: true)]
+        [Input("deviceId", required: true)]
         public Input<string> DeviceId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
         /// </summary>
-        [Input("GlobalNetworkId", required: true)]
+        [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
         /// </summary>
-        [Input("LinkId")]
+        [Input("linkId")]
         public Input<string>? LinkId { get; set; }
 
         public CustomerGatewayAssociationArgs()

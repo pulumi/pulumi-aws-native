@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.MWAA.Outputs
 
         [OutputConstructor]
         private EnvironmentLoggingConfiguration(
-            Outputs.EnvironmentModuleLoggingConfiguration? DagProcessingLogs,
+            Outputs.EnvironmentModuleLoggingConfiguration? dagProcessingLogs,
 
-            Outputs.EnvironmentModuleLoggingConfiguration? SchedulerLogs,
+            Outputs.EnvironmentModuleLoggingConfiguration? schedulerLogs,
 
-            Outputs.EnvironmentModuleLoggingConfiguration? TaskLogs,
+            Outputs.EnvironmentModuleLoggingConfiguration? taskLogs,
 
-            Outputs.EnvironmentModuleLoggingConfiguration? WebserverLogs,
+            Outputs.EnvironmentModuleLoggingConfiguration? webserverLogs,
 
-            Outputs.EnvironmentModuleLoggingConfiguration? WorkerLogs)
+            Outputs.EnvironmentModuleLoggingConfiguration? workerLogs)
         {
-            this.DagProcessingLogs = DagProcessingLogs;
-            this.SchedulerLogs = SchedulerLogs;
-            this.TaskLogs = TaskLogs;
-            this.WebserverLogs = WebserverLogs;
-            this.WorkerLogs = WorkerLogs;
+            DagProcessingLogs = dagProcessingLogs;
+            SchedulerLogs = schedulerLogs;
+            TaskLogs = taskLogs;
+            WebserverLogs = webserverLogs;
+            WorkerLogs = workerLogs;
         }
     }
 }

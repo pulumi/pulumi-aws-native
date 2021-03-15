@@ -97,12 +97,12 @@ class FileSystem(pulumi.CustomResource):
         return FileSystem(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="BackupPolicy")
+    @pulumi.getter(name="backupPolicy")
     def backup_policy(self) -> pulumi.Output[Optional['outputs.FileSystemBackupPolicy']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
@@ -110,7 +110,7 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "backup_policy")
 
     @property
-    @pulumi.getter(name="Encrypted")
+    @pulumi.getter
     def encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
@@ -118,12 +118,12 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "encrypted")
 
     @property
-    @pulumi.getter(name="FileSystemId")
+    @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "file_system_id")
 
     @property
-    @pulumi.getter(name="FileSystemPolicy")
+    @pulumi.getter(name="fileSystemPolicy")
     def file_system_policy(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
@@ -131,7 +131,7 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "file_system_policy")
 
     @property
-    @pulumi.getter(name="FileSystemTags")
+    @pulumi.getter(name="fileSystemTags")
     def file_system_tags(self) -> pulumi.Output[Optional[Sequence['outputs.FileSystemElasticFileSystemTag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
@@ -139,7 +139,7 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "file_system_tags")
 
     @property
-    @pulumi.getter(name="KmsKeyId")
+    @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
@@ -147,7 +147,7 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_id")
 
     @property
-    @pulumi.getter(name="LifecyclePolicies")
+    @pulumi.getter(name="lifecyclePolicies")
     def lifecycle_policies(self) -> pulumi.Output[Optional[Sequence['outputs.FileSystemLifecyclePolicy']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
@@ -155,7 +155,7 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "lifecycle_policies")
 
     @property
-    @pulumi.getter(name="PerformanceMode")
+    @pulumi.getter(name="performanceMode")
     def performance_mode(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
@@ -163,7 +163,7 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "performance_mode")
 
     @property
-    @pulumi.getter(name="ProvisionedThroughputInMibps")
+    @pulumi.getter(name="provisionedThroughputInMibps")
     def provisioned_throughput_in_mibps(self) -> pulumi.Output[Optional[float]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
@@ -171,7 +171,7 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "provisioned_throughput_in_mibps")
 
     @property
-    @pulumi.getter(name="ThroughputMode")
+    @pulumi.getter(name="throughputMode")
     def throughput_mode(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
         [OutputConstructor]
         private PrefixListEntry(
-            string Cidr,
+            string cidr,
 
-            string? Description)
+            string? description)
         {
-            this.Cidr = Cidr;
-            this.Description = Description;
+            Cidr = cidr;
+            Description = description;
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         public readonly Outputs.OriginEndpointSpekeKeyProvider SpekeKeyProvider;
 
         [OutputConstructor]
-        private OriginEndpointMssEncryption(Outputs.OriginEndpointSpekeKeyProvider SpekeKeyProvider)
+        private OriginEndpointMssEncryption(Outputs.OriginEndpointSpekeKeyProvider spekeKeyProvider)
         {
-            this.SpekeKeyProvider = SpekeKeyProvider;
+            SpekeKeyProvider = spekeKeyProvider;
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string Object;
 
         [OutputConstructor]
-        private FlowInforNexusSourceProperties(string Object)
+        private FlowInforNexusSourceProperties(string @object)
         {
-            this.Object = Object;
+            Object = @object;
         }
     }
 }

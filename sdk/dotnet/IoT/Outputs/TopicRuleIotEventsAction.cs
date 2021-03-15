@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleIotEventsAction(
-            string InputName,
+            string inputName,
 
-            string? MessageId,
+            string? messageId,
 
-            string RoleArn)
+            string roleArn)
         {
-            this.InputName = InputName;
-            this.MessageId = MessageId;
-            this.RoleArn = RoleArn;
+            InputName = inputName;
+            MessageId = messageId;
+            RoleArn = roleArn;
         }
     }
 }

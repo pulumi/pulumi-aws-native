@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceConfluenceSpaceConfiguration(
-            bool? CrawlArchivedSpaces,
+            bool? crawlArchivedSpaces,
 
-            bool? CrawlPersonalSpaces,
+            bool? crawlPersonalSpaces,
 
-            Outputs.DataSourceConfluenceSpaceList? ExcludeSpaces,
+            Outputs.DataSourceConfluenceSpaceList? excludeSpaces,
 
-            Outputs.DataSourceConfluenceSpaceList? IncludeSpaces,
+            Outputs.DataSourceConfluenceSpaceList? includeSpaces,
 
-            Outputs.DataSourceConfluenceSpaceFieldMappingsList? SpaceFieldMappings)
+            Outputs.DataSourceConfluenceSpaceFieldMappingsList? spaceFieldMappings)
         {
-            this.CrawlArchivedSpaces = CrawlArchivedSpaces;
-            this.CrawlPersonalSpaces = CrawlPersonalSpaces;
-            this.ExcludeSpaces = ExcludeSpaces;
-            this.IncludeSpaces = IncludeSpaces;
-            this.SpaceFieldMappings = SpaceFieldMappings;
+            CrawlArchivedSpaces = crawlArchivedSpaces;
+            CrawlPersonalSpaces = crawlPersonalSpaces;
+            ExcludeSpaces = excludeSpaces;
+            IncludeSpaces = includeSpaces;
+            SpaceFieldMappings = spaceFieldMappings;
         }
     }
 }

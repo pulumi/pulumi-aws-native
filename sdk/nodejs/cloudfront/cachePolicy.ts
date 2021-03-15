@@ -38,9 +38,9 @@ export class CachePolicy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
      */
-    public readonly CachePolicyConfig!: pulumi.Output<outputs.CloudFront.CachePolicyCachePolicyConfig>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
-    public /*out*/ readonly LastModifiedTime!: pulumi.Output<string>;
+    public readonly cachePolicyConfig!: pulumi.Output<outputs.CloudFront.CachePolicyCachePolicyConfig>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
 
     /**
      * Create a CachePolicy resource with the given unique name, arguments, and options.
@@ -52,16 +52,16 @@ export class CachePolicy extends pulumi.CustomResource {
     constructor(name: string, args: CachePolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.CachePolicyConfig === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'CachePolicyConfig'");
+            if ((!args || args.cachePolicyConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'cachePolicyConfig'");
             }
-            inputs["CachePolicyConfig"] = args ? args.CachePolicyConfig : undefined;
-            inputs["Id"] = undefined /*out*/;
-            inputs["LastModifiedTime"] = undefined /*out*/;
+            inputs["cachePolicyConfig"] = args ? args.cachePolicyConfig : undefined;
+            inputs["id"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
         } else {
-            inputs["CachePolicyConfig"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["LastModifiedTime"] = undefined /*out*/;
+            inputs["cachePolicyConfig"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -81,5 +81,5 @@ export interface CachePolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
      */
-    readonly CachePolicyConfig: pulumi.Input<inputs.CloudFront.CachePolicyCachePolicyConfig>;
+    readonly cachePolicyConfig: pulumi.Input<inputs.CloudFront.CachePolicyCachePolicyConfig>;
 }

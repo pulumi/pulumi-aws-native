@@ -93,17 +93,17 @@ class Certificate(pulumi.CustomResource):
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Certificate")
+    @pulumi.getter
     def certificate(self) -> pulumi.Output[str]:
         return pulumi.get(self, "certificate")
 
     @property
-    @pulumi.getter(name="CertificateAuthorityArn")
+    @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
@@ -111,7 +111,7 @@ class Certificate(pulumi.CustomResource):
         return pulumi.get(self, "certificate_authority_arn")
 
     @property
-    @pulumi.getter(name="CertificateSigningRequest")
+    @pulumi.getter(name="certificateSigningRequest")
     def certificate_signing_request(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
@@ -119,7 +119,7 @@ class Certificate(pulumi.CustomResource):
         return pulumi.get(self, "certificate_signing_request")
 
     @property
-    @pulumi.getter(name="SigningAlgorithm")
+    @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
@@ -127,7 +127,7 @@ class Certificate(pulumi.CustomResource):
         return pulumi.get(self, "signing_algorithm")
 
     @property
-    @pulumi.getter(name="TemplateArn")
+    @pulumi.getter(name="templateArn")
     def template_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
@@ -135,7 +135,7 @@ class Certificate(pulumi.CustomResource):
         return pulumi.get(self, "template_arn")
 
     @property
-    @pulumi.getter(name="Validity")
+    @pulumi.getter
     def validity(self) -> pulumi.Output['outputs.CertificateValidity']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity

@@ -42,7 +42,7 @@ class CarrierGatewayTags(dict):
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html#cfn-ec2-carriergateway-tags-tags
@@ -68,7 +68,7 @@ class LocalGatewayRouteTableVPCAssociationTags(dict):
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html#cfn-ec2-localgatewayroutetablevpcassociation-tags-tags
@@ -98,7 +98,7 @@ class NetworkInsightsAnalysisAlternatePathHint(dict):
             pulumi.set(__self__, "component_id", component_id)
 
     @property
-    @pulumi.getter(name="ComponentArn")
+    @pulumi.getter(name="componentArn")
     def component_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentarn
@@ -106,7 +106,7 @@ class NetworkInsightsAnalysisAlternatePathHint(dict):
         return pulumi.get(self, "component_arn")
 
     @property
-    @pulumi.getter(name="ComponentId")
+    @pulumi.getter(name="componentId")
     def component_id(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html#cfn-ec2-networkinsightsanalysis-alternatepathhint-componentid
@@ -152,7 +152,7 @@ class NetworkInsightsAnalysisAnalysisAclRule(dict):
             pulumi.set(__self__, "rule_number", rule_number)
 
     @property
-    @pulumi.getter(name="Cidr")
+    @pulumi.getter
     def cidr(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-cidr
@@ -160,7 +160,7 @@ class NetworkInsightsAnalysisAnalysisAclRule(dict):
         return pulumi.get(self, "cidr")
 
     @property
-    @pulumi.getter(name="Egress")
+    @pulumi.getter
     def egress(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-egress
@@ -168,7 +168,7 @@ class NetworkInsightsAnalysisAnalysisAclRule(dict):
         return pulumi.get(self, "egress")
 
     @property
-    @pulumi.getter(name="PortRange")
+    @pulumi.getter(name="portRange")
     def port_range(self) -> Optional['outputs.NetworkInsightsAnalysisPortRange']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-portrange
@@ -176,7 +176,7 @@ class NetworkInsightsAnalysisAnalysisAclRule(dict):
         return pulumi.get(self, "port_range")
 
     @property
-    @pulumi.getter(name="Protocol")
+    @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-protocol
@@ -184,7 +184,7 @@ class NetworkInsightsAnalysisAnalysisAclRule(dict):
         return pulumi.get(self, "protocol")
 
     @property
-    @pulumi.getter(name="RuleAction")
+    @pulumi.getter(name="ruleAction")
     def rule_action(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-ruleaction
@@ -192,7 +192,7 @@ class NetworkInsightsAnalysisAnalysisAclRule(dict):
         return pulumi.get(self, "rule_action")
 
     @property
-    @pulumi.getter(name="RuleNumber")
+    @pulumi.getter(name="ruleNumber")
     def rule_number(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-rulenumber
@@ -222,7 +222,7 @@ class NetworkInsightsAnalysisAnalysisComponent(dict):
             pulumi.set(__self__, "id", id)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-arn
@@ -230,7 +230,7 @@ class NetworkInsightsAnalysisAnalysisComponent(dict):
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysiscomponent.html#cfn-ec2-networkinsightsanalysis-analysiscomponent-id
@@ -260,7 +260,7 @@ class NetworkInsightsAnalysisAnalysisLoadBalancerListener(dict):
             pulumi.set(__self__, "load_balancer_port", load_balancer_port)
 
     @property
-    @pulumi.getter(name="InstancePort")
+    @pulumi.getter(name="instancePort")
     def instance_port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-instanceport
@@ -268,7 +268,7 @@ class NetworkInsightsAnalysisAnalysisLoadBalancerListener(dict):
         return pulumi.get(self, "instance_port")
 
     @property
-    @pulumi.getter(name="LoadBalancerPort")
+    @pulumi.getter(name="loadBalancerPort")
     def load_balancer_port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancerlistener-loadbalancerport
@@ -306,7 +306,7 @@ class NetworkInsightsAnalysisAnalysisLoadBalancerTarget(dict):
             pulumi.set(__self__, "port", port)
 
     @property
-    @pulumi.getter(name="Address")
+    @pulumi.getter
     def address(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-address
@@ -314,7 +314,7 @@ class NetworkInsightsAnalysisAnalysisLoadBalancerTarget(dict):
         return pulumi.get(self, "address")
 
     @property
-    @pulumi.getter(name="AvailabilityZone")
+    @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-availabilityzone
@@ -322,7 +322,7 @@ class NetworkInsightsAnalysisAnalysisLoadBalancerTarget(dict):
         return pulumi.get(self, "availability_zone")
 
     @property
-    @pulumi.getter(name="Instance")
+    @pulumi.getter
     def instance(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-instance
@@ -330,7 +330,7 @@ class NetworkInsightsAnalysisAnalysisLoadBalancerTarget(dict):
         return pulumi.get(self, "instance")
 
     @property
-    @pulumi.getter(name="Port")
+    @pulumi.getter
     def port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-port
@@ -372,7 +372,7 @@ class NetworkInsightsAnalysisAnalysisPacketHeader(dict):
             pulumi.set(__self__, "source_port_ranges", source_port_ranges)
 
     @property
-    @pulumi.getter(name="DestinationAddresses")
+    @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationaddresses
@@ -380,7 +380,7 @@ class NetworkInsightsAnalysisAnalysisPacketHeader(dict):
         return pulumi.get(self, "destination_addresses")
 
     @property
-    @pulumi.getter(name="DestinationPortRanges")
+    @pulumi.getter(name="destinationPortRanges")
     def destination_port_ranges(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisPortRange']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationportranges
@@ -388,7 +388,7 @@ class NetworkInsightsAnalysisAnalysisPacketHeader(dict):
         return pulumi.get(self, "destination_port_ranges")
 
     @property
-    @pulumi.getter(name="Protocol")
+    @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-protocol
@@ -396,7 +396,7 @@ class NetworkInsightsAnalysisAnalysisPacketHeader(dict):
         return pulumi.get(self, "protocol")
 
     @property
-    @pulumi.getter(name="SourceAddresses")
+    @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceaddresses
@@ -404,7 +404,7 @@ class NetworkInsightsAnalysisAnalysisPacketHeader(dict):
         return pulumi.get(self, "source_addresses")
 
     @property
-    @pulumi.getter(name="SourcePortRanges")
+    @pulumi.getter(name="sourcePortRanges")
     def source_port_ranges(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisPortRange']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceportranges
@@ -421,39 +421,29 @@ class NetworkInsightsAnalysisAnalysisRouteTableRoute(dict):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html
     """
     def __init__(__self__, *,
-                 nat_gateway_id: Optional[str] = None,
-                 network_interface_id: Optional[str] = None,
-                 origin: Optional[str] = None,
-                 transit_gateway_id: Optional[str] = None,
-                 vpc_peering_connection_id: Optional[str] = None,
                  destination_cidr: Optional[str] = None,
                  destination_prefix_list_id: Optional[str] = None,
                  egress_only_internet_gateway_id: Optional[str] = None,
                  gateway_id: Optional[str] = None,
-                 instance_id: Optional[str] = None):
+                 instance_id: Optional[str] = None,
+                 nat_gateway_id: Optional[str] = None,
+                 network_interface_id: Optional[str] = None,
+                 origin: Optional[str] = None,
+                 transit_gateway_id: Optional[str] = None,
+                 vpc_peering_connection_id: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html
-        :param str nat_gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-natgatewayid
-        :param str network_interface_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-networkinterfaceid
-        :param str origin: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-origin
-        :param str transit_gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-transitgatewayid
-        :param str vpc_peering_connection_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-vpcpeeringconnectionid
         :param str destination_cidr: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-destinationcidr
         :param str destination_prefix_list_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-destinationprefixlistid
         :param str egress_only_internet_gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-egressonlyinternetgatewayid
         :param str gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-gatewayid
         :param str instance_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-instanceid
+        :param str nat_gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-natgatewayid
+        :param str network_interface_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-networkinterfaceid
+        :param str origin: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-origin
+        :param str transit_gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-transitgatewayid
+        :param str vpc_peering_connection_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-vpcpeeringconnectionid
         """
-        if nat_gateway_id is not None:
-            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
-        if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
-        if origin is not None:
-            pulumi.set(__self__, "origin", origin)
-        if transit_gateway_id is not None:
-            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
-        if vpc_peering_connection_id is not None:
-            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
         if destination_cidr is not None:
             pulumi.set(__self__, "destination_cidr", destination_cidr)
         if destination_prefix_list_id is not None:
@@ -464,46 +454,16 @@ class NetworkInsightsAnalysisAnalysisRouteTableRoute(dict):
             pulumi.set(__self__, "gateway_id", gateway_id)
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
-
-    @property
-    @pulumi.getter(name="NatGatewayId")
-    def nat_gateway_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-natgatewayid
-        """
-        return pulumi.get(self, "nat_gateway_id")
-
-    @property
-    @pulumi.getter(name="NetworkInterfaceId")
-    def network_interface_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-networkinterfaceid
-        """
-        return pulumi.get(self, "network_interface_id")
-
-    @property
-    @pulumi.getter(name="Origin")
-    def origin(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-origin
-        """
-        return pulumi.get(self, "origin")
-
-    @property
-    @pulumi.getter(name="TransitGatewayId")
-    def transit_gateway_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-transitgatewayid
-        """
-        return pulumi.get(self, "transit_gateway_id")
-
-    @property
-    @pulumi.getter(name="VpcPeeringConnectionId")
-    def vpc_peering_connection_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-vpcpeeringconnectionid
-        """
-        return pulumi.get(self, "vpc_peering_connection_id")
+        if nat_gateway_id is not None:
+            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if transit_gateway_id is not None:
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_peering_connection_id is not None:
+            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
     @property
     @pulumi.getter(name="destinationCidr")
@@ -545,6 +505,46 @@ class NetworkInsightsAnalysisAnalysisRouteTableRoute(dict):
         """
         return pulumi.get(self, "instance_id")
 
+    @property
+    @pulumi.getter(name="natGatewayId")
+    def nat_gateway_id(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-natgatewayid
+        """
+        return pulumi.get(self, "nat_gateway_id")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-networkinterfaceid
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-origin
+        """
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-transitgatewayid
+        """
+        return pulumi.get(self, "transit_gateway_id")
+
+    @property
+    @pulumi.getter(name="vpcPeeringConnectionId")
+    def vpc_peering_connection_id(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-vpcpeeringconnectionid
+        """
+        return pulumi.get(self, "vpc_peering_connection_id")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -584,7 +584,7 @@ class NetworkInsightsAnalysisAnalysisSecurityGroupRule(dict):
             pulumi.set(__self__, "security_group_id", security_group_id)
 
     @property
-    @pulumi.getter(name="Cidr")
+    @pulumi.getter
     def cidr(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-cidr
@@ -592,7 +592,7 @@ class NetworkInsightsAnalysisAnalysisSecurityGroupRule(dict):
         return pulumi.get(self, "cidr")
 
     @property
-    @pulumi.getter(name="Direction")
+    @pulumi.getter
     def direction(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-direction
@@ -600,7 +600,7 @@ class NetworkInsightsAnalysisAnalysisSecurityGroupRule(dict):
         return pulumi.get(self, "direction")
 
     @property
-    @pulumi.getter(name="PortRange")
+    @pulumi.getter(name="portRange")
     def port_range(self) -> Optional['outputs.NetworkInsightsAnalysisPortRange']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-portrange
@@ -608,7 +608,7 @@ class NetworkInsightsAnalysisAnalysisSecurityGroupRule(dict):
         return pulumi.get(self, "port_range")
 
     @property
-    @pulumi.getter(name="PrefixListId")
+    @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-prefixlistid
@@ -616,7 +616,7 @@ class NetworkInsightsAnalysisAnalysisSecurityGroupRule(dict):
         return pulumi.get(self, "prefix_list_id")
 
     @property
-    @pulumi.getter(name="Protocol")
+    @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-protocol
@@ -624,7 +624,7 @@ class NetworkInsightsAnalysisAnalysisSecurityGroupRule(dict):
         return pulumi.get(self, "protocol")
 
     @property
-    @pulumi.getter(name="SecurityGroupId")
+    @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-securitygroupid
@@ -682,10 +682,10 @@ class NetworkInsightsAnalysisExplanation(dict):
                  subnet: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  subnet_route_table: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
+                 vpc_endpoint: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  vpc_peering_connection: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  vpn_connection: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
-                 vpn_gateway: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
-                 vpc_endpoint: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None):
+                 vpn_gateway: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html
         :param 'NetworkInsightsAnalysisAnalysisComponentArgs' acl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-acl
@@ -729,10 +729,10 @@ class NetworkInsightsAnalysisExplanation(dict):
         :param 'NetworkInsightsAnalysisAnalysisComponentArgs' subnet: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnet
         :param 'NetworkInsightsAnalysisAnalysisComponentArgs' subnet_route_table: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnetroutetable
         :param 'NetworkInsightsAnalysisAnalysisComponentArgs' vpc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpc
+        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' vpc_endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcendpoint
         :param 'NetworkInsightsAnalysisAnalysisComponentArgs' vpc_peering_connection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcpeeringconnection
         :param 'NetworkInsightsAnalysisAnalysisComponentArgs' vpn_connection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpnconnection
         :param 'NetworkInsightsAnalysisAnalysisComponentArgs' vpn_gateway: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpngateway
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' vpc_endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcendpoint
         """
         if acl is not None:
             pulumi.set(__self__, "acl", acl)
@@ -816,17 +816,17 @@ class NetworkInsightsAnalysisExplanation(dict):
             pulumi.set(__self__, "subnet_route_table", subnet_route_table)
         if vpc is not None:
             pulumi.set(__self__, "vpc", vpc)
+        if vpc_endpoint is not None:
+            pulumi.set(__self__, "vpc_endpoint", vpc_endpoint)
         if vpc_peering_connection is not None:
             pulumi.set(__self__, "vpc_peering_connection", vpc_peering_connection)
         if vpn_connection is not None:
             pulumi.set(__self__, "vpn_connection", vpn_connection)
         if vpn_gateway is not None:
             pulumi.set(__self__, "vpn_gateway", vpn_gateway)
-        if vpc_endpoint is not None:
-            pulumi.set(__self__, "vpc_endpoint", vpc_endpoint)
 
     @property
-    @pulumi.getter(name="Acl")
+    @pulumi.getter
     def acl(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-acl
@@ -834,7 +834,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "acl")
 
     @property
-    @pulumi.getter(name="AclRule")
+    @pulumi.getter(name="aclRule")
     def acl_rule(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisAclRule']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-aclrule
@@ -842,7 +842,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "acl_rule")
 
     @property
-    @pulumi.getter(name="Address")
+    @pulumi.getter
     def address(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-address
@@ -850,7 +850,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "address")
 
     @property
-    @pulumi.getter(name="Addresses")
+    @pulumi.getter
     def addresses(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-addresses
@@ -858,7 +858,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "addresses")
 
     @property
-    @pulumi.getter(name="AttachedTo")
+    @pulumi.getter(name="attachedTo")
     def attached_to(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-attachedto
@@ -866,7 +866,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "attached_to")
 
     @property
-    @pulumi.getter(name="AvailabilityZones")
+    @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-availabilityzones
@@ -874,7 +874,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "availability_zones")
 
     @property
-    @pulumi.getter(name="Cidrs")
+    @pulumi.getter
     def cidrs(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-cidrs
@@ -882,7 +882,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "cidrs")
 
     @property
-    @pulumi.getter(name="ClassicLoadBalancerListener")
+    @pulumi.getter(name="classicLoadBalancerListener")
     def classic_load_balancer_listener(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisLoadBalancerListener']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-classicloadbalancerlistener
@@ -890,7 +890,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "classic_load_balancer_listener")
 
     @property
-    @pulumi.getter(name="Component")
+    @pulumi.getter
     def component(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-component
@@ -898,7 +898,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "component")
 
     @property
-    @pulumi.getter(name="CustomerGateway")
+    @pulumi.getter(name="customerGateway")
     def customer_gateway(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-customergateway
@@ -906,7 +906,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "customer_gateway")
 
     @property
-    @pulumi.getter(name="Destination")
+    @pulumi.getter
     def destination(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-destination
@@ -914,7 +914,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "destination")
 
     @property
-    @pulumi.getter(name="DestinationVpc")
+    @pulumi.getter(name="destinationVpc")
     def destination_vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-destinationvpc
@@ -922,7 +922,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "destination_vpc")
 
     @property
-    @pulumi.getter(name="Direction")
+    @pulumi.getter
     def direction(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-direction
@@ -930,7 +930,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "direction")
 
     @property
-    @pulumi.getter(name="ElasticLoadBalancerListener")
+    @pulumi.getter(name="elasticLoadBalancerListener")
     def elastic_load_balancer_listener(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-elasticloadbalancerlistener
@@ -938,7 +938,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "elastic_load_balancer_listener")
 
     @property
-    @pulumi.getter(name="ExplanationCode")
+    @pulumi.getter(name="explanationCode")
     def explanation_code(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-explanationcode
@@ -946,7 +946,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "explanation_code")
 
     @property
-    @pulumi.getter(name="IngressRouteTable")
+    @pulumi.getter(name="ingressRouteTable")
     def ingress_route_table(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-ingressroutetable
@@ -954,7 +954,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "ingress_route_table")
 
     @property
-    @pulumi.getter(name="InternetGateway")
+    @pulumi.getter(name="internetGateway")
     def internet_gateway(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-internetgateway
@@ -962,7 +962,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "internet_gateway")
 
     @property
-    @pulumi.getter(name="LoadBalancerArn")
+    @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancerarn
@@ -970,7 +970,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "load_balancer_arn")
 
     @property
-    @pulumi.getter(name="LoadBalancerListenerPort")
+    @pulumi.getter(name="loadBalancerListenerPort")
     def load_balancer_listener_port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancerlistenerport
@@ -978,7 +978,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "load_balancer_listener_port")
 
     @property
-    @pulumi.getter(name="LoadBalancerTarget")
+    @pulumi.getter(name="loadBalancerTarget")
     def load_balancer_target(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisLoadBalancerTarget']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertarget
@@ -986,7 +986,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "load_balancer_target")
 
     @property
-    @pulumi.getter(name="LoadBalancerTargetGroup")
+    @pulumi.getter(name="loadBalancerTargetGroup")
     def load_balancer_target_group(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetgroup
@@ -994,7 +994,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "load_balancer_target_group")
 
     @property
-    @pulumi.getter(name="LoadBalancerTargetGroups")
+    @pulumi.getter(name="loadBalancerTargetGroups")
     def load_balancer_target_groups(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisAnalysisComponent']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetgroups
@@ -1002,7 +1002,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "load_balancer_target_groups")
 
     @property
-    @pulumi.getter(name="LoadBalancerTargetPort")
+    @pulumi.getter(name="loadBalancerTargetPort")
     def load_balancer_target_port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetport
@@ -1010,7 +1010,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "load_balancer_target_port")
 
     @property
-    @pulumi.getter(name="MissingComponent")
+    @pulumi.getter(name="missingComponent")
     def missing_component(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-missingcomponent
@@ -1018,7 +1018,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "missing_component")
 
     @property
-    @pulumi.getter(name="NatGateway")
+    @pulumi.getter(name="natGateway")
     def nat_gateway(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-natgateway
@@ -1026,7 +1026,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "nat_gateway")
 
     @property
-    @pulumi.getter(name="NetworkInterface")
+    @pulumi.getter(name="networkInterface")
     def network_interface(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-networkinterface
@@ -1034,7 +1034,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "network_interface")
 
     @property
-    @pulumi.getter(name="PacketField")
+    @pulumi.getter(name="packetField")
     def packet_field(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-packetfield
@@ -1042,7 +1042,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "packet_field")
 
     @property
-    @pulumi.getter(name="Port")
+    @pulumi.getter
     def port(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-port
@@ -1050,7 +1050,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "port")
 
     @property
-    @pulumi.getter(name="PortRanges")
+    @pulumi.getter(name="portRanges")
     def port_ranges(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisPortRange']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-portranges
@@ -1058,7 +1058,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "port_ranges")
 
     @property
-    @pulumi.getter(name="PrefixList")
+    @pulumi.getter(name="prefixList")
     def prefix_list(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-prefixlist
@@ -1066,7 +1066,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "prefix_list")
 
     @property
-    @pulumi.getter(name="Protocols")
+    @pulumi.getter
     def protocols(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-protocols
@@ -1074,7 +1074,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "protocols")
 
     @property
-    @pulumi.getter(name="RouteTable")
+    @pulumi.getter(name="routeTable")
     def route_table(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-routetable
@@ -1082,7 +1082,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "route_table")
 
     @property
-    @pulumi.getter(name="RouteTableRoute")
+    @pulumi.getter(name="routeTableRoute")
     def route_table_route(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-routetableroute
@@ -1090,7 +1090,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "route_table_route")
 
     @property
-    @pulumi.getter(name="SecurityGroup")
+    @pulumi.getter(name="securityGroup")
     def security_group(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygroup
@@ -1098,7 +1098,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "security_group")
 
     @property
-    @pulumi.getter(name="SecurityGroupRule")
+    @pulumi.getter(name="securityGroupRule")
     def security_group_rule(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygrouprule
@@ -1106,7 +1106,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "security_group_rule")
 
     @property
-    @pulumi.getter(name="SecurityGroups")
+    @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisAnalysisComponent']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygroups
@@ -1114,7 +1114,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "security_groups")
 
     @property
-    @pulumi.getter(name="SourceVpc")
+    @pulumi.getter(name="sourceVpc")
     def source_vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-sourcevpc
@@ -1122,7 +1122,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "source_vpc")
 
     @property
-    @pulumi.getter(name="State")
+    @pulumi.getter
     def state(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-state
@@ -1130,7 +1130,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "state")
 
     @property
-    @pulumi.getter(name="Subnet")
+    @pulumi.getter
     def subnet(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnet
@@ -1138,7 +1138,7 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "subnet")
 
     @property
-    @pulumi.getter(name="SubnetRouteTable")
+    @pulumi.getter(name="subnetRouteTable")
     def subnet_route_table(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnetroutetable
@@ -1146,36 +1146,12 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "subnet_route_table")
 
     @property
-    @pulumi.getter(name="Vpc")
+    @pulumi.getter
     def vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpc
         """
         return pulumi.get(self, "vpc")
-
-    @property
-    @pulumi.getter(name="VpcPeeringConnection")
-    def vpc_peering_connection(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcpeeringconnection
-        """
-        return pulumi.get(self, "vpc_peering_connection")
-
-    @property
-    @pulumi.getter(name="VpnConnection")
-    def vpn_connection(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpnconnection
-        """
-        return pulumi.get(self, "vpn_connection")
-
-    @property
-    @pulumi.getter(name="VpnGateway")
-    def vpn_gateway(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpngateway
-        """
-        return pulumi.get(self, "vpn_gateway")
 
     @property
     @pulumi.getter(name="vpcEndpoint")
@@ -1184,6 +1160,30 @@ class NetworkInsightsAnalysisExplanation(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcendpoint
         """
         return pulumi.get(self, "vpc_endpoint")
+
+    @property
+    @pulumi.getter(name="vpcPeeringConnection")
+    def vpc_peering_connection(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcpeeringconnection
+        """
+        return pulumi.get(self, "vpc_peering_connection")
+
+    @property
+    @pulumi.getter(name="vpnConnection")
+    def vpn_connection(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpnconnection
+        """
+        return pulumi.get(self, "vpn_connection")
+
+    @property
+    @pulumi.getter(name="vpnGateway")
+    def vpn_gateway(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpngateway
+        """
+        return pulumi.get(self, "vpn_gateway")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1244,7 +1244,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
             pulumi.set(__self__, "vpc", vpc)
 
     @property
-    @pulumi.getter(name="AclRule")
+    @pulumi.getter(name="aclRule")
     def acl_rule(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisAclRule']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-aclrule
@@ -1252,7 +1252,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
         return pulumi.get(self, "acl_rule")
 
     @property
-    @pulumi.getter(name="Component")
+    @pulumi.getter
     def component(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-component
@@ -1260,7 +1260,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
         return pulumi.get(self, "component")
 
     @property
-    @pulumi.getter(name="DestinationVpc")
+    @pulumi.getter(name="destinationVpc")
     def destination_vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-destinationvpc
@@ -1268,7 +1268,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
         return pulumi.get(self, "destination_vpc")
 
     @property
-    @pulumi.getter(name="InboundHeader")
+    @pulumi.getter(name="inboundHeader")
     def inbound_header(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisPacketHeader']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-inboundheader
@@ -1276,7 +1276,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
         return pulumi.get(self, "inbound_header")
 
     @property
-    @pulumi.getter(name="OutboundHeader")
+    @pulumi.getter(name="outboundHeader")
     def outbound_header(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisPacketHeader']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-outboundheader
@@ -1284,7 +1284,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
         return pulumi.get(self, "outbound_header")
 
     @property
-    @pulumi.getter(name="RouteTableRoute")
+    @pulumi.getter(name="routeTableRoute")
     def route_table_route(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-routetableroute
@@ -1292,7 +1292,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
         return pulumi.get(self, "route_table_route")
 
     @property
-    @pulumi.getter(name="SecurityGroupRule")
+    @pulumi.getter(name="securityGroupRule")
     def security_group_rule(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-securitygrouprule
@@ -1300,7 +1300,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
         return pulumi.get(self, "security_group_rule")
 
     @property
-    @pulumi.getter(name="SequenceNumber")
+    @pulumi.getter(name="sequenceNumber")
     def sequence_number(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sequencenumber
@@ -1308,7 +1308,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
         return pulumi.get(self, "sequence_number")
 
     @property
-    @pulumi.getter(name="SourceVpc")
+    @pulumi.getter(name="sourceVpc")
     def source_vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sourcevpc
@@ -1316,7 +1316,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
         return pulumi.get(self, "source_vpc")
 
     @property
-    @pulumi.getter(name="Subnet")
+    @pulumi.getter
     def subnet(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-subnet
@@ -1324,7 +1324,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
         return pulumi.get(self, "subnet")
 
     @property
-    @pulumi.getter(name="Vpc")
+    @pulumi.getter
     def vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-vpc
@@ -1354,7 +1354,7 @@ class NetworkInsightsAnalysisPortRange(dict):
             pulumi.set(__self__, "to", to)
 
     @property
-    @pulumi.getter(name="From")
+    @pulumi.getter(name="from")
     def from_(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-from
@@ -1362,7 +1362,7 @@ class NetworkInsightsAnalysisPortRange(dict):
         return pulumi.get(self, "from_")
 
     @property
-    @pulumi.getter(name="To")
+    @pulumi.getter
     def to(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-to
@@ -1391,7 +1391,7 @@ class PrefixListEntry(dict):
             pulumi.set(__self__, "description", description)
 
     @property
-    @pulumi.getter(name="Cidr")
+    @pulumi.getter
     def cidr(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-cidr
@@ -1399,7 +1399,7 @@ class PrefixListEntry(dict):
         return pulumi.get(self, "cidr")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-description

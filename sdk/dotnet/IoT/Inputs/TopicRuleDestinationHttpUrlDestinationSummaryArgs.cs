@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
         /// </summary>
-        [Input("ConfirmationUrl")]
+        [Input("confirmationUrl")]
         public Input<string>? ConfirmationUrl { get; set; }
 
         public TopicRuleDestinationHttpUrlDestinationSummaryArgs()

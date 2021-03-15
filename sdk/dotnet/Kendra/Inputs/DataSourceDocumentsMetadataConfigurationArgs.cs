@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentsmetadataconfiguration.html#cfn-kendra-datasource-documentsmetadataconfiguration-s3prefix
         /// </summary>
-        [Input("S3Prefix")]
+        [Input("s3Prefix")]
         public Input<string>? S3Prefix { get; set; }
 
         public DataSourceDocumentsMetadataConfigurationArgs()

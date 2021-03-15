@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationCustomComponent(
-            string ComponentName,
+            string componentName,
 
-            ImmutableArray<string> ResourceList)
+            ImmutableArray<string> resourceList)
         {
-            this.ComponentName = ComponentName;
-            this.ResourceList = ResourceList;
+            ComponentName = componentName;
+            ResourceList = resourceList;
         }
     }
 }

@@ -18,52 +18,52 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
         /// </summary>
-        [Output("DestinationFlowConfigList")]
+        [Output("destinationFlowConfigList")]
         public Output<ImmutableArray<Outputs.FlowDestinationFlowConfig>> DestinationFlowConfigList { get; private set; } = null!;
 
-        [Output("FlowArn")]
+        [Output("flowArn")]
         public Output<string> FlowArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
         /// </summary>
-        [Output("FlowName")]
+        [Output("flowName")]
         public Output<string> FlowName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
         /// </summary>
-        [Output("KMSArn")]
+        [Output("kMSArn")]
         public Output<string?> KMSArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
         /// </summary>
-        [Output("SourceFlowConfig")]
+        [Output("sourceFlowConfig")]
         public Output<Outputs.FlowSourceFlowConfig> SourceFlowConfig { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
         /// </summary>
-        [Output("Tasks")]
+        [Output("tasks")]
         public Output<ImmutableArray<Outputs.FlowTask>> Tasks { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
         /// </summary>
-        [Output("TriggerConfig")]
+        [Output("triggerConfig")]
         public Output<Outputs.FlowTriggerConfig> TriggerConfig { get; private set; } = null!;
 
 
@@ -114,67 +114,67 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("DestinationFlowConfigList", required: true)]
-        private InputList<Inputs.FlowDestinationFlowConfigArgs>? _DestinationFlowConfigList;
+        [Input("destinationFlowConfigList", required: true)]
+        private InputList<Inputs.FlowDestinationFlowConfigArgs>? _destinationFlowConfigList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
         /// </summary>
         public InputList<Inputs.FlowDestinationFlowConfigArgs> DestinationFlowConfigList
         {
-            get => _DestinationFlowConfigList ?? (_DestinationFlowConfigList = new InputList<Inputs.FlowDestinationFlowConfigArgs>());
-            set => _DestinationFlowConfigList = value;
+            get => _destinationFlowConfigList ?? (_destinationFlowConfigList = new InputList<Inputs.FlowDestinationFlowConfigArgs>());
+            set => _destinationFlowConfigList = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
         /// </summary>
-        [Input("FlowName", required: true)]
+        [Input("flowName", required: true)]
         public Input<string> FlowName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
         /// </summary>
-        [Input("KMSArn")]
+        [Input("kMSArn")]
         public Input<string>? KMSArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
         /// </summary>
-        [Input("SourceFlowConfig", required: true)]
+        [Input("sourceFlowConfig", required: true)]
         public Input<Inputs.FlowSourceFlowConfigArgs> SourceFlowConfig { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
-        [Input("Tasks", required: true)]
-        private InputList<Inputs.FlowTaskArgs>? _Tasks;
+        [Input("tasks", required: true)]
+        private InputList<Inputs.FlowTaskArgs>? _tasks;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
         /// </summary>
         public InputList<Inputs.FlowTaskArgs> Tasks
         {
-            get => _Tasks ?? (_Tasks = new InputList<Inputs.FlowTaskArgs>());
-            set => _Tasks = value;
+            get => _tasks ?? (_tasks = new InputList<Inputs.FlowTaskArgs>());
+            set => _tasks = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
         /// </summary>
-        [Input("TriggerConfig", required: true)]
+        [Input("triggerConfig", required: true)]
         public Input<Inputs.FlowTriggerConfigArgs> TriggerConfig { get; set; } = null!;
 
         public FlowArgs()

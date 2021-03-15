@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-readcapacityunits
         /// </summary>
-        [Input("ReadCapacityUnits", required: true)]
+        [Input("readCapacityUnits", required: true)]
         public Input<int> ReadCapacityUnits { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-writecapacityunits
         /// </summary>
-        [Input("WriteCapacityUnits", required: true)]
+        [Input("writeCapacityUnits", required: true)]
         public Input<int> WriteCapacityUnits { get; set; } = null!;
 
         public TableProvisionedThroughputArgs()

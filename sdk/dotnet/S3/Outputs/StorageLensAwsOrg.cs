@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.S3.Outputs
         public readonly string Arn;
 
         [OutputConstructor]
-        private StorageLensAwsOrg(string Arn)
+        private StorageLensAwsOrg(string arn)
         {
-            this.Arn = Arn;
+            Arn = arn;
         }
     }
 }

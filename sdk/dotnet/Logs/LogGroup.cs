@@ -15,25 +15,25 @@ namespace Pulumi.AwsNative.Logs
     [AwsNativeResourceType("aws-native:Logs:LogGroup")]
     public partial class LogGroup : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
         /// </summary>
-        [Output("KmsKeyId")]
+        [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
         /// </summary>
-        [Output("LogGroupName")]
+        [Output("logGroupName")]
         public Output<string?> LogGroupName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
         /// </summary>
-        [Output("RetentionInDays")]
+        [Output("retentionInDays")]
         public Output<int?> RetentionInDays { get; private set; } = null!;
 
 
@@ -84,19 +84,19 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
         /// </summary>
-        [Input("KmsKeyId")]
+        [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
         /// </summary>
-        [Input("LogGroupName")]
+        [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
         /// </summary>
-        [Input("RetentionInDays")]
+        [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
 
         public LogGroupArgs()

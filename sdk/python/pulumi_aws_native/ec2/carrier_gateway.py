@@ -81,22 +81,22 @@ class CarrierGateway(pulumi.CustomResource):
         return CarrierGateway(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="CarrierGatewayId")
+    @pulumi.getter(name="carrierGatewayId")
     def carrier_gateway_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "carrier_gateway_id")
 
     @property
-    @pulumi.getter(name="OwnerId")
+    @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "owner_id")
 
     @property
-    @pulumi.getter(name="State")
+    @pulumi.getter
     def state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "state")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional['outputs.CarrierGatewayTags']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
@@ -104,7 +104,7 @@ class CarrierGateway(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="VpcId")
+    @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid

@@ -44,27 +44,27 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceOneDriveConfiguration(
-            bool? DisableLocalGroups,
+            bool? disableLocalGroups,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? ExclusionPatterns,
+            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? exclusionPatterns,
 
-            Outputs.DataSourceDataSourceToIndexFieldMappingList? FieldMappings,
+            Outputs.DataSourceDataSourceToIndexFieldMappingList? fieldMappings,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? InclusionPatterns,
+            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? inclusionPatterns,
 
-            Outputs.DataSourceOneDriveUsers OneDriveUsers,
+            Outputs.DataSourceOneDriveUsers oneDriveUsers,
 
-            string SecretArn,
+            string secretArn,
 
-            string TenantDomain)
+            string tenantDomain)
         {
-            this.DisableLocalGroups = DisableLocalGroups;
-            this.ExclusionPatterns = ExclusionPatterns;
-            this.FieldMappings = FieldMappings;
-            this.InclusionPatterns = InclusionPatterns;
-            this.OneDriveUsers = OneDriveUsers;
-            this.SecretArn = SecretArn;
-            this.TenantDomain = TenantDomain;
+            DisableLocalGroups = disableLocalGroups;
+            ExclusionPatterns = exclusionPatterns;
+            FieldMappings = fieldMappings;
+            InclusionPatterns = inclusionPatterns;
+            OneDriveUsers = oneDriveUsers;
+            SecretArn = secretArn;
+            TenantDomain = tenantDomain;
         }
     }
 }

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Glue.Outputs
 
         [OutputConstructor]
         private SchemaSchemaVersion(
-            bool? IsLatest,
+            bool? isLatest,
 
-            int? VersionNumber)
+            int? versionNumber)
         {
-            this.IsLatest = IsLatest;
-            this.VersionNumber = VersionNumber;
+            IsLatest = isLatest;
+            VersionNumber = versionNumber;
         }
     }
 }

@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private ServiceDeploymentConfiguration(
-            Outputs.ServiceDeploymentCircuitBreaker? DeploymentCircuitBreaker,
+            Outputs.ServiceDeploymentCircuitBreaker? deploymentCircuitBreaker,
 
-            int? MaximumPercent,
+            int? maximumPercent,
 
-            int? MinimumHealthyPercent)
+            int? minimumHealthyPercent)
         {
-            this.DeploymentCircuitBreaker = DeploymentCircuitBreaker;
-            this.MaximumPercent = MaximumPercent;
-            this.MinimumHealthyPercent = MinimumHealthyPercent;
+            DeploymentCircuitBreaker = deploymentCircuitBreaker;
+            MaximumPercent = maximumPercent;
+            MinimumHealthyPercent = minimumHealthyPercent;
         }
     }
 }

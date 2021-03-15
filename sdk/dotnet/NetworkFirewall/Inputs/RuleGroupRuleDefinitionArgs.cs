@@ -15,22 +15,22 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class RuleGroupRuleDefinitionArgs : Pulumi.ResourceArgs
     {
-        [Input("Actions", required: true)]
-        private InputList<string>? _Actions;
+        [Input("actions", required: true)]
+        private InputList<string>? _actions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html#cfn-networkfirewall-rulegroup-ruledefinition-actions
         /// </summary>
         public InputList<string> Actions
         {
-            get => _Actions ?? (_Actions = new InputList<string>());
-            set => _Actions = value;
+            get => _actions ?? (_actions = new InputList<string>());
+            set => _actions = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html#cfn-networkfirewall-rulegroup-ruledefinition-matchattributes
         /// </summary>
-        [Input("MatchAttributes", required: true)]
+        [Input("matchAttributes", required: true)]
         public Input<Inputs.RuleGroupMatchAttributesArgs> MatchAttributes { get; set; } = null!;
 
         public RuleGroupRuleDefinitionArgs()

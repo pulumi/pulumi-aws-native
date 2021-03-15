@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver
         /// </summary>
-        [Input("LogDriver", required: true)]
+        [Input("logDriver", required: true)]
         public Input<string> LogDriver { get; set; } = null!;
 
-        [Input("Options")]
-        private InputMap<string>? _Options;
+        [Input("options")]
+        private InputMap<string>? _options;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options
         /// </summary>
         public InputMap<string> Options
         {
-            get => _Options ?? (_Options = new InputMap<string>());
-            set => _Options = value;
+            get => _options ?? (_options = new InputMap<string>());
+            set => _options = value;
         }
 
-        [Input("SecretOptions")]
-        private InputList<Inputs.TaskDefinitionSecretArgs>? _SecretOptions;
+        [Input("secretOptions")]
+        private InputList<Inputs.TaskDefinitionSecretArgs>? _secretOptions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
         /// </summary>
         public InputList<Inputs.TaskDefinitionSecretArgs> SecretOptions
         {
-            get => _SecretOptions ?? (_SecretOptions = new InputList<Inputs.TaskDefinitionSecretArgs>());
-            set => _SecretOptions = value;
+            get => _secretOptions ?? (_secretOptions = new InputList<Inputs.TaskDefinitionSecretArgs>());
+            set => _secretOptions = value;
         }
 
         public TaskDefinitionLogConfigurationArgs()

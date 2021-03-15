@@ -35,27 +35,27 @@ export class Project extends pulumi.CustomResource {
         return obj['__pulumiType'] === Project.__pulumiType;
     }
 
-    public /*out*/ readonly CreationTime!: pulumi.Output<string>;
-    public /*out*/ readonly ProjectArn!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly projectArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
      */
-    public readonly ProjectDescription!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly ProjectId!: pulumi.Output<string>;
+    public readonly projectDescription!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly projectId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
      */
-    public readonly ProjectName!: pulumi.Output<string>;
-    public /*out*/ readonly ProjectStatus!: pulumi.Output<string>;
-    public /*out*/ readonly ServiceCatalogProvisionedProductDetails!: pulumi.Output<any | string>;
+    public readonly projectName!: pulumi.Output<string>;
+    public /*out*/ readonly projectStatus!: pulumi.Output<string>;
+    public /*out*/ readonly serviceCatalogProvisionedProductDetails!: pulumi.Output<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
      */
-    public readonly ServiceCatalogProvisioningDetails!: pulumi.Output<any | string>;
+    public readonly serviceCatalogProvisioningDetails!: pulumi.Output<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -67,31 +67,31 @@ export class Project extends pulumi.CustomResource {
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ProjectName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ProjectName'");
+            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.ServiceCatalogProvisioningDetails === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ServiceCatalogProvisioningDetails'");
+            if ((!args || args.serviceCatalogProvisioningDetails === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'serviceCatalogProvisioningDetails'");
             }
-            inputs["ProjectDescription"] = args ? args.ProjectDescription : undefined;
-            inputs["ProjectName"] = args ? args.ProjectName : undefined;
-            inputs["ServiceCatalogProvisioningDetails"] = args ? args.ServiceCatalogProvisioningDetails : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["CreationTime"] = undefined /*out*/;
-            inputs["ProjectArn"] = undefined /*out*/;
-            inputs["ProjectId"] = undefined /*out*/;
-            inputs["ProjectStatus"] = undefined /*out*/;
-            inputs["ServiceCatalogProvisionedProductDetails"] = undefined /*out*/;
+            inputs["projectDescription"] = args ? args.projectDescription : undefined;
+            inputs["projectName"] = args ? args.projectName : undefined;
+            inputs["serviceCatalogProvisioningDetails"] = args ? args.serviceCatalogProvisioningDetails : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["projectArn"] = undefined /*out*/;
+            inputs["projectId"] = undefined /*out*/;
+            inputs["projectStatus"] = undefined /*out*/;
+            inputs["serviceCatalogProvisionedProductDetails"] = undefined /*out*/;
         } else {
-            inputs["CreationTime"] = undefined /*out*/;
-            inputs["ProjectArn"] = undefined /*out*/;
-            inputs["ProjectDescription"] = undefined /*out*/;
-            inputs["ProjectId"] = undefined /*out*/;
-            inputs["ProjectName"] = undefined /*out*/;
-            inputs["ProjectStatus"] = undefined /*out*/;
-            inputs["ServiceCatalogProvisionedProductDetails"] = undefined /*out*/;
-            inputs["ServiceCatalogProvisioningDetails"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["projectArn"] = undefined /*out*/;
+            inputs["projectDescription"] = undefined /*out*/;
+            inputs["projectId"] = undefined /*out*/;
+            inputs["projectName"] = undefined /*out*/;
+            inputs["projectStatus"] = undefined /*out*/;
+            inputs["serviceCatalogProvisionedProductDetails"] = undefined /*out*/;
+            inputs["serviceCatalogProvisioningDetails"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -111,17 +111,17 @@ export interface ProjectArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
      */
-    readonly ProjectDescription?: pulumi.Input<string>;
+    readonly projectDescription?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
      */
-    readonly ProjectName: pulumi.Input<string>;
+    readonly projectName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
      */
-    readonly ServiceCatalogProvisioningDetails: pulumi.Input<any | string>;
+    readonly serviceCatalogProvisioningDetails: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

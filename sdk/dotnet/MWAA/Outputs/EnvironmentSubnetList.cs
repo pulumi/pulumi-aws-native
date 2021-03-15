@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.MWAA.Outputs
         public readonly ImmutableArray<string> SubnetList;
 
         [OutputConstructor]
-        private EnvironmentSubnetList(ImmutableArray<string> SubnetList)
+        private EnvironmentSubnetList(ImmutableArray<string> subnetList)
         {
-            this.SubnetList = SubnetList;
+            SubnetList = subnetList;
         }
     }
 }

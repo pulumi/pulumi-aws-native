@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private LoggingConfigurationLogDestinationConfig(
-            ImmutableDictionary<string, string> LogDestination,
+            ImmutableDictionary<string, string> logDestination,
 
-            string LogDestinationType,
+            string logDestinationType,
 
-            string LogType)
+            string logType)
         {
-            this.LogDestination = LogDestination;
-            this.LogDestinationType = LogDestinationType;
-            this.LogType = LogType;
+            LogDestination = logDestination;
+            LogDestinationType = logDestinationType;
+            LogType = logType;
         }
     }
 }

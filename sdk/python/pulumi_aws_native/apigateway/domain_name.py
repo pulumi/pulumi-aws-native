@@ -95,7 +95,7 @@ class DomainName(pulumi.CustomResource):
         return DomainName(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="CertificateArn")
+    @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
@@ -103,17 +103,17 @@ class DomainName(pulumi.CustomResource):
         return pulumi.get(self, "certificate_arn")
 
     @property
-    @pulumi.getter(name="DistributionDomainName")
+    @pulumi.getter(name="distributionDomainName")
     def distribution_domain_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "distribution_domain_name")
 
     @property
-    @pulumi.getter(name="DistributionHostedZoneId")
+    @pulumi.getter(name="distributionHostedZoneId")
     def distribution_hosted_zone_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "distribution_hosted_zone_id")
 
     @property
-    @pulumi.getter(name="DomainName")
+    @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
@@ -121,7 +121,7 @@ class DomainName(pulumi.CustomResource):
         return pulumi.get(self, "domain_name")
 
     @property
-    @pulumi.getter(name="EndpointConfiguration")
+    @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> pulumi.Output[Optional['outputs.DomainNameEndpointConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
@@ -129,7 +129,7 @@ class DomainName(pulumi.CustomResource):
         return pulumi.get(self, "endpoint_configuration")
 
     @property
-    @pulumi.getter(name="MutualTlsAuthentication")
+    @pulumi.getter(name="mutualTlsAuthentication")
     def mutual_tls_authentication(self) -> pulumi.Output[Optional['outputs.DomainNameMutualTlsAuthentication']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
@@ -137,7 +137,7 @@ class DomainName(pulumi.CustomResource):
         return pulumi.get(self, "mutual_tls_authentication")
 
     @property
-    @pulumi.getter(name="RegionalCertificateArn")
+    @pulumi.getter(name="regionalCertificateArn")
     def regional_certificate_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
@@ -145,17 +145,17 @@ class DomainName(pulumi.CustomResource):
         return pulumi.get(self, "regional_certificate_arn")
 
     @property
-    @pulumi.getter(name="RegionalDomainName")
+    @pulumi.getter(name="regionalDomainName")
     def regional_domain_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "regional_domain_name")
 
     @property
-    @pulumi.getter(name="RegionalHostedZoneId")
+    @pulumi.getter(name="regionalHostedZoneId")
     def regional_hosted_zone_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "regional_hosted_zone_id")
 
     @property
-    @pulumi.getter(name="SecurityPolicy")
+    @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
@@ -163,7 +163,7 @@ class DomainName(pulumi.CustomResource):
         return pulumi.get(self, "security_policy")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags

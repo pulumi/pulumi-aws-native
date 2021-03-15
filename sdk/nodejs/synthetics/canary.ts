@@ -38,53 +38,53 @@ export class Canary extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
      */
-    public readonly ArtifactS3Location!: pulumi.Output<string>;
+    public readonly artifactS3Location!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
      */
-    public readonly Code!: pulumi.Output<outputs.Synthetics.CanaryCode>;
+    public readonly code!: pulumi.Output<outputs.Synthetics.CanaryCode>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
      */
-    public readonly ExecutionRoleArn!: pulumi.Output<string>;
+    public readonly executionRoleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
      */
-    public readonly FailureRetentionPeriod!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly failureRetentionPeriod!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
      */
-    public readonly RunConfig!: pulumi.Output<outputs.Synthetics.CanaryRunConfig | undefined>;
+    public readonly runConfig!: pulumi.Output<outputs.Synthetics.CanaryRunConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
      */
-    public readonly RuntimeVersion!: pulumi.Output<string>;
+    public readonly runtimeVersion!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
      */
-    public readonly Schedule!: pulumi.Output<outputs.Synthetics.CanarySchedule>;
+    public readonly schedule!: pulumi.Output<outputs.Synthetics.CanarySchedule>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
      */
-    public readonly StartCanaryAfterCreation!: pulumi.Output<boolean>;
-    public /*out*/ readonly State!: pulumi.Output<string>;
+    public readonly startCanaryAfterCreation!: pulumi.Output<boolean>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
      */
-    public readonly SuccessRetentionPeriod!: pulumi.Output<number | undefined>;
+    public readonly successRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
      */
-    public readonly VPCConfig!: pulumi.Output<outputs.Synthetics.CanaryVPCConfig | undefined>;
+    public readonly vPCConfig!: pulumi.Output<outputs.Synthetics.CanaryVPCConfig | undefined>;
 
     /**
      * Create a Canary resource with the given unique name, arguments, and options.
@@ -96,56 +96,56 @@ export class Canary extends pulumi.CustomResource {
     constructor(name: string, args: CanaryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ArtifactS3Location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ArtifactS3Location'");
+            if ((!args || args.artifactS3Location === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'artifactS3Location'");
             }
-            if ((!args || args.Code === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Code'");
+            if ((!args || args.code === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'code'");
             }
-            if ((!args || args.ExecutionRoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ExecutionRoleArn'");
+            if ((!args || args.executionRoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.RuntimeVersion === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RuntimeVersion'");
+            if ((!args || args.runtimeVersion === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'runtimeVersion'");
             }
-            if ((!args || args.Schedule === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Schedule'");
+            if ((!args || args.schedule === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'schedule'");
             }
-            if ((!args || args.StartCanaryAfterCreation === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'StartCanaryAfterCreation'");
+            if ((!args || args.startCanaryAfterCreation === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'startCanaryAfterCreation'");
             }
-            inputs["ArtifactS3Location"] = args ? args.ArtifactS3Location : undefined;
-            inputs["Code"] = args ? args.Code : undefined;
-            inputs["ExecutionRoleArn"] = args ? args.ExecutionRoleArn : undefined;
-            inputs["FailureRetentionPeriod"] = args ? args.FailureRetentionPeriod : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["RunConfig"] = args ? args.RunConfig : undefined;
-            inputs["RuntimeVersion"] = args ? args.RuntimeVersion : undefined;
-            inputs["Schedule"] = args ? args.Schedule : undefined;
-            inputs["StartCanaryAfterCreation"] = args ? args.StartCanaryAfterCreation : undefined;
-            inputs["SuccessRetentionPeriod"] = args ? args.SuccessRetentionPeriod : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["VPCConfig"] = args ? args.VPCConfig : undefined;
-            inputs["Id"] = undefined /*out*/;
-            inputs["State"] = undefined /*out*/;
+            inputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
+            inputs["code"] = args ? args.code : undefined;
+            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            inputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["runConfig"] = args ? args.runConfig : undefined;
+            inputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
+            inputs["schedule"] = args ? args.schedule : undefined;
+            inputs["startCanaryAfterCreation"] = args ? args.startCanaryAfterCreation : undefined;
+            inputs["successRetentionPeriod"] = args ? args.successRetentionPeriod : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["vPCConfig"] = args ? args.vPCConfig : undefined;
+            inputs["id"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
         } else {
-            inputs["ArtifactS3Location"] = undefined /*out*/;
-            inputs["Code"] = undefined /*out*/;
-            inputs["ExecutionRoleArn"] = undefined /*out*/;
-            inputs["FailureRetentionPeriod"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["RunConfig"] = undefined /*out*/;
-            inputs["RuntimeVersion"] = undefined /*out*/;
-            inputs["Schedule"] = undefined /*out*/;
-            inputs["StartCanaryAfterCreation"] = undefined /*out*/;
-            inputs["State"] = undefined /*out*/;
-            inputs["SuccessRetentionPeriod"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["VPCConfig"] = undefined /*out*/;
+            inputs["artifactS3Location"] = undefined /*out*/;
+            inputs["code"] = undefined /*out*/;
+            inputs["executionRoleArn"] = undefined /*out*/;
+            inputs["failureRetentionPeriod"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["runConfig"] = undefined /*out*/;
+            inputs["runtimeVersion"] = undefined /*out*/;
+            inputs["schedule"] = undefined /*out*/;
+            inputs["startCanaryAfterCreation"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["successRetentionPeriod"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["vPCConfig"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -165,49 +165,49 @@ export interface CanaryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
      */
-    readonly ArtifactS3Location: pulumi.Input<string>;
+    readonly artifactS3Location: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
      */
-    readonly Code: pulumi.Input<inputs.Synthetics.CanaryCode>;
+    readonly code: pulumi.Input<inputs.Synthetics.CanaryCode>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
      */
-    readonly ExecutionRoleArn: pulumi.Input<string>;
+    readonly executionRoleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
      */
-    readonly FailureRetentionPeriod?: pulumi.Input<number>;
+    readonly failureRetentionPeriod?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
      */
-    readonly RunConfig?: pulumi.Input<inputs.Synthetics.CanaryRunConfig>;
+    readonly runConfig?: pulumi.Input<inputs.Synthetics.CanaryRunConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
      */
-    readonly RuntimeVersion: pulumi.Input<string>;
+    readonly runtimeVersion: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
      */
-    readonly Schedule: pulumi.Input<inputs.Synthetics.CanarySchedule>;
+    readonly schedule: pulumi.Input<inputs.Synthetics.CanarySchedule>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
      */
-    readonly StartCanaryAfterCreation: pulumi.Input<boolean>;
+    readonly startCanaryAfterCreation: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
      */
-    readonly SuccessRetentionPeriod?: pulumi.Input<number>;
+    readonly successRetentionPeriod?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
      */
-    readonly VPCConfig?: pulumi.Input<inputs.Synthetics.CanaryVPCConfig>;
+    readonly vPCConfig?: pulumi.Input<inputs.Synthetics.CanaryVPCConfig>;
 }

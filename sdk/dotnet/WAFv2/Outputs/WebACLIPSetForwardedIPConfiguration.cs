@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLIPSetForwardedIPConfiguration(
-            string FallbackBehavior,
+            string fallbackBehavior,
 
-            string HeaderName,
+            string headerName,
 
-            string Position)
+            string position)
         {
-            this.FallbackBehavior = FallbackBehavior;
-            this.HeaderName = HeaderName;
-            this.Position = Position;
+            FallbackBehavior = fallbackBehavior;
+            HeaderName = headerName;
+            Position = position;
         }
     }
 }

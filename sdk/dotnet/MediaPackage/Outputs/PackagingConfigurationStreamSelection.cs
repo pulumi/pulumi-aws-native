@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private PackagingConfigurationStreamSelection(
-            int? MaxVideoBitsPerSecond,
+            int? maxVideoBitsPerSecond,
 
-            int? MinVideoBitsPerSecond,
+            int? minVideoBitsPerSecond,
 
-            string? StreamOrder)
+            string? streamOrder)
         {
-            this.MaxVideoBitsPerSecond = MaxVideoBitsPerSecond;
-            this.MinVideoBitsPerSecond = MinVideoBitsPerSecond;
-            this.StreamOrder = StreamOrder;
+            MaxVideoBitsPerSecond = maxVideoBitsPerSecond;
+            MinVideoBitsPerSecond = minVideoBitsPerSecond;
+            StreamOrder = streamOrder;
         }
     }
 }

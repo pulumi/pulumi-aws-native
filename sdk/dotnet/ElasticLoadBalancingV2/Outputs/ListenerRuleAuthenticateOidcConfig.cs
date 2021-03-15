@@ -60,39 +60,39 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerRuleAuthenticateOidcConfig(
-            ImmutableDictionary<string, string>? AuthenticationRequestExtraParams,
+            ImmutableDictionary<string, string>? authenticationRequestExtraParams,
 
-            string AuthorizationEndpoint,
+            string authorizationEndpoint,
 
-            string ClientId,
+            string clientId,
 
-            string ClientSecret,
+            string clientSecret,
 
-            string Issuer,
+            string issuer,
 
-            string? OnUnauthenticatedRequest,
+            string? onUnauthenticatedRequest,
 
-            string? Scope,
+            string? scope,
 
-            string? SessionCookieName,
+            string? sessionCookieName,
 
-            int? SessionTimeout,
+            int? sessionTimeout,
 
-            string TokenEndpoint,
+            string tokenEndpoint,
 
-            string UserInfoEndpoint)
+            string userInfoEndpoint)
         {
-            this.AuthenticationRequestExtraParams = AuthenticationRequestExtraParams;
-            this.AuthorizationEndpoint = AuthorizationEndpoint;
-            this.ClientId = ClientId;
-            this.ClientSecret = ClientSecret;
-            this.Issuer = Issuer;
-            this.OnUnauthenticatedRequest = OnUnauthenticatedRequest;
-            this.Scope = Scope;
-            this.SessionCookieName = SessionCookieName;
-            this.SessionTimeout = SessionTimeout;
-            this.TokenEndpoint = TokenEndpoint;
-            this.UserInfoEndpoint = UserInfoEndpoint;
+            AuthenticationRequestExtraParams = authenticationRequestExtraParams;
+            AuthorizationEndpoint = authorizationEndpoint;
+            ClientId = clientId;
+            ClientSecret = clientSecret;
+            Issuer = issuer;
+            OnUnauthenticatedRequest = onUnauthenticatedRequest;
+            Scope = scope;
+            SessionCookieName = sessionCookieName;
+            SessionTimeout = sessionTimeout;
+            TokenEndpoint = tokenEndpoint;
+            UserInfoEndpoint = userInfoEndpoint;
         }
     }
 }

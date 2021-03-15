@@ -37,23 +37,23 @@ export class ProfilePermission extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
      */
-    public readonly Action!: pulumi.Output<string>;
+    public readonly action!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
      */
-    public readonly Principal!: pulumi.Output<string>;
+    public readonly principal!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
      */
-    public readonly ProfileName!: pulumi.Output<string>;
+    public readonly profileName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
      */
-    public readonly ProfileVersion!: pulumi.Output<string | undefined>;
+    public readonly profileVersion!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
      */
-    public readonly StatementId!: pulumi.Output<string>;
+    public readonly statementId!: pulumi.Output<string>;
 
     /**
      * Create a ProfilePermission resource with the given unique name, arguments, and options.
@@ -65,29 +65,29 @@ export class ProfilePermission extends pulumi.CustomResource {
     constructor(name: string, args: ProfilePermissionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Action === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Action'");
+            if ((!args || args.action === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.Principal === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Principal'");
+            if ((!args || args.principal === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.ProfileName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ProfileName'");
+            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.StatementId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'StatementId'");
+            if ((!args || args.statementId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'statementId'");
             }
-            inputs["Action"] = args ? args.Action : undefined;
-            inputs["Principal"] = args ? args.Principal : undefined;
-            inputs["ProfileName"] = args ? args.ProfileName : undefined;
-            inputs["ProfileVersion"] = args ? args.ProfileVersion : undefined;
-            inputs["StatementId"] = args ? args.StatementId : undefined;
+            inputs["action"] = args ? args.action : undefined;
+            inputs["principal"] = args ? args.principal : undefined;
+            inputs["profileName"] = args ? args.profileName : undefined;
+            inputs["profileVersion"] = args ? args.profileVersion : undefined;
+            inputs["statementId"] = args ? args.statementId : undefined;
         } else {
-            inputs["Action"] = undefined /*out*/;
-            inputs["Principal"] = undefined /*out*/;
-            inputs["ProfileName"] = undefined /*out*/;
-            inputs["ProfileVersion"] = undefined /*out*/;
-            inputs["StatementId"] = undefined /*out*/;
+            inputs["action"] = undefined /*out*/;
+            inputs["principal"] = undefined /*out*/;
+            inputs["profileName"] = undefined /*out*/;
+            inputs["profileVersion"] = undefined /*out*/;
+            inputs["statementId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -107,21 +107,21 @@ export interface ProfilePermissionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
      */
-    readonly Action: pulumi.Input<string>;
+    readonly action: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
      */
-    readonly Principal: pulumi.Input<string>;
+    readonly principal: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
      */
-    readonly ProfileName: pulumi.Input<string>;
+    readonly profileName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
      */
-    readonly ProfileVersion?: pulumi.Input<string>;
+    readonly profileVersion?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
      */
-    readonly StatementId: pulumi.Input<string>;
+    readonly statementId: pulumi.Input<string>;
 }

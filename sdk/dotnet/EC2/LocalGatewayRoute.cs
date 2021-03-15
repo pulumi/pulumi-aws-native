@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
         /// </summary>
-        [Output("DestinationCidrBlock")]
+        [Output("destinationCidrBlock")]
         public Output<string> DestinationCidrBlock { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
         /// </summary>
-        [Output("LocalGatewayRouteTableId")]
+        [Output("localGatewayRouteTableId")]
         public Output<string> LocalGatewayRouteTableId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
         /// </summary>
-        [Output("LocalGatewayVirtualInterfaceGroupId")]
+        [Output("localGatewayVirtualInterfaceGroupId")]
         public Output<string> LocalGatewayVirtualInterfaceGroupId { get; private set; } = null!;
 
-        [Output("State")]
+        [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
-        [Output("Type")]
+        [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
 
@@ -87,19 +87,19 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
         /// </summary>
-        [Input("DestinationCidrBlock", required: true)]
+        [Input("destinationCidrBlock", required: true)]
         public Input<string> DestinationCidrBlock { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
         /// </summary>
-        [Input("LocalGatewayRouteTableId", required: true)]
+        [Input("localGatewayRouteTableId", required: true)]
         public Input<string> LocalGatewayRouteTableId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
         /// </summary>
-        [Input("LocalGatewayVirtualInterfaceGroupId", required: true)]
+        [Input("localGatewayVirtualInterfaceGroupId", required: true)]
         public Input<string> LocalGatewayVirtualInterfaceGroupId { get; set; } = null!;
 
         public LocalGatewayRouteArgs()

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-mode
         /// </summary>
-        [Input("Mode", required: true)]
+        [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-provisionedthroughput
         /// </summary>
-        [Input("ProvisionedThroughput")]
+        [Input("provisionedThroughput")]
         public Input<Inputs.TableProvisionedThroughputArgs>? ProvisionedThroughput { get; set; }
 
         public TableBillingModeArgs()

@@ -92,7 +92,7 @@ class Pipeline(pulumi.CustomResource):
         return Pipeline(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="PipelineDefinition")
+    @pulumi.getter(name="pipelineDefinition")
     def pipeline_definition(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition
@@ -100,7 +100,7 @@ class Pipeline(pulumi.CustomResource):
         return pulumi.get(self, "pipeline_definition")
 
     @property
-    @pulumi.getter(name="PipelineDescription")
+    @pulumi.getter(name="pipelineDescription")
     def pipeline_description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedescription
@@ -108,7 +108,7 @@ class Pipeline(pulumi.CustomResource):
         return pulumi.get(self, "pipeline_description")
 
     @property
-    @pulumi.getter(name="PipelineDisplayName")
+    @pulumi.getter(name="pipelineDisplayName")
     def pipeline_display_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedisplayname
@@ -116,7 +116,7 @@ class Pipeline(pulumi.CustomResource):
         return pulumi.get(self, "pipeline_display_name")
 
     @property
-    @pulumi.getter(name="PipelineName")
+    @pulumi.getter(name="pipelineName")
     def pipeline_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinename
@@ -124,7 +124,7 @@ class Pipeline(pulumi.CustomResource):
         return pulumi.get(self, "pipeline_name")
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn
@@ -132,7 +132,7 @@ class Pipeline(pulumi.CustomResource):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags

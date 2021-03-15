@@ -44,27 +44,27 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private RuleGroupStatementThree(
-            Outputs.RuleGroupByteMatchStatement? ByteMatchStatement,
+            Outputs.RuleGroupByteMatchStatement? byteMatchStatement,
 
-            Outputs.RuleGroupGeoMatchStatement? GeoMatchStatement,
+            Outputs.RuleGroupGeoMatchStatement? geoMatchStatement,
 
-            Outputs.RuleGroupIPSetReferenceStatement? IPSetReferenceStatement,
+            Outputs.RuleGroupIPSetReferenceStatement? iPSetReferenceStatement,
 
-            Outputs.RuleGroupRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement,
+            Outputs.RuleGroupRegexPatternSetReferenceStatement? regexPatternSetReferenceStatement,
 
-            Outputs.RuleGroupSizeConstraintStatement? SizeConstraintStatement,
+            Outputs.RuleGroupSizeConstraintStatement? sizeConstraintStatement,
 
-            Outputs.RuleGroupSqliMatchStatement? SqliMatchStatement,
+            Outputs.RuleGroupSqliMatchStatement? sqliMatchStatement,
 
-            Outputs.RuleGroupXssMatchStatement? XssMatchStatement)
+            Outputs.RuleGroupXssMatchStatement? xssMatchStatement)
         {
-            this.ByteMatchStatement = ByteMatchStatement;
-            this.GeoMatchStatement = GeoMatchStatement;
-            this.IPSetReferenceStatement = IPSetReferenceStatement;
-            this.RegexPatternSetReferenceStatement = RegexPatternSetReferenceStatement;
-            this.SizeConstraintStatement = SizeConstraintStatement;
-            this.SqliMatchStatement = SqliMatchStatement;
-            this.XssMatchStatement = XssMatchStatement;
+            ByteMatchStatement = byteMatchStatement;
+            GeoMatchStatement = geoMatchStatement;
+            IPSetReferenceStatement = iPSetReferenceStatement;
+            RegexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
+            SizeConstraintStatement = sizeConstraintStatement;
+            SqliMatchStatement = sqliMatchStatement;
+            XssMatchStatement = xssMatchStatement;
         }
     }
 }

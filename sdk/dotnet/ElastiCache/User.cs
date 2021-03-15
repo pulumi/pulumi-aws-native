@@ -18,49 +18,49 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
         /// </summary>
-        [Output("AccessString")]
+        [Output("accessString")]
         public Output<string?> AccessString { get; private set; } = null!;
 
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("Authentication")]
+        [Output("authentication")]
         public Output<Outputs.UserAuthentication> Authentication { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
         /// </summary>
-        [Output("Engine")]
+        [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
         /// </summary>
-        [Output("NoPasswordRequired")]
+        [Output("noPasswordRequired")]
         public Output<bool?> NoPasswordRequired { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
         /// </summary>
-        [Output("Passwords")]
+        [Output("passwords")]
         public Output<Outputs.UserPasswordList?> Passwords { get; private set; } = null!;
 
-        [Output("Status")]
+        [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        [Output("UserGroupIds")]
+        [Output("userGroupIds")]
         public Output<Outputs.UserUserGroupIdList> UserGroupIds { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
         /// </summary>
-        [Output("UserId")]
+        [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
         /// </summary>
-        [Output("UserName")]
+        [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
 
@@ -111,37 +111,37 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
         /// </summary>
-        [Input("AccessString")]
+        [Input("accessString")]
         public Input<string>? AccessString { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
         /// </summary>
-        [Input("Engine", required: true)]
+        [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
         /// </summary>
-        [Input("NoPasswordRequired")]
+        [Input("noPasswordRequired")]
         public Input<bool>? NoPasswordRequired { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
         /// </summary>
-        [Input("Passwords")]
+        [Input("passwords")]
         public Input<Inputs.UserPasswordListArgs>? Passwords { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
         /// </summary>
-        [Input("UserId", required: true)]
+        [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
         /// </summary>
-        [Input("UserName", required: true)]
+        [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
         public UserArgs()

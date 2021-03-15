@@ -60,39 +60,39 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private RuleGroupStatementTwo(
-            Outputs.RuleGroupAndStatementTwo? AndStatement,
+            Outputs.RuleGroupAndStatementTwo? andStatement,
 
-            Outputs.RuleGroupByteMatchStatement? ByteMatchStatement,
+            Outputs.RuleGroupByteMatchStatement? byteMatchStatement,
 
-            Outputs.RuleGroupGeoMatchStatement? GeoMatchStatement,
+            Outputs.RuleGroupGeoMatchStatement? geoMatchStatement,
 
-            Outputs.RuleGroupIPSetReferenceStatement? IPSetReferenceStatement,
+            Outputs.RuleGroupIPSetReferenceStatement? iPSetReferenceStatement,
 
-            Outputs.RuleGroupNotStatementTwo? NotStatement,
+            Outputs.RuleGroupNotStatementTwo? notStatement,
 
-            Outputs.RuleGroupOrStatementTwo? OrStatement,
+            Outputs.RuleGroupOrStatementTwo? orStatement,
 
-            Outputs.RuleGroupRateBasedStatementTwo? RateBasedStatement,
+            Outputs.RuleGroupRateBasedStatementTwo? rateBasedStatement,
 
-            Outputs.RuleGroupRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement,
+            Outputs.RuleGroupRegexPatternSetReferenceStatement? regexPatternSetReferenceStatement,
 
-            Outputs.RuleGroupSizeConstraintStatement? SizeConstraintStatement,
+            Outputs.RuleGroupSizeConstraintStatement? sizeConstraintStatement,
 
-            Outputs.RuleGroupSqliMatchStatement? SqliMatchStatement,
+            Outputs.RuleGroupSqliMatchStatement? sqliMatchStatement,
 
-            Outputs.RuleGroupXssMatchStatement? XssMatchStatement)
+            Outputs.RuleGroupXssMatchStatement? xssMatchStatement)
         {
-            this.AndStatement = AndStatement;
-            this.ByteMatchStatement = ByteMatchStatement;
-            this.GeoMatchStatement = GeoMatchStatement;
-            this.IPSetReferenceStatement = IPSetReferenceStatement;
-            this.NotStatement = NotStatement;
-            this.OrStatement = OrStatement;
-            this.RateBasedStatement = RateBasedStatement;
-            this.RegexPatternSetReferenceStatement = RegexPatternSetReferenceStatement;
-            this.SizeConstraintStatement = SizeConstraintStatement;
-            this.SqliMatchStatement = SqliMatchStatement;
-            this.XssMatchStatement = XssMatchStatement;
+            AndStatement = andStatement;
+            ByteMatchStatement = byteMatchStatement;
+            GeoMatchStatement = geoMatchStatement;
+            IPSetReferenceStatement = iPSetReferenceStatement;
+            NotStatement = notStatement;
+            OrStatement = orStatement;
+            RateBasedStatement = rateBasedStatement;
+            RegexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
+            SizeConstraintStatement = sizeConstraintStatement;
+            SqliMatchStatement = sqliMatchStatement;
+            XssMatchStatement = xssMatchStatement;
         }
     }
 }

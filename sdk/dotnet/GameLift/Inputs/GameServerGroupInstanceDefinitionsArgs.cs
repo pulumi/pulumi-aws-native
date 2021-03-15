@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// </summary>
     public sealed class GameServerGroupInstanceDefinitionsArgs : Pulumi.ResourceArgs
     {
-        [Input("InstanceDefinitions")]
-        private InputList<Inputs.GameServerGroupInstanceDefinitionArgs>? _InstanceDefinitions;
+        [Input("instanceDefinitions")]
+        private InputList<Inputs.GameServerGroupInstanceDefinitionArgs>? _instanceDefinitions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
         /// </summary>
         public InputList<Inputs.GameServerGroupInstanceDefinitionArgs> InstanceDefinitions
         {
-            get => _InstanceDefinitions ?? (_InstanceDefinitions = new InputList<Inputs.GameServerGroupInstanceDefinitionArgs>());
-            set => _InstanceDefinitions = value;
+            get => _instanceDefinitions ?? (_instanceDefinitions = new InputList<Inputs.GameServerGroupInstanceDefinitionArgs>());
+            set => _instanceDefinitions = value;
         }
 
         public GameServerGroupInstanceDefinitionsArgs()

@@ -22,14 +22,14 @@ class DBProxyAuthFormat(dict):
     def __init__(__self__, *,
                  auth_scheme: Optional[str] = None,
                  description: Optional[str] = None,
-                 iam_auth: Optional[str] = None,
+                 i_am_auth: Optional[str] = None,
                  secret_arn: Optional[str] = None,
                  user_name: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html
         :param str auth_scheme: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-authscheme
         :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-description
-        :param str iam_auth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-iamauth
+        :param str i_am_auth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-iamauth
         :param str secret_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-secretarn
         :param str user_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-username
         """
@@ -37,15 +37,15 @@ class DBProxyAuthFormat(dict):
             pulumi.set(__self__, "auth_scheme", auth_scheme)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if iam_auth is not None:
-            pulumi.set(__self__, "iam_auth", iam_auth)
+        if i_am_auth is not None:
+            pulumi.set(__self__, "i_am_auth", i_am_auth)
         if secret_arn is not None:
             pulumi.set(__self__, "secret_arn", secret_arn)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
 
     @property
-    @pulumi.getter(name="AuthScheme")
+    @pulumi.getter(name="authScheme")
     def auth_scheme(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-authscheme
@@ -53,7 +53,7 @@ class DBProxyAuthFormat(dict):
         return pulumi.get(self, "auth_scheme")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-description
@@ -61,15 +61,15 @@ class DBProxyAuthFormat(dict):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="IAMAuth")
-    def iam_auth(self) -> Optional[str]:
+    @pulumi.getter(name="iAMAuth")
+    def i_am_auth(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-iamauth
         """
-        return pulumi.get(self, "iam_auth")
+        return pulumi.get(self, "i_am_auth")
 
     @property
-    @pulumi.getter(name="SecretArn")
+    @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-secretarn
@@ -77,7 +77,7 @@ class DBProxyAuthFormat(dict):
         return pulumi.get(self, "secret_arn")
 
     @property
-    @pulumi.getter(name="UserName")
+    @pulumi.getter(name="userName")
     def user_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-username
@@ -107,7 +107,7 @@ class DBProxyTagFormat(dict):
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-key
@@ -115,7 +115,7 @@ class DBProxyTagFormat(dict):
         return pulumi.get(self, "key")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-value
@@ -157,7 +157,7 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
             pulumi.set(__self__, "session_pinning_filters", session_pinning_filters)
 
     @property
-    @pulumi.getter(name="ConnectionBorrowTimeout")
+    @pulumi.getter(name="connectionBorrowTimeout")
     def connection_borrow_timeout(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-connectionborrowtimeout
@@ -165,7 +165,7 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
         return pulumi.get(self, "connection_borrow_timeout")
 
     @property
-    @pulumi.getter(name="InitQuery")
+    @pulumi.getter(name="initQuery")
     def init_query(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-initquery
@@ -173,7 +173,7 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
         return pulumi.get(self, "init_query")
 
     @property
-    @pulumi.getter(name="MaxConnectionsPercent")
+    @pulumi.getter(name="maxConnectionsPercent")
     def max_connections_percent(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxconnectionspercent
@@ -181,7 +181,7 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
         return pulumi.get(self, "max_connections_percent")
 
     @property
-    @pulumi.getter(name="MaxIdleConnectionsPercent")
+    @pulumi.getter(name="maxIdleConnectionsPercent")
     def max_idle_connections_percent(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxidleconnectionspercent
@@ -189,7 +189,7 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
         return pulumi.get(self, "max_idle_connections_percent")
 
     @property
-    @pulumi.getter(name="SessionPinningFilters")
+    @pulumi.getter(name="sessionPinningFilters")
     def session_pinning_filters(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-sessionpinningfilters

@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileGoogleAnalyticsConnectorProfileCredentials(
-            string? AccessToken,
+            string? accessToken,
 
-            string ClientId,
+            string clientId,
 
-            string ClientSecret,
+            string clientSecret,
 
-            Outputs.ConnectorProfileConnectorOAuthRequest? ConnectorOAuthRequest,
+            Outputs.ConnectorProfileConnectorOAuthRequest? connectorOAuthRequest,
 
-            string? RefreshToken)
+            string? refreshToken)
         {
-            this.AccessToken = AccessToken;
-            this.ClientId = ClientId;
-            this.ClientSecret = ClientSecret;
-            this.ConnectorOAuthRequest = ConnectorOAuthRequest;
-            this.RefreshToken = RefreshToken;
+            AccessToken = accessToken;
+            ClientId = clientId;
+            ClientSecret = clientSecret;
+            ConnectorOAuthRequest = connectorOAuthRequest;
+            RefreshToken = refreshToken;
         }
     }
 }

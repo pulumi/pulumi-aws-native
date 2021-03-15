@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-apikey
         /// </summary>
-        [Input("ApiKey", required: true)]
+        [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-secretkey
         /// </summary>
-        [Input("SecretKey", required: true)]
+        [Input("secretKey", required: true)]
         public Input<string> SecretKey { get; set; } = null!;
 
         public ConnectorProfileAmplitudeConnectorProfileCredentialsArgs()

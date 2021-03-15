@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-endpointport
         /// </summary>
-        [Input("EndpointPort", required: true)]
+        [Input("endpointPort", required: true)]
         public Input<int> EndpointPort { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-listenerport
         /// </summary>
-        [Input("ListenerPort", required: true)]
+        [Input("listenerPort", required: true)]
         public Input<int> ListenerPort { get; set; } = null!;
 
         public EndpointGroupPortOverrideArgs()

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html#cfn-networkfirewall-rulegroup-customaction-actiondefinition
         /// </summary>
-        [Input("ActionDefinition", required: true)]
+        [Input("actionDefinition", required: true)]
         public Input<Inputs.RuleGroupActionDefinitionArgs> ActionDefinition { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html#cfn-networkfirewall-rulegroup-customaction-actionname
         /// </summary>
-        [Input("ActionName", required: true)]
+        [Input("actionName", required: true)]
         public Input<string> ActionName { get; set; } = null!;
 
         public RuleGroupCustomActionArgs()

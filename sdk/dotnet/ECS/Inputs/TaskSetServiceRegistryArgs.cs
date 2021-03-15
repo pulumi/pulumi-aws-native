@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-containername
         /// </summary>
-        [Input("ContainerName")]
+        [Input("containerName")]
         public Input<string>? ContainerName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-containerport
         /// </summary>
-        [Input("ContainerPort")]
+        [Input("containerPort")]
         public Input<int>? ContainerPort { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-port
         /// </summary>
-        [Input("Port")]
+        [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-registryarn
         /// </summary>
-        [Input("RegistryArn")]
+        [Input("registryArn")]
         public Input<string>? RegistryArn { get; set; }
 
         public TaskSetServiceRegistryArgs()

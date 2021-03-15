@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html#cfn-networkfirewall-firewall-subnetmapping-subnetid
         /// </summary>
-        [Input("SubnetId", required: true)]
+        [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
         public FirewallSubnetMappingArgs()

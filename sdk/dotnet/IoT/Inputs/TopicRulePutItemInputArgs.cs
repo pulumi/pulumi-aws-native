@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html#cfn-iot-topicrule-putiteminput-tablename
         /// </summary>
-        [Input("TableName", required: true)]
+        [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
         public TopicRulePutItemInputArgs()

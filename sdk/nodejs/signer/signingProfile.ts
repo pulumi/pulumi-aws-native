@@ -35,22 +35,22 @@ export class SigningProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === SigningProfile.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
      */
-    public readonly PlatformId!: pulumi.Output<string>;
-    public /*out*/ readonly ProfileName!: pulumi.Output<string>;
-    public /*out*/ readonly ProfileVersion!: pulumi.Output<string>;
-    public /*out*/ readonly ProfileVersionArn!: pulumi.Output<string>;
+    public readonly platformId!: pulumi.Output<string>;
+    public /*out*/ readonly profileName!: pulumi.Output<string>;
+    public /*out*/ readonly profileVersion!: pulumi.Output<string>;
+    public /*out*/ readonly profileVersionArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
      */
-    public readonly SignatureValidityPeriod!: pulumi.Output<outputs.Signer.SigningProfileSignatureValidityPeriod | undefined>;
+    public readonly signatureValidityPeriod!: pulumi.Output<outputs.Signer.SigningProfileSignatureValidityPeriod | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SigningProfile resource with the given unique name, arguments, and options.
@@ -62,24 +62,24 @@ export class SigningProfile extends pulumi.CustomResource {
     constructor(name: string, args: SigningProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.PlatformId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PlatformId'");
+            if ((!args || args.platformId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'platformId'");
             }
-            inputs["PlatformId"] = args ? args.PlatformId : undefined;
-            inputs["SignatureValidityPeriod"] = args ? args.SignatureValidityPeriod : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["ProfileName"] = undefined /*out*/;
-            inputs["ProfileVersion"] = undefined /*out*/;
-            inputs["ProfileVersionArn"] = undefined /*out*/;
+            inputs["platformId"] = args ? args.platformId : undefined;
+            inputs["signatureValidityPeriod"] = args ? args.signatureValidityPeriod : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["profileName"] = undefined /*out*/;
+            inputs["profileVersion"] = undefined /*out*/;
+            inputs["profileVersionArn"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["PlatformId"] = undefined /*out*/;
-            inputs["ProfileName"] = undefined /*out*/;
-            inputs["ProfileVersion"] = undefined /*out*/;
-            inputs["ProfileVersionArn"] = undefined /*out*/;
-            inputs["SignatureValidityPeriod"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["platformId"] = undefined /*out*/;
+            inputs["profileName"] = undefined /*out*/;
+            inputs["profileVersion"] = undefined /*out*/;
+            inputs["profileVersionArn"] = undefined /*out*/;
+            inputs["signatureValidityPeriod"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -99,13 +99,13 @@ export interface SigningProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
      */
-    readonly PlatformId: pulumi.Input<string>;
+    readonly platformId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
      */
-    readonly SignatureValidityPeriod?: pulumi.Input<inputs.Signer.SigningProfileSignatureValidityPeriod>;
+    readonly signatureValidityPeriod?: pulumi.Input<inputs.Signer.SigningProfileSignatureValidityPeriod>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

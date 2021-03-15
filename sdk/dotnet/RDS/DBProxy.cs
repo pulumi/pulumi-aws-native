@@ -18,67 +18,67 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
         /// </summary>
-        [Output("Auth")]
+        [Output("auth")]
         public Output<ImmutableArray<Outputs.DBProxyAuthFormat>> Auth { get; private set; } = null!;
 
-        [Output("DBProxyArn")]
+        [Output("dBProxyArn")]
         public Output<string> DBProxyArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
         /// </summary>
-        [Output("DBProxyName")]
+        [Output("dBProxyName")]
         public Output<string> DBProxyName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
         /// </summary>
-        [Output("DebugLogging")]
+        [Output("debugLogging")]
         public Output<bool?> DebugLogging { get; private set; } = null!;
 
-        [Output("Endpoint")]
+        [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
         /// </summary>
-        [Output("EngineFamily")]
+        [Output("engineFamily")]
         public Output<string> EngineFamily { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
         /// </summary>
-        [Output("IdleClientTimeout")]
+        [Output("idleClientTimeout")]
         public Output<int?> IdleClientTimeout { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
         /// </summary>
-        [Output("RequireTLS")]
+        [Output("requireTLS")]
         public Output<bool?> RequireTLS { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
         /// </summary>
-        [Output("RoleArn")]
+        [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Outputs.DBProxyTagFormat>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
         /// </summary>
-        [Output("VpcSecurityGroupIds")]
+        [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
         /// </summary>
-        [Output("VpcSubnetIds")]
+        [Output("vpcSubnetIds")]
         public Output<ImmutableArray<string>> VpcSubnetIds { get; private set; } = null!;
 
 
@@ -126,88 +126,88 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class DBProxyArgs : Pulumi.ResourceArgs
     {
-        [Input("Auth", required: true)]
-        private InputList<Inputs.DBProxyAuthFormatArgs>? _Auth;
+        [Input("auth", required: true)]
+        private InputList<Inputs.DBProxyAuthFormatArgs>? _auth;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
         /// </summary>
         public InputList<Inputs.DBProxyAuthFormatArgs> Auth
         {
-            get => _Auth ?? (_Auth = new InputList<Inputs.DBProxyAuthFormatArgs>());
-            set => _Auth = value;
+            get => _auth ?? (_auth = new InputList<Inputs.DBProxyAuthFormatArgs>());
+            set => _auth = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
         /// </summary>
-        [Input("DBProxyName", required: true)]
+        [Input("dBProxyName", required: true)]
         public Input<string> DBProxyName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
         /// </summary>
-        [Input("DebugLogging")]
+        [Input("debugLogging")]
         public Input<bool>? DebugLogging { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
         /// </summary>
-        [Input("EngineFamily", required: true)]
+        [Input("engineFamily", required: true)]
         public Input<string> EngineFamily { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
         /// </summary>
-        [Input("IdleClientTimeout")]
+        [Input("idleClientTimeout")]
         public Input<int>? IdleClientTimeout { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
         /// </summary>
-        [Input("RequireTLS")]
+        [Input("requireTLS")]
         public Input<bool>? RequireTLS { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Inputs.DBProxyTagFormatArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Inputs.DBProxyTagFormatArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
         /// </summary>
         public InputList<Inputs.DBProxyTagFormatArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Inputs.DBProxyTagFormatArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Inputs.DBProxyTagFormatArgs>());
+            set => _tags = value;
         }
 
-        [Input("VpcSecurityGroupIds")]
-        private InputList<string>? _VpcSecurityGroupIds;
+        [Input("vpcSecurityGroupIds")]
+        private InputList<string>? _vpcSecurityGroupIds;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {
-            get => _VpcSecurityGroupIds ?? (_VpcSecurityGroupIds = new InputList<string>());
-            set => _VpcSecurityGroupIds = value;
+            get => _vpcSecurityGroupIds ?? (_vpcSecurityGroupIds = new InputList<string>());
+            set => _vpcSecurityGroupIds = value;
         }
 
-        [Input("VpcSubnetIds", required: true)]
-        private InputList<string>? _VpcSubnetIds;
+        [Input("vpcSubnetIds", required: true)]
+        private InputList<string>? _vpcSubnetIds;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
         /// </summary>
         public InputList<string> VpcSubnetIds
         {
-            get => _VpcSubnetIds ?? (_VpcSubnetIds = new InputList<string>());
-            set => _VpcSubnetIds = value;
+            get => _vpcSubnetIds ?? (_vpcSubnetIds = new InputList<string>());
+            set => _vpcSubnetIds = value;
         }
 
         public DBProxyArgs()

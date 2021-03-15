@@ -98,12 +98,12 @@ class MonitoringSchedule(pulumi.CustomResource):
         return MonitoringSchedule(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="CreationTime")
+    @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "creation_time")
 
     @property
-    @pulumi.getter(name="EndpointName")
+    @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
@@ -111,7 +111,7 @@ class MonitoringSchedule(pulumi.CustomResource):
         return pulumi.get(self, "endpoint_name")
 
     @property
-    @pulumi.getter(name="FailureReason")
+    @pulumi.getter(name="failureReason")
     def failure_reason(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
@@ -119,12 +119,12 @@ class MonitoringSchedule(pulumi.CustomResource):
         return pulumi.get(self, "failure_reason")
 
     @property
-    @pulumi.getter(name="LastModifiedTime")
+    @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "last_modified_time")
 
     @property
-    @pulumi.getter(name="LastMonitoringExecutionSummary")
+    @pulumi.getter(name="lastMonitoringExecutionSummary")
     def last_monitoring_execution_summary(self) -> pulumi.Output[Optional['outputs.MonitoringScheduleMonitoringExecutionSummary']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
@@ -132,12 +132,12 @@ class MonitoringSchedule(pulumi.CustomResource):
         return pulumi.get(self, "last_monitoring_execution_summary")
 
     @property
-    @pulumi.getter(name="MonitoringScheduleArn")
+    @pulumi.getter(name="monitoringScheduleArn")
     def monitoring_schedule_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "monitoring_schedule_arn")
 
     @property
-    @pulumi.getter(name="MonitoringScheduleConfig")
+    @pulumi.getter(name="monitoringScheduleConfig")
     def monitoring_schedule_config(self) -> pulumi.Output['outputs.MonitoringScheduleMonitoringScheduleConfig']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
@@ -145,7 +145,7 @@ class MonitoringSchedule(pulumi.CustomResource):
         return pulumi.get(self, "monitoring_schedule_config")
 
     @property
-    @pulumi.getter(name="MonitoringScheduleName")
+    @pulumi.getter(name="monitoringScheduleName")
     def monitoring_schedule_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
@@ -153,7 +153,7 @@ class MonitoringSchedule(pulumi.CustomResource):
         return pulumi.get(self, "monitoring_schedule_name")
 
     @property
-    @pulumi.getter(name="MonitoringScheduleStatus")
+    @pulumi.getter(name="monitoringScheduleStatus")
     def monitoring_schedule_status(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
@@ -161,7 +161,7 @@ class MonitoringSchedule(pulumi.CustomResource):
         return pulumi.get(self, "monitoring_schedule_status")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags

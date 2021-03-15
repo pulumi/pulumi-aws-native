@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private OriginEndpointSpekeKeyProvider(
-            string? CertificateArn,
+            string? certificateArn,
 
-            string ResourceId,
+            string resourceId,
 
-            string RoleArn,
+            string roleArn,
 
-            ImmutableArray<string> SystemIds,
+            ImmutableArray<string> systemIds,
 
-            string Url)
+            string url)
         {
-            this.CertificateArn = CertificateArn;
-            this.ResourceId = ResourceId;
-            this.RoleArn = RoleArn;
-            this.SystemIds = SystemIds;
-            this.Url = Url;
+            CertificateArn = certificateArn;
+            ResourceId = resourceId;
+            RoleArn = roleArn;
+            SystemIds = systemIds;
+            Url = url;
         }
     }
 }

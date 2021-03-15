@@ -15,19 +15,19 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:IoT:TopicRule")]
     public partial class TopicRule : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
         /// </summary>
-        [Output("RuleName")]
+        [Output("ruleName")]
         public Output<string?> RuleName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
         /// </summary>
-        [Output("TopicRulePayload")]
+        [Output("topicRulePayload")]
         public Output<Outputs.TopicRuleTopicRulePayload> TopicRulePayload { get; private set; } = null!;
 
 
@@ -78,13 +78,13 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
         /// </summary>
-        [Input("RuleName")]
+        [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
         /// </summary>
-        [Input("TopicRulePayload", required: true)]
+        [Input("topicRulePayload", required: true)]
         public Input<Inputs.TopicRuleTopicRulePayloadArgs> TopicRulePayload { get; set; } = null!;
 
         public TopicRuleArgs()

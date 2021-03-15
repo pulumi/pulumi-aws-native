@@ -84,7 +84,7 @@ class GlobalCluster(pulumi.CustomResource):
         return GlobalCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="DeletionProtection")
+    @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
@@ -92,7 +92,7 @@ class GlobalCluster(pulumi.CustomResource):
         return pulumi.get(self, "deletion_protection")
 
     @property
-    @pulumi.getter(name="Engine")
+    @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
@@ -100,7 +100,7 @@ class GlobalCluster(pulumi.CustomResource):
         return pulumi.get(self, "engine")
 
     @property
-    @pulumi.getter(name="EngineVersion")
+    @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
@@ -108,7 +108,7 @@ class GlobalCluster(pulumi.CustomResource):
         return pulumi.get(self, "engine_version")
 
     @property
-    @pulumi.getter(name="GlobalClusterIdentifier")
+    @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
@@ -116,7 +116,7 @@ class GlobalCluster(pulumi.CustomResource):
         return pulumi.get(self, "global_cluster_identifier")
 
     @property
-    @pulumi.getter(name="SourceDBClusterIdentifier")
+    @pulumi.getter(name="sourceDBClusterIdentifier")
     def source_db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
@@ -124,7 +124,7 @@ class GlobalCluster(pulumi.CustomResource):
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @property
-    @pulumi.getter(name="StorageEncrypted")
+    @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted

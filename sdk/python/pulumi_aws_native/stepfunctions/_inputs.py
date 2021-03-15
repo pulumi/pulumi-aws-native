@@ -30,7 +30,7 @@ class StateMachineCloudWatchLogsLogGroupArgs:
             pulumi.set(__self__, "log_group_arn", log_group_arn)
 
     @property
-    @pulumi.getter(name="LogGroupArn")
+    @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
@@ -63,7 +63,7 @@ class StateMachineLogDestinationArgs:
             pulumi.set(__self__, "cloud_watch_logs_log_group", cloud_watch_logs_log_group)
 
     @property
-    @pulumi.getter(name="CloudWatchLogsLogGroup")
+    @pulumi.getter(name="cloudWatchLogsLogGroup")
     def cloud_watch_logs_log_group(self) -> Optional[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup
@@ -95,7 +95,7 @@ class StateMachineLoggingConfigurationArgs:
             pulumi.set(__self__, "level", level)
 
     @property
-    @pulumi.getter(name="Destinations")
+    @pulumi.getter
     def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-destinations
@@ -107,7 +107,7 @@ class StateMachineLoggingConfigurationArgs:
         pulumi.set(self, "destinations", value)
 
     @property
-    @pulumi.getter(name="IncludeExecutionData")
+    @pulumi.getter(name="includeExecutionData")
     def include_execution_data(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata
@@ -119,7 +119,7 @@ class StateMachineLoggingConfigurationArgs:
         pulumi.set(self, "include_execution_data", value)
 
     @property
-    @pulumi.getter(name="Level")
+    @pulumi.getter
     def level(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level
@@ -149,7 +149,7 @@ class StateMachineS3LocationArgs:
             pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter(name="Bucket")
+    @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-bucket
@@ -161,7 +161,7 @@ class StateMachineS3LocationArgs:
         pulumi.set(self, "bucket", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-key
@@ -173,7 +173,7 @@ class StateMachineS3LocationArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Version")
+    @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-version
@@ -199,7 +199,7 @@ class StateMachineTagsEntryArgs:
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-key
@@ -211,7 +211,7 @@ class StateMachineTagsEntryArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-value
@@ -235,7 +235,7 @@ class StateMachineTracingConfigurationArgs:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html#cfn-stepfunctions-statemachine-tracingconfiguration-enabled

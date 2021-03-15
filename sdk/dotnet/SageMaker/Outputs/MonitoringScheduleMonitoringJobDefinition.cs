@@ -52,33 +52,33 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private MonitoringScheduleMonitoringJobDefinition(
-            Outputs.MonitoringScheduleBaselineConfig? BaselineConfig,
+            Outputs.MonitoringScheduleBaselineConfig? baselineConfig,
 
-            Outputs.MonitoringScheduleEnvironment? Environment,
+            Outputs.MonitoringScheduleEnvironment? environment,
 
-            Outputs.MonitoringScheduleMonitoringAppSpecification MonitoringAppSpecification,
+            Outputs.MonitoringScheduleMonitoringAppSpecification monitoringAppSpecification,
 
-            Outputs.MonitoringScheduleMonitoringInputs MonitoringInputs,
+            Outputs.MonitoringScheduleMonitoringInputs monitoringInputs,
 
-            Outputs.MonitoringScheduleMonitoringOutputConfig MonitoringOutputConfig,
+            Outputs.MonitoringScheduleMonitoringOutputConfig monitoringOutputConfig,
 
-            Outputs.MonitoringScheduleMonitoringResources MonitoringResources,
+            Outputs.MonitoringScheduleMonitoringResources monitoringResources,
 
-            Outputs.MonitoringScheduleNetworkConfig? NetworkConfig,
+            Outputs.MonitoringScheduleNetworkConfig? networkConfig,
 
-            string RoleArn,
+            string roleArn,
 
-            Outputs.MonitoringScheduleStoppingCondition? StoppingCondition)
+            Outputs.MonitoringScheduleStoppingCondition? stoppingCondition)
         {
-            this.BaselineConfig = BaselineConfig;
-            this.Environment = Environment;
-            this.MonitoringAppSpecification = MonitoringAppSpecification;
-            this.MonitoringInputs = MonitoringInputs;
-            this.MonitoringOutputConfig = MonitoringOutputConfig;
-            this.MonitoringResources = MonitoringResources;
-            this.NetworkConfig = NetworkConfig;
-            this.RoleArn = RoleArn;
-            this.StoppingCondition = StoppingCondition;
+            BaselineConfig = baselineConfig;
+            Environment = environment;
+            MonitoringAppSpecification = monitoringAppSpecification;
+            MonitoringInputs = monitoringInputs;
+            MonitoringOutputConfig = monitoringOutputConfig;
+            MonitoringResources = monitoringResources;
+            NetworkConfig = networkConfig;
+            RoleArn = roleArn;
+            StoppingCondition = stoppingCondition;
         }
     }
 }

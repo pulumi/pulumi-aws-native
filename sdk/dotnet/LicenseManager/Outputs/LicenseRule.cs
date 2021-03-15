@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
 
         [OutputConstructor]
         private LicenseRule(
-            string Name,
+            string name,
 
-            string Unit,
+            string unit,
 
-            string Value)
+            string value)
         {
-            this.Name = Name;
-            this.Unit = Unit;
-            this.Value = Value;
+            Name = name;
+            Unit = unit;
+            Value = value;
         }
     }
 }

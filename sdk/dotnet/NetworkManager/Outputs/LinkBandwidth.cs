@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.NetworkManager.Outputs
 
         [OutputConstructor]
         private LinkBandwidth(
-            int? DownloadSpeed,
+            int? downloadSpeed,
 
-            int? UploadSpeed)
+            int? uploadSpeed)
         {
-            this.DownloadSpeed = DownloadSpeed;
-            this.UploadSpeed = UploadSpeed;
+            DownloadSpeed = downloadSpeed;
+            UploadSpeed = uploadSpeed;
         }
     }
 }

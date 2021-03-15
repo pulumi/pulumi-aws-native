@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-dependencytype
         /// </summary>
-        [Input("DependencyType")]
+        [Input("dependencyType")]
         public Input<string>? DependencyType { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-versionrequirement
         /// </summary>
-        [Input("VersionRequirement")]
+        [Input("versionRequirement")]
         public Input<string>? VersionRequirement { get; set; }
 
         public ComponentVersionComponentDependencyRequirementArgs()

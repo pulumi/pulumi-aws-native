@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceConfluenceSpaceListArgs : Pulumi.ResourceArgs
     {
-        [Input("ConfluenceSpaceList")]
-        private InputList<string>? _ConfluenceSpaceList;
+        [Input("confluenceSpaceList")]
+        private InputList<string>? _confluenceSpaceList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacelist.html#cfn-kendra-datasource-confluencespacelist-confluencespacelist
         /// </summary>
         public InputList<string> ConfluenceSpaceList
         {
-            get => _ConfluenceSpaceList ?? (_ConfluenceSpaceList = new InputList<string>());
-            set => _ConfluenceSpaceList = value;
+            get => _confluenceSpaceList ?? (_confluenceSpaceList = new InputList<string>());
+            set => _confluenceSpaceList = value;
         }
 
         public DataSourceConfluenceSpaceListArgs()

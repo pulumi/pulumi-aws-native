@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
         [OutputConstructor]
         private AssetModelAssetModelProperty(
-            string DataType,
+            string dataType,
 
-            string LogicalId,
+            string logicalId,
 
-            string Name,
+            string name,
 
-            Outputs.AssetModelPropertyType Type,
+            Outputs.AssetModelPropertyType type,
 
-            string? Unit)
+            string? unit)
         {
-            this.DataType = DataType;
-            this.LogicalId = LogicalId;
-            this.Name = Name;
-            this.Type = Type;
-            this.Unit = Unit;
+            DataType = dataType;
+            LogicalId = logicalId;
+            Name = name;
+            Type = type;
+            Unit = unit;
         }
     }
 }

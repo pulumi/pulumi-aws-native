@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-containerparams
         /// </summary>
-        [Input("ContainerParams")]
+        [Input("containerParams")]
         public Input<Inputs.ComponentVersionLambdaContainerParamsArgs>? ContainerParams { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-isolationmode
         /// </summary>
-        [Input("IsolationMode")]
+        [Input("isolationMode")]
         public Input<string>? IsolationMode { get; set; }
 
         public ComponentVersionLambdaLinuxProcessParamsArgs()

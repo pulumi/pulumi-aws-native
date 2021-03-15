@@ -90,7 +90,7 @@ class ConnectorProfileAmplitudeConnectorProfileCredentialsArgs:
         pulumi.set(__self__, "secret_key", secret_key)
 
     @property
-    @pulumi.getter(name="ApiKey")
+    @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-apikey
@@ -102,7 +102,7 @@ class ConnectorProfileAmplitudeConnectorProfileCredentialsArgs:
         pulumi.set(self, "api_key", value)
 
     @property
-    @pulumi.getter(name="SecretKey")
+    @pulumi.getter(name="secretKey")
     def secret_key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-secretkey
@@ -130,7 +130,7 @@ class ConnectorProfileConnectorOAuthRequestArgs:
             pulumi.set(__self__, "redirect_uri", redirect_uri)
 
     @property
-    @pulumi.getter(name="AuthCode")
+    @pulumi.getter(name="authCode")
     def auth_code(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-authcode
@@ -142,7 +142,7 @@ class ConnectorProfileConnectorOAuthRequestArgs:
         pulumi.set(self, "auth_code", value)
 
     @property
-    @pulumi.getter(name="RedirectUri")
+    @pulumi.getter(name="redirectUri")
     def redirect_uri(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-redirecturi
@@ -169,7 +169,7 @@ class ConnectorProfileConnectorProfileConfigArgs:
             pulumi.set(__self__, "connector_profile_properties", connector_profile_properties)
 
     @property
-    @pulumi.getter(name="ConnectorProfileCredentials")
+    @pulumi.getter(name="connectorProfileCredentials")
     def connector_profile_credentials(self) -> pulumi.Input['ConnectorProfileConnectorProfileCredentialsArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
@@ -181,7 +181,7 @@ class ConnectorProfileConnectorProfileConfigArgs:
         pulumi.set(self, "connector_profile_credentials", value)
 
     @property
-    @pulumi.getter(name="ConnectorProfileProperties")
+    @pulumi.getter(name="connectorProfileProperties")
     def connector_profile_properties(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfilePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
@@ -261,7 +261,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
             pulumi.set(__self__, "zendesk", zendesk)
 
     @property
-    @pulumi.getter(name="Amplitude")
+    @pulumi.getter
     def amplitude(self) -> Optional[pulumi.Input['ConnectorProfileAmplitudeConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-amplitude
@@ -273,7 +273,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "amplitude", value)
 
     @property
-    @pulumi.getter(name="Datadog")
+    @pulumi.getter
     def datadog(self) -> Optional[pulumi.Input['ConnectorProfileDatadogConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-datadog
@@ -285,7 +285,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "datadog", value)
 
     @property
-    @pulumi.getter(name="Dynatrace")
+    @pulumi.getter
     def dynatrace(self) -> Optional[pulumi.Input['ConnectorProfileDynatraceConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-dynatrace
@@ -297,7 +297,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "dynatrace", value)
 
     @property
-    @pulumi.getter(name="GoogleAnalytics")
+    @pulumi.getter(name="googleAnalytics")
     def google_analytics(self) -> Optional[pulumi.Input['ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-googleanalytics
@@ -309,7 +309,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "google_analytics", value)
 
     @property
-    @pulumi.getter(name="InforNexus")
+    @pulumi.getter(name="inforNexus")
     def infor_nexus(self) -> Optional[pulumi.Input['ConnectorProfileInforNexusConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-infornexus
@@ -321,7 +321,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "infor_nexus", value)
 
     @property
-    @pulumi.getter(name="Marketo")
+    @pulumi.getter
     def marketo(self) -> Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-marketo
@@ -333,7 +333,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "marketo", value)
 
     @property
-    @pulumi.getter(name="Redshift")
+    @pulumi.getter
     def redshift(self) -> Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-redshift
@@ -345,7 +345,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "redshift", value)
 
     @property
-    @pulumi.getter(name="Salesforce")
+    @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-salesforce
@@ -357,7 +357,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "salesforce", value)
 
     @property
-    @pulumi.getter(name="ServiceNow")
+    @pulumi.getter(name="serviceNow")
     def service_now(self) -> Optional[pulumi.Input['ConnectorProfileServiceNowConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-servicenow
@@ -369,7 +369,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "service_now", value)
 
     @property
-    @pulumi.getter(name="Singular")
+    @pulumi.getter
     def singular(self) -> Optional[pulumi.Input['ConnectorProfileSingularConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-singular
@@ -381,7 +381,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "singular", value)
 
     @property
-    @pulumi.getter(name="Slack")
+    @pulumi.getter
     def slack(self) -> Optional[pulumi.Input['ConnectorProfileSlackConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-slack
@@ -393,7 +393,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "slack", value)
 
     @property
-    @pulumi.getter(name="Snowflake")
+    @pulumi.getter
     def snowflake(self) -> Optional[pulumi.Input['ConnectorProfileSnowflakeConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-snowflake
@@ -405,7 +405,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "snowflake", value)
 
     @property
-    @pulumi.getter(name="Trendmicro")
+    @pulumi.getter
     def trendmicro(self) -> Optional[pulumi.Input['ConnectorProfileTrendmicroConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-trendmicro
@@ -417,7 +417,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "trendmicro", value)
 
     @property
-    @pulumi.getter(name="Veeva")
+    @pulumi.getter
     def veeva(self) -> Optional[pulumi.Input['ConnectorProfileVeevaConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-veeva
@@ -429,7 +429,7 @@ class ConnectorProfileConnectorProfileCredentialsArgs:
         pulumi.set(self, "veeva", value)
 
     @property
-    @pulumi.getter(name="Zendesk")
+    @pulumi.getter
     def zendesk(self) -> Optional[pulumi.Input['ConnectorProfileZendeskConnectorProfileCredentialsArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-zendesk
@@ -493,7 +493,7 @@ class ConnectorProfileConnectorProfilePropertiesArgs:
             pulumi.set(__self__, "zendesk", zendesk)
 
     @property
-    @pulumi.getter(name="Datadog")
+    @pulumi.getter
     def datadog(self) -> Optional[pulumi.Input['ConnectorProfileDatadogConnectorProfilePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-datadog
@@ -505,7 +505,7 @@ class ConnectorProfileConnectorProfilePropertiesArgs:
         pulumi.set(self, "datadog", value)
 
     @property
-    @pulumi.getter(name="Dynatrace")
+    @pulumi.getter
     def dynatrace(self) -> Optional[pulumi.Input['ConnectorProfileDynatraceConnectorProfilePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-dynatrace
@@ -517,7 +517,7 @@ class ConnectorProfileConnectorProfilePropertiesArgs:
         pulumi.set(self, "dynatrace", value)
 
     @property
-    @pulumi.getter(name="InforNexus")
+    @pulumi.getter(name="inforNexus")
     def infor_nexus(self) -> Optional[pulumi.Input['ConnectorProfileInforNexusConnectorProfilePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-infornexus
@@ -529,7 +529,7 @@ class ConnectorProfileConnectorProfilePropertiesArgs:
         pulumi.set(self, "infor_nexus", value)
 
     @property
-    @pulumi.getter(name="Marketo")
+    @pulumi.getter
     def marketo(self) -> Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfilePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-marketo
@@ -541,7 +541,7 @@ class ConnectorProfileConnectorProfilePropertiesArgs:
         pulumi.set(self, "marketo", value)
 
     @property
-    @pulumi.getter(name="Redshift")
+    @pulumi.getter
     def redshift(self) -> Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfilePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-redshift
@@ -553,7 +553,7 @@ class ConnectorProfileConnectorProfilePropertiesArgs:
         pulumi.set(self, "redshift", value)
 
     @property
-    @pulumi.getter(name="Salesforce")
+    @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfilePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-salesforce
@@ -565,7 +565,7 @@ class ConnectorProfileConnectorProfilePropertiesArgs:
         pulumi.set(self, "salesforce", value)
 
     @property
-    @pulumi.getter(name="ServiceNow")
+    @pulumi.getter(name="serviceNow")
     def service_now(self) -> Optional[pulumi.Input['ConnectorProfileServiceNowConnectorProfilePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-servicenow
@@ -577,7 +577,7 @@ class ConnectorProfileConnectorProfilePropertiesArgs:
         pulumi.set(self, "service_now", value)
 
     @property
-    @pulumi.getter(name="Slack")
+    @pulumi.getter
     def slack(self) -> Optional[pulumi.Input['ConnectorProfileSlackConnectorProfilePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-slack
@@ -589,7 +589,7 @@ class ConnectorProfileConnectorProfilePropertiesArgs:
         pulumi.set(self, "slack", value)
 
     @property
-    @pulumi.getter(name="Snowflake")
+    @pulumi.getter
     def snowflake(self) -> Optional[pulumi.Input['ConnectorProfileSnowflakeConnectorProfilePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-snowflake
@@ -601,7 +601,7 @@ class ConnectorProfileConnectorProfilePropertiesArgs:
         pulumi.set(self, "snowflake", value)
 
     @property
-    @pulumi.getter(name="Veeva")
+    @pulumi.getter
     def veeva(self) -> Optional[pulumi.Input['ConnectorProfileVeevaConnectorProfilePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-veeva
@@ -613,7 +613,7 @@ class ConnectorProfileConnectorProfilePropertiesArgs:
         pulumi.set(self, "veeva", value)
 
     @property
-    @pulumi.getter(name="Zendesk")
+    @pulumi.getter
     def zendesk(self) -> Optional[pulumi.Input['ConnectorProfileZendeskConnectorProfilePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-zendesk
@@ -639,7 +639,7 @@ class ConnectorProfileDatadogConnectorProfileCredentialsArgs:
         pulumi.set(__self__, "application_key", application_key)
 
     @property
-    @pulumi.getter(name="ApiKey")
+    @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-apikey
@@ -651,7 +651,7 @@ class ConnectorProfileDatadogConnectorProfileCredentialsArgs:
         pulumi.set(self, "api_key", value)
 
     @property
-    @pulumi.getter(name="ApplicationKey")
+    @pulumi.getter(name="applicationKey")
     def application_key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-applicationkey
@@ -674,7 +674,7 @@ class ConnectorProfileDatadogConnectorProfilePropertiesArgs:
         pulumi.set(__self__, "instance_url", instance_url)
 
     @property
-    @pulumi.getter(name="InstanceUrl")
+    @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html#cfn-appflow-connectorprofile-datadogconnectorprofileproperties-instanceurl
@@ -697,7 +697,7 @@ class ConnectorProfileDynatraceConnectorProfileCredentialsArgs:
         pulumi.set(__self__, "api_token", api_token)
 
     @property
-    @pulumi.getter(name="ApiToken")
+    @pulumi.getter(name="apiToken")
     def api_token(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-dynatraceconnectorprofilecredentials-apitoken
@@ -720,7 +720,7 @@ class ConnectorProfileDynatraceConnectorProfilePropertiesArgs:
         pulumi.set(__self__, "instance_url", instance_url)
 
     @property
-    @pulumi.getter(name="InstanceUrl")
+    @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html#cfn-appflow-connectorprofile-dynatraceconnectorprofileproperties-instanceurl
@@ -758,7 +758,7 @@ class ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs:
             pulumi.set(__self__, "refresh_token", refresh_token)
 
     @property
-    @pulumi.getter(name="ClientId")
+    @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-clientid
@@ -770,7 +770,7 @@ class ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs:
         pulumi.set(self, "client_id", value)
 
     @property
-    @pulumi.getter(name="ClientSecret")
+    @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-clientsecret
@@ -782,7 +782,7 @@ class ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs:
         pulumi.set(self, "client_secret", value)
 
     @property
-    @pulumi.getter(name="AccessToken")
+    @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-accesstoken
@@ -794,7 +794,7 @@ class ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs:
         pulumi.set(self, "access_token", value)
 
     @property
-    @pulumi.getter(name="ConnectorOAuthRequest")
+    @pulumi.getter(name="connectorOAuthRequest")
     def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-connectoroauthrequest
@@ -806,7 +806,7 @@ class ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs:
         pulumi.set(self, "connector_o_auth_request", value)
 
     @property
-    @pulumi.getter(name="RefreshToken")
+    @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-refreshtoken
@@ -838,7 +838,7 @@ class ConnectorProfileInforNexusConnectorProfileCredentialsArgs:
         pulumi.set(__self__, "user_id", user_id)
 
     @property
-    @pulumi.getter(name="AccessKeyId")
+    @pulumi.getter(name="accessKeyId")
     def access_key_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-accesskeyid
@@ -850,7 +850,7 @@ class ConnectorProfileInforNexusConnectorProfileCredentialsArgs:
         pulumi.set(self, "access_key_id", value)
 
     @property
-    @pulumi.getter(name="Datakey")
+    @pulumi.getter
     def datakey(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-datakey
@@ -862,7 +862,7 @@ class ConnectorProfileInforNexusConnectorProfileCredentialsArgs:
         pulumi.set(self, "datakey", value)
 
     @property
-    @pulumi.getter(name="SecretAccessKey")
+    @pulumi.getter(name="secretAccessKey")
     def secret_access_key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-secretaccesskey
@@ -874,7 +874,7 @@ class ConnectorProfileInforNexusConnectorProfileCredentialsArgs:
         pulumi.set(self, "secret_access_key", value)
 
     @property
-    @pulumi.getter(name="UserId")
+    @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-userid
@@ -897,7 +897,7 @@ class ConnectorProfileInforNexusConnectorProfilePropertiesArgs:
         pulumi.set(__self__, "instance_url", instance_url)
 
     @property
-    @pulumi.getter(name="InstanceUrl")
+    @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html#cfn-appflow-connectorprofile-infornexusconnectorprofileproperties-instanceurl
@@ -931,7 +931,7 @@ class ConnectorProfileMarketoConnectorProfileCredentialsArgs:
             pulumi.set(__self__, "connector_o_auth_request", connector_o_auth_request)
 
     @property
-    @pulumi.getter(name="ClientId")
+    @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientid
@@ -943,7 +943,7 @@ class ConnectorProfileMarketoConnectorProfileCredentialsArgs:
         pulumi.set(self, "client_id", value)
 
     @property
-    @pulumi.getter(name="ClientSecret")
+    @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientsecret
@@ -955,7 +955,7 @@ class ConnectorProfileMarketoConnectorProfileCredentialsArgs:
         pulumi.set(self, "client_secret", value)
 
     @property
-    @pulumi.getter(name="AccessToken")
+    @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-accesstoken
@@ -967,7 +967,7 @@ class ConnectorProfileMarketoConnectorProfileCredentialsArgs:
         pulumi.set(self, "access_token", value)
 
     @property
-    @pulumi.getter(name="ConnectorOAuthRequest")
+    @pulumi.getter(name="connectorOAuthRequest")
     def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-connectoroauthrequest
@@ -990,7 +990,7 @@ class ConnectorProfileMarketoConnectorProfilePropertiesArgs:
         pulumi.set(__self__, "instance_url", instance_url)
 
     @property
-    @pulumi.getter(name="InstanceUrl")
+    @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html#cfn-appflow-connectorprofile-marketoconnectorprofileproperties-instanceurl
@@ -1016,7 +1016,7 @@ class ConnectorProfileRedshiftConnectorProfileCredentialsArgs:
         pulumi.set(__self__, "username", username)
 
     @property
-    @pulumi.getter(name="Password")
+    @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html#cfn-appflow-connectorprofile-redshiftconnectorprofilecredentials-password
@@ -1028,7 +1028,7 @@ class ConnectorProfileRedshiftConnectorProfileCredentialsArgs:
         pulumi.set(self, "password", value)
 
     @property
-    @pulumi.getter(name="Username")
+    @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html#cfn-appflow-connectorprofile-redshiftconnectorprofilecredentials-username
@@ -1061,7 +1061,7 @@ class ConnectorProfileRedshiftConnectorProfilePropertiesArgs:
             pulumi.set(__self__, "bucket_prefix", bucket_prefix)
 
     @property
-    @pulumi.getter(name="BucketName")
+    @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketname
@@ -1073,7 +1073,7 @@ class ConnectorProfileRedshiftConnectorProfilePropertiesArgs:
         pulumi.set(self, "bucket_name", value)
 
     @property
-    @pulumi.getter(name="DatabaseUrl")
+    @pulumi.getter(name="databaseUrl")
     def database_url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-databaseurl
@@ -1085,7 +1085,7 @@ class ConnectorProfileRedshiftConnectorProfilePropertiesArgs:
         pulumi.set(self, "database_url", value)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-rolearn
@@ -1097,7 +1097,7 @@ class ConnectorProfileRedshiftConnectorProfilePropertiesArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="BucketPrefix")
+    @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketprefix
@@ -1133,7 +1133,7 @@ class ConnectorProfileSalesforceConnectorProfileCredentialsArgs:
             pulumi.set(__self__, "refresh_token", refresh_token)
 
     @property
-    @pulumi.getter(name="AccessToken")
+    @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-accesstoken
@@ -1145,7 +1145,7 @@ class ConnectorProfileSalesforceConnectorProfileCredentialsArgs:
         pulumi.set(self, "access_token", value)
 
     @property
-    @pulumi.getter(name="ClientCredentialsArn")
+    @pulumi.getter(name="clientCredentialsArn")
     def client_credentials_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-clientcredentialsarn
@@ -1157,7 +1157,7 @@ class ConnectorProfileSalesforceConnectorProfileCredentialsArgs:
         pulumi.set(self, "client_credentials_arn", value)
 
     @property
-    @pulumi.getter(name="ConnectorOAuthRequest")
+    @pulumi.getter(name="connectorOAuthRequest")
     def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-connectoroauthrequest
@@ -1169,7 +1169,7 @@ class ConnectorProfileSalesforceConnectorProfileCredentialsArgs:
         pulumi.set(self, "connector_o_auth_request", value)
 
     @property
-    @pulumi.getter(name="RefreshToken")
+    @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-refreshtoken
@@ -1197,7 +1197,7 @@ class ConnectorProfileSalesforceConnectorProfilePropertiesArgs:
             pulumi.set(__self__, "is_sandbox_environment", is_sandbox_environment)
 
     @property
-    @pulumi.getter(name="InstanceUrl")
+    @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-instanceurl
@@ -1235,7 +1235,7 @@ class ConnectorProfileServiceNowConnectorProfileCredentialsArgs:
         pulumi.set(__self__, "username", username)
 
     @property
-    @pulumi.getter(name="Password")
+    @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-password
@@ -1247,7 +1247,7 @@ class ConnectorProfileServiceNowConnectorProfileCredentialsArgs:
         pulumi.set(self, "password", value)
 
     @property
-    @pulumi.getter(name="Username")
+    @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-username
@@ -1270,7 +1270,7 @@ class ConnectorProfileServiceNowConnectorProfilePropertiesArgs:
         pulumi.set(__self__, "instance_url", instance_url)
 
     @property
-    @pulumi.getter(name="InstanceUrl")
+    @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html#cfn-appflow-connectorprofile-servicenowconnectorprofileproperties-instanceurl
@@ -1293,7 +1293,7 @@ class ConnectorProfileSingularConnectorProfileCredentialsArgs:
         pulumi.set(__self__, "api_key", api_key)
 
     @property
-    @pulumi.getter(name="ApiKey")
+    @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html#cfn-appflow-connectorprofile-singularconnectorprofilecredentials-apikey
@@ -1327,7 +1327,7 @@ class ConnectorProfileSlackConnectorProfileCredentialsArgs:
             pulumi.set(__self__, "connector_o_auth_request", connector_o_auth_request)
 
     @property
-    @pulumi.getter(name="ClientId")
+    @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientid
@@ -1339,7 +1339,7 @@ class ConnectorProfileSlackConnectorProfileCredentialsArgs:
         pulumi.set(self, "client_id", value)
 
     @property
-    @pulumi.getter(name="ClientSecret")
+    @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientsecret
@@ -1351,7 +1351,7 @@ class ConnectorProfileSlackConnectorProfileCredentialsArgs:
         pulumi.set(self, "client_secret", value)
 
     @property
-    @pulumi.getter(name="AccessToken")
+    @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-accesstoken
@@ -1363,7 +1363,7 @@ class ConnectorProfileSlackConnectorProfileCredentialsArgs:
         pulumi.set(self, "access_token", value)
 
     @property
-    @pulumi.getter(name="ConnectorOAuthRequest")
+    @pulumi.getter(name="connectorOAuthRequest")
     def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-connectoroauthrequest
@@ -1386,7 +1386,7 @@ class ConnectorProfileSlackConnectorProfilePropertiesArgs:
         pulumi.set(__self__, "instance_url", instance_url)
 
     @property
-    @pulumi.getter(name="InstanceUrl")
+    @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html#cfn-appflow-connectorprofile-slackconnectorprofileproperties-instanceurl
@@ -1412,7 +1412,7 @@ class ConnectorProfileSnowflakeConnectorProfileCredentialsArgs:
         pulumi.set(__self__, "username", username)
 
     @property
-    @pulumi.getter(name="Password")
+    @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-password
@@ -1424,7 +1424,7 @@ class ConnectorProfileSnowflakeConnectorProfileCredentialsArgs:
         pulumi.set(self, "password", value)
 
     @property
-    @pulumi.getter(name="Username")
+    @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-username
@@ -1469,7 +1469,7 @@ class ConnectorProfileSnowflakeConnectorProfilePropertiesArgs:
             pulumi.set(__self__, "region", region)
 
     @property
-    @pulumi.getter(name="BucketName")
+    @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketname
@@ -1481,7 +1481,7 @@ class ConnectorProfileSnowflakeConnectorProfilePropertiesArgs:
         pulumi.set(self, "bucket_name", value)
 
     @property
-    @pulumi.getter(name="Stage")
+    @pulumi.getter
     def stage(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-stage
@@ -1493,7 +1493,7 @@ class ConnectorProfileSnowflakeConnectorProfilePropertiesArgs:
         pulumi.set(self, "stage", value)
 
     @property
-    @pulumi.getter(name="Warehouse")
+    @pulumi.getter
     def warehouse(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-warehouse
@@ -1505,7 +1505,7 @@ class ConnectorProfileSnowflakeConnectorProfilePropertiesArgs:
         pulumi.set(self, "warehouse", value)
 
     @property
-    @pulumi.getter(name="AccountName")
+    @pulumi.getter(name="accountName")
     def account_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-accountname
@@ -1517,7 +1517,7 @@ class ConnectorProfileSnowflakeConnectorProfilePropertiesArgs:
         pulumi.set(self, "account_name", value)
 
     @property
-    @pulumi.getter(name="BucketPrefix")
+    @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketprefix
@@ -1529,7 +1529,7 @@ class ConnectorProfileSnowflakeConnectorProfilePropertiesArgs:
         pulumi.set(self, "bucket_prefix", value)
 
     @property
-    @pulumi.getter(name="PrivateLinkServiceName")
+    @pulumi.getter(name="privateLinkServiceName")
     def private_link_service_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-privatelinkservicename
@@ -1541,7 +1541,7 @@ class ConnectorProfileSnowflakeConnectorProfilePropertiesArgs:
         pulumi.set(self, "private_link_service_name", value)
 
     @property
-    @pulumi.getter(name="Region")
+    @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-region
@@ -1564,7 +1564,7 @@ class ConnectorProfileTrendmicroConnectorProfileCredentialsArgs:
         pulumi.set(__self__, "api_secret_key", api_secret_key)
 
     @property
-    @pulumi.getter(name="ApiSecretKey")
+    @pulumi.getter(name="apiSecretKey")
     def api_secret_key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html#cfn-appflow-connectorprofile-trendmicroconnectorprofilecredentials-apisecretkey
@@ -1590,7 +1590,7 @@ class ConnectorProfileVeevaConnectorProfileCredentialsArgs:
         pulumi.set(__self__, "username", username)
 
     @property
-    @pulumi.getter(name="Password")
+    @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html#cfn-appflow-connectorprofile-veevaconnectorprofilecredentials-password
@@ -1602,7 +1602,7 @@ class ConnectorProfileVeevaConnectorProfileCredentialsArgs:
         pulumi.set(self, "password", value)
 
     @property
-    @pulumi.getter(name="Username")
+    @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html#cfn-appflow-connectorprofile-veevaconnectorprofilecredentials-username
@@ -1625,7 +1625,7 @@ class ConnectorProfileVeevaConnectorProfilePropertiesArgs:
         pulumi.set(__self__, "instance_url", instance_url)
 
     @property
-    @pulumi.getter(name="InstanceUrl")
+    @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html#cfn-appflow-connectorprofile-veevaconnectorprofileproperties-instanceurl
@@ -1659,7 +1659,7 @@ class ConnectorProfileZendeskConnectorProfileCredentialsArgs:
             pulumi.set(__self__, "connector_o_auth_request", connector_o_auth_request)
 
     @property
-    @pulumi.getter(name="ClientId")
+    @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientid
@@ -1671,7 +1671,7 @@ class ConnectorProfileZendeskConnectorProfileCredentialsArgs:
         pulumi.set(self, "client_id", value)
 
     @property
-    @pulumi.getter(name="ClientSecret")
+    @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientsecret
@@ -1683,7 +1683,7 @@ class ConnectorProfileZendeskConnectorProfileCredentialsArgs:
         pulumi.set(self, "client_secret", value)
 
     @property
-    @pulumi.getter(name="AccessToken")
+    @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-accesstoken
@@ -1695,7 +1695,7 @@ class ConnectorProfileZendeskConnectorProfileCredentialsArgs:
         pulumi.set(self, "access_token", value)
 
     @property
-    @pulumi.getter(name="ConnectorOAuthRequest")
+    @pulumi.getter(name="connectorOAuthRequest")
     def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-connectoroauthrequest
@@ -1718,7 +1718,7 @@ class ConnectorProfileZendeskConnectorProfilePropertiesArgs:
         pulumi.set(__self__, "instance_url", instance_url)
 
     @property
-    @pulumi.getter(name="InstanceUrl")
+    @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html#cfn-appflow-connectorprofile-zendeskconnectorprofileproperties-instanceurl
@@ -1742,7 +1742,7 @@ class FlowAggregationConfigArgs:
             pulumi.set(__self__, "aggregation_type", aggregation_type)
 
     @property
-    @pulumi.getter(name="AggregationType")
+    @pulumi.getter(name="aggregationType")
     def aggregation_type(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-aggregationtype
@@ -1765,7 +1765,7 @@ class FlowAmplitudeSourcePropertiesArgs:
         pulumi.set(__self__, "object", object)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html#cfn-appflow-flow-amplitudesourceproperties-object
@@ -1841,7 +1841,7 @@ class FlowConnectorOperatorArgs:
             pulumi.set(__self__, "zendesk", zendesk)
 
     @property
-    @pulumi.getter(name="Amplitude")
+    @pulumi.getter
     def amplitude(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-amplitude
@@ -1853,7 +1853,7 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "amplitude", value)
 
     @property
-    @pulumi.getter(name="Datadog")
+    @pulumi.getter
     def datadog(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-datadog
@@ -1865,7 +1865,7 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "datadog", value)
 
     @property
-    @pulumi.getter(name="Dynatrace")
+    @pulumi.getter
     def dynatrace(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-dynatrace
@@ -1877,7 +1877,7 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "dynatrace", value)
 
     @property
-    @pulumi.getter(name="GoogleAnalytics")
+    @pulumi.getter(name="googleAnalytics")
     def google_analytics(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-googleanalytics
@@ -1889,7 +1889,7 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "google_analytics", value)
 
     @property
-    @pulumi.getter(name="InforNexus")
+    @pulumi.getter(name="inforNexus")
     def infor_nexus(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-infornexus
@@ -1901,7 +1901,7 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "infor_nexus", value)
 
     @property
-    @pulumi.getter(name="Marketo")
+    @pulumi.getter
     def marketo(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-marketo
@@ -1913,7 +1913,7 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "marketo", value)
 
     @property
-    @pulumi.getter(name="S3")
+    @pulumi.getter
     def s3(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-s3
@@ -1925,7 +1925,7 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "s3", value)
 
     @property
-    @pulumi.getter(name="Salesforce")
+    @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-salesforce
@@ -1937,7 +1937,7 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "salesforce", value)
 
     @property
-    @pulumi.getter(name="ServiceNow")
+    @pulumi.getter(name="serviceNow")
     def service_now(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-servicenow
@@ -1949,7 +1949,7 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "service_now", value)
 
     @property
-    @pulumi.getter(name="Singular")
+    @pulumi.getter
     def singular(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-singular
@@ -1961,7 +1961,7 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "singular", value)
 
     @property
-    @pulumi.getter(name="Slack")
+    @pulumi.getter
     def slack(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-slack
@@ -1973,7 +1973,7 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "slack", value)
 
     @property
-    @pulumi.getter(name="Trendmicro")
+    @pulumi.getter
     def trendmicro(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-trendmicro
@@ -1985,7 +1985,7 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "trendmicro", value)
 
     @property
-    @pulumi.getter(name="Veeva")
+    @pulumi.getter
     def veeva(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-veeva
@@ -1997,7 +1997,7 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "veeva", value)
 
     @property
-    @pulumi.getter(name="Zendesk")
+    @pulumi.getter
     def zendesk(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-zendesk
@@ -2020,7 +2020,7 @@ class FlowDatadogSourcePropertiesArgs:
         pulumi.set(__self__, "object", object)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html#cfn-appflow-flow-datadogsourceproperties-object
@@ -2064,7 +2064,7 @@ class FlowDestinationConnectorPropertiesArgs:
             pulumi.set(__self__, "upsolver", upsolver)
 
     @property
-    @pulumi.getter(name="EventBridge")
+    @pulumi.getter(name="eventBridge")
     def event_bridge(self) -> Optional[pulumi.Input['FlowEventBridgeDestinationPropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
@@ -2076,7 +2076,7 @@ class FlowDestinationConnectorPropertiesArgs:
         pulumi.set(self, "event_bridge", value)
 
     @property
-    @pulumi.getter(name="Redshift")
+    @pulumi.getter
     def redshift(self) -> Optional[pulumi.Input['FlowRedshiftDestinationPropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
@@ -2088,7 +2088,7 @@ class FlowDestinationConnectorPropertiesArgs:
         pulumi.set(self, "redshift", value)
 
     @property
-    @pulumi.getter(name="S3")
+    @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['FlowS3DestinationPropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
@@ -2100,7 +2100,7 @@ class FlowDestinationConnectorPropertiesArgs:
         pulumi.set(self, "s3", value)
 
     @property
-    @pulumi.getter(name="Salesforce")
+    @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['FlowSalesforceDestinationPropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce
@@ -2112,7 +2112,7 @@ class FlowDestinationConnectorPropertiesArgs:
         pulumi.set(self, "salesforce", value)
 
     @property
-    @pulumi.getter(name="Snowflake")
+    @pulumi.getter
     def snowflake(self) -> Optional[pulumi.Input['FlowSnowflakeDestinationPropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake
@@ -2124,7 +2124,7 @@ class FlowDestinationConnectorPropertiesArgs:
         pulumi.set(self, "snowflake", value)
 
     @property
-    @pulumi.getter(name="Upsolver")
+    @pulumi.getter
     def upsolver(self) -> Optional[pulumi.Input['FlowUpsolverDestinationPropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
@@ -2154,7 +2154,7 @@ class FlowDestinationFlowConfigArgs:
             pulumi.set(__self__, "connector_profile_name", connector_profile_name)
 
     @property
-    @pulumi.getter(name="ConnectorType")
+    @pulumi.getter(name="connectorType")
     def connector_type(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectortype
@@ -2166,7 +2166,7 @@ class FlowDestinationFlowConfigArgs:
         pulumi.set(self, "connector_type", value)
 
     @property
-    @pulumi.getter(name="DestinationConnectorProperties")
+    @pulumi.getter(name="destinationConnectorProperties")
     def destination_connector_properties(self) -> pulumi.Input['FlowDestinationConnectorPropertiesArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-destinationconnectorproperties
@@ -2178,7 +2178,7 @@ class FlowDestinationFlowConfigArgs:
         pulumi.set(self, "destination_connector_properties", value)
 
     @property
-    @pulumi.getter(name="ConnectorProfileName")
+    @pulumi.getter(name="connectorProfileName")
     def connector_profile_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectorprofilename
@@ -2201,7 +2201,7 @@ class FlowDynatraceSourcePropertiesArgs:
         pulumi.set(__self__, "object", object)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-dynatracesourceproperties.html#cfn-appflow-flow-dynatracesourceproperties-object
@@ -2233,7 +2233,7 @@ class FlowErrorHandlingConfigArgs:
             pulumi.set(__self__, "fail_on_first_error", fail_on_first_error)
 
     @property
-    @pulumi.getter(name="BucketName")
+    @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-bucketname
@@ -2245,7 +2245,7 @@ class FlowErrorHandlingConfigArgs:
         pulumi.set(self, "bucket_name", value)
 
     @property
-    @pulumi.getter(name="BucketPrefix")
+    @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-bucketprefix
@@ -2257,7 +2257,7 @@ class FlowErrorHandlingConfigArgs:
         pulumi.set(self, "bucket_prefix", value)
 
     @property
-    @pulumi.getter(name="FailOnFirstError")
+    @pulumi.getter(name="failOnFirstError")
     def fail_on_first_error(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-failonfirsterror
@@ -2284,7 +2284,7 @@ class FlowEventBridgeDestinationPropertiesArgs:
             pulumi.set(__self__, "error_handling_config", error_handling_config)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-object
@@ -2296,7 +2296,7 @@ class FlowEventBridgeDestinationPropertiesArgs:
         pulumi.set(self, "object", value)
 
     @property
-    @pulumi.getter(name="ErrorHandlingConfig")
+    @pulumi.getter(name="errorHandlingConfig")
     def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-errorhandlingconfig
@@ -2319,7 +2319,7 @@ class FlowGoogleAnalyticsSourcePropertiesArgs:
         pulumi.set(__self__, "object", object)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html#cfn-appflow-flow-googleanalyticssourceproperties-object
@@ -2343,7 +2343,7 @@ class FlowIncrementalPullConfigArgs:
             pulumi.set(__self__, "datetime_type_field_name", datetime_type_field_name)
 
     @property
-    @pulumi.getter(name="DatetimeTypeFieldName")
+    @pulumi.getter(name="datetimeTypeFieldName")
     def datetime_type_field_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html#cfn-appflow-flow-incrementalpullconfig-datetimetypefieldname
@@ -2366,7 +2366,7 @@ class FlowInforNexusSourcePropertiesArgs:
         pulumi.set(__self__, "object", object)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html#cfn-appflow-flow-infornexussourceproperties-object
@@ -2389,7 +2389,7 @@ class FlowMarketoSourcePropertiesArgs:
         pulumi.set(__self__, "object", object)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html#cfn-appflow-flow-marketosourceproperties-object
@@ -2417,7 +2417,7 @@ class FlowPrefixConfigArgs:
             pulumi.set(__self__, "prefix_type", prefix_type)
 
     @property
-    @pulumi.getter(name="PrefixFormat")
+    @pulumi.getter(name="prefixFormat")
     def prefix_format(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixformat
@@ -2429,7 +2429,7 @@ class FlowPrefixConfigArgs:
         pulumi.set(self, "prefix_format", value)
 
     @property
-    @pulumi.getter(name="PrefixType")
+    @pulumi.getter(name="prefixType")
     def prefix_type(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixtype
@@ -2463,7 +2463,7 @@ class FlowRedshiftDestinationPropertiesArgs:
             pulumi.set(__self__, "error_handling_config", error_handling_config)
 
     @property
-    @pulumi.getter(name="IntermediateBucketName")
+    @pulumi.getter(name="intermediateBucketName")
     def intermediate_bucket_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-intermediatebucketname
@@ -2475,7 +2475,7 @@ class FlowRedshiftDestinationPropertiesArgs:
         pulumi.set(self, "intermediate_bucket_name", value)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-object
@@ -2487,7 +2487,7 @@ class FlowRedshiftDestinationPropertiesArgs:
         pulumi.set(self, "object", value)
 
     @property
-    @pulumi.getter(name="BucketPrefix")
+    @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-bucketprefix
@@ -2499,7 +2499,7 @@ class FlowRedshiftDestinationPropertiesArgs:
         pulumi.set(self, "bucket_prefix", value)
 
     @property
-    @pulumi.getter(name="ErrorHandlingConfig")
+    @pulumi.getter(name="errorHandlingConfig")
     def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-errorhandlingconfig
@@ -2530,7 +2530,7 @@ class FlowS3DestinationPropertiesArgs:
             pulumi.set(__self__, "s3_output_format_config", s3_output_format_config)
 
     @property
-    @pulumi.getter(name="BucketName")
+    @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketname
@@ -2542,7 +2542,7 @@ class FlowS3DestinationPropertiesArgs:
         pulumi.set(self, "bucket_name", value)
 
     @property
-    @pulumi.getter(name="BucketPrefix")
+    @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketprefix
@@ -2554,7 +2554,7 @@ class FlowS3DestinationPropertiesArgs:
         pulumi.set(self, "bucket_prefix", value)
 
     @property
-    @pulumi.getter(name="S3OutputFormatConfig")
+    @pulumi.getter(name="s3OutputFormatConfig")
     def s3_output_format_config(self) -> Optional[pulumi.Input['FlowS3OutputFormatConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-s3outputformatconfig
@@ -2586,7 +2586,7 @@ class FlowS3OutputFormatConfigArgs:
             pulumi.set(__self__, "prefix_config", prefix_config)
 
     @property
-    @pulumi.getter(name="AggregationConfig")
+    @pulumi.getter(name="aggregationConfig")
     def aggregation_config(self) -> Optional[pulumi.Input['FlowAggregationConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-aggregationconfig
@@ -2598,7 +2598,7 @@ class FlowS3OutputFormatConfigArgs:
         pulumi.set(self, "aggregation_config", value)
 
     @property
-    @pulumi.getter(name="FileType")
+    @pulumi.getter(name="fileType")
     def file_type(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-filetype
@@ -2610,7 +2610,7 @@ class FlowS3OutputFormatConfigArgs:
         pulumi.set(self, "file_type", value)
 
     @property
-    @pulumi.getter(name="PrefixConfig")
+    @pulumi.getter(name="prefixConfig")
     def prefix_config(self) -> Optional[pulumi.Input['FlowPrefixConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-prefixconfig
@@ -2636,7 +2636,7 @@ class FlowS3SourcePropertiesArgs:
         pulumi.set(__self__, "bucket_prefix", bucket_prefix)
 
     @property
-    @pulumi.getter(name="BucketName")
+    @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketname
@@ -2648,7 +2648,7 @@ class FlowS3SourcePropertiesArgs:
         pulumi.set(self, "bucket_name", value)
 
     @property
-    @pulumi.getter(name="BucketPrefix")
+    @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketprefix
@@ -2675,7 +2675,7 @@ class FlowSalesforceDestinationPropertiesArgs:
             pulumi.set(__self__, "error_handling_config", error_handling_config)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
@@ -2687,7 +2687,7 @@ class FlowSalesforceDestinationPropertiesArgs:
         pulumi.set(self, "object", value)
 
     @property
-    @pulumi.getter(name="ErrorHandlingConfig")
+    @pulumi.getter(name="errorHandlingConfig")
     def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-errorhandlingconfig
@@ -2718,7 +2718,7 @@ class FlowSalesforceSourcePropertiesArgs:
             pulumi.set(__self__, "include_deleted_records", include_deleted_records)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-object
@@ -2730,7 +2730,7 @@ class FlowSalesforceSourcePropertiesArgs:
         pulumi.set(self, "object", value)
 
     @property
-    @pulumi.getter(name="EnableDynamicFieldUpdate")
+    @pulumi.getter(name="enableDynamicFieldUpdate")
     def enable_dynamic_field_update(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-enabledynamicfieldupdate
@@ -2742,7 +2742,7 @@ class FlowSalesforceSourcePropertiesArgs:
         pulumi.set(self, "enable_dynamic_field_update", value)
 
     @property
-    @pulumi.getter(name="IncludeDeletedRecords")
+    @pulumi.getter(name="includeDeletedRecords")
     def include_deleted_records(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-includedeletedrecords
@@ -2781,7 +2781,7 @@ class FlowScheduledTriggerPropertiesArgs:
             pulumi.set(__self__, "time_zone", time_zone)
 
     @property
-    @pulumi.getter(name="ScheduleExpression")
+    @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleexpression
@@ -2793,7 +2793,7 @@ class FlowScheduledTriggerPropertiesArgs:
         pulumi.set(self, "schedule_expression", value)
 
     @property
-    @pulumi.getter(name="DataPullMode")
+    @pulumi.getter(name="dataPullMode")
     def data_pull_mode(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-datapullmode
@@ -2805,7 +2805,7 @@ class FlowScheduledTriggerPropertiesArgs:
         pulumi.set(self, "data_pull_mode", value)
 
     @property
-    @pulumi.getter(name="ScheduleEndTime")
+    @pulumi.getter(name="scheduleEndTime")
     def schedule_end_time(self) -> Optional[pulumi.Input[float]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleendtime
@@ -2817,7 +2817,7 @@ class FlowScheduledTriggerPropertiesArgs:
         pulumi.set(self, "schedule_end_time", value)
 
     @property
-    @pulumi.getter(name="ScheduleStartTime")
+    @pulumi.getter(name="scheduleStartTime")
     def schedule_start_time(self) -> Optional[pulumi.Input[float]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
@@ -2829,7 +2829,7 @@ class FlowScheduledTriggerPropertiesArgs:
         pulumi.set(self, "schedule_start_time", value)
 
     @property
-    @pulumi.getter(name="TimeZone")
+    @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-timezone
@@ -2852,7 +2852,7 @@ class FlowServiceNowSourcePropertiesArgs:
         pulumi.set(__self__, "object", object)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html#cfn-appflow-flow-servicenowsourceproperties-object
@@ -2875,7 +2875,7 @@ class FlowSingularSourcePropertiesArgs:
         pulumi.set(__self__, "object", object)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html#cfn-appflow-flow-singularsourceproperties-object
@@ -2898,7 +2898,7 @@ class FlowSlackSourcePropertiesArgs:
         pulumi.set(__self__, "object", object)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html#cfn-appflow-flow-slacksourceproperties-object
@@ -2932,7 +2932,7 @@ class FlowSnowflakeDestinationPropertiesArgs:
             pulumi.set(__self__, "error_handling_config", error_handling_config)
 
     @property
-    @pulumi.getter(name="IntermediateBucketName")
+    @pulumi.getter(name="intermediateBucketName")
     def intermediate_bucket_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-intermediatebucketname
@@ -2944,7 +2944,7 @@ class FlowSnowflakeDestinationPropertiesArgs:
         pulumi.set(self, "intermediate_bucket_name", value)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-object
@@ -2956,7 +2956,7 @@ class FlowSnowflakeDestinationPropertiesArgs:
         pulumi.set(self, "object", value)
 
     @property
-    @pulumi.getter(name="BucketPrefix")
+    @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-bucketprefix
@@ -2968,7 +2968,7 @@ class FlowSnowflakeDestinationPropertiesArgs:
         pulumi.set(self, "bucket_prefix", value)
 
     @property
-    @pulumi.getter(name="ErrorHandlingConfig")
+    @pulumi.getter(name="errorHandlingConfig")
     def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-errorhandlingconfig
@@ -3044,7 +3044,7 @@ class FlowSourceConnectorPropertiesArgs:
             pulumi.set(__self__, "zendesk", zendesk)
 
     @property
-    @pulumi.getter(name="Amplitude")
+    @pulumi.getter
     def amplitude(self) -> Optional[pulumi.Input['FlowAmplitudeSourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-amplitude
@@ -3056,7 +3056,7 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "amplitude", value)
 
     @property
-    @pulumi.getter(name="Datadog")
+    @pulumi.getter
     def datadog(self) -> Optional[pulumi.Input['FlowDatadogSourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-datadog
@@ -3068,7 +3068,7 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "datadog", value)
 
     @property
-    @pulumi.getter(name="Dynatrace")
+    @pulumi.getter
     def dynatrace(self) -> Optional[pulumi.Input['FlowDynatraceSourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-dynatrace
@@ -3080,7 +3080,7 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "dynatrace", value)
 
     @property
-    @pulumi.getter(name="GoogleAnalytics")
+    @pulumi.getter(name="googleAnalytics")
     def google_analytics(self) -> Optional[pulumi.Input['FlowGoogleAnalyticsSourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-googleanalytics
@@ -3092,7 +3092,7 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "google_analytics", value)
 
     @property
-    @pulumi.getter(name="InforNexus")
+    @pulumi.getter(name="inforNexus")
     def infor_nexus(self) -> Optional[pulumi.Input['FlowInforNexusSourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-infornexus
@@ -3104,7 +3104,7 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "infor_nexus", value)
 
     @property
-    @pulumi.getter(name="Marketo")
+    @pulumi.getter
     def marketo(self) -> Optional[pulumi.Input['FlowMarketoSourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-marketo
@@ -3116,7 +3116,7 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "marketo", value)
 
     @property
-    @pulumi.getter(name="S3")
+    @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['FlowS3SourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-s3
@@ -3128,7 +3128,7 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "s3", value)
 
     @property
-    @pulumi.getter(name="Salesforce")
+    @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['FlowSalesforceSourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-salesforce
@@ -3140,7 +3140,7 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "salesforce", value)
 
     @property
-    @pulumi.getter(name="ServiceNow")
+    @pulumi.getter(name="serviceNow")
     def service_now(self) -> Optional[pulumi.Input['FlowServiceNowSourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-servicenow
@@ -3152,7 +3152,7 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "service_now", value)
 
     @property
-    @pulumi.getter(name="Singular")
+    @pulumi.getter
     def singular(self) -> Optional[pulumi.Input['FlowSingularSourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-singular
@@ -3164,7 +3164,7 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "singular", value)
 
     @property
-    @pulumi.getter(name="Slack")
+    @pulumi.getter
     def slack(self) -> Optional[pulumi.Input['FlowSlackSourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-slack
@@ -3176,7 +3176,7 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "slack", value)
 
     @property
-    @pulumi.getter(name="Trendmicro")
+    @pulumi.getter
     def trendmicro(self) -> Optional[pulumi.Input['FlowTrendmicroSourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-trendmicro
@@ -3188,7 +3188,7 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "trendmicro", value)
 
     @property
-    @pulumi.getter(name="Veeva")
+    @pulumi.getter
     def veeva(self) -> Optional[pulumi.Input['FlowVeevaSourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-veeva
@@ -3200,7 +3200,7 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "veeva", value)
 
     @property
-    @pulumi.getter(name="Zendesk")
+    @pulumi.getter
     def zendesk(self) -> Optional[pulumi.Input['FlowZendeskSourcePropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-zendesk
@@ -3234,7 +3234,7 @@ class FlowSourceFlowConfigArgs:
             pulumi.set(__self__, "incremental_pull_config", incremental_pull_config)
 
     @property
-    @pulumi.getter(name="ConnectorType")
+    @pulumi.getter(name="connectorType")
     def connector_type(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectortype
@@ -3246,7 +3246,7 @@ class FlowSourceFlowConfigArgs:
         pulumi.set(self, "connector_type", value)
 
     @property
-    @pulumi.getter(name="SourceConnectorProperties")
+    @pulumi.getter(name="sourceConnectorProperties")
     def source_connector_properties(self) -> pulumi.Input['FlowSourceConnectorPropertiesArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-sourceconnectorproperties
@@ -3258,7 +3258,7 @@ class FlowSourceFlowConfigArgs:
         pulumi.set(self, "source_connector_properties", value)
 
     @property
-    @pulumi.getter(name="ConnectorProfileName")
+    @pulumi.getter(name="connectorProfileName")
     def connector_profile_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectorprofilename
@@ -3270,7 +3270,7 @@ class FlowSourceFlowConfigArgs:
         pulumi.set(self, "connector_profile_name", value)
 
     @property
-    @pulumi.getter(name="IncrementalPullConfig")
+    @pulumi.getter(name="incrementalPullConfig")
     def incremental_pull_config(self) -> Optional[pulumi.Input['FlowIncrementalPullConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-incrementalpullconfig
@@ -3308,7 +3308,7 @@ class FlowTaskArgs:
             pulumi.set(__self__, "task_properties", task_properties)
 
     @property
-    @pulumi.getter(name="SourceFields")
+    @pulumi.getter(name="sourceFields")
     def source_fields(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-sourcefields
@@ -3320,7 +3320,7 @@ class FlowTaskArgs:
         pulumi.set(self, "source_fields", value)
 
     @property
-    @pulumi.getter(name="TaskType")
+    @pulumi.getter(name="taskType")
     def task_type(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-tasktype
@@ -3332,7 +3332,7 @@ class FlowTaskArgs:
         pulumi.set(self, "task_type", value)
 
     @property
-    @pulumi.getter(name="ConnectorOperator")
+    @pulumi.getter(name="connectorOperator")
     def connector_operator(self) -> Optional[pulumi.Input['FlowConnectorOperatorArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator
@@ -3344,7 +3344,7 @@ class FlowTaskArgs:
         pulumi.set(self, "connector_operator", value)
 
     @property
-    @pulumi.getter(name="DestinationField")
+    @pulumi.getter(name="destinationField")
     def destination_field(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-destinationfield
@@ -3356,7 +3356,7 @@ class FlowTaskArgs:
         pulumi.set(self, "destination_field", value)
 
     @property
-    @pulumi.getter(name="TaskProperties")
+    @pulumi.getter(name="taskProperties")
     def task_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowTaskPropertiesObjectArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
@@ -3382,7 +3382,7 @@ class FlowTaskPropertiesObjectArgs:
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-key
@@ -3394,7 +3394,7 @@ class FlowTaskPropertiesObjectArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-value
@@ -3417,7 +3417,7 @@ class FlowTrendmicroSourcePropertiesArgs:
         pulumi.set(__self__, "object", object)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html#cfn-appflow-flow-trendmicrosourceproperties-object
@@ -3444,7 +3444,7 @@ class FlowTriggerConfigArgs:
             pulumi.set(__self__, "trigger_properties", trigger_properties)
 
     @property
-    @pulumi.getter(name="TriggerType")
+    @pulumi.getter(name="triggerType")
     def trigger_type(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggertype
@@ -3456,7 +3456,7 @@ class FlowTriggerConfigArgs:
         pulumi.set(self, "trigger_type", value)
 
     @property
-    @pulumi.getter(name="TriggerProperties")
+    @pulumi.getter(name="triggerProperties")
     def trigger_properties(self) -> Optional[pulumi.Input['FlowScheduledTriggerPropertiesArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggerproperties
@@ -3486,7 +3486,7 @@ class FlowUpsolverDestinationPropertiesArgs:
             pulumi.set(__self__, "bucket_prefix", bucket_prefix)
 
     @property
-    @pulumi.getter(name="BucketName")
+    @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketname
@@ -3498,7 +3498,7 @@ class FlowUpsolverDestinationPropertiesArgs:
         pulumi.set(self, "bucket_name", value)
 
     @property
-    @pulumi.getter(name="S3OutputFormatConfig")
+    @pulumi.getter(name="s3OutputFormatConfig")
     def s3_output_format_config(self) -> pulumi.Input['FlowUpsolverS3OutputFormatConfigArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-s3outputformatconfig
@@ -3510,7 +3510,7 @@ class FlowUpsolverDestinationPropertiesArgs:
         pulumi.set(self, "s3_output_format_config", value)
 
     @property
-    @pulumi.getter(name="BucketPrefix")
+    @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketprefix
@@ -3541,7 +3541,7 @@ class FlowUpsolverS3OutputFormatConfigArgs:
             pulumi.set(__self__, "file_type", file_type)
 
     @property
-    @pulumi.getter(name="PrefixConfig")
+    @pulumi.getter(name="prefixConfig")
     def prefix_config(self) -> pulumi.Input['FlowPrefixConfigArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-prefixconfig
@@ -3553,7 +3553,7 @@ class FlowUpsolverS3OutputFormatConfigArgs:
         pulumi.set(self, "prefix_config", value)
 
     @property
-    @pulumi.getter(name="AggregationConfig")
+    @pulumi.getter(name="aggregationConfig")
     def aggregation_config(self) -> Optional[pulumi.Input['FlowAggregationConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-aggregationconfig
@@ -3565,7 +3565,7 @@ class FlowUpsolverS3OutputFormatConfigArgs:
         pulumi.set(self, "aggregation_config", value)
 
     @property
-    @pulumi.getter(name="FileType")
+    @pulumi.getter(name="fileType")
     def file_type(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-filetype
@@ -3588,7 +3588,7 @@ class FlowVeevaSourcePropertiesArgs:
         pulumi.set(__self__, "object", object)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-object
@@ -3611,7 +3611,7 @@ class FlowZendeskSourcePropertiesArgs:
         pulumi.set(__self__, "object", object)
 
     @property
-    @pulumi.getter(name="Object")
+    @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html#cfn-appflow-flow-zendesksourceproperties-object

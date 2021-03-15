@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Route53.Outputs
         public readonly string CloudWatchLogsLogGroupArn;
 
         [OutputConstructor]
-        private HostedZoneQueryLoggingConfig(string CloudWatchLogsLogGroupArn)
+        private HostedZoneQueryLoggingConfig(string cloudWatchLogsLogGroupArn)
         {
-            this.CloudWatchLogsLogGroupArn = CloudWatchLogsLogGroupArn;
+            CloudWatchLogsLogGroupArn = cloudWatchLogsLogGroupArn;
         }
     }
 }

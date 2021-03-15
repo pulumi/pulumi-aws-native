@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
         /// </summary>
-        [Output("DeletionProtection")]
+        [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
         /// </summary>
-        [Output("Engine")]
+        [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
         /// </summary>
-        [Output("EngineVersion")]
+        [Output("engineVersion")]
         public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
         /// </summary>
-        [Output("GlobalClusterIdentifier")]
+        [Output("globalClusterIdentifier")]
         public Output<string?> GlobalClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
         /// </summary>
-        [Output("SourceDBClusterIdentifier")]
+        [Output("sourceDBClusterIdentifier")]
         public Output<string?> SourceDBClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
         /// </summary>
-        [Output("StorageEncrypted")]
+        [Output("storageEncrypted")]
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
 
@@ -99,37 +99,37 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
         /// </summary>
-        [Input("DeletionProtection")]
+        [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
         /// </summary>
-        [Input("Engine")]
+        [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
         /// </summary>
-        [Input("EngineVersion")]
+        [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
         /// </summary>
-        [Input("GlobalClusterIdentifier")]
+        [Input("globalClusterIdentifier")]
         public Input<string>? GlobalClusterIdentifier { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
         /// </summary>
-        [Input("SourceDBClusterIdentifier")]
+        [Input("sourceDBClusterIdentifier")]
         public Input<string>? SourceDBClusterIdentifier { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
         /// </summary>
-        [Input("StorageEncrypted")]
+        [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
         public GlobalClusterArgs()

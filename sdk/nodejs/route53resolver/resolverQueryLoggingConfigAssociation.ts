@@ -34,19 +34,19 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
         return obj['__pulumiType'] === ResolverQueryLoggingConfigAssociation.__pulumiType;
     }
 
-    public /*out*/ readonly CreationTime!: pulumi.Output<string>;
-    public /*out*/ readonly Error!: pulumi.Output<string>;
-    public /*out*/ readonly ErrorMessage!: pulumi.Output<string>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly error!: pulumi.Output<string>;
+    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
      */
-    public readonly ResolverQueryLogConfigId!: pulumi.Output<string | undefined>;
+    public readonly resolverQueryLogConfigId!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
      */
-    public readonly ResourceId!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Status!: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a ResolverQueryLoggingConfigAssociation resource with the given unique name, arguments, and options.
@@ -58,21 +58,21 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
     constructor(name: string, args?: ResolverQueryLoggingConfigAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["ResolverQueryLogConfigId"] = args ? args.ResolverQueryLogConfigId : undefined;
-            inputs["ResourceId"] = args ? args.ResourceId : undefined;
-            inputs["CreationTime"] = undefined /*out*/;
-            inputs["Error"] = undefined /*out*/;
-            inputs["ErrorMessage"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
+            inputs["resolverQueryLogConfigId"] = args ? args.resolverQueryLogConfigId : undefined;
+            inputs["resourceId"] = args ? args.resourceId : undefined;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["error"] = undefined /*out*/;
+            inputs["errorMessage"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
         } else {
-            inputs["CreationTime"] = undefined /*out*/;
-            inputs["Error"] = undefined /*out*/;
-            inputs["ErrorMessage"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["ResolverQueryLogConfigId"] = undefined /*out*/;
-            inputs["ResourceId"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["error"] = undefined /*out*/;
+            inputs["errorMessage"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["resolverQueryLogConfigId"] = undefined /*out*/;
+            inputs["resourceId"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -92,9 +92,9 @@ export interface ResolverQueryLoggingConfigAssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
      */
-    readonly ResolverQueryLogConfigId?: pulumi.Input<string>;
+    readonly resolverQueryLogConfigId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
      */
-    readonly ResourceId?: pulumi.Input<string>;
+    readonly resourceId?: pulumi.Input<string>;
 }

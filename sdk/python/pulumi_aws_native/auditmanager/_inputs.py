@@ -80,25 +80,25 @@ class AssessmentAWSAccountArgs:
 @pulumi.input_type
 class AssessmentAWSAccountsArgs:
     def __init__(__self__, *,
-                 aws_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]]] = None):
+                 a_ws_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]] aws_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]] a_ws_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
         """
-        if aws_accounts is not None:
-            pulumi.set(__self__, "aws_accounts", aws_accounts)
+        if a_ws_accounts is not None:
+            pulumi.set(__self__, "a_ws_accounts", a_ws_accounts)
 
     @property
-    @pulumi.getter(name="AWSAccounts")
-    def aws_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]]]:
+    @pulumi.getter(name="aWSAccounts")
+    def a_ws_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
         """
-        return pulumi.get(self, "aws_accounts")
+        return pulumi.get(self, "a_ws_accounts")
 
-    @aws_accounts.setter
-    def aws_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]]]):
-        pulumi.set(self, "aws_accounts", value)
+    @a_ws_accounts.setter
+    def a_ws_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]]]):
+        pulumi.set(self, "a_ws_accounts", value)
 
 
 @pulumi.input_type
@@ -128,25 +128,25 @@ class AssessmentAWSServiceArgs:
 @pulumi.input_type
 class AssessmentAWSServicesArgs:
     def __init__(__self__, *,
-                 aws_services: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]]] = None):
+                 a_ws_services: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]] aws_services: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]] a_ws_services: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
         """
-        if aws_services is not None:
-            pulumi.set(__self__, "aws_services", aws_services)
+        if a_ws_services is not None:
+            pulumi.set(__self__, "a_ws_services", a_ws_services)
 
     @property
-    @pulumi.getter(name="AWSServices")
-    def aws_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]]]:
+    @pulumi.getter(name="aWSServices")
+    def a_ws_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
         """
-        return pulumi.get(self, "aws_services")
+        return pulumi.get(self, "a_ws_services")
 
-    @aws_services.setter
-    def aws_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]]]):
-        pulumi.set(self, "aws_services", value)
+    @a_ws_services.setter
+    def a_ws_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]]]):
+        pulumi.set(self, "a_ws_services", value)
 
 
 @pulumi.input_type
@@ -241,7 +241,7 @@ class AssessmentRolesArgs:
             pulumi.set(__self__, "roles", roles)
 
     @property
-    @pulumi.getter(name="Roles")
+    @pulumi.getter
     def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html#cfn-auditmanager-assessment-roles-roles
@@ -305,7 +305,7 @@ class AssessmentTagsArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html#cfn-auditmanager-assessment-tags-tags

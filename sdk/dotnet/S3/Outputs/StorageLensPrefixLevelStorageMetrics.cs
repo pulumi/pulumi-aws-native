@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.S3.Outputs
 
         [OutputConstructor]
         private StorageLensPrefixLevelStorageMetrics(
-            bool? IsEnabled,
+            bool? isEnabled,
 
-            Outputs.StorageLensSelectionCriteria? SelectionCriteria)
+            Outputs.StorageLensSelectionCriteria? selectionCriteria)
         {
-            this.IsEnabled = IsEnabled;
-            this.SelectionCriteria = SelectionCriteria;
+            IsEnabled = isEnabled;
+            SelectionCriteria = selectionCriteria;
         }
     }
 }

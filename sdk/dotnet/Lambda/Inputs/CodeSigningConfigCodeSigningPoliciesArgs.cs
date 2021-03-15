@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment
         /// </summary>
-        [Input("UntrustedArtifactOnDeployment", required: true)]
+        [Input("untrustedArtifactOnDeployment", required: true)]
         public Input<string> UntrustedArtifactOnDeployment { get; set; } = null!;
 
         public CodeSigningConfigCodeSigningPoliciesArgs()

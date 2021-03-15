@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private RuleGroupTCPFlagField(
-            Outputs.RuleGroupFlags Flags,
+            Outputs.RuleGroupFlags flags,
 
-            Outputs.RuleGroupFlags? Masks)
+            Outputs.RuleGroupFlags? masks)
         {
-            this.Flags = Flags;
-            this.Masks = Masks;
+            Flags = flags;
+            Masks = masks;
         }
     }
 }

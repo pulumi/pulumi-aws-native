@@ -15,43 +15,43 @@ namespace Pulumi.AwsNative.Chatbot
     [AwsNativeResourceType("aws-native:Chatbot:SlackChannelConfiguration")]
     public partial class SlackChannelConfiguration : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
         /// </summary>
-        [Output("ConfigurationName")]
+        [Output("configurationName")]
         public Output<string> ConfigurationName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
         /// </summary>
-        [Output("IamRoleArn")]
+        [Output("iamRoleArn")]
         public Output<string> IamRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
         /// </summary>
-        [Output("LoggingLevel")]
+        [Output("loggingLevel")]
         public Output<string?> LoggingLevel { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
         /// </summary>
-        [Output("SlackChannelId")]
+        [Output("slackChannelId")]
         public Output<string> SlackChannelId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
         /// </summary>
-        [Output("SlackWorkspaceId")]
+        [Output("slackWorkspaceId")]
         public Output<string> SlackWorkspaceId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
         /// </summary>
-        [Output("SnsTopicArns")]
+        [Output("snsTopicArns")]
         public Output<ImmutableArray<string>> SnsTopicArns { get; private set; } = null!;
 
 
@@ -102,43 +102,43 @@ namespace Pulumi.AwsNative.Chatbot
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
         /// </summary>
-        [Input("ConfigurationName", required: true)]
+        [Input("configurationName", required: true)]
         public Input<string> ConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
         /// </summary>
-        [Input("IamRoleArn", required: true)]
+        [Input("iamRoleArn", required: true)]
         public Input<string> IamRoleArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
         /// </summary>
-        [Input("LoggingLevel")]
+        [Input("loggingLevel")]
         public Input<string>? LoggingLevel { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
         /// </summary>
-        [Input("SlackChannelId", required: true)]
+        [Input("slackChannelId", required: true)]
         public Input<string> SlackChannelId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
         /// </summary>
-        [Input("SlackWorkspaceId", required: true)]
+        [Input("slackWorkspaceId", required: true)]
         public Input<string> SlackWorkspaceId { get; set; } = null!;
 
-        [Input("SnsTopicArns")]
-        private InputList<string>? _SnsTopicArns;
+        [Input("snsTopicArns")]
+        private InputList<string>? _snsTopicArns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
         /// </summary>
         public InputList<string> SnsTopicArns
         {
-            get => _SnsTopicArns ?? (_SnsTopicArns = new InputList<string>());
-            set => _SnsTopicArns = value;
+            get => _snsTopicArns ?? (_snsTopicArns = new InputList<string>());
+            set => _snsTopicArns = value;
         }
 
         public SlackChannelConfigurationArgs()

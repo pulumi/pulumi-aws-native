@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleStepFunctionsAction(
-            string? ExecutionNamePrefix,
+            string? executionNamePrefix,
 
-            string RoleArn,
+            string roleArn,
 
-            string StateMachineName)
+            string stateMachineName)
         {
-            this.ExecutionNamePrefix = ExecutionNamePrefix;
-            this.RoleArn = RoleArn;
-            this.StateMachineName = StateMachineName;
+            ExecutionNamePrefix = executionNamePrefix;
+            RoleArn = roleArn;
+            StateMachineName = stateMachineName;
         }
     }
 }

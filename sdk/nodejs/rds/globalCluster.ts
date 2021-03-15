@@ -37,27 +37,27 @@ export class GlobalCluster extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
      */
-    public readonly DeletionProtection!: pulumi.Output<boolean | undefined>;
+    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
      */
-    public readonly Engine!: pulumi.Output<string | undefined>;
+    public readonly engine!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
      */
-    public readonly EngineVersion!: pulumi.Output<string | undefined>;
+    public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
      */
-    public readonly GlobalClusterIdentifier!: pulumi.Output<string | undefined>;
+    public readonly globalClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
      */
-    public readonly SourceDBClusterIdentifier!: pulumi.Output<string | undefined>;
+    public readonly sourceDBClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
      */
-    public readonly StorageEncrypted!: pulumi.Output<boolean | undefined>;
+    public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a GlobalCluster resource with the given unique name, arguments, and options.
@@ -69,19 +69,19 @@ export class GlobalCluster extends pulumi.CustomResource {
     constructor(name: string, args?: GlobalClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["DeletionProtection"] = args ? args.DeletionProtection : undefined;
-            inputs["Engine"] = args ? args.Engine : undefined;
-            inputs["EngineVersion"] = args ? args.EngineVersion : undefined;
-            inputs["GlobalClusterIdentifier"] = args ? args.GlobalClusterIdentifier : undefined;
-            inputs["SourceDBClusterIdentifier"] = args ? args.SourceDBClusterIdentifier : undefined;
-            inputs["StorageEncrypted"] = args ? args.StorageEncrypted : undefined;
+            inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            inputs["engine"] = args ? args.engine : undefined;
+            inputs["engineVersion"] = args ? args.engineVersion : undefined;
+            inputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
+            inputs["sourceDBClusterIdentifier"] = args ? args.sourceDBClusterIdentifier : undefined;
+            inputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
         } else {
-            inputs["DeletionProtection"] = undefined /*out*/;
-            inputs["Engine"] = undefined /*out*/;
-            inputs["EngineVersion"] = undefined /*out*/;
-            inputs["GlobalClusterIdentifier"] = undefined /*out*/;
-            inputs["SourceDBClusterIdentifier"] = undefined /*out*/;
-            inputs["StorageEncrypted"] = undefined /*out*/;
+            inputs["deletionProtection"] = undefined /*out*/;
+            inputs["engine"] = undefined /*out*/;
+            inputs["engineVersion"] = undefined /*out*/;
+            inputs["globalClusterIdentifier"] = undefined /*out*/;
+            inputs["sourceDBClusterIdentifier"] = undefined /*out*/;
+            inputs["storageEncrypted"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -101,25 +101,25 @@ export interface GlobalClusterArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
      */
-    readonly DeletionProtection?: pulumi.Input<boolean>;
+    readonly deletionProtection?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
      */
-    readonly Engine?: pulumi.Input<string>;
+    readonly engine?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
      */
-    readonly EngineVersion?: pulumi.Input<string>;
+    readonly engineVersion?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
      */
-    readonly GlobalClusterIdentifier?: pulumi.Input<string>;
+    readonly globalClusterIdentifier?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
      */
-    readonly SourceDBClusterIdentifier?: pulumi.Input<string>;
+    readonly sourceDBClusterIdentifier?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
      */
-    readonly StorageEncrypted?: pulumi.Input<boolean>;
+    readonly storageEncrypted?: pulumi.Input<boolean>;
 }

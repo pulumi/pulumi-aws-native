@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
         /// </summary>
-        [Output("HostedZoneConfig")]
+        [Output("hostedZoneConfig")]
         public Output<Outputs.HostedZoneHostedZoneConfig?> HostedZoneConfig { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
         /// </summary>
-        [Output("HostedZoneTags")]
+        [Output("hostedZoneTags")]
         public Output<ImmutableArray<Outputs.HostedZoneHostedZoneTag>> HostedZoneTags { get; private set; } = null!;
 
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("NameServers")]
+        [Output("nameServers")]
         public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
         /// </summary>
-        [Output("QueryLoggingConfig")]
+        [Output("queryLoggingConfig")]
         public Output<Outputs.HostedZoneQueryLoggingConfig?> QueryLoggingConfig { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
         /// </summary>
-        [Output("VPCs")]
+        [Output("vPCs")]
         public Output<ImmutableArray<Outputs.HostedZoneVPC>> VPCs { get; private set; } = null!;
 
 
@@ -99,43 +99,43 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
         /// </summary>
-        [Input("HostedZoneConfig")]
+        [Input("hostedZoneConfig")]
         public Input<Inputs.HostedZoneHostedZoneConfigArgs>? HostedZoneConfig { get; set; }
 
-        [Input("HostedZoneTags")]
-        private InputList<Inputs.HostedZoneHostedZoneTagArgs>? _HostedZoneTags;
+        [Input("hostedZoneTags")]
+        private InputList<Inputs.HostedZoneHostedZoneTagArgs>? _hostedZoneTags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
         /// </summary>
         public InputList<Inputs.HostedZoneHostedZoneTagArgs> HostedZoneTags
         {
-            get => _HostedZoneTags ?? (_HostedZoneTags = new InputList<Inputs.HostedZoneHostedZoneTagArgs>());
-            set => _HostedZoneTags = value;
+            get => _hostedZoneTags ?? (_hostedZoneTags = new InputList<Inputs.HostedZoneHostedZoneTagArgs>());
+            set => _hostedZoneTags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
         /// </summary>
-        [Input("QueryLoggingConfig")]
+        [Input("queryLoggingConfig")]
         public Input<Inputs.HostedZoneQueryLoggingConfigArgs>? QueryLoggingConfig { get; set; }
 
-        [Input("VPCs")]
-        private InputList<Inputs.HostedZoneVPCArgs>? _VPCs;
+        [Input("vPCs")]
+        private InputList<Inputs.HostedZoneVPCArgs>? _vPCs;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
         /// </summary>
         public InputList<Inputs.HostedZoneVPCArgs> VPCs
         {
-            get => _VPCs ?? (_VPCs = new InputList<Inputs.HostedZoneVPCArgs>());
-            set => _VPCs = value;
+            get => _vPCs ?? (_vPCs = new InputList<Inputs.HostedZoneVPCArgs>());
+            set => _vPCs = value;
         }
 
         public HostedZoneArgs()

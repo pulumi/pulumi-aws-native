@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionDevice(
-            string? ContainerPath,
+            string? containerPath,
 
-            string? HostPath,
+            string? hostPath,
 
-            ImmutableArray<string> Permissions)
+            ImmutableArray<string> permissions)
         {
-            this.ContainerPath = ContainerPath;
-            this.HostPath = HostPath;
-            this.Permissions = Permissions;
+            ContainerPath = containerPath;
+            HostPath = hostPath;
+            Permissions = permissions;
         }
     }
 }

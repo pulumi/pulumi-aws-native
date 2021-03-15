@@ -18,9 +18,9 @@ class DBProxyTargetGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_pool_configuration_info: Optional[pulumi.Input[pulumi.InputType['DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']]] = None,
-                 db_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 db_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 db_proxy_name: Optional[pulumi.Input[str]] = None,
+                 d_b_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 d_b_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 d_b_proxy_name: Optional[pulumi.Input[str]] = None,
                  target_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -31,9 +31,9 @@ class DBProxyTargetGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']] connection_pool_configuration_info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_cluster_identifiers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_instance_identifiers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
-        :param pulumi.Input[str] db_proxy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] d_b_cluster_identifiers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] d_b_instance_identifiers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
+        :param pulumi.Input[str] d_b_proxy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
         :param pulumi.Input[str] target_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
         """
         if __name__ is not None:
@@ -54,11 +54,11 @@ class DBProxyTargetGroup(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['connection_pool_configuration_info'] = connection_pool_configuration_info
-            __props__['db_cluster_identifiers'] = db_cluster_identifiers
-            __props__['db_instance_identifiers'] = db_instance_identifiers
-            if db_proxy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'db_proxy_name'")
-            __props__['db_proxy_name'] = db_proxy_name
+            __props__['d_b_cluster_identifiers'] = d_b_cluster_identifiers
+            __props__['d_b_instance_identifiers'] = d_b_instance_identifiers
+            if d_b_proxy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'd_b_proxy_name'")
+            __props__['d_b_proxy_name'] = d_b_proxy_name
             if target_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group_name'")
             __props__['target_group_name'] = target_group_name
@@ -88,7 +88,7 @@ class DBProxyTargetGroup(pulumi.CustomResource):
         return DBProxyTargetGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="ConnectionPoolConfigurationInfo")
+    @pulumi.getter(name="connectionPoolConfigurationInfo")
     def connection_pool_configuration_info(self) -> pulumi.Output[Optional['outputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
@@ -96,36 +96,36 @@ class DBProxyTargetGroup(pulumi.CustomResource):
         return pulumi.get(self, "connection_pool_configuration_info")
 
     @property
-    @pulumi.getter(name="DBClusterIdentifiers")
-    def db_cluster_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    @pulumi.getter(name="dBClusterIdentifiers")
+    def d_b_cluster_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
         """
-        return pulumi.get(self, "db_cluster_identifiers")
+        return pulumi.get(self, "d_b_cluster_identifiers")
 
     @property
-    @pulumi.getter(name="DBInstanceIdentifiers")
-    def db_instance_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    @pulumi.getter(name="dBInstanceIdentifiers")
+    def d_b_instance_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
         """
-        return pulumi.get(self, "db_instance_identifiers")
+        return pulumi.get(self, "d_b_instance_identifiers")
 
     @property
-    @pulumi.getter(name="DBProxyName")
-    def db_proxy_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="dBProxyName")
+    def d_b_proxy_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
         """
-        return pulumi.get(self, "db_proxy_name")
+        return pulumi.get(self, "d_b_proxy_name")
 
     @property
-    @pulumi.getter(name="TargetGroupArn")
+    @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "target_group_arn")
 
     @property
-    @pulumi.getter(name="TargetGroupName")
+    @pulumi.getter(name="targetGroupName")
     def target_group_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname

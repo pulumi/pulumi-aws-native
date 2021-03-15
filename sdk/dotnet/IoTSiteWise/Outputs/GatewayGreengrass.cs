@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         public readonly string GroupArn;
 
         [OutputConstructor]
-        private GatewayGreengrass(string GroupArn)
+        private GatewayGreengrass(string groupArn)
         {
-            this.GroupArn = GroupArn;
+            GroupArn = groupArn;
         }
     }
 }

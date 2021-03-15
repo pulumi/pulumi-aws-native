@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition-maxruntimeinseconds
         /// </summary>
-        [Input("MaxRuntimeInSeconds", required: true)]
+        [Input("maxRuntimeInSeconds", required: true)]
         public Input<int> MaxRuntimeInSeconds { get; set; } = null!;
 
         public ModelExplainabilityJobDefinitionStoppingConditionArgs()

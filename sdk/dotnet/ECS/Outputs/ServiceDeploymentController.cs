@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ECS.Outputs
         public readonly string? Type;
 
         [OutputConstructor]
-        private ServiceDeploymentController(string? Type)
+        private ServiceDeploymentController(string? type)
         {
-            this.Type = Type;
+            Type = type;
         }
     }
 }

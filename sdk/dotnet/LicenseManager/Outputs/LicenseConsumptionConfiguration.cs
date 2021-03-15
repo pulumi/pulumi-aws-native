@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
 
         [OutputConstructor]
         private LicenseConsumptionConfiguration(
-            Outputs.LicenseBorrowConfiguration? BorrowConfiguration,
+            Outputs.LicenseBorrowConfiguration? borrowConfiguration,
 
-            Outputs.LicenseProvisionalConfiguration? ProvisionalConfiguration,
+            Outputs.LicenseProvisionalConfiguration? provisionalConfiguration,
 
-            string? RenewType)
+            string? renewType)
         {
-            this.BorrowConfiguration = BorrowConfiguration;
-            this.ProvisionalConfiguration = ProvisionalConfiguration;
-            this.RenewType = RenewType;
+            BorrowConfiguration = borrowConfiguration;
+            ProvisionalConfiguration = provisionalConfiguration;
+            RenewType = renewType;
         }
     }
 }

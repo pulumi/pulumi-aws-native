@@ -45,7 +45,7 @@ class FindingsFilterFindingCriteria(dict):
             pulumi.set(__self__, "criterion", criterion)
 
     @property
-    @pulumi.getter(name="Criterion")
+    @pulumi.getter
     def criterion(self) -> Optional['outputs.FindingsFilterCriterion']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
@@ -75,7 +75,7 @@ class FindingsFilterFindingsFilterListItem(dict):
             pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-id
@@ -83,7 +83,7 @@ class FindingsFilterFindingsFilterListItem(dict):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-name

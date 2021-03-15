@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker
         /// </summary>
-        [Input("DeploymentCircuitBreaker")]
+        [Input("deploymentCircuitBreaker")]
         public Input<Inputs.ServiceDeploymentCircuitBreakerArgs>? DeploymentCircuitBreaker { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent
         /// </summary>
-        [Input("MaximumPercent")]
+        [Input("maximumPercent")]
         public Input<int>? MaximumPercent { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent
         /// </summary>
-        [Input("MinimumHealthyPercent")]
+        [Input("minimumHealthyPercent")]
         public Input<int>? MinimumHealthyPercent { get; set; }
 
         public ServiceDeploymentConfigurationArgs()

@@ -83,7 +83,7 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
         return CertificateAuthorityActivation(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Certificate")
+    @pulumi.getter
     def certificate(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
@@ -91,7 +91,7 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
         return pulumi.get(self, "certificate")
 
     @property
-    @pulumi.getter(name="CertificateAuthorityArn")
+    @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
@@ -99,7 +99,7 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
         return pulumi.get(self, "certificate_authority_arn")
 
     @property
-    @pulumi.getter(name="CertificateChain")
+    @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
@@ -107,12 +107,12 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
         return pulumi.get(self, "certificate_chain")
 
     @property
-    @pulumi.getter(name="CompleteCertificateChain")
+    @pulumi.getter(name="completeCertificateChain")
     def complete_certificate_chain(self) -> pulumi.Output[str]:
         return pulumi.get(self, "complete_certificate_chain")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status

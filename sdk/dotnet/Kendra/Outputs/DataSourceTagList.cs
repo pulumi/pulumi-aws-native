@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> TagList;
 
         [OutputConstructor]
-        private DataSourceTagList(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> TagList)
+        private DataSourceTagList(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tagList)
         {
-            this.TagList = TagList;
+            TagList = tagList;
         }
     }
 }

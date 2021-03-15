@@ -87,7 +87,7 @@ class Listener(pulumi.CustomResource):
         return Listener(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AcceleratorArn")
+    @pulumi.getter(name="acceleratorArn")
     def accelerator_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
@@ -95,7 +95,7 @@ class Listener(pulumi.CustomResource):
         return pulumi.get(self, "accelerator_arn")
 
     @property
-    @pulumi.getter(name="ClientAffinity")
+    @pulumi.getter(name="clientAffinity")
     def client_affinity(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
@@ -103,12 +103,12 @@ class Listener(pulumi.CustomResource):
         return pulumi.get(self, "client_affinity")
 
     @property
-    @pulumi.getter(name="ListenerArn")
+    @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "listener_arn")
 
     @property
-    @pulumi.getter(name="PortRanges")
+    @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Output[Sequence['outputs.ListenerPortRange']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
@@ -116,7 +116,7 @@ class Listener(pulumi.CustomResource):
         return pulumi.get(self, "port_ranges")
 
     @property
-    @pulumi.getter(name="Protocol")
+    @pulumi.getter
     def protocol(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol

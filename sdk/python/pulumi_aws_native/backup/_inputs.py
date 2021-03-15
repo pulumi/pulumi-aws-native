@@ -31,7 +31,7 @@ class BackupPlanAdvancedBackupSettingResourceTypeArgs:
         pulumi.set(__self__, "resource_type", resource_type)
 
     @property
-    @pulumi.getter(name="BackupOptions")
+    @pulumi.getter(name="backupOptions")
     def backup_options(self) -> pulumi.Input[Union[Any, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions
@@ -43,7 +43,7 @@ class BackupPlanAdvancedBackupSettingResourceTypeArgs:
         pulumi.set(self, "backup_options", value)
 
     @property
-    @pulumi.getter(name="ResourceType")
+    @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
@@ -73,7 +73,7 @@ class BackupPlanBackupPlanResourceTypeArgs:
             pulumi.set(__self__, "advanced_backup_settings", advanced_backup_settings)
 
     @property
-    @pulumi.getter(name="BackupPlanName")
+    @pulumi.getter(name="backupPlanName")
     def backup_plan_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
@@ -85,7 +85,7 @@ class BackupPlanBackupPlanResourceTypeArgs:
         pulumi.set(self, "backup_plan_name", value)
 
     @property
-    @pulumi.getter(name="BackupPlanRule")
+    @pulumi.getter(name="backupPlanRule")
     def backup_plan_rule(self) -> pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
@@ -97,7 +97,7 @@ class BackupPlanBackupPlanResourceTypeArgs:
         pulumi.set(self, "backup_plan_rule", value)
 
     @property
-    @pulumi.getter(name="AdvancedBackupSettings")
+    @pulumi.getter(name="advancedBackupSettings")
     def advanced_backup_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
@@ -147,7 +147,7 @@ class BackupPlanBackupRuleResourceTypeArgs:
             pulumi.set(__self__, "start_window_minutes", start_window_minutes)
 
     @property
-    @pulumi.getter(name="RuleName")
+    @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename
@@ -159,7 +159,7 @@ class BackupPlanBackupRuleResourceTypeArgs:
         pulumi.set(self, "rule_name", value)
 
     @property
-    @pulumi.getter(name="TargetBackupVault")
+    @pulumi.getter(name="targetBackupVault")
     def target_backup_vault(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault
@@ -171,7 +171,7 @@ class BackupPlanBackupRuleResourceTypeArgs:
         pulumi.set(self, "target_backup_vault", value)
 
     @property
-    @pulumi.getter(name="CompletionWindowMinutes")
+    @pulumi.getter(name="completionWindowMinutes")
     def completion_window_minutes(self) -> Optional[pulumi.Input[float]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-completionwindowminutes
@@ -183,7 +183,7 @@ class BackupPlanBackupRuleResourceTypeArgs:
         pulumi.set(self, "completion_window_minutes", value)
 
     @property
-    @pulumi.getter(name="CopyActions")
+    @pulumi.getter(name="copyActions")
     def copy_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanCopyActionResourceTypeArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
@@ -195,7 +195,7 @@ class BackupPlanBackupRuleResourceTypeArgs:
         pulumi.set(self, "copy_actions", value)
 
     @property
-    @pulumi.getter(name="Lifecycle")
+    @pulumi.getter
     def lifecycle(self) -> Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
@@ -207,7 +207,7 @@ class BackupPlanBackupRuleResourceTypeArgs:
         pulumi.set(self, "lifecycle", value)
 
     @property
-    @pulumi.getter(name="RecoveryPointTags")
+    @pulumi.getter(name="recoveryPointTags")
     def recovery_point_tags(self) -> Optional[pulumi.Input[Union[Any, str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
@@ -219,7 +219,7 @@ class BackupPlanBackupRuleResourceTypeArgs:
         pulumi.set(self, "recovery_point_tags", value)
 
     @property
-    @pulumi.getter(name="ScheduleExpression")
+    @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
@@ -231,7 +231,7 @@ class BackupPlanBackupRuleResourceTypeArgs:
         pulumi.set(self, "schedule_expression", value)
 
     @property
-    @pulumi.getter(name="StartWindowMinutes")
+    @pulumi.getter(name="startWindowMinutes")
     def start_window_minutes(self) -> Optional[pulumi.Input[float]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-startwindowminutes
@@ -258,7 +258,7 @@ class BackupPlanCopyActionResourceTypeArgs:
             pulumi.set(__self__, "lifecycle", lifecycle)
 
     @property
-    @pulumi.getter(name="DestinationBackupVaultArn")
+    @pulumi.getter(name="destinationBackupVaultArn")
     def destination_backup_vault_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-destinationbackupvaultarn
@@ -270,7 +270,7 @@ class BackupPlanCopyActionResourceTypeArgs:
         pulumi.set(self, "destination_backup_vault_arn", value)
 
     @property
-    @pulumi.getter(name="Lifecycle")
+    @pulumi.getter
     def lifecycle(self) -> Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-lifecycle
@@ -298,7 +298,7 @@ class BackupPlanLifecycleResourceTypeArgs:
             pulumi.set(__self__, "move_to_cold_storage_after_days", move_to_cold_storage_after_days)
 
     @property
-    @pulumi.getter(name="DeleteAfterDays")
+    @pulumi.getter(name="deleteAfterDays")
     def delete_after_days(self) -> Optional[pulumi.Input[float]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-deleteafterdays
@@ -310,7 +310,7 @@ class BackupPlanLifecycleResourceTypeArgs:
         pulumi.set(self, "delete_after_days", value)
 
     @property
-    @pulumi.getter(name="MoveToColdStorageAfterDays")
+    @pulumi.getter(name="moveToColdStorageAfterDays")
     def move_to_cold_storage_after_days(self) -> Optional[pulumi.Input[float]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-movetocoldstorageafterdays
@@ -326,17 +326,17 @@ class BackupPlanLifecycleResourceTypeArgs:
 class BackupVaultNotificationObjectTypeArgs:
     def __init__(__self__, *,
                  backup_vault_events: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 sns_topic_arn: pulumi.Input[str]):
+                 s_ns_topic_arn: pulumi.Input[str]):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_vault_events: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents
-        :param pulumi.Input[str] sns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
+        :param pulumi.Input[str] s_ns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
         """
         pulumi.set(__self__, "backup_vault_events", backup_vault_events)
-        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        pulumi.set(__self__, "s_ns_topic_arn", s_ns_topic_arn)
 
     @property
-    @pulumi.getter(name="BackupVaultEvents")
+    @pulumi.getter(name="backupVaultEvents")
     def backup_vault_events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents
@@ -348,15 +348,15 @@ class BackupVaultNotificationObjectTypeArgs:
         pulumi.set(self, "backup_vault_events", value)
 
     @property
-    @pulumi.getter(name="SNSTopicArn")
-    def sns_topic_arn(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="sNSTopicArn")
+    def s_ns_topic_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
         """
-        return pulumi.get(self, "sns_topic_arn")
+        return pulumi.get(self, "s_ns_topic_arn")
 
-    @sns_topic_arn.setter
-    def sns_topic_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sns_topic_arn", value)
+    @s_ns_topic_arn.setter
+    def s_ns_topic_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s_ns_topic_arn", value)
 
 

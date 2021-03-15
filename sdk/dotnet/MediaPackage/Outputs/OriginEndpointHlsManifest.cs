@@ -56,36 +56,36 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private OriginEndpointHlsManifest(
-            string? AdMarkers,
+            string? adMarkers,
 
-            ImmutableArray<string> AdTriggers,
+            ImmutableArray<string> adTriggers,
 
-            string? AdsOnDeliveryRestrictions,
+            string? adsOnDeliveryRestrictions,
 
-            string Id,
+            string id,
 
-            bool? IncludeIframeOnlyStream,
+            bool? includeIframeOnlyStream,
 
-            string? ManifestName,
+            string? manifestName,
 
-            string? PlaylistType,
+            string? playlistType,
 
-            int? PlaylistWindowSeconds,
+            int? playlistWindowSeconds,
 
-            int? ProgramDateTimeIntervalSeconds,
+            int? programDateTimeIntervalSeconds,
 
-            string? Url)
+            string? url)
         {
-            this.AdMarkers = AdMarkers;
-            this.AdTriggers = AdTriggers;
-            this.AdsOnDeliveryRestrictions = AdsOnDeliveryRestrictions;
-            this.Id = Id;
-            this.IncludeIframeOnlyStream = IncludeIframeOnlyStream;
-            this.ManifestName = ManifestName;
-            this.PlaylistType = PlaylistType;
-            this.PlaylistWindowSeconds = PlaylistWindowSeconds;
-            this.ProgramDateTimeIntervalSeconds = ProgramDateTimeIntervalSeconds;
-            this.Url = Url;
+            AdMarkers = adMarkers;
+            AdTriggers = adTriggers;
+            AdsOnDeliveryRestrictions = adsOnDeliveryRestrictions;
+            Id = id;
+            IncludeIframeOnlyStream = includeIframeOnlyStream;
+            ManifestName = manifestName;
+            PlaylistType = playlistType;
+            PlaylistWindowSeconds = playlistWindowSeconds;
+            ProgramDateTimeIntervalSeconds = programDateTimeIntervalSeconds;
+            Url = url;
         }
     }
 }

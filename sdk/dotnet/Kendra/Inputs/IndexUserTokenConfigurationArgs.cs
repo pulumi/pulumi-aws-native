@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jsontokentypeconfiguration
         /// </summary>
-        [Input("JsonTokenTypeConfiguration")]
+        [Input("jsonTokenTypeConfiguration")]
         public Input<Inputs.IndexJsonTokenTypeConfigurationArgs>? JsonTokenTypeConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jwttokentypeconfiguration
         /// </summary>
-        [Input("JwtTokenTypeConfiguration")]
+        [Input("jwtTokenTypeConfiguration")]
         public Input<Inputs.IndexJwtTokenTypeConfigurationArgs>? JwtTokenTypeConfiguration { get; set; }
 
         public IndexUserTokenConfigurationArgs()

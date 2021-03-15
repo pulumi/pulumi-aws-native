@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly Outputs.ModelBiasJobDefinitionS3Output S3Output;
 
         [OutputConstructor]
-        private ModelBiasJobDefinitionMonitoringOutput(Outputs.ModelBiasJobDefinitionS3Output S3Output)
+        private ModelBiasJobDefinitionMonitoringOutput(Outputs.ModelBiasJobDefinitionS3Output s3Output)
         {
-            this.S3Output = S3Output;
+            S3Output = s3Output;
         }
     }
 }

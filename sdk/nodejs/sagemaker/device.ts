@@ -38,12 +38,12 @@ export class Device extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
      */
-    public readonly Device!: pulumi.Output<any | string | undefined>;
-    public /*out*/ readonly DeviceFleetName!: pulumi.Output<string>;
+    public readonly device!: pulumi.Output<any | string | undefined>;
+    public /*out*/ readonly deviceFleetName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag | undefined>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -55,13 +55,13 @@ export class Device extends pulumi.CustomResource {
     constructor(name: string, args?: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["Device"] = args ? args.Device : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["DeviceFleetName"] = undefined /*out*/;
+            inputs["device"] = args ? args.device : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["deviceFleetName"] = undefined /*out*/;
         } else {
-            inputs["Device"] = undefined /*out*/;
-            inputs["DeviceFleetName"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["device"] = undefined /*out*/;
+            inputs["deviceFleetName"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -81,9 +81,9 @@ export interface DeviceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
      */
-    readonly Device?: pulumi.Input<any | string>;
+    readonly device?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
      */
-    readonly Tags?: pulumi.Input<inputs.Tag>;
+    readonly tags?: pulumi.Input<inputs.Tag>;
 }

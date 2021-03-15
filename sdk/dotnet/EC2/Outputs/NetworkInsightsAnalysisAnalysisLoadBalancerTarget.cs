@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
         [OutputConstructor]
         private NetworkInsightsAnalysisAnalysisLoadBalancerTarget(
-            string? Address,
+            string? address,
 
-            string? AvailabilityZone,
+            string? availabilityZone,
 
-            Outputs.NetworkInsightsAnalysisAnalysisComponent? Instance,
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? instance,
 
-            int? Port)
+            int? port)
         {
-            this.Address = Address;
-            this.AvailabilityZone = AvailabilityZone;
-            this.Instance = Instance;
-            this.Port = Port;
+            Address = address;
+            AvailabilityZone = availabilityZone;
+            Instance = instance;
+            Port = port;
         }
     }
 }

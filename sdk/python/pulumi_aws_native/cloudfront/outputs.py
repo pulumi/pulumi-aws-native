@@ -56,7 +56,7 @@ class CachePolicyCachePolicyConfig(dict):
             pulumi.set(__self__, "comment", comment)
 
     @property
-    @pulumi.getter(name="DefaultTTL")
+    @pulumi.getter(name="defaultTTL")
     def default_ttl(self) -> float:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-defaultttl
@@ -64,7 +64,7 @@ class CachePolicyCachePolicyConfig(dict):
         return pulumi.get(self, "default_ttl")
 
     @property
-    @pulumi.getter(name="MaxTTL")
+    @pulumi.getter(name="maxTTL")
     def max_ttl(self) -> float:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-maxttl
@@ -72,7 +72,7 @@ class CachePolicyCachePolicyConfig(dict):
         return pulumi.get(self, "max_ttl")
 
     @property
-    @pulumi.getter(name="MinTTL")
+    @pulumi.getter(name="minTTL")
     def min_ttl(self) -> float:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-minttl
@@ -80,7 +80,7 @@ class CachePolicyCachePolicyConfig(dict):
         return pulumi.get(self, "min_ttl")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-name
@@ -88,7 +88,7 @@ class CachePolicyCachePolicyConfig(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="ParametersInCacheKeyAndForwardedToOrigin")
+    @pulumi.getter(name="parametersInCacheKeyAndForwardedToOrigin")
     def parameters_in_cache_key_and_forwarded_to_origin(self) -> 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
@@ -96,7 +96,7 @@ class CachePolicyCachePolicyConfig(dict):
         return pulumi.get(self, "parameters_in_cache_key_and_forwarded_to_origin")
 
     @property
-    @pulumi.getter(name="Comment")
+    @pulumi.getter
     def comment(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment
@@ -125,7 +125,7 @@ class CachePolicyCookiesConfig(dict):
             pulumi.set(__self__, "cookies", cookies)
 
     @property
-    @pulumi.getter(name="CookieBehavior")
+    @pulumi.getter(name="cookieBehavior")
     def cookie_behavior(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
@@ -133,7 +133,7 @@ class CachePolicyCookiesConfig(dict):
         return pulumi.get(self, "cookie_behavior")
 
     @property
-    @pulumi.getter(name="Cookies")
+    @pulumi.getter
     def cookies(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies
@@ -162,7 +162,7 @@ class CachePolicyHeadersConfig(dict):
             pulumi.set(__self__, "headers", headers)
 
     @property
-    @pulumi.getter(name="HeaderBehavior")
+    @pulumi.getter(name="headerBehavior")
     def header_behavior(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior
@@ -170,7 +170,7 @@ class CachePolicyHeadersConfig(dict):
         return pulumi.get(self, "header_behavior")
 
     @property
-    @pulumi.getter(name="Headers")
+    @pulumi.getter
     def headers(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headers
@@ -208,7 +208,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
             pulumi.set(__self__, "enable_accept_encoding_brotli", enable_accept_encoding_brotli)
 
     @property
-    @pulumi.getter(name="CookiesConfig")
+    @pulumi.getter(name="cookiesConfig")
     def cookies_config(self) -> 'outputs.CachePolicyCookiesConfig':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
@@ -216,7 +216,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
         return pulumi.get(self, "cookies_config")
 
     @property
-    @pulumi.getter(name="EnableAcceptEncodingGzip")
+    @pulumi.getter(name="enableAcceptEncodingGzip")
     def enable_accept_encoding_gzip(self) -> bool:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodinggzip
@@ -224,7 +224,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
         return pulumi.get(self, "enable_accept_encoding_gzip")
 
     @property
-    @pulumi.getter(name="HeadersConfig")
+    @pulumi.getter(name="headersConfig")
     def headers_config(self) -> 'outputs.CachePolicyHeadersConfig':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
@@ -232,7 +232,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
         return pulumi.get(self, "headers_config")
 
     @property
-    @pulumi.getter(name="QueryStringsConfig")
+    @pulumi.getter(name="queryStringsConfig")
     def query_strings_config(self) -> 'outputs.CachePolicyQueryStringsConfig':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
@@ -240,7 +240,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
         return pulumi.get(self, "query_strings_config")
 
     @property
-    @pulumi.getter(name="EnableAcceptEncodingBrotli")
+    @pulumi.getter(name="enableAcceptEncodingBrotli")
     def enable_accept_encoding_brotli(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli
@@ -269,7 +269,7 @@ class CachePolicyQueryStringsConfig(dict):
             pulumi.set(__self__, "query_strings", query_strings)
 
     @property
-    @pulumi.getter(name="QueryStringBehavior")
+    @pulumi.getter(name="queryStringBehavior")
     def query_string_behavior(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior
@@ -277,7 +277,7 @@ class CachePolicyQueryStringsConfig(dict):
         return pulumi.get(self, "query_string_behavior")
 
     @property
-    @pulumi.getter(name="QueryStrings")
+    @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings
@@ -302,7 +302,7 @@ class CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig(dict):
         pulumi.set(__self__, "comment", comment)
 
     @property
-    @pulumi.getter(name="Comment")
+    @pulumi.getter
     def comment(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
@@ -334,7 +334,7 @@ class KeyGroupKeyGroupConfig(dict):
             pulumi.set(__self__, "comment", comment)
 
     @property
-    @pulumi.getter(name="Items")
+    @pulumi.getter
     def items(self) -> Sequence[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items
@@ -342,7 +342,7 @@ class KeyGroupKeyGroupConfig(dict):
         return pulumi.get(self, "items")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
@@ -350,7 +350,7 @@ class KeyGroupKeyGroupConfig(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Comment")
+    @pulumi.getter
     def comment(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
@@ -379,7 +379,7 @@ class OriginRequestPolicyCookiesConfig(dict):
             pulumi.set(__self__, "cookies", cookies)
 
     @property
-    @pulumi.getter(name="CookieBehavior")
+    @pulumi.getter(name="cookieBehavior")
     def cookie_behavior(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookiebehavior
@@ -387,7 +387,7 @@ class OriginRequestPolicyCookiesConfig(dict):
         return pulumi.get(self, "cookie_behavior")
 
     @property
-    @pulumi.getter(name="Cookies")
+    @pulumi.getter
     def cookies(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookies
@@ -416,7 +416,7 @@ class OriginRequestPolicyHeadersConfig(dict):
             pulumi.set(__self__, "headers", headers)
 
     @property
-    @pulumi.getter(name="HeaderBehavior")
+    @pulumi.getter(name="headerBehavior")
     def header_behavior(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headerbehavior
@@ -424,7 +424,7 @@ class OriginRequestPolicyHeadersConfig(dict):
         return pulumi.get(self, "header_behavior")
 
     @property
-    @pulumi.getter(name="Headers")
+    @pulumi.getter
     def headers(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headers
@@ -462,7 +462,7 @@ class OriginRequestPolicyOriginRequestPolicyConfig(dict):
             pulumi.set(__self__, "comment", comment)
 
     @property
-    @pulumi.getter(name="CookiesConfig")
+    @pulumi.getter(name="cookiesConfig")
     def cookies_config(self) -> 'outputs.OriginRequestPolicyCookiesConfig':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
@@ -470,7 +470,7 @@ class OriginRequestPolicyOriginRequestPolicyConfig(dict):
         return pulumi.get(self, "cookies_config")
 
     @property
-    @pulumi.getter(name="HeadersConfig")
+    @pulumi.getter(name="headersConfig")
     def headers_config(self) -> 'outputs.OriginRequestPolicyHeadersConfig':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
@@ -478,7 +478,7 @@ class OriginRequestPolicyOriginRequestPolicyConfig(dict):
         return pulumi.get(self, "headers_config")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
@@ -486,7 +486,7 @@ class OriginRequestPolicyOriginRequestPolicyConfig(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="QueryStringsConfig")
+    @pulumi.getter(name="queryStringsConfig")
     def query_strings_config(self) -> 'outputs.OriginRequestPolicyQueryStringsConfig':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
@@ -494,7 +494,7 @@ class OriginRequestPolicyOriginRequestPolicyConfig(dict):
         return pulumi.get(self, "query_strings_config")
 
     @property
-    @pulumi.getter(name="Comment")
+    @pulumi.getter
     def comment(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
@@ -523,7 +523,7 @@ class OriginRequestPolicyQueryStringsConfig(dict):
             pulumi.set(__self__, "query_strings", query_strings)
 
     @property
-    @pulumi.getter(name="QueryStringBehavior")
+    @pulumi.getter(name="queryStringBehavior")
     def query_string_behavior(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystringbehavior
@@ -531,7 +531,7 @@ class OriginRequestPolicyQueryStringsConfig(dict):
         return pulumi.get(self, "query_string_behavior")
 
     @property
-    @pulumi.getter(name="QueryStrings")
+    @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings
@@ -566,7 +566,7 @@ class PublicKeyPublicKeyConfig(dict):
             pulumi.set(__self__, "comment", comment)
 
     @property
-    @pulumi.getter(name="CallerReference")
+    @pulumi.getter(name="callerReference")
     def caller_reference(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-callerreference
@@ -574,7 +574,7 @@ class PublicKeyPublicKeyConfig(dict):
         return pulumi.get(self, "caller_reference")
 
     @property
-    @pulumi.getter(name="EncodedKey")
+    @pulumi.getter(name="encodedKey")
     def encoded_key(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-encodedkey
@@ -582,7 +582,7 @@ class PublicKeyPublicKeyConfig(dict):
         return pulumi.get(self, "encoded_key")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-name
@@ -590,7 +590,7 @@ class PublicKeyPublicKeyConfig(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Comment")
+    @pulumi.getter
     def comment(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-comment
@@ -618,7 +618,7 @@ class RealtimeLogConfigEndPoint(dict):
         pulumi.set(__self__, "stream_type", stream_type)
 
     @property
-    @pulumi.getter(name="KinesisStreamConfig")
+    @pulumi.getter(name="kinesisStreamConfig")
     def kinesis_stream_config(self) -> 'outputs.RealtimeLogConfigKinesisStreamConfig':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
@@ -626,7 +626,7 @@ class RealtimeLogConfigEndPoint(dict):
         return pulumi.get(self, "kinesis_stream_config")
 
     @property
-    @pulumi.getter(name="StreamType")
+    @pulumi.getter(name="streamType")
     def stream_type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype
@@ -654,7 +654,7 @@ class RealtimeLogConfigKinesisStreamConfig(dict):
         pulumi.set(__self__, "stream_arn", stream_arn)
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-rolearn
@@ -662,7 +662,7 @@ class RealtimeLogConfigKinesisStreamConfig(dict):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="StreamArn")
+    @pulumi.getter(name="streamArn")
     def stream_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-streamarn

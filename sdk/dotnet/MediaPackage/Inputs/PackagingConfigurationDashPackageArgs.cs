@@ -15,46 +15,46 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// </summary>
     public sealed class PackagingConfigurationDashPackageArgs : Pulumi.ResourceArgs
     {
-        [Input("DashManifests", required: true)]
-        private InputList<Inputs.PackagingConfigurationDashManifestArgs>? _DashManifests;
+        [Input("dashManifests", required: true)]
+        private InputList<Inputs.PackagingConfigurationDashManifestArgs>? _dashManifests;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
         /// </summary>
         public InputList<Inputs.PackagingConfigurationDashManifestArgs> DashManifests
         {
-            get => _DashManifests ?? (_DashManifests = new InputList<Inputs.PackagingConfigurationDashManifestArgs>());
-            set => _DashManifests = value;
+            get => _dashManifests ?? (_dashManifests = new InputList<Inputs.PackagingConfigurationDashManifestArgs>());
+            set => _dashManifests = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
         /// </summary>
-        [Input("Encryption")]
+        [Input("encryption")]
         public Input<Inputs.PackagingConfigurationDashEncryptionArgs>? Encryption { get; set; }
 
-        [Input("PeriodTriggers")]
-        private InputList<string>? _PeriodTriggers;
+        [Input("periodTriggers")]
+        private InputList<string>? _periodTriggers;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
         /// </summary>
         public InputList<string> PeriodTriggers
         {
-            get => _PeriodTriggers ?? (_PeriodTriggers = new InputList<string>());
-            set => _PeriodTriggers = value;
+            get => _periodTriggers ?? (_periodTriggers = new InputList<string>());
+            set => _periodTriggers = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
         /// </summary>
-        [Input("SegmentDurationSeconds")]
+        [Input("segmentDurationSeconds")]
         public Input<int>? SegmentDurationSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmenttemplateformat
         /// </summary>
-        [Input("SegmentTemplateFormat")]
+        [Input("segmentTemplateFormat")]
         public Input<string>? SegmentTemplateFormat { get; set; }
 
         public PackagingConfigurationDashPackageArgs()

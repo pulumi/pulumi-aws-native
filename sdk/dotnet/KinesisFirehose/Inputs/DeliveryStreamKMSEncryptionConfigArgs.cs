@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html#cfn-kinesisfirehose-deliverystream-kmsencryptionconfig-awskmskeyarn
         /// </summary>
-        [Input("AWSKMSKeyARN", required: true)]
+        [Input("aWSKMSKeyARN", required: true)]
         public Input<string> AWSKMSKeyARN { get; set; } = null!;
 
         public DeliveryStreamKMSEncryptionConfigArgs()

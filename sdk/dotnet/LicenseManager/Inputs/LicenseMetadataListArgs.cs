@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
     /// </summary>
     public sealed class LicenseMetadataListArgs : Pulumi.ResourceArgs
     {
-        [Input("MetadataList")]
-        private InputList<Inputs.LicenseMetadataArgs>? _MetadataList;
+        [Input("metadataList")]
+        private InputList<Inputs.LicenseMetadataArgs>? _metadataList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadatalist.html#cfn-licensemanager-license-metadatalist-metadatalist
         /// </summary>
         public InputList<Inputs.LicenseMetadataArgs> MetadataList
         {
-            get => _MetadataList ?? (_MetadataList = new InputList<Inputs.LicenseMetadataArgs>());
-            set => _MetadataList = value;
+            get => _metadataList ?? (_metadataList = new InputList<Inputs.LicenseMetadataArgs>());
+            set => _metadataList = value;
         }
 
         public LicenseMetadataListArgs()

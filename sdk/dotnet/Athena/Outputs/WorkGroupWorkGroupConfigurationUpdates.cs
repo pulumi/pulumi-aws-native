@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.Athena.Outputs
 
         [OutputConstructor]
         private WorkGroupWorkGroupConfigurationUpdates(
-            int? BytesScannedCutoffPerQuery,
+            int? bytesScannedCutoffPerQuery,
 
-            bool? EnforceWorkGroupConfiguration,
+            bool? enforceWorkGroupConfiguration,
 
-            bool? PublishCloudWatchMetricsEnabled,
+            bool? publishCloudWatchMetricsEnabled,
 
-            bool? RemoveBytesScannedCutoffPerQuery,
+            bool? removeBytesScannedCutoffPerQuery,
 
-            bool? RequesterPaysEnabled,
+            bool? requesterPaysEnabled,
 
-            Outputs.WorkGroupResultConfigurationUpdates? ResultConfigurationUpdates)
+            Outputs.WorkGroupResultConfigurationUpdates? resultConfigurationUpdates)
         {
-            this.BytesScannedCutoffPerQuery = BytesScannedCutoffPerQuery;
-            this.EnforceWorkGroupConfiguration = EnforceWorkGroupConfiguration;
-            this.PublishCloudWatchMetricsEnabled = PublishCloudWatchMetricsEnabled;
-            this.RemoveBytesScannedCutoffPerQuery = RemoveBytesScannedCutoffPerQuery;
-            this.RequesterPaysEnabled = RequesterPaysEnabled;
-            this.ResultConfigurationUpdates = ResultConfigurationUpdates;
+            BytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
+            EnforceWorkGroupConfiguration = enforceWorkGroupConfiguration;
+            PublishCloudWatchMetricsEnabled = publishCloudWatchMetricsEnabled;
+            RemoveBytesScannedCutoffPerQuery = removeBytesScannedCutoffPerQuery;
+            RequesterPaysEnabled = requesterPaysEnabled;
+            ResultConfigurationUpdates = resultConfigurationUpdates;
         }
     }
 }

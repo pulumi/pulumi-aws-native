@@ -38,41 +38,41 @@ export class Device extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly DeviceArn!: pulumi.Output<string>;
-    public /*out*/ readonly DeviceId!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly deviceArn!: pulumi.Output<string>;
+    public /*out*/ readonly deviceId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-globalnetworkid
      */
-    public readonly GlobalNetworkId!: pulumi.Output<string>;
+    public readonly globalNetworkId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
      */
-    public readonly Location!: pulumi.Output<outputs.NetworkManager.DeviceLocation | undefined>;
+    public readonly location!: pulumi.Output<outputs.NetworkManager.DeviceLocation | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
      */
-    public readonly Model!: pulumi.Output<string | undefined>;
+    public readonly model!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-serialnumber
      */
-    public readonly SerialNumber!: pulumi.Output<string | undefined>;
+    public readonly serialNumber!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-siteid
      */
-    public readonly SiteId!: pulumi.Output<string | undefined>;
+    public readonly siteId!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-type
      */
-    public readonly Type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-vendor
      */
-    public readonly Vendor!: pulumi.Output<string | undefined>;
+    public readonly vendor!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -84,32 +84,32 @@ export class Device extends pulumi.CustomResource {
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.GlobalNetworkId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'GlobalNetworkId'");
+            if ((!args || args.globalNetworkId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'globalNetworkId'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["GlobalNetworkId"] = args ? args.GlobalNetworkId : undefined;
-            inputs["Location"] = args ? args.Location : undefined;
-            inputs["Model"] = args ? args.Model : undefined;
-            inputs["SerialNumber"] = args ? args.SerialNumber : undefined;
-            inputs["SiteId"] = args ? args.SiteId : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Type"] = args ? args.Type : undefined;
-            inputs["Vendor"] = args ? args.Vendor : undefined;
-            inputs["DeviceArn"] = undefined /*out*/;
-            inputs["DeviceId"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            inputs["location"] = args ? args.location : undefined;
+            inputs["model"] = args ? args.model : undefined;
+            inputs["serialNumber"] = args ? args.serialNumber : undefined;
+            inputs["siteId"] = args ? args.siteId : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["vendor"] = args ? args.vendor : undefined;
+            inputs["deviceArn"] = undefined /*out*/;
+            inputs["deviceId"] = undefined /*out*/;
         } else {
-            inputs["Description"] = undefined /*out*/;
-            inputs["DeviceArn"] = undefined /*out*/;
-            inputs["DeviceId"] = undefined /*out*/;
-            inputs["GlobalNetworkId"] = undefined /*out*/;
-            inputs["Location"] = undefined /*out*/;
-            inputs["Model"] = undefined /*out*/;
-            inputs["SerialNumber"] = undefined /*out*/;
-            inputs["SiteId"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Type"] = undefined /*out*/;
-            inputs["Vendor"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["deviceArn"] = undefined /*out*/;
+            inputs["deviceId"] = undefined /*out*/;
+            inputs["globalNetworkId"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["model"] = undefined /*out*/;
+            inputs["serialNumber"] = undefined /*out*/;
+            inputs["siteId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vendor"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -129,37 +129,37 @@ export interface DeviceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-globalnetworkid
      */
-    readonly GlobalNetworkId: pulumi.Input<string>;
+    readonly globalNetworkId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
      */
-    readonly Location?: pulumi.Input<inputs.NetworkManager.DeviceLocation>;
+    readonly location?: pulumi.Input<inputs.NetworkManager.DeviceLocation>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
      */
-    readonly Model?: pulumi.Input<string>;
+    readonly model?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-serialnumber
      */
-    readonly SerialNumber?: pulumi.Input<string>;
+    readonly serialNumber?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-siteid
      */
-    readonly SiteId?: pulumi.Input<string>;
+    readonly siteId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-type
      */
-    readonly Type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-vendor
      */
-    readonly Vendor?: pulumi.Input<string>;
+    readonly vendor?: pulumi.Input<string>;
 }

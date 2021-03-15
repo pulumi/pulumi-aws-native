@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<int> ProtocolNumbers;
 
         [OutputConstructor]
-        private RuleGroupProtocolNumbers(ImmutableArray<int> ProtocolNumbers)
+        private RuleGroupProtocolNumbers(ImmutableArray<int> protocolNumbers)
         {
-            this.ProtocolNumbers = ProtocolNumbers;
+            ProtocolNumbers = protocolNumbers;
         }
     }
 }

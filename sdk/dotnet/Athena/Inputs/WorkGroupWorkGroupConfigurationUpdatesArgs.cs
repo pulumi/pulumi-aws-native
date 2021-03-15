@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.Athena.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-bytesscannedcutoffperquery
         /// </summary>
-        [Input("BytesScannedCutoffPerQuery")]
+        [Input("bytesScannedCutoffPerQuery")]
         public Input<int>? BytesScannedCutoffPerQuery { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-enforceworkgroupconfiguration
         /// </summary>
-        [Input("EnforceWorkGroupConfiguration")]
+        [Input("enforceWorkGroupConfiguration")]
         public Input<bool>? EnforceWorkGroupConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
         /// </summary>
-        [Input("PublishCloudWatchMetricsEnabled")]
+        [Input("publishCloudWatchMetricsEnabled")]
         public Input<bool>? PublishCloudWatchMetricsEnabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-removebytesscannedcutoffperquery
         /// </summary>
-        [Input("RemoveBytesScannedCutoffPerQuery")]
+        [Input("removeBytesScannedCutoffPerQuery")]
         public Input<bool>? RemoveBytesScannedCutoffPerQuery { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-requesterpaysenabled
         /// </summary>
-        [Input("RequesterPaysEnabled")]
+        [Input("requesterPaysEnabled")]
         public Input<bool>? RequesterPaysEnabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-resultconfigurationupdates
         /// </summary>
-        [Input("ResultConfigurationUpdates")]
+        [Input("resultConfigurationUpdates")]
         public Input<Inputs.WorkGroupResultConfigurationUpdatesArgs>? ResultConfigurationUpdates { get; set; }
 
         public WorkGroupWorkGroupConfigurationUpdatesArgs()

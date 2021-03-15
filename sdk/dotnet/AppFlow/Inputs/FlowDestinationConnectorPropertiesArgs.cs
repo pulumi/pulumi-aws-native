@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
         /// </summary>
-        [Input("EventBridge")]
+        [Input("eventBridge")]
         public Input<Inputs.FlowEventBridgeDestinationPropertiesArgs>? EventBridge { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
         /// </summary>
-        [Input("Redshift")]
+        [Input("redshift")]
         public Input<Inputs.FlowRedshiftDestinationPropertiesArgs>? Redshift { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
         /// </summary>
-        [Input("S3")]
+        [Input("s3")]
         public Input<Inputs.FlowS3DestinationPropertiesArgs>? S3 { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce
         /// </summary>
-        [Input("Salesforce")]
+        [Input("salesforce")]
         public Input<Inputs.FlowSalesforceDestinationPropertiesArgs>? Salesforce { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake
         /// </summary>
-        [Input("Snowflake")]
+        [Input("snowflake")]
         public Input<Inputs.FlowSnowflakeDestinationPropertiesArgs>? Snowflake { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
         /// </summary>
-        [Input("Upsolver")]
+        [Input("upsolver")]
         public Input<Inputs.FlowUpsolverDestinationPropertiesArgs>? Upsolver { get; set; }
 
         public FlowDestinationConnectorPropertiesArgs()

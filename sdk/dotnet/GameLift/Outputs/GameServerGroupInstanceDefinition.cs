@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 
         [OutputConstructor]
         private GameServerGroupInstanceDefinition(
-            string InstanceType,
+            string instanceType,
 
-            string? WeightedCapacity)
+            string? weightedCapacity)
         {
-            this.InstanceType = InstanceType;
-            this.WeightedCapacity = WeightedCapacity;
+            InstanceType = instanceType;
+            WeightedCapacity = weightedCapacity;
         }
     }
 }

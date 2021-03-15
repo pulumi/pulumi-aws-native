@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<Outputs.RuleGroupAddress> Addresses;
 
         [OutputConstructor]
-        private RuleGroupAddresses(ImmutableArray<Outputs.RuleGroupAddress> Addresses)
+        private RuleGroupAddresses(ImmutableArray<Outputs.RuleGroupAddress> addresses)
         {
-            this.Addresses = Addresses;
+            Addresses = addresses;
         }
     }
 }

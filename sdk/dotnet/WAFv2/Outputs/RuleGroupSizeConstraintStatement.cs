@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private RuleGroupSizeConstraintStatement(
-            string ComparisonOperator,
+            string comparisonOperator,
 
-            Outputs.RuleGroupFieldToMatch FieldToMatch,
+            Outputs.RuleGroupFieldToMatch fieldToMatch,
 
-            int Size,
+            int size,
 
-            ImmutableArray<Outputs.RuleGroupTextTransformation> TextTransformations)
+            ImmutableArray<Outputs.RuleGroupTextTransformation> textTransformations)
         {
-            this.ComparisonOperator = ComparisonOperator;
-            this.FieldToMatch = FieldToMatch;
-            this.Size = Size;
-            this.TextTransformations = TextTransformations;
+            ComparisonOperator = comparisonOperator;
+            FieldToMatch = fieldToMatch;
+            Size = size;
+            TextTransformations = textTransformations;
         }
     }
 }

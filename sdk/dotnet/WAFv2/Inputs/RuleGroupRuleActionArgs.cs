@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
         /// </summary>
-        [Input("Allow")]
+        [Input("allow")]
         public InputUnion<System.Text.Json.JsonElement, string>? Allow { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
         /// </summary>
-        [Input("Block")]
+        [Input("block")]
         public InputUnion<System.Text.Json.JsonElement, string>? Block { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
         /// </summary>
-        [Input("Count")]
+        [Input("count")]
         public InputUnion<System.Text.Json.JsonElement, string>? Count { get; set; }
 
         public RuleGroupRuleActionArgs()

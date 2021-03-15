@@ -15,88 +15,88 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
     /// </summary>
     public sealed class ComponentVersionLambdaExecutionParametersArgs : Pulumi.ResourceArgs
     {
-        [Input("EnvironmentVariables")]
-        private InputMap<string>? _EnvironmentVariables;
+        [Input("environmentVariables")]
+        private InputMap<string>? _environmentVariables;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-environmentvariables
         /// </summary>
         public InputMap<string> EnvironmentVariables
         {
-            get => _EnvironmentVariables ?? (_EnvironmentVariables = new InputMap<string>());
-            set => _EnvironmentVariables = value;
+            get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
+            set => _environmentVariables = value;
         }
 
-        [Input("EventSources")]
-        private InputList<Inputs.ComponentVersionLambdaEventSourceArgs>? _EventSources;
+        [Input("eventSources")]
+        private InputList<Inputs.ComponentVersionLambdaEventSourceArgs>? _eventSources;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-eventsources
         /// </summary>
         public InputList<Inputs.ComponentVersionLambdaEventSourceArgs> EventSources
         {
-            get => _EventSources ?? (_EventSources = new InputList<Inputs.ComponentVersionLambdaEventSourceArgs>());
-            set => _EventSources = value;
+            get => _eventSources ?? (_eventSources = new InputList<Inputs.ComponentVersionLambdaEventSourceArgs>());
+            set => _eventSources = value;
         }
 
-        [Input("ExecArgs")]
-        private InputList<string>? _ExecArgs;
+        [Input("execArgs")]
+        private InputList<string>? _execArgs;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-execargs
         /// </summary>
         public InputList<string> ExecArgs
         {
-            get => _ExecArgs ?? (_ExecArgs = new InputList<string>());
-            set => _ExecArgs = value;
+            get => _execArgs ?? (_execArgs = new InputList<string>());
+            set => _execArgs = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-inputpayloadencodingtype
         /// </summary>
-        [Input("InputPayloadEncodingType")]
+        [Input("inputPayloadEncodingType")]
         public Input<string>? InputPayloadEncodingType { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-linuxprocessparams
         /// </summary>
-        [Input("LinuxProcessParams")]
+        [Input("linuxProcessParams")]
         public Input<Inputs.ComponentVersionLambdaLinuxProcessParamsArgs>? LinuxProcessParams { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxidletimeinseconds
         /// </summary>
-        [Input("MaxIdleTimeInSeconds")]
+        [Input("maxIdleTimeInSeconds")]
         public Input<int>? MaxIdleTimeInSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxinstancescount
         /// </summary>
-        [Input("MaxInstancesCount")]
+        [Input("maxInstancesCount")]
         public Input<int>? MaxInstancesCount { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxqueuesize
         /// </summary>
-        [Input("MaxQueueSize")]
+        [Input("maxQueueSize")]
         public Input<int>? MaxQueueSize { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-pinned
         /// </summary>
-        [Input("Pinned")]
+        [Input("pinned")]
         public Input<bool>? Pinned { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-statustimeoutinseconds
         /// </summary>
-        [Input("StatusTimeoutInSeconds")]
+        [Input("statusTimeoutInSeconds")]
         public Input<int>? StatusTimeoutInSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-timeoutinseconds
         /// </summary>
-        [Input("TimeoutInSeconds")]
+        [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }
 
         public ComponentVersionLambdaExecutionParametersArgs()

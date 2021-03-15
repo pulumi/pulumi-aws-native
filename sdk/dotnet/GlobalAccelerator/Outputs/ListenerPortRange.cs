@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Outputs
 
         [OutputConstructor]
         private ListenerPortRange(
-            int FromPort,
+            int fromPort,
 
-            int ToPort)
+            int toPort)
         {
-            this.FromPort = FromPort;
-            this.ToPort = ToPort;
+            FromPort = fromPort;
+            ToPort = toPort;
         }
     }
 }

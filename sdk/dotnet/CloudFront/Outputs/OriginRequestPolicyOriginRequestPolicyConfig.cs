@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
         [OutputConstructor]
         private OriginRequestPolicyOriginRequestPolicyConfig(
-            string? Comment,
+            string? comment,
 
-            Outputs.OriginRequestPolicyCookiesConfig CookiesConfig,
+            Outputs.OriginRequestPolicyCookiesConfig cookiesConfig,
 
-            Outputs.OriginRequestPolicyHeadersConfig HeadersConfig,
+            Outputs.OriginRequestPolicyHeadersConfig headersConfig,
 
-            string Name,
+            string name,
 
-            Outputs.OriginRequestPolicyQueryStringsConfig QueryStringsConfig)
+            Outputs.OriginRequestPolicyQueryStringsConfig queryStringsConfig)
         {
-            this.Comment = Comment;
-            this.CookiesConfig = CookiesConfig;
-            this.HeadersConfig = HeadersConfig;
-            this.Name = Name;
-            this.QueryStringsConfig = QueryStringsConfig;
+            Comment = comment;
+            CookiesConfig = cookiesConfig;
+            HeadersConfig = headersConfig;
+            Name = name;
+            QueryStringsConfig = queryStringsConfig;
         }
     }
 }

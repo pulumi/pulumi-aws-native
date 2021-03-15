@@ -15,37 +15,37 @@ namespace Pulumi.AwsNative.CodeStarConnections
     [AwsNativeResourceType("aws-native:CodeStarConnections:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
-        [Output("ConnectionArn")]
+        [Output("connectionArn")]
         public Output<string> ConnectionArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
         /// </summary>
-        [Output("ConnectionName")]
+        [Output("connectionName")]
         public Output<string> ConnectionName { get; private set; } = null!;
 
-        [Output("ConnectionStatus")]
+        [Output("connectionStatus")]
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
         /// </summary>
-        [Output("HostArn")]
+        [Output("hostArn")]
         public Output<string?> HostArn { get; private set; } = null!;
 
-        [Output("OwnerAccountId")]
+        [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
         /// </summary>
-        [Output("ProviderType")]
+        [Output("providerType")]
         public Output<string?> ProviderType { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -96,31 +96,31 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
         /// </summary>
-        [Input("ConnectionName", required: true)]
+        [Input("connectionName", required: true)]
         public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
         /// </summary>
-        [Input("HostArn")]
+        [Input("hostArn")]
         public Input<string>? HostArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
         /// </summary>
-        [Input("ProviderType")]
+        [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public ConnectionArgs()

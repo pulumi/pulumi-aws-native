@@ -30,7 +30,7 @@ class HealthCheckHealthCheckTagArgs:
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
@@ -42,7 +42,7 @@ class HealthCheckHealthCheckTagArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
@@ -66,7 +66,7 @@ class HostedZoneHostedZoneConfigArgs:
             pulumi.set(__self__, "comment", comment)
 
     @property
-    @pulumi.getter(name="Comment")
+    @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
@@ -92,7 +92,7 @@ class HostedZoneHostedZoneTagArgs:
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-key
@@ -104,7 +104,7 @@ class HostedZoneHostedZoneTagArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-value
@@ -127,7 +127,7 @@ class HostedZoneQueryLoggingConfigArgs:
         pulumi.set(__self__, "cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
 
     @property
-    @pulumi.getter(name="CloudWatchLogsLogGroupArn")
+    @pulumi.getter(name="cloudWatchLogsLogGroupArn")
     def cloud_watch_logs_log_group_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn
@@ -142,38 +142,38 @@ class HostedZoneQueryLoggingConfigArgs:
 @pulumi.input_type
 class HostedZoneVPCArgs:
     def __init__(__self__, *,
-                 vpc_id: pulumi.Input[str],
-                 vpc_region: pulumi.Input[str]):
+                 v_pc_id: pulumi.Input[str],
+                 v_pc_region: pulumi.Input[str]):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
-        :param pulumi.Input[str] vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
-        :param pulumi.Input[str] vpc_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
+        :param pulumi.Input[str] v_pc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
+        :param pulumi.Input[str] v_pc_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
         """
-        pulumi.set(__self__, "vpc_id", vpc_id)
-        pulumi.set(__self__, "vpc_region", vpc_region)
+        pulumi.set(__self__, "v_pc_id", v_pc_id)
+        pulumi.set(__self__, "v_pc_region", v_pc_region)
 
     @property
-    @pulumi.getter(name="VPCId")
-    def vpc_id(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="vPCId")
+    def v_pc_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
         """
-        return pulumi.get(self, "vpc_id")
+        return pulumi.get(self, "v_pc_id")
 
-    @vpc_id.setter
-    def vpc_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "vpc_id", value)
+    @v_pc_id.setter
+    def v_pc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "v_pc_id", value)
 
     @property
-    @pulumi.getter(name="VPCRegion")
-    def vpc_region(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="vPCRegion")
+    def v_pc_region(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
         """
-        return pulumi.get(self, "vpc_region")
+        return pulumi.get(self, "v_pc_region")
 
-    @vpc_region.setter
-    def vpc_region(self, value: pulumi.Input[str]):
-        pulumi.set(self, "vpc_region", value)
+    @v_pc_region.setter
+    def v_pc_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "v_pc_region", value)
 
 

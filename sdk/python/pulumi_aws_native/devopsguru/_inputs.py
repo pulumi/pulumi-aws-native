@@ -27,7 +27,7 @@ class NotificationChannelNotificationChannelConfigArgs:
             pulumi.set(__self__, "sns", sns)
 
     @property
-    @pulumi.getter(name="Sns")
+    @pulumi.getter
     def sns(self) -> Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-sns
@@ -51,7 +51,7 @@ class NotificationChannelSnsChannelConfigArgs:
             pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
-    @pulumi.getter(name="TopicArn")
+    @pulumi.getter(name="topicArn")
     def topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html#cfn-devopsguru-notificationchannel-snschannelconfig-topicarn
@@ -75,7 +75,7 @@ class ResourceCollectionCloudFormationCollectionFilterArgs:
             pulumi.set(__self__, "stack_names", stack_names)
 
     @property
-    @pulumi.getter(name="StackNames")
+    @pulumi.getter(name="stackNames")
     def stack_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
@@ -99,7 +99,7 @@ class ResourceCollectionResourceCollectionFilterArgs:
             pulumi.set(__self__, "cloud_formation", cloud_formation)
 
     @property
-    @pulumi.getter(name="CloudFormation")
+    @pulumi.getter(name="cloudFormation")
     def cloud_formation(self) -> Optional[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceSalesforceStandardObjectAttachmentConfiguration(
-            string? DocumentTitleFieldName,
+            string? documentTitleFieldName,
 
-            Outputs.DataSourceDataSourceToIndexFieldMappingList? FieldMappings)
+            Outputs.DataSourceDataSourceToIndexFieldMappingList? fieldMappings)
         {
-            this.DocumentTitleFieldName = DocumentTitleFieldName;
-            this.FieldMappings = FieldMappings;
+            DocumentTitleFieldName = documentTitleFieldName;
+            FieldMappings = fieldMappings;
         }
     }
 }

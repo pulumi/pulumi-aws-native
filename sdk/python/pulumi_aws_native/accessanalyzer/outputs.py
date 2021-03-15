@@ -31,7 +31,7 @@ class AnalyzerArchiveRule(dict):
         pulumi.set(__self__, "rule_name", rule_name)
 
     @property
-    @pulumi.getter(name="Filter")
+    @pulumi.getter
     def filter(self) -> Sequence['outputs.AnalyzerFilter']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
@@ -39,7 +39,7 @@ class AnalyzerArchiveRule(dict):
         return pulumi.get(self, "filter")
 
     @property
-    @pulumi.getter(name="RuleName")
+    @pulumi.getter(name="ruleName")
     def rule_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
@@ -80,7 +80,7 @@ class AnalyzerFilter(dict):
             pulumi.set(__self__, "neq", neq)
 
     @property
-    @pulumi.getter(name="Contains")
+    @pulumi.getter
     def contains(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
@@ -88,7 +88,7 @@ class AnalyzerFilter(dict):
         return pulumi.get(self, "contains")
 
     @property
-    @pulumi.getter(name="Eq")
+    @pulumi.getter
     def eq(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-eq
@@ -96,7 +96,7 @@ class AnalyzerFilter(dict):
         return pulumi.get(self, "eq")
 
     @property
-    @pulumi.getter(name="Exists")
+    @pulumi.getter
     def exists(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-exists
@@ -104,7 +104,7 @@ class AnalyzerFilter(dict):
         return pulumi.get(self, "exists")
 
     @property
-    @pulumi.getter(name="Neq")
+    @pulumi.getter
     def neq(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-neq
@@ -112,7 +112,7 @@ class AnalyzerFilter(dict):
         return pulumi.get(self, "neq")
 
     @property
-    @pulumi.getter(name="Property")
+    @pulumi.getter
     def property(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-property

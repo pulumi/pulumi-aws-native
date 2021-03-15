@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
         /// </summary>
-        [Input("S3BucketDestination", required: true)]
+        [Input("s3BucketDestination", required: true)]
         public Input<Inputs.StorageLensS3BucketDestinationArgs> S3BucketDestination { get; set; } = null!;
 
         public StorageLensDataExportArgs()

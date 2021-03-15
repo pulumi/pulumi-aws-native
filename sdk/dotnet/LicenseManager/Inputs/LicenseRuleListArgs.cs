@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
     /// </summary>
     public sealed class LicenseRuleListArgs : Pulumi.ResourceArgs
     {
-        [Input("RuleList")]
-        private InputList<Inputs.LicenseRuleArgs>? _RuleList;
+        [Input("ruleList")]
+        private InputList<Inputs.LicenseRuleArgs>? _ruleList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rulelist.html#cfn-licensemanager-license-rulelist-rulelist
         /// </summary>
         public InputList<Inputs.LicenseRuleArgs> RuleList
         {
-            get => _RuleList ?? (_RuleList = new InputList<Inputs.LicenseRuleArgs>());
-            set => _RuleList = value;
+            get => _ruleList ?? (_ruleList = new InputList<Inputs.LicenseRuleArgs>());
+            set => _ruleList = value;
         }
 
         public LicenseRuleListArgs()

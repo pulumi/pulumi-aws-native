@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
         /// </summary>
-        [Input("CookieBehavior", required: true)]
+        [Input("cookieBehavior", required: true)]
         public Input<string> CookieBehavior { get; set; } = null!;
 
-        [Input("Cookies")]
-        private InputList<string>? _Cookies;
+        [Input("cookies")]
+        private InputList<string>? _cookies;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies
         /// </summary>
         public InputList<string> Cookies
         {
-            get => _Cookies ?? (_Cookies = new InputList<string>());
-            set => _Cookies = value;
+            get => _cookies ?? (_cookies = new InputList<string>());
+            set => _cookies = value;
         }
 
         public CachePolicyCookiesConfigArgs()

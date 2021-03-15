@@ -38,29 +38,29 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
      */
-    public readonly Capacity!: pulumi.Output<number>;
+    public readonly capacity!: pulumi.Output<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
      */
-    public readonly RuleGroup!: pulumi.Output<outputs.NetworkFirewall.RuleGroupRuleGroup | undefined>;
-    public /*out*/ readonly RuleGroupArn!: pulumi.Output<string>;
-    public /*out*/ readonly RuleGroupId!: pulumi.Output<string>;
+    public readonly ruleGroup!: pulumi.Output<outputs.NetworkFirewall.RuleGroupRuleGroup | undefined>;
+    public /*out*/ readonly ruleGroupArn!: pulumi.Output<string>;
+    public /*out*/ readonly ruleGroupId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
      */
-    public readonly RuleGroupName!: pulumi.Output<string>;
+    public readonly ruleGroupName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
      */
-    public readonly Type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -72,32 +72,32 @@ export class RuleGroup extends pulumi.CustomResource {
     constructor(name: string, args: RuleGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Capacity === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Capacity'");
+            if ((!args || args.capacity === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.RuleGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RuleGroupName'");
+            if ((!args || args.ruleGroupName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'ruleGroupName'");
             }
-            if ((!args || args.Type === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Type'");
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'type'");
             }
-            inputs["Capacity"] = args ? args.Capacity : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["RuleGroup"] = args ? args.RuleGroup : undefined;
-            inputs["RuleGroupName"] = args ? args.RuleGroupName : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Type"] = args ? args.Type : undefined;
-            inputs["RuleGroupArn"] = undefined /*out*/;
-            inputs["RuleGroupId"] = undefined /*out*/;
+            inputs["capacity"] = args ? args.capacity : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["ruleGroup"] = args ? args.ruleGroup : undefined;
+            inputs["ruleGroupName"] = args ? args.ruleGroupName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["ruleGroupArn"] = undefined /*out*/;
+            inputs["ruleGroupId"] = undefined /*out*/;
         } else {
-            inputs["Capacity"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["RuleGroup"] = undefined /*out*/;
-            inputs["RuleGroupArn"] = undefined /*out*/;
-            inputs["RuleGroupId"] = undefined /*out*/;
-            inputs["RuleGroupName"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Type"] = undefined /*out*/;
+            inputs["capacity"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["ruleGroup"] = undefined /*out*/;
+            inputs["ruleGroupArn"] = undefined /*out*/;
+            inputs["ruleGroupId"] = undefined /*out*/;
+            inputs["ruleGroupName"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -117,25 +117,25 @@ export interface RuleGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
      */
-    readonly Capacity: pulumi.Input<number>;
+    readonly capacity: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
      */
-    readonly RuleGroup?: pulumi.Input<inputs.NetworkFirewall.RuleGroupRuleGroup>;
+    readonly ruleGroup?: pulumi.Input<inputs.NetworkFirewall.RuleGroupRuleGroup>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
      */
-    readonly RuleGroupName: pulumi.Input<string>;
+    readonly ruleGroupName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
      */
-    readonly Type: pulumi.Input<string>;
+    readonly type: pulumi.Input<string>;
 }

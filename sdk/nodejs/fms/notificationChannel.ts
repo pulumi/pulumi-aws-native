@@ -37,11 +37,11 @@ export class NotificationChannel extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
      */
-    public readonly SnsRoleName!: pulumi.Output<string>;
+    public readonly snsRoleName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
      */
-    public readonly SnsTopicArn!: pulumi.Output<string>;
+    public readonly snsTopicArn!: pulumi.Output<string>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -53,17 +53,17 @@ export class NotificationChannel extends pulumi.CustomResource {
     constructor(name: string, args: NotificationChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.SnsRoleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SnsRoleName'");
+            if ((!args || args.snsRoleName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'snsRoleName'");
             }
-            if ((!args || args.SnsTopicArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SnsTopicArn'");
+            if ((!args || args.snsTopicArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'snsTopicArn'");
             }
-            inputs["SnsRoleName"] = args ? args.SnsRoleName : undefined;
-            inputs["SnsTopicArn"] = args ? args.SnsTopicArn : undefined;
+            inputs["snsRoleName"] = args ? args.snsRoleName : undefined;
+            inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
         } else {
-            inputs["SnsRoleName"] = undefined /*out*/;
-            inputs["SnsTopicArn"] = undefined /*out*/;
+            inputs["snsRoleName"] = undefined /*out*/;
+            inputs["snsTopicArn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -83,9 +83,9 @@ export interface NotificationChannelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
      */
-    readonly SnsRoleName: pulumi.Input<string>;
+    readonly snsRoleName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
      */
-    readonly SnsTopicArn: pulumi.Input<string>;
+    readonly snsTopicArn: pulumi.Input<string>;
 }

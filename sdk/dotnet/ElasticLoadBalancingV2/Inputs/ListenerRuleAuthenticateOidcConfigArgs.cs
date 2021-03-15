@@ -15,76 +15,76 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
     /// </summary>
     public sealed class ListenerRuleAuthenticateOidcConfigArgs : Pulumi.ResourceArgs
     {
-        [Input("AuthenticationRequestExtraParams")]
-        private InputMap<string>? _AuthenticationRequestExtraParams;
+        [Input("authenticationRequestExtraParams")]
+        private InputMap<string>? _authenticationRequestExtraParams;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-authenticationrequestextraparams
         /// </summary>
         public InputMap<string> AuthenticationRequestExtraParams
         {
-            get => _AuthenticationRequestExtraParams ?? (_AuthenticationRequestExtraParams = new InputMap<string>());
-            set => _AuthenticationRequestExtraParams = value;
+            get => _authenticationRequestExtraParams ?? (_authenticationRequestExtraParams = new InputMap<string>());
+            set => _authenticationRequestExtraParams = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-authorizationendpoint
         /// </summary>
-        [Input("AuthorizationEndpoint", required: true)]
+        [Input("authorizationEndpoint", required: true)]
         public Input<string> AuthorizationEndpoint { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-clientid
         /// </summary>
-        [Input("ClientId", required: true)]
+        [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-clientsecret
         /// </summary>
-        [Input("ClientSecret", required: true)]
+        [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-issuer
         /// </summary>
-        [Input("Issuer", required: true)]
+        [Input("issuer", required: true)]
         public Input<string> Issuer { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-onunauthenticatedrequest
         /// </summary>
-        [Input("OnUnauthenticatedRequest")]
+        [Input("onUnauthenticatedRequest")]
         public Input<string>? OnUnauthenticatedRequest { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-scope
         /// </summary>
-        [Input("Scope")]
+        [Input("scope")]
         public Input<string>? Scope { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-sessioncookiename
         /// </summary>
-        [Input("SessionCookieName")]
+        [Input("sessionCookieName")]
         public Input<string>? SessionCookieName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-sessiontimeout
         /// </summary>
-        [Input("SessionTimeout")]
+        [Input("sessionTimeout")]
         public Input<int>? SessionTimeout { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-tokenendpoint
         /// </summary>
-        [Input("TokenEndpoint", required: true)]
+        [Input("tokenEndpoint", required: true)]
         public Input<string> TokenEndpoint { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-userinfoendpoint
         /// </summary>
-        [Input("UserInfoEndpoint", required: true)]
+        [Input("userInfoEndpoint", required: true)]
         public Input<string> UserInfoEndpoint { get; set; } = null!;
 
         public ListenerRuleAuthenticateOidcConfigArgs()

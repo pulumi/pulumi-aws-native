@@ -38,35 +38,35 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
      */
-    public readonly Bucket!: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
      */
-    public readonly CreationDate!: pulumi.Output<string | undefined>;
+    public readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
      */
-    public readonly NetworkOrigin!: pulumi.Output<string | undefined>;
+    public readonly networkOrigin!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
      */
-    public readonly Policy!: pulumi.Output<any | string | undefined>;
+    public readonly policy!: pulumi.Output<any | string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
      */
-    public readonly PolicyStatus!: pulumi.Output<any | string | undefined>;
+    public readonly policyStatus!: pulumi.Output<any | string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
      */
-    public readonly PublicAccessBlockConfiguration!: pulumi.Output<outputs.S3.AccessPointPublicAccessBlockConfiguration | undefined>;
+    public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.S3.AccessPointPublicAccessBlockConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
      */
-    public readonly VpcConfiguration!: pulumi.Output<outputs.S3.AccessPointVpcConfiguration | undefined>;
+    public readonly vpcConfiguration!: pulumi.Output<outputs.S3.AccessPointVpcConfiguration | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -78,26 +78,26 @@ export class AccessPoint extends pulumi.CustomResource {
     constructor(name: string, args: AccessPointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Bucket === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Bucket'");
+            if ((!args || args.bucket === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'bucket'");
             }
-            inputs["Bucket"] = args ? args.Bucket : undefined;
-            inputs["CreationDate"] = args ? args.CreationDate : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["NetworkOrigin"] = args ? args.NetworkOrigin : undefined;
-            inputs["Policy"] = args ? args.Policy : undefined;
-            inputs["PolicyStatus"] = args ? args.PolicyStatus : undefined;
-            inputs["PublicAccessBlockConfiguration"] = args ? args.PublicAccessBlockConfiguration : undefined;
-            inputs["VpcConfiguration"] = args ? args.VpcConfiguration : undefined;
+            inputs["bucket"] = args ? args.bucket : undefined;
+            inputs["creationDate"] = args ? args.creationDate : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["networkOrigin"] = args ? args.networkOrigin : undefined;
+            inputs["policy"] = args ? args.policy : undefined;
+            inputs["policyStatus"] = args ? args.policyStatus : undefined;
+            inputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
+            inputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
         } else {
-            inputs["Bucket"] = undefined /*out*/;
-            inputs["CreationDate"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["NetworkOrigin"] = undefined /*out*/;
-            inputs["Policy"] = undefined /*out*/;
-            inputs["PolicyStatus"] = undefined /*out*/;
-            inputs["PublicAccessBlockConfiguration"] = undefined /*out*/;
-            inputs["VpcConfiguration"] = undefined /*out*/;
+            inputs["bucket"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkOrigin"] = undefined /*out*/;
+            inputs["policy"] = undefined /*out*/;
+            inputs["policyStatus"] = undefined /*out*/;
+            inputs["publicAccessBlockConfiguration"] = undefined /*out*/;
+            inputs["vpcConfiguration"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -117,33 +117,33 @@ export interface AccessPointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
      */
-    readonly Bucket: pulumi.Input<string>;
+    readonly bucket: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
      */
-    readonly CreationDate?: pulumi.Input<string>;
+    readonly creationDate?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
      */
-    readonly Name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
      */
-    readonly NetworkOrigin?: pulumi.Input<string>;
+    readonly networkOrigin?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
      */
-    readonly Policy?: pulumi.Input<any | string>;
+    readonly policy?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
      */
-    readonly PolicyStatus?: pulumi.Input<any | string>;
+    readonly policyStatus?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
      */
-    readonly PublicAccessBlockConfiguration?: pulumi.Input<inputs.S3.AccessPointPublicAccessBlockConfiguration>;
+    readonly publicAccessBlockConfiguration?: pulumi.Input<inputs.S3.AccessPointPublicAccessBlockConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
      */
-    readonly VpcConfiguration?: pulumi.Input<inputs.S3.AccessPointVpcConfiguration>;
+    readonly vpcConfiguration?: pulumi.Input<inputs.S3.AccessPointVpcConfiguration>;
 }

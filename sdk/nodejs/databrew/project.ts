@@ -38,27 +38,27 @@ export class Project extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-datasetname
      */
-    public readonly DatasetName!: pulumi.Output<string>;
+    public readonly datasetName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-name
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-recipename
      */
-    public readonly RecipeName!: pulumi.Output<string>;
+    public readonly recipeName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-rolearn
      */
-    public readonly RoleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
      */
-    public readonly Sample!: pulumi.Output<any | string | undefined>;
+    public readonly sample!: pulumi.Output<any | string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -70,31 +70,31 @@ export class Project extends pulumi.CustomResource {
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.DatasetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DatasetName'");
+            if ((!args || args.datasetName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'datasetName'");
             }
-            if ((!args || args.Name === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Name'");
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.RecipeName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RecipeName'");
+            if ((!args || args.recipeName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'recipeName'");
             }
-            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RoleArn'");
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'roleArn'");
             }
-            inputs["DatasetName"] = args ? args.DatasetName : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["RecipeName"] = args ? args.RecipeName : undefined;
-            inputs["RoleArn"] = args ? args.RoleArn : undefined;
-            inputs["Sample"] = args ? args.Sample : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["datasetName"] = args ? args.datasetName : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["recipeName"] = args ? args.recipeName : undefined;
+            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["sample"] = args ? args.sample : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["DatasetName"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["RecipeName"] = undefined /*out*/;
-            inputs["RoleArn"] = undefined /*out*/;
-            inputs["Sample"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["datasetName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["recipeName"] = undefined /*out*/;
+            inputs["roleArn"] = undefined /*out*/;
+            inputs["sample"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -114,25 +114,25 @@ export interface ProjectArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-datasetname
      */
-    readonly DatasetName: pulumi.Input<string>;
+    readonly datasetName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-name
      */
-    readonly Name: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-recipename
      */
-    readonly RecipeName: pulumi.Input<string>;
+    readonly recipeName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-rolearn
      */
-    readonly RoleArn: pulumi.Input<string>;
+    readonly roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
      */
-    readonly Sample?: pulumi.Input<any | string>;
+    readonly sample?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

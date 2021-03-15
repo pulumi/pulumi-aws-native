@@ -48,30 +48,30 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerRuleAction(
-            Outputs.ListenerRuleAuthenticateCognitoConfig? AuthenticateCognitoConfig,
+            Outputs.ListenerRuleAuthenticateCognitoConfig? authenticateCognitoConfig,
 
-            Outputs.ListenerRuleAuthenticateOidcConfig? AuthenticateOidcConfig,
+            Outputs.ListenerRuleAuthenticateOidcConfig? authenticateOidcConfig,
 
-            Outputs.ListenerRuleFixedResponseConfig? FixedResponseConfig,
+            Outputs.ListenerRuleFixedResponseConfig? fixedResponseConfig,
 
-            Outputs.ListenerRuleForwardConfig? ForwardConfig,
+            Outputs.ListenerRuleForwardConfig? forwardConfig,
 
-            int? Order,
+            int? order,
 
-            Outputs.ListenerRuleRedirectConfig? RedirectConfig,
+            Outputs.ListenerRuleRedirectConfig? redirectConfig,
 
-            string? TargetGroupArn,
+            string? targetGroupArn,
 
-            string Type)
+            string type)
         {
-            this.AuthenticateCognitoConfig = AuthenticateCognitoConfig;
-            this.AuthenticateOidcConfig = AuthenticateOidcConfig;
-            this.FixedResponseConfig = FixedResponseConfig;
-            this.ForwardConfig = ForwardConfig;
-            this.Order = Order;
-            this.RedirectConfig = RedirectConfig;
-            this.TargetGroupArn = TargetGroupArn;
-            this.Type = Type;
+            AuthenticateCognitoConfig = authenticateCognitoConfig;
+            AuthenticateOidcConfig = authenticateOidcConfig;
+            FixedResponseConfig = fixedResponseConfig;
+            ForwardConfig = forwardConfig;
+            Order = order;
+            RedirectConfig = redirectConfig;
+            TargetGroupArn = targetGroupArn;
+            Type = type;
         }
     }
 }

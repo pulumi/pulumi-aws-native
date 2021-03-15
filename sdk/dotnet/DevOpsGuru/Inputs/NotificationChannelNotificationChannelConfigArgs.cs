@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-sns
         /// </summary>
-        [Input("Sns")]
+        [Input("sns")]
         public Input<Inputs.NotificationChannelSnsChannelConfigArgs>? Sns { get; set; }
 
         public NotificationChannelNotificationChannelConfigArgs()

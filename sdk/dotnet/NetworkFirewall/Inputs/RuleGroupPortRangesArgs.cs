@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class RuleGroupPortRangesArgs : Pulumi.ResourceArgs
     {
-        [Input("PortRanges")]
-        private InputList<Inputs.RuleGroupPortRangeArgs>? _PortRanges;
+        [Input("portRanges")]
+        private InputList<Inputs.RuleGroupPortRangeArgs>? _portRanges;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html#cfn-networkfirewall-rulegroup-portranges-portranges
         /// </summary>
         public InputList<Inputs.RuleGroupPortRangeArgs> PortRanges
         {
-            get => _PortRanges ?? (_PortRanges = new InputList<Inputs.RuleGroupPortRangeArgs>());
-            set => _PortRanges = value;
+            get => _portRanges ?? (_portRanges = new InputList<Inputs.RuleGroupPortRangeArgs>());
+            set => _portRanges = value;
         }
 
         public RuleGroupPortRangesArgs()

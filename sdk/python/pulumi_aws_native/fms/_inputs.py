@@ -17,41 +17,41 @@ __all__ = [
 @pulumi.input_type
 class PolicyIEMapArgs:
     def __init__(__self__, *,
-                 account: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 orgunit: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 a_ccount: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 o_rgunit: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] account: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] orgunit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] a_ccount: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] o_rgunit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
         """
-        if account is not None:
-            pulumi.set(__self__, "account", account)
-        if orgunit is not None:
-            pulumi.set(__self__, "orgunit", orgunit)
+        if a_ccount is not None:
+            pulumi.set(__self__, "a_ccount", a_ccount)
+        if o_rgunit is not None:
+            pulumi.set(__self__, "o_rgunit", o_rgunit)
 
     @property
-    @pulumi.getter(name="ACCOUNT")
-    def account(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="aCCOUNT")
+    def a_ccount(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
         """
-        return pulumi.get(self, "account")
+        return pulumi.get(self, "a_ccount")
 
-    @account.setter
-    def account(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "account", value)
+    @a_ccount.setter
+    def a_ccount(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "a_ccount", value)
 
     @property
-    @pulumi.getter(name="ORGUNIT")
-    def orgunit(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="oRGUNIT")
+    def o_rgunit(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
         """
-        return pulumi.get(self, "orgunit")
+        return pulumi.get(self, "o_rgunit")
 
-    @orgunit.setter
-    def orgunit(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "orgunit", value)
+    @o_rgunit.setter
+    def o_rgunit(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "o_rgunit", value)
 
 
 @pulumi.input_type
@@ -68,7 +68,7 @@ class PolicyPolicyTagArgs:
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-key
@@ -80,7 +80,7 @@ class PolicyPolicyTagArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-value
@@ -107,7 +107,7 @@ class PolicyResourceTagArgs:
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-key
@@ -119,7 +119,7 @@ class PolicyResourceTagArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-value

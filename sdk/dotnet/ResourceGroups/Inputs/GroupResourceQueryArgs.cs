@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.ResourceGroups.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
         /// </summary>
-        [Input("Query")]
+        [Input("query")]
         public Input<Inputs.GroupQueryArgs>? Query { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
         /// </summary>
-        [Input("Type")]
+        [Input("type")]
         public Input<string>? Type { get; set; }
 
         public GroupResourceQueryArgs()

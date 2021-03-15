@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-copyoptions
         /// </summary>
-        [Input("CopyOptions")]
+        [Input("copyOptions")]
         public Input<string>? CopyOptions { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-datatablecolumns
         /// </summary>
-        [Input("DataTableColumns")]
+        [Input("dataTableColumns")]
         public Input<string>? DataTableColumns { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-datatablename
         /// </summary>
-        [Input("DataTableName", required: true)]
+        [Input("dataTableName", required: true)]
         public Input<string> DataTableName { get; set; } = null!;
 
         public DeliveryStreamCopyCommandArgs()

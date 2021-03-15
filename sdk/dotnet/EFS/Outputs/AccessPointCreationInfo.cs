@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.EFS.Outputs
 
         [OutputConstructor]
         private AccessPointCreationInfo(
-            string OwnerGid,
+            string ownerGid,
 
-            string OwnerUid,
+            string ownerUid,
 
-            string Permissions)
+            string permissions)
         {
-            this.OwnerGid = OwnerGid;
-            this.OwnerUid = OwnerUid;
-            this.Permissions = Permissions;
+            OwnerGid = ownerGid;
+            OwnerUid = ownerUid;
+            Permissions = permissions;
         }
     }
 }

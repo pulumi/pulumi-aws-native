@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.Glue.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-registryname
         /// </summary>
-        [Input("RegistryName")]
+        [Input("registryName")]
         public Input<string>? RegistryName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaarn
         /// </summary>
-        [Input("SchemaArn")]
+        [Input("schemaArn")]
         public Input<string>? SchemaArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaname
         /// </summary>
-        [Input("SchemaName")]
+        [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }
 
         public SchemaVersionSchemaArgs()

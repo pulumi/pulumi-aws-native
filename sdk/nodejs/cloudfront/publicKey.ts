@@ -35,12 +35,12 @@ export class PublicKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === PublicKey.__pulumiType;
     }
 
-    public /*out*/ readonly CreatedTime!: pulumi.Output<string>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
      */
-    public readonly PublicKeyConfig!: pulumi.Output<outputs.CloudFront.PublicKeyPublicKeyConfig>;
+    public readonly publicKeyConfig!: pulumi.Output<outputs.CloudFront.PublicKeyPublicKeyConfig>;
 
     /**
      * Create a PublicKey resource with the given unique name, arguments, and options.
@@ -52,16 +52,16 @@ export class PublicKey extends pulumi.CustomResource {
     constructor(name: string, args: PublicKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.PublicKeyConfig === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PublicKeyConfig'");
+            if ((!args || args.publicKeyConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'publicKeyConfig'");
             }
-            inputs["PublicKeyConfig"] = args ? args.PublicKeyConfig : undefined;
-            inputs["CreatedTime"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
+            inputs["publicKeyConfig"] = args ? args.publicKeyConfig : undefined;
+            inputs["createdTime"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["CreatedTime"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["PublicKeyConfig"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["publicKeyConfig"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -81,5 +81,5 @@ export interface PublicKeyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
      */
-    readonly PublicKeyConfig: pulumi.Input<inputs.CloudFront.PublicKeyPublicKeyConfig>;
+    readonly publicKeyConfig: pulumi.Input<inputs.CloudFront.PublicKeyPublicKeyConfig>;
 }

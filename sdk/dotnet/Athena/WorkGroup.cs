@@ -15,49 +15,49 @@ namespace Pulumi.AwsNative.Athena
     [AwsNativeResourceType("aws-native:Athena:WorkGroup")]
     public partial class WorkGroup : Pulumi.CustomResource
     {
-        [Output("CreationTime")]
+        [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
         /// </summary>
-        [Output("RecursiveDeleteOption")]
+        [Output("recursiveDeleteOption")]
         public Output<bool?> RecursiveDeleteOption { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
         /// </summary>
-        [Output("State")]
+        [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<Outputs.WorkGroupTags?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
         /// </summary>
-        [Output("WorkGroupConfiguration")]
+        [Output("workGroupConfiguration")]
         public Output<Outputs.WorkGroupWorkGroupConfiguration?> WorkGroupConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
         /// </summary>
-        [Output("WorkGroupConfigurationUpdates")]
+        [Output("workGroupConfigurationUpdates")]
         public Output<Outputs.WorkGroupWorkGroupConfigurationUpdates?> WorkGroupConfigurationUpdates { get; private set; } = null!;
 
 
@@ -108,43 +108,43 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
         /// </summary>
-        [Input("RecursiveDeleteOption")]
+        [Input("recursiveDeleteOption")]
         public Input<bool>? RecursiveDeleteOption { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
         /// </summary>
-        [Input("State")]
+        [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
         /// </summary>
-        [Input("Tags")]
+        [Input("tags")]
         public Input<Inputs.WorkGroupTagsArgs>? Tags { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
         /// </summary>
-        [Input("WorkGroupConfiguration")]
+        [Input("workGroupConfiguration")]
         public Input<Inputs.WorkGroupWorkGroupConfigurationArgs>? WorkGroupConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
         /// </summary>
-        [Input("WorkGroupConfigurationUpdates")]
+        [Input("workGroupConfigurationUpdates")]
         public Input<Inputs.WorkGroupWorkGroupConfigurationUpdatesArgs>? WorkGroupConfigurationUpdates { get; set; }
 
         public WorkGroupArgs()

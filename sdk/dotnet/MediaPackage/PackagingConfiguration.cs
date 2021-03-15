@@ -15,49 +15,49 @@ namespace Pulumi.AwsNative.MediaPackage
     [AwsNativeResourceType("aws-native:MediaPackage:PackagingConfiguration")]
     public partial class PackagingConfiguration : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
         /// </summary>
-        [Output("CmafPackage")]
+        [Output("cmafPackage")]
         public Output<Outputs.PackagingConfigurationCmafPackage?> CmafPackage { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
         /// </summary>
-        [Output("DashPackage")]
+        [Output("dashPackage")]
         public Output<Outputs.PackagingConfigurationDashPackage?> DashPackage { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
         /// </summary>
-        [Output("HlsPackage")]
+        [Output("hlsPackage")]
         public Output<Outputs.PackagingConfigurationHlsPackage?> HlsPackage { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
         /// </summary>
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
         /// </summary>
-        [Output("MssPackage")]
+        [Output("mssPackage")]
         public Output<Outputs.PackagingConfigurationMssPackage?> MssPackage { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
         /// </summary>
-        [Output("PackagingGroupId")]
+        [Output("packagingGroupId")]
         public Output<string> PackagingGroupId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -108,49 +108,49 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
         /// </summary>
-        [Input("CmafPackage")]
+        [Input("cmafPackage")]
         public Input<Inputs.PackagingConfigurationCmafPackageArgs>? CmafPackage { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
         /// </summary>
-        [Input("DashPackage")]
+        [Input("dashPackage")]
         public Input<Inputs.PackagingConfigurationDashPackageArgs>? DashPackage { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
         /// </summary>
-        [Input("HlsPackage")]
+        [Input("hlsPackage")]
         public Input<Inputs.PackagingConfigurationHlsPackageArgs>? HlsPackage { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
         /// </summary>
-        [Input("Id", required: true)]
+        [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
         /// </summary>
-        [Input("MssPackage")]
+        [Input("mssPackage")]
         public Input<Inputs.PackagingConfigurationMssPackageArgs>? MssPackage { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
         /// </summary>
-        [Input("PackagingGroupId", required: true)]
+        [Input("packagingGroupId", required: true)]
         public Input<string> PackagingGroupId { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public PackagingConfigurationArgs()

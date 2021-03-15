@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.ElastiCache.Outputs
         public readonly ImmutableArray<string> PasswordList;
 
         [OutputConstructor]
-        private UserPasswordList(ImmutableArray<string> PasswordList)
+        private UserPasswordList(ImmutableArray<string> passwordList)
         {
-            this.PasswordList = PasswordList;
+            PasswordList = passwordList;
         }
     }
 }

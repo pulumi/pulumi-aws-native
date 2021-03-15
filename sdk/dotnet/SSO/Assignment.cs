@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
         /// </summary>
-        [Output("InstanceArn")]
+        [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
         /// </summary>
-        [Output("PermissionSetArn")]
+        [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
         /// </summary>
-        [Output("PrincipalId")]
+        [Output("principalId")]
         public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
         /// </summary>
-        [Output("PrincipalType")]
+        [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
         /// </summary>
-        [Output("TargetId")]
+        [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
         /// </summary>
-        [Output("TargetType")]
+        [Output("targetType")]
         public Output<string> TargetType { get; private set; } = null!;
 
 
@@ -99,37 +99,37 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
         /// </summary>
-        [Input("InstanceArn", required: true)]
+        [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
         /// </summary>
-        [Input("PermissionSetArn", required: true)]
+        [Input("permissionSetArn", required: true)]
         public Input<string> PermissionSetArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
         /// </summary>
-        [Input("PrincipalId", required: true)]
+        [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
         /// </summary>
-        [Input("PrincipalType", required: true)]
+        [Input("principalType", required: true)]
         public Input<string> PrincipalType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
         /// </summary>
-        [Input("TargetId", required: true)]
+        [Input("targetId", required: true)]
         public Input<string> TargetId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
         /// </summary>
-        [Input("TargetType", required: true)]
+        [Input("targetType", required: true)]
         public Input<string> TargetType { get; set; } = null!;
 
         public AssignmentArgs()

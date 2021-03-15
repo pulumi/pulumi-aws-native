@@ -15,40 +15,40 @@ namespace Pulumi.AwsNative.EFS
     [AwsNativeResourceType("aws-native:EFS:AccessPoint")]
     public partial class AccessPoint : Pulumi.CustomResource
     {
-        [Output("AccessPointId")]
+        [Output("accessPointId")]
         public Output<string> AccessPointId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
         /// </summary>
-        [Output("AccessPointTags")]
+        [Output("accessPointTags")]
         public Output<ImmutableArray<Outputs.AccessPointAccessPointTag>> AccessPointTags { get; private set; } = null!;
 
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
         /// </summary>
-        [Output("ClientToken")]
+        [Output("clientToken")]
         public Output<string?> ClientToken { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
         /// </summary>
-        [Output("FileSystemId")]
+        [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
         /// </summary>
-        [Output("PosixUser")]
+        [Output("posixUser")]
         public Output<Outputs.AccessPointPosixUser?> PosixUser { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
         /// </summary>
-        [Output("RootDirectory")]
+        [Output("rootDirectory")]
         public Output<Outputs.AccessPointRootDirectory?> RootDirectory { get; private set; } = null!;
 
 
@@ -96,40 +96,40 @@ namespace Pulumi.AwsNative.EFS
 
     public sealed class AccessPointArgs : Pulumi.ResourceArgs
     {
-        [Input("AccessPointTags")]
-        private InputList<Inputs.AccessPointAccessPointTagArgs>? _AccessPointTags;
+        [Input("accessPointTags")]
+        private InputList<Inputs.AccessPointAccessPointTagArgs>? _accessPointTags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
         /// </summary>
         public InputList<Inputs.AccessPointAccessPointTagArgs> AccessPointTags
         {
-            get => _AccessPointTags ?? (_AccessPointTags = new InputList<Inputs.AccessPointAccessPointTagArgs>());
-            set => _AccessPointTags = value;
+            get => _accessPointTags ?? (_accessPointTags = new InputList<Inputs.AccessPointAccessPointTagArgs>());
+            set => _accessPointTags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
         /// </summary>
-        [Input("ClientToken")]
+        [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
         /// </summary>
-        [Input("FileSystemId", required: true)]
+        [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
         /// </summary>
-        [Input("PosixUser")]
+        [Input("posixUser")]
         public Input<Inputs.AccessPointPosixUserArgs>? PosixUser { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
         /// </summary>
-        [Input("RootDirectory")]
+        [Input("rootDirectory")]
         public Input<Inputs.AccessPointRootDirectoryArgs>? RootDirectory { get; set; }
 
         public AccessPointArgs()

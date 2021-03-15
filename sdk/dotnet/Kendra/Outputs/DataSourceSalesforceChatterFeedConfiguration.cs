@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceSalesforceChatterFeedConfiguration(
-            string DocumentDataFieldName,
+            string documentDataFieldName,
 
-            string? DocumentTitleFieldName,
+            string? documentTitleFieldName,
 
-            Outputs.DataSourceDataSourceToIndexFieldMappingList? FieldMappings,
+            Outputs.DataSourceDataSourceToIndexFieldMappingList? fieldMappings,
 
-            Outputs.DataSourceSalesforceChatterFeedIncludeFilterTypes? IncludeFilterTypes)
+            Outputs.DataSourceSalesforceChatterFeedIncludeFilterTypes? includeFilterTypes)
         {
-            this.DocumentDataFieldName = DocumentDataFieldName;
-            this.DocumentTitleFieldName = DocumentTitleFieldName;
-            this.FieldMappings = FieldMappings;
-            this.IncludeFilterTypes = IncludeFilterTypes;
+            DocumentDataFieldName = documentDataFieldName;
+            DocumentTitleFieldName = documentTitleFieldName;
+            FieldMappings = fieldMappings;
+            IncludeFilterTypes = includeFilterTypes;
         }
     }
 }

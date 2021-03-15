@@ -34,7 +34,7 @@ export class Graph extends pulumi.CustomResource {
         return obj['__pulumiType'] === Graph.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
 
     /**
      * Create a Graph resource with the given unique name, arguments, and options.
@@ -46,9 +46,9 @@ export class Graph extends pulumi.CustomResource {
     constructor(name: string, args?: GraphArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["Arn"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

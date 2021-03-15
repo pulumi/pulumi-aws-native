@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-authorizationconfig
         /// </summary>
-        [Input("AuthorizationConfig")]
+        [Input("authorizationConfig")]
         public InputUnion<System.Text.Json.JsonElement, string>? AuthorizationConfig { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-filesystemid
         /// </summary>
-        [Input("FilesystemId", required: true)]
+        [Input("filesystemId", required: true)]
         public Input<string> FilesystemId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-rootdirectory
         /// </summary>
-        [Input("RootDirectory")]
+        [Input("rootDirectory")]
         public Input<string>? RootDirectory { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryption
         /// </summary>
-        [Input("TransitEncryption")]
+        [Input("transitEncryption")]
         public Input<string>? TransitEncryption { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryptionport
         /// </summary>
-        [Input("TransitEncryptionPort")]
+        [Input("transitEncryptionPort")]
         public Input<int>? TransitEncryptionPort { get; set; }
 
         public TaskDefinitionEFSVolumeConfigurationArgs()

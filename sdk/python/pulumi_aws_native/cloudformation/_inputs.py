@@ -32,7 +32,7 @@ class StackSetAutoDeploymentArgs:
             pulumi.set(__self__, "retain_stacks_on_account_removal", retain_stacks_on_account_removal)
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
@@ -44,7 +44,7 @@ class StackSetAutoDeploymentArgs:
         pulumi.set(self, "enabled", value)
 
     @property
-    @pulumi.getter(name="RetainStacksOnAccountRemoval")
+    @pulumi.getter(name="retainStacksOnAccountRemoval")
     def retain_stacks_on_account_removal(self) -> Optional[pulumi.Input[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-retainstacksonaccountremoval
@@ -72,7 +72,7 @@ class StackSetDeploymentTargetsArgs:
             pulumi.set(__self__, "organizational_unit_ids", organizational_unit_ids)
 
     @property
-    @pulumi.getter(name="Accounts")
+    @pulumi.getter
     def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
@@ -84,7 +84,7 @@ class StackSetDeploymentTargetsArgs:
         pulumi.set(self, "accounts", value)
 
     @property
-    @pulumi.getter(name="OrganizationalUnitIds")
+    @pulumi.getter(name="organizationalUnitIds")
     def organizational_unit_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
@@ -124,7 +124,7 @@ class StackSetOperationPreferencesArgs:
             pulumi.set(__self__, "region_order", region_order)
 
     @property
-    @pulumi.getter(name="FailureToleranceCount")
+    @pulumi.getter(name="failureToleranceCount")
     def failure_tolerance_count(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
@@ -136,7 +136,7 @@ class StackSetOperationPreferencesArgs:
         pulumi.set(self, "failure_tolerance_count", value)
 
     @property
-    @pulumi.getter(name="FailureTolerancePercentage")
+    @pulumi.getter(name="failureTolerancePercentage")
     def failure_tolerance_percentage(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
@@ -148,7 +148,7 @@ class StackSetOperationPreferencesArgs:
         pulumi.set(self, "failure_tolerance_percentage", value)
 
     @property
-    @pulumi.getter(name="MaxConcurrentCount")
+    @pulumi.getter(name="maxConcurrentCount")
     def max_concurrent_count(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
@@ -160,7 +160,7 @@ class StackSetOperationPreferencesArgs:
         pulumi.set(self, "max_concurrent_count", value)
 
     @property
-    @pulumi.getter(name="MaxConcurrentPercentage")
+    @pulumi.getter(name="maxConcurrentPercentage")
     def max_concurrent_percentage(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
@@ -172,7 +172,7 @@ class StackSetOperationPreferencesArgs:
         pulumi.set(self, "max_concurrent_percentage", value)
 
     @property
-    @pulumi.getter(name="RegionOrder")
+    @pulumi.getter(name="regionOrder")
     def region_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
@@ -198,7 +198,7 @@ class StackSetParameterArgs:
         pulumi.set(__self__, "parameter_value", parameter_value)
 
     @property
-    @pulumi.getter(name="ParameterKey")
+    @pulumi.getter(name="parameterKey")
     def parameter_key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parameterkey
@@ -210,7 +210,7 @@ class StackSetParameterArgs:
         pulumi.set(self, "parameter_key", value)
 
     @property
-    @pulumi.getter(name="ParameterValue")
+    @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parametervalue
@@ -240,7 +240,7 @@ class StackSetStackInstancesArgs:
             pulumi.set(__self__, "parameter_overrides", parameter_overrides)
 
     @property
-    @pulumi.getter(name="DeploymentTargets")
+    @pulumi.getter(name="deploymentTargets")
     def deployment_targets(self) -> pulumi.Input['StackSetDeploymentTargetsArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
@@ -252,7 +252,7 @@ class StackSetStackInstancesArgs:
         pulumi.set(self, "deployment_targets", value)
 
     @property
-    @pulumi.getter(name="Regions")
+    @pulumi.getter
     def regions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
@@ -264,7 +264,7 @@ class StackSetStackInstancesArgs:
         pulumi.set(self, "regions", value)
 
     @property
-    @pulumi.getter(name="ParameterOverrides")
+    @pulumi.getter(name="parameterOverrides")
     def parameter_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides

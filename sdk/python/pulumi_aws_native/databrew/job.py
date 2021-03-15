@@ -121,7 +121,7 @@ class Job(pulumi.CustomResource):
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="DatasetName")
+    @pulumi.getter(name="datasetName")
     def dataset_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
@@ -129,7 +129,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "dataset_name")
 
     @property
-    @pulumi.getter(name="EncryptionKeyArn")
+    @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionkeyarn
@@ -137,7 +137,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "encryption_key_arn")
 
     @property
-    @pulumi.getter(name="EncryptionMode")
+    @pulumi.getter(name="encryptionMode")
     def encryption_mode(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
@@ -145,7 +145,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "encryption_mode")
 
     @property
-    @pulumi.getter(name="LogSubscription")
+    @pulumi.getter(name="logSubscription")
     def log_subscription(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
@@ -153,7 +153,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "log_subscription")
 
     @property
-    @pulumi.getter(name="MaxCapacity")
+    @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxcapacity
@@ -161,7 +161,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "max_capacity")
 
     @property
-    @pulumi.getter(name="MaxRetries")
+    @pulumi.getter(name="maxRetries")
     def max_retries(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxretries
@@ -169,7 +169,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "max_retries")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-name
@@ -177,7 +177,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="OutputLocation")
+    @pulumi.getter(name="outputLocation")
     def output_location(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
@@ -185,7 +185,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "output_location")
 
     @property
-    @pulumi.getter(name="Outputs")
+    @pulumi.getter
     def outputs(self) -> pulumi.Output[Optional[Sequence['outputs.JobOutput']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
@@ -193,7 +193,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "outputs")
 
     @property
-    @pulumi.getter(name="ProjectName")
+    @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
@@ -201,7 +201,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "project_name")
 
     @property
-    @pulumi.getter(name="Recipe")
+    @pulumi.getter
     def recipe(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-recipe
@@ -209,7 +209,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "recipe")
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-rolearn
@@ -217,7 +217,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-tags
@@ -225,7 +225,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Timeout")
+    @pulumi.getter
     def timeout(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-timeout
@@ -233,7 +233,7 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "timeout")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-type

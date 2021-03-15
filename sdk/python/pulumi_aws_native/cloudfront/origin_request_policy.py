@@ -75,17 +75,17 @@ class OriginRequestPolicy(pulumi.CustomResource):
         return OriginRequestPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="LastModifiedTime")
+    @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "last_modified_time")
 
     @property
-    @pulumi.getter(name="OriginRequestPolicyConfig")
+    @pulumi.getter(name="originRequestPolicyConfig")
     def origin_request_policy_config(self) -> pulumi.Output['outputs.OriginRequestPolicyOriginRequestPolicyConfig']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig

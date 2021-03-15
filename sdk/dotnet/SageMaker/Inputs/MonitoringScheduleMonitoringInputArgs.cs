@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
         /// </summary>
-        [Input("EndpointInput", required: true)]
+        [Input("endpointInput", required: true)]
         public Input<Inputs.MonitoringScheduleEndpointInputArgs> EndpointInput { get; set; } = null!;
 
         public MonitoringScheduleMonitoringInputArgs()

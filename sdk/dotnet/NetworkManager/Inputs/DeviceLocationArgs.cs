@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-address
         /// </summary>
-        [Input("Address")]
+        [Input("address")]
         public Input<string>? Address { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-latitude
         /// </summary>
-        [Input("Latitude")]
+        [Input("latitude")]
         public Input<string>? Latitude { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-longitude
         /// </summary>
-        [Input("Longitude")]
+        [Input("longitude")]
         public Input<string>? Longitude { get; set; }
 
         public DeviceLocationArgs()

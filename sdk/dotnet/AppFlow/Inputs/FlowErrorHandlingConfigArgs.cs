@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-bucketname
         /// </summary>
-        [Input("BucketName")]
+        [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-bucketprefix
         /// </summary>
-        [Input("BucketPrefix")]
+        [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-failonfirsterror
         /// </summary>
-        [Input("FailOnFirstError")]
+        [Input("failOnFirstError")]
         public Input<bool>? FailOnFirstError { get; set; }
 
         public FlowErrorHandlingConfigArgs()

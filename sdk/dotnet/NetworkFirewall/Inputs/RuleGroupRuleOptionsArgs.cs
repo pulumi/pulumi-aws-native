@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class RuleGroupRuleOptionsArgs : Pulumi.ResourceArgs
     {
-        [Input("RuleOptions")]
-        private InputList<Inputs.RuleGroupRuleOptionArgs>? _RuleOptions;
+        [Input("ruleOptions")]
+        private InputList<Inputs.RuleGroupRuleOptionArgs>? _ruleOptions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html#cfn-networkfirewall-rulegroup-ruleoptions-ruleoptions
         /// </summary>
         public InputList<Inputs.RuleGroupRuleOptionArgs> RuleOptions
         {
-            get => _RuleOptions ?? (_RuleOptions = new InputList<Inputs.RuleGroupRuleOptionArgs>());
-            set => _RuleOptions = value;
+            get => _ruleOptions ?? (_ruleOptions = new InputList<Inputs.RuleGroupRuleOptionArgs>());
+            set => _ruleOptions = value;
         }
 
         public RuleGroupRuleOptionsArgs()

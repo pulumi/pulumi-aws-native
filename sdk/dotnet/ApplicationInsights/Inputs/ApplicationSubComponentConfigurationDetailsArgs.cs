@@ -15,40 +15,40 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// </summary>
     public sealed class ApplicationSubComponentConfigurationDetailsArgs : Pulumi.ResourceArgs
     {
-        [Input("AlarmMetrics")]
-        private InputList<Inputs.ApplicationAlarmMetricArgs>? _AlarmMetrics;
+        [Input("alarmMetrics")]
+        private InputList<Inputs.ApplicationAlarmMetricArgs>? _alarmMetrics;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics
         /// </summary>
         public InputList<Inputs.ApplicationAlarmMetricArgs> AlarmMetrics
         {
-            get => _AlarmMetrics ?? (_AlarmMetrics = new InputList<Inputs.ApplicationAlarmMetricArgs>());
-            set => _AlarmMetrics = value;
+            get => _alarmMetrics ?? (_alarmMetrics = new InputList<Inputs.ApplicationAlarmMetricArgs>());
+            set => _alarmMetrics = value;
         }
 
-        [Input("Logs")]
-        private InputList<Inputs.ApplicationLogArgs>? _Logs;
+        [Input("logs")]
+        private InputList<Inputs.ApplicationLogArgs>? _logs;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
         /// </summary>
         public InputList<Inputs.ApplicationLogArgs> Logs
         {
-            get => _Logs ?? (_Logs = new InputList<Inputs.ApplicationLogArgs>());
-            set => _Logs = value;
+            get => _logs ?? (_logs = new InputList<Inputs.ApplicationLogArgs>());
+            set => _logs = value;
         }
 
-        [Input("WindowsEvents")]
-        private InputList<Inputs.ApplicationWindowsEventArgs>? _WindowsEvents;
+        [Input("windowsEvents")]
+        private InputList<Inputs.ApplicationWindowsEventArgs>? _windowsEvents;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents
         /// </summary>
         public InputList<Inputs.ApplicationWindowsEventArgs> WindowsEvents
         {
-            get => _WindowsEvents ?? (_WindowsEvents = new InputList<Inputs.ApplicationWindowsEventArgs>());
-            set => _WindowsEvents = value;
+            get => _windowsEvents ?? (_windowsEvents = new InputList<Inputs.ApplicationWindowsEventArgs>());
+            set => _windowsEvents = value;
         }
 
         public ApplicationSubComponentConfigurationDetailsArgs()

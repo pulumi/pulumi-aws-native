@@ -95,17 +95,17 @@ class Portal(pulumi.CustomResource):
         return Portal(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="PortalArn")
+    @pulumi.getter(name="portalArn")
     def portal_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "portal_arn")
 
     @property
-    @pulumi.getter(name="PortalClientId")
+    @pulumi.getter(name="portalClientId")
     def portal_client_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "portal_client_id")
 
     @property
-    @pulumi.getter(name="PortalContactEmail")
+    @pulumi.getter(name="portalContactEmail")
     def portal_contact_email(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
@@ -113,7 +113,7 @@ class Portal(pulumi.CustomResource):
         return pulumi.get(self, "portal_contact_email")
 
     @property
-    @pulumi.getter(name="PortalDescription")
+    @pulumi.getter(name="portalDescription")
     def portal_description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
@@ -121,12 +121,12 @@ class Portal(pulumi.CustomResource):
         return pulumi.get(self, "portal_description")
 
     @property
-    @pulumi.getter(name="PortalId")
+    @pulumi.getter(name="portalId")
     def portal_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "portal_id")
 
     @property
-    @pulumi.getter(name="PortalName")
+    @pulumi.getter(name="portalName")
     def portal_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
@@ -134,17 +134,17 @@ class Portal(pulumi.CustomResource):
         return pulumi.get(self, "portal_name")
 
     @property
-    @pulumi.getter(name="PortalStartUrl")
+    @pulumi.getter(name="portalStartUrl")
     def portal_start_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "portal_start_url")
 
     @property
-    @pulumi.getter(name="PortalStatus")
+    @pulumi.getter(name="portalStatus")
     def portal_status(self) -> pulumi.Output['outputs.PortalPortalStatus']:
         return pulumi.get(self, "portal_status")
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
@@ -152,7 +152,7 @@ class Portal(pulumi.CustomResource):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags

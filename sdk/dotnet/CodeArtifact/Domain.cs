@@ -15,34 +15,34 @@ namespace Pulumi.AwsNative.CodeArtifact
     [AwsNativeResourceType("aws-native:CodeArtifact:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
         /// </summary>
-        [Output("DomainName")]
+        [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        [Output("EncryptionKey")]
+        [Output("encryptionKey")]
         public Output<string> EncryptionKey { get; private set; } = null!;
 
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("Owner")]
+        [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
         /// </summary>
-        [Output("PermissionsPolicyDocument")]
+        [Output("permissionsPolicyDocument")]
         public Output<Union<System.Text.Json.JsonElement, string>?> PermissionsPolicyDocument { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -93,31 +93,31 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
         /// </summary>
-        [Input("DomainName", required: true)]
+        [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-encryptionkey
         /// </summary>
-        [Input("EncryptionKey")]
+        [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
         /// </summary>
-        [Input("PermissionsPolicyDocument")]
+        [Input("permissionsPolicyDocument")]
         public InputUnion<System.Text.Json.JsonElement, string>? PermissionsPolicyDocument { get; set; }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public DomainArgs()

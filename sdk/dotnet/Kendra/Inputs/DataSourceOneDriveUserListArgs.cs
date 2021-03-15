@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceOneDriveUserListArgs : Pulumi.ResourceArgs
     {
-        [Input("OneDriveUserList")]
-        private InputList<string>? _OneDriveUserList;
+        [Input("oneDriveUserList")]
+        private InputList<string>? _oneDriveUserList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveuserlist.html#cfn-kendra-datasource-onedriveuserlist-onedriveuserlist
         /// </summary>
         public InputList<string> OneDriveUserList
         {
-            get => _OneDriveUserList ?? (_OneDriveUserList = new InputList<string>());
-            set => _OneDriveUserList = value;
+            get => _oneDriveUserList ?? (_oneDriveUserList = new InputList<string>());
+            set => _oneDriveUserList = value;
         }
 
         public DataSourceOneDriveUserListArgs()

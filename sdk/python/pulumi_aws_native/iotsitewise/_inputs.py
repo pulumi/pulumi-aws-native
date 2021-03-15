@@ -43,7 +43,7 @@ class AccessPolicyAccessPolicyIdentityArgs:
             pulumi.set(__self__, "user", user)
 
     @property
-    @pulumi.getter(name="User")
+    @pulumi.getter
     def user(self) -> Optional[pulumi.Input['AccessPolicyUserArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
@@ -71,7 +71,7 @@ class AccessPolicyAccessPolicyResourceArgs:
             pulumi.set(__self__, "project", project)
 
     @property
-    @pulumi.getter(name="Portal")
+    @pulumi.getter
     def portal(self) -> Optional[pulumi.Input['AccessPolicyPortalArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-portal
@@ -83,7 +83,7 @@ class AccessPolicyAccessPolicyResourceArgs:
         pulumi.set(self, "portal", value)
 
     @property
-    @pulumi.getter(name="Project")
+    @pulumi.getter
     def project(self) -> Optional[pulumi.Input['AccessPolicyProjectArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-project
@@ -181,7 +181,7 @@ class AssetAssetHierarchyArgs:
         pulumi.set(__self__, "logical_id", logical_id)
 
     @property
-    @pulumi.getter(name="ChildAssetId")
+    @pulumi.getter(name="childAssetId")
     def child_asset_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-childassetid
@@ -193,7 +193,7 @@ class AssetAssetHierarchyArgs:
         pulumi.set(self, "child_asset_id", value)
 
     @property
-    @pulumi.getter(name="LogicalId")
+    @pulumi.getter(name="logicalId")
     def logical_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-logicalid
@@ -224,7 +224,7 @@ class AssetAssetPropertyArgs:
             pulumi.set(__self__, "notification_state", notification_state)
 
     @property
-    @pulumi.getter(name="LogicalId")
+    @pulumi.getter(name="logicalId")
     def logical_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-logicalid
@@ -236,7 +236,7 @@ class AssetAssetPropertyArgs:
         pulumi.set(self, "logical_id", value)
 
     @property
-    @pulumi.getter(name="Alias")
+    @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-alias
@@ -248,7 +248,7 @@ class AssetAssetPropertyArgs:
         pulumi.set(self, "alias", value)
 
     @property
-    @pulumi.getter(name="NotificationState")
+    @pulumi.getter(name="notificationState")
     def notification_state(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-notificationstate
@@ -277,7 +277,7 @@ class AssetModelAssetModelHierarchyArgs:
         pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter(name="ChildAssetModelId")
+    @pulumi.getter(name="childAssetModelId")
     def child_asset_model_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-childassetmodelid
@@ -289,7 +289,7 @@ class AssetModelAssetModelHierarchyArgs:
         pulumi.set(self, "child_asset_model_id", value)
 
     @property
-    @pulumi.getter(name="LogicalId")
+    @pulumi.getter(name="logicalId")
     def logical_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-logicalid
@@ -301,7 +301,7 @@ class AssetModelAssetModelHierarchyArgs:
         pulumi.set(self, "logical_id", value)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-name
@@ -337,7 +337,7 @@ class AssetModelAssetModelPropertyArgs:
             pulumi.set(__self__, "unit", unit)
 
     @property
-    @pulumi.getter(name="DataType")
+    @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype
@@ -349,7 +349,7 @@ class AssetModelAssetModelPropertyArgs:
         pulumi.set(self, "data_type", value)
 
     @property
-    @pulumi.getter(name="LogicalId")
+    @pulumi.getter(name="logicalId")
     def logical_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
@@ -361,7 +361,7 @@ class AssetModelAssetModelPropertyArgs:
         pulumi.set(self, "logical_id", value)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-name
@@ -373,7 +373,7 @@ class AssetModelAssetModelPropertyArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Input['AssetModelPropertyTypeArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-type
@@ -385,7 +385,7 @@ class AssetModelAssetModelPropertyArgs:
         pulumi.set(self, "type", value)
 
     @property
-    @pulumi.getter(name="Unit")
+    @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-unit
@@ -409,7 +409,7 @@ class AssetModelAttributeArgs:
             pulumi.set(__self__, "default_value", default_value)
 
     @property
-    @pulumi.getter(name="DefaultValue")
+    @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html#cfn-iotsitewise-assetmodel-attribute-defaultvalue
@@ -435,7 +435,7 @@ class AssetModelExpressionVariableArgs:
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-name
@@ -447,7 +447,7 @@ class AssetModelExpressionVariableArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> pulumi.Input['AssetModelVariableValueArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-value
@@ -476,7 +476,7 @@ class AssetModelMetricArgs:
         pulumi.set(__self__, "window", window)
 
     @property
-    @pulumi.getter(name="Expression")
+    @pulumi.getter
     def expression(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-expression
@@ -488,7 +488,7 @@ class AssetModelMetricArgs:
         pulumi.set(self, "expression", value)
 
     @property
-    @pulumi.getter(name="Variables")
+    @pulumi.getter
     def variables(self) -> pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgs']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-variables
@@ -500,7 +500,7 @@ class AssetModelMetricArgs:
         pulumi.set(self, "variables", value)
 
     @property
-    @pulumi.getter(name="Window")
+    @pulumi.getter
     def window(self) -> pulumi.Input['AssetModelMetricWindowArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-window
@@ -524,7 +524,7 @@ class AssetModelMetricWindowArgs:
             pulumi.set(__self__, "tumbling", tumbling)
 
     @property
-    @pulumi.getter(name="Tumbling")
+    @pulumi.getter
     def tumbling(self) -> Optional[pulumi.Input['AssetModelTumblingWindowArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
@@ -559,7 +559,7 @@ class AssetModelPropertyTypeArgs:
             pulumi.set(__self__, "transform", transform)
 
     @property
-    @pulumi.getter(name="TypeName")
+    @pulumi.getter(name="typeName")
     def type_name(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-typename
@@ -571,7 +571,7 @@ class AssetModelPropertyTypeArgs:
         pulumi.set(self, "type_name", value)
 
     @property
-    @pulumi.getter(name="Attribute")
+    @pulumi.getter
     def attribute(self) -> Optional[pulumi.Input['AssetModelAttributeArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-attribute
@@ -583,7 +583,7 @@ class AssetModelPropertyTypeArgs:
         pulumi.set(self, "attribute", value)
 
     @property
-    @pulumi.getter(name="Metric")
+    @pulumi.getter
     def metric(self) -> Optional[pulumi.Input['AssetModelMetricArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-metric
@@ -595,7 +595,7 @@ class AssetModelPropertyTypeArgs:
         pulumi.set(self, "metric", value)
 
     @property
-    @pulumi.getter(name="Transform")
+    @pulumi.getter
     def transform(self) -> Optional[pulumi.Input['AssetModelTransformArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-transform
@@ -621,7 +621,7 @@ class AssetModelTransformArgs:
         pulumi.set(__self__, "variables", variables)
 
     @property
-    @pulumi.getter(name="Expression")
+    @pulumi.getter
     def expression(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-expression
@@ -633,7 +633,7 @@ class AssetModelTransformArgs:
         pulumi.set(self, "expression", value)
 
     @property
-    @pulumi.getter(name="Variables")
+    @pulumi.getter
     def variables(self) -> pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgs']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-variables
@@ -656,7 +656,7 @@ class AssetModelTumblingWindowArgs:
         pulumi.set(__self__, "interval", interval)
 
     @property
-    @pulumi.getter(name="Interval")
+    @pulumi.getter
     def interval(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval
@@ -683,7 +683,7 @@ class AssetModelVariableValueArgs:
             pulumi.set(__self__, "hierarchy_logical_id", hierarchy_logical_id)
 
     @property
-    @pulumi.getter(name="PropertyLogicalId")
+    @pulumi.getter(name="propertyLogicalId")
     def property_logical_id(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-propertylogicalid
@@ -695,7 +695,7 @@ class AssetModelVariableValueArgs:
         pulumi.set(self, "property_logical_id", value)
 
     @property
-    @pulumi.getter(name="HierarchyLogicalId")
+    @pulumi.getter(name="hierarchyLogicalId")
     def hierarchy_logical_id(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-hierarchylogicalid
@@ -722,7 +722,7 @@ class GatewayGatewayCapabilitySummaryArgs:
             pulumi.set(__self__, "capability_configuration", capability_configuration)
 
     @property
-    @pulumi.getter(name="CapabilityNamespace")
+    @pulumi.getter(name="capabilityNamespace")
     def capability_namespace(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html#cfn-iotsitewise-gateway-gatewaycapabilitysummary-capabilitynamespace
@@ -734,7 +734,7 @@ class GatewayGatewayCapabilitySummaryArgs:
         pulumi.set(self, "capability_namespace", value)
 
     @property
-    @pulumi.getter(name="CapabilityConfiguration")
+    @pulumi.getter(name="capabilityConfiguration")
     def capability_configuration(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html#cfn-iotsitewise-gateway-gatewaycapabilitysummary-capabilityconfiguration
@@ -757,7 +757,7 @@ class GatewayGatewayPlatformArgs:
         pulumi.set(__self__, "greengrass", greengrass)
 
     @property
-    @pulumi.getter(name="Greengrass")
+    @pulumi.getter
     def greengrass(self) -> pulumi.Input['GatewayGreengrassArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
@@ -780,7 +780,7 @@ class GatewayGreengrassArgs:
         pulumi.set(__self__, "group_arn", group_arn)
 
     @property
-    @pulumi.getter(name="GroupArn")
+    @pulumi.getter(name="groupArn")
     def group_arn(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html#cfn-iotsitewise-gateway-greengrass-grouparn

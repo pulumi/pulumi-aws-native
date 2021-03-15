@@ -35,22 +35,22 @@ export class Domain extends pulumi.CustomResource {
         return obj['__pulumiType'] === Domain.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
      */
-    public readonly DomainName!: pulumi.Output<string>;
-    public readonly EncryptionKey!: pulumi.Output<string>;
-    public /*out*/ readonly Name!: pulumi.Output<string>;
-    public /*out*/ readonly Owner!: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
+    public readonly encryptionKey!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
      */
-    public readonly PermissionsPolicyDocument!: pulumi.Output<any | string | undefined>;
+    public readonly permissionsPolicyDocument!: pulumi.Output<any | string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -62,24 +62,24 @@ export class Domain extends pulumi.CustomResource {
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.DomainName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DomainName'");
+            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'domainName'");
             }
-            inputs["DomainName"] = args ? args.DomainName : undefined;
-            inputs["EncryptionKey"] = args ? args.EncryptionKey : undefined;
-            inputs["PermissionsPolicyDocument"] = args ? args.PermissionsPolicyDocument : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Owner"] = undefined /*out*/;
+            inputs["domainName"] = args ? args.domainName : undefined;
+            inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
+            inputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["owner"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["DomainName"] = undefined /*out*/;
-            inputs["EncryptionKey"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["Owner"] = undefined /*out*/;
-            inputs["PermissionsPolicyDocument"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["domainName"] = undefined /*out*/;
+            inputs["encryptionKey"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["owner"] = undefined /*out*/;
+            inputs["permissionsPolicyDocument"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -99,17 +99,17 @@ export interface DomainArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
      */
-    readonly DomainName: pulumi.Input<string>;
+    readonly domainName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-encryptionkey
      */
-    readonly EncryptionKey?: pulumi.Input<string>;
+    readonly encryptionKey?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
      */
-    readonly PermissionsPolicyDocument?: pulumi.Input<any | string>;
+    readonly permissionsPolicyDocument?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

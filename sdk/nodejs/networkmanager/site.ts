@@ -38,21 +38,21 @@ export class Site extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
      */
-    public readonly GlobalNetworkId!: pulumi.Output<string>;
+    public readonly globalNetworkId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
      */
-    public readonly Location!: pulumi.Output<outputs.NetworkManager.SiteLocation | undefined>;
-    public /*out*/ readonly SiteArn!: pulumi.Output<string>;
-    public /*out*/ readonly SiteId!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<outputs.NetworkManager.SiteLocation | undefined>;
+    public /*out*/ readonly siteArn!: pulumi.Output<string>;
+    public /*out*/ readonly siteId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Site resource with the given unique name, arguments, and options.
@@ -64,22 +64,22 @@ export class Site extends pulumi.CustomResource {
     constructor(name: string, args: SiteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.GlobalNetworkId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'GlobalNetworkId'");
+            if ((!args || args.globalNetworkId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'globalNetworkId'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["GlobalNetworkId"] = args ? args.GlobalNetworkId : undefined;
-            inputs["Location"] = args ? args.Location : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["SiteArn"] = undefined /*out*/;
-            inputs["SiteId"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            inputs["location"] = args ? args.location : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["siteArn"] = undefined /*out*/;
+            inputs["siteId"] = undefined /*out*/;
         } else {
-            inputs["Description"] = undefined /*out*/;
-            inputs["GlobalNetworkId"] = undefined /*out*/;
-            inputs["Location"] = undefined /*out*/;
-            inputs["SiteArn"] = undefined /*out*/;
-            inputs["SiteId"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["globalNetworkId"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["siteArn"] = undefined /*out*/;
+            inputs["siteId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -99,17 +99,17 @@ export interface SiteArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
      */
-    readonly GlobalNetworkId: pulumi.Input<string>;
+    readonly globalNetworkId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
      */
-    readonly Location?: pulumi.Input<inputs.NetworkManager.SiteLocation>;
+    readonly location?: pulumi.Input<inputs.NetworkManager.SiteLocation>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

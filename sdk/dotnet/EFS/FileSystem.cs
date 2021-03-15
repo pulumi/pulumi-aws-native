@@ -15,64 +15,64 @@ namespace Pulumi.AwsNative.EFS
     [AwsNativeResourceType("aws-native:EFS:FileSystem")]
     public partial class FileSystem : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
         /// </summary>
-        [Output("BackupPolicy")]
+        [Output("backupPolicy")]
         public Output<Outputs.FileSystemBackupPolicy?> BackupPolicy { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
         /// </summary>
-        [Output("Encrypted")]
+        [Output("encrypted")]
         public Output<bool?> Encrypted { get; private set; } = null!;
 
-        [Output("FileSystemId")]
+        [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
         /// </summary>
-        [Output("FileSystemPolicy")]
+        [Output("fileSystemPolicy")]
         public Output<Union<System.Text.Json.JsonElement, string>?> FileSystemPolicy { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
         /// </summary>
-        [Output("FileSystemTags")]
+        [Output("fileSystemTags")]
         public Output<ImmutableArray<Outputs.FileSystemElasticFileSystemTag>> FileSystemTags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
         /// </summary>
-        [Output("KmsKeyId")]
+        [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
         /// </summary>
-        [Output("LifecyclePolicies")]
+        [Output("lifecyclePolicies")]
         public Output<ImmutableArray<Outputs.FileSystemLifecyclePolicy>> LifecyclePolicies { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
         /// </summary>
-        [Output("PerformanceMode")]
+        [Output("performanceMode")]
         public Output<string?> PerformanceMode { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
         /// </summary>
-        [Output("ProvisionedThroughputInMibps")]
+        [Output("provisionedThroughputInMibps")]
         public Output<double?> ProvisionedThroughputInMibps { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
         /// </summary>
-        [Output("ThroughputMode")]
+        [Output("throughputMode")]
         public Output<string?> ThroughputMode { get; private set; } = null!;
 
 
@@ -123,67 +123,67 @@ namespace Pulumi.AwsNative.EFS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
         /// </summary>
-        [Input("BackupPolicy")]
+        [Input("backupPolicy")]
         public Input<Inputs.FileSystemBackupPolicyArgs>? BackupPolicy { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
         /// </summary>
-        [Input("Encrypted")]
+        [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
         /// </summary>
-        [Input("FileSystemPolicy")]
+        [Input("fileSystemPolicy")]
         public InputUnion<System.Text.Json.JsonElement, string>? FileSystemPolicy { get; set; }
 
-        [Input("FileSystemTags")]
-        private InputList<Inputs.FileSystemElasticFileSystemTagArgs>? _FileSystemTags;
+        [Input("fileSystemTags")]
+        private InputList<Inputs.FileSystemElasticFileSystemTagArgs>? _fileSystemTags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
         /// </summary>
         public InputList<Inputs.FileSystemElasticFileSystemTagArgs> FileSystemTags
         {
-            get => _FileSystemTags ?? (_FileSystemTags = new InputList<Inputs.FileSystemElasticFileSystemTagArgs>());
-            set => _FileSystemTags = value;
+            get => _fileSystemTags ?? (_fileSystemTags = new InputList<Inputs.FileSystemElasticFileSystemTagArgs>());
+            set => _fileSystemTags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
         /// </summary>
-        [Input("KmsKeyId")]
+        [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        [Input("LifecyclePolicies")]
-        private InputList<Inputs.FileSystemLifecyclePolicyArgs>? _LifecyclePolicies;
+        [Input("lifecyclePolicies")]
+        private InputList<Inputs.FileSystemLifecyclePolicyArgs>? _lifecyclePolicies;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
         /// </summary>
         public InputList<Inputs.FileSystemLifecyclePolicyArgs> LifecyclePolicies
         {
-            get => _LifecyclePolicies ?? (_LifecyclePolicies = new InputList<Inputs.FileSystemLifecyclePolicyArgs>());
-            set => _LifecyclePolicies = value;
+            get => _lifecyclePolicies ?? (_lifecyclePolicies = new InputList<Inputs.FileSystemLifecyclePolicyArgs>());
+            set => _lifecyclePolicies = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
         /// </summary>
-        [Input("PerformanceMode")]
+        [Input("performanceMode")]
         public Input<string>? PerformanceMode { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
         /// </summary>
-        [Input("ProvisionedThroughputInMibps")]
+        [Input("provisionedThroughputInMibps")]
         public Input<double>? ProvisionedThroughputInMibps { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
         /// </summary>
-        [Input("ThroughputMode")]
+        [Input("throughputMode")]
         public Input<string>? ThroughputMode { get; set; }
 
         public FileSystemArgs()

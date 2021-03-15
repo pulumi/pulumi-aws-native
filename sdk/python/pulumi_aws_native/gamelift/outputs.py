@@ -44,7 +44,7 @@ class AliasRoutingStrategy(dict):
             pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="FleetId")
+    @pulumi.getter(name="fleetId")
     def fleet_id(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid
@@ -52,7 +52,7 @@ class AliasRoutingStrategy(dict):
         return pulumi.get(self, "fleet_id")
 
     @property
-    @pulumi.getter(name="Message")
+    @pulumi.getter
     def message(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
@@ -60,7 +60,7 @@ class AliasRoutingStrategy(dict):
         return pulumi.get(self, "message")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
@@ -89,7 +89,7 @@ class GameServerGroupAutoScalingPolicy(dict):
             pulumi.set(__self__, "estimated_instance_warmup", estimated_instance_warmup)
 
     @property
-    @pulumi.getter(name="TargetTrackingConfiguration")
+    @pulumi.getter(name="targetTrackingConfiguration")
     def target_tracking_configuration(self) -> 'outputs.GameServerGroupTargetTrackingConfiguration':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
@@ -97,7 +97,7 @@ class GameServerGroupAutoScalingPolicy(dict):
         return pulumi.get(self, "target_tracking_configuration")
 
     @property
-    @pulumi.getter(name="EstimatedInstanceWarmup")
+    @pulumi.getter(name="estimatedInstanceWarmup")
     def estimated_instance_warmup(self) -> Optional[float]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
@@ -126,7 +126,7 @@ class GameServerGroupInstanceDefinition(dict):
             pulumi.set(__self__, "weighted_capacity", weighted_capacity)
 
     @property
-    @pulumi.getter(name="InstanceType")
+    @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype
@@ -134,7 +134,7 @@ class GameServerGroupInstanceDefinition(dict):
         return pulumi.get(self, "instance_type")
 
     @property
-    @pulumi.getter(name="WeightedCapacity")
+    @pulumi.getter(name="weightedCapacity")
     def weighted_capacity(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-weightedcapacity
@@ -160,7 +160,7 @@ class GameServerGroupInstanceDefinitions(dict):
             pulumi.set(__self__, "instance_definitions", instance_definitions)
 
     @property
-    @pulumi.getter(name="InstanceDefinitions")
+    @pulumi.getter(name="instanceDefinitions")
     def instance_definitions(self) -> Optional[Sequence['outputs.GameServerGroupInstanceDefinition']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
@@ -194,7 +194,7 @@ class GameServerGroupLaunchTemplate(dict):
             pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter(name="LaunchTemplateId")
+    @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
@@ -202,7 +202,7 @@ class GameServerGroupLaunchTemplate(dict):
         return pulumi.get(self, "launch_template_id")
 
     @property
-    @pulumi.getter(name="LaunchTemplateName")
+    @pulumi.getter(name="launchTemplateName")
     def launch_template_name(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplatename
@@ -210,7 +210,7 @@ class GameServerGroupLaunchTemplate(dict):
         return pulumi.get(self, "launch_template_name")
 
     @property
-    @pulumi.getter(name="Version")
+    @pulumi.getter
     def version(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-version
@@ -236,7 +236,7 @@ class GameServerGroupTags(dict):
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html#cfn-gamelift-gameservergroup-tags-tags
@@ -261,7 +261,7 @@ class GameServerGroupTargetTrackingConfiguration(dict):
         pulumi.set(__self__, "target_value", target_value)
 
     @property
-    @pulumi.getter(name="TargetValue")
+    @pulumi.getter(name="targetValue")
     def target_value(self) -> float:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
@@ -287,7 +287,7 @@ class GameServerGroupVpcSubnets(dict):
             pulumi.set(__self__, "vpc_subnets", vpc_subnets)
 
     @property
-    @pulumi.getter(name="VpcSubnets")
+    @pulumi.getter(name="vpcSubnets")
     def vpc_subnets(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html#cfn-gamelift-gameservergroup-vpcsubnets-vpcsubnets

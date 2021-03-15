@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
         [OutputConstructor]
         private DistributionConfigurationDistribution(
-            Union<System.Text.Json.JsonElement, string>? AmiDistributionConfiguration,
+            Union<System.Text.Json.JsonElement, string>? amiDistributionConfiguration,
 
-            ImmutableArray<string> LicenseConfigurationArns,
+            ImmutableArray<string> licenseConfigurationArns,
 
-            string Region)
+            string region)
         {
-            this.AmiDistributionConfiguration = AmiDistributionConfiguration;
-            this.LicenseConfigurationArns = LicenseConfigurationArns;
-            this.Region = Region;
+            AmiDistributionConfiguration = amiDistributionConfiguration;
+            LicenseConfigurationArns = licenseConfigurationArns;
+            Region = region;
         }
     }
 }

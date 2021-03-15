@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationLogPattern(
-            string Pattern,
+            string pattern,
 
-            string PatternName,
+            string patternName,
 
-            int Rank)
+            int rank)
         {
-            this.Pattern = Pattern;
-            this.PatternName = PatternName;
-            this.Rank = Rank;
+            Pattern = pattern;
+            PatternName = patternName;
+            Rank = rank;
         }
     }
 }

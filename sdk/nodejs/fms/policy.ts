@@ -35,52 +35,52 @@ export class Policy extends pulumi.CustomResource {
         return obj['__pulumiType'] === Policy.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
      */
-    public readonly DeleteAllPolicyResources!: pulumi.Output<boolean | undefined>;
+    public readonly deleteAllPolicyResources!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
      */
-    public readonly ExcludeMap!: pulumi.Output<outputs.FMS.PolicyIEMap | undefined>;
+    public readonly excludeMap!: pulumi.Output<outputs.FMS.PolicyIEMap | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
      */
-    public readonly ExcludeResourceTags!: pulumi.Output<boolean>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly excludeResourceTags!: pulumi.Output<boolean>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
      */
-    public readonly IncludeMap!: pulumi.Output<outputs.FMS.PolicyIEMap | undefined>;
+    public readonly includeMap!: pulumi.Output<outputs.FMS.PolicyIEMap | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
      */
-    public readonly PolicyName!: pulumi.Output<string>;
+    public readonly policyName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
      */
-    public readonly RemediationEnabled!: pulumi.Output<boolean>;
+    public readonly remediationEnabled!: pulumi.Output<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
      */
-    public readonly ResourceTags!: pulumi.Output<outputs.FMS.PolicyResourceTag[] | undefined>;
+    public readonly resourceTags!: pulumi.Output<outputs.FMS.PolicyResourceTag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
      */
-    public readonly ResourceType!: pulumi.Output<string>;
+    public readonly resourceType!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
      */
-    public readonly ResourceTypeList!: pulumi.Output<string[] | undefined>;
+    public readonly resourceTypeList!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
      */
-    public readonly SecurityServicePolicyData!: pulumi.Output<any | string>;
+    public readonly securityServicePolicyData!: pulumi.Output<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.FMS.PolicyPolicyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.FMS.PolicyPolicyTag[] | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -92,48 +92,48 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ExcludeResourceTags === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ExcludeResourceTags'");
+            if ((!args || args.excludeResourceTags === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'excludeResourceTags'");
             }
-            if ((!args || args.PolicyName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PolicyName'");
+            if ((!args || args.policyName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'policyName'");
             }
-            if ((!args || args.RemediationEnabled === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RemediationEnabled'");
+            if ((!args || args.remediationEnabled === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'remediationEnabled'");
             }
-            if ((!args || args.ResourceType === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ResourceType'");
+            if ((!args || args.resourceType === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.SecurityServicePolicyData === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SecurityServicePolicyData'");
+            if ((!args || args.securityServicePolicyData === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'securityServicePolicyData'");
             }
-            inputs["DeleteAllPolicyResources"] = args ? args.DeleteAllPolicyResources : undefined;
-            inputs["ExcludeMap"] = args ? args.ExcludeMap : undefined;
-            inputs["ExcludeResourceTags"] = args ? args.ExcludeResourceTags : undefined;
-            inputs["IncludeMap"] = args ? args.IncludeMap : undefined;
-            inputs["PolicyName"] = args ? args.PolicyName : undefined;
-            inputs["RemediationEnabled"] = args ? args.RemediationEnabled : undefined;
-            inputs["ResourceTags"] = args ? args.ResourceTags : undefined;
-            inputs["ResourceType"] = args ? args.ResourceType : undefined;
-            inputs["ResourceTypeList"] = args ? args.ResourceTypeList : undefined;
-            inputs["SecurityServicePolicyData"] = args ? args.SecurityServicePolicyData : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
+            inputs["deleteAllPolicyResources"] = args ? args.deleteAllPolicyResources : undefined;
+            inputs["excludeMap"] = args ? args.excludeMap : undefined;
+            inputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
+            inputs["includeMap"] = args ? args.includeMap : undefined;
+            inputs["policyName"] = args ? args.policyName : undefined;
+            inputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
+            inputs["resourceTags"] = args ? args.resourceTags : undefined;
+            inputs["resourceType"] = args ? args.resourceType : undefined;
+            inputs["resourceTypeList"] = args ? args.resourceTypeList : undefined;
+            inputs["securityServicePolicyData"] = args ? args.securityServicePolicyData : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["DeleteAllPolicyResources"] = undefined /*out*/;
-            inputs["ExcludeMap"] = undefined /*out*/;
-            inputs["ExcludeResourceTags"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["IncludeMap"] = undefined /*out*/;
-            inputs["PolicyName"] = undefined /*out*/;
-            inputs["RemediationEnabled"] = undefined /*out*/;
-            inputs["ResourceTags"] = undefined /*out*/;
-            inputs["ResourceType"] = undefined /*out*/;
-            inputs["ResourceTypeList"] = undefined /*out*/;
-            inputs["SecurityServicePolicyData"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["deleteAllPolicyResources"] = undefined /*out*/;
+            inputs["excludeMap"] = undefined /*out*/;
+            inputs["excludeResourceTags"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["includeMap"] = undefined /*out*/;
+            inputs["policyName"] = undefined /*out*/;
+            inputs["remediationEnabled"] = undefined /*out*/;
+            inputs["resourceTags"] = undefined /*out*/;
+            inputs["resourceType"] = undefined /*out*/;
+            inputs["resourceTypeList"] = undefined /*out*/;
+            inputs["securityServicePolicyData"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -153,45 +153,45 @@ export interface PolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
      */
-    readonly DeleteAllPolicyResources?: pulumi.Input<boolean>;
+    readonly deleteAllPolicyResources?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
      */
-    readonly ExcludeMap?: pulumi.Input<inputs.FMS.PolicyIEMap>;
+    readonly excludeMap?: pulumi.Input<inputs.FMS.PolicyIEMap>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
      */
-    readonly ExcludeResourceTags: pulumi.Input<boolean>;
+    readonly excludeResourceTags: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
      */
-    readonly IncludeMap?: pulumi.Input<inputs.FMS.PolicyIEMap>;
+    readonly includeMap?: pulumi.Input<inputs.FMS.PolicyIEMap>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
      */
-    readonly PolicyName: pulumi.Input<string>;
+    readonly policyName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
      */
-    readonly RemediationEnabled: pulumi.Input<boolean>;
+    readonly remediationEnabled: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
      */
-    readonly ResourceTags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyResourceTag>[]>;
+    readonly resourceTags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyResourceTag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
      */
-    readonly ResourceType: pulumi.Input<string>;
+    readonly resourceType: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
      */
-    readonly ResourceTypeList?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly resourceTypeList?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
      */
-    readonly SecurityServicePolicyData: pulumi.Input<any | string>;
+    readonly securityServicePolicyData: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyPolicyTag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyPolicyTag>[]>;
 }

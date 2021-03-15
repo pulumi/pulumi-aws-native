@@ -37,11 +37,11 @@ export class Alias extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
      */
-    public readonly AliasName!: pulumi.Output<string>;
+    public readonly aliasName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid
      */
-    public readonly TargetKeyId!: pulumi.Output<string>;
+    public readonly targetKeyId!: pulumi.Output<string>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -53,17 +53,17 @@ export class Alias extends pulumi.CustomResource {
     constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.AliasName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'AliasName'");
+            if ((!args || args.aliasName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'aliasName'");
             }
-            if ((!args || args.TargetKeyId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'TargetKeyId'");
+            if ((!args || args.targetKeyId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'targetKeyId'");
             }
-            inputs["AliasName"] = args ? args.AliasName : undefined;
-            inputs["TargetKeyId"] = args ? args.TargetKeyId : undefined;
+            inputs["aliasName"] = args ? args.aliasName : undefined;
+            inputs["targetKeyId"] = args ? args.targetKeyId : undefined;
         } else {
-            inputs["AliasName"] = undefined /*out*/;
-            inputs["TargetKeyId"] = undefined /*out*/;
+            inputs["aliasName"] = undefined /*out*/;
+            inputs["targetKeyId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -83,9 +83,9 @@ export interface AliasArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
      */
-    readonly AliasName: pulumi.Input<string>;
+    readonly aliasName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid
      */
-    readonly TargetKeyId: pulumi.Input<string>;
+    readonly targetKeyId: pulumi.Input<string>;
 }

@@ -18,16 +18,16 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
         /// </summary>
-        [Output("Device")]
+        [Output("device")]
         public Output<Union<System.Text.Json.JsonElement, string>?> DeviceValue { get; private set; } = null!;
 
-        [Output("DeviceFleetName")]
+        [Output("deviceFleetName")]
         public Output<string> DeviceFleetName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<Pulumi.AwsNative.Outputs.Tag?> Tags { get; private set; } = null!;
 
 
@@ -78,13 +78,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
         /// </summary>
-        [Input("Device")]
+        [Input("device")]
         public InputUnion<System.Text.Json.JsonElement, string>? DeviceValue { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
         /// </summary>
-        [Input("Tags")]
+        [Input("tags")]
         public Input<Pulumi.AwsNative.Inputs.TagArgs>? Tags { get; set; }
 
         public DeviceArgs()

@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.Athena.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
         /// </summary>
-        [Input("BytesScannedCutoffPerQuery")]
+        [Input("bytesScannedCutoffPerQuery")]
         public Input<int>? BytesScannedCutoffPerQuery { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
         /// </summary>
-        [Input("EnforceWorkGroupConfiguration")]
+        [Input("enforceWorkGroupConfiguration")]
         public Input<bool>? EnforceWorkGroupConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
         /// </summary>
-        [Input("PublishCloudWatchMetricsEnabled")]
+        [Input("publishCloudWatchMetricsEnabled")]
         public Input<bool>? PublishCloudWatchMetricsEnabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
         /// </summary>
-        [Input("RequesterPaysEnabled")]
+        [Input("requesterPaysEnabled")]
         public Input<bool>? RequesterPaysEnabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration
         /// </summary>
-        [Input("ResultConfiguration")]
+        [Input("resultConfiguration")]
         public Input<Inputs.WorkGroupResultConfigurationArgs>? ResultConfiguration { get; set; }
 
         public WorkGroupWorkGroupConfigurationArgs()

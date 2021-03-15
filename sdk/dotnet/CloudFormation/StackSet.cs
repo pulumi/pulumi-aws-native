@@ -18,82 +18,82 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
         /// </summary>
-        [Output("AdministrationRoleARN")]
+        [Output("administrationRoleARN")]
         public Output<string?> AdministrationRoleARN { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
         /// </summary>
-        [Output("AutoDeployment")]
+        [Output("autoDeployment")]
         public Output<Outputs.StackSetAutoDeployment?> AutoDeployment { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
         /// </summary>
-        [Output("Capabilities")]
+        [Output("capabilities")]
         public Output<ImmutableArray<string>> Capabilities { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
         /// </summary>
-        [Output("ExecutionRoleName")]
+        [Output("executionRoleName")]
         public Output<string?> ExecutionRoleName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
         /// </summary>
-        [Output("OperationPreferences")]
+        [Output("operationPreferences")]
         public Output<Outputs.StackSetOperationPreferences?> OperationPreferences { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
         /// </summary>
-        [Output("Parameters")]
+        [Output("parameters")]
         public Output<ImmutableArray<Outputs.StackSetParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
         /// </summary>
-        [Output("PermissionModel")]
+        [Output("permissionModel")]
         public Output<string> PermissionModel { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
         /// </summary>
-        [Output("StackInstancesGroup")]
+        [Output("stackInstancesGroup")]
         public Output<ImmutableArray<Outputs.StackSetStackInstances>> StackInstancesGroup { get; private set; } = null!;
 
-        [Output("StackSetId")]
+        [Output("stackSetId")]
         public Output<string> StackSetId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
         /// </summary>
-        [Output("StackSetName")]
+        [Output("stackSetName")]
         public Output<string> StackSetName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
         /// </summary>
-        [Output("TemplateBody")]
+        [Output("templateBody")]
         public Output<string?> TemplateBody { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
         /// </summary>
-        [Output("TemplateURL")]
+        [Output("templateURL")]
         public Output<string?> TemplateURL { get; private set; } = null!;
 
 
@@ -144,103 +144,103 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
         /// </summary>
-        [Input("AdministrationRoleARN")]
+        [Input("administrationRoleARN")]
         public Input<string>? AdministrationRoleARN { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
         /// </summary>
-        [Input("AutoDeployment")]
+        [Input("autoDeployment")]
         public Input<Inputs.StackSetAutoDeploymentArgs>? AutoDeployment { get; set; }
 
-        [Input("Capabilities")]
-        private InputList<string>? _Capabilities;
+        [Input("capabilities")]
+        private InputList<string>? _capabilities;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
         /// </summary>
         public InputList<string> Capabilities
         {
-            get => _Capabilities ?? (_Capabilities = new InputList<string>());
-            set => _Capabilities = value;
+            get => _capabilities ?? (_capabilities = new InputList<string>());
+            set => _capabilities = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
         /// </summary>
-        [Input("ExecutionRoleName")]
+        [Input("executionRoleName")]
         public Input<string>? ExecutionRoleName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
         /// </summary>
-        [Input("OperationPreferences")]
+        [Input("operationPreferences")]
         public Input<Inputs.StackSetOperationPreferencesArgs>? OperationPreferences { get; set; }
 
-        [Input("Parameters")]
-        private InputList<Inputs.StackSetParameterArgs>? _Parameters;
+        [Input("parameters")]
+        private InputList<Inputs.StackSetParameterArgs>? _parameters;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
         /// </summary>
         public InputList<Inputs.StackSetParameterArgs> Parameters
         {
-            get => _Parameters ?? (_Parameters = new InputList<Inputs.StackSetParameterArgs>());
-            set => _Parameters = value;
+            get => _parameters ?? (_parameters = new InputList<Inputs.StackSetParameterArgs>());
+            set => _parameters = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
         /// </summary>
-        [Input("PermissionModel", required: true)]
+        [Input("permissionModel", required: true)]
         public Input<string> PermissionModel { get; set; } = null!;
 
-        [Input("StackInstancesGroup")]
-        private InputList<Inputs.StackSetStackInstancesArgs>? _StackInstancesGroup;
+        [Input("stackInstancesGroup")]
+        private InputList<Inputs.StackSetStackInstancesArgs>? _stackInstancesGroup;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
         /// </summary>
         public InputList<Inputs.StackSetStackInstancesArgs> StackInstancesGroup
         {
-            get => _StackInstancesGroup ?? (_StackInstancesGroup = new InputList<Inputs.StackSetStackInstancesArgs>());
-            set => _StackInstancesGroup = value;
+            get => _stackInstancesGroup ?? (_stackInstancesGroup = new InputList<Inputs.StackSetStackInstancesArgs>());
+            set => _stackInstancesGroup = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
         /// </summary>
-        [Input("StackSetName", required: true)]
+        [Input("stackSetName", required: true)]
         public Input<string> StackSetName { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
         /// </summary>
-        [Input("TemplateBody")]
+        [Input("templateBody")]
         public Input<string>? TemplateBody { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
         /// </summary>
-        [Input("TemplateURL")]
+        [Input("templateURL")]
         public Input<string>? TemplateURL { get; set; }
 
         public StackSetArgs()

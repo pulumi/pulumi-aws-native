@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
         [OutputConstructor]
         private CachePolicyCachePolicyConfig(
-            string? Comment,
+            string? comment,
 
-            double DefaultTTL,
+            double defaultTTL,
 
-            double MaxTTL,
+            double maxTTL,
 
-            double MinTTL,
+            double minTTL,
 
-            string Name,
+            string name,
 
-            Outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin ParametersInCacheKeyAndForwardedToOrigin)
+            Outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin parametersInCacheKeyAndForwardedToOrigin)
         {
-            this.Comment = Comment;
-            this.DefaultTTL = DefaultTTL;
-            this.MaxTTL = MaxTTL;
-            this.MinTTL = MinTTL;
-            this.Name = Name;
-            this.ParametersInCacheKeyAndForwardedToOrigin = ParametersInCacheKeyAndForwardedToOrigin;
+            Comment = comment;
+            DefaultTTL = defaultTTL;
+            MaxTTL = maxTTL;
+            MinTTL = minTTL;
+            Name = name;
+            ParametersInCacheKeyAndForwardedToOrigin = parametersInCacheKeyAndForwardedToOrigin;
         }
     }
 }

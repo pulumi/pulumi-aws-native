@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Outputs
 
         [OutputConstructor]
         private AnalyzerFilter(
-            ImmutableArray<string> Contains,
+            ImmutableArray<string> contains,
 
-            ImmutableArray<string> Eq,
+            ImmutableArray<string> eq,
 
-            bool? Exists,
+            bool? exists,
 
-            ImmutableArray<string> Neq,
+            ImmutableArray<string> neq,
 
-            string Property)
+            string property)
         {
-            this.Contains = Contains;
-            this.Eq = Eq;
-            this.Exists = Exists;
-            this.Neq = Neq;
-            this.Property = Property;
+            Contains = contains;
+            Eq = eq;
+            Exists = exists;
+            Neq = neq;
+            Property = property;
         }
     }
 }

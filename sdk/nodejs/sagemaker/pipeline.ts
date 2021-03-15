@@ -38,27 +38,27 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition
      */
-    public readonly PipelineDefinition!: pulumi.Output<any | string>;
+    public readonly pipelineDefinition!: pulumi.Output<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedescription
      */
-    public readonly PipelineDescription!: pulumi.Output<string | undefined>;
+    public readonly pipelineDescription!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedisplayname
      */
-    public readonly PipelineDisplayName!: pulumi.Output<string | undefined>;
+    public readonly pipelineDisplayName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinename
      */
-    public readonly PipelineName!: pulumi.Output<string>;
+    public readonly pipelineName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn
      */
-    public readonly RoleArn!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -70,28 +70,28 @@ export class Pipeline extends pulumi.CustomResource {
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.PipelineDefinition === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PipelineDefinition'");
+            if ((!args || args.pipelineDefinition === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'pipelineDefinition'");
             }
-            if ((!args || args.PipelineName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PipelineName'");
+            if ((!args || args.pipelineName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'pipelineName'");
             }
-            if ((!args || args.RoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RoleArn'");
+            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'roleArn'");
             }
-            inputs["PipelineDefinition"] = args ? args.PipelineDefinition : undefined;
-            inputs["PipelineDescription"] = args ? args.PipelineDescription : undefined;
-            inputs["PipelineDisplayName"] = args ? args.PipelineDisplayName : undefined;
-            inputs["PipelineName"] = args ? args.PipelineName : undefined;
-            inputs["RoleArn"] = args ? args.RoleArn : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["pipelineDefinition"] = args ? args.pipelineDefinition : undefined;
+            inputs["pipelineDescription"] = args ? args.pipelineDescription : undefined;
+            inputs["pipelineDisplayName"] = args ? args.pipelineDisplayName : undefined;
+            inputs["pipelineName"] = args ? args.pipelineName : undefined;
+            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         } else {
-            inputs["PipelineDefinition"] = undefined /*out*/;
-            inputs["PipelineDescription"] = undefined /*out*/;
-            inputs["PipelineDisplayName"] = undefined /*out*/;
-            inputs["PipelineName"] = undefined /*out*/;
-            inputs["RoleArn"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["pipelineDefinition"] = undefined /*out*/;
+            inputs["pipelineDescription"] = undefined /*out*/;
+            inputs["pipelineDisplayName"] = undefined /*out*/;
+            inputs["pipelineName"] = undefined /*out*/;
+            inputs["roleArn"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -111,25 +111,25 @@ export interface PipelineArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition
      */
-    readonly PipelineDefinition: pulumi.Input<any | string>;
+    readonly pipelineDefinition: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedescription
      */
-    readonly PipelineDescription?: pulumi.Input<string>;
+    readonly pipelineDescription?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedisplayname
      */
-    readonly PipelineDisplayName?: pulumi.Input<string>;
+    readonly pipelineDisplayName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinename
      */
-    readonly PipelineName: pulumi.Input<string>;
+    readonly pipelineName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn
      */
-    readonly RoleArn: pulumi.Input<string>;
+    readonly roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

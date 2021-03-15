@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         public readonly ImmutableArray<Outputs.RuleGroupStatementThree> Statements;
 
         [OutputConstructor]
-        private RuleGroupAndStatementTwo(ImmutableArray<Outputs.RuleGroupStatementThree> Statements)
+        private RuleGroupAndStatementTwo(ImmutableArray<Outputs.RuleGroupStatementThree> statements)
         {
-            this.Statements = Statements;
+            Statements = statements;
         }
     }
 }

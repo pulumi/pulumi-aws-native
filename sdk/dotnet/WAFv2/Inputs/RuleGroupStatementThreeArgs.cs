@@ -18,43 +18,43 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-bytematchstatement
         /// </summary>
-        [Input("ByteMatchStatement")]
+        [Input("byteMatchStatement")]
         public Input<Inputs.RuleGroupByteMatchStatementArgs>? ByteMatchStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-geomatchstatement
         /// </summary>
-        [Input("GeoMatchStatement")]
+        [Input("geoMatchStatement")]
         public Input<Inputs.RuleGroupGeoMatchStatementArgs>? GeoMatchStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-ipsetreferencestatement
         /// </summary>
-        [Input("IPSetReferenceStatement")]
+        [Input("iPSetReferenceStatement")]
         public Input<Inputs.RuleGroupIPSetReferenceStatementArgs>? IPSetReferenceStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-regexpatternsetreferencestatement
         /// </summary>
-        [Input("RegexPatternSetReferenceStatement")]
+        [Input("regexPatternSetReferenceStatement")]
         public Input<Inputs.RuleGroupRegexPatternSetReferenceStatementArgs>? RegexPatternSetReferenceStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sizeconstraintstatement
         /// </summary>
-        [Input("SizeConstraintStatement")]
+        [Input("sizeConstraintStatement")]
         public Input<Inputs.RuleGroupSizeConstraintStatementArgs>? SizeConstraintStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sqlimatchstatement
         /// </summary>
-        [Input("SqliMatchStatement")]
+        [Input("sqliMatchStatement")]
         public Input<Inputs.RuleGroupSqliMatchStatementArgs>? SqliMatchStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-xssmatchstatement
         /// </summary>
-        [Input("XssMatchStatement")]
+        [Input("xssMatchStatement")]
         public Input<Inputs.RuleGroupXssMatchStatementArgs>? XssMatchStatement { get; set; }
 
         public RuleGroupStatementThreeArgs()

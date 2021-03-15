@@ -79,7 +79,7 @@ class BackupPlan(pulumi.CustomResource):
         return BackupPlan(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="BackupPlan")
+    @pulumi.getter(name="backupPlan")
     def backup_plan(self) -> pulumi.Output['outputs.BackupPlanBackupPlanResourceType']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
@@ -87,17 +87,17 @@ class BackupPlan(pulumi.CustomResource):
         return pulumi.get(self, "backup_plan")
 
     @property
-    @pulumi.getter(name="BackupPlanArn")
+    @pulumi.getter(name="backupPlanArn")
     def backup_plan_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "backup_plan_arn")
 
     @property
-    @pulumi.getter(name="BackupPlanId")
+    @pulumi.getter(name="backupPlanId")
     def backup_plan_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "backup_plan_id")
 
     @property
-    @pulumi.getter(name="BackupPlanTags")
+    @pulumi.getter(name="backupPlanTags")
     def backup_plan_tags(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
@@ -105,7 +105,7 @@ class BackupPlan(pulumi.CustomResource):
         return pulumi.get(self, "backup_plan_tags")
 
     @property
-    @pulumi.getter(name="VersionId")
+    @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "version_id")
 

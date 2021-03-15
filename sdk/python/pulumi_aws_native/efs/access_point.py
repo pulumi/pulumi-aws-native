@@ -87,12 +87,12 @@ class AccessPoint(pulumi.CustomResource):
         return AccessPoint(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AccessPointId")
+    @pulumi.getter(name="accessPointId")
     def access_point_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "access_point_id")
 
     @property
-    @pulumi.getter(name="AccessPointTags")
+    @pulumi.getter(name="accessPointTags")
     def access_point_tags(self) -> pulumi.Output[Optional[Sequence['outputs.AccessPointAccessPointTag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
@@ -100,12 +100,12 @@ class AccessPoint(pulumi.CustomResource):
         return pulumi.get(self, "access_point_tags")
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="ClientToken")
+    @pulumi.getter(name="clientToken")
     def client_token(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
@@ -113,7 +113,7 @@ class AccessPoint(pulumi.CustomResource):
         return pulumi.get(self, "client_token")
 
     @property
-    @pulumi.getter(name="FileSystemId")
+    @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
@@ -121,7 +121,7 @@ class AccessPoint(pulumi.CustomResource):
         return pulumi.get(self, "file_system_id")
 
     @property
-    @pulumi.getter(name="PosixUser")
+    @pulumi.getter(name="posixUser")
     def posix_user(self) -> pulumi.Output[Optional['outputs.AccessPointPosixUser']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
@@ -129,7 +129,7 @@ class AccessPoint(pulumi.CustomResource):
         return pulumi.get(self, "posix_user")
 
     @property
-    @pulumi.getter(name="RootDirectory")
+    @pulumi.getter(name="rootDirectory")
     def root_directory(self) -> pulumi.Output[Optional['outputs.AccessPointRootDirectory']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory

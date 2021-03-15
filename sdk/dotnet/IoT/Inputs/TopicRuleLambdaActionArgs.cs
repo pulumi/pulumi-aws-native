@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html#cfn-iot-topicrule-lambdaaction-functionarn
         /// </summary>
-        [Input("FunctionArn")]
+        [Input("functionArn")]
         public Input<string>? FunctionArn { get; set; }
 
         public TopicRuleLambdaActionArgs()

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
         [OutputConstructor]
         private ComponentVersionComponentDependencyRequirement(
-            string? DependencyType,
+            string? dependencyType,
 
-            string? VersionRequirement)
+            string? versionRequirement)
         {
-            this.DependencyType = DependencyType;
-            this.VersionRequirement = VersionRequirement;
+            DependencyType = dependencyType;
+            VersionRequirement = versionRequirement;
         }
     }
 }

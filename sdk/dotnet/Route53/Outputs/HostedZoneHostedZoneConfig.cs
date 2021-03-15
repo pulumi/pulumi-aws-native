@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Route53.Outputs
         public readonly string? Comment;
 
         [OutputConstructor]
-        private HostedZoneHostedZoneConfig(string? Comment)
+        private HostedZoneHostedZoneConfig(string? comment)
         {
-            this.Comment = Comment;
+            Comment = comment;
         }
     }
 }

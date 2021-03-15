@@ -79,7 +79,7 @@ class SchemaVersion(pulumi.CustomResource):
         return SchemaVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Schema")
+    @pulumi.getter
     def schema(self) -> pulumi.Output['outputs.SchemaVersionSchema']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
@@ -87,7 +87,7 @@ class SchemaVersion(pulumi.CustomResource):
         return pulumi.get(self, "schema")
 
     @property
-    @pulumi.getter(name="SchemaDefinition")
+    @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
@@ -95,7 +95,7 @@ class SchemaVersion(pulumi.CustomResource):
         return pulumi.get(self, "schema_definition")
 
     @property
-    @pulumi.getter(name="VersionId")
+    @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "version_id")
 

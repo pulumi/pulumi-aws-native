@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private AssetEgressEndpoint(
-            string PackagingConfigurationId,
+            string packagingConfigurationId,
 
-            string Url)
+            string url)
         {
-            this.PackagingConfigurationId = PackagingConfigurationId;
-            this.Url = Url;
+            PackagingConfigurationId = packagingConfigurationId;
+            Url = url;
         }
     }
 }

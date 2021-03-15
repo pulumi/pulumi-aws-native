@@ -76,7 +76,7 @@ class WebACLAssociation(pulumi.CustomResource):
         return WebACLAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="ResourceArn")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
@@ -84,7 +84,7 @@ class WebACLAssociation(pulumi.CustomResource):
         return pulumi.get(self, "resource_arn")
 
     @property
-    @pulumi.getter(name="WebACLArn")
+    @pulumi.getter(name="webACLArn")
     def web_acl_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn

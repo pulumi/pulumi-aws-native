@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ModelExplainabilityJobDefinitionClusterConfig(
-            int InstanceCount,
+            int instanceCount,
 
-            string InstanceType,
+            string instanceType,
 
-            string? VolumeKmsKeyId,
+            string? volumeKmsKeyId,
 
-            int VolumeSizeInGB)
+            int volumeSizeInGB)
         {
-            this.InstanceCount = InstanceCount;
-            this.InstanceType = InstanceType;
-            this.VolumeKmsKeyId = VolumeKmsKeyId;
-            this.VolumeSizeInGB = VolumeSizeInGB;
+            InstanceCount = instanceCount;
+            InstanceType = instanceType;
+            VolumeKmsKeyId = volumeKmsKeyId;
+            VolumeSizeInGB = volumeSizeInGB;
         }
     }
 }

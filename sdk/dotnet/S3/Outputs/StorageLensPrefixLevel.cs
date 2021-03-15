@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.S3.Outputs
         public readonly Outputs.StorageLensPrefixLevelStorageMetrics StorageMetrics;
 
         [OutputConstructor]
-        private StorageLensPrefixLevel(Outputs.StorageLensPrefixLevelStorageMetrics StorageMetrics)
+        private StorageLensPrefixLevel(Outputs.StorageLensPrefixLevelStorageMetrics storageMetrics)
         {
-            this.StorageMetrics = StorageMetrics;
+            StorageMetrics = storageMetrics;
         }
     }
 }

@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
         /// </summary>
-        [Input("FieldToMatch", required: true)]
+        [Input("fieldToMatch", required: true)]
         public Input<Inputs.WebACLFieldToMatchArgs> FieldToMatch { get; set; } = null!;
 
-        [Input("TextTransformations", required: true)]
-        private InputList<Inputs.WebACLTextTransformationArgs>? _TextTransformations;
+        [Input("textTransformations", required: true)]
+        private InputList<Inputs.WebACLTextTransformationArgs>? _textTransformations;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
         /// </summary>
         public InputList<Inputs.WebACLTextTransformationArgs> TextTransformations
         {
-            get => _TextTransformations ?? (_TextTransformations = new InputList<Inputs.WebACLTextTransformationArgs>());
-            set => _TextTransformations = value;
+            get => _textTransformations ?? (_textTransformations = new InputList<Inputs.WebACLTextTransformationArgs>());
+            set => _textTransformations = value;
         }
 
         public WebACLXssMatchStatementArgs()

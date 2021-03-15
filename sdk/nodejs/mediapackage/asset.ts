@@ -35,36 +35,36 @@ export class Asset extends pulumi.CustomResource {
         return obj['__pulumiType'] === Asset.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
-    public /*out*/ readonly CreatedAt!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
      */
-    public readonly EgressEndpoints!: pulumi.Output<outputs.MediaPackage.AssetEgressEndpoint[] | undefined>;
+    public readonly egressEndpoints!: pulumi.Output<outputs.MediaPackage.AssetEgressEndpoint[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
      */
-    public readonly Id!: pulumi.Output<string>;
+    public readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
      */
-    public readonly PackagingGroupId!: pulumi.Output<string>;
+    public readonly packagingGroupId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
      */
-    public readonly ResourceId!: pulumi.Output<string | undefined>;
+    public readonly resourceId!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
      */
-    public readonly SourceArn!: pulumi.Output<string>;
+    public readonly sourceArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
      */
-    public readonly SourceRoleArn!: pulumi.Output<string>;
+    public readonly sourceRoleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Asset resource with the given unique name, arguments, and options.
@@ -76,37 +76,37 @@ export class Asset extends pulumi.CustomResource {
     constructor(name: string, args: AssetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Id === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Id'");
+            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'id'");
             }
-            if ((!args || args.PackagingGroupId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PackagingGroupId'");
+            if ((!args || args.packagingGroupId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'packagingGroupId'");
             }
-            if ((!args || args.SourceArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SourceArn'");
+            if ((!args || args.sourceArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'sourceArn'");
             }
-            if ((!args || args.SourceRoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SourceRoleArn'");
+            if ((!args || args.sourceRoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'sourceRoleArn'");
             }
-            inputs["EgressEndpoints"] = args ? args.EgressEndpoints : undefined;
-            inputs["Id"] = args ? args.Id : undefined;
-            inputs["PackagingGroupId"] = args ? args.PackagingGroupId : undefined;
-            inputs["ResourceId"] = args ? args.ResourceId : undefined;
-            inputs["SourceArn"] = args ? args.SourceArn : undefined;
-            inputs["SourceRoleArn"] = args ? args.SourceRoleArn : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CreatedAt"] = undefined /*out*/;
+            inputs["egressEndpoints"] = args ? args.egressEndpoints : undefined;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
+            inputs["resourceId"] = args ? args.resourceId : undefined;
+            inputs["sourceArn"] = args ? args.sourceArn : undefined;
+            inputs["sourceRoleArn"] = args ? args.sourceRoleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CreatedAt"] = undefined /*out*/;
-            inputs["EgressEndpoints"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["PackagingGroupId"] = undefined /*out*/;
-            inputs["ResourceId"] = undefined /*out*/;
-            inputs["SourceArn"] = undefined /*out*/;
-            inputs["SourceRoleArn"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["egressEndpoints"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["packagingGroupId"] = undefined /*out*/;
+            inputs["resourceId"] = undefined /*out*/;
+            inputs["sourceArn"] = undefined /*out*/;
+            inputs["sourceRoleArn"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -126,29 +126,29 @@ export interface AssetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
      */
-    readonly EgressEndpoints?: pulumi.Input<pulumi.Input<inputs.MediaPackage.AssetEgressEndpoint>[]>;
+    readonly egressEndpoints?: pulumi.Input<pulumi.Input<inputs.MediaPackage.AssetEgressEndpoint>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
      */
-    readonly Id: pulumi.Input<string>;
+    readonly id: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
      */
-    readonly PackagingGroupId: pulumi.Input<string>;
+    readonly packagingGroupId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
      */
-    readonly ResourceId?: pulumi.Input<string>;
+    readonly resourceId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
      */
-    readonly SourceArn: pulumi.Input<string>;
+    readonly sourceArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
      */
-    readonly SourceRoleArn: pulumi.Input<string>;
+    readonly sourceRoleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

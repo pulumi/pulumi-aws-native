@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
         [OutputConstructor]
         private GatewayGatewayCapabilitySummary(
-            string? CapabilityConfiguration,
+            string? capabilityConfiguration,
 
-            string CapabilityNamespace)
+            string capabilityNamespace)
         {
-            this.CapabilityConfiguration = CapabilityConfiguration;
-            this.CapabilityNamespace = CapabilityNamespace;
+            CapabilityConfiguration = capabilityConfiguration;
+            CapabilityNamespace = capabilityNamespace;
         }
     }
 }

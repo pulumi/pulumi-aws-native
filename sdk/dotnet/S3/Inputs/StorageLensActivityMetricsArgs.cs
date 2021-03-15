@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
         /// </summary>
-        [Input("IsEnabled")]
+        [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
         public StorageLensActivityMetricsArgs()

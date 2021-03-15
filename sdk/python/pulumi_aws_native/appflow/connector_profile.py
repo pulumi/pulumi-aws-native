@@ -21,7 +21,7 @@ class ConnectorProfile(pulumi.CustomResource):
                  connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']]] = None,
                  connector_profile_name: Optional[pulumi.Input[str]] = None,
                  connector_type: Optional[pulumi.Input[str]] = None,
-                 kms_arn: Optional[pulumi.Input[str]] = None,
+                 k_ms_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,7 +34,7 @@ class ConnectorProfile(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']] connector_profile_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
         :param pulumi.Input[str] connector_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
         :param pulumi.Input[str] connector_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
-        :param pulumi.Input[str] kms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
+        :param pulumi.Input[str] k_ms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,7 +63,7 @@ class ConnectorProfile(pulumi.CustomResource):
             if connector_type is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_type'")
             __props__['connector_type'] = connector_type
-            __props__['kms_arn'] = kms_arn
+            __props__['k_ms_arn'] = k_ms_arn
             __props__['connector_profile_arn'] = None
             __props__['credentials_arn'] = None
         super(ConnectorProfile, __self__).__init__(
@@ -91,7 +91,7 @@ class ConnectorProfile(pulumi.CustomResource):
         return ConnectorProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="ConnectionMode")
+    @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
@@ -99,12 +99,12 @@ class ConnectorProfile(pulumi.CustomResource):
         return pulumi.get(self, "connection_mode")
 
     @property
-    @pulumi.getter(name="ConnectorProfileArn")
+    @pulumi.getter(name="connectorProfileArn")
     def connector_profile_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "connector_profile_arn")
 
     @property
-    @pulumi.getter(name="ConnectorProfileConfig")
+    @pulumi.getter(name="connectorProfileConfig")
     def connector_profile_config(self) -> pulumi.Output[Optional['outputs.ConnectorProfileConnectorProfileConfig']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
@@ -112,7 +112,7 @@ class ConnectorProfile(pulumi.CustomResource):
         return pulumi.get(self, "connector_profile_config")
 
     @property
-    @pulumi.getter(name="ConnectorProfileName")
+    @pulumi.getter(name="connectorProfileName")
     def connector_profile_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
@@ -120,7 +120,7 @@ class ConnectorProfile(pulumi.CustomResource):
         return pulumi.get(self, "connector_profile_name")
 
     @property
-    @pulumi.getter(name="ConnectorType")
+    @pulumi.getter(name="connectorType")
     def connector_type(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
@@ -128,17 +128,17 @@ class ConnectorProfile(pulumi.CustomResource):
         return pulumi.get(self, "connector_type")
 
     @property
-    @pulumi.getter(name="CredentialsArn")
+    @pulumi.getter(name="credentialsArn")
     def credentials_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "credentials_arn")
 
     @property
-    @pulumi.getter(name="KMSArn")
-    def kms_arn(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="kMSArn")
+    def k_ms_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
         """
-        return pulumi.get(self, "kms_arn")
+        return pulumi.get(self, "k_ms_arn")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

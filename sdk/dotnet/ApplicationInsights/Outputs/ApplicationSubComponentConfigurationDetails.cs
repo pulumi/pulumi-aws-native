@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationSubComponentConfigurationDetails(
-            ImmutableArray<Outputs.ApplicationAlarmMetric> AlarmMetrics,
+            ImmutableArray<Outputs.ApplicationAlarmMetric> alarmMetrics,
 
-            ImmutableArray<Outputs.ApplicationLog> Logs,
+            ImmutableArray<Outputs.ApplicationLog> logs,
 
-            ImmutableArray<Outputs.ApplicationWindowsEvent> WindowsEvents)
+            ImmutableArray<Outputs.ApplicationWindowsEvent> windowsEvents)
         {
-            this.AlarmMetrics = AlarmMetrics;
-            this.Logs = Logs;
-            this.WindowsEvents = WindowsEvents;
+            AlarmMetrics = alarmMetrics;
+            Logs = logs;
+            WindowsEvents = windowsEvents;
         }
     }
 }

@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceColumnConfiguration(
-            Outputs.DataSourceChangeDetectingColumns ChangeDetectingColumns,
+            Outputs.DataSourceChangeDetectingColumns changeDetectingColumns,
 
-            string DocumentDataColumnName,
+            string documentDataColumnName,
 
-            string DocumentIdColumnName,
+            string documentIdColumnName,
 
-            string? DocumentTitleColumnName,
+            string? documentTitleColumnName,
 
-            Outputs.DataSourceDataSourceToIndexFieldMappingList? FieldMappings)
+            Outputs.DataSourceDataSourceToIndexFieldMappingList? fieldMappings)
         {
-            this.ChangeDetectingColumns = ChangeDetectingColumns;
-            this.DocumentDataColumnName = DocumentDataColumnName;
-            this.DocumentIdColumnName = DocumentIdColumnName;
-            this.DocumentTitleColumnName = DocumentTitleColumnName;
-            this.FieldMappings = FieldMappings;
+            ChangeDetectingColumns = changeDetectingColumns;
+            DocumentDataColumnName = documentDataColumnName;
+            DocumentIdColumnName = documentIdColumnName;
+            DocumentTitleColumnName = documentTitleColumnName;
+            FieldMappings = fieldMappings;
         }
     }
 }

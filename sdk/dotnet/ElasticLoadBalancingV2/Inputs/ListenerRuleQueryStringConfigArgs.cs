@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
     /// </summary>
     public sealed class ListenerRuleQueryStringConfigArgs : Pulumi.ResourceArgs
     {
-        [Input("Values")]
-        private InputList<Inputs.ListenerRuleQueryStringKeyValueArgs>? _Values;
+        [Input("values")]
+        private InputList<Inputs.ListenerRuleQueryStringKeyValueArgs>? _values;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html#cfn-elasticloadbalancingv2-listenerrule-querystringconfig-values
         /// </summary>
         public InputList<Inputs.ListenerRuleQueryStringKeyValueArgs> Values
         {
-            get => _Values ?? (_Values = new InputList<Inputs.ListenerRuleQueryStringKeyValueArgs>());
-            set => _Values = value;
+            get => _values ?? (_values = new InputList<Inputs.ListenerRuleQueryStringKeyValueArgs>());
+            set => _values = value;
         }
 
         public ListenerRuleQueryStringConfigArgs()

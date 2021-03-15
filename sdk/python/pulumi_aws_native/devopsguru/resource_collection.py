@@ -74,7 +74,7 @@ class ResourceCollection(pulumi.CustomResource):
         return ResourceCollection(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="ResourceCollectionFilter")
+    @pulumi.getter(name="resourceCollectionFilter")
     def resource_collection_filter(self) -> pulumi.Output['outputs.ResourceCollectionResourceCollectionFilter']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
@@ -82,7 +82,7 @@ class ResourceCollection(pulumi.CustomResource):
         return pulumi.get(self, "resource_collection_filter")
 
     @property
-    @pulumi.getter(name="ResourceCollectionType")
+    @pulumi.getter(name="resourceCollectionType")
     def resource_collection_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "resource_collection_type")
 

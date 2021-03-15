@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.Cassandra
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
         /// </summary>
-        [Output("BillingMode")]
+        [Output("billingMode")]
         public Output<Outputs.TableBillingMode?> BillingMode { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
         /// </summary>
-        [Output("ClusteringKeyColumns")]
+        [Output("clusteringKeyColumns")]
         public Output<ImmutableArray<Outputs.TableClusteringKeyColumn>> ClusteringKeyColumns { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
         /// </summary>
-        [Output("KeyspaceName")]
+        [Output("keyspaceName")]
         public Output<string> KeyspaceName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
         /// </summary>
-        [Output("PartitionKeyColumns")]
+        [Output("partitionKeyColumns")]
         public Output<ImmutableArray<Outputs.TableColumn>> PartitionKeyColumns { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
         /// </summary>
-        [Output("RegularColumns")]
+        [Output("regularColumns")]
         public Output<ImmutableArray<Outputs.TableColumn>> RegularColumns { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
         /// </summary>
-        [Output("TableName")]
+        [Output("tableName")]
         public Output<string?> TableName { get; private set; } = null!;
 
 
@@ -99,55 +99,55 @@ namespace Pulumi.AwsNative.Cassandra
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
         /// </summary>
-        [Input("BillingMode")]
+        [Input("billingMode")]
         public Input<Inputs.TableBillingModeArgs>? BillingMode { get; set; }
 
-        [Input("ClusteringKeyColumns")]
-        private InputList<Inputs.TableClusteringKeyColumnArgs>? _ClusteringKeyColumns;
+        [Input("clusteringKeyColumns")]
+        private InputList<Inputs.TableClusteringKeyColumnArgs>? _clusteringKeyColumns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
         /// </summary>
         public InputList<Inputs.TableClusteringKeyColumnArgs> ClusteringKeyColumns
         {
-            get => _ClusteringKeyColumns ?? (_ClusteringKeyColumns = new InputList<Inputs.TableClusteringKeyColumnArgs>());
-            set => _ClusteringKeyColumns = value;
+            get => _clusteringKeyColumns ?? (_clusteringKeyColumns = new InputList<Inputs.TableClusteringKeyColumnArgs>());
+            set => _clusteringKeyColumns = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
         /// </summary>
-        [Input("KeyspaceName", required: true)]
+        [Input("keyspaceName", required: true)]
         public Input<string> KeyspaceName { get; set; } = null!;
 
-        [Input("PartitionKeyColumns", required: true)]
-        private InputList<Inputs.TableColumnArgs>? _PartitionKeyColumns;
+        [Input("partitionKeyColumns", required: true)]
+        private InputList<Inputs.TableColumnArgs>? _partitionKeyColumns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
         /// </summary>
         public InputList<Inputs.TableColumnArgs> PartitionKeyColumns
         {
-            get => _PartitionKeyColumns ?? (_PartitionKeyColumns = new InputList<Inputs.TableColumnArgs>());
-            set => _PartitionKeyColumns = value;
+            get => _partitionKeyColumns ?? (_partitionKeyColumns = new InputList<Inputs.TableColumnArgs>());
+            set => _partitionKeyColumns = value;
         }
 
-        [Input("RegularColumns")]
-        private InputList<Inputs.TableColumnArgs>? _RegularColumns;
+        [Input("regularColumns")]
+        private InputList<Inputs.TableColumnArgs>? _regularColumns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
         /// </summary>
         public InputList<Inputs.TableColumnArgs> RegularColumns
         {
-            get => _RegularColumns ?? (_RegularColumns = new InputList<Inputs.TableColumnArgs>());
-            set => _RegularColumns = value;
+            get => _regularColumns ?? (_regularColumns = new InputList<Inputs.TableColumnArgs>());
+            set => _regularColumns = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
         /// </summary>
-        [Input("TableName")]
+        [Input("tableName")]
         public Input<string>? TableName { get; set; }
 
         public TableArgs()

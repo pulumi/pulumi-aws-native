@@ -34,24 +34,24 @@ export class Archive extends pulumi.CustomResource {
         return obj['__pulumiType'] === Archive.__pulumiType;
     }
 
-    public readonly ArchiveName!: pulumi.Output<string>;
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public readonly archiveName!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
      */
-    public readonly EventPattern!: pulumi.Output<any | string | undefined>;
+    public readonly eventPattern!: pulumi.Output<any | string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
      */
-    public readonly RetentionDays!: pulumi.Output<number | undefined>;
+    public readonly retentionDays!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
      */
-    public readonly SourceArn!: pulumi.Output<string>;
+    public readonly sourceArn!: pulumi.Output<string>;
 
     /**
      * Create a Archive resource with the given unique name, arguments, and options.
@@ -63,22 +63,22 @@ export class Archive extends pulumi.CustomResource {
     constructor(name: string, args: ArchiveArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.SourceArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SourceArn'");
+            if ((!args || args.sourceArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'sourceArn'");
             }
-            inputs["ArchiveName"] = args ? args.ArchiveName : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["EventPattern"] = args ? args.EventPattern : undefined;
-            inputs["RetentionDays"] = args ? args.RetentionDays : undefined;
-            inputs["SourceArn"] = args ? args.SourceArn : undefined;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["archiveName"] = args ? args.archiveName : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["eventPattern"] = args ? args.eventPattern : undefined;
+            inputs["retentionDays"] = args ? args.retentionDays : undefined;
+            inputs["sourceArn"] = args ? args.sourceArn : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["ArchiveName"] = undefined /*out*/;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["EventPattern"] = undefined /*out*/;
-            inputs["RetentionDays"] = undefined /*out*/;
-            inputs["SourceArn"] = undefined /*out*/;
+            inputs["archiveName"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["eventPattern"] = undefined /*out*/;
+            inputs["retentionDays"] = undefined /*out*/;
+            inputs["sourceArn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -98,21 +98,21 @@ export interface ArchiveArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-archivename
      */
-    readonly ArchiveName?: pulumi.Input<string>;
+    readonly archiveName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
      */
-    readonly EventPattern?: pulumi.Input<any | string>;
+    readonly eventPattern?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
      */
-    readonly RetentionDays?: pulumi.Input<number>;
+    readonly retentionDays?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
      */
-    readonly SourceArn: pulumi.Input<string>;
+    readonly sourceArn: pulumi.Input<string>;
 }

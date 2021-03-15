@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<string> DataSourceInclusionsExclusionsStrings;
 
         [OutputConstructor]
-        private DataSourceDataSourceInclusionsExclusionsStrings(ImmutableArray<string> DataSourceInclusionsExclusionsStrings)
+        private DataSourceDataSourceInclusionsExclusionsStrings(ImmutableArray<string> dataSourceInclusionsExclusionsStrings)
         {
-            this.DataSourceInclusionsExclusionsStrings = DataSourceInclusionsExclusionsStrings;
+            DataSourceInclusionsExclusionsStrings = dataSourceInclusionsExclusionsStrings;
         }
     }
 }

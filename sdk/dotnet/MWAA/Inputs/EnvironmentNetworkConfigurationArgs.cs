@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.MWAA.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
         /// </summary>
-        [Input("SecurityGroupIds")]
+        [Input("securityGroupIds")]
         public Input<Inputs.EnvironmentSecurityGroupListArgs>? SecurityGroupIds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
         /// </summary>
-        [Input("SubnetIds")]
+        [Input("subnetIds")]
         public Input<Inputs.EnvironmentSubnetListArgs>? SubnetIds { get; set; }
 
         public EnvironmentNetworkConfigurationArgs()

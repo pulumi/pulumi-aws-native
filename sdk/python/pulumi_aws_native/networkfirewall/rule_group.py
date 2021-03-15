@@ -96,7 +96,7 @@ class RuleGroup(pulumi.CustomResource):
         return RuleGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Capacity")
+    @pulumi.getter
     def capacity(self) -> pulumi.Output[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
@@ -104,7 +104,7 @@ class RuleGroup(pulumi.CustomResource):
         return pulumi.get(self, "capacity")
 
     @property
-    @pulumi.getter(name="Description")
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
@@ -112,7 +112,7 @@ class RuleGroup(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="RuleGroup")
+    @pulumi.getter(name="ruleGroup")
     def rule_group(self) -> pulumi.Output[Optional['outputs.RuleGroupRuleGroup']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
@@ -120,17 +120,17 @@ class RuleGroup(pulumi.CustomResource):
         return pulumi.get(self, "rule_group")
 
     @property
-    @pulumi.getter(name="RuleGroupArn")
+    @pulumi.getter(name="ruleGroupArn")
     def rule_group_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "rule_group_arn")
 
     @property
-    @pulumi.getter(name="RuleGroupId")
+    @pulumi.getter(name="ruleGroupId")
     def rule_group_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "rule_group_id")
 
     @property
-    @pulumi.getter(name="RuleGroupName")
+    @pulumi.getter(name="ruleGroupName")
     def rule_group_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
@@ -138,7 +138,7 @@ class RuleGroup(pulumi.CustomResource):
         return pulumi.get(self, "rule_group_name")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
@@ -146,7 +146,7 @@ class RuleGroup(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type

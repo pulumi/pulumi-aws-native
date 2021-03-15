@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowScheduledTriggerProperties(
-            string? DataPullMode,
+            string? dataPullMode,
 
-            double? ScheduleEndTime,
+            double? scheduleEndTime,
 
-            string ScheduleExpression,
+            string scheduleExpression,
 
-            double? ScheduleStartTime,
+            double? scheduleStartTime,
 
-            string? TimeZone)
+            string? timeZone)
         {
-            this.DataPullMode = DataPullMode;
-            this.ScheduleEndTime = ScheduleEndTime;
-            this.ScheduleExpression = ScheduleExpression;
-            this.ScheduleStartTime = ScheduleStartTime;
-            this.TimeZone = TimeZone;
+            DataPullMode = dataPullMode;
+            ScheduleEndTime = scheduleEndTime;
+            ScheduleExpression = scheduleExpression;
+            ScheduleStartTime = scheduleStartTime;
+            TimeZone = timeZone;
         }
     }
 }

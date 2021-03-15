@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-comparisonoperator
         /// </summary>
-        [Input("ComparisonOperator", required: true)]
+        [Input("comparisonOperator", required: true)]
         public Input<string> ComparisonOperator { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch
         /// </summary>
-        [Input("FieldToMatch", required: true)]
+        [Input("fieldToMatch", required: true)]
         public Input<Inputs.WebACLFieldToMatchArgs> FieldToMatch { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
         /// </summary>
-        [Input("Size", required: true)]
+        [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;
 
-        [Input("TextTransformations", required: true)]
-        private InputList<Inputs.WebACLTextTransformationArgs>? _TextTransformations;
+        [Input("textTransformations", required: true)]
+        private InputList<Inputs.WebACLTextTransformationArgs>? _textTransformations;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
         /// </summary>
         public InputList<Inputs.WebACLTextTransformationArgs> TextTransformations
         {
-            get => _TextTransformations ?? (_TextTransformations = new InputList<Inputs.WebACLTextTransformationArgs>());
-            set => _TextTransformations = value;
+            get => _textTransformations ?? (_textTransformations = new InputList<Inputs.WebACLTextTransformationArgs>());
+            set => _textTransformations = value;
         }
 
         public WebACLSizeConstraintStatementArgs()

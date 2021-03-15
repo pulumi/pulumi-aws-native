@@ -18,16 +18,16 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
         /// </summary>
-        [Output("HealthCheckConfig")]
+        [Output("healthCheckConfig")]
         public Output<Union<System.Text.Json.JsonElement, string>> HealthCheckConfig { get; private set; } = null!;
 
-        [Output("HealthCheckId")]
+        [Output("healthCheckId")]
         public Output<string> HealthCheckId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
         /// </summary>
-        [Output("HealthCheckTags")]
+        [Output("healthCheckTags")]
         public Output<ImmutableArray<Outputs.HealthCheckHealthCheckTag>> HealthCheckTags { get; private set; } = null!;
 
 
@@ -78,19 +78,19 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
         /// </summary>
-        [Input("HealthCheckConfig", required: true)]
+        [Input("healthCheckConfig", required: true)]
         public InputUnion<System.Text.Json.JsonElement, string> HealthCheckConfig { get; set; } = null!;
 
-        [Input("HealthCheckTags")]
-        private InputList<Inputs.HealthCheckHealthCheckTagArgs>? _HealthCheckTags;
+        [Input("healthCheckTags")]
+        private InputList<Inputs.HealthCheckHealthCheckTagArgs>? _healthCheckTags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
         /// </summary>
         public InputList<Inputs.HealthCheckHealthCheckTagArgs> HealthCheckTags
         {
-            get => _HealthCheckTags ?? (_HealthCheckTags = new InputList<Inputs.HealthCheckHealthCheckTagArgs>());
-            set => _HealthCheckTags = value;
+            get => _healthCheckTags ?? (_healthCheckTags = new InputList<Inputs.HealthCheckHealthCheckTagArgs>());
+            set => _healthCheckTags = value;
         }
 
         public HealthCheckArgs()

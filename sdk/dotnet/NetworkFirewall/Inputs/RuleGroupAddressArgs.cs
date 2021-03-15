@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-address.html#cfn-networkfirewall-rulegroup-address-addressdefinition
         /// </summary>
-        [Input("AddressDefinition", required: true)]
+        [Input("addressDefinition", required: true)]
         public Input<string> AddressDefinition { get; set; } = null!;
 
         public RuleGroupAddressArgs()

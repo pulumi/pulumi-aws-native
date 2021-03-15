@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
         [OutputConstructor]
         private ComponentVersionLambdaFunctionRecipeSource(
-            ImmutableDictionary<string, Outputs.ComponentVersionComponentDependencyRequirement>? ComponentDependencies,
+            ImmutableDictionary<string, Outputs.ComponentVersionComponentDependencyRequirement>? componentDependencies,
 
-            Outputs.ComponentVersionLambdaExecutionParameters? ComponentLambdaParameters,
+            Outputs.ComponentVersionLambdaExecutionParameters? componentLambdaParameters,
 
-            string? ComponentName,
+            string? componentName,
 
-            ImmutableArray<Outputs.ComponentVersionComponentPlatform> ComponentPlatforms,
+            ImmutableArray<Outputs.ComponentVersionComponentPlatform> componentPlatforms,
 
-            string? ComponentVersion,
+            string? componentVersion,
 
-            string? LambdaArn)
+            string? lambdaArn)
         {
-            this.ComponentDependencies = ComponentDependencies;
-            this.ComponentLambdaParameters = ComponentLambdaParameters;
-            this.ComponentName = ComponentName;
-            this.ComponentPlatforms = ComponentPlatforms;
-            this.ComponentVersion = ComponentVersion;
-            this.LambdaArn = LambdaArn;
+            ComponentDependencies = componentDependencies;
+            ComponentLambdaParameters = componentLambdaParameters;
+            ComponentName = componentName;
+            ComponentPlatforms = componentPlatforms;
+            ComponentVersion = componentVersion;
+            LambdaArn = lambdaArn;
         }
     }
 }

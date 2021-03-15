@@ -409,8 +409,14 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		return nil, err
 	}
 
+	// Convert SDK inputs to CFN payload.
+	payload, err := schema.SdkToCfn(p.schema, resourceType, inputs.MapRepl(nil, mapReplStripSecrets))
+	if err != nil {
+		return nil, err
+	}
+
 	// Serialize inputs as a desired state JSON.
-	jsonBytes, err := json.Marshal(inputs.MapRepl(nil, mapReplStripSecrets))
+	jsonBytes, err := json.Marshal(payload)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to marshal as JSON")
 	}
@@ -435,10 +441,11 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	// Retrieve the resource state from AWS.
 	id := aws.StringValue(pi.Identifier)
 	glog.V(9).Infof("%s.GetResource %q id %q", label, resourceType, id)
-	outputs, err := p.readResourceState(ctx, resourceType, id)
+	resourceState, err := p.readResourceState(ctx, resourceType, id)
 	if err != nil {
 		return nil, errors.Wrapf(err, "reading resource state")
 	}
+	outputs := schema.CfnToSdk(resourceState)
 
 	// Store both outputs and inputs into the state.
 	checkpoint, err := plugin.MarshalProperties(
@@ -474,7 +481,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	if err != nil {
 		return nil, err
 	}
-	newState, err := p.readResourceState(ctx, resourceType, id)
+	resourceState, err := p.readResourceState(ctx, resourceType, id)
 	if err != nil {
 		if httpErr, ok := err.(awserr.Error); ok && httpErr.Code() == cloudformation.ErrCodeResourceNotFoundException {
 			// ResourceNotFound means that the resource was deleted.
@@ -482,6 +489,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 		}
 		return nil, err
 	}
+	newState := schema.CfnToSdk(resourceState)
 
 	// Extract old inputs from the `__inputs` field of the old state.
 	inputs := parseCheckpointObject(oldState)
@@ -555,20 +563,28 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		return nil, err
 	}
 
+	resourceSpec, ok := p.schema.ResourceTypes[resourceType]
+	if !ok {
+		return nil, errors.Errorf("unknown resource type %v", resourceType)
+	}
+
 	var ops []*cloudformation.PatchOperation
-	for k, v := range diff.Updates {
-		op := cloudformation.PatchOperation{
-			Op:           aws.String("replace"),
-			Path:         aws.String(string(k)),
+	for cfnName := range resourceSpec.Properties {
+		sdkName := schema.ToPropertyName(cfnName)
+		if v, ok := diff.Updates[resource.PropertyKey(sdkName)]; ok {
+			op := cloudformation.PatchOperation{
+				Op:           aws.String("replace"),
+				Path:         aws.String(cfnName),
+			}
+			// TODO: Handle all possible types correctly.
+			switch {
+			case v.New.IsNumber():
+				op.IntegerValue = aws.Int64(int64(v.New.NumberValue()))
+			case v.New.IsString():
+				op.StringValue = aws.String(v.New.StringValue())
+			}
+			ops = append(ops, &op)
 		}
-		// TODO: Handle all possible types correctly.
-		switch {
-		case v.New.IsNumber():
-			op.IntegerValue = aws.Int64(int64(v.New.NumberValue()))
-		case v.New.IsString():
-			op.StringValue = aws.String("/" + v.New.StringValue())
-		}
-		ops = append(ops, &op)
 	}
 	// TODO: Handle Adds and Deletes.
 	// The below if len(ops) > 0 is there to avoid errors when we miss an update or a delete of a property.

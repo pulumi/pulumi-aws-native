@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior
         /// </summary>
-        [Input("QueryStringBehavior", required: true)]
+        [Input("queryStringBehavior", required: true)]
         public Input<string> QueryStringBehavior { get; set; } = null!;
 
-        [Input("QueryStrings")]
-        private InputList<string>? _QueryStrings;
+        [Input("queryStrings")]
+        private InputList<string>? _queryStrings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings
         /// </summary>
         public InputList<string> QueryStrings
         {
-            get => _QueryStrings ?? (_QueryStrings = new InputList<string>());
-            set => _QueryStrings = value;
+            get => _queryStrings ?? (_queryStrings = new InputList<string>());
+            set => _queryStrings = value;
         }
 
         public CachePolicyQueryStringsConfigArgs()

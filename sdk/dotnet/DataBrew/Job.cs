@@ -18,91 +18,91 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
         /// </summary>
-        [Output("DatasetName")]
+        [Output("datasetName")]
         public Output<string?> DatasetName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionkeyarn
         /// </summary>
-        [Output("EncryptionKeyArn")]
+        [Output("encryptionKeyArn")]
         public Output<string?> EncryptionKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
         /// </summary>
-        [Output("EncryptionMode")]
+        [Output("encryptionMode")]
         public Output<string?> EncryptionMode { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
         /// </summary>
-        [Output("LogSubscription")]
+        [Output("logSubscription")]
         public Output<string?> LogSubscription { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxcapacity
         /// </summary>
-        [Output("MaxCapacity")]
+        [Output("maxCapacity")]
         public Output<int?> MaxCapacity { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxretries
         /// </summary>
-        [Output("MaxRetries")]
+        [Output("maxRetries")]
         public Output<int?> MaxRetries { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
         /// </summary>
-        [Output("OutputLocation")]
+        [Output("outputLocation")]
         public Output<Union<System.Text.Json.JsonElement, string>?> OutputLocation { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
         /// </summary>
-        [Output("Outputs")]
+        [Output("outputs")]
         public Output<ImmutableArray<Outputs.JobOutput>> Outputs { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
         /// </summary>
-        [Output("ProjectName")]
+        [Output("projectName")]
         public Output<string?> ProjectName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-recipe
         /// </summary>
-        [Output("Recipe")]
+        [Output("recipe")]
         public Output<Union<System.Text.Json.JsonElement, string>?> Recipe { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-rolearn
         /// </summary>
-        [Output("RoleArn")]
+        [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-timeout
         /// </summary>
-        [Output("Timeout")]
+        [Output("timeout")]
         public Output<int?> Timeout { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-type
         /// </summary>
-        [Output("Type")]
+        [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
 
@@ -153,103 +153,103 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
         /// </summary>
-        [Input("DatasetName")]
+        [Input("datasetName")]
         public Input<string>? DatasetName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionkeyarn
         /// </summary>
-        [Input("EncryptionKeyArn")]
+        [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
         /// </summary>
-        [Input("EncryptionMode")]
+        [Input("encryptionMode")]
         public Input<string>? EncryptionMode { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
         /// </summary>
-        [Input("LogSubscription")]
+        [Input("logSubscription")]
         public Input<string>? LogSubscription { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxcapacity
         /// </summary>
-        [Input("MaxCapacity")]
+        [Input("maxCapacity")]
         public Input<int>? MaxCapacity { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxretries
         /// </summary>
-        [Input("MaxRetries")]
+        [Input("maxRetries")]
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-name
         /// </summary>
-        [Input("Name", required: true)]
+        [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
         /// </summary>
-        [Input("OutputLocation")]
+        [Input("outputLocation")]
         public InputUnion<System.Text.Json.JsonElement, string>? OutputLocation { get; set; }
 
-        [Input("Outputs")]
-        private InputList<Inputs.JobOutputArgs>? _Outputs;
+        [Input("outputs")]
+        private InputList<Inputs.JobOutputArgs>? _outputs;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
         /// </summary>
         public InputList<Inputs.JobOutputArgs> Outputs
         {
-            get => _Outputs ?? (_Outputs = new InputList<Inputs.JobOutputArgs>());
-            set => _Outputs = value;
+            get => _outputs ?? (_outputs = new InputList<Inputs.JobOutputArgs>());
+            set => _outputs = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
         /// </summary>
-        [Input("ProjectName")]
+        [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-recipe
         /// </summary>
-        [Input("Recipe")]
+        [Input("recipe")]
         public InputUnion<System.Text.Json.JsonElement, string>? Recipe { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-rolearn
         /// </summary>
-        [Input("RoleArn", required: true)]
+        [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-timeout
         /// </summary>
-        [Input("Timeout")]
+        [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-type
         /// </summary>
-        [Input("Type", required: true)]
+        [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         public JobArgs()

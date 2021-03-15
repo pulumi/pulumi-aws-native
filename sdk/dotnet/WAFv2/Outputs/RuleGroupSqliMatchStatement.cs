@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private RuleGroupSqliMatchStatement(
-            Outputs.RuleGroupFieldToMatch FieldToMatch,
+            Outputs.RuleGroupFieldToMatch fieldToMatch,
 
-            ImmutableArray<Outputs.RuleGroupTextTransformation> TextTransformations)
+            ImmutableArray<Outputs.RuleGroupTextTransformation> textTransformations)
         {
-            this.FieldToMatch = FieldToMatch;
-            this.TextTransformations = TextTransformations;
+            FieldToMatch = fieldToMatch;
+            TextTransformations = textTransformations;
         }
     }
 }

@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 
         [OutputConstructor]
         private RecipeConditionExpression(
-            string Condition,
+            string condition,
 
-            string TargetColumn,
+            string targetColumn,
 
-            string? Value)
+            string? value)
         {
-            this.Condition = Condition;
-            this.TargetColumn = TargetColumn;
-            this.Value = Value;
+            Condition = condition;
+            TargetColumn = targetColumn;
+            Value = value;
         }
     }
 }

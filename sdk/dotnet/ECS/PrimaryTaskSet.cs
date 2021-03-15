@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
         /// </summary>
-        [Output("Cluster")]
+        [Output("cluster")]
         public Output<string> Cluster { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
         /// </summary>
-        [Output("Service")]
+        [Output("service")]
         public Output<string> Service { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
         /// </summary>
-        [Output("TaskSetId")]
+        [Output("taskSetId")]
         public Output<string> TaskSetId { get; private set; } = null!;
 
 
@@ -81,19 +81,19 @@ namespace Pulumi.AwsNative.ECS
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
         /// </summary>
-        [Input("Cluster", required: true)]
+        [Input("cluster", required: true)]
         public Input<string> Cluster { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
         /// </summary>
-        [Input("Service", required: true)]
+        [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
         /// </summary>
-        [Input("TaskSetId", required: true)]
+        [Input("taskSetId", required: true)]
         public Input<string> TaskSetId { get; set; } = null!;
 
         public PrimaryTaskSetArgs()

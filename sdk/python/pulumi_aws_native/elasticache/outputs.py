@@ -36,7 +36,7 @@ class UserAuthentication(dict):
             pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="PasswordCount")
+    @pulumi.getter(name="passwordCount")
     def password_count(self) -> Optional[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-passwordcount
@@ -44,7 +44,7 @@ class UserAuthentication(dict):
         return pulumi.get(self, "password_count")
 
     @property
-    @pulumi.getter(name="Type")
+    @pulumi.getter
     def type(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-type
@@ -70,7 +70,7 @@ class UserGroupReplicationGroupIdList(dict):
             pulumi.set(__self__, "replication_group_id_list", replication_group_id_list)
 
     @property
-    @pulumi.getter(name="ReplicationGroupIdList")
+    @pulumi.getter(name="replicationGroupIdList")
     def replication_group_id_list(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-replicationgroupidlist.html#cfn-elasticache-usergroup-replicationgroupidlist-replicationgroupidlist
@@ -100,7 +100,7 @@ class UserGroupUserGroupPendingChanges(dict):
             pulumi.set(__self__, "user_ids_to_remove", user_ids_to_remove)
 
     @property
-    @pulumi.getter(name="UserIdsToAdd")
+    @pulumi.getter(name="userIdsToAdd")
     def user_ids_to_add(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoadd
@@ -108,7 +108,7 @@ class UserGroupUserGroupPendingChanges(dict):
         return pulumi.get(self, "user_ids_to_add")
 
     @property
-    @pulumi.getter(name="UserIdsToRemove")
+    @pulumi.getter(name="userIdsToRemove")
     def user_ids_to_remove(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoremove
@@ -134,7 +134,7 @@ class UserGroupUserIdList(dict):
             pulumi.set(__self__, "user_id_list", user_id_list)
 
     @property
-    @pulumi.getter(name="UserIdList")
+    @pulumi.getter(name="userIdList")
     def user_id_list(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html#cfn-elasticache-usergroup-useridlist-useridlist
@@ -160,7 +160,7 @@ class UserPasswordList(dict):
             pulumi.set(__self__, "password_list", password_list)
 
     @property
-    @pulumi.getter(name="PasswordList")
+    @pulumi.getter(name="passwordList")
     def password_list(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist
@@ -186,7 +186,7 @@ class UserUserGroupIdList(dict):
             pulumi.set(__self__, "user_group_id_list", user_group_id_list)
 
     @property
-    @pulumi.getter(name="UserGroupIdList")
+    @pulumi.getter(name="userGroupIdList")
     def user_group_id_list(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html#cfn-elasticache-user-usergroupidlist-usergroupidlist

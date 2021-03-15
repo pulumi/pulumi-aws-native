@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
         /// </summary>
-        [Output("ConformancePackInputParameters")]
+        [Output("conformancePackInputParameters")]
         public Output<ImmutableArray<Outputs.ConformancePackConformancePackInputParameter>> ConformancePackInputParameters { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
         /// </summary>
-        [Output("ConformancePackName")]
+        [Output("conformancePackName")]
         public Output<string> ConformancePackName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
         /// </summary>
-        [Output("DeliveryS3Bucket")]
+        [Output("deliveryS3Bucket")]
         public Output<string?> DeliveryS3Bucket { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
         /// </summary>
-        [Output("DeliveryS3KeyPrefix")]
+        [Output("deliveryS3KeyPrefix")]
         public Output<string?> DeliveryS3KeyPrefix { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
         /// </summary>
-        [Output("TemplateBody")]
+        [Output("templateBody")]
         public Output<string?> TemplateBody { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
         /// </summary>
-        [Output("TemplateS3Uri")]
+        [Output("templateS3Uri")]
         public Output<string?> TemplateS3Uri { get; private set; } = null!;
 
 
@@ -96,46 +96,46 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class ConformancePackArgs : Pulumi.ResourceArgs
     {
-        [Input("ConformancePackInputParameters")]
-        private InputList<Inputs.ConformancePackConformancePackInputParameterArgs>? _ConformancePackInputParameters;
+        [Input("conformancePackInputParameters")]
+        private InputList<Inputs.ConformancePackConformancePackInputParameterArgs>? _conformancePackInputParameters;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
         /// </summary>
         public InputList<Inputs.ConformancePackConformancePackInputParameterArgs> ConformancePackInputParameters
         {
-            get => _ConformancePackInputParameters ?? (_ConformancePackInputParameters = new InputList<Inputs.ConformancePackConformancePackInputParameterArgs>());
-            set => _ConformancePackInputParameters = value;
+            get => _conformancePackInputParameters ?? (_conformancePackInputParameters = new InputList<Inputs.ConformancePackConformancePackInputParameterArgs>());
+            set => _conformancePackInputParameters = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
         /// </summary>
-        [Input("ConformancePackName", required: true)]
+        [Input("conformancePackName", required: true)]
         public Input<string> ConformancePackName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
         /// </summary>
-        [Input("DeliveryS3Bucket")]
+        [Input("deliveryS3Bucket")]
         public Input<string>? DeliveryS3Bucket { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
         /// </summary>
-        [Input("DeliveryS3KeyPrefix")]
+        [Input("deliveryS3KeyPrefix")]
         public Input<string>? DeliveryS3KeyPrefix { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
         /// </summary>
-        [Input("TemplateBody")]
+        [Input("templateBody")]
         public Input<string>? TemplateBody { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
         /// </summary>
-        [Input("TemplateS3Uri")]
+        [Input("templateS3Uri")]
         public Input<string>? TemplateS3Uri { get; set; }
 
         public ConformancePackArgs()

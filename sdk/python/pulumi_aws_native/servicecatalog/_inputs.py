@@ -27,7 +27,7 @@ class CloudFormationProvisionedProductProvisioningParameterArgs:
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameter-key
@@ -39,7 +39,7 @@ class CloudFormationProvisionedProductProvisioningParameterArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameter-value
@@ -87,7 +87,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
             pulumi.set(__self__, "stack_set_regions", stack_set_regions)
 
     @property
-    @pulumi.getter(name="StackSetAccounts")
+    @pulumi.getter(name="stackSetAccounts")
     def stack_set_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetaccounts
@@ -99,7 +99,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         pulumi.set(self, "stack_set_accounts", value)
 
     @property
-    @pulumi.getter(name="StackSetFailureToleranceCount")
+    @pulumi.getter(name="stackSetFailureToleranceCount")
     def stack_set_failure_tolerance_count(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancecount
@@ -111,7 +111,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         pulumi.set(self, "stack_set_failure_tolerance_count", value)
 
     @property
-    @pulumi.getter(name="StackSetFailureTolerancePercentage")
+    @pulumi.getter(name="stackSetFailureTolerancePercentage")
     def stack_set_failure_tolerance_percentage(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancepercentage
@@ -123,7 +123,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         pulumi.set(self, "stack_set_failure_tolerance_percentage", value)
 
     @property
-    @pulumi.getter(name="StackSetMaxConcurrencyCount")
+    @pulumi.getter(name="stackSetMaxConcurrencyCount")
     def stack_set_max_concurrency_count(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencycount
@@ -135,7 +135,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         pulumi.set(self, "stack_set_max_concurrency_count", value)
 
     @property
-    @pulumi.getter(name="StackSetMaxConcurrencyPercentage")
+    @pulumi.getter(name="stackSetMaxConcurrencyPercentage")
     def stack_set_max_concurrency_percentage(self) -> Optional[pulumi.Input[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencypercentage
@@ -147,7 +147,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         pulumi.set(self, "stack_set_max_concurrency_percentage", value)
 
     @property
-    @pulumi.getter(name="StackSetOperationType")
+    @pulumi.getter(name="stackSetOperationType")
     def stack_set_operation_type(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetoperationtype
@@ -159,7 +159,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         pulumi.set(self, "stack_set_operation_type", value)
 
     @property
-    @pulumi.getter(name="StackSetRegions")
+    @pulumi.getter(name="stackSetRegions")
     def stack_set_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetregions

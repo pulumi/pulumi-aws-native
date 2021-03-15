@@ -15,52 +15,52 @@ namespace Pulumi.AwsNative.MediaPackage
     [AwsNativeResourceType("aws-native:MediaPackage:Asset")]
     public partial class Asset : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("CreatedAt")]
+        [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
         /// </summary>
-        [Output("EgressEndpoints")]
+        [Output("egressEndpoints")]
         public Output<ImmutableArray<Outputs.AssetEgressEndpoint>> EgressEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
         /// </summary>
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
         /// </summary>
-        [Output("PackagingGroupId")]
+        [Output("packagingGroupId")]
         public Output<string> PackagingGroupId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
         /// </summary>
-        [Output("ResourceId")]
+        [Output("resourceId")]
         public Output<string?> ResourceId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
         /// </summary>
-        [Output("SourceArn")]
+        [Output("sourceArn")]
         public Output<string> SourceArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
         /// </summary>
-        [Output("SourceRoleArn")]
+        [Output("sourceRoleArn")]
         public Output<string> SourceRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -108,58 +108,58 @@ namespace Pulumi.AwsNative.MediaPackage
 
     public sealed class AssetArgs : Pulumi.ResourceArgs
     {
-        [Input("EgressEndpoints")]
-        private InputList<Inputs.AssetEgressEndpointArgs>? _EgressEndpoints;
+        [Input("egressEndpoints")]
+        private InputList<Inputs.AssetEgressEndpointArgs>? _egressEndpoints;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
         /// </summary>
         public InputList<Inputs.AssetEgressEndpointArgs> EgressEndpoints
         {
-            get => _EgressEndpoints ?? (_EgressEndpoints = new InputList<Inputs.AssetEgressEndpointArgs>());
-            set => _EgressEndpoints = value;
+            get => _egressEndpoints ?? (_egressEndpoints = new InputList<Inputs.AssetEgressEndpointArgs>());
+            set => _egressEndpoints = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
         /// </summary>
-        [Input("Id", required: true)]
+        [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
         /// </summary>
-        [Input("PackagingGroupId", required: true)]
+        [Input("packagingGroupId", required: true)]
         public Input<string> PackagingGroupId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
         /// </summary>
-        [Input("ResourceId")]
+        [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
         /// </summary>
-        [Input("SourceArn", required: true)]
+        [Input("sourceArn", required: true)]
         public Input<string> SourceArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
         /// </summary>
-        [Input("SourceRoleArn", required: true)]
+        [Input("sourceRoleArn", required: true)]
         public Input<string> SourceRoleArn { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public AssetArgs()

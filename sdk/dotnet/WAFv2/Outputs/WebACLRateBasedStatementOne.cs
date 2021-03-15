@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLRateBasedStatementOne(
-            string AggregateKeyType,
+            string aggregateKeyType,
 
-            Outputs.WebACLForwardedIPConfiguration? ForwardedIPConfig,
+            Outputs.WebACLForwardedIPConfiguration? forwardedIPConfig,
 
-            int Limit,
+            int limit,
 
-            Outputs.WebACLStatementTwo? ScopeDownStatement)
+            Outputs.WebACLStatementTwo? scopeDownStatement)
         {
-            this.AggregateKeyType = AggregateKeyType;
-            this.ForwardedIPConfig = ForwardedIPConfig;
-            this.Limit = Limit;
-            this.ScopeDownStatement = ScopeDownStatement;
+            AggregateKeyType = aggregateKeyType;
+            ForwardedIPConfig = forwardedIPConfig;
+            Limit = limit;
+            ScopeDownStatement = scopeDownStatement;
         }
     }
 }

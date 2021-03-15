@@ -93,12 +93,12 @@ class Image(pulumi.CustomResource):
         return Image(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="DistributionConfigurationArn")
+    @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
@@ -106,7 +106,7 @@ class Image(pulumi.CustomResource):
         return pulumi.get(self, "distribution_configuration_arn")
 
     @property
-    @pulumi.getter(name="EnhancedImageMetadataEnabled")
+    @pulumi.getter(name="enhancedImageMetadataEnabled")
     def enhanced_image_metadata_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
@@ -114,12 +114,12 @@ class Image(pulumi.CustomResource):
         return pulumi.get(self, "enhanced_image_metadata_enabled")
 
     @property
-    @pulumi.getter(name="ImageId")
+    @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "image_id")
 
     @property
-    @pulumi.getter(name="ImageRecipeArn")
+    @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
@@ -127,7 +127,7 @@ class Image(pulumi.CustomResource):
         return pulumi.get(self, "image_recipe_arn")
 
     @property
-    @pulumi.getter(name="ImageTestsConfiguration")
+    @pulumi.getter(name="imageTestsConfiguration")
     def image_tests_configuration(self) -> pulumi.Output[Optional['outputs.ImageImageTestsConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
@@ -135,7 +135,7 @@ class Image(pulumi.CustomResource):
         return pulumi.get(self, "image_tests_configuration")
 
     @property
-    @pulumi.getter(name="InfrastructureConfigurationArn")
+    @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
@@ -143,12 +143,12 @@ class Image(pulumi.CustomResource):
         return pulumi.get(self, "infrastructure_configuration_arn")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags

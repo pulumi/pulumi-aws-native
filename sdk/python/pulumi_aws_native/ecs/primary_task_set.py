@@ -81,7 +81,7 @@ class PrimaryTaskSet(pulumi.CustomResource):
         return PrimaryTaskSet(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Cluster")
+    @pulumi.getter
     def cluster(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
@@ -89,7 +89,7 @@ class PrimaryTaskSet(pulumi.CustomResource):
         return pulumi.get(self, "cluster")
 
     @property
-    @pulumi.getter(name="Service")
+    @pulumi.getter
     def service(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
@@ -97,7 +97,7 @@ class PrimaryTaskSet(pulumi.CustomResource):
         return pulumi.get(self, "service")
 
     @property
-    @pulumi.getter(name="TaskSetId")
+    @pulumi.getter(name="taskSetId")
     def task_set_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid

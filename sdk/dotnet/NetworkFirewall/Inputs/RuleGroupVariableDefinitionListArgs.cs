@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class RuleGroupVariableDefinitionListArgs : Pulumi.ResourceArgs
     {
-        [Input("VariableDefinitionList")]
-        private InputList<string>? _VariableDefinitionList;
+        [Input("variableDefinitionList")]
+        private InputList<string>? _variableDefinitionList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-variabledefinitionlist.html#cfn-networkfirewall-rulegroup-variabledefinitionlist-variabledefinitionlist
         /// </summary>
         public InputList<string> VariableDefinitionList
         {
-            get => _VariableDefinitionList ?? (_VariableDefinitionList = new InputList<string>());
-            set => _VariableDefinitionList = value;
+            get => _variableDefinitionList ?? (_variableDefinitionList = new InputList<string>());
+            set => _variableDefinitionList = value;
         }
 
         public RuleGroupVariableDefinitionListArgs()

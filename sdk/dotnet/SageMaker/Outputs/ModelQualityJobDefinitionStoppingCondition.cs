@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly int MaxRuntimeInSeconds;
 
         [OutputConstructor]
-        private ModelQualityJobDefinitionStoppingCondition(int MaxRuntimeInSeconds)
+        private ModelQualityJobDefinitionStoppingCondition(int maxRuntimeInSeconds)
         {
-            this.MaxRuntimeInSeconds = MaxRuntimeInSeconds;
+            MaxRuntimeInSeconds = maxRuntimeInSeconds;
         }
     }
 }

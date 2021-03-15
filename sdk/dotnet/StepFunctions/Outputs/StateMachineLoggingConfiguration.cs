@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
 
         [OutputConstructor]
         private StateMachineLoggingConfiguration(
-            ImmutableArray<Outputs.StateMachineLogDestination> Destinations,
+            ImmutableArray<Outputs.StateMachineLogDestination> destinations,
 
-            bool? IncludeExecutionData,
+            bool? includeExecutionData,
 
-            string? Level)
+            string? level)
         {
-            this.Destinations = Destinations;
-            this.IncludeExecutionData = IncludeExecutionData;
-            this.Level = Level;
+            Destinations = destinations;
+            IncludeExecutionData = includeExecutionData;
+            Level = level;
         }
     }
 }

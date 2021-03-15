@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Glue.Outputs
 
         [OutputConstructor]
         private SchemaRegistry(
-            string? Arn,
+            string? arn,
 
-            string? Name)
+            string? name)
         {
-            this.Arn = Arn;
-            this.Name = Name;
+            Arn = arn;
+            Name = name;
         }
     }
 }

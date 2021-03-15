@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace
         /// </summary>
-        [Input("Namespace", required: true)]
+        [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 
         public MetricStreamMetricStreamFilterArgs()

@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
         /// </summary>
-        [Input("DurationInSeconds")]
+        [Input("durationInSeconds")]
         public Input<string>? DurationInSeconds { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
         /// </summary>
-        [Input("Expression", required: true)]
+        [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 
         public CanaryScheduleArgs()

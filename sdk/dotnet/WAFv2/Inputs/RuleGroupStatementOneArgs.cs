@@ -18,67 +18,67 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-andstatement
         /// </summary>
-        [Input("AndStatement")]
+        [Input("andStatement")]
         public Input<Inputs.RuleGroupAndStatementOneArgs>? AndStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-bytematchstatement
         /// </summary>
-        [Input("ByteMatchStatement")]
+        [Input("byteMatchStatement")]
         public Input<Inputs.RuleGroupByteMatchStatementArgs>? ByteMatchStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-geomatchstatement
         /// </summary>
-        [Input("GeoMatchStatement")]
+        [Input("geoMatchStatement")]
         public Input<Inputs.RuleGroupGeoMatchStatementArgs>? GeoMatchStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ipsetreferencestatement
         /// </summary>
-        [Input("IPSetReferenceStatement")]
+        [Input("iPSetReferenceStatement")]
         public Input<Inputs.RuleGroupIPSetReferenceStatementArgs>? IPSetReferenceStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-notstatement
         /// </summary>
-        [Input("NotStatement")]
+        [Input("notStatement")]
         public Input<Inputs.RuleGroupNotStatementOneArgs>? NotStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-orstatement
         /// </summary>
-        [Input("OrStatement")]
+        [Input("orStatement")]
         public Input<Inputs.RuleGroupOrStatementOneArgs>? OrStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ratebasedstatement
         /// </summary>
-        [Input("RateBasedStatement")]
+        [Input("rateBasedStatement")]
         public Input<Inputs.RuleGroupRateBasedStatementOneArgs>? RateBasedStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-regexpatternsetreferencestatement
         /// </summary>
-        [Input("RegexPatternSetReferenceStatement")]
+        [Input("regexPatternSetReferenceStatement")]
         public Input<Inputs.RuleGroupRegexPatternSetReferenceStatementArgs>? RegexPatternSetReferenceStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sizeconstraintstatement
         /// </summary>
-        [Input("SizeConstraintStatement")]
+        [Input("sizeConstraintStatement")]
         public Input<Inputs.RuleGroupSizeConstraintStatementArgs>? SizeConstraintStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sqlimatchstatement
         /// </summary>
-        [Input("SqliMatchStatement")]
+        [Input("sqliMatchStatement")]
         public Input<Inputs.RuleGroupSqliMatchStatementArgs>? SqliMatchStatement { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-xssmatchstatement
         /// </summary>
-        [Input("XssMatchStatement")]
+        [Input("xssMatchStatement")]
         public Input<Inputs.RuleGroupXssMatchStatementArgs>? XssMatchStatement { get; set; }
 
         public RuleGroupStatementOneArgs()

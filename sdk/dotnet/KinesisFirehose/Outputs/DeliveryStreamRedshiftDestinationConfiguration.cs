@@ -60,39 +60,39 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamRedshiftDestinationConfiguration(
-            Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions,
+            Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
-            string ClusterJDBCURL,
+            string clusterJDBCURL,
 
-            Outputs.DeliveryStreamCopyCommand CopyCommand,
+            Outputs.DeliveryStreamCopyCommand copyCommand,
 
-            string Password,
+            string password,
 
-            Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration,
+            Outputs.DeliveryStreamProcessingConfiguration? processingConfiguration,
 
-            Outputs.DeliveryStreamRedshiftRetryOptions? RetryOptions,
+            Outputs.DeliveryStreamRedshiftRetryOptions? retryOptions,
 
-            string RoleARN,
+            string roleARN,
 
-            Outputs.DeliveryStreamS3DestinationConfiguration? S3BackupConfiguration,
+            Outputs.DeliveryStreamS3DestinationConfiguration? s3BackupConfiguration,
 
-            string? S3BackupMode,
+            string? s3BackupMode,
 
-            Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration,
+            Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration,
 
-            string Username)
+            string username)
         {
-            this.CloudWatchLoggingOptions = CloudWatchLoggingOptions;
-            this.ClusterJDBCURL = ClusterJDBCURL;
-            this.CopyCommand = CopyCommand;
-            this.Password = Password;
-            this.ProcessingConfiguration = ProcessingConfiguration;
-            this.RetryOptions = RetryOptions;
-            this.RoleARN = RoleARN;
-            this.S3BackupConfiguration = S3BackupConfiguration;
-            this.S3BackupMode = S3BackupMode;
-            this.S3Configuration = S3Configuration;
-            this.Username = Username;
+            CloudWatchLoggingOptions = cloudWatchLoggingOptions;
+            ClusterJDBCURL = clusterJDBCURL;
+            CopyCommand = copyCommand;
+            Password = password;
+            ProcessingConfiguration = processingConfiguration;
+            RetryOptions = retryOptions;
+            RoleARN = roleARN;
+            S3BackupConfiguration = s3BackupConfiguration;
+            S3BackupMode = s3BackupMode;
+            S3Configuration = s3Configuration;
+            Username = username;
         }
     }
 }

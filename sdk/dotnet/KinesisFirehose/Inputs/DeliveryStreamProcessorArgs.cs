@@ -15,22 +15,22 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
     /// </summary>
     public sealed class DeliveryStreamProcessorArgs : Pulumi.ResourceArgs
     {
-        [Input("Parameters")]
-        private InputList<Inputs.DeliveryStreamProcessorParameterArgs>? _Parameters;
+        [Input("parameters")]
+        private InputList<Inputs.DeliveryStreamProcessorParameterArgs>? _parameters;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-parameters
         /// </summary>
         public InputList<Inputs.DeliveryStreamProcessorParameterArgs> Parameters
         {
-            get => _Parameters ?? (_Parameters = new InputList<Inputs.DeliveryStreamProcessorParameterArgs>());
-            set => _Parameters = value;
+            get => _parameters ?? (_parameters = new InputList<Inputs.DeliveryStreamProcessorParameterArgs>());
+            set => _parameters = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-type
         /// </summary>
-        [Input("Type", required: true)]
+        [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         public DeliveryStreamProcessorArgs()

@@ -18,55 +18,55 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
         /// </summary>
-        [Output("CertificateArn")]
+        [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
 
-        [Output("DistributionDomainName")]
+        [Output("distributionDomainName")]
         public Output<string> DistributionDomainName { get; private set; } = null!;
 
-        [Output("DistributionHostedZoneId")]
+        [Output("distributionHostedZoneId")]
         public Output<string> DistributionHostedZoneId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
         /// </summary>
-        [Output("DomainName")]
+        [Output("domainName")]
         public Output<string?> DomainNameValue { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
         /// </summary>
-        [Output("EndpointConfiguration")]
+        [Output("endpointConfiguration")]
         public Output<Outputs.DomainNameEndpointConfiguration?> EndpointConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
         /// </summary>
-        [Output("MutualTlsAuthentication")]
+        [Output("mutualTlsAuthentication")]
         public Output<Outputs.DomainNameMutualTlsAuthentication?> MutualTlsAuthentication { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
         /// </summary>
-        [Output("RegionalCertificateArn")]
+        [Output("regionalCertificateArn")]
         public Output<string?> RegionalCertificateArn { get; private set; } = null!;
 
-        [Output("RegionalDomainName")]
+        [Output("regionalDomainName")]
         public Output<string> RegionalDomainName { get; private set; } = null!;
 
-        [Output("RegionalHostedZoneId")]
+        [Output("regionalHostedZoneId")]
         public Output<string> RegionalHostedZoneId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
         /// </summary>
-        [Output("SecurityPolicy")]
+        [Output("securityPolicy")]
         public Output<string?> SecurityPolicy { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -117,49 +117,49 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
         /// </summary>
-        [Input("CertificateArn")]
+        [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
         /// </summary>
-        [Input("DomainName")]
+        [Input("domainName")]
         public Input<string>? DomainNameValue { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
         /// </summary>
-        [Input("EndpointConfiguration")]
+        [Input("endpointConfiguration")]
         public Input<Inputs.DomainNameEndpointConfigurationArgs>? EndpointConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
         /// </summary>
-        [Input("MutualTlsAuthentication")]
+        [Input("mutualTlsAuthentication")]
         public Input<Inputs.DomainNameMutualTlsAuthenticationArgs>? MutualTlsAuthentication { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
         /// </summary>
-        [Input("RegionalCertificateArn")]
+        [Input("regionalCertificateArn")]
         public Input<string>? RegionalCertificateArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
         /// </summary>
-        [Input("SecurityPolicy")]
+        [Input("securityPolicy")]
         public Input<string>? SecurityPolicy { get; set; }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public DomainNameArgs()

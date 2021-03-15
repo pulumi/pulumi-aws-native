@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         public readonly object SpekeKeyProvider;
 
         [OutputConstructor]
-        private PackagingConfigurationCmafEncryption(object SpekeKeyProvider)
+        private PackagingConfigurationCmafEncryption(object spekeKeyProvider)
         {
-            this.SpekeKeyProvider = SpekeKeyProvider;
+            SpekeKeyProvider = spekeKeyProvider;
         }
     }
 }

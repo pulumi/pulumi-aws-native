@@ -38,17 +38,17 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
      */
-    public readonly AllowedPublishers!: pulumi.Output<outputs.Lambda.CodeSigningConfigAllowedPublishers>;
-    public /*out*/ readonly CodeSigningConfigArn!: pulumi.Output<string>;
-    public /*out*/ readonly CodeSigningConfigId!: pulumi.Output<string>;
+    public readonly allowedPublishers!: pulumi.Output<outputs.Lambda.CodeSigningConfigAllowedPublishers>;
+    public /*out*/ readonly codeSigningConfigArn!: pulumi.Output<string>;
+    public /*out*/ readonly codeSigningConfigId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
      */
-    public readonly CodeSigningPolicies!: pulumi.Output<outputs.Lambda.CodeSigningConfigCodeSigningPolicies | undefined>;
+    public readonly codeSigningPolicies!: pulumi.Output<outputs.Lambda.CodeSigningConfigCodeSigningPolicies | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CodeSigningConfig resource with the given unique name, arguments, and options.
@@ -60,20 +60,20 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     constructor(name: string, args: CodeSigningConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.AllowedPublishers === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'AllowedPublishers'");
+            if ((!args || args.allowedPublishers === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'allowedPublishers'");
             }
-            inputs["AllowedPublishers"] = args ? args.AllowedPublishers : undefined;
-            inputs["CodeSigningPolicies"] = args ? args.CodeSigningPolicies : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["CodeSigningConfigArn"] = undefined /*out*/;
-            inputs["CodeSigningConfigId"] = undefined /*out*/;
+            inputs["allowedPublishers"] = args ? args.allowedPublishers : undefined;
+            inputs["codeSigningPolicies"] = args ? args.codeSigningPolicies : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["codeSigningConfigArn"] = undefined /*out*/;
+            inputs["codeSigningConfigId"] = undefined /*out*/;
         } else {
-            inputs["AllowedPublishers"] = undefined /*out*/;
-            inputs["CodeSigningConfigArn"] = undefined /*out*/;
-            inputs["CodeSigningConfigId"] = undefined /*out*/;
-            inputs["CodeSigningPolicies"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
+            inputs["allowedPublishers"] = undefined /*out*/;
+            inputs["codeSigningConfigArn"] = undefined /*out*/;
+            inputs["codeSigningConfigId"] = undefined /*out*/;
+            inputs["codeSigningPolicies"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,13 +93,13 @@ export interface CodeSigningConfigArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
      */
-    readonly AllowedPublishers: pulumi.Input<inputs.Lambda.CodeSigningConfigAllowedPublishers>;
+    readonly allowedPublishers: pulumi.Input<inputs.Lambda.CodeSigningConfigAllowedPublishers>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
      */
-    readonly CodeSigningPolicies?: pulumi.Input<inputs.Lambda.CodeSigningConfigCodeSigningPolicies>;
+    readonly codeSigningPolicies?: pulumi.Input<inputs.Lambda.CodeSigningConfigCodeSigningPolicies>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
 }

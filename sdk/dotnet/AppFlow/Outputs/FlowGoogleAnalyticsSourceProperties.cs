@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string Object;
 
         [OutputConstructor]
-        private FlowGoogleAnalyticsSourceProperties(string Object)
+        private FlowGoogleAnalyticsSourceProperties(string @object)
         {
-            this.Object = Object;
+            Object = @object;
         }
     }
 }

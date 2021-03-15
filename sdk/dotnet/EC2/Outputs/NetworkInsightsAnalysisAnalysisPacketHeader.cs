@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
         [OutputConstructor]
         private NetworkInsightsAnalysisAnalysisPacketHeader(
-            ImmutableArray<string> DestinationAddresses,
+            ImmutableArray<string> destinationAddresses,
 
-            ImmutableArray<Outputs.NetworkInsightsAnalysisPortRange> DestinationPortRanges,
+            ImmutableArray<Outputs.NetworkInsightsAnalysisPortRange> destinationPortRanges,
 
-            string? Protocol,
+            string? protocol,
 
-            ImmutableArray<string> SourceAddresses,
+            ImmutableArray<string> sourceAddresses,
 
-            ImmutableArray<Outputs.NetworkInsightsAnalysisPortRange> SourcePortRanges)
+            ImmutableArray<Outputs.NetworkInsightsAnalysisPortRange> sourcePortRanges)
         {
-            this.DestinationAddresses = DestinationAddresses;
-            this.DestinationPortRanges = DestinationPortRanges;
-            this.Protocol = Protocol;
-            this.SourceAddresses = SourceAddresses;
-            this.SourcePortRanges = SourcePortRanges;
+            DestinationAddresses = destinationAddresses;
+            DestinationPortRanges = destinationPortRanges;
+            Protocol = protocol;
+            SourceAddresses = sourceAddresses;
+            SourcePortRanges = sourcePortRanges;
         }
     }
 }

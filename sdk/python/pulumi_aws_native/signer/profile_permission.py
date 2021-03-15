@@ -89,7 +89,7 @@ class ProfilePermission(pulumi.CustomResource):
         return ProfilePermission(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Action")
+    @pulumi.getter
     def action(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
@@ -97,7 +97,7 @@ class ProfilePermission(pulumi.CustomResource):
         return pulumi.get(self, "action")
 
     @property
-    @pulumi.getter(name="Principal")
+    @pulumi.getter
     def principal(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
@@ -105,7 +105,7 @@ class ProfilePermission(pulumi.CustomResource):
         return pulumi.get(self, "principal")
 
     @property
-    @pulumi.getter(name="ProfileName")
+    @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
@@ -113,7 +113,7 @@ class ProfilePermission(pulumi.CustomResource):
         return pulumi.get(self, "profile_name")
 
     @property
-    @pulumi.getter(name="ProfileVersion")
+    @pulumi.getter(name="profileVersion")
     def profile_version(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
@@ -121,7 +121,7 @@ class ProfilePermission(pulumi.CustomResource):
         return pulumi.get(self, "profile_version")
 
     @property
-    @pulumi.getter(name="StatementId")
+    @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid

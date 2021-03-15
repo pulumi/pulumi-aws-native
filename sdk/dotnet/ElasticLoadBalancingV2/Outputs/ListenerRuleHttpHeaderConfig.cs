@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerRuleHttpHeaderConfig(
-            string? HttpHeaderName,
+            string? httpHeaderName,
 
-            ImmutableArray<string> Values)
+            ImmutableArray<string> values)
         {
-            this.HttpHeaderName = HttpHeaderName;
-            this.Values = Values;
+            HttpHeaderName = httpHeaderName;
+            Values = values;
         }
     }
 }

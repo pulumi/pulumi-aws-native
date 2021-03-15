@@ -14,26 +14,6 @@ namespace Pulumi.AwsNative.EC2.Outputs
     public sealed class NetworkInsightsAnalysisAnalysisRouteTableRoute
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-natgatewayid
-        /// </summary>
-        public readonly string? NatGatewayId;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-networkinterfaceid
-        /// </summary>
-        public readonly string? NetworkInterfaceId;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-origin
-        /// </summary>
-        public readonly string? Origin;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-transitgatewayid
-        /// </summary>
-        public readonly string? TransitGatewayId;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-vpcpeeringconnectionid
-        /// </summary>
-        public readonly string? VpcPeeringConnectionId;
-        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-destinationcidr
         /// </summary>
         public readonly string? DestinationCidr;
@@ -53,19 +33,29 @@ namespace Pulumi.AwsNative.EC2.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-instanceid
         /// </summary>
         public readonly string? InstanceId;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-natgatewayid
+        /// </summary>
+        public readonly string? NatGatewayId;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-networkinterfaceid
+        /// </summary>
+        public readonly string? NetworkInterfaceId;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-origin
+        /// </summary>
+        public readonly string? Origin;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-transitgatewayid
+        /// </summary>
+        public readonly string? TransitGatewayId;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-vpcpeeringconnectionid
+        /// </summary>
+        public readonly string? VpcPeeringConnectionId;
 
         [OutputConstructor]
         private NetworkInsightsAnalysisAnalysisRouteTableRoute(
-            string? NatGatewayId,
-
-            string? NetworkInterfaceId,
-
-            string? Origin,
-
-            string? TransitGatewayId,
-
-            string? VpcPeeringConnectionId,
-
             string? destinationCidr,
 
             string? destinationPrefixListId,
@@ -74,18 +64,28 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             string? gatewayId,
 
-            string? instanceId)
+            string? instanceId,
+
+            string? natGatewayId,
+
+            string? networkInterfaceId,
+
+            string? origin,
+
+            string? transitGatewayId,
+
+            string? vpcPeeringConnectionId)
         {
-            this.NatGatewayId = NatGatewayId;
-            this.NetworkInterfaceId = NetworkInterfaceId;
-            this.Origin = Origin;
-            this.TransitGatewayId = TransitGatewayId;
-            this.VpcPeeringConnectionId = VpcPeeringConnectionId;
             DestinationCidr = destinationCidr;
             DestinationPrefixListId = destinationPrefixListId;
             EgressOnlyInternetGatewayId = egressOnlyInternetGatewayId;
             GatewayId = gatewayId;
             InstanceId = instanceId;
+            NatGatewayId = natGatewayId;
+            NetworkInterfaceId = networkInterfaceId;
+            Origin = origin;
+            TransitGatewayId = transitGatewayId;
+            VpcPeeringConnectionId = vpcPeeringConnectionId;
         }
     }
 }

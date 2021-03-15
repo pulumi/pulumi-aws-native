@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.QLDB.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-aggregationenabled
         /// </summary>
-        [Input("AggregationEnabled")]
+        [Input("aggregationEnabled")]
         public Input<bool>? AggregationEnabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-streamarn
         /// </summary>
-        [Input("StreamArn")]
+        [Input("streamArn")]
         public Input<string>? StreamArn { get; set; }
 
         public StreamKinesisConfigurationArgs()

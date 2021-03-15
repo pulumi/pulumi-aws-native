@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
 
         [OutputConstructor]
         private GrantFilter(
-            string Name,
+            string name,
 
-            Outputs.GrantStringList Values)
+            Outputs.GrantStringList values)
         {
-            this.Name = Name;
-            this.Values = Values;
+            Name = name;
+            Values = values;
         }
     }
 }

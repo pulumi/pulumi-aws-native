@@ -44,27 +44,27 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ModelExplainabilityJobDefinitionEndpointInput(
-            string EndpointName,
+            string endpointName,
 
-            string? FeaturesAttribute,
+            string? featuresAttribute,
 
-            string? InferenceAttribute,
+            string? inferenceAttribute,
 
-            string LocalPath,
+            string localPath,
 
-            string? ProbabilityAttribute,
+            string? probabilityAttribute,
 
-            string? S3DataDistributionType,
+            string? s3DataDistributionType,
 
-            string? S3InputMode)
+            string? s3InputMode)
         {
-            this.EndpointName = EndpointName;
-            this.FeaturesAttribute = FeaturesAttribute;
-            this.InferenceAttribute = InferenceAttribute;
-            this.LocalPath = LocalPath;
-            this.ProbabilityAttribute = ProbabilityAttribute;
-            this.S3DataDistributionType = S3DataDistributionType;
-            this.S3InputMode = S3InputMode;
+            EndpointName = endpointName;
+            FeaturesAttribute = featuresAttribute;
+            InferenceAttribute = inferenceAttribute;
+            LocalPath = localPath;
+            ProbabilityAttribute = probabilityAttribute;
+            S3DataDistributionType = s3DataDistributionType;
+            S3InputMode = s3InputMode;
         }
     }
 }

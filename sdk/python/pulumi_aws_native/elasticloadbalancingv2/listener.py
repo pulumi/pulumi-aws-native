@@ -94,7 +94,7 @@ class Listener(pulumi.CustomResource):
         return Listener(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AlpnPolicy")
+    @pulumi.getter(name="alpnPolicy")
     def alpn_policy(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
@@ -102,7 +102,7 @@ class Listener(pulumi.CustomResource):
         return pulumi.get(self, "alpn_policy")
 
     @property
-    @pulumi.getter(name="Certificates")
+    @pulumi.getter
     def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.ListenerCertificate']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
@@ -110,7 +110,7 @@ class Listener(pulumi.CustomResource):
         return pulumi.get(self, "certificates")
 
     @property
-    @pulumi.getter(name="DefaultActions")
+    @pulumi.getter(name="defaultActions")
     def default_actions(self) -> pulumi.Output[Sequence['outputs.ListenerAction']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
@@ -118,12 +118,12 @@ class Listener(pulumi.CustomResource):
         return pulumi.get(self, "default_actions")
 
     @property
-    @pulumi.getter(name="ListenerArn")
+    @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "listener_arn")
 
     @property
-    @pulumi.getter(name="LoadBalancerArn")
+    @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
@@ -131,7 +131,7 @@ class Listener(pulumi.CustomResource):
         return pulumi.get(self, "load_balancer_arn")
 
     @property
-    @pulumi.getter(name="Port")
+    @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
@@ -139,7 +139,7 @@ class Listener(pulumi.CustomResource):
         return pulumi.get(self, "port")
 
     @property
-    @pulumi.getter(name="Protocol")
+    @pulumi.getter
     def protocol(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
@@ -147,7 +147,7 @@ class Listener(pulumi.CustomResource):
         return pulumi.get(self, "protocol")
 
     @property
-    @pulumi.getter(name="SslPolicy")
+    @pulumi.getter(name="sslPolicy")
     def ssl_policy(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy

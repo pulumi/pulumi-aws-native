@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.RDS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-connectionborrowtimeout
         /// </summary>
-        [Input("ConnectionBorrowTimeout")]
+        [Input("connectionBorrowTimeout")]
         public Input<int>? ConnectionBorrowTimeout { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-initquery
         /// </summary>
-        [Input("InitQuery")]
+        [Input("initQuery")]
         public Input<string>? InitQuery { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxconnectionspercent
         /// </summary>
-        [Input("MaxConnectionsPercent")]
+        [Input("maxConnectionsPercent")]
         public Input<int>? MaxConnectionsPercent { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxidleconnectionspercent
         /// </summary>
-        [Input("MaxIdleConnectionsPercent")]
+        [Input("maxIdleConnectionsPercent")]
         public Input<int>? MaxIdleConnectionsPercent { get; set; }
 
-        [Input("SessionPinningFilters")]
-        private InputList<string>? _SessionPinningFilters;
+        [Input("sessionPinningFilters")]
+        private InputList<string>? _sessionPinningFilters;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-sessionpinningfilters
         /// </summary>
         public InputList<string> SessionPinningFilters
         {
-            get => _SessionPinningFilters ?? (_SessionPinningFilters = new InputList<string>());
-            set => _SessionPinningFilters = value;
+            get => _sessionPinningFilters ?? (_sessionPinningFilters = new InputList<string>());
+            set => _sessionPinningFilters = value;
         }
 
         public DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs()

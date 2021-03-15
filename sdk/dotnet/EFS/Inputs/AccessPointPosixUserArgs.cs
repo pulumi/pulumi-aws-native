@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.EFS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid
         /// </summary>
-        [Input("Gid", required: true)]
+        [Input("gid", required: true)]
         public Input<string> Gid { get; set; } = null!;
 
-        [Input("SecondaryGids")]
-        private InputList<string>? _SecondaryGids;
+        [Input("secondaryGids")]
+        private InputList<string>? _secondaryGids;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids
         /// </summary>
         public InputList<string> SecondaryGids
         {
-            get => _SecondaryGids ?? (_SecondaryGids = new InputList<string>());
-            set => _SecondaryGids = value;
+            get => _secondaryGids ?? (_secondaryGids = new InputList<string>());
+            set => _secondaryGids = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-uid
         /// </summary>
-        [Input("Uid", required: true)]
+        [Input("uid", required: true)]
         public Input<string> Uid { get; set; } = null!;
 
         public AccessPointPosixUserArgs()

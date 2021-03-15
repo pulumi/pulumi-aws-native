@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamOpenXJsonSerDe(
-            bool? CaseInsensitive,
+            bool? caseInsensitive,
 
-            ImmutableDictionary<string, string>? ColumnToJsonKeyMappings,
+            ImmutableDictionary<string, string>? columnToJsonKeyMappings,
 
-            bool? ConvertDotsInJsonKeysToUnderscores)
+            bool? convertDotsInJsonKeysToUnderscores)
         {
-            this.CaseInsensitive = CaseInsensitive;
-            this.ColumnToJsonKeyMappings = ColumnToJsonKeyMappings;
-            this.ConvertDotsInJsonKeysToUnderscores = ConvertDotsInJsonKeysToUnderscores;
+            CaseInsensitive = caseInsensitive;
+            ColumnToJsonKeyMappings = columnToJsonKeyMappings;
+            ConvertDotsInJsonKeysToUnderscores = convertDotsInJsonKeysToUnderscores;
         }
     }
 }

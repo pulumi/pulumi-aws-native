@@ -77,7 +77,7 @@ class HealthCheck(pulumi.CustomResource):
         return HealthCheck(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="HealthCheckConfig")
+    @pulumi.getter(name="healthCheckConfig")
     def health_check_config(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
@@ -85,12 +85,12 @@ class HealthCheck(pulumi.CustomResource):
         return pulumi.get(self, "health_check_config")
 
     @property
-    @pulumi.getter(name="HealthCheckId")
+    @pulumi.getter(name="healthCheckId")
     def health_check_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "health_check_id")
 
     @property
-    @pulumi.getter(name="HealthCheckTags")
+    @pulumi.getter(name="healthCheckTags")
     def health_check_tags(self) -> pulumi.Output[Optional[Sequence['outputs.HealthCheckHealthCheckTag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags

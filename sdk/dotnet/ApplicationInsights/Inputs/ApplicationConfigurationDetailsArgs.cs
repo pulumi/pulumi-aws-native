@@ -15,58 +15,58 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     /// </summary>
     public sealed class ApplicationConfigurationDetailsArgs : Pulumi.ResourceArgs
     {
-        [Input("AlarmMetrics")]
-        private InputList<Inputs.ApplicationAlarmMetricArgs>? _AlarmMetrics;
+        [Input("alarmMetrics")]
+        private InputList<Inputs.ApplicationAlarmMetricArgs>? _alarmMetrics;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
         /// </summary>
         public InputList<Inputs.ApplicationAlarmMetricArgs> AlarmMetrics
         {
-            get => _AlarmMetrics ?? (_AlarmMetrics = new InputList<Inputs.ApplicationAlarmMetricArgs>());
-            set => _AlarmMetrics = value;
+            get => _alarmMetrics ?? (_alarmMetrics = new InputList<Inputs.ApplicationAlarmMetricArgs>());
+            set => _alarmMetrics = value;
         }
 
-        [Input("Alarms")]
-        private InputList<Inputs.ApplicationAlarmArgs>? _Alarms;
+        [Input("alarms")]
+        private InputList<Inputs.ApplicationAlarmArgs>? _alarms;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
         /// </summary>
         public InputList<Inputs.ApplicationAlarmArgs> Alarms
         {
-            get => _Alarms ?? (_Alarms = new InputList<Inputs.ApplicationAlarmArgs>());
-            set => _Alarms = value;
+            get => _alarms ?? (_alarms = new InputList<Inputs.ApplicationAlarmArgs>());
+            set => _alarms = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
         /// </summary>
-        [Input("JMXPrometheusExporter")]
+        [Input("jMXPrometheusExporter")]
         public Input<Inputs.ApplicationJMXPrometheusExporterArgs>? JMXPrometheusExporter { get; set; }
 
-        [Input("Logs")]
-        private InputList<Inputs.ApplicationLogArgs>? _Logs;
+        [Input("logs")]
+        private InputList<Inputs.ApplicationLogArgs>? _logs;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
         /// </summary>
         public InputList<Inputs.ApplicationLogArgs> Logs
         {
-            get => _Logs ?? (_Logs = new InputList<Inputs.ApplicationLogArgs>());
-            set => _Logs = value;
+            get => _logs ?? (_logs = new InputList<Inputs.ApplicationLogArgs>());
+            set => _logs = value;
         }
 
-        [Input("WindowsEvents")]
-        private InputList<Inputs.ApplicationWindowsEventArgs>? _WindowsEvents;
+        [Input("windowsEvents")]
+        private InputList<Inputs.ApplicationWindowsEventArgs>? _windowsEvents;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
         /// </summary>
         public InputList<Inputs.ApplicationWindowsEventArgs> WindowsEvents
         {
-            get => _WindowsEvents ?? (_WindowsEvents = new InputList<Inputs.ApplicationWindowsEventArgs>());
-            set => _WindowsEvents = value;
+            get => _windowsEvents ?? (_windowsEvents = new InputList<Inputs.ApplicationWindowsEventArgs>());
+            set => _windowsEvents = value;
         }
 
         public ApplicationConfigurationDetailsArgs()

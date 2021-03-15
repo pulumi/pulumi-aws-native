@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string? S3Prefix;
 
         [OutputConstructor]
-        private DataSourceDocumentsMetadataConfiguration(string? S3Prefix)
+        private DataSourceDocumentsMetadataConfiguration(string? s3Prefix)
         {
-            this.S3Prefix = S3Prefix;
+            S3Prefix = s3Prefix;
         }
     }
 }

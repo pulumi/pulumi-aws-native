@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-enabled
         /// </summary>
-        [Input("Enabled")]
+        [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-inputformatconfiguration
         /// </summary>
-        [Input("InputFormatConfiguration")]
+        [Input("inputFormatConfiguration")]
         public Input<Inputs.DeliveryStreamInputFormatConfigurationArgs>? InputFormatConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-outputformatconfiguration
         /// </summary>
-        [Input("OutputFormatConfiguration")]
+        [Input("outputFormatConfiguration")]
         public Input<Inputs.DeliveryStreamOutputFormatConfigurationArgs>? OutputFormatConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-schemaconfiguration
         /// </summary>
-        [Input("SchemaConfiguration")]
+        [Input("schemaConfiguration")]
         public Input<Inputs.DeliveryStreamSchemaConfigurationArgs>? SchemaConfiguration { get; set; }
 
         public DeliveryStreamDataFormatConversionConfigurationArgs()

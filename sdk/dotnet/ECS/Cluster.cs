@@ -15,37 +15,37 @@ namespace Pulumi.AwsNative.ECS
     [AwsNativeResourceType("aws-native:ECS:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-capacityproviders
         /// </summary>
-        [Output("CapacityProviders")]
+        [Output("capacityProviders")]
         public Output<ImmutableArray<string>> CapacityProviders { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
         /// </summary>
-        [Output("ClusterName")]
+        [Output("clusterName")]
         public Output<string?> ClusterName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
         /// </summary>
-        [Output("ClusterSettings")]
+        [Output("clusterSettings")]
         public Output<ImmutableArray<Outputs.ClusterClusterSettings>> ClusterSettings { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
         /// </summary>
-        [Output("DefaultCapacityProviderStrategy")]
+        [Output("defaultCapacityProviderStrategy")]
         public Output<ImmutableArray<Outputs.ClusterCapacityProviderStrategyItem>> DefaultCapacityProviderStrategy { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -93,58 +93,58 @@ namespace Pulumi.AwsNative.ECS
 
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
-        [Input("CapacityProviders")]
-        private InputList<string>? _CapacityProviders;
+        [Input("capacityProviders")]
+        private InputList<string>? _capacityProviders;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-capacityproviders
         /// </summary>
         public InputList<string> CapacityProviders
         {
-            get => _CapacityProviders ?? (_CapacityProviders = new InputList<string>());
-            set => _CapacityProviders = value;
+            get => _capacityProviders ?? (_capacityProviders = new InputList<string>());
+            set => _capacityProviders = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
         /// </summary>
-        [Input("ClusterName")]
+        [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
-        [Input("ClusterSettings")]
-        private InputList<Inputs.ClusterClusterSettingsArgs>? _ClusterSettings;
+        [Input("clusterSettings")]
+        private InputList<Inputs.ClusterClusterSettingsArgs>? _clusterSettings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
         /// </summary>
         public InputList<Inputs.ClusterClusterSettingsArgs> ClusterSettings
         {
-            get => _ClusterSettings ?? (_ClusterSettings = new InputList<Inputs.ClusterClusterSettingsArgs>());
-            set => _ClusterSettings = value;
+            get => _clusterSettings ?? (_clusterSettings = new InputList<Inputs.ClusterClusterSettingsArgs>());
+            set => _clusterSettings = value;
         }
 
-        [Input("DefaultCapacityProviderStrategy")]
-        private InputList<Inputs.ClusterCapacityProviderStrategyItemArgs>? _DefaultCapacityProviderStrategy;
+        [Input("defaultCapacityProviderStrategy")]
+        private InputList<Inputs.ClusterCapacityProviderStrategyItemArgs>? _defaultCapacityProviderStrategy;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
         /// </summary>
         public InputList<Inputs.ClusterCapacityProviderStrategyItemArgs> DefaultCapacityProviderStrategy
         {
-            get => _DefaultCapacityProviderStrategy ?? (_DefaultCapacityProviderStrategy = new InputList<Inputs.ClusterCapacityProviderStrategyItemArgs>());
-            set => _DefaultCapacityProviderStrategy = value;
+            get => _defaultCapacityProviderStrategy ?? (_defaultCapacityProviderStrategy = new InputList<Inputs.ClusterCapacityProviderStrategyItemArgs>());
+            set => _defaultCapacityProviderStrategy = value;
         }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public ClusterArgs()

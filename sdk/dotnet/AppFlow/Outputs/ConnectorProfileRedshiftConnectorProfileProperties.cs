@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileRedshiftConnectorProfileProperties(
-            string BucketName,
+            string bucketName,
 
-            string? BucketPrefix,
+            string? bucketPrefix,
 
-            string DatabaseUrl,
+            string databaseUrl,
 
-            string RoleArn)
+            string roleArn)
         {
-            this.BucketName = BucketName;
-            this.BucketPrefix = BucketPrefix;
-            this.DatabaseUrl = DatabaseUrl;
-            this.RoleArn = RoleArn;
+            BucketName = bucketName;
+            BucketPrefix = bucketPrefix;
+            DatabaseUrl = databaseUrl;
+            RoleArn = roleArn;
         }
     }
 }

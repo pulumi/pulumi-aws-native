@@ -15,139 +15,139 @@ namespace Pulumi.AwsNative.OpsWorksCM
     [AwsNativeResourceType("aws-native:OpsWorksCM:Server")]
     public partial class Server : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
         /// </summary>
-        [Output("AssociatePublicIpAddress")]
+        [Output("associatePublicIpAddress")]
         public Output<bool?> AssociatePublicIpAddress { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupid
         /// </summary>
-        [Output("BackupId")]
+        [Output("backupId")]
         public Output<string?> BackupId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupretentioncount
         /// </summary>
-        [Output("BackupRetentionCount")]
+        [Output("backupRetentionCount")]
         public Output<int?> BackupRetentionCount { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customcertificate
         /// </summary>
-        [Output("CustomCertificate")]
+        [Output("customCertificate")]
         public Output<string?> CustomCertificate { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customdomain
         /// </summary>
-        [Output("CustomDomain")]
+        [Output("customDomain")]
         public Output<string?> CustomDomain { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customprivatekey
         /// </summary>
-        [Output("CustomPrivateKey")]
+        [Output("customPrivateKey")]
         public Output<string?> CustomPrivateKey { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-disableautomatedbackup
         /// </summary>
-        [Output("DisableAutomatedBackup")]
+        [Output("disableAutomatedBackup")]
         public Output<bool?> DisableAutomatedBackup { get; private set; } = null!;
 
-        [Output("Endpoint")]
+        [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engine
         /// </summary>
-        [Output("Engine")]
+        [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
         /// </summary>
-        [Output("EngineAttributes")]
+        [Output("engineAttributes")]
         public Output<ImmutableArray<Outputs.ServerEngineAttribute>> EngineAttributes { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
         /// </summary>
-        [Output("EngineModel")]
+        [Output("engineModel")]
         public Output<string?> EngineModel { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineversion
         /// </summary>
-        [Output("EngineVersion")]
+        [Output("engineVersion")]
         public Output<string?> EngineVersion { get; private set; } = null!;
 
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instanceprofilearn
         /// </summary>
-        [Output("InstanceProfileArn")]
+        [Output("instanceProfileArn")]
         public Output<string> InstanceProfileArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instancetype
         /// </summary>
-        [Output("InstanceType")]
+        [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-keypair
         /// </summary>
-        [Output("KeyPair")]
+        [Output("keyPair")]
         public Output<string?> KeyPair { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredbackupwindow
         /// </summary>
-        [Output("PreferredBackupWindow")]
+        [Output("preferredBackupWindow")]
         public Output<string?> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredmaintenancewindow
         /// </summary>
-        [Output("PreferredMaintenanceWindow")]
+        [Output("preferredMaintenanceWindow")]
         public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-securitygroupids
         /// </summary>
-        [Output("SecurityGroupIds")]
+        [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servername
         /// </summary>
-        [Output("ServerName")]
+        [Output("serverName")]
         public Output<string?> ServerName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servicerolearn
         /// </summary>
-        [Output("ServiceRoleArn")]
+        [Output("serviceRoleArn")]
         public Output<string> ServiceRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-subnetids
         /// </summary>
-        [Output("SubnetIds")]
+        [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -198,151 +198,151 @@ namespace Pulumi.AwsNative.OpsWorksCM
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
         /// </summary>
-        [Input("AssociatePublicIpAddress")]
+        [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupid
         /// </summary>
-        [Input("BackupId")]
+        [Input("backupId")]
         public Input<string>? BackupId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupretentioncount
         /// </summary>
-        [Input("BackupRetentionCount")]
+        [Input("backupRetentionCount")]
         public Input<int>? BackupRetentionCount { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customcertificate
         /// </summary>
-        [Input("CustomCertificate")]
+        [Input("customCertificate")]
         public Input<string>? CustomCertificate { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customdomain
         /// </summary>
-        [Input("CustomDomain")]
+        [Input("customDomain")]
         public Input<string>? CustomDomain { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customprivatekey
         /// </summary>
-        [Input("CustomPrivateKey")]
+        [Input("customPrivateKey")]
         public Input<string>? CustomPrivateKey { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-disableautomatedbackup
         /// </summary>
-        [Input("DisableAutomatedBackup")]
+        [Input("disableAutomatedBackup")]
         public Input<bool>? DisableAutomatedBackup { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engine
         /// </summary>
-        [Input("Engine")]
+        [Input("engine")]
         public Input<string>? Engine { get; set; }
 
-        [Input("EngineAttributes")]
-        private InputList<Inputs.ServerEngineAttributeArgs>? _EngineAttributes;
+        [Input("engineAttributes")]
+        private InputList<Inputs.ServerEngineAttributeArgs>? _engineAttributes;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
         /// </summary>
         public InputList<Inputs.ServerEngineAttributeArgs> EngineAttributes
         {
-            get => _EngineAttributes ?? (_EngineAttributes = new InputList<Inputs.ServerEngineAttributeArgs>());
-            set => _EngineAttributes = value;
+            get => _engineAttributes ?? (_engineAttributes = new InputList<Inputs.ServerEngineAttributeArgs>());
+            set => _engineAttributes = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
         /// </summary>
-        [Input("EngineModel")]
+        [Input("engineModel")]
         public Input<string>? EngineModel { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineversion
         /// </summary>
-        [Input("EngineVersion")]
+        [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instanceprofilearn
         /// </summary>
-        [Input("InstanceProfileArn", required: true)]
+        [Input("instanceProfileArn", required: true)]
         public Input<string> InstanceProfileArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instancetype
         /// </summary>
-        [Input("InstanceType", required: true)]
+        [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-keypair
         /// </summary>
-        [Input("KeyPair")]
+        [Input("keyPair")]
         public Input<string>? KeyPair { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredbackupwindow
         /// </summary>
-        [Input("PreferredBackupWindow")]
+        [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredmaintenancewindow
         /// </summary>
-        [Input("PreferredMaintenanceWindow")]
+        [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
-        [Input("SecurityGroupIds")]
-        private InputList<string>? _SecurityGroupIds;
+        [Input("securityGroupIds")]
+        private InputList<string>? _securityGroupIds;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-securitygroupids
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
-            get => _SecurityGroupIds ?? (_SecurityGroupIds = new InputList<string>());
-            set => _SecurityGroupIds = value;
+            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
+            set => _securityGroupIds = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servername
         /// </summary>
-        [Input("ServerName")]
+        [Input("serverName")]
         public Input<string>? ServerName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servicerolearn
         /// </summary>
-        [Input("ServiceRoleArn", required: true)]
+        [Input("serviceRoleArn", required: true)]
         public Input<string> ServiceRoleArn { get; set; } = null!;
 
-        [Input("SubnetIds")]
-        private InputList<string>? _SubnetIds;
+        [Input("subnetIds")]
+        private InputList<string>? _subnetIds;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-subnetids
         /// </summary>
         public InputList<string> SubnetIds
         {
-            get => _SubnetIds ?? (_SubnetIds = new InputList<string>());
-            set => _SubnetIds = value;
+            get => _subnetIds ?? (_subnetIds = new InputList<string>());
+            set => _subnetIds = value;
         }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public ServerArgs()

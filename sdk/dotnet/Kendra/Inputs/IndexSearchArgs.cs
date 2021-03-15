@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html#cfn-kendra-index-search-displayable
         /// </summary>
-        [Input("Displayable")]
+        [Input("displayable")]
         public Input<bool>? Displayable { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html#cfn-kendra-index-search-facetable
         /// </summary>
-        [Input("Facetable")]
+        [Input("facetable")]
         public Input<bool>? Facetable { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html#cfn-kendra-index-search-searchable
         /// </summary>
-        [Input("Searchable")]
+        [Input("searchable")]
         public Input<bool>? Searchable { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html#cfn-kendra-index-search-sortable
         /// </summary>
-        [Input("Sortable")]
+        [Input("sortable")]
         public Input<bool>? Sortable { get; set; }
 
         public IndexSearchArgs()

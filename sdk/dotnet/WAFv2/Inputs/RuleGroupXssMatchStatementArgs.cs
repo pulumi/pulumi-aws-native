@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-fieldtomatch
         /// </summary>
-        [Input("FieldToMatch", required: true)]
+        [Input("fieldToMatch", required: true)]
         public Input<Inputs.RuleGroupFieldToMatchArgs> FieldToMatch { get; set; } = null!;
 
-        [Input("TextTransformations", required: true)]
-        private InputList<Inputs.RuleGroupTextTransformationArgs>? _TextTransformations;
+        [Input("textTransformations", required: true)]
+        private InputList<Inputs.RuleGroupTextTransformationArgs>? _textTransformations;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-texttransformations
         /// </summary>
         public InputList<Inputs.RuleGroupTextTransformationArgs> TextTransformations
         {
-            get => _TextTransformations ?? (_TextTransformations = new InputList<Inputs.RuleGroupTextTransformationArgs>());
-            set => _TextTransformations = value;
+            get => _textTransformations ?? (_textTransformations = new InputList<Inputs.RuleGroupTextTransformationArgs>());
+            set => _textTransformations = value;
         }
 
         public RuleGroupXssMatchStatementArgs()

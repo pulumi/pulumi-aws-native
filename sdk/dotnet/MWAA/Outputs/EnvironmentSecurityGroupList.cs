@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.MWAA.Outputs
         public readonly ImmutableArray<string> SecurityGroupList;
 
         [OutputConstructor]
-        private EnvironmentSecurityGroupList(ImmutableArray<string> SecurityGroupList)
+        private EnvironmentSecurityGroupList(ImmutableArray<string> securityGroupList)
         {
-            this.SecurityGroupList = SecurityGroupList;
+            SecurityGroupList = securityGroupList;
         }
     }
 }

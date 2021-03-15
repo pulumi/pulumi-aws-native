@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Athena.Outputs
 
         [OutputConstructor]
         private WorkGroupEncryptionConfiguration(
-            string EncryptionOption,
+            string encryptionOption,
 
-            string? KmsKey)
+            string? kmsKey)
         {
-            this.EncryptionOption = EncryptionOption;
-            this.KmsKey = KmsKey;
+            EncryptionOption = encryptionOption;
+            KmsKey = kmsKey;
         }
     }
 }

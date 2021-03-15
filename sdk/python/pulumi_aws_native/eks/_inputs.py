@@ -27,7 +27,7 @@ class FargateProfileLabelArgs:
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-key
@@ -39,7 +39,7 @@ class FargateProfileLabelArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-value
@@ -66,7 +66,7 @@ class FargateProfileSelectorArgs:
             pulumi.set(__self__, "labels", labels)
 
     @property
-    @pulumi.getter(name="Namespace")
+    @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-namespace
@@ -78,7 +78,7 @@ class FargateProfileSelectorArgs:
         pulumi.set(self, "namespace", value)
 
     @property
-    @pulumi.getter(name="Labels")
+    @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileLabelArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-labels

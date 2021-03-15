@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.EFS.Outputs
         public readonly string Status;
 
         [OutputConstructor]
-        private FileSystemBackupPolicy(string Status)
+        private FileSystemBackupPolicy(string status)
         {
-            this.Status = Status;
+            Status = status;
         }
     }
 }

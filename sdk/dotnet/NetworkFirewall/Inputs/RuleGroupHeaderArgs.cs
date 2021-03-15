@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html#cfn-networkfirewall-rulegroup-header-destination
         /// </summary>
-        [Input("Destination", required: true)]
+        [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html#cfn-networkfirewall-rulegroup-header-destinationport
         /// </summary>
-        [Input("DestinationPort", required: true)]
+        [Input("destinationPort", required: true)]
         public Input<string> DestinationPort { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html#cfn-networkfirewall-rulegroup-header-direction
         /// </summary>
-        [Input("Direction", required: true)]
+        [Input("direction", required: true)]
         public Input<string> Direction { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html#cfn-networkfirewall-rulegroup-header-protocol
         /// </summary>
-        [Input("Protocol", required: true)]
+        [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html#cfn-networkfirewall-rulegroup-header-source
         /// </summary>
-        [Input("Source", required: true)]
+        [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html#cfn-networkfirewall-rulegroup-header-sourceport
         /// </summary>
-        [Input("SourcePort", required: true)]
+        [Input("sourcePort", required: true)]
         public Input<string> SourcePort { get; set; } = null!;
 
         public RuleGroupHeaderArgs()

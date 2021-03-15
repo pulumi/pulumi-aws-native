@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings
         /// </summary>
-        [Input("AttachmentFieldMappings")]
+        [Input("attachmentFieldMappings")]
         public Input<Inputs.DataSourceConfluenceAttachmentFieldMappingsListArgs>? AttachmentFieldMappings { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-crawlattachments
         /// </summary>
-        [Input("CrawlAttachments")]
+        [Input("crawlAttachments")]
         public Input<bool>? CrawlAttachments { get; set; }
 
         public DataSourceConfluenceAttachmentConfigurationArgs()

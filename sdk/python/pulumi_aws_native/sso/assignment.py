@@ -96,7 +96,7 @@ class Assignment(pulumi.CustomResource):
         return Assignment(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="InstanceArn")
+    @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
@@ -104,7 +104,7 @@ class Assignment(pulumi.CustomResource):
         return pulumi.get(self, "instance_arn")
 
     @property
-    @pulumi.getter(name="PermissionSetArn")
+    @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
@@ -112,7 +112,7 @@ class Assignment(pulumi.CustomResource):
         return pulumi.get(self, "permission_set_arn")
 
     @property
-    @pulumi.getter(name="PrincipalId")
+    @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
@@ -120,7 +120,7 @@ class Assignment(pulumi.CustomResource):
         return pulumi.get(self, "principal_id")
 
     @property
-    @pulumi.getter(name="PrincipalType")
+    @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
@@ -128,7 +128,7 @@ class Assignment(pulumi.CustomResource):
         return pulumi.get(self, "principal_type")
 
     @property
-    @pulumi.getter(name="TargetId")
+    @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
@@ -136,7 +136,7 @@ class Assignment(pulumi.CustomResource):
         return pulumi.get(self, "target_id")
 
     @property
-    @pulumi.getter(name="TargetType")
+    @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype

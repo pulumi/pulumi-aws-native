@@ -35,28 +35,28 @@ export class Asset extends pulumi.CustomResource {
         return obj['__pulumiType'] === Asset.__pulumiType;
     }
 
-    public /*out*/ readonly AssetArn!: pulumi.Output<string>;
+    public /*out*/ readonly assetArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
      */
-    public readonly AssetHierarchies!: pulumi.Output<outputs.IoTSiteWise.AssetAssetHierarchy[] | undefined>;
-    public /*out*/ readonly AssetId!: pulumi.Output<string>;
+    public readonly assetHierarchies!: pulumi.Output<outputs.IoTSiteWise.AssetAssetHierarchy[] | undefined>;
+    public /*out*/ readonly assetId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
      */
-    public readonly AssetModelId!: pulumi.Output<string>;
+    public readonly assetModelId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
      */
-    public readonly AssetName!: pulumi.Output<string>;
+    public readonly assetName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
      */
-    public readonly AssetProperties!: pulumi.Output<outputs.IoTSiteWise.AssetAssetProperty[] | undefined>;
+    public readonly assetProperties!: pulumi.Output<outputs.IoTSiteWise.AssetAssetProperty[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Asset resource with the given unique name, arguments, and options.
@@ -68,27 +68,27 @@ export class Asset extends pulumi.CustomResource {
     constructor(name: string, args: AssetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.AssetModelId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'AssetModelId'");
+            if ((!args || args.assetModelId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'assetModelId'");
             }
-            if ((!args || args.AssetName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'AssetName'");
+            if ((!args || args.assetName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'assetName'");
             }
-            inputs["AssetHierarchies"] = args ? args.AssetHierarchies : undefined;
-            inputs["AssetModelId"] = args ? args.AssetModelId : undefined;
-            inputs["AssetName"] = args ? args.AssetName : undefined;
-            inputs["AssetProperties"] = args ? args.AssetProperties : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["AssetArn"] = undefined /*out*/;
-            inputs["AssetId"] = undefined /*out*/;
+            inputs["assetHierarchies"] = args ? args.assetHierarchies : undefined;
+            inputs["assetModelId"] = args ? args.assetModelId : undefined;
+            inputs["assetName"] = args ? args.assetName : undefined;
+            inputs["assetProperties"] = args ? args.assetProperties : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["assetArn"] = undefined /*out*/;
+            inputs["assetId"] = undefined /*out*/;
         } else {
-            inputs["AssetArn"] = undefined /*out*/;
-            inputs["AssetHierarchies"] = undefined /*out*/;
-            inputs["AssetId"] = undefined /*out*/;
-            inputs["AssetModelId"] = undefined /*out*/;
-            inputs["AssetName"] = undefined /*out*/;
-            inputs["AssetProperties"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["assetArn"] = undefined /*out*/;
+            inputs["assetHierarchies"] = undefined /*out*/;
+            inputs["assetId"] = undefined /*out*/;
+            inputs["assetModelId"] = undefined /*out*/;
+            inputs["assetName"] = undefined /*out*/;
+            inputs["assetProperties"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -108,21 +108,21 @@ export interface AssetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
      */
-    readonly AssetHierarchies?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetAssetHierarchy>[]>;
+    readonly assetHierarchies?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetAssetHierarchy>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
      */
-    readonly AssetModelId: pulumi.Input<string>;
+    readonly assetModelId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
      */
-    readonly AssetName: pulumi.Input<string>;
+    readonly assetName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
      */
-    readonly AssetProperties?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetAssetProperty>[]>;
+    readonly assetProperties?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetAssetProperty>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

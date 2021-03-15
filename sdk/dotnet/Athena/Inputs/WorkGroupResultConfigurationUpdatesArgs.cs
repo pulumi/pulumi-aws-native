@@ -18,25 +18,25 @@ namespace Pulumi.AwsNative.Athena.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-encryptionconfiguration
         /// </summary>
-        [Input("EncryptionConfiguration")]
+        [Input("encryptionConfiguration")]
         public Input<Inputs.WorkGroupEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-outputlocation
         /// </summary>
-        [Input("OutputLocation")]
+        [Input("outputLocation")]
         public Input<string>? OutputLocation { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeencryptionconfiguration
         /// </summary>
-        [Input("RemoveEncryptionConfiguration")]
+        [Input("removeEncryptionConfiguration")]
         public Input<bool>? RemoveEncryptionConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeoutputlocation
         /// </summary>
-        [Input("RemoveOutputLocation")]
+        [Input("removeOutputLocation")]
         public Input<bool>? RemoveOutputLocation { get; set; }
 
         public WorkGroupResultConfigurationUpdatesArgs()

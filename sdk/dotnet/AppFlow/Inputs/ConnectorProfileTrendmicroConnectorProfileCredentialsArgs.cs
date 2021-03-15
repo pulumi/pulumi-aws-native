@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html#cfn-appflow-connectorprofile-trendmicroconnectorprofilecredentials-apisecretkey
         /// </summary>
-        [Input("ApiSecretKey", required: true)]
+        [Input("apiSecretKey", required: true)]
         public Input<string> ApiSecretKey { get; set; } = null!;
 
         public ConnectorProfileTrendmicroConnectorProfileCredentialsArgs()

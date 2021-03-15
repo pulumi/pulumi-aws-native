@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-childassetid
         /// </summary>
-        [Input("ChildAssetId", required: true)]
+        [Input("childAssetId", required: true)]
         public Input<string> ChildAssetId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-logicalid
         /// </summary>
-        [Input("LogicalId", required: true)]
+        [Input("logicalId", required: true)]
         public Input<string> LogicalId { get; set; } = null!;
 
         public AssetAssetHierarchyArgs()

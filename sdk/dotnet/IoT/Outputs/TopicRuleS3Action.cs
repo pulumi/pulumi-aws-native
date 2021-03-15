@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleS3Action(
-            string BucketName,
+            string bucketName,
 
-            string Key,
+            string key,
 
-            string RoleArn)
+            string roleArn)
         {
-            this.BucketName = BucketName;
-            this.Key = Key;
-            this.RoleArn = RoleArn;
+            BucketName = bucketName;
+            Key = key;
+            RoleArn = roleArn;
         }
     }
 }

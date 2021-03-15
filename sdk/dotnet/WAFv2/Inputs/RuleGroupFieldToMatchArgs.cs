@@ -18,43 +18,43 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
         /// </summary>
-        [Input("AllQueryArguments")]
+        [Input("allQueryArguments")]
         public InputUnion<System.Text.Json.JsonElement, string>? AllQueryArguments { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
         /// </summary>
-        [Input("Body")]
+        [Input("body")]
         public InputUnion<System.Text.Json.JsonElement, string>? Body { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
         /// </summary>
-        [Input("Method")]
+        [Input("method")]
         public InputUnion<System.Text.Json.JsonElement, string>? Method { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
         /// </summary>
-        [Input("QueryString")]
+        [Input("queryString")]
         public InputUnion<System.Text.Json.JsonElement, string>? QueryString { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singleheader
         /// </summary>
-        [Input("SingleHeader")]
+        [Input("singleHeader")]
         public InputUnion<System.Text.Json.JsonElement, string>? SingleHeader { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument
         /// </summary>
-        [Input("SingleQueryArgument")]
+        [Input("singleQueryArgument")]
         public InputUnion<System.Text.Json.JsonElement, string>? SingleQueryArgument { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath
         /// </summary>
-        [Input("UriPath")]
+        [Input("uriPath")]
         public InputUnion<System.Text.Json.JsonElement, string>? UriPath { get; set; }
 
         public RuleGroupFieldToMatchArgs()

@@ -38,32 +38,32 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
      */
-    public readonly Enabled!: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
      */
-    public readonly PreProvisioningHook!: pulumi.Output<outputs.IoT.ProvisioningTemplateProvisioningHook | undefined>;
+    public readonly preProvisioningHook!: pulumi.Output<outputs.IoT.ProvisioningTemplateProvisioningHook | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
      */
-    public readonly ProvisioningRoleArn!: pulumi.Output<string>;
+    public readonly provisioningRoleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.IoT.ProvisioningTemplateTags | undefined>;
-    public /*out*/ readonly TemplateArn!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<outputs.IoT.ProvisioningTemplateTags | undefined>;
+    public /*out*/ readonly templateArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
      */
-    public readonly TemplateBody!: pulumi.Output<string>;
+    public readonly templateBody!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
      */
-    public readonly TemplateName!: pulumi.Output<string | undefined>;
+    public readonly templateName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ProvisioningTemplate resource with the given unique name, arguments, and options.
@@ -75,29 +75,29 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     constructor(name: string, args: ProvisioningTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ProvisioningRoleArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ProvisioningRoleArn'");
+            if ((!args || args.provisioningRoleArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'provisioningRoleArn'");
             }
-            if ((!args || args.TemplateBody === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'TemplateBody'");
+            if ((!args || args.templateBody === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'templateBody'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["Enabled"] = args ? args.Enabled : undefined;
-            inputs["PreProvisioningHook"] = args ? args.PreProvisioningHook : undefined;
-            inputs["ProvisioningRoleArn"] = args ? args.ProvisioningRoleArn : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["TemplateBody"] = args ? args.TemplateBody : undefined;
-            inputs["TemplateName"] = args ? args.TemplateName : undefined;
-            inputs["TemplateArn"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["preProvisioningHook"] = args ? args.preProvisioningHook : undefined;
+            inputs["provisioningRoleArn"] = args ? args.provisioningRoleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["templateBody"] = args ? args.templateBody : undefined;
+            inputs["templateName"] = args ? args.templateName : undefined;
+            inputs["templateArn"] = undefined /*out*/;
         } else {
-            inputs["Description"] = undefined /*out*/;
-            inputs["Enabled"] = undefined /*out*/;
-            inputs["PreProvisioningHook"] = undefined /*out*/;
-            inputs["ProvisioningRoleArn"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["TemplateArn"] = undefined /*out*/;
-            inputs["TemplateBody"] = undefined /*out*/;
-            inputs["TemplateName"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["enabled"] = undefined /*out*/;
+            inputs["preProvisioningHook"] = undefined /*out*/;
+            inputs["provisioningRoleArn"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["templateArn"] = undefined /*out*/;
+            inputs["templateBody"] = undefined /*out*/;
+            inputs["templateName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -117,29 +117,29 @@ export interface ProvisioningTemplateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
      */
-    readonly Enabled?: pulumi.Input<boolean>;
+    readonly enabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
      */
-    readonly PreProvisioningHook?: pulumi.Input<inputs.IoT.ProvisioningTemplateProvisioningHook>;
+    readonly preProvisioningHook?: pulumi.Input<inputs.IoT.ProvisioningTemplateProvisioningHook>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
      */
-    readonly ProvisioningRoleArn: pulumi.Input<string>;
+    readonly provisioningRoleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
      */
-    readonly Tags?: pulumi.Input<inputs.IoT.ProvisioningTemplateTags>;
+    readonly tags?: pulumi.Input<inputs.IoT.ProvisioningTemplateTags>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
      */
-    readonly TemplateBody: pulumi.Input<string>;
+    readonly templateBody: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
      */
-    readonly TemplateName?: pulumi.Input<string>;
+    readonly templateName?: pulumi.Input<string>;
 }

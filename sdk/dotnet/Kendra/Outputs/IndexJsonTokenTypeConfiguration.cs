@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private IndexJsonTokenTypeConfiguration(
-            string GroupAttributeField,
+            string groupAttributeField,
 
-            string UserNameAttributeField)
+            string userNameAttributeField)
         {
-            this.GroupAttributeField = GroupAttributeField;
-            this.UserNameAttributeField = UserNameAttributeField;
+            GroupAttributeField = groupAttributeField;
+            UserNameAttributeField = userNameAttributeField;
         }
     }
 }

@@ -26,7 +26,7 @@ class MetricStreamMetricStreamFilter(dict):
         pulumi.set(__self__, "namespace", namespace)
 
     @property
-    @pulumi.getter(name="Namespace")
+    @pulumi.getter
     def namespace(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace

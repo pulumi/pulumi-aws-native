@@ -172,123 +172,123 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionContainerDefinition(
-            ImmutableArray<string> Command,
+            ImmutableArray<string> command,
 
-            int? Cpu,
+            int? cpu,
 
-            ImmutableArray<Outputs.TaskDefinitionContainerDependency> DependsOn,
+            ImmutableArray<Outputs.TaskDefinitionContainerDependency> dependsOn,
 
-            bool? DisableNetworking,
+            bool? disableNetworking,
 
-            ImmutableArray<string> DnsSearchDomains,
+            ImmutableArray<string> dnsSearchDomains,
 
-            ImmutableArray<string> DnsServers,
+            ImmutableArray<string> dnsServers,
 
-            ImmutableDictionary<string, string>? DockerLabels,
+            ImmutableDictionary<string, string>? dockerLabels,
 
-            ImmutableArray<string> DockerSecurityOptions,
+            ImmutableArray<string> dockerSecurityOptions,
 
-            ImmutableArray<string> EntryPoint,
+            ImmutableArray<string> entryPoint,
 
-            ImmutableArray<Outputs.TaskDefinitionKeyValuePair> Environment,
+            ImmutableArray<Outputs.TaskDefinitionKeyValuePair> environment,
 
-            ImmutableArray<Outputs.TaskDefinitionEnvironmentFile> EnvironmentFiles,
+            ImmutableArray<Outputs.TaskDefinitionEnvironmentFile> environmentFiles,
 
-            bool? Essential,
+            bool? essential,
 
-            ImmutableArray<Outputs.TaskDefinitionHostEntry> ExtraHosts,
+            ImmutableArray<Outputs.TaskDefinitionHostEntry> extraHosts,
 
-            Outputs.TaskDefinitionFirelensConfiguration? FirelensConfiguration,
+            Outputs.TaskDefinitionFirelensConfiguration? firelensConfiguration,
 
-            Outputs.TaskDefinitionHealthCheck? HealthCheck,
+            Outputs.TaskDefinitionHealthCheck? healthCheck,
 
-            string? Hostname,
+            string? hostname,
 
-            string? Image,
+            string? image,
 
-            bool? Interactive,
+            bool? interactive,
 
-            ImmutableArray<string> Links,
+            ImmutableArray<string> links,
 
-            Outputs.TaskDefinitionLinuxParameters? LinuxParameters,
+            Outputs.TaskDefinitionLinuxParameters? linuxParameters,
 
-            Outputs.TaskDefinitionLogConfiguration? LogConfiguration,
+            Outputs.TaskDefinitionLogConfiguration? logConfiguration,
 
-            int? Memory,
+            int? memory,
 
-            int? MemoryReservation,
+            int? memoryReservation,
 
-            ImmutableArray<Outputs.TaskDefinitionMountPoint> MountPoints,
+            ImmutableArray<Outputs.TaskDefinitionMountPoint> mountPoints,
 
-            string? Name,
+            string? name,
 
-            ImmutableArray<Outputs.TaskDefinitionPortMapping> PortMappings,
+            ImmutableArray<Outputs.TaskDefinitionPortMapping> portMappings,
 
-            bool? Privileged,
+            bool? privileged,
 
-            bool? PseudoTerminal,
+            bool? pseudoTerminal,
 
-            bool? ReadonlyRootFilesystem,
+            bool? readonlyRootFilesystem,
 
-            Outputs.TaskDefinitionRepositoryCredentials? RepositoryCredentials,
+            Outputs.TaskDefinitionRepositoryCredentials? repositoryCredentials,
 
-            ImmutableArray<Outputs.TaskDefinitionResourceRequirement> ResourceRequirements,
+            ImmutableArray<Outputs.TaskDefinitionResourceRequirement> resourceRequirements,
 
-            ImmutableArray<Outputs.TaskDefinitionSecret> Secrets,
+            ImmutableArray<Outputs.TaskDefinitionSecret> secrets,
 
-            int? StartTimeout,
+            int? startTimeout,
 
-            int? StopTimeout,
+            int? stopTimeout,
 
-            ImmutableArray<Outputs.TaskDefinitionSystemControl> SystemControls,
+            ImmutableArray<Outputs.TaskDefinitionSystemControl> systemControls,
 
-            ImmutableArray<Outputs.TaskDefinitionUlimit> Ulimits,
+            ImmutableArray<Outputs.TaskDefinitionUlimit> ulimits,
 
-            string? User,
+            string? user,
 
-            ImmutableArray<Outputs.TaskDefinitionVolumeFrom> VolumesFrom,
+            ImmutableArray<Outputs.TaskDefinitionVolumeFrom> volumesFrom,
 
-            string? WorkingDirectory)
+            string? workingDirectory)
         {
-            this.Command = Command;
-            this.Cpu = Cpu;
-            this.DependsOn = DependsOn;
-            this.DisableNetworking = DisableNetworking;
-            this.DnsSearchDomains = DnsSearchDomains;
-            this.DnsServers = DnsServers;
-            this.DockerLabels = DockerLabels;
-            this.DockerSecurityOptions = DockerSecurityOptions;
-            this.EntryPoint = EntryPoint;
-            this.Environment = Environment;
-            this.EnvironmentFiles = EnvironmentFiles;
-            this.Essential = Essential;
-            this.ExtraHosts = ExtraHosts;
-            this.FirelensConfiguration = FirelensConfiguration;
-            this.HealthCheck = HealthCheck;
-            this.Hostname = Hostname;
-            this.Image = Image;
-            this.Interactive = Interactive;
-            this.Links = Links;
-            this.LinuxParameters = LinuxParameters;
-            this.LogConfiguration = LogConfiguration;
-            this.Memory = Memory;
-            this.MemoryReservation = MemoryReservation;
-            this.MountPoints = MountPoints;
-            this.Name = Name;
-            this.PortMappings = PortMappings;
-            this.Privileged = Privileged;
-            this.PseudoTerminal = PseudoTerminal;
-            this.ReadonlyRootFilesystem = ReadonlyRootFilesystem;
-            this.RepositoryCredentials = RepositoryCredentials;
-            this.ResourceRequirements = ResourceRequirements;
-            this.Secrets = Secrets;
-            this.StartTimeout = StartTimeout;
-            this.StopTimeout = StopTimeout;
-            this.SystemControls = SystemControls;
-            this.Ulimits = Ulimits;
-            this.User = User;
-            this.VolumesFrom = VolumesFrom;
-            this.WorkingDirectory = WorkingDirectory;
+            Command = command;
+            Cpu = cpu;
+            DependsOn = dependsOn;
+            DisableNetworking = disableNetworking;
+            DnsSearchDomains = dnsSearchDomains;
+            DnsServers = dnsServers;
+            DockerLabels = dockerLabels;
+            DockerSecurityOptions = dockerSecurityOptions;
+            EntryPoint = entryPoint;
+            Environment = environment;
+            EnvironmentFiles = environmentFiles;
+            Essential = essential;
+            ExtraHosts = extraHosts;
+            FirelensConfiguration = firelensConfiguration;
+            HealthCheck = healthCheck;
+            Hostname = hostname;
+            Image = image;
+            Interactive = interactive;
+            Links = links;
+            LinuxParameters = linuxParameters;
+            LogConfiguration = logConfiguration;
+            Memory = memory;
+            MemoryReservation = memoryReservation;
+            MountPoints = mountPoints;
+            Name = name;
+            PortMappings = portMappings;
+            Privileged = privileged;
+            PseudoTerminal = pseudoTerminal;
+            ReadonlyRootFilesystem = readonlyRootFilesystem;
+            RepositoryCredentials = repositoryCredentials;
+            ResourceRequirements = resourceRequirements;
+            Secrets = secrets;
+            StartTimeout = startTimeout;
+            StopTimeout = stopTimeout;
+            SystemControls = systemControls;
+            Ulimits = ulimits;
+            User = user;
+            VolumesFrom = volumesFrom;
+            WorkingDirectory = workingDirectory;
         }
     }
 }

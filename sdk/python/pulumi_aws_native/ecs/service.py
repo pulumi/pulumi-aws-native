@@ -134,7 +134,7 @@ class Service(pulumi.CustomResource):
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="CapacityProviderStrategy")
+    @pulumi.getter(name="capacityProviderStrategy")
     def capacity_provider_strategy(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceCapacityProviderStrategyItem']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
@@ -142,7 +142,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "capacity_provider_strategy")
 
     @property
-    @pulumi.getter(name="Cluster")
+    @pulumi.getter
     def cluster(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
@@ -150,7 +150,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "cluster")
 
     @property
-    @pulumi.getter(name="DeploymentConfiguration")
+    @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> pulumi.Output[Optional['outputs.ServiceDeploymentConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
@@ -158,7 +158,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "deployment_configuration")
 
     @property
-    @pulumi.getter(name="DeploymentController")
+    @pulumi.getter(name="deploymentController")
     def deployment_controller(self) -> pulumi.Output[Optional['outputs.ServiceDeploymentController']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
@@ -166,7 +166,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "deployment_controller")
 
     @property
-    @pulumi.getter(name="DesiredCount")
+    @pulumi.getter(name="desiredCount")
     def desired_count(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
@@ -174,7 +174,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "desired_count")
 
     @property
-    @pulumi.getter(name="EnableECSManagedTags")
+    @pulumi.getter(name="enableECSManagedTags")
     def enable_ecs_managed_tags(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
@@ -182,7 +182,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "enable_ecs_managed_tags")
 
     @property
-    @pulumi.getter(name="HealthCheckGracePeriodSeconds")
+    @pulumi.getter(name="healthCheckGracePeriodSeconds")
     def health_check_grace_period_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
@@ -190,7 +190,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "health_check_grace_period_seconds")
 
     @property
-    @pulumi.getter(name="LaunchType")
+    @pulumi.getter(name="launchType")
     def launch_type(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
@@ -198,7 +198,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "launch_type")
 
     @property
-    @pulumi.getter(name="LoadBalancers")
+    @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceLoadBalancer']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
@@ -206,12 +206,12 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "load_balancers")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="NetworkConfiguration")
+    @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.ServiceNetworkConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
@@ -219,7 +219,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "network_configuration")
 
     @property
-    @pulumi.getter(name="PlacementConstraints")
+    @pulumi.getter(name="placementConstraints")
     def placement_constraints(self) -> pulumi.Output[Optional[Sequence['outputs.ServicePlacementConstraint']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
@@ -227,7 +227,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "placement_constraints")
 
     @property
-    @pulumi.getter(name="PlacementStrategies")
+    @pulumi.getter(name="placementStrategies")
     def placement_strategies(self) -> pulumi.Output[Optional[Sequence['outputs.ServicePlacementStrategy']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
@@ -235,7 +235,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "placement_strategies")
 
     @property
-    @pulumi.getter(name="PlatformVersion")
+    @pulumi.getter(name="platformVersion")
     def platform_version(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
@@ -243,7 +243,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "platform_version")
 
     @property
-    @pulumi.getter(name="PropagateTags")
+    @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
@@ -251,7 +251,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "propagate_tags")
 
     @property
-    @pulumi.getter(name="Role")
+    @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
@@ -259,7 +259,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "role")
 
     @property
-    @pulumi.getter(name="SchedulingStrategy")
+    @pulumi.getter(name="schedulingStrategy")
     def scheduling_strategy(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
@@ -267,7 +267,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "scheduling_strategy")
 
     @property
-    @pulumi.getter(name="ServiceArn")
+    @pulumi.getter(name="serviceArn")
     def service_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
@@ -275,7 +275,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "service_arn")
 
     @property
-    @pulumi.getter(name="ServiceName")
+    @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
@@ -283,7 +283,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "service_name")
 
     @property
-    @pulumi.getter(name="ServiceRegistries")
+    @pulumi.getter(name="serviceRegistries")
     def service_registries(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceServiceRegistry']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
@@ -291,7 +291,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "service_registries")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
@@ -299,7 +299,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="TaskDefinition")
+    @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition

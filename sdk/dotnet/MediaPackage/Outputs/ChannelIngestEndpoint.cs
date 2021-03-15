@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private ChannelIngestEndpoint(
-            string? Id,
+            string? id,
 
-            string? Password,
+            string? password,
 
-            string? Url,
+            string? url,
 
-            string? Username)
+            string? username)
         {
-            this.Id = Id;
-            this.Password = Password;
-            this.Url = Url;
-            this.Username = Username;
+            Id = id;
+            Password = password;
+            Url = url;
+            Username = username;
         }
     }
 }

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 
         [OutputConstructor]
         private JobS3Location(
-            string Bucket,
+            string bucket,
 
-            string? Key)
+            string? key)
         {
-            this.Bucket = Bucket;
-            this.Key = Key;
+            Bucket = bucket;
+            Key = key;
         }
     }
 }

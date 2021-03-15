@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationWindowsEvent(
-            ImmutableArray<string> EventLevels,
+            ImmutableArray<string> eventLevels,
 
-            string EventName,
+            string eventName,
 
-            string LogGroupName,
+            string logGroupName,
 
-            string? PatternSet)
+            string? patternSet)
         {
-            this.EventLevels = EventLevels;
-            this.EventName = EventName;
-            this.LogGroupName = LogGroupName;
-            this.PatternSet = PatternSet;
+            EventLevels = eventLevels;
+            EventName = eventName;
+            LogGroupName = logGroupName;
+            PatternSet = patternSet;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-instanceurl
         /// </summary>
-        [Input("InstanceUrl")]
+        [Input("instanceUrl")]
         public Input<string>? InstanceUrl { get; set; }
 
         /// <summary>

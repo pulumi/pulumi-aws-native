@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         public readonly Outputs.WebACLStatementTwo Statement;
 
         [OutputConstructor]
-        private WebACLNotStatementOne(Outputs.WebACLStatementTwo Statement)
+        private WebACLNotStatementOne(Outputs.WebACLStatementTwo statement)
         {
-            this.Statement = Statement;
+            Statement = statement;
         }
     }
 }

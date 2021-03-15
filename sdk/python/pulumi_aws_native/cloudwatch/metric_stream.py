@@ -96,17 +96,17 @@ class MetricStream(pulumi.CustomResource):
         return MetricStream(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="CreationDate")
+    @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[str]:
         return pulumi.get(self, "creation_date")
 
     @property
-    @pulumi.getter(name="ExcludeFilters")
+    @pulumi.getter(name="excludeFilters")
     def exclude_filters(self) -> pulumi.Output[Optional[Sequence['outputs.MetricStreamMetricStreamFilter']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
@@ -114,7 +114,7 @@ class MetricStream(pulumi.CustomResource):
         return pulumi.get(self, "exclude_filters")
 
     @property
-    @pulumi.getter(name="FirehoseArn")
+    @pulumi.getter(name="firehoseArn")
     def firehose_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
@@ -122,7 +122,7 @@ class MetricStream(pulumi.CustomResource):
         return pulumi.get(self, "firehose_arn")
 
     @property
-    @pulumi.getter(name="IncludeFilters")
+    @pulumi.getter(name="includeFilters")
     def include_filters(self) -> pulumi.Output[Optional[Sequence['outputs.MetricStreamMetricStreamFilter']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
@@ -130,12 +130,12 @@ class MetricStream(pulumi.CustomResource):
         return pulumi.get(self, "include_filters")
 
     @property
-    @pulumi.getter(name="LastUpdateDate")
+    @pulumi.getter(name="lastUpdateDate")
     def last_update_date(self) -> pulumi.Output[str]:
         return pulumi.get(self, "last_update_date")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
@@ -143,7 +143,7 @@ class MetricStream(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
@@ -151,12 +151,12 @@ class MetricStream(pulumi.CustomResource):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="State")
+    @pulumi.getter
     def state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "state")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags

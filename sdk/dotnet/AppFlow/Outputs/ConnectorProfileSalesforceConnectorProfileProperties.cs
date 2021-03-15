@@ -24,11 +24,11 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileSalesforceConnectorProfileProperties(
-            string? InstanceUrl,
+            string? instanceUrl,
 
             bool? isSandboxEnvironment)
         {
-            this.InstanceUrl = InstanceUrl;
+            InstanceUrl = instanceUrl;
             IsSandboxEnvironment = isSandboxEnvironment;
         }
     }

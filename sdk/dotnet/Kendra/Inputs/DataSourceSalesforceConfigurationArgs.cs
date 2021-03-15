@@ -18,55 +18,55 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-chatterfeedconfiguration
         /// </summary>
-        [Input("ChatterFeedConfiguration")]
+        [Input("chatterFeedConfiguration")]
         public Input<Inputs.DataSourceSalesforceChatterFeedConfigurationArgs>? ChatterFeedConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-crawlattachments
         /// </summary>
-        [Input("CrawlAttachments")]
+        [Input("crawlAttachments")]
         public Input<bool>? CrawlAttachments { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns
         /// </summary>
-        [Input("ExcludeAttachmentFilePatterns")]
+        [Input("excludeAttachmentFilePatterns")]
         public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? ExcludeAttachmentFilePatterns { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns
         /// </summary>
-        [Input("IncludeAttachmentFilePatterns")]
+        [Input("includeAttachmentFilePatterns")]
         public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? IncludeAttachmentFilePatterns { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
         /// </summary>
-        [Input("KnowledgeArticleConfiguration")]
+        [Input("knowledgeArticleConfiguration")]
         public Input<Inputs.DataSourceSalesforceKnowledgeArticleConfigurationArgs>? KnowledgeArticleConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-secretarn
         /// </summary>
-        [Input("SecretArn", required: true)]
+        [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-serverurl
         /// </summary>
-        [Input("ServerUrl", required: true)]
+        [Input("serverUrl", required: true)]
         public Input<string> ServerUrl { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectattachmentconfiguration
         /// </summary>
-        [Input("StandardObjectAttachmentConfiguration")]
+        [Input("standardObjectAttachmentConfiguration")]
         public Input<Inputs.DataSourceSalesforceStandardObjectAttachmentConfigurationArgs>? StandardObjectAttachmentConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
         /// </summary>
-        [Input("StandardObjectConfigurations")]
+        [Input("standardObjectConfigurations")]
         public Input<Inputs.DataSourceSalesforceStandardObjectConfigurationListArgs>? StandardObjectConfigurations { get; set; }
 
         public DataSourceSalesforceConfigurationArgs()

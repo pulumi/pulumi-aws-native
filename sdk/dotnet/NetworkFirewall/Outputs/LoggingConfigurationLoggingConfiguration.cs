@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly Outputs.LoggingConfigurationLogDestinationConfigs LogDestinationConfigs;
 
         [OutputConstructor]
-        private LoggingConfigurationLoggingConfiguration(Outputs.LoggingConfigurationLogDestinationConfigs LogDestinationConfigs)
+        private LoggingConfigurationLoggingConfiguration(Outputs.LoggingConfigurationLogDestinationConfigs logDestinationConfigs)
         {
-            this.LogDestinationConfigs = LogDestinationConfigs;
+            LogDestinationConfigs = logDestinationConfigs;
         }
     }
 }

@@ -15,43 +15,43 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:SageMaker:Project")]
     public partial class Project : Pulumi.CustomResource
     {
-        [Output("CreationTime")]
+        [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
-        [Output("ProjectArn")]
+        [Output("projectArn")]
         public Output<string> ProjectArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
         /// </summary>
-        [Output("ProjectDescription")]
+        [Output("projectDescription")]
         public Output<string?> ProjectDescription { get; private set; } = null!;
 
-        [Output("ProjectId")]
+        [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
         /// </summary>
-        [Output("ProjectName")]
+        [Output("projectName")]
         public Output<string> ProjectName { get; private set; } = null!;
 
-        [Output("ProjectStatus")]
+        [Output("projectStatus")]
         public Output<string> ProjectStatus { get; private set; } = null!;
 
-        [Output("ServiceCatalogProvisionedProductDetails")]
+        [Output("serviceCatalogProvisionedProductDetails")]
         public Output<Union<System.Text.Json.JsonElement, string>> ServiceCatalogProvisionedProductDetails { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
         /// </summary>
-        [Output("ServiceCatalogProvisioningDetails")]
+        [Output("serviceCatalogProvisioningDetails")]
         public Output<Union<System.Text.Json.JsonElement, string>> ServiceCatalogProvisioningDetails { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -102,31 +102,31 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
         /// </summary>
-        [Input("ProjectDescription")]
+        [Input("projectDescription")]
         public Input<string>? ProjectDescription { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
         /// </summary>
-        [Input("ProjectName", required: true)]
+        [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
         /// </summary>
-        [Input("ServiceCatalogProvisioningDetails", required: true)]
+        [Input("serviceCatalogProvisioningDetails", required: true)]
         public InputUnion<System.Text.Json.JsonElement, string> ServiceCatalogProvisioningDetails { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public ProjectArgs()

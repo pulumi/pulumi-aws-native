@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.EFS.Outputs
 
         [OutputConstructor]
         private AccessPointRootDirectory(
-            Outputs.AccessPointCreationInfo? CreationInfo,
+            Outputs.AccessPointCreationInfo? creationInfo,
 
-            string? Path)
+            string? path)
         {
-            this.CreationInfo = CreationInfo;
-            this.Path = Path;
+            CreationInfo = creationInfo;
+            Path = path;
         }
     }
 }

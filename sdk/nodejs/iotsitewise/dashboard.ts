@@ -35,28 +35,28 @@ export class Dashboard extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dashboard.__pulumiType;
     }
 
-    public /*out*/ readonly DashboardArn!: pulumi.Output<string>;
+    public /*out*/ readonly dashboardArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
      */
-    public readonly DashboardDefinition!: pulumi.Output<string>;
+    public readonly dashboardDefinition!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
      */
-    public readonly DashboardDescription!: pulumi.Output<string>;
-    public /*out*/ readonly DashboardId!: pulumi.Output<string>;
+    public readonly dashboardDescription!: pulumi.Output<string>;
+    public /*out*/ readonly dashboardId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
      */
-    public readonly DashboardName!: pulumi.Output<string>;
+    public readonly dashboardName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
      */
-    public readonly ProjectId!: pulumi.Output<string | undefined>;
+    public readonly projectId!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -68,30 +68,30 @@ export class Dashboard extends pulumi.CustomResource {
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.DashboardDefinition === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DashboardDefinition'");
+            if ((!args || args.dashboardDefinition === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'dashboardDefinition'");
             }
-            if ((!args || args.DashboardDescription === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DashboardDescription'");
+            if ((!args || args.dashboardDescription === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'dashboardDescription'");
             }
-            if ((!args || args.DashboardName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DashboardName'");
+            if ((!args || args.dashboardName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'dashboardName'");
             }
-            inputs["DashboardDefinition"] = args ? args.DashboardDefinition : undefined;
-            inputs["DashboardDescription"] = args ? args.DashboardDescription : undefined;
-            inputs["DashboardName"] = args ? args.DashboardName : undefined;
-            inputs["ProjectId"] = args ? args.ProjectId : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["DashboardArn"] = undefined /*out*/;
-            inputs["DashboardId"] = undefined /*out*/;
+            inputs["dashboardDefinition"] = args ? args.dashboardDefinition : undefined;
+            inputs["dashboardDescription"] = args ? args.dashboardDescription : undefined;
+            inputs["dashboardName"] = args ? args.dashboardName : undefined;
+            inputs["projectId"] = args ? args.projectId : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["dashboardArn"] = undefined /*out*/;
+            inputs["dashboardId"] = undefined /*out*/;
         } else {
-            inputs["DashboardArn"] = undefined /*out*/;
-            inputs["DashboardDefinition"] = undefined /*out*/;
-            inputs["DashboardDescription"] = undefined /*out*/;
-            inputs["DashboardId"] = undefined /*out*/;
-            inputs["DashboardName"] = undefined /*out*/;
-            inputs["ProjectId"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["dashboardArn"] = undefined /*out*/;
+            inputs["dashboardDefinition"] = undefined /*out*/;
+            inputs["dashboardDescription"] = undefined /*out*/;
+            inputs["dashboardId"] = undefined /*out*/;
+            inputs["dashboardName"] = undefined /*out*/;
+            inputs["projectId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -111,21 +111,21 @@ export interface DashboardArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
      */
-    readonly DashboardDefinition: pulumi.Input<string>;
+    readonly dashboardDefinition: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
      */
-    readonly DashboardDescription: pulumi.Input<string>;
+    readonly dashboardDescription: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
      */
-    readonly DashboardName: pulumi.Input<string>;
+    readonly dashboardName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
      */
-    readonly ProjectId?: pulumi.Input<string>;
+    readonly projectId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

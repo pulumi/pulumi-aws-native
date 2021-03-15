@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-cdnidentifiersecret
         /// </summary>
-        [Input("CdnIdentifierSecret", required: true)]
+        [Input("cdnIdentifierSecret", required: true)]
         public Input<string> CdnIdentifierSecret { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-secretsrolearn
         /// </summary>
-        [Input("SecretsRoleArn", required: true)]
+        [Input("secretsRoleArn", required: true)]
         public Input<string> SecretsRoleArn { get; set; } = null!;
 
         public OriginEndpointAuthorizationArgs()

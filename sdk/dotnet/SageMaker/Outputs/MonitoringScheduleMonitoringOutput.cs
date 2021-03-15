@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly Outputs.MonitoringScheduleS3Output S3Output;
 
         [OutputConstructor]
-        private MonitoringScheduleMonitoringOutput(Outputs.MonitoringScheduleS3Output S3Output)
+        private MonitoringScheduleMonitoringOutput(Outputs.MonitoringScheduleS3Output s3Output)
         {
-            this.S3Output = S3Output;
+            S3Output = s3Output;
         }
     }
 }

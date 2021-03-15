@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-expression
         /// </summary>
-        [Input("Expression", required: true)]
+        [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 
-        [Input("Variables", required: true)]
-        private InputList<Inputs.AssetModelExpressionVariableArgs>? _Variables;
+        [Input("variables", required: true)]
+        private InputList<Inputs.AssetModelExpressionVariableArgs>? _variables;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-variables
         /// </summary>
         public InputList<Inputs.AssetModelExpressionVariableArgs> Variables
         {
-            get => _Variables ?? (_Variables = new InputList<Inputs.AssetModelExpressionVariableArgs>());
-            set => _Variables = value;
+            get => _variables ?? (_variables = new InputList<Inputs.AssetModelExpressionVariableArgs>());
+            set => _variables = value;
         }
 
         public AssetModelTransformArgs()

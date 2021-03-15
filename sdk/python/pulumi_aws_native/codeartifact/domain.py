@@ -85,12 +85,12 @@ class Domain(pulumi.CustomResource):
         return Domain(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="DomainName")
+    @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
@@ -98,22 +98,22 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "domain_name")
 
     @property
-    @pulumi.getter(name="EncryptionKey")
+    @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Output[str]:
         return pulumi.get(self, "encryption_key")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Owner")
+    @pulumi.getter
     def owner(self) -> pulumi.Output[str]:
         return pulumi.get(self, "owner")
 
     @property
-    @pulumi.getter(name="PermissionsPolicyDocument")
+    @pulumi.getter(name="permissionsPolicyDocument")
     def permissions_policy_document(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
@@ -121,7 +121,7 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "permissions_policy_document")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags

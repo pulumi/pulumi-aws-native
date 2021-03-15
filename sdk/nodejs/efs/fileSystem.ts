@@ -35,44 +35,44 @@ export class FileSystem extends pulumi.CustomResource {
         return obj['__pulumiType'] === FileSystem.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
      */
-    public readonly BackupPolicy!: pulumi.Output<outputs.EFS.FileSystemBackupPolicy | undefined>;
+    public readonly backupPolicy!: pulumi.Output<outputs.EFS.FileSystemBackupPolicy | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
      */
-    public readonly Encrypted!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly FileSystemId!: pulumi.Output<string>;
+    public readonly encrypted!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly fileSystemId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
      */
-    public readonly FileSystemPolicy!: pulumi.Output<any | string | undefined>;
+    public readonly fileSystemPolicy!: pulumi.Output<any | string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
      */
-    public readonly FileSystemTags!: pulumi.Output<outputs.EFS.FileSystemElasticFileSystemTag[] | undefined>;
+    public readonly fileSystemTags!: pulumi.Output<outputs.EFS.FileSystemElasticFileSystemTag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
      */
-    public readonly KmsKeyId!: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
      */
-    public readonly LifecyclePolicies!: pulumi.Output<outputs.EFS.FileSystemLifecyclePolicy[] | undefined>;
+    public readonly lifecyclePolicies!: pulumi.Output<outputs.EFS.FileSystemLifecyclePolicy[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
      */
-    public readonly PerformanceMode!: pulumi.Output<string | undefined>;
+    public readonly performanceMode!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
      */
-    public readonly ProvisionedThroughputInMibps!: pulumi.Output<number | undefined>;
+    public readonly provisionedThroughputInMibps!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
      */
-    public readonly ThroughputMode!: pulumi.Output<string | undefined>;
+    public readonly throughputMode!: pulumi.Output<string | undefined>;
 
     /**
      * Create a FileSystem resource with the given unique name, arguments, and options.
@@ -84,29 +84,29 @@ export class FileSystem extends pulumi.CustomResource {
     constructor(name: string, args?: FileSystemArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["BackupPolicy"] = args ? args.BackupPolicy : undefined;
-            inputs["Encrypted"] = args ? args.Encrypted : undefined;
-            inputs["FileSystemPolicy"] = args ? args.FileSystemPolicy : undefined;
-            inputs["FileSystemTags"] = args ? args.FileSystemTags : undefined;
-            inputs["KmsKeyId"] = args ? args.KmsKeyId : undefined;
-            inputs["LifecyclePolicies"] = args ? args.LifecyclePolicies : undefined;
-            inputs["PerformanceMode"] = args ? args.PerformanceMode : undefined;
-            inputs["ProvisionedThroughputInMibps"] = args ? args.ProvisionedThroughputInMibps : undefined;
-            inputs["ThroughputMode"] = args ? args.ThroughputMode : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["FileSystemId"] = undefined /*out*/;
+            inputs["backupPolicy"] = args ? args.backupPolicy : undefined;
+            inputs["encrypted"] = args ? args.encrypted : undefined;
+            inputs["fileSystemPolicy"] = args ? args.fileSystemPolicy : undefined;
+            inputs["fileSystemTags"] = args ? args.fileSystemTags : undefined;
+            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            inputs["lifecyclePolicies"] = args ? args.lifecyclePolicies : undefined;
+            inputs["performanceMode"] = args ? args.performanceMode : undefined;
+            inputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
+            inputs["throughputMode"] = args ? args.throughputMode : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["fileSystemId"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["BackupPolicy"] = undefined /*out*/;
-            inputs["Encrypted"] = undefined /*out*/;
-            inputs["FileSystemId"] = undefined /*out*/;
-            inputs["FileSystemPolicy"] = undefined /*out*/;
-            inputs["FileSystemTags"] = undefined /*out*/;
-            inputs["KmsKeyId"] = undefined /*out*/;
-            inputs["LifecyclePolicies"] = undefined /*out*/;
-            inputs["PerformanceMode"] = undefined /*out*/;
-            inputs["ProvisionedThroughputInMibps"] = undefined /*out*/;
-            inputs["ThroughputMode"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["backupPolicy"] = undefined /*out*/;
+            inputs["encrypted"] = undefined /*out*/;
+            inputs["fileSystemId"] = undefined /*out*/;
+            inputs["fileSystemPolicy"] = undefined /*out*/;
+            inputs["fileSystemTags"] = undefined /*out*/;
+            inputs["kmsKeyId"] = undefined /*out*/;
+            inputs["lifecyclePolicies"] = undefined /*out*/;
+            inputs["performanceMode"] = undefined /*out*/;
+            inputs["provisionedThroughputInMibps"] = undefined /*out*/;
+            inputs["throughputMode"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -126,37 +126,37 @@ export interface FileSystemArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
      */
-    readonly BackupPolicy?: pulumi.Input<inputs.EFS.FileSystemBackupPolicy>;
+    readonly backupPolicy?: pulumi.Input<inputs.EFS.FileSystemBackupPolicy>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
      */
-    readonly Encrypted?: pulumi.Input<boolean>;
+    readonly encrypted?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
      */
-    readonly FileSystemPolicy?: pulumi.Input<any | string>;
+    readonly fileSystemPolicy?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
      */
-    readonly FileSystemTags?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemElasticFileSystemTag>[]>;
+    readonly fileSystemTags?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemElasticFileSystemTag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
      */
-    readonly KmsKeyId?: pulumi.Input<string>;
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
      */
-    readonly LifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemLifecyclePolicy>[]>;
+    readonly lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemLifecyclePolicy>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
      */
-    readonly PerformanceMode?: pulumi.Input<string>;
+    readonly performanceMode?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
      */
-    readonly ProvisionedThroughputInMibps?: pulumi.Input<number>;
+    readonly provisionedThroughputInMibps?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
      */
-    readonly ThroughputMode?: pulumi.Input<string>;
+    readonly throughputMode?: pulumi.Input<string>;
 }

@@ -35,20 +35,20 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly HlsIngest!: pulumi.Output<outputs.MediaPackage.ChannelHlsIngest>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly hlsIngest!: pulumi.Output<outputs.MediaPackage.ChannelHlsIngest>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
      */
-    public readonly Id!: pulumi.Output<string>;
+    public readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -60,20 +60,20 @@ export class Channel extends pulumi.CustomResource {
     constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Id === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Id'");
+            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'id'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["Id"] = args ? args.Id : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["HlsIngest"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["hlsIngest"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["HlsIngest"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["hlsIngest"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,13 +93,13 @@ export interface ChannelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
      */
-    readonly Id: pulumi.Input<string>;
+    readonly id: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private IndexRelevance(
-            string? Duration,
+            string? duration,
 
-            bool? Freshness,
+            bool? freshness,
 
-            int? Importance,
+            int? importance,
 
-            string? RankOrder,
+            string? rankOrder,
 
-            Outputs.IndexValueImportanceItems? ValueImportanceItems)
+            Outputs.IndexValueImportanceItems? valueImportanceItems)
         {
-            this.Duration = Duration;
-            this.Freshness = Freshness;
-            this.Importance = Importance;
-            this.RankOrder = RankOrder;
-            this.ValueImportanceItems = ValueImportanceItems;
+            Duration = duration;
+            Freshness = freshness;
+            Importance = importance;
+            RankOrder = rankOrder;
+            ValueImportanceItems = valueImportanceItems;
         }
     }
 }

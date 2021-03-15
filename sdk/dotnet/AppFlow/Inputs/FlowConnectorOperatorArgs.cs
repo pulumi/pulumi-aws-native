@@ -18,85 +18,85 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-amplitude
         /// </summary>
-        [Input("Amplitude")]
+        [Input("amplitude")]
         public Input<string>? Amplitude { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-datadog
         /// </summary>
-        [Input("Datadog")]
+        [Input("datadog")]
         public Input<string>? Datadog { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-dynatrace
         /// </summary>
-        [Input("Dynatrace")]
+        [Input("dynatrace")]
         public Input<string>? Dynatrace { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-googleanalytics
         /// </summary>
-        [Input("GoogleAnalytics")]
+        [Input("googleAnalytics")]
         public Input<string>? GoogleAnalytics { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-infornexus
         /// </summary>
-        [Input("InforNexus")]
+        [Input("inforNexus")]
         public Input<string>? InforNexus { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-marketo
         /// </summary>
-        [Input("Marketo")]
+        [Input("marketo")]
         public Input<string>? Marketo { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-s3
         /// </summary>
-        [Input("S3")]
+        [Input("s3")]
         public Input<string>? S3 { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-salesforce
         /// </summary>
-        [Input("Salesforce")]
+        [Input("salesforce")]
         public Input<string>? Salesforce { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-servicenow
         /// </summary>
-        [Input("ServiceNow")]
+        [Input("serviceNow")]
         public Input<string>? ServiceNow { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-singular
         /// </summary>
-        [Input("Singular")]
+        [Input("singular")]
         public Input<string>? Singular { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-slack
         /// </summary>
-        [Input("Slack")]
+        [Input("slack")]
         public Input<string>? Slack { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-trendmicro
         /// </summary>
-        [Input("Trendmicro")]
+        [Input("trendmicro")]
         public Input<string>? Trendmicro { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-veeva
         /// </summary>
-        [Input("Veeva")]
+        [Input("veeva")]
         public Input<string>? Veeva { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-zendesk
         /// </summary>
-        [Input("Zendesk")]
+        [Input("zendesk")]
         public Input<string>? Zendesk { get; set; }
 
         public FlowConnectorOperatorArgs()

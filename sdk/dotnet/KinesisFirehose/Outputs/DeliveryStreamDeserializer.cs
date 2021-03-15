@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamDeserializer(
-            Outputs.DeliveryStreamHiveJsonSerDe? HiveJsonSerDe,
+            Outputs.DeliveryStreamHiveJsonSerDe? hiveJsonSerDe,
 
-            Outputs.DeliveryStreamOpenXJsonSerDe? OpenXJsonSerDe)
+            Outputs.DeliveryStreamOpenXJsonSerDe? openXJsonSerDe)
         {
-            this.HiveJsonSerDe = HiveJsonSerDe;
-            this.OpenXJsonSerDe = OpenXJsonSerDe;
+            HiveJsonSerDe = hiveJsonSerDe;
+            OpenXJsonSerDe = openXJsonSerDe;
         }
     }
 }

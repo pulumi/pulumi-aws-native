@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<Outputs.FirewallPolicyStatelessRuleGroupReference> StatelessRuleGroupReferences;
 
         [OutputConstructor]
-        private FirewallPolicyStatelessRuleGroupReferences(ImmutableArray<Outputs.FirewallPolicyStatelessRuleGroupReference> StatelessRuleGroupReferences)
+        private FirewallPolicyStatelessRuleGroupReferences(ImmutableArray<Outputs.FirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences)
         {
-            this.StatelessRuleGroupReferences = StatelessRuleGroupReferences;
+            StatelessRuleGroupReferences = statelessRuleGroupReferences;
         }
     }
 }

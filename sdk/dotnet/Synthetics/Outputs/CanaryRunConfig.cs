@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
 
         [OutputConstructor]
         private CanaryRunConfig(
-            bool? ActiveTracing,
+            bool? activeTracing,
 
-            ImmutableDictionary<string, string>? EnvironmentVariables,
+            ImmutableDictionary<string, string>? environmentVariables,
 
-            int? MemoryInMB,
+            int? memoryInMB,
 
-            int TimeoutInSeconds)
+            int timeoutInSeconds)
         {
-            this.ActiveTracing = ActiveTracing;
-            this.EnvironmentVariables = EnvironmentVariables;
-            this.MemoryInMB = MemoryInMB;
-            this.TimeoutInSeconds = TimeoutInSeconds;
+            ActiveTracing = activeTracing;
+            EnvironmentVariables = environmentVariables;
+            MemoryInMB = memoryInMB;
+            TimeoutInSeconds = timeoutInSeconds;
         }
     }
 }

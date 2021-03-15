@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-querycapacityunits
         /// </summary>
-        [Input("QueryCapacityUnits", required: true)]
+        [Input("queryCapacityUnits", required: true)]
         public Input<int> QueryCapacityUnits { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-storagecapacityunits
         /// </summary>
-        [Input("StorageCapacityUnits", required: true)]
+        [Input("storageCapacityUnits", required: true)]
         public Input<int> StorageCapacityUnits { get; set; } = null!;
 
         public IndexCapacityUnitsConfigurationArgs()

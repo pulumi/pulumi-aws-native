@@ -31,7 +31,7 @@ class StreamKinesisConfiguration(dict):
             pulumi.set(__self__, "stream_arn", stream_arn)
 
     @property
-    @pulumi.getter(name="AggregationEnabled")
+    @pulumi.getter(name="aggregationEnabled")
     def aggregation_enabled(self) -> Optional[bool]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-aggregationenabled
@@ -39,7 +39,7 @@ class StreamKinesisConfiguration(dict):
         return pulumi.get(self, "aggregation_enabled")
 
     @property
-    @pulumi.getter(name="StreamArn")
+    @pulumi.getter(name="streamArn")
     def stream_arn(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-streamarn

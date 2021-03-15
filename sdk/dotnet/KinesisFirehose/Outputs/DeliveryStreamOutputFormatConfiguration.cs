@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly Outputs.DeliveryStreamSerializer? Serializer;
 
         [OutputConstructor]
-        private DeliveryStreamOutputFormatConfiguration(Outputs.DeliveryStreamSerializer? Serializer)
+        private DeliveryStreamOutputFormatConfiguration(Outputs.DeliveryStreamSerializer? serializer)
         {
-            this.Serializer = Serializer;
+            Serializer = serializer;
         }
     }
 }

@@ -38,19 +38,19 @@ export class ListenerRule extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
      */
-    public readonly Actions!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerRuleAction[]>;
+    public readonly actions!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerRuleAction[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
      */
-    public readonly Conditions!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerRuleRuleCondition[]>;
+    public readonly conditions!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerRuleRuleCondition[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
      */
-    public readonly ListenerArn!: pulumi.Output<string>;
+    public readonly listenerArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
      */
-    public readonly Priority!: pulumi.Output<number>;
+    public readonly priority!: pulumi.Output<number>;
 
     /**
      * Create a ListenerRule resource with the given unique name, arguments, and options.
@@ -62,27 +62,27 @@ export class ListenerRule extends pulumi.CustomResource {
     constructor(name: string, args: ListenerRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Actions === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Actions'");
+            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.Conditions === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Conditions'");
+            if ((!args || args.conditions === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'conditions'");
             }
-            if ((!args || args.ListenerArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ListenerArn'");
+            if ((!args || args.listenerArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'listenerArn'");
             }
-            if ((!args || args.Priority === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Priority'");
+            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'priority'");
             }
-            inputs["Actions"] = args ? args.Actions : undefined;
-            inputs["Conditions"] = args ? args.Conditions : undefined;
-            inputs["ListenerArn"] = args ? args.ListenerArn : undefined;
-            inputs["Priority"] = args ? args.Priority : undefined;
+            inputs["actions"] = args ? args.actions : undefined;
+            inputs["conditions"] = args ? args.conditions : undefined;
+            inputs["listenerArn"] = args ? args.listenerArn : undefined;
+            inputs["priority"] = args ? args.priority : undefined;
         } else {
-            inputs["Actions"] = undefined /*out*/;
-            inputs["Conditions"] = undefined /*out*/;
-            inputs["ListenerArn"] = undefined /*out*/;
-            inputs["Priority"] = undefined /*out*/;
+            inputs["actions"] = undefined /*out*/;
+            inputs["conditions"] = undefined /*out*/;
+            inputs["listenerArn"] = undefined /*out*/;
+            inputs["priority"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,17 +102,17 @@ export interface ListenerRuleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
      */
-    readonly Actions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleAction>[]>;
+    readonly actions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleAction>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
      */
-    readonly Conditions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleRuleCondition>[]>;
+    readonly conditions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleRuleCondition>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
      */
-    readonly ListenerArn: pulumi.Input<string>;
+    readonly listenerArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
      */
-    readonly Priority: pulumi.Input<number>;
+    readonly priority: pulumi.Input<number>;
 }

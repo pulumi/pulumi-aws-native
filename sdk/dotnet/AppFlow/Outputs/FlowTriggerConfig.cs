@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowTriggerConfig(
-            Outputs.FlowScheduledTriggerProperties? TriggerProperties,
+            Outputs.FlowScheduledTriggerProperties? triggerProperties,
 
-            string TriggerType)
+            string triggerType)
         {
-            this.TriggerProperties = TriggerProperties;
-            this.TriggerType = TriggerType;
+            TriggerProperties = triggerProperties;
+            TriggerType = triggerType;
         }
     }
 }

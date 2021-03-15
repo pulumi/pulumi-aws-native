@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-fromport
         /// </summary>
-        [Input("FromPort", required: true)]
+        [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-toport
         /// </summary>
-        [Input("ToPort", required: true)]
+        [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;
 
         public ListenerPortRangeArgs()

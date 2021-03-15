@@ -15,28 +15,28 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceDataSourceVpcConfigurationArgs : Pulumi.ResourceArgs
     {
-        [Input("SecurityGroupIds", required: true)]
-        private InputList<string>? _SecurityGroupIds;
+        [Input("securityGroupIds", required: true)]
+        private InputList<string>? _securityGroupIds;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcevpcconfiguration.html#cfn-kendra-datasource-datasourcevpcconfiguration-securitygroupids
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
-            get => _SecurityGroupIds ?? (_SecurityGroupIds = new InputList<string>());
-            set => _SecurityGroupIds = value;
+            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
+            set => _securityGroupIds = value;
         }
 
-        [Input("SubnetIds", required: true)]
-        private InputList<string>? _SubnetIds;
+        [Input("subnetIds", required: true)]
+        private InputList<string>? _subnetIds;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcevpcconfiguration.html#cfn-kendra-datasource-datasourcevpcconfiguration-subnetids
         /// </summary>
         public InputList<string> SubnetIds
         {
-            get => _SubnetIds ?? (_SubnetIds = new InputList<string>());
-            set => _SubnetIds = value;
+            get => _subnetIds ?? (_subnetIds = new InputList<string>());
+            set => _subnetIds = value;
         }
 
         public DataSourceDataSourceVpcConfigurationArgs()

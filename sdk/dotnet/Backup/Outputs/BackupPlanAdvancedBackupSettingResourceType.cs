@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
         [OutputConstructor]
         private BackupPlanAdvancedBackupSettingResourceType(
-            Union<System.Text.Json.JsonElement, string> BackupOptions,
+            Union<System.Text.Json.JsonElement, string> backupOptions,
 
-            string ResourceType)
+            string resourceType)
         {
-            this.BackupOptions = BackupOptions;
-            this.ResourceType = ResourceType;
+            BackupOptions = backupOptions;
+            ResourceType = resourceType;
         }
     }
 }

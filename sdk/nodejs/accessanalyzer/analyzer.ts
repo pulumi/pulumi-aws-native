@@ -38,20 +38,20 @@ export class Analyzer extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
      */
-    public readonly AnalyzerName!: pulumi.Output<string | undefined>;
+    public readonly analyzerName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
      */
-    public readonly ArchiveRules!: pulumi.Output<outputs.AccessAnalyzer.AnalyzerArchiveRule[] | undefined>;
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public readonly archiveRules!: pulumi.Output<outputs.AccessAnalyzer.AnalyzerArchiveRule[] | undefined>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
      */
-    public readonly Type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Analyzer resource with the given unique name, arguments, and options.
@@ -63,20 +63,20 @@ export class Analyzer extends pulumi.CustomResource {
     constructor(name: string, args: AnalyzerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.Type === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Type'");
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'type'");
             }
-            inputs["AnalyzerName"] = args ? args.AnalyzerName : undefined;
-            inputs["ArchiveRules"] = args ? args.ArchiveRules : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Type"] = args ? args.Type : undefined;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["analyzerName"] = args ? args.analyzerName : undefined;
+            inputs["archiveRules"] = args ? args.archiveRules : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["AnalyzerName"] = undefined /*out*/;
-            inputs["ArchiveRules"] = undefined /*out*/;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Type"] = undefined /*out*/;
+            inputs["analyzerName"] = undefined /*out*/;
+            inputs["archiveRules"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -96,17 +96,17 @@ export interface AnalyzerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
      */
-    readonly AnalyzerName?: pulumi.Input<string>;
+    readonly analyzerName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
      */
-    readonly ArchiveRules?: pulumi.Input<pulumi.Input<inputs.AccessAnalyzer.AnalyzerArchiveRule>[]>;
+    readonly archiveRules?: pulumi.Input<pulumi.Input<inputs.AccessAnalyzer.AnalyzerArchiveRule>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
      */
-    readonly Type: pulumi.Input<string>;
+    readonly type: pulumi.Input<string>;
 }

@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
         public readonly ImmutableArray<Outputs.LicenseEntitlement> EntitlementList;
 
         [OutputConstructor]
-        private LicenseEntitlementList(ImmutableArray<Outputs.LicenseEntitlement> EntitlementList)
+        private LicenseEntitlementList(ImmutableArray<Outputs.LicenseEntitlement> entitlementList)
         {
-            this.EntitlementList = EntitlementList;
+            EntitlementList = entitlementList;
         }
     }
 }

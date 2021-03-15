@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
         [OutputConstructor]
         private ComponentVersionLambdaVolumeMount(
-            bool? AddGroupOwner,
+            bool? addGroupOwner,
 
-            string? DestinationPath,
+            string? destinationPath,
 
-            string? Permission,
+            string? permission,
 
-            string? SourcePath)
+            string? sourcePath)
         {
-            this.AddGroupOwner = AddGroupOwner;
-            this.DestinationPath = DestinationPath;
-            this.Permission = Permission;
-            this.SourcePath = SourcePath;
+            AddGroupOwner = addGroupOwner;
+            DestinationPath = destinationPath;
+            Permission = permission;
+            SourcePath = sourcePath;
         }
     }
 }

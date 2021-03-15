@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private OriginEndpointMssPackage(
-            Outputs.OriginEndpointMssEncryption? Encryption,
+            Outputs.OriginEndpointMssEncryption? encryption,
 
-            int? ManifestWindowSeconds,
+            int? manifestWindowSeconds,
 
-            int? SegmentDurationSeconds,
+            int? segmentDurationSeconds,
 
-            Outputs.OriginEndpointStreamSelection? StreamSelection)
+            Outputs.OriginEndpointStreamSelection? streamSelection)
         {
-            this.Encryption = Encryption;
-            this.ManifestWindowSeconds = ManifestWindowSeconds;
-            this.SegmentDurationSeconds = SegmentDurationSeconds;
-            this.StreamSelection = StreamSelection;
+            Encryption = encryption;
+            ManifestWindowSeconds = manifestWindowSeconds;
+            SegmentDurationSeconds = segmentDurationSeconds;
+            StreamSelection = streamSelection;
         }
     }
 }

@@ -86,7 +86,7 @@ class BackupVault(pulumi.CustomResource):
         return BackupVault(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AccessPolicy")
+    @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
@@ -94,17 +94,17 @@ class BackupVault(pulumi.CustomResource):
         return pulumi.get(self, "access_policy")
 
     @property
-    @pulumi.getter(name="BackupVaultArn")
+    @pulumi.getter(name="backupVaultArn")
     def backup_vault_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "backup_vault_arn")
 
     @property
-    @pulumi.getter(name="BackupVaultName")
+    @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "backup_vault_name")
 
     @property
-    @pulumi.getter(name="BackupVaultTags")
+    @pulumi.getter(name="backupVaultTags")
     def backup_vault_tags(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
@@ -112,7 +112,7 @@ class BackupVault(pulumi.CustomResource):
         return pulumi.get(self, "backup_vault_tags")
 
     @property
-    @pulumi.getter(name="EncryptionKeyArn")
+    @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
@@ -120,7 +120,7 @@ class BackupVault(pulumi.CustomResource):
         return pulumi.get(self, "encryption_key_arn")
 
     @property
-    @pulumi.getter(name="Notifications")
+    @pulumi.getter
     def notifications(self) -> pulumi.Output[Optional['outputs.BackupVaultNotificationObjectType']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications

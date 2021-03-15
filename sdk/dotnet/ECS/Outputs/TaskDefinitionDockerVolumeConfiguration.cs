@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionDockerVolumeConfiguration(
-            bool? Autoprovision,
+            bool? autoprovision,
 
-            string? Driver,
+            string? driver,
 
-            ImmutableDictionary<string, string>? DriverOpts,
+            ImmutableDictionary<string, string>? driverOpts,
 
-            ImmutableDictionary<string, string>? Labels,
+            ImmutableDictionary<string, string>? labels,
 
-            string? Scope)
+            string? scope)
         {
-            this.Autoprovision = Autoprovision;
-            this.Driver = Driver;
-            this.DriverOpts = DriverOpts;
-            this.Labels = Labels;
-            this.Scope = Scope;
+            Autoprovision = autoprovision;
+            Driver = driver;
+            DriverOpts = driverOpts;
+            Labels = labels;
+            Scope = scope;
         }
     }
 }

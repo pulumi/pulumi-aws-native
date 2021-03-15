@@ -35,37 +35,37 @@ export class MonitoringSchedule extends pulumi.CustomResource {
         return obj['__pulumiType'] === MonitoringSchedule.__pulumiType;
     }
 
-    public /*out*/ readonly CreationTime!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
      */
-    public readonly EndpointName!: pulumi.Output<string | undefined>;
+    public readonly endpointName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
      */
-    public readonly FailureReason!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly LastModifiedTime!: pulumi.Output<string>;
+    public readonly failureReason!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
      */
-    public readonly LastMonitoringExecutionSummary!: pulumi.Output<outputs.SageMaker.MonitoringScheduleMonitoringExecutionSummary | undefined>;
-    public /*out*/ readonly MonitoringScheduleArn!: pulumi.Output<string>;
+    public readonly lastMonitoringExecutionSummary!: pulumi.Output<outputs.SageMaker.MonitoringScheduleMonitoringExecutionSummary | undefined>;
+    public /*out*/ readonly monitoringScheduleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
      */
-    public readonly MonitoringScheduleConfig!: pulumi.Output<outputs.SageMaker.MonitoringScheduleMonitoringScheduleConfig>;
+    public readonly monitoringScheduleConfig!: pulumi.Output<outputs.SageMaker.MonitoringScheduleMonitoringScheduleConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
      */
-    public readonly MonitoringScheduleName!: pulumi.Output<string>;
+    public readonly monitoringScheduleName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
      */
-    public readonly MonitoringScheduleStatus!: pulumi.Output<string | undefined>;
+    public readonly monitoringScheduleStatus!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MonitoringSchedule resource with the given unique name, arguments, and options.
@@ -77,33 +77,33 @@ export class MonitoringSchedule extends pulumi.CustomResource {
     constructor(name: string, args: MonitoringScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.MonitoringScheduleConfig === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'MonitoringScheduleConfig'");
+            if ((!args || args.monitoringScheduleConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'monitoringScheduleConfig'");
             }
-            if ((!args || args.MonitoringScheduleName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'MonitoringScheduleName'");
+            if ((!args || args.monitoringScheduleName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'monitoringScheduleName'");
             }
-            inputs["EndpointName"] = args ? args.EndpointName : undefined;
-            inputs["FailureReason"] = args ? args.FailureReason : undefined;
-            inputs["LastMonitoringExecutionSummary"] = args ? args.LastMonitoringExecutionSummary : undefined;
-            inputs["MonitoringScheduleConfig"] = args ? args.MonitoringScheduleConfig : undefined;
-            inputs["MonitoringScheduleName"] = args ? args.MonitoringScheduleName : undefined;
-            inputs["MonitoringScheduleStatus"] = args ? args.MonitoringScheduleStatus : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["CreationTime"] = undefined /*out*/;
-            inputs["LastModifiedTime"] = undefined /*out*/;
-            inputs["MonitoringScheduleArn"] = undefined /*out*/;
+            inputs["endpointName"] = args ? args.endpointName : undefined;
+            inputs["failureReason"] = args ? args.failureReason : undefined;
+            inputs["lastMonitoringExecutionSummary"] = args ? args.lastMonitoringExecutionSummary : undefined;
+            inputs["monitoringScheduleConfig"] = args ? args.monitoringScheduleConfig : undefined;
+            inputs["monitoringScheduleName"] = args ? args.monitoringScheduleName : undefined;
+            inputs["monitoringScheduleStatus"] = args ? args.monitoringScheduleStatus : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["monitoringScheduleArn"] = undefined /*out*/;
         } else {
-            inputs["CreationTime"] = undefined /*out*/;
-            inputs["EndpointName"] = undefined /*out*/;
-            inputs["FailureReason"] = undefined /*out*/;
-            inputs["LastModifiedTime"] = undefined /*out*/;
-            inputs["LastMonitoringExecutionSummary"] = undefined /*out*/;
-            inputs["MonitoringScheduleArn"] = undefined /*out*/;
-            inputs["MonitoringScheduleConfig"] = undefined /*out*/;
-            inputs["MonitoringScheduleName"] = undefined /*out*/;
-            inputs["MonitoringScheduleStatus"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["endpointName"] = undefined /*out*/;
+            inputs["failureReason"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["lastMonitoringExecutionSummary"] = undefined /*out*/;
+            inputs["monitoringScheduleArn"] = undefined /*out*/;
+            inputs["monitoringScheduleConfig"] = undefined /*out*/;
+            inputs["monitoringScheduleName"] = undefined /*out*/;
+            inputs["monitoringScheduleStatus"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -123,29 +123,29 @@ export interface MonitoringScheduleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
      */
-    readonly EndpointName?: pulumi.Input<string>;
+    readonly endpointName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
      */
-    readonly FailureReason?: pulumi.Input<string>;
+    readonly failureReason?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
      */
-    readonly LastMonitoringExecutionSummary?: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringExecutionSummary>;
+    readonly lastMonitoringExecutionSummary?: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringExecutionSummary>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
      */
-    readonly MonitoringScheduleConfig: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringScheduleConfig>;
+    readonly monitoringScheduleConfig: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringScheduleConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
      */
-    readonly MonitoringScheduleName: pulumi.Input<string>;
+    readonly monitoringScheduleName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
      */
-    readonly MonitoringScheduleStatus?: pulumi.Input<string>;
+    readonly monitoringScheduleStatus?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

@@ -35,21 +35,21 @@ export class ComponentVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ComponentVersion.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
-    public /*out*/ readonly ComponentName!: pulumi.Output<string>;
-    public /*out*/ readonly ComponentVersion!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly componentName!: pulumi.Output<string>;
+    public /*out*/ readonly componentVersion!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
      */
-    public readonly InlineRecipe!: pulumi.Output<string | undefined>;
+    public readonly inlineRecipe!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
      */
-    public readonly LambdaFunction!: pulumi.Output<outputs.GreengrassV2.ComponentVersionLambdaFunctionRecipeSource | undefined>;
+    public readonly lambdaFunction!: pulumi.Output<outputs.GreengrassV2.ComponentVersionLambdaFunctionRecipeSource | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
      */
-    public readonly Tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ComponentVersion resource with the given unique name, arguments, and options.
@@ -61,19 +61,19 @@ export class ComponentVersion extends pulumi.CustomResource {
     constructor(name: string, args?: ComponentVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["InlineRecipe"] = args ? args.InlineRecipe : undefined;
-            inputs["LambdaFunction"] = args ? args.LambdaFunction : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["ComponentName"] = undefined /*out*/;
-            inputs["ComponentVersion"] = undefined /*out*/;
+            inputs["inlineRecipe"] = args ? args.inlineRecipe : undefined;
+            inputs["lambdaFunction"] = args ? args.lambdaFunction : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["componentName"] = undefined /*out*/;
+            inputs["componentVersion"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["ComponentName"] = undefined /*out*/;
-            inputs["ComponentVersion"] = undefined /*out*/;
-            inputs["InlineRecipe"] = undefined /*out*/;
-            inputs["LambdaFunction"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["componentName"] = undefined /*out*/;
+            inputs["componentVersion"] = undefined /*out*/;
+            inputs["inlineRecipe"] = undefined /*out*/;
+            inputs["lambdaFunction"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,13 +93,13 @@ export interface ComponentVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
      */
-    readonly InlineRecipe?: pulumi.Input<string>;
+    readonly inlineRecipe?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
      */
-    readonly LambdaFunction?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaFunctionRecipeSource>;
+    readonly lambdaFunction?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaFunctionRecipeSource>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
      */
-    readonly Tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

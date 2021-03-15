@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
     /// </summary>
     public sealed class GrantTagListArgs : Pulumi.ResourceArgs
     {
-        [Input("TagList")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _TagList;
+        [Input("tagList")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tagList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-taglist.html#cfn-licensemanager-grant-taglist-taglist
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> TagList
         {
-            get => _TagList ?? (_TagList = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _TagList = value;
+            get => _tagList ?? (_tagList = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tagList = value;
         }
 
         public GrantTagListArgs()

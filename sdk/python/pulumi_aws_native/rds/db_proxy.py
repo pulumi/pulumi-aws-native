@@ -18,7 +18,7 @@ class DBProxy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]]] = None,
-                 db_proxy_name: Optional[pulumi.Input[str]] = None,
+                 d_b_proxy_name: Optional[pulumi.Input[str]] = None,
                  debug_logging: Optional[pulumi.Input[bool]] = None,
                  engine_family: Optional[pulumi.Input[str]] = None,
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
@@ -36,7 +36,7 @@ class DBProxy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]] auth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
-        :param pulumi.Input[str] db_proxy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
+        :param pulumi.Input[str] d_b_proxy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
         :param pulumi.Input[bool] debug_logging: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
         :param pulumi.Input[str] engine_family: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
         :param pulumi.Input[int] idle_client_timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
@@ -66,9 +66,9 @@ class DBProxy(pulumi.CustomResource):
             if auth is None and not opts.urn:
                 raise TypeError("Missing required property 'auth'")
             __props__['auth'] = auth
-            if db_proxy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'db_proxy_name'")
-            __props__['db_proxy_name'] = db_proxy_name
+            if d_b_proxy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'd_b_proxy_name'")
+            __props__['d_b_proxy_name'] = d_b_proxy_name
             __props__['debug_logging'] = debug_logging
             if engine_family is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_family'")
@@ -83,7 +83,7 @@ class DBProxy(pulumi.CustomResource):
             if vpc_subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_subnet_ids'")
             __props__['vpc_subnet_ids'] = vpc_subnet_ids
-            __props__['db_proxy_arn'] = None
+            __props__['d_b_proxy_arn'] = None
             __props__['endpoint'] = None
         super(DBProxy, __self__).__init__(
             'aws-native:RDS:DBProxy',
@@ -110,7 +110,7 @@ class DBProxy(pulumi.CustomResource):
         return DBProxy(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Auth")
+    @pulumi.getter
     def auth(self) -> pulumi.Output[Sequence['outputs.DBProxyAuthFormat']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
@@ -118,20 +118,20 @@ class DBProxy(pulumi.CustomResource):
         return pulumi.get(self, "auth")
 
     @property
-    @pulumi.getter(name="DBProxyArn")
-    def db_proxy_arn(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "db_proxy_arn")
+    @pulumi.getter(name="dBProxyArn")
+    def d_b_proxy_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "d_b_proxy_arn")
 
     @property
-    @pulumi.getter(name="DBProxyName")
-    def db_proxy_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="dBProxyName")
+    def d_b_proxy_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
         """
-        return pulumi.get(self, "db_proxy_name")
+        return pulumi.get(self, "d_b_proxy_name")
 
     @property
-    @pulumi.getter(name="DebugLogging")
+    @pulumi.getter(name="debugLogging")
     def debug_logging(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
@@ -139,12 +139,12 @@ class DBProxy(pulumi.CustomResource):
         return pulumi.get(self, "debug_logging")
 
     @property
-    @pulumi.getter(name="Endpoint")
+    @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
         return pulumi.get(self, "endpoint")
 
     @property
-    @pulumi.getter(name="EngineFamily")
+    @pulumi.getter(name="engineFamily")
     def engine_family(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
@@ -152,7 +152,7 @@ class DBProxy(pulumi.CustomResource):
         return pulumi.get(self, "engine_family")
 
     @property
-    @pulumi.getter(name="IdleClientTimeout")
+    @pulumi.getter(name="idleClientTimeout")
     def idle_client_timeout(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
@@ -160,7 +160,7 @@ class DBProxy(pulumi.CustomResource):
         return pulumi.get(self, "idle_client_timeout")
 
     @property
-    @pulumi.getter(name="RequireTLS")
+    @pulumi.getter(name="requireTLS")
     def require_tls(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
@@ -168,7 +168,7 @@ class DBProxy(pulumi.CustomResource):
         return pulumi.get(self, "require_tls")
 
     @property
-    @pulumi.getter(name="RoleArn")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
@@ -176,7 +176,7 @@ class DBProxy(pulumi.CustomResource):
         return pulumi.get(self, "role_arn")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBProxyTagFormat']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
@@ -184,7 +184,7 @@ class DBProxy(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="VpcSecurityGroupIds")
+    @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
@@ -192,7 +192,7 @@ class DBProxy(pulumi.CustomResource):
         return pulumi.get(self, "vpc_security_group_ids")
 
     @property
-    @pulumi.getter(name="VpcSubnetIds")
+    @pulumi.getter(name="vpcSubnetIds")
     def vpc_subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids

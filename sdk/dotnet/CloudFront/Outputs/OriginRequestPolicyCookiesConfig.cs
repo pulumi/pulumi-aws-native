@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
         [OutputConstructor]
         private OriginRequestPolicyCookiesConfig(
-            string CookieBehavior,
+            string cookieBehavior,
 
-            ImmutableArray<string> Cookies)
+            ImmutableArray<string> cookies)
         {
-            this.CookieBehavior = CookieBehavior;
-            this.Cookies = Cookies;
+            CookieBehavior = cookieBehavior;
+            Cookies = cookies;
         }
     }
 }

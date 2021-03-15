@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
 
         [OutputConstructor]
         private DataflowEndpointGroupEndpointDetails(
-            Outputs.DataflowEndpointGroupDataflowEndpoint? Endpoint,
+            Outputs.DataflowEndpointGroupDataflowEndpoint? endpoint,
 
-            Outputs.DataflowEndpointGroupSecurityDetails? SecurityDetails)
+            Outputs.DataflowEndpointGroupSecurityDetails? securityDetails)
         {
-            this.Endpoint = Endpoint;
-            this.SecurityDetails = SecurityDetails;
+            Endpoint = endpoint;
+            SecurityDetails = securityDetails;
         }
     }
 }

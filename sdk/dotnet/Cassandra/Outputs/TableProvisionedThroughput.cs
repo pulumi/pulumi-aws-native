@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
 
         [OutputConstructor]
         private TableProvisionedThroughput(
-            int ReadCapacityUnits,
+            int readCapacityUnits,
 
-            int WriteCapacityUnits)
+            int writeCapacityUnits)
         {
-            this.ReadCapacityUnits = ReadCapacityUnits;
-            this.WriteCapacityUnits = WriteCapacityUnits;
+            ReadCapacityUnits = readCapacityUnits;
+            WriteCapacityUnits = writeCapacityUnits;
         }
     }
 }

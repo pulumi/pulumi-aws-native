@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private RuleGroupStatelessRulesAndCustomActions(
-            Outputs.RuleGroupCustomActions? CustomActions,
+            Outputs.RuleGroupCustomActions? customActions,
 
-            Outputs.RuleGroupStatelessRules StatelessRules)
+            Outputs.RuleGroupStatelessRules statelessRules)
         {
-            this.CustomActions = CustomActions;
-            this.StatelessRules = StatelessRules;
+            CustomActions = customActions;
+            StatelessRules = statelessRules;
         }
     }
 }

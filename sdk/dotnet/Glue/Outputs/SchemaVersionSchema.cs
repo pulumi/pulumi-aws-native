@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.Glue.Outputs
 
         [OutputConstructor]
         private SchemaVersionSchema(
-            string? RegistryName,
+            string? registryName,
 
-            string? SchemaArn,
+            string? schemaArn,
 
-            string? SchemaName)
+            string? schemaName)
         {
-            this.RegistryName = RegistryName;
-            this.SchemaArn = SchemaArn;
-            this.SchemaName = SchemaName;
+            RegistryName = registryName;
+            SchemaArn = schemaArn;
+            SchemaName = schemaName;
         }
     }
 }

@@ -44,27 +44,27 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
 
         [OutputConstructor]
         private LicenseEntitlement(
-            bool? AllowCheckIn,
+            bool? allowCheckIn,
 
-            Outputs.LicenseRuleList? CheckoutRules,
+            Outputs.LicenseRuleList? checkoutRules,
 
-            int? MaxCount,
+            int? maxCount,
 
-            string Name,
+            string name,
 
-            bool? Overage,
+            bool? overage,
 
-            string Unit,
+            string unit,
 
-            string? Value)
+            string? value)
         {
-            this.AllowCheckIn = AllowCheckIn;
-            this.CheckoutRules = CheckoutRules;
-            this.MaxCount = MaxCount;
-            this.Name = Name;
-            this.Overage = Overage;
-            this.Unit = Unit;
-            this.Value = Value;
+            AllowCheckIn = allowCheckIn;
+            CheckoutRules = checkoutRules;
+            MaxCount = maxCount;
+            Name = name;
+            Overage = overage;
+            Unit = unit;
+            Value = value;
         }
     }
 }

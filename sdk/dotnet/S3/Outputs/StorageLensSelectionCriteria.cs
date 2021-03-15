@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.S3.Outputs
 
         [OutputConstructor]
         private StorageLensSelectionCriteria(
-            string? Delimiter,
+            string? delimiter,
 
-            int? MaxDepth,
+            int? maxDepth,
 
-            double? MinStorageBytesPercentage)
+            double? minStorageBytesPercentage)
         {
-            this.Delimiter = Delimiter;
-            this.MaxDepth = MaxDepth;
-            this.MinStorageBytesPercentage = MinStorageBytesPercentage;
+            Delimiter = delimiter;
+            MaxDepth = maxDepth;
+            MinStorageBytesPercentage = minStorageBytesPercentage;
         }
     }
 }

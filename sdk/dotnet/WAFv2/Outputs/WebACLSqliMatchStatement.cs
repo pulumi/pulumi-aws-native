@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLSqliMatchStatement(
-            Outputs.WebACLFieldToMatch FieldToMatch,
+            Outputs.WebACLFieldToMatch fieldToMatch,
 
-            ImmutableArray<Outputs.WebACLTextTransformation> TextTransformations)
+            ImmutableArray<Outputs.WebACLTextTransformation> textTransformations)
         {
-            this.FieldToMatch = FieldToMatch;
-            this.TextTransformations = TextTransformations;
+            FieldToMatch = fieldToMatch;
+            TextTransformations = textTransformations;
         }
     }
 }

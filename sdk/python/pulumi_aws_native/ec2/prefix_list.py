@@ -95,7 +95,7 @@ class PrefixList(pulumi.CustomResource):
         return PrefixList(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AddressFamily")
+    @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
@@ -103,12 +103,12 @@ class PrefixList(pulumi.CustomResource):
         return pulumi.get(self, "address_family")
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="Entries")
+    @pulumi.getter
     def entries(self) -> pulumi.Output[Optional[Sequence['outputs.PrefixListEntry']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
@@ -116,7 +116,7 @@ class PrefixList(pulumi.CustomResource):
         return pulumi.get(self, "entries")
 
     @property
-    @pulumi.getter(name="MaxEntries")
+    @pulumi.getter(name="maxEntries")
     def max_entries(self) -> pulumi.Output[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
@@ -124,17 +124,17 @@ class PrefixList(pulumi.CustomResource):
         return pulumi.get(self, "max_entries")
 
     @property
-    @pulumi.getter(name="OwnerId")
+    @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "owner_id")
 
     @property
-    @pulumi.getter(name="PrefixListId")
+    @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "prefix_list_id")
 
     @property
-    @pulumi.getter(name="PrefixListName")
+    @pulumi.getter(name="prefixListName")
     def prefix_list_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
@@ -142,7 +142,7 @@ class PrefixList(pulumi.CustomResource):
         return pulumi.get(self, "prefix_list_name")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
@@ -150,7 +150,7 @@ class PrefixList(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="Version")
+    @pulumi.getter
     def version(self) -> pulumi.Output[int]:
         return pulumi.get(self, "version")
 

@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
         /// </summary>
-        [Input("LaunchTemplateId")]
+        [Input("launchTemplateId")]
         public Input<string>? LaunchTemplateId { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplatename
         /// </summary>
-        [Input("LaunchTemplateName")]
+        [Input("launchTemplateName")]
         public Input<string>? LaunchTemplateName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-version
         /// </summary>
-        [Input("Version")]
+        [Input("version")]
         public Input<string>? Version { get; set; }
 
         public GameServerGroupLaunchTemplateArgs()

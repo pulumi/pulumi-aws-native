@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
         public readonly ImmutableArray<Outputs.AssessmentAWSService> AWSServices;
 
         [OutputConstructor]
-        private AssessmentAWSServices(ImmutableArray<Outputs.AssessmentAWSService> AWSServices)
+        private AssessmentAWSServices(ImmutableArray<Outputs.AssessmentAWSService> aWSServices)
         {
-            this.AWSServices = AWSServices;
+            AWSServices = aWSServices;
         }
     }
 }

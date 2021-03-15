@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskSetLoadBalancer(
-            string? ContainerName,
+            string? containerName,
 
-            int? ContainerPort,
+            int? containerPort,
 
-            string? LoadBalancerName,
+            string? loadBalancerName,
 
-            string? TargetGroupArn)
+            string? targetGroupArn)
         {
-            this.ContainerName = ContainerName;
-            this.ContainerPort = ContainerPort;
-            this.LoadBalancerName = LoadBalancerName;
-            this.TargetGroupArn = TargetGroupArn;
+            ContainerName = containerName;
+            ContainerPort = containerPort;
+            LoadBalancerName = loadBalancerName;
+            TargetGroupArn = targetGroupArn;
         }
     }
 }

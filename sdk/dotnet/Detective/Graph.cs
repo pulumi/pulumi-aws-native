@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Detective
     [AwsNativeResourceType("aws-native:Detective:Graph")]
     public partial class Graph : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
 

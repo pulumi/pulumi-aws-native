@@ -28,7 +28,7 @@ class RepositoryLifecyclePolicyArgs:
             pulumi.set(__self__, "registry_id", registry_id)
 
     @property
-    @pulumi.getter(name="LifecyclePolicyText")
+    @pulumi.getter(name="lifecyclePolicyText")
     def lifecycle_policy_text(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext
@@ -40,7 +40,7 @@ class RepositoryLifecyclePolicyArgs:
         pulumi.set(self, "lifecycle_policy_text", value)
 
     @property
-    @pulumi.getter(name="RegistryId")
+    @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid

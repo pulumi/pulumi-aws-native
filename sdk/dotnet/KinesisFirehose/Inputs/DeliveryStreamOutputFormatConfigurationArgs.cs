@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-outputformatconfiguration-serializer
         /// </summary>
-        [Input("Serializer")]
+        [Input("serializer")]
         public Input<Inputs.DeliveryStreamSerializerArgs>? Serializer { get; set; }
 
         public DeliveryStreamOutputFormatConfigurationArgs()

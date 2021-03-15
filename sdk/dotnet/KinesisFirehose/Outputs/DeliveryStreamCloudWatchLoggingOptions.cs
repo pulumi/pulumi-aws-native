@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamCloudWatchLoggingOptions(
-            bool? Enabled,
+            bool? enabled,
 
-            string? LogGroupName,
+            string? logGroupName,
 
-            string? LogStreamName)
+            string? logStreamName)
         {
-            this.Enabled = Enabled;
-            this.LogGroupName = LogGroupName;
-            this.LogStreamName = LogStreamName;
+            Enabled = enabled;
+            LogGroupName = logGroupName;
+            LogStreamName = logStreamName;
         }
     }
 }

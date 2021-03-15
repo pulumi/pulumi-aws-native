@@ -142,12 +142,12 @@ class Server(pulumi.CustomResource):
         return Server(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="AssociatePublicIpAddress")
+    @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
@@ -155,7 +155,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "associate_public_ip_address")
 
     @property
-    @pulumi.getter(name="BackupId")
+    @pulumi.getter(name="backupId")
     def backup_id(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupid
@@ -163,7 +163,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "backup_id")
 
     @property
-    @pulumi.getter(name="BackupRetentionCount")
+    @pulumi.getter(name="backupRetentionCount")
     def backup_retention_count(self) -> pulumi.Output[Optional[int]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupretentioncount
@@ -171,7 +171,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "backup_retention_count")
 
     @property
-    @pulumi.getter(name="CustomCertificate")
+    @pulumi.getter(name="customCertificate")
     def custom_certificate(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customcertificate
@@ -179,7 +179,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "custom_certificate")
 
     @property
-    @pulumi.getter(name="CustomDomain")
+    @pulumi.getter(name="customDomain")
     def custom_domain(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customdomain
@@ -187,7 +187,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "custom_domain")
 
     @property
-    @pulumi.getter(name="CustomPrivateKey")
+    @pulumi.getter(name="customPrivateKey")
     def custom_private_key(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customprivatekey
@@ -195,7 +195,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "custom_private_key")
 
     @property
-    @pulumi.getter(name="DisableAutomatedBackup")
+    @pulumi.getter(name="disableAutomatedBackup")
     def disable_automated_backup(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-disableautomatedbackup
@@ -203,12 +203,12 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "disable_automated_backup")
 
     @property
-    @pulumi.getter(name="Endpoint")
+    @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
         return pulumi.get(self, "endpoint")
 
     @property
-    @pulumi.getter(name="Engine")
+    @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engine
@@ -216,7 +216,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "engine")
 
     @property
-    @pulumi.getter(name="EngineAttributes")
+    @pulumi.getter(name="engineAttributes")
     def engine_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.ServerEngineAttribute']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
@@ -224,7 +224,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "engine_attributes")
 
     @property
-    @pulumi.getter(name="EngineModel")
+    @pulumi.getter(name="engineModel")
     def engine_model(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
@@ -232,7 +232,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "engine_model")
 
     @property
-    @pulumi.getter(name="EngineVersion")
+    @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineversion
@@ -240,12 +240,12 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "engine_version")
 
     @property
-    @pulumi.getter(name="Id")
+    @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="InstanceProfileArn")
+    @pulumi.getter(name="instanceProfileArn")
     def instance_profile_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instanceprofilearn
@@ -253,7 +253,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "instance_profile_arn")
 
     @property
-    @pulumi.getter(name="InstanceType")
+    @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instancetype
@@ -261,7 +261,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "instance_type")
 
     @property
-    @pulumi.getter(name="KeyPair")
+    @pulumi.getter(name="keyPair")
     def key_pair(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-keypair
@@ -269,7 +269,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "key_pair")
 
     @property
-    @pulumi.getter(name="PreferredBackupWindow")
+    @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredbackupwindow
@@ -277,7 +277,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "preferred_backup_window")
 
     @property
-    @pulumi.getter(name="PreferredMaintenanceWindow")
+    @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredmaintenancewindow
@@ -285,7 +285,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property
-    @pulumi.getter(name="SecurityGroupIds")
+    @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-securitygroupids
@@ -293,7 +293,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "security_group_ids")
 
     @property
-    @pulumi.getter(name="ServerName")
+    @pulumi.getter(name="serverName")
     def server_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servername
@@ -301,7 +301,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "server_name")
 
     @property
-    @pulumi.getter(name="ServiceRoleArn")
+    @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servicerolearn
@@ -309,7 +309,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "service_role_arn")
 
     @property
-    @pulumi.getter(name="SubnetIds")
+    @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-subnetids
@@ -317,7 +317,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "subnet_ids")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags

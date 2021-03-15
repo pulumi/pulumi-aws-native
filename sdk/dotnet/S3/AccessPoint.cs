@@ -18,49 +18,49 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
         /// </summary>
-        [Output("Bucket")]
+        [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
         /// </summary>
-        [Output("CreationDate")]
+        [Output("creationDate")]
         public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
         /// </summary>
-        [Output("NetworkOrigin")]
+        [Output("networkOrigin")]
         public Output<string?> NetworkOrigin { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
         /// </summary>
-        [Output("Policy")]
+        [Output("policy")]
         public Output<Union<System.Text.Json.JsonElement, string>?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
         /// </summary>
-        [Output("PolicyStatus")]
+        [Output("policyStatus")]
         public Output<Union<System.Text.Json.JsonElement, string>?> PolicyStatus { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
         /// </summary>
-        [Output("PublicAccessBlockConfiguration")]
+        [Output("publicAccessBlockConfiguration")]
         public Output<Outputs.AccessPointPublicAccessBlockConfiguration?> PublicAccessBlockConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
         /// </summary>
-        [Output("VpcConfiguration")]
+        [Output("vpcConfiguration")]
         public Output<Outputs.AccessPointVpcConfiguration?> VpcConfiguration { get; private set; } = null!;
 
 
@@ -111,49 +111,49 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
         /// </summary>
-        [Input("Bucket", required: true)]
+        [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
         /// </summary>
-        [Input("CreationDate")]
+        [Input("creationDate")]
         public Input<string>? CreationDate { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
         /// </summary>
-        [Input("Name")]
+        [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
         /// </summary>
-        [Input("NetworkOrigin")]
+        [Input("networkOrigin")]
         public Input<string>? NetworkOrigin { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
         /// </summary>
-        [Input("Policy")]
+        [Input("policy")]
         public InputUnion<System.Text.Json.JsonElement, string>? Policy { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
         /// </summary>
-        [Input("PolicyStatus")]
+        [Input("policyStatus")]
         public InputUnion<System.Text.Json.JsonElement, string>? PolicyStatus { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
         /// </summary>
-        [Input("PublicAccessBlockConfiguration")]
+        [Input("publicAccessBlockConfiguration")]
         public Input<Inputs.AccessPointPublicAccessBlockConfigurationArgs>? PublicAccessBlockConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
         /// </summary>
-        [Input("VpcConfiguration")]
+        [Input("vpcConfiguration")]
         public Input<Inputs.AccessPointVpcConfigurationArgs>? VpcConfiguration { get; set; }
 
         public AccessPointArgs()

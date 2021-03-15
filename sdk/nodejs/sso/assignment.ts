@@ -37,27 +37,27 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
      */
-    public readonly InstanceArn!: pulumi.Output<string>;
+    public readonly instanceArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
      */
-    public readonly PermissionSetArn!: pulumi.Output<string>;
+    public readonly permissionSetArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
      */
-    public readonly PrincipalId!: pulumi.Output<string>;
+    public readonly principalId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
      */
-    public readonly PrincipalType!: pulumi.Output<string>;
+    public readonly principalType!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
      */
-    public readonly TargetId!: pulumi.Output<string>;
+    public readonly targetId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
      */
-    public readonly TargetType!: pulumi.Output<string>;
+    public readonly targetType!: pulumi.Output<string>;
 
     /**
      * Create a Assignment resource with the given unique name, arguments, and options.
@@ -69,37 +69,37 @@ export class Assignment extends pulumi.CustomResource {
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.InstanceArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'InstanceArn'");
+            if ((!args || args.instanceArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.PermissionSetArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PermissionSetArn'");
+            if ((!args || args.permissionSetArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'permissionSetArn'");
             }
-            if ((!args || args.PrincipalId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PrincipalId'");
+            if ((!args || args.principalId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.PrincipalType === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PrincipalType'");
+            if ((!args || args.principalType === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'principalType'");
             }
-            if ((!args || args.TargetId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'TargetId'");
+            if ((!args || args.targetId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'targetId'");
             }
-            if ((!args || args.TargetType === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'TargetType'");
+            if ((!args || args.targetType === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'targetType'");
             }
-            inputs["InstanceArn"] = args ? args.InstanceArn : undefined;
-            inputs["PermissionSetArn"] = args ? args.PermissionSetArn : undefined;
-            inputs["PrincipalId"] = args ? args.PrincipalId : undefined;
-            inputs["PrincipalType"] = args ? args.PrincipalType : undefined;
-            inputs["TargetId"] = args ? args.TargetId : undefined;
-            inputs["TargetType"] = args ? args.TargetType : undefined;
+            inputs["instanceArn"] = args ? args.instanceArn : undefined;
+            inputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
+            inputs["principalId"] = args ? args.principalId : undefined;
+            inputs["principalType"] = args ? args.principalType : undefined;
+            inputs["targetId"] = args ? args.targetId : undefined;
+            inputs["targetType"] = args ? args.targetType : undefined;
         } else {
-            inputs["InstanceArn"] = undefined /*out*/;
-            inputs["PermissionSetArn"] = undefined /*out*/;
-            inputs["PrincipalId"] = undefined /*out*/;
-            inputs["PrincipalType"] = undefined /*out*/;
-            inputs["TargetId"] = undefined /*out*/;
-            inputs["TargetType"] = undefined /*out*/;
+            inputs["instanceArn"] = undefined /*out*/;
+            inputs["permissionSetArn"] = undefined /*out*/;
+            inputs["principalId"] = undefined /*out*/;
+            inputs["principalType"] = undefined /*out*/;
+            inputs["targetId"] = undefined /*out*/;
+            inputs["targetType"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -119,25 +119,25 @@ export interface AssignmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
      */
-    readonly InstanceArn: pulumi.Input<string>;
+    readonly instanceArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
      */
-    readonly PermissionSetArn: pulumi.Input<string>;
+    readonly permissionSetArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
      */
-    readonly PrincipalId: pulumi.Input<string>;
+    readonly principalId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
      */
-    readonly PrincipalType: pulumi.Input<string>;
+    readonly principalType: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
      */
-    readonly TargetId: pulumi.Input<string>;
+    readonly targetId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
      */
-    readonly TargetType: pulumi.Input<string>;
+    readonly targetType: pulumi.Input<string>;
 }

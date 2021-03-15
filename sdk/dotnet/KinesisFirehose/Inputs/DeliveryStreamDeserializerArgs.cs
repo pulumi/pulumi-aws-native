@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-hivejsonserde
         /// </summary>
-        [Input("HiveJsonSerDe")]
+        [Input("hiveJsonSerDe")]
         public Input<Inputs.DeliveryStreamHiveJsonSerDeArgs>? HiveJsonSerDe { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-openxjsonserde
         /// </summary>
-        [Input("OpenXJsonSerDe")]
+        [Input("openXJsonSerDe")]
         public Input<Inputs.DeliveryStreamOpenXJsonSerDeArgs>? OpenXJsonSerDe { get; set; }
 
         public DeliveryStreamDeserializerArgs()

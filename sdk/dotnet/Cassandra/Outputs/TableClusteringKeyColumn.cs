@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
 
         [OutputConstructor]
         private TableClusteringKeyColumn(
-            Outputs.TableColumn Column,
+            Outputs.TableColumn column,
 
-            string? OrderBy)
+            string? orderBy)
         {
-            this.Column = Column;
-            this.OrderBy = OrderBy;
+            Column = column;
+            OrderBy = orderBy;
         }
     }
 }

@@ -38,7 +38,7 @@ class AccessPointAccessPointTag(dict):
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-key
@@ -46,7 +46,7 @@ class AccessPointAccessPointTag(dict):
         return pulumi.get(self, "key")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-value
@@ -77,7 +77,7 @@ class AccessPointCreationInfo(dict):
         pulumi.set(__self__, "permissions", permissions)
 
     @property
-    @pulumi.getter(name="OwnerGid")
+    @pulumi.getter(name="ownerGid")
     def owner_gid(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-ownergid
@@ -85,7 +85,7 @@ class AccessPointCreationInfo(dict):
         return pulumi.get(self, "owner_gid")
 
     @property
-    @pulumi.getter(name="OwnerUid")
+    @pulumi.getter(name="ownerUid")
     def owner_uid(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-owneruid
@@ -93,7 +93,7 @@ class AccessPointCreationInfo(dict):
         return pulumi.get(self, "owner_uid")
 
     @property
-    @pulumi.getter(name="Permissions")
+    @pulumi.getter
     def permissions(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-permissions
@@ -125,7 +125,7 @@ class AccessPointPosixUser(dict):
             pulumi.set(__self__, "secondary_gids", secondary_gids)
 
     @property
-    @pulumi.getter(name="Gid")
+    @pulumi.getter
     def gid(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid
@@ -133,7 +133,7 @@ class AccessPointPosixUser(dict):
         return pulumi.get(self, "gid")
 
     @property
-    @pulumi.getter(name="Uid")
+    @pulumi.getter
     def uid(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-uid
@@ -141,7 +141,7 @@ class AccessPointPosixUser(dict):
         return pulumi.get(self, "uid")
 
     @property
-    @pulumi.getter(name="SecondaryGids")
+    @pulumi.getter(name="secondaryGids")
     def secondary_gids(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids
@@ -171,7 +171,7 @@ class AccessPointRootDirectory(dict):
             pulumi.set(__self__, "path", path)
 
     @property
-    @pulumi.getter(name="CreationInfo")
+    @pulumi.getter(name="creationInfo")
     def creation_info(self) -> Optional['outputs.AccessPointCreationInfo']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-creationinfo
@@ -179,7 +179,7 @@ class AccessPointRootDirectory(dict):
         return pulumi.get(self, "creation_info")
 
     @property
-    @pulumi.getter(name="Path")
+    @pulumi.getter
     def path(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path
@@ -204,7 +204,7 @@ class FileSystemBackupPolicy(dict):
         pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
@@ -232,7 +232,7 @@ class FileSystemElasticFileSystemTag(dict):
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-key
@@ -240,7 +240,7 @@ class FileSystemElasticFileSystemTag(dict):
         return pulumi.get(self, "key")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-value
@@ -265,7 +265,7 @@ class FileSystemLifecyclePolicy(dict):
         pulumi.set(__self__, "transition_to_ia", transition_to_ia)
 
     @property
-    @pulumi.getter(name="TransitionToIA")
+    @pulumi.getter(name="transitionToIA")
     def transition_to_ia(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia

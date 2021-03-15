@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<Outputs.IndexUserTokenConfiguration> UserTokenConfigurationList;
 
         [OutputConstructor]
-        private IndexUserTokenConfigurationList(ImmutableArray<Outputs.IndexUserTokenConfiguration> UserTokenConfigurationList)
+        private IndexUserTokenConfigurationList(ImmutableArray<Outputs.IndexUserTokenConfiguration> userTokenConfigurationList)
         {
-            this.UserTokenConfigurationList = UserTokenConfigurationList;
+            UserTokenConfigurationList = userTokenConfigurationList;
         }
     }
 }

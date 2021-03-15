@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<Outputs.DataSourceConfluencePageToIndexFieldMapping> ConfluencePageFieldMappingsList;
 
         [OutputConstructor]
-        private DataSourceConfluencePageFieldMappingsList(ImmutableArray<Outputs.DataSourceConfluencePageToIndexFieldMapping> ConfluencePageFieldMappingsList)
+        private DataSourceConfluencePageFieldMappingsList(ImmutableArray<Outputs.DataSourceConfluencePageToIndexFieldMapping> confluencePageFieldMappingsList)
         {
-            this.ConfluencePageFieldMappingsList = ConfluencePageFieldMappingsList;
+            ConfluencePageFieldMappingsList = confluencePageFieldMappingsList;
         }
     }
 }

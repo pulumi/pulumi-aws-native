@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html#cfn-appflow-connectorprofile-singularconnectorprofilecredentials-apikey
         /// </summary>
-        [Input("ApiKey", required: true)]
+        [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;
 
         public ConnectorProfileSingularConnectorProfileCredentialsArgs()

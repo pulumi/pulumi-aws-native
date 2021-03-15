@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string? KmsKeyId;
 
         [OutputConstructor]
-        private IndexServerSideEncryptionConfiguration(string? KmsKeyId)
+        private IndexServerSideEncryptionConfiguration(string? kmsKeyId)
         {
-            this.KmsKeyId = KmsKeyId;
+            KmsKeyId = kmsKeyId;
         }
     }
 }

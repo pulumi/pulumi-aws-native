@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
     /// </summary>
     public sealed class ResourceCollectionCloudFormationCollectionFilterArgs : Pulumi.ResourceArgs
     {
-        [Input("StackNames")]
-        private InputList<string>? _StackNames;
+        [Input("stackNames")]
+        private InputList<string>? _stackNames;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
         /// </summary>
         public InputList<string> StackNames
         {
-            get => _StackNames ?? (_StackNames = new InputList<string>());
-            set => _StackNames = value;
+            get => _stackNames ?? (_stackNames = new InputList<string>());
+            set => _stackNames = value;
         }
 
         public ResourceCollectionCloudFormationCollectionFilterArgs()

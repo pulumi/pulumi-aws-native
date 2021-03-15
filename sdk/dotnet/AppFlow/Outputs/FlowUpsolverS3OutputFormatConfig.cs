@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowUpsolverS3OutputFormatConfig(
-            Outputs.FlowAggregationConfig? AggregationConfig,
+            Outputs.FlowAggregationConfig? aggregationConfig,
 
-            string? FileType,
+            string? fileType,
 
-            Outputs.FlowPrefixConfig PrefixConfig)
+            Outputs.FlowPrefixConfig prefixConfig)
         {
-            this.AggregationConfig = AggregationConfig;
-            this.FileType = FileType;
-            this.PrefixConfig = PrefixConfig;
+            AggregationConfig = aggregationConfig;
+            FileType = fileType;
+            PrefixConfig = prefixConfig;
         }
     }
 }

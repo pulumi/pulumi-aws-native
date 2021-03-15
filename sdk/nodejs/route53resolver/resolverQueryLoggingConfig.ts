@@ -34,22 +34,22 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverQueryLoggingConfig.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
-    public /*out*/ readonly AssociationCount!: pulumi.Output<number>;
-    public /*out*/ readonly CreationTime!: pulumi.Output<string>;
-    public /*out*/ readonly CreatorRequestId!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly associationCount!: pulumi.Output<number>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly creatorRequestId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
      */
-    public readonly DestinationArn!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly Id!: pulumi.Output<string>;
+    public readonly destinationArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly OwnerId!: pulumi.Output<string>;
-    public /*out*/ readonly ShareStatus!: pulumi.Output<string>;
-    public /*out*/ readonly Status!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public /*out*/ readonly shareStatus!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a ResolverQueryLoggingConfig resource with the given unique name, arguments, and options.
@@ -61,27 +61,27 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
     constructor(name: string, args?: ResolverQueryLoggingConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            inputs["DestinationArn"] = args ? args.DestinationArn : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["AssociationCount"] = undefined /*out*/;
-            inputs["CreationTime"] = undefined /*out*/;
-            inputs["CreatorRequestId"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["OwnerId"] = undefined /*out*/;
-            inputs["ShareStatus"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
+            inputs["destinationArn"] = args ? args.destinationArn : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["associationCount"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["creatorRequestId"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
+            inputs["shareStatus"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["AssociationCount"] = undefined /*out*/;
-            inputs["CreationTime"] = undefined /*out*/;
-            inputs["CreatorRequestId"] = undefined /*out*/;
-            inputs["DestinationArn"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["OwnerId"] = undefined /*out*/;
-            inputs["ShareStatus"] = undefined /*out*/;
-            inputs["Status"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["associationCount"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["creatorRequestId"] = undefined /*out*/;
+            inputs["destinationArn"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
+            inputs["shareStatus"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -101,9 +101,9 @@ export interface ResolverQueryLoggingConfigArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
      */
-    readonly DestinationArn?: pulumi.Input<string>;
+    readonly destinationArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
      */
-    readonly Name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
 }

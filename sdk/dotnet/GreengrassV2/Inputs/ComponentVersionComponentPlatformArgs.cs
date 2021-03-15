@@ -15,22 +15,22 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
     /// </summary>
     public sealed class ComponentVersionComponentPlatformArgs : Pulumi.ResourceArgs
     {
-        [Input("Attributes")]
-        private InputMap<string>? _Attributes;
+        [Input("attributes")]
+        private InputMap<string>? _attributes;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-attributes
         /// </summary>
         public InputMap<string> Attributes
         {
-            get => _Attributes ?? (_Attributes = new InputMap<string>());
-            set => _Attributes = value;
+            get => _attributes ?? (_attributes = new InputMap<string>());
+            set => _attributes = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-name
         /// </summary>
-        [Input("Name")]
+        [Input("name")]
         public Input<string>? Name { get; set; }
 
         public ComponentVersionComponentPlatformArgs()

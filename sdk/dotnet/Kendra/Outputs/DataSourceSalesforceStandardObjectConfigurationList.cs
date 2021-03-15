@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<Outputs.DataSourceSalesforceStandardObjectConfiguration> SalesforceStandardObjectConfigurationList;
 
         [OutputConstructor]
-        private DataSourceSalesforceStandardObjectConfigurationList(ImmutableArray<Outputs.DataSourceSalesforceStandardObjectConfiguration> SalesforceStandardObjectConfigurationList)
+        private DataSourceSalesforceStandardObjectConfigurationList(ImmutableArray<Outputs.DataSourceSalesforceStandardObjectConfiguration> salesforceStandardObjectConfigurationList)
         {
-            this.SalesforceStandardObjectConfigurationList = SalesforceStandardObjectConfigurationList;
+            SalesforceStandardObjectConfigurationList = salesforceStandardObjectConfigurationList;
         }
     }
 }

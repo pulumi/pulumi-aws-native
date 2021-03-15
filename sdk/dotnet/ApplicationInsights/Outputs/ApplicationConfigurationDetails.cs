@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationConfigurationDetails(
-            ImmutableArray<Outputs.ApplicationAlarmMetric> AlarmMetrics,
+            ImmutableArray<Outputs.ApplicationAlarmMetric> alarmMetrics,
 
-            ImmutableArray<Outputs.ApplicationAlarm> Alarms,
+            ImmutableArray<Outputs.ApplicationAlarm> alarms,
 
-            Outputs.ApplicationJMXPrometheusExporter? JMXPrometheusExporter,
+            Outputs.ApplicationJMXPrometheusExporter? jMXPrometheusExporter,
 
-            ImmutableArray<Outputs.ApplicationLog> Logs,
+            ImmutableArray<Outputs.ApplicationLog> logs,
 
-            ImmutableArray<Outputs.ApplicationWindowsEvent> WindowsEvents)
+            ImmutableArray<Outputs.ApplicationWindowsEvent> windowsEvents)
         {
-            this.AlarmMetrics = AlarmMetrics;
-            this.Alarms = Alarms;
-            this.JMXPrometheusExporter = JMXPrometheusExporter;
-            this.Logs = Logs;
-            this.WindowsEvents = WindowsEvents;
+            AlarmMetrics = alarmMetrics;
+            Alarms = alarms;
+            JMXPrometheusExporter = jMXPrometheusExporter;
+            Logs = logs;
+            WindowsEvents = windowsEvents;
         }
     }
 }

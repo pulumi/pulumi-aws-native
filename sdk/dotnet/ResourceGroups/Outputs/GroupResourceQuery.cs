@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ResourceGroups.Outputs
 
         [OutputConstructor]
         private GroupResourceQuery(
-            Outputs.GroupQuery? Query,
+            Outputs.GroupQuery? query,
 
-            string? Type)
+            string? type)
         {
-            this.Query = Query;
-            this.Type = Type;
+            Query = query;
+            Type = type;
         }
     }
 }

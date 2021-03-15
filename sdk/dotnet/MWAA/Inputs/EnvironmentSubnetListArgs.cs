@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.MWAA.Inputs
     /// </summary>
     public sealed class EnvironmentSubnetListArgs : Pulumi.ResourceArgs
     {
-        [Input("SubnetList")]
-        private InputList<string>? _SubnetList;
+        [Input("subnetList")]
+        private InputList<string>? _subnetList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-subnetlist.html#cfn-mwaa-environment-subnetlist-subnetlist
         /// </summary>
         public InputList<string> SubnetList
         {
-            get => _SubnetList ?? (_SubnetList = new InputList<string>());
-            set => _SubnetList = value;
+            get => _subnetList ?? (_subnetList = new InputList<string>());
+            set => _subnetList = value;
         }
 
         public EnvironmentSubnetListArgs()

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.SSM.Outputs
 
         [OutputConstructor]
         private AssociationTarget(
-            string Key,
+            string key,
 
-            ImmutableArray<string> Values)
+            ImmutableArray<string> values)
         {
-            this.Key = Key;
-            this.Values = Values;
+            Key = key;
+            Values = values;
         }
     }
 }

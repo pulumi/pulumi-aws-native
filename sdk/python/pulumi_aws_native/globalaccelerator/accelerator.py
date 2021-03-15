@@ -87,17 +87,17 @@ class Accelerator(pulumi.CustomResource):
         return Accelerator(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AcceleratorArn")
+    @pulumi.getter(name="acceleratorArn")
     def accelerator_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "accelerator_arn")
 
     @property
-    @pulumi.getter(name="DnsName")
+    @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "dns_name")
 
     @property
-    @pulumi.getter(name="Enabled")
+    @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
@@ -105,7 +105,7 @@ class Accelerator(pulumi.CustomResource):
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="IpAddressType")
+    @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
@@ -113,7 +113,7 @@ class Accelerator(pulumi.CustomResource):
         return pulumi.get(self, "ip_address_type")
 
     @property
-    @pulumi.getter(name="IpAddresses")
+    @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
@@ -121,7 +121,7 @@ class Accelerator(pulumi.CustomResource):
         return pulumi.get(self, "ip_addresses")
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
@@ -129,7 +129,7 @@ class Accelerator(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags

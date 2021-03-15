@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string AllowedGroupsColumnName;
 
         [OutputConstructor]
-        private DataSourceAclConfiguration(string AllowedGroupsColumnName)
+        private DataSourceAclConfiguration(string allowedGroupsColumnName)
         {
-            this.AllowedGroupsColumnName = AllowedGroupsColumnName;
+            AllowedGroupsColumnName = allowedGroupsColumnName;
         }
     }
 }

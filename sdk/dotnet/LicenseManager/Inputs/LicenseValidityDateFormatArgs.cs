@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-begin
         /// </summary>
-        [Input("Begin", required: true)]
+        [Input("begin", required: true)]
         public Input<string> Begin { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-end
         /// </summary>
-        [Input("End", required: true)]
+        [Input("end", required: true)]
         public Input<string> End { get; set; } = null!;
 
         public LicenseValidityDateFormatArgs()

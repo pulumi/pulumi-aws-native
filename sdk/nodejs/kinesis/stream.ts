@@ -35,27 +35,27 @@ export class Stream extends pulumi.CustomResource {
         return obj['__pulumiType'] === Stream.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
      */
-    public readonly RetentionPeriodHours!: pulumi.Output<number | undefined>;
+    public readonly retentionPeriodHours!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
      */
-    public readonly ShardCount!: pulumi.Output<number>;
+    public readonly shardCount!: pulumi.Output<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
      */
-    public readonly StreamEncryption!: pulumi.Output<outputs.Kinesis.StreamStreamEncryption | undefined>;
+    public readonly streamEncryption!: pulumi.Output<outputs.Kinesis.StreamStreamEncryption | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -67,22 +67,22 @@ export class Stream extends pulumi.CustomResource {
     constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ShardCount === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ShardCount'");
+            if ((!args || args.shardCount === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'shardCount'");
             }
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["RetentionPeriodHours"] = args ? args.RetentionPeriodHours : undefined;
-            inputs["ShardCount"] = args ? args.ShardCount : undefined;
-            inputs["StreamEncryption"] = args ? args.StreamEncryption : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["retentionPeriodHours"] = args ? args.retentionPeriodHours : undefined;
+            inputs["shardCount"] = args ? args.shardCount : undefined;
+            inputs["streamEncryption"] = args ? args.streamEncryption : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["RetentionPeriodHours"] = undefined /*out*/;
-            inputs["ShardCount"] = undefined /*out*/;
-            inputs["StreamEncryption"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["retentionPeriodHours"] = undefined /*out*/;
+            inputs["shardCount"] = undefined /*out*/;
+            inputs["streamEncryption"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,21 +102,21 @@ export interface StreamArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
      */
-    readonly Name?: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
      */
-    readonly RetentionPeriodHours?: pulumi.Input<number>;
+    readonly retentionPeriodHours?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
      */
-    readonly ShardCount: pulumi.Input<number>;
+    readonly shardCount: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
      */
-    readonly StreamEncryption?: pulumi.Input<inputs.Kinesis.StreamStreamEncryption>;
+    readonly streamEncryption?: pulumi.Input<inputs.Kinesis.StreamStreamEncryption>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
 }

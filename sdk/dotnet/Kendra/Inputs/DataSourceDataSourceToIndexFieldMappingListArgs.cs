@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceDataSourceToIndexFieldMappingListArgs : Pulumi.ResourceArgs
     {
-        [Input("DataSourceToIndexFieldMappingList")]
-        private InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>? _DataSourceToIndexFieldMappingList;
+        [Input("dataSourceToIndexFieldMappingList")]
+        private InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>? _dataSourceToIndexFieldMappingList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html#cfn-kendra-datasource-datasourcetoindexfieldmappinglist-datasourcetoindexfieldmappinglist
         /// </summary>
         public InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs> DataSourceToIndexFieldMappingList
         {
-            get => _DataSourceToIndexFieldMappingList ?? (_DataSourceToIndexFieldMappingList = new InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>());
-            set => _DataSourceToIndexFieldMappingList = value;
+            get => _dataSourceToIndexFieldMappingList ?? (_dataSourceToIndexFieldMappingList = new InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>());
+            set => _dataSourceToIndexFieldMappingList = value;
         }
 
         public DataSourceDataSourceToIndexFieldMappingListArgs()

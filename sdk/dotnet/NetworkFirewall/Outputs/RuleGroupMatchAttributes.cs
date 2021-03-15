@@ -40,24 +40,24 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private RuleGroupMatchAttributes(
-            Outputs.RuleGroupPortRanges? DestinationPorts,
+            Outputs.RuleGroupPortRanges? destinationPorts,
 
-            Outputs.RuleGroupAddresses? Destinations,
+            Outputs.RuleGroupAddresses? destinations,
 
-            Outputs.RuleGroupProtocolNumbers? Protocols,
+            Outputs.RuleGroupProtocolNumbers? protocols,
 
-            Outputs.RuleGroupPortRanges? SourcePorts,
+            Outputs.RuleGroupPortRanges? sourcePorts,
 
-            Outputs.RuleGroupAddresses? Sources,
+            Outputs.RuleGroupAddresses? sources,
 
-            Outputs.RuleGroupTCPFlags? TCPFlags)
+            Outputs.RuleGroupTCPFlags? tCPFlags)
         {
-            this.DestinationPorts = DestinationPorts;
-            this.Destinations = Destinations;
-            this.Protocols = Protocols;
-            this.SourcePorts = SourcePorts;
-            this.Sources = Sources;
-            this.TCPFlags = TCPFlags;
+            DestinationPorts = destinationPorts;
+            Destinations = destinations;
+            Protocols = protocols;
+            SourcePorts = sourcePorts;
+            Sources = sources;
+            TCPFlags = tCPFlags;
         }
     }
 }

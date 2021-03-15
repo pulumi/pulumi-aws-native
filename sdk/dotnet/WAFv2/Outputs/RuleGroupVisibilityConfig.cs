@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private RuleGroupVisibilityConfig(
-            bool CloudWatchMetricsEnabled,
+            bool cloudWatchMetricsEnabled,
 
-            string MetricName,
+            string metricName,
 
-            bool SampledRequestsEnabled)
+            bool sampledRequestsEnabled)
         {
-            this.CloudWatchMetricsEnabled = CloudWatchMetricsEnabled;
-            this.MetricName = MetricName;
-            this.SampledRequestsEnabled = SampledRequestsEnabled;
+            CloudWatchMetricsEnabled = cloudWatchMetricsEnabled;
+            MetricName = metricName;
+            SampledRequestsEnabled = sampledRequestsEnabled;
         }
     }
 }

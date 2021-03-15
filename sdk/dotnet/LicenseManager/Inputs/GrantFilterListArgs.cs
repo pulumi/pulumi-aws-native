@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
     /// </summary>
     public sealed class GrantFilterListArgs : Pulumi.ResourceArgs
     {
-        [Input("FilterList")]
-        private InputList<Inputs.GrantFilterArgs>? _FilterList;
+        [Input("filterList")]
+        private InputList<Inputs.GrantFilterArgs>? _filterList;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filterlist.html#cfn-licensemanager-grant-filterlist-filterlist
         /// </summary>
         public InputList<Inputs.GrantFilterArgs> FilterList
         {
-            get => _FilterList ?? (_FilterList = new InputList<Inputs.GrantFilterArgs>());
-            set => _FilterList = value;
+            get => _filterList ?? (_filterList = new InputList<Inputs.GrantFilterArgs>());
+            set => _filterList = value;
         }
 
         public GrantFilterListArgs()

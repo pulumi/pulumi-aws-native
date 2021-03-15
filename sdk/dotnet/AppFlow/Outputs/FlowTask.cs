@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowTask(
-            Outputs.FlowConnectorOperator? ConnectorOperator,
+            Outputs.FlowConnectorOperator? connectorOperator,
 
-            string? DestinationField,
+            string? destinationField,
 
-            ImmutableArray<string> SourceFields,
+            ImmutableArray<string> sourceFields,
 
-            ImmutableArray<Outputs.FlowTaskPropertiesObject> TaskProperties,
+            ImmutableArray<Outputs.FlowTaskPropertiesObject> taskProperties,
 
-            string TaskType)
+            string taskType)
         {
-            this.ConnectorOperator = ConnectorOperator;
-            this.DestinationField = DestinationField;
-            this.SourceFields = SourceFields;
-            this.TaskProperties = TaskProperties;
-            this.TaskType = TaskType;
+            ConnectorOperator = connectorOperator;
+            DestinationField = destinationField;
+            SourceFields = sourceFields;
+            TaskProperties = taskProperties;
+            TaskType = taskType;
         }
     }
 }

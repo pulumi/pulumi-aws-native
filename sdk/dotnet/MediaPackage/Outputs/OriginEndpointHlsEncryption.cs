@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private OriginEndpointHlsEncryption(
-            string? ConstantInitializationVector,
+            string? constantInitializationVector,
 
-            string? EncryptionMethod,
+            string? encryptionMethod,
 
-            int? KeyRotationIntervalSeconds,
+            int? keyRotationIntervalSeconds,
 
-            bool? RepeatExtXKey,
+            bool? repeatExtXKey,
 
-            Outputs.OriginEndpointSpekeKeyProvider SpekeKeyProvider)
+            Outputs.OriginEndpointSpekeKeyProvider spekeKeyProvider)
         {
-            this.ConstantInitializationVector = ConstantInitializationVector;
-            this.EncryptionMethod = EncryptionMethod;
-            this.KeyRotationIntervalSeconds = KeyRotationIntervalSeconds;
-            this.RepeatExtXKey = RepeatExtXKey;
-            this.SpekeKeyProvider = SpekeKeyProvider;
+            ConstantInitializationVector = constantInitializationVector;
+            EncryptionMethod = encryptionMethod;
+            KeyRotationIntervalSeconds = keyRotationIntervalSeconds;
+            RepeatExtXKey = repeatExtXKey;
+            SpekeKeyProvider = spekeKeyProvider;
         }
     }
 }

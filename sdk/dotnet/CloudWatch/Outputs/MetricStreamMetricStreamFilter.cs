@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.CloudWatch.Outputs
         public readonly string Namespace;
 
         [OutputConstructor]
-        private MetricStreamMetricStreamFilter(string Namespace)
+        private MetricStreamMetricStreamFilter(string @namespace)
         {
-            this.Namespace = Namespace;
+            Namespace = @namespace;
         }
     }
 }

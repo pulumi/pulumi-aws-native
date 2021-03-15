@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly ImmutableArray<string> TimestampFormats;
 
         [OutputConstructor]
-        private DeliveryStreamHiveJsonSerDe(ImmutableArray<string> TimestampFormats)
+        private DeliveryStreamHiveJsonSerDe(ImmutableArray<string> timestampFormats)
         {
-            this.TimestampFormats = TimestampFormats;
+            TimestampFormats = timestampFormats;
         }
     }
 }

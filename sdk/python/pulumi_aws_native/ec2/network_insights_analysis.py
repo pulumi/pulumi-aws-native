@@ -92,17 +92,17 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         return NetworkInsightsAnalysis(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="AlternatePathHints")
+    @pulumi.getter(name="alternatePathHints")
     def alternate_path_hints(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisAlternatePathHint']]:
         return pulumi.get(self, "alternate_path_hints")
 
     @property
-    @pulumi.getter(name="Explanations")
+    @pulumi.getter
     def explanations(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisExplanation']]:
         return pulumi.get(self, "explanations")
 
     @property
-    @pulumi.getter(name="FilterInArns")
+    @pulumi.getter(name="filterInArns")
     def filter_in_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
@@ -110,22 +110,22 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         return pulumi.get(self, "filter_in_arns")
 
     @property
-    @pulumi.getter(name="ForwardPathComponents")
+    @pulumi.getter(name="forwardPathComponents")
     def forward_path_components(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisPathComponent']]:
         return pulumi.get(self, "forward_path_components")
 
     @property
-    @pulumi.getter(name="NetworkInsightsAnalysisArn")
+    @pulumi.getter(name="networkInsightsAnalysisArn")
     def network_insights_analysis_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "network_insights_analysis_arn")
 
     @property
-    @pulumi.getter(name="NetworkInsightsAnalysisId")
+    @pulumi.getter(name="networkInsightsAnalysisId")
     def network_insights_analysis_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "network_insights_analysis_id")
 
     @property
-    @pulumi.getter(name="NetworkInsightsPathId")
+    @pulumi.getter(name="networkInsightsPathId")
     def network_insights_path_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
@@ -133,27 +133,27 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         return pulumi.get(self, "network_insights_path_id")
 
     @property
-    @pulumi.getter(name="NetworkPathFound")
+    @pulumi.getter(name="networkPathFound")
     def network_path_found(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "network_path_found")
 
     @property
-    @pulumi.getter(name="ReturnPathComponents")
+    @pulumi.getter(name="returnPathComponents")
     def return_path_components(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisPathComponent']]:
         return pulumi.get(self, "return_path_components")
 
     @property
-    @pulumi.getter(name="StartDate")
+    @pulumi.getter(name="startDate")
     def start_date(self) -> pulumi.Output[str]:
         return pulumi.get(self, "start_date")
 
     @property
-    @pulumi.getter(name="Status")
+    @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="StatusMessage")
+    @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
@@ -161,7 +161,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         return pulumi.get(self, "status_message")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags

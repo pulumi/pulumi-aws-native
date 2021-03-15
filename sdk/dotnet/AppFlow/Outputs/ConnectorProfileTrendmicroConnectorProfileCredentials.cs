@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string ApiSecretKey;
 
         [OutputConstructor]
-        private ConnectorProfileTrendmicroConnectorProfileCredentials(string ApiSecretKey)
+        private ConnectorProfileTrendmicroConnectorProfileCredentials(string apiSecretKey)
         {
-            this.ApiSecretKey = ApiSecretKey;
+            ApiSecretKey = apiSecretKey;
         }
     }
 }

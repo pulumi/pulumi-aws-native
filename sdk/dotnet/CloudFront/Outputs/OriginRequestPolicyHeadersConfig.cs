@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
         [OutputConstructor]
         private OriginRequestPolicyHeadersConfig(
-            string HeaderBehavior,
+            string headerBehavior,
 
-            ImmutableArray<string> Headers)
+            ImmutableArray<string> headers)
         {
-            this.HeaderBehavior = HeaderBehavior;
-            this.Headers = Headers;
+            HeaderBehavior = headerBehavior;
+            Headers = headers;
         }
     }
 }

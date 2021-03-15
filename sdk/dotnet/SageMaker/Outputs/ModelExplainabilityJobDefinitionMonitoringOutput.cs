@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly Outputs.ModelExplainabilityJobDefinitionS3Output S3Output;
 
         [OutputConstructor]
-        private ModelExplainabilityJobDefinitionMonitoringOutput(Outputs.ModelExplainabilityJobDefinitionS3Output S3Output)
+        private ModelExplainabilityJobDefinitionMonitoringOutput(Outputs.ModelExplainabilityJobDefinitionS3Output s3Output)
         {
-            this.S3Output = S3Output;
+            S3Output = s3Output;
         }
     }
 }

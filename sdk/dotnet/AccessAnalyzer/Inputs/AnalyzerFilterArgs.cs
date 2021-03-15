@@ -15,52 +15,52 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
     /// </summary>
     public sealed class AnalyzerFilterArgs : Pulumi.ResourceArgs
     {
-        [Input("Contains")]
-        private InputList<string>? _Contains;
+        [Input("contains")]
+        private InputList<string>? _contains;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
         /// </summary>
         public InputList<string> Contains
         {
-            get => _Contains ?? (_Contains = new InputList<string>());
-            set => _Contains = value;
+            get => _contains ?? (_contains = new InputList<string>());
+            set => _contains = value;
         }
 
-        [Input("Eq")]
-        private InputList<string>? _Eq;
+        [Input("eq")]
+        private InputList<string>? _eq;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-eq
         /// </summary>
         public InputList<string> Eq
         {
-            get => _Eq ?? (_Eq = new InputList<string>());
-            set => _Eq = value;
+            get => _eq ?? (_eq = new InputList<string>());
+            set => _eq = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-exists
         /// </summary>
-        [Input("Exists")]
+        [Input("exists")]
         public Input<bool>? Exists { get; set; }
 
-        [Input("Neq")]
-        private InputList<string>? _Neq;
+        [Input("neq")]
+        private InputList<string>? _neq;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-neq
         /// </summary>
         public InputList<string> Neq
         {
-            get => _Neq ?? (_Neq = new InputList<string>());
-            set => _Neq = value;
+            get => _neq ?? (_neq = new InputList<string>());
+            set => _neq = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-property
         /// </summary>
-        [Input("Property", required: true)]
+        [Input("property", required: true)]
         public Input<string> Property { get; set; } = null!;
 
         public AnalyzerFilterArgs()

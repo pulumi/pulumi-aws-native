@@ -35,64 +35,64 @@ export class OriginEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === OriginEndpoint.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
      */
-    public readonly Authorization!: pulumi.Output<outputs.MediaPackage.OriginEndpointAuthorization | undefined>;
+    public readonly authorization!: pulumi.Output<outputs.MediaPackage.OriginEndpointAuthorization | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
      */
-    public readonly ChannelId!: pulumi.Output<string>;
+    public readonly channelId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
      */
-    public readonly CmafPackage!: pulumi.Output<outputs.MediaPackage.OriginEndpointCmafPackage | undefined>;
+    public readonly cmafPackage!: pulumi.Output<outputs.MediaPackage.OriginEndpointCmafPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
      */
-    public readonly DashPackage!: pulumi.Output<outputs.MediaPackage.OriginEndpointDashPackage | undefined>;
+    public readonly dashPackage!: pulumi.Output<outputs.MediaPackage.OriginEndpointDashPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
      */
-    public readonly HlsPackage!: pulumi.Output<outputs.MediaPackage.OriginEndpointHlsPackage | undefined>;
+    public readonly hlsPackage!: pulumi.Output<outputs.MediaPackage.OriginEndpointHlsPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
      */
-    public readonly Id!: pulumi.Output<string>;
+    public readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
      */
-    public readonly ManifestName!: pulumi.Output<string | undefined>;
+    public readonly manifestName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
      */
-    public readonly MssPackage!: pulumi.Output<outputs.MediaPackage.OriginEndpointMssPackage | undefined>;
+    public readonly mssPackage!: pulumi.Output<outputs.MediaPackage.OriginEndpointMssPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
      */
-    public readonly Origination!: pulumi.Output<string | undefined>;
+    public readonly origination!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
      */
-    public readonly StartoverWindowSeconds!: pulumi.Output<number | undefined>;
+    public readonly startoverWindowSeconds!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
      */
-    public readonly TimeDelaySeconds!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly Url!: pulumi.Output<string>;
+    public readonly timeDelaySeconds!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
      */
-    public readonly Whitelist!: pulumi.Output<string[] | undefined>;
+    public readonly whitelist!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a OriginEndpoint resource with the given unique name, arguments, and options.
@@ -104,45 +104,45 @@ export class OriginEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: OriginEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.ChannelId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'ChannelId'");
+            if ((!args || args.channelId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'channelId'");
             }
-            if ((!args || args.Id === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Id'");
+            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'id'");
             }
-            inputs["Authorization"] = args ? args.Authorization : undefined;
-            inputs["ChannelId"] = args ? args.ChannelId : undefined;
-            inputs["CmafPackage"] = args ? args.CmafPackage : undefined;
-            inputs["DashPackage"] = args ? args.DashPackage : undefined;
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["HlsPackage"] = args ? args.HlsPackage : undefined;
-            inputs["Id"] = args ? args.Id : undefined;
-            inputs["ManifestName"] = args ? args.ManifestName : undefined;
-            inputs["MssPackage"] = args ? args.MssPackage : undefined;
-            inputs["Origination"] = args ? args.Origination : undefined;
-            inputs["StartoverWindowSeconds"] = args ? args.StartoverWindowSeconds : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["TimeDelaySeconds"] = args ? args.TimeDelaySeconds : undefined;
-            inputs["Whitelist"] = args ? args.Whitelist : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Url"] = undefined /*out*/;
+            inputs["authorization"] = args ? args.authorization : undefined;
+            inputs["channelId"] = args ? args.channelId : undefined;
+            inputs["cmafPackage"] = args ? args.cmafPackage : undefined;
+            inputs["dashPackage"] = args ? args.dashPackage : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["hlsPackage"] = args ? args.hlsPackage : undefined;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["manifestName"] = args ? args.manifestName : undefined;
+            inputs["mssPackage"] = args ? args.mssPackage : undefined;
+            inputs["origination"] = args ? args.origination : undefined;
+            inputs["startoverWindowSeconds"] = args ? args.startoverWindowSeconds : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["timeDelaySeconds"] = args ? args.timeDelaySeconds : undefined;
+            inputs["whitelist"] = args ? args.whitelist : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["url"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Authorization"] = undefined /*out*/;
-            inputs["ChannelId"] = undefined /*out*/;
-            inputs["CmafPackage"] = undefined /*out*/;
-            inputs["DashPackage"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["HlsPackage"] = undefined /*out*/;
-            inputs["Id"] = undefined /*out*/;
-            inputs["ManifestName"] = undefined /*out*/;
-            inputs["MssPackage"] = undefined /*out*/;
-            inputs["Origination"] = undefined /*out*/;
-            inputs["StartoverWindowSeconds"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["TimeDelaySeconds"] = undefined /*out*/;
-            inputs["Url"] = undefined /*out*/;
-            inputs["Whitelist"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["authorization"] = undefined /*out*/;
+            inputs["channelId"] = undefined /*out*/;
+            inputs["cmafPackage"] = undefined /*out*/;
+            inputs["dashPackage"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["hlsPackage"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
+            inputs["manifestName"] = undefined /*out*/;
+            inputs["mssPackage"] = undefined /*out*/;
+            inputs["origination"] = undefined /*out*/;
+            inputs["startoverWindowSeconds"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["timeDelaySeconds"] = undefined /*out*/;
+            inputs["url"] = undefined /*out*/;
+            inputs["whitelist"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -162,57 +162,57 @@ export interface OriginEndpointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
      */
-    readonly Authorization?: pulumi.Input<inputs.MediaPackage.OriginEndpointAuthorization>;
+    readonly authorization?: pulumi.Input<inputs.MediaPackage.OriginEndpointAuthorization>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
      */
-    readonly ChannelId: pulumi.Input<string>;
+    readonly channelId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
      */
-    readonly CmafPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointCmafPackage>;
+    readonly cmafPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointCmafPackage>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
      */
-    readonly DashPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointDashPackage>;
+    readonly dashPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointDashPackage>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
      */
-    readonly HlsPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointHlsPackage>;
+    readonly hlsPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointHlsPackage>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
      */
-    readonly Id: pulumi.Input<string>;
+    readonly id: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
      */
-    readonly ManifestName?: pulumi.Input<string>;
+    readonly manifestName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
      */
-    readonly MssPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointMssPackage>;
+    readonly mssPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointMssPackage>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
      */
-    readonly Origination?: pulumi.Input<string>;
+    readonly origination?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
      */
-    readonly StartoverWindowSeconds?: pulumi.Input<number>;
+    readonly startoverWindowSeconds?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
      */
-    readonly TimeDelaySeconds?: pulumi.Input<number>;
+    readonly timeDelaySeconds?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
      */
-    readonly Whitelist?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly whitelist?: pulumi.Input<pulumi.Input<string>[]>;
 }

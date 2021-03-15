@@ -69,7 +69,7 @@ class ConfigurationSet(pulumi.CustomResource):
         return ConfigurationSet(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Name")
+    @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name

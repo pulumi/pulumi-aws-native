@@ -35,32 +35,32 @@ export class CertificateAuthority extends pulumi.CustomResource {
         return obj['__pulumiType'] === CertificateAuthority.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
-    public /*out*/ readonly CertificateSigningRequest!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly certificateSigningRequest!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
      */
-    public readonly KeyAlgorithm!: pulumi.Output<string>;
+    public readonly keyAlgorithm!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
      */
-    public readonly RevocationConfiguration!: pulumi.Output<outputs.ACMPCA.CertificateAuthorityRevocationConfiguration | undefined>;
+    public readonly revocationConfiguration!: pulumi.Output<outputs.ACMPCA.CertificateAuthorityRevocationConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
      */
-    public readonly SigningAlgorithm!: pulumi.Output<string>;
+    public readonly signingAlgorithm!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
      */
-    public readonly Subject!: pulumi.Output<outputs.ACMPCA.CertificateAuthoritySubject>;
+    public readonly subject!: pulumi.Output<outputs.ACMPCA.CertificateAuthoritySubject>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
      */
-    public readonly Type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a CertificateAuthority resource with the given unique name, arguments, and options.
@@ -72,35 +72,35 @@ export class CertificateAuthority extends pulumi.CustomResource {
     constructor(name: string, args: CertificateAuthorityArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.KeyAlgorithm === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'KeyAlgorithm'");
+            if ((!args || args.keyAlgorithm === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'keyAlgorithm'");
             }
-            if ((!args || args.SigningAlgorithm === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SigningAlgorithm'");
+            if ((!args || args.signingAlgorithm === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'signingAlgorithm'");
             }
-            if ((!args || args.Subject === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Subject'");
+            if ((!args || args.subject === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'subject'");
             }
-            if ((!args || args.Type === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Type'");
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'type'");
             }
-            inputs["KeyAlgorithm"] = args ? args.KeyAlgorithm : undefined;
-            inputs["RevocationConfiguration"] = args ? args.RevocationConfiguration : undefined;
-            inputs["SigningAlgorithm"] = args ? args.SigningAlgorithm : undefined;
-            inputs["Subject"] = args ? args.Subject : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Type"] = args ? args.Type : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CertificateSigningRequest"] = undefined /*out*/;
+            inputs["keyAlgorithm"] = args ? args.keyAlgorithm : undefined;
+            inputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
+            inputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
+            inputs["subject"] = args ? args.subject : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["certificateSigningRequest"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["CertificateSigningRequest"] = undefined /*out*/;
-            inputs["KeyAlgorithm"] = undefined /*out*/;
-            inputs["RevocationConfiguration"] = undefined /*out*/;
-            inputs["SigningAlgorithm"] = undefined /*out*/;
-            inputs["Subject"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Type"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["certificateSigningRequest"] = undefined /*out*/;
+            inputs["keyAlgorithm"] = undefined /*out*/;
+            inputs["revocationConfiguration"] = undefined /*out*/;
+            inputs["signingAlgorithm"] = undefined /*out*/;
+            inputs["subject"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -120,25 +120,25 @@ export interface CertificateAuthorityArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
      */
-    readonly KeyAlgorithm: pulumi.Input<string>;
+    readonly keyAlgorithm: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
      */
-    readonly RevocationConfiguration?: pulumi.Input<inputs.ACMPCA.CertificateAuthorityRevocationConfiguration>;
+    readonly revocationConfiguration?: pulumi.Input<inputs.ACMPCA.CertificateAuthorityRevocationConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
      */
-    readonly SigningAlgorithm: pulumi.Input<string>;
+    readonly signingAlgorithm: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
      */
-    readonly Subject: pulumi.Input<inputs.ACMPCA.CertificateAuthoritySubject>;
+    readonly subject: pulumi.Input<inputs.ACMPCA.CertificateAuthoritySubject>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
      */
-    readonly Type: pulumi.Input<string>;
+    readonly type: pulumi.Input<string>;
 }

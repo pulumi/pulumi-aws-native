@@ -15,19 +15,19 @@ namespace Pulumi.AwsNative.EC2
     [AwsNativeResourceType("aws-native:EC2:GatewayRouteTableAssociation")]
     public partial class GatewayRouteTableAssociation : Pulumi.CustomResource
     {
-        [Output("AssociationId")]
+        [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
         /// </summary>
-        [Output("GatewayId")]
+        [Output("gatewayId")]
         public Output<string> GatewayId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
         /// </summary>
-        [Output("RouteTableId")]
+        [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
 
 
@@ -78,13 +78,13 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
         /// </summary>
-        [Input("GatewayId", required: true)]
+        [Input("gatewayId", required: true)]
         public Input<string> GatewayId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
         /// </summary>
-        [Input("RouteTableId", required: true)]
+        [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
 
         public GatewayRouteTableAssociationArgs()

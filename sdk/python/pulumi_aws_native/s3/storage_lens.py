@@ -79,12 +79,12 @@ class StorageLens(pulumi.CustomResource):
         return StorageLens(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="StorageLensArn")
+    @pulumi.getter(name="storageLensArn")
     def storage_lens_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "storage_lens_arn")
 
     @property
-    @pulumi.getter(name="StorageLensConfiguration")
+    @pulumi.getter(name="storageLensConfiguration")
     def storage_lens_configuration(self) -> pulumi.Output['outputs.StorageLensStorageLensConfiguration']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
@@ -92,7 +92,7 @@ class StorageLens(pulumi.CustomResource):
         return pulumi.get(self, "storage_lens_configuration")
 
     @property
-    @pulumi.getter(name="Tags")
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.EKS.Outputs
 
         [OutputConstructor]
         private FargateProfileSelector(
-            ImmutableArray<Outputs.FargateProfileLabel> Labels,
+            ImmutableArray<Outputs.FargateProfileLabel> labels,
 
-            string Namespace)
+            string @namespace)
         {
-            this.Labels = Labels;
-            this.Namespace = Namespace;
+            Labels = labels;
+            Namespace = @namespace;
         }
     }
 }

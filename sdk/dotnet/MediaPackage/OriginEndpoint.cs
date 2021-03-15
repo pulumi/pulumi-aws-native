@@ -15,94 +15,94 @@ namespace Pulumi.AwsNative.MediaPackage
     [AwsNativeResourceType("aws-native:MediaPackage:OriginEndpoint")]
     public partial class OriginEndpoint : Pulumi.CustomResource
     {
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
         /// </summary>
-        [Output("Authorization")]
+        [Output("authorization")]
         public Output<Outputs.OriginEndpointAuthorization?> Authorization { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
         /// </summary>
-        [Output("ChannelId")]
+        [Output("channelId")]
         public Output<string> ChannelId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
         /// </summary>
-        [Output("CmafPackage")]
+        [Output("cmafPackage")]
         public Output<Outputs.OriginEndpointCmafPackage?> CmafPackage { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
         /// </summary>
-        [Output("DashPackage")]
+        [Output("dashPackage")]
         public Output<Outputs.OriginEndpointDashPackage?> DashPackage { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
         /// </summary>
-        [Output("HlsPackage")]
+        [Output("hlsPackage")]
         public Output<Outputs.OriginEndpointHlsPackage?> HlsPackage { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
         /// </summary>
-        [Output("Id")]
+        [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
         /// </summary>
-        [Output("ManifestName")]
+        [Output("manifestName")]
         public Output<string?> ManifestName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
         /// </summary>
-        [Output("MssPackage")]
+        [Output("mssPackage")]
         public Output<Outputs.OriginEndpointMssPackage?> MssPackage { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
         /// </summary>
-        [Output("Origination")]
+        [Output("origination")]
         public Output<string?> Origination { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
         /// </summary>
-        [Output("StartoverWindowSeconds")]
+        [Output("startoverWindowSeconds")]
         public Output<int?> StartoverWindowSeconds { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
         /// </summary>
-        [Output("TimeDelaySeconds")]
+        [Output("timeDelaySeconds")]
         public Output<int?> TimeDelaySeconds { get; private set; } = null!;
 
-        [Output("Url")]
+        [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
         /// </summary>
-        [Output("Whitelist")]
+        [Output("whitelist")]
         public Output<ImmutableArray<string>> Whitelist { get; private set; } = null!;
 
 
@@ -153,97 +153,97 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
         /// </summary>
-        [Input("Authorization")]
+        [Input("authorization")]
         public Input<Inputs.OriginEndpointAuthorizationArgs>? Authorization { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
         /// </summary>
-        [Input("ChannelId", required: true)]
+        [Input("channelId", required: true)]
         public Input<string> ChannelId { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
         /// </summary>
-        [Input("CmafPackage")]
+        [Input("cmafPackage")]
         public Input<Inputs.OriginEndpointCmafPackageArgs>? CmafPackage { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
         /// </summary>
-        [Input("DashPackage")]
+        [Input("dashPackage")]
         public Input<Inputs.OriginEndpointDashPackageArgs>? DashPackage { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
         /// </summary>
-        [Input("HlsPackage")]
+        [Input("hlsPackage")]
         public Input<Inputs.OriginEndpointHlsPackageArgs>? HlsPackage { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
         /// </summary>
-        [Input("Id", required: true)]
+        [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
         /// </summary>
-        [Input("ManifestName")]
+        [Input("manifestName")]
         public Input<string>? ManifestName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
         /// </summary>
-        [Input("MssPackage")]
+        [Input("mssPackage")]
         public Input<Inputs.OriginEndpointMssPackageArgs>? MssPackage { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
         /// </summary>
-        [Input("Origination")]
+        [Input("origination")]
         public Input<string>? Origination { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
         /// </summary>
-        [Input("StartoverWindowSeconds")]
+        [Input("startoverWindowSeconds")]
         public Input<int>? StartoverWindowSeconds { get; set; }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
         /// </summary>
-        [Input("TimeDelaySeconds")]
+        [Input("timeDelaySeconds")]
         public Input<int>? TimeDelaySeconds { get; set; }
 
-        [Input("Whitelist")]
-        private InputList<string>? _Whitelist;
+        [Input("whitelist")]
+        private InputList<string>? _whitelist;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
         /// </summary>
         public InputList<string> Whitelist
         {
-            get => _Whitelist ?? (_Whitelist = new InputList<string>());
-            set => _Whitelist = value;
+            get => _whitelist ?? (_whitelist = new InputList<string>());
+            set => _whitelist = value;
         }
 
         public OriginEndpointArgs()

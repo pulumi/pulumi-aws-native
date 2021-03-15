@@ -37,19 +37,19 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
      */
-    public readonly CustomerGatewayArn!: pulumi.Output<string>;
+    public readonly customerGatewayArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
      */
-    public readonly DeviceId!: pulumi.Output<string>;
+    public readonly deviceId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
      */
-    public readonly GlobalNetworkId!: pulumi.Output<string>;
+    public readonly globalNetworkId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
      */
-    public readonly LinkId!: pulumi.Output<string | undefined>;
+    public readonly linkId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CustomerGatewayAssociation resource with the given unique name, arguments, and options.
@@ -61,24 +61,24 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
     constructor(name: string, args: CustomerGatewayAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.CustomerGatewayArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'CustomerGatewayArn'");
+            if ((!args || args.customerGatewayArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'customerGatewayArn'");
             }
-            if ((!args || args.DeviceId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DeviceId'");
+            if ((!args || args.deviceId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'deviceId'");
             }
-            if ((!args || args.GlobalNetworkId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'GlobalNetworkId'");
+            if ((!args || args.globalNetworkId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'globalNetworkId'");
             }
-            inputs["CustomerGatewayArn"] = args ? args.CustomerGatewayArn : undefined;
-            inputs["DeviceId"] = args ? args.DeviceId : undefined;
-            inputs["GlobalNetworkId"] = args ? args.GlobalNetworkId : undefined;
-            inputs["LinkId"] = args ? args.LinkId : undefined;
+            inputs["customerGatewayArn"] = args ? args.customerGatewayArn : undefined;
+            inputs["deviceId"] = args ? args.deviceId : undefined;
+            inputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
+            inputs["linkId"] = args ? args.linkId : undefined;
         } else {
-            inputs["CustomerGatewayArn"] = undefined /*out*/;
-            inputs["DeviceId"] = undefined /*out*/;
-            inputs["GlobalNetworkId"] = undefined /*out*/;
-            inputs["LinkId"] = undefined /*out*/;
+            inputs["customerGatewayArn"] = undefined /*out*/;
+            inputs["deviceId"] = undefined /*out*/;
+            inputs["globalNetworkId"] = undefined /*out*/;
+            inputs["linkId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -98,17 +98,17 @@ export interface CustomerGatewayAssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
      */
-    readonly CustomerGatewayArn: pulumi.Input<string>;
+    readonly customerGatewayArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
      */
-    readonly DeviceId: pulumi.Input<string>;
+    readonly deviceId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
      */
-    readonly GlobalNetworkId: pulumi.Input<string>;
+    readonly globalNetworkId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
      */
-    readonly LinkId?: pulumi.Input<string>;
+    readonly linkId?: pulumi.Input<string>;
 }

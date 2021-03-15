@@ -84,57 +84,57 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleAction(
-            Outputs.TopicRuleCloudwatchAlarmAction? CloudwatchAlarm,
+            Outputs.TopicRuleCloudwatchAlarmAction? cloudwatchAlarm,
 
-            Outputs.TopicRuleCloudwatchMetricAction? CloudwatchMetric,
+            Outputs.TopicRuleCloudwatchMetricAction? cloudwatchMetric,
 
-            Outputs.TopicRuleDynamoDBAction? DynamoDB,
+            Outputs.TopicRuleDynamoDBAction? dynamoDB,
 
-            Outputs.TopicRuleDynamoDBv2Action? DynamoDBv2,
+            Outputs.TopicRuleDynamoDBv2Action? dynamoDBv2,
 
-            Outputs.TopicRuleElasticsearchAction? Elasticsearch,
+            Outputs.TopicRuleElasticsearchAction? elasticsearch,
 
-            Outputs.TopicRuleFirehoseAction? Firehose,
+            Outputs.TopicRuleFirehoseAction? firehose,
 
-            Outputs.TopicRuleHttpAction? Http,
+            Outputs.TopicRuleHttpAction? http,
 
-            Outputs.TopicRuleIotAnalyticsAction? IotAnalytics,
+            Outputs.TopicRuleIotAnalyticsAction? iotAnalytics,
 
-            Outputs.TopicRuleIotEventsAction? IotEvents,
+            Outputs.TopicRuleIotEventsAction? iotEvents,
 
-            Outputs.TopicRuleIotSiteWiseAction? IotSiteWise,
+            Outputs.TopicRuleIotSiteWiseAction? iotSiteWise,
 
-            Outputs.TopicRuleKinesisAction? Kinesis,
+            Outputs.TopicRuleKinesisAction? kinesis,
 
-            Outputs.TopicRuleLambdaAction? Lambda,
+            Outputs.TopicRuleLambdaAction? lambda,
 
-            Outputs.TopicRuleRepublishAction? Republish,
+            Outputs.TopicRuleRepublishAction? republish,
 
-            Outputs.TopicRuleS3Action? S3,
+            Outputs.TopicRuleS3Action? s3,
 
-            Outputs.TopicRuleSnsAction? Sns,
+            Outputs.TopicRuleSnsAction? sns,
 
-            Outputs.TopicRuleSqsAction? Sqs,
+            Outputs.TopicRuleSqsAction? sqs,
 
-            Outputs.TopicRuleStepFunctionsAction? StepFunctions)
+            Outputs.TopicRuleStepFunctionsAction? stepFunctions)
         {
-            this.CloudwatchAlarm = CloudwatchAlarm;
-            this.CloudwatchMetric = CloudwatchMetric;
-            this.DynamoDB = DynamoDB;
-            this.DynamoDBv2 = DynamoDBv2;
-            this.Elasticsearch = Elasticsearch;
-            this.Firehose = Firehose;
-            this.Http = Http;
-            this.IotAnalytics = IotAnalytics;
-            this.IotEvents = IotEvents;
-            this.IotSiteWise = IotSiteWise;
-            this.Kinesis = Kinesis;
-            this.Lambda = Lambda;
-            this.Republish = Republish;
-            this.S3 = S3;
-            this.Sns = Sns;
-            this.Sqs = Sqs;
-            this.StepFunctions = StepFunctions;
+            CloudwatchAlarm = cloudwatchAlarm;
+            CloudwatchMetric = cloudwatchMetric;
+            DynamoDB = dynamoDB;
+            DynamoDBv2 = dynamoDBv2;
+            Elasticsearch = elasticsearch;
+            Firehose = firehose;
+            Http = http;
+            IotAnalytics = iotAnalytics;
+            IotEvents = iotEvents;
+            IotSiteWise = iotSiteWise;
+            Kinesis = kinesis;
+            Lambda = lambda;
+            Republish = republish;
+            S3 = s3;
+            Sns = sns;
+            Sqs = sqs;
+            StepFunctions = stepFunctions;
         }
     }
 }

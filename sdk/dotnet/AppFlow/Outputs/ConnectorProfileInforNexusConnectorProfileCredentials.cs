@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private ConnectorProfileInforNexusConnectorProfileCredentials(
-            string AccessKeyId,
+            string accessKeyId,
 
-            string Datakey,
+            string datakey,
 
-            string SecretAccessKey,
+            string secretAccessKey,
 
-            string UserId)
+            string userId)
         {
-            this.AccessKeyId = AccessKeyId;
-            this.Datakey = Datakey;
-            this.SecretAccessKey = SecretAccessKey;
-            this.UserId = UserId;
+            AccessKeyId = accessKeyId;
+            Datakey = datakey;
+            SecretAccessKey = secretAccessKey;
+            UserId = userId;
         }
     }
 }

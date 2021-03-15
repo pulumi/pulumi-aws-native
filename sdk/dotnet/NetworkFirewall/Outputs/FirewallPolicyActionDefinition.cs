@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly Outputs.FirewallPolicyPublishMetricAction? PublishMetricAction;
 
         [OutputConstructor]
-        private FirewallPolicyActionDefinition(Outputs.FirewallPolicyPublishMetricAction? PublishMetricAction)
+        private FirewallPolicyActionDefinition(Outputs.FirewallPolicyPublishMetricAction? publishMetricAction)
         {
-            this.PublishMetricAction = PublishMetricAction;
+            PublishMetricAction = publishMetricAction;
         }
     }
 }

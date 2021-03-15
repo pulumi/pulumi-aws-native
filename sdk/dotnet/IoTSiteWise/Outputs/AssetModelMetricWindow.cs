@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         public readonly Outputs.AssetModelTumblingWindow? Tumbling;
 
         [OutputConstructor]
-        private AssetModelMetricWindow(Outputs.AssetModelTumblingWindow? Tumbling)
+        private AssetModelMetricWindow(Outputs.AssetModelTumblingWindow? tumbling)
         {
-            this.Tumbling = Tumbling;
+            Tumbling = tumbling;
         }
     }
 }

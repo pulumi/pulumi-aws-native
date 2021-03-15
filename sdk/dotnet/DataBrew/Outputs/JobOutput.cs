@@ -36,21 +36,21 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 
         [OutputConstructor]
         private JobOutput(
-            string? CompressionFormat,
+            string? compressionFormat,
 
-            string? Format,
+            string? format,
 
-            Outputs.JobS3Location Location,
+            Outputs.JobS3Location location,
 
-            bool? Overwrite,
+            bool? overwrite,
 
-            ImmutableArray<string> PartitionColumns)
+            ImmutableArray<string> partitionColumns)
         {
-            this.CompressionFormat = CompressionFormat;
-            this.Format = Format;
-            this.Location = Location;
-            this.Overwrite = Overwrite;
-            this.PartitionColumns = PartitionColumns;
+            CompressionFormat = compressionFormat;
+            Format = format;
+            Location = location;
+            Overwrite = overwrite;
+            PartitionColumns = partitionColumns;
         }
     }
 }

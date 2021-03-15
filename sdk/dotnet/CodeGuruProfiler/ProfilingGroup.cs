@@ -18,34 +18,34 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
         /// </summary>
-        [Output("AgentPermissions")]
+        [Output("agentPermissions")]
         public Output<Union<System.Text.Json.JsonElement, string>?> AgentPermissions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
         /// </summary>
-        [Output("AnomalyDetectionNotificationConfiguration")]
+        [Output("anomalyDetectionNotificationConfiguration")]
         public Output<ImmutableArray<Outputs.ProfilingGroupChannel>> AnomalyDetectionNotificationConfiguration { get; private set; } = null!;
 
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
         /// </summary>
-        [Output("ComputePlatform")]
+        [Output("computePlatform")]
         public Output<string?> ComputePlatform { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
         /// </summary>
-        [Output("ProfilingGroupName")]
+        [Output("profilingGroupName")]
         public Output<string> ProfilingGroupName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
@@ -96,43 +96,43 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
         /// </summary>
-        [Input("AgentPermissions")]
+        [Input("agentPermissions")]
         public InputUnion<System.Text.Json.JsonElement, string>? AgentPermissions { get; set; }
 
-        [Input("AnomalyDetectionNotificationConfiguration")]
-        private InputList<Inputs.ProfilingGroupChannelArgs>? _AnomalyDetectionNotificationConfiguration;
+        [Input("anomalyDetectionNotificationConfiguration")]
+        private InputList<Inputs.ProfilingGroupChannelArgs>? _anomalyDetectionNotificationConfiguration;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
         /// </summary>
         public InputList<Inputs.ProfilingGroupChannelArgs> AnomalyDetectionNotificationConfiguration
         {
-            get => _AnomalyDetectionNotificationConfiguration ?? (_AnomalyDetectionNotificationConfiguration = new InputList<Inputs.ProfilingGroupChannelArgs>());
-            set => _AnomalyDetectionNotificationConfiguration = value;
+            get => _anomalyDetectionNotificationConfiguration ?? (_anomalyDetectionNotificationConfiguration = new InputList<Inputs.ProfilingGroupChannelArgs>());
+            set => _anomalyDetectionNotificationConfiguration = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
         /// </summary>
-        [Input("ComputePlatform")]
+        [Input("computePlatform")]
         public Input<string>? ComputePlatform { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
         /// </summary>
-        [Input("ProfilingGroupName", required: true)]
+        [Input("profilingGroupName", required: true)]
         public Input<string> ProfilingGroupName { get; set; } = null!;
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public ProfilingGroupArgs()

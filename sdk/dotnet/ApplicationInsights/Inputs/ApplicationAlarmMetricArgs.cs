@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
         /// </summary>
-        [Input("AlarmMetricName", required: true)]
+        [Input("alarmMetricName", required: true)]
         public Input<string> AlarmMetricName { get; set; } = null!;
 
         public ApplicationAlarmMetricArgs()

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private ServicePlacementStrategy(
-            string? Field,
+            string? field,
 
-            string Type)
+            string type)
         {
-            this.Field = Field;
-            this.Type = Type;
+            Field = field;
+            Type = type;
         }
     }
 }

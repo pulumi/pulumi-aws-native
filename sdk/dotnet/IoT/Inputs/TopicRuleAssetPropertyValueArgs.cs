@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality
         /// </summary>
-        [Input("Quality")]
+        [Input("quality")]
         public Input<string>? Quality { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp
         /// </summary>
-        [Input("Timestamp", required: true)]
+        [Input("timestamp", required: true)]
         public Input<Inputs.TopicRuleAssetPropertyTimestampArgs> Timestamp { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value
         /// </summary>
-        [Input("Value", required: true)]
+        [Input("value", required: true)]
         public Input<Inputs.TopicRuleAssetPropertyVariantArgs> Value { get; set; } = null!;
 
         public TopicRuleAssetPropertyValueArgs()

@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.EFS.Outputs
 
         [OutputConstructor]
         private AccessPointPosixUser(
-            string Gid,
+            string gid,
 
-            ImmutableArray<string> SecondaryGids,
+            ImmutableArray<string> secondaryGids,
 
-            string Uid)
+            string uid)
         {
-            this.Gid = Gid;
-            this.SecondaryGids = SecondaryGids;
-            this.Uid = Uid;
+            Gid = gid;
+            SecondaryGids = secondaryGids;
+            Uid = uid;
         }
     }
 }

@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-action
         /// </summary>
-        [Input("Action", required: true)]
+        [Input("action", required: true)]
         public Input<Inputs.RecipeActionArgs> Action { get; set; } = null!;
 
-        [Input("ConditionExpressions")]
-        private InputList<Inputs.RecipeConditionExpressionArgs>? _ConditionExpressions;
+        [Input("conditionExpressions")]
+        private InputList<Inputs.RecipeConditionExpressionArgs>? _conditionExpressions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions
         /// </summary>
         public InputList<Inputs.RecipeConditionExpressionArgs> ConditionExpressions
         {
-            get => _ConditionExpressions ?? (_ConditionExpressions = new InputList<Inputs.RecipeConditionExpressionArgs>());
-            set => _ConditionExpressions = value;
+            get => _conditionExpressions ?? (_conditionExpressions = new InputList<Inputs.RecipeConditionExpressionArgs>());
+            set => _conditionExpressions = value;
         }
 
         public RecipeRecipeStepArgs()

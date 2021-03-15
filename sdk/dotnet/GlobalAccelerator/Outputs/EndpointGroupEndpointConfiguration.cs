@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Outputs
 
         [OutputConstructor]
         private EndpointGroupEndpointConfiguration(
-            bool? ClientIPPreservationEnabled,
+            bool? clientIPPreservationEnabled,
 
-            string EndpointId,
+            string endpointId,
 
-            int? Weight)
+            int? weight)
         {
-            this.ClientIPPreservationEnabled = ClientIPPreservationEnabled;
-            this.EndpointId = EndpointId;
-            this.Weight = Weight;
+            ClientIPPreservationEnabled = clientIPPreservationEnabled;
+            EndpointId = endpointId;
+            Weight = weight;
         }
     }
 }

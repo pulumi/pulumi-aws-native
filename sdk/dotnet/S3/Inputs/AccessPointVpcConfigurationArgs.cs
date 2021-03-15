@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html#cfn-s3-accesspoint-vpcconfiguration-vpcid
         /// </summary>
-        [Input("VpcId")]
+        [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
         public AccessPointVpcConfigurationArgs()

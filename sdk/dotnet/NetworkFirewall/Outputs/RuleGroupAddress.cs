@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly string AddressDefinition;
 
         [OutputConstructor]
-        private RuleGroupAddress(string AddressDefinition)
+        private RuleGroupAddress(string addressDefinition)
         {
-            this.AddressDefinition = AddressDefinition;
+            AddressDefinition = addressDefinition;
         }
     }
 }

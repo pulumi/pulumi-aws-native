@@ -38,20 +38,20 @@ export class Listener extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
      */
-    public readonly AcceleratorArn!: pulumi.Output<string>;
+    public readonly acceleratorArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
      */
-    public readonly ClientAffinity!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly ListenerArn!: pulumi.Output<string>;
+    public readonly clientAffinity!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly listenerArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
      */
-    public readonly PortRanges!: pulumi.Output<outputs.GlobalAccelerator.ListenerPortRange[]>;
+    public readonly portRanges!: pulumi.Output<outputs.GlobalAccelerator.ListenerPortRange[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
      */
-    public readonly Protocol!: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -63,26 +63,26 @@ export class Listener extends pulumi.CustomResource {
     constructor(name: string, args: ListenerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.AcceleratorArn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'AcceleratorArn'");
+            if ((!args || args.acceleratorArn === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'acceleratorArn'");
             }
-            if ((!args || args.PortRanges === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'PortRanges'");
+            if ((!args || args.portRanges === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'portRanges'");
             }
-            if ((!args || args.Protocol === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Protocol'");
+            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'protocol'");
             }
-            inputs["AcceleratorArn"] = args ? args.AcceleratorArn : undefined;
-            inputs["ClientAffinity"] = args ? args.ClientAffinity : undefined;
-            inputs["PortRanges"] = args ? args.PortRanges : undefined;
-            inputs["Protocol"] = args ? args.Protocol : undefined;
-            inputs["ListenerArn"] = undefined /*out*/;
+            inputs["acceleratorArn"] = args ? args.acceleratorArn : undefined;
+            inputs["clientAffinity"] = args ? args.clientAffinity : undefined;
+            inputs["portRanges"] = args ? args.portRanges : undefined;
+            inputs["protocol"] = args ? args.protocol : undefined;
+            inputs["listenerArn"] = undefined /*out*/;
         } else {
-            inputs["AcceleratorArn"] = undefined /*out*/;
-            inputs["ClientAffinity"] = undefined /*out*/;
-            inputs["ListenerArn"] = undefined /*out*/;
-            inputs["PortRanges"] = undefined /*out*/;
-            inputs["Protocol"] = undefined /*out*/;
+            inputs["acceleratorArn"] = undefined /*out*/;
+            inputs["clientAffinity"] = undefined /*out*/;
+            inputs["listenerArn"] = undefined /*out*/;
+            inputs["portRanges"] = undefined /*out*/;
+            inputs["protocol"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,17 +102,17 @@ export interface ListenerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
      */
-    readonly AcceleratorArn: pulumi.Input<string>;
+    readonly acceleratorArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
      */
-    readonly ClientAffinity?: pulumi.Input<string>;
+    readonly clientAffinity?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
      */
-    readonly PortRanges: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.ListenerPortRange>[]>;
+    readonly portRanges: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.ListenerPortRange>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
      */
-    readonly Protocol: pulumi.Input<string>;
+    readonly protocol: pulumi.Input<string>;
 }

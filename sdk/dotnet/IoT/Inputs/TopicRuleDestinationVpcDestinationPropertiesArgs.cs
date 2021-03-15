@@ -18,37 +18,37 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-rolearn
         /// </summary>
-        [Input("RoleArn")]
+        [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
-        [Input("SecurityGroups")]
-        private InputList<string>? _SecurityGroups;
+        [Input("securityGroups")]
+        private InputList<string>? _securityGroups;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-securitygroups
         /// </summary>
         public InputList<string> SecurityGroups
         {
-            get => _SecurityGroups ?? (_SecurityGroups = new InputList<string>());
-            set => _SecurityGroups = value;
+            get => _securityGroups ?? (_securityGroups = new InputList<string>());
+            set => _securityGroups = value;
         }
 
-        [Input("SubnetIds")]
-        private InputList<string>? _SubnetIds;
+        [Input("subnetIds")]
+        private InputList<string>? _subnetIds;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-subnetids
         /// </summary>
         public InputList<string> SubnetIds
         {
-            get => _SubnetIds ?? (_SubnetIds = new InputList<string>());
-            set => _SubnetIds = value;
+            get => _subnetIds ?? (_subnetIds = new InputList<string>());
+            set => _subnetIds = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-vpcid
         /// </summary>
-        [Input("VpcId")]
+        [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
         public TopicRuleDestinationVpcDestinationPropertiesArgs()

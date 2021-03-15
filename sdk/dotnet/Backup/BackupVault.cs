@@ -18,31 +18,31 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
         /// </summary>
-        [Output("AccessPolicy")]
+        [Output("accessPolicy")]
         public Output<Union<System.Text.Json.JsonElement, string>?> AccessPolicy { get; private set; } = null!;
 
-        [Output("BackupVaultArn")]
+        [Output("backupVaultArn")]
         public Output<string> BackupVaultArn { get; private set; } = null!;
 
-        [Output("BackupVaultName")]
+        [Output("backupVaultName")]
         public Output<string> BackupVaultName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
         /// </summary>
-        [Output("BackupVaultTags")]
+        [Output("backupVaultTags")]
         public Output<Union<System.Text.Json.JsonElement, string>?> BackupVaultTags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
         /// </summary>
-        [Output("EncryptionKeyArn")]
+        [Output("encryptionKeyArn")]
         public Output<string?> EncryptionKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
         /// </summary>
-        [Output("Notifications")]
+        [Output("notifications")]
         public Output<Outputs.BackupVaultNotificationObjectType?> Notifications { get; private set; } = null!;
 
 
@@ -93,31 +93,31 @@ namespace Pulumi.AwsNative.Backup
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
         /// </summary>
-        [Input("AccessPolicy")]
+        [Input("accessPolicy")]
         public InputUnion<System.Text.Json.JsonElement, string>? AccessPolicy { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
         /// </summary>
-        [Input("BackupVaultName", required: true)]
+        [Input("backupVaultName", required: true)]
         public Input<string> BackupVaultName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
         /// </summary>
-        [Input("BackupVaultTags")]
+        [Input("backupVaultTags")]
         public InputUnion<System.Text.Json.JsonElement, string>? BackupVaultTags { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
         /// </summary>
-        [Input("EncryptionKeyArn")]
+        [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
         /// </summary>
-        [Input("Notifications")]
+        [Input("notifications")]
         public Input<Inputs.BackupVaultNotificationObjectTypeArgs>? Notifications { get; set; }
 
         public BackupVaultArgs()

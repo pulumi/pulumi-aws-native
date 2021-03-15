@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private PackagingConfigurationMssManifest(
-            string? ManifestName,
+            string? manifestName,
 
-            Outputs.PackagingConfigurationStreamSelection? StreamSelection)
+            Outputs.PackagingConfigurationStreamSelection? streamSelection)
         {
-            this.ManifestName = ManifestName;
-            this.StreamSelection = StreamSelection;
+            ManifestName = manifestName;
+            StreamSelection = streamSelection;
         }
     }
 }

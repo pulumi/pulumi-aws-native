@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-baseliningjobname
         /// </summary>
-        [Input("BaseliningJobName")]
+        [Input("baseliningJobName")]
         public Input<string>? BaseliningJobName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-constraintsresource
         /// </summary>
-        [Input("ConstraintsResource")]
+        [Input("constraintsResource")]
         public Input<Inputs.DataQualityJobDefinitionConstraintsResourceArgs>? ConstraintsResource { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-statisticsresource
         /// </summary>
-        [Input("StatisticsResource")]
+        [Input("statisticsResource")]
         public Input<Inputs.DataQualityJobDefinitionStatisticsResourceArgs>? StatisticsResource { get; set; }
 
         public DataQualityJobDefinitionDataQualityBaselineConfigArgs()

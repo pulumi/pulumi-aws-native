@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-cloudwatchmetricsenabled
         /// </summary>
-        [Input("CloudWatchMetricsEnabled", required: true)]
+        [Input("cloudWatchMetricsEnabled", required: true)]
         public Input<bool> CloudWatchMetricsEnabled { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-metricname
         /// </summary>
-        [Input("MetricName", required: true)]
+        [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-sampledrequestsenabled
         /// </summary>
-        [Input("SampledRequestsEnabled", required: true)]
+        [Input("sampledRequestsEnabled", required: true)]
         public Input<bool> SampledRequestsEnabled { get; set; } = null!;
 
         public RuleGroupVisibilityConfigArgs()

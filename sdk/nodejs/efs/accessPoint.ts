@@ -35,28 +35,28 @@ export class AccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPoint.__pulumiType;
     }
 
-    public /*out*/ readonly AccessPointId!: pulumi.Output<string>;
+    public /*out*/ readonly accessPointId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
      */
-    public readonly AccessPointTags!: pulumi.Output<outputs.EFS.AccessPointAccessPointTag[] | undefined>;
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public readonly accessPointTags!: pulumi.Output<outputs.EFS.AccessPointAccessPointTag[] | undefined>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
      */
-    public readonly ClientToken!: pulumi.Output<string | undefined>;
+    public readonly clientToken!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
      */
-    public readonly FileSystemId!: pulumi.Output<string>;
+    public readonly fileSystemId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
      */
-    public readonly PosixUser!: pulumi.Output<outputs.EFS.AccessPointPosixUser | undefined>;
+    public readonly posixUser!: pulumi.Output<outputs.EFS.AccessPointPosixUser | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
      */
-    public readonly RootDirectory!: pulumi.Output<outputs.EFS.AccessPointRootDirectory | undefined>;
+    public readonly rootDirectory!: pulumi.Output<outputs.EFS.AccessPointRootDirectory | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -68,24 +68,24 @@ export class AccessPoint extends pulumi.CustomResource {
     constructor(name: string, args: AccessPointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.FileSystemId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'FileSystemId'");
+            if ((!args || args.fileSystemId === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'fileSystemId'");
             }
-            inputs["AccessPointTags"] = args ? args.AccessPointTags : undefined;
-            inputs["ClientToken"] = args ? args.ClientToken : undefined;
-            inputs["FileSystemId"] = args ? args.FileSystemId : undefined;
-            inputs["PosixUser"] = args ? args.PosixUser : undefined;
-            inputs["RootDirectory"] = args ? args.RootDirectory : undefined;
-            inputs["AccessPointId"] = undefined /*out*/;
-            inputs["Arn"] = undefined /*out*/;
+            inputs["accessPointTags"] = args ? args.accessPointTags : undefined;
+            inputs["clientToken"] = args ? args.clientToken : undefined;
+            inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
+            inputs["posixUser"] = args ? args.posixUser : undefined;
+            inputs["rootDirectory"] = args ? args.rootDirectory : undefined;
+            inputs["accessPointId"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
         } else {
-            inputs["AccessPointId"] = undefined /*out*/;
-            inputs["AccessPointTags"] = undefined /*out*/;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["ClientToken"] = undefined /*out*/;
-            inputs["FileSystemId"] = undefined /*out*/;
-            inputs["PosixUser"] = undefined /*out*/;
-            inputs["RootDirectory"] = undefined /*out*/;
+            inputs["accessPointId"] = undefined /*out*/;
+            inputs["accessPointTags"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["clientToken"] = undefined /*out*/;
+            inputs["fileSystemId"] = undefined /*out*/;
+            inputs["posixUser"] = undefined /*out*/;
+            inputs["rootDirectory"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,21 +105,21 @@ export interface AccessPointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
      */
-    readonly AccessPointTags?: pulumi.Input<pulumi.Input<inputs.EFS.AccessPointAccessPointTag>[]>;
+    readonly accessPointTags?: pulumi.Input<pulumi.Input<inputs.EFS.AccessPointAccessPointTag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
      */
-    readonly ClientToken?: pulumi.Input<string>;
+    readonly clientToken?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
      */
-    readonly FileSystemId: pulumi.Input<string>;
+    readonly fileSystemId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
      */
-    readonly PosixUser?: pulumi.Input<inputs.EFS.AccessPointPosixUser>;
+    readonly posixUser?: pulumi.Input<inputs.EFS.AccessPointPosixUser>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
      */
-    readonly RootDirectory?: pulumi.Input<inputs.EFS.AccessPointRootDirectory>;
+    readonly rootDirectory?: pulumi.Input<inputs.EFS.AccessPointRootDirectory>;
 }

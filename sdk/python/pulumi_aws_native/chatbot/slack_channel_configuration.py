@@ -93,12 +93,12 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         return SlackChannelConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="Arn")
+    @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="ConfigurationName")
+    @pulumi.getter(name="configurationName")
     def configuration_name(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
@@ -106,7 +106,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "configuration_name")
 
     @property
-    @pulumi.getter(name="IamRoleArn")
+    @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
@@ -114,7 +114,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "iam_role_arn")
 
     @property
-    @pulumi.getter(name="LoggingLevel")
+    @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
@@ -122,7 +122,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "logging_level")
 
     @property
-    @pulumi.getter(name="SlackChannelId")
+    @pulumi.getter(name="slackChannelId")
     def slack_channel_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
@@ -130,7 +130,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "slack_channel_id")
 
     @property
-    @pulumi.getter(name="SlackWorkspaceId")
+    @pulumi.getter(name="slackWorkspaceId")
     def slack_workspace_id(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
@@ -138,7 +138,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "slack_workspace_id")
 
     @property
-    @pulumi.getter(name="SnsTopicArns")
+    @pulumi.getter(name="snsTopicArns")
     def sns_topic_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns

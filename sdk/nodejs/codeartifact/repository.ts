@@ -35,34 +35,34 @@ export class Repository extends pulumi.CustomResource {
         return obj['__pulumiType'] === Repository.__pulumiType;
     }
 
-    public /*out*/ readonly Arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
-    public readonly DomainName!: pulumi.Output<string>;
-    public readonly DomainOwner!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly domainName!: pulumi.Output<string>;
+    public readonly domainOwner!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
      */
-    public readonly ExternalConnections!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly Name!: pulumi.Output<string>;
+    public readonly externalConnections!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
      */
-    public readonly PermissionsPolicyDocument!: pulumi.Output<any | string | undefined>;
+    public readonly permissionsPolicyDocument!: pulumi.Output<any | string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
      */
-    public readonly RepositoryName!: pulumi.Output<string>;
+    public readonly repositoryName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
      */
-    public readonly Upstreams!: pulumi.Output<string[] | undefined>;
+    public readonly upstreams!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -74,33 +74,33 @@ export class Repository extends pulumi.CustomResource {
     constructor(name: string, args: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.DomainName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DomainName'");
+            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.RepositoryName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'RepositoryName'");
+            if ((!args || args.repositoryName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'repositoryName'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["DomainName"] = args ? args.DomainName : undefined;
-            inputs["DomainOwner"] = args ? args.DomainOwner : undefined;
-            inputs["ExternalConnections"] = args ? args.ExternalConnections : undefined;
-            inputs["PermissionsPolicyDocument"] = args ? args.PermissionsPolicyDocument : undefined;
-            inputs["RepositoryName"] = args ? args.RepositoryName : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Upstreams"] = args ? args.Upstreams : undefined;
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["domainName"] = args ? args.domainName : undefined;
+            inputs["domainOwner"] = args ? args.domainOwner : undefined;
+            inputs["externalConnections"] = args ? args.externalConnections : undefined;
+            inputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
+            inputs["repositoryName"] = args ? args.repositoryName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["upstreams"] = args ? args.upstreams : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
         } else {
-            inputs["Arn"] = undefined /*out*/;
-            inputs["Description"] = undefined /*out*/;
-            inputs["DomainName"] = undefined /*out*/;
-            inputs["DomainOwner"] = undefined /*out*/;
-            inputs["ExternalConnections"] = undefined /*out*/;
-            inputs["Name"] = undefined /*out*/;
-            inputs["PermissionsPolicyDocument"] = undefined /*out*/;
-            inputs["RepositoryName"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Upstreams"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["domainName"] = undefined /*out*/;
+            inputs["domainOwner"] = undefined /*out*/;
+            inputs["externalConnections"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["permissionsPolicyDocument"] = undefined /*out*/;
+            inputs["repositoryName"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["upstreams"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -120,33 +120,33 @@ export interface RepositoryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainname
      */
-    readonly DomainName: pulumi.Input<string>;
+    readonly domainName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainowner
      */
-    readonly DomainOwner?: pulumi.Input<string>;
+    readonly domainOwner?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
      */
-    readonly ExternalConnections?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly externalConnections?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
      */
-    readonly PermissionsPolicyDocument?: pulumi.Input<any | string>;
+    readonly permissionsPolicyDocument?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
      */
-    readonly RepositoryName: pulumi.Input<string>;
+    readonly repositoryName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
      */
-    readonly Upstreams?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly upstreams?: pulumi.Input<pulumi.Input<string>[]>;
 }

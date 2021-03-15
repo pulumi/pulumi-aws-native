@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskDefinitionInferenceAccelerator(
-            string? DeviceName,
+            string? deviceName,
 
-            string? DeviceType)
+            string? deviceType)
         {
-            this.DeviceName = DeviceName;
-            this.DeviceType = DeviceType;
+            DeviceName = deviceName;
+            DeviceType = deviceType;
         }
     }
 }

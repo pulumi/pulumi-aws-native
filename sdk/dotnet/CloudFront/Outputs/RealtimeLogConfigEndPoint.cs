@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
         [OutputConstructor]
         private RealtimeLogConfigEndPoint(
-            Outputs.RealtimeLogConfigKinesisStreamConfig KinesisStreamConfig,
+            Outputs.RealtimeLogConfigKinesisStreamConfig kinesisStreamConfig,
 
-            string StreamType)
+            string streamType)
         {
-            this.KinesisStreamConfig = KinesisStreamConfig;
-            this.StreamType = StreamType;
+            KinesisStreamConfig = kinesisStreamConfig;
+            StreamType = streamType;
         }
     }
 }

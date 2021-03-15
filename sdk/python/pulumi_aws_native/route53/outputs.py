@@ -33,7 +33,7 @@ class HealthCheckHealthCheckTag(dict):
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
@@ -41,7 +41,7 @@ class HealthCheckHealthCheckTag(dict):
         return pulumi.get(self, "key")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
@@ -67,7 +67,7 @@ class HostedZoneHostedZoneConfig(dict):
             pulumi.set(__self__, "comment", comment)
 
     @property
-    @pulumi.getter(name="Comment")
+    @pulumi.getter
     def comment(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
@@ -95,7 +95,7 @@ class HostedZoneHostedZoneTag(dict):
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="Key")
+    @pulumi.getter
     def key(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-key
@@ -103,7 +103,7 @@ class HostedZoneHostedZoneTag(dict):
         return pulumi.get(self, "key")
 
     @property
-    @pulumi.getter(name="Value")
+    @pulumi.getter
     def value(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-value
@@ -128,7 +128,7 @@ class HostedZoneQueryLoggingConfig(dict):
         pulumi.set(__self__, "cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
 
     @property
-    @pulumi.getter(name="CloudWatchLogsLogGroupArn")
+    @pulumi.getter(name="cloudWatchLogsLogGroupArn")
     def cloud_watch_logs_log_group_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn
@@ -145,31 +145,31 @@ class HostedZoneVPC(dict):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
     """
     def __init__(__self__, *,
-                 vpc_id: str,
-                 vpc_region: str):
+                 v_pc_id: str,
+                 v_pc_region: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
-        :param str vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
-        :param str vpc_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
+        :param str v_pc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
+        :param str v_pc_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
         """
-        pulumi.set(__self__, "vpc_id", vpc_id)
-        pulumi.set(__self__, "vpc_region", vpc_region)
+        pulumi.set(__self__, "v_pc_id", v_pc_id)
+        pulumi.set(__self__, "v_pc_region", v_pc_region)
 
     @property
-    @pulumi.getter(name="VPCId")
-    def vpc_id(self) -> str:
+    @pulumi.getter(name="vPCId")
+    def v_pc_id(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
         """
-        return pulumi.get(self, "vpc_id")
+        return pulumi.get(self, "v_pc_id")
 
     @property
-    @pulumi.getter(name="VPCRegion")
-    def vpc_region(self) -> str:
+    @pulumi.getter(name="vPCRegion")
+    def v_pc_region(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
         """
-        return pulumi.get(self, "vpc_region")
+        return pulumi.get(self, "v_pc_region")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

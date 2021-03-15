@@ -18,64 +18,64 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
         /// </summary>
-        [Output("DeleteProtection")]
+        [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
         /// </summary>
-        [Output("Description")]
+        [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("EndpointIds")]
+        [Output("endpointIds")]
         public Output<ImmutableArray<string>> EndpointIds { get; private set; } = null!;
 
-        [Output("FirewallArn")]
+        [Output("firewallArn")]
         public Output<string> FirewallArn { get; private set; } = null!;
 
-        [Output("FirewallId")]
+        [Output("firewallId")]
         public Output<string> FirewallId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
         /// </summary>
-        [Output("FirewallName")]
+        [Output("firewallName")]
         public Output<string> FirewallName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
         /// </summary>
-        [Output("FirewallPolicyArn")]
+        [Output("firewallPolicyArn")]
         public Output<string> FirewallPolicyArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
         /// </summary>
-        [Output("FirewallPolicyChangeProtection")]
+        [Output("firewallPolicyChangeProtection")]
         public Output<bool?> FirewallPolicyChangeProtection { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
         /// </summary>
-        [Output("SubnetChangeProtection")]
+        [Output("subnetChangeProtection")]
         public Output<bool?> SubnetChangeProtection { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
         /// </summary>
-        [Output("SubnetMappings")]
+        [Output("subnetMappings")]
         public Output<ImmutableArray<Outputs.FirewallSubnetMapping>> SubnetMappings { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
         /// </summary>
-        [Output("VpcId")]
+        [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
 
@@ -126,67 +126,67 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
         /// </summary>
-        [Input("DeleteProtection")]
+        [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
         /// </summary>
-        [Input("Description")]
+        [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
         /// </summary>
-        [Input("FirewallName", required: true)]
+        [Input("firewallName", required: true)]
         public Input<string> FirewallName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
         /// </summary>
-        [Input("FirewallPolicyArn", required: true)]
+        [Input("firewallPolicyArn", required: true)]
         public Input<string> FirewallPolicyArn { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
         /// </summary>
-        [Input("FirewallPolicyChangeProtection")]
+        [Input("firewallPolicyChangeProtection")]
         public Input<bool>? FirewallPolicyChangeProtection { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
         /// </summary>
-        [Input("SubnetChangeProtection")]
+        [Input("subnetChangeProtection")]
         public Input<bool>? SubnetChangeProtection { get; set; }
 
-        [Input("SubnetMappings", required: true)]
-        private InputList<Inputs.FirewallSubnetMappingArgs>? _SubnetMappings;
+        [Input("subnetMappings", required: true)]
+        private InputList<Inputs.FirewallSubnetMappingArgs>? _subnetMappings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
         /// </summary>
         public InputList<Inputs.FirewallSubnetMappingArgs> SubnetMappings
         {
-            get => _SubnetMappings ?? (_SubnetMappings = new InputList<Inputs.FirewallSubnetMappingArgs>());
-            set => _SubnetMappings = value;
+            get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.FirewallSubnetMappingArgs>());
+            set => _subnetMappings = value;
         }
 
-        [Input("Tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _Tags;
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _Tags ?? (_Tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
-            set => _Tags = value;
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
         /// </summary>
-        [Input("VpcId", required: true)]
+        [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
         public FirewallArgs()

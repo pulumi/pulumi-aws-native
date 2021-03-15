@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         public readonly string Interval;
 
         [OutputConstructor]
-        private AssetModelTumblingWindow(string Interval)
+        private AssetModelTumblingWindow(string interval)
         {
-            this.Interval = Interval;
+            Interval = interval;
         }
     }
 }

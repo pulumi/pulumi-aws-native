@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributename
         /// </summary>
-        [Input("AttributeName", required: true)]
+        [Input("attributeName", required: true)]
         public Input<string> AttributeName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributevalue
         /// </summary>
-        [Input("AttributeValue", required: true)]
+        [Input("attributeValue", required: true)]
         public Input<string> AttributeValue { get; set; } = null!;
 
         public DeliveryStreamHttpEndpointCommonAttributeArgs()

@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
         [OutputConstructor]
         private NetworkInsightsAnalysisAnalysisLoadBalancerListener(
-            int? InstancePort,
+            int? instancePort,
 
-            int? LoadBalancerPort)
+            int? loadBalancerPort)
         {
-            this.InstancePort = InstancePort;
-            this.LoadBalancerPort = LoadBalancerPort;
+            InstancePort = instancePort;
+            LoadBalancerPort = loadBalancerPort;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SSM.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location
         /// </summary>
-        [Input("S3Location")]
+        [Input("s3Location")]
         public Input<Inputs.AssociationS3OutputLocationArgs>? S3Location { get; set; }
 
         public AssociationInstanceAssociationOutputLocationArgs()

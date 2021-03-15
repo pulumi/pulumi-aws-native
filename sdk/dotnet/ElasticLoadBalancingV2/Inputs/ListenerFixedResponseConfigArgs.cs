@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-contenttype
         /// </summary>
-        [Input("ContentType")]
+        [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-messagebody
         /// </summary>
-        [Input("MessageBody")]
+        [Input("messageBody")]
         public Input<string>? MessageBody { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-statuscode
         /// </summary>
-        [Input("StatusCode", required: true)]
+        [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
 
         public ListenerFixedResponseConfigArgs()

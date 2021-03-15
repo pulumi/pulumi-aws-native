@@ -24,12 +24,12 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private IndexCapacityUnitsConfiguration(
-            int QueryCapacityUnits,
+            int queryCapacityUnits,
 
-            int StorageCapacityUnits)
+            int storageCapacityUnits)
         {
-            this.QueryCapacityUnits = QueryCapacityUnits;
-            this.StorageCapacityUnits = StorageCapacityUnits;
+            QueryCapacityUnits = queryCapacityUnits;
+            StorageCapacityUnits = storageCapacityUnits;
         }
     }
 }

@@ -32,18 +32,18 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowSourceFlowConfig(
-            string? ConnectorProfileName,
+            string? connectorProfileName,
 
-            string ConnectorType,
+            string connectorType,
 
-            Outputs.FlowIncrementalPullConfig? IncrementalPullConfig,
+            Outputs.FlowIncrementalPullConfig? incrementalPullConfig,
 
-            Outputs.FlowSourceConnectorProperties SourceConnectorProperties)
+            Outputs.FlowSourceConnectorProperties sourceConnectorProperties)
         {
-            this.ConnectorProfileName = ConnectorProfileName;
-            this.ConnectorType = ConnectorType;
-            this.IncrementalPullConfig = IncrementalPullConfig;
-            this.SourceConnectorProperties = SourceConnectorProperties;
+            ConnectorProfileName = connectorProfileName;
+            ConnectorType = connectorType;
+            IncrementalPullConfig = incrementalPullConfig;
+            SourceConnectorProperties = sourceConnectorProperties;
         }
     }
 }

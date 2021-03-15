@@ -38,36 +38,36 @@ export class Flow extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
      */
-    public readonly Description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
      */
-    public readonly DestinationFlowConfigList!: pulumi.Output<outputs.AppFlow.FlowDestinationFlowConfig[]>;
-    public /*out*/ readonly FlowArn!: pulumi.Output<string>;
+    public readonly destinationFlowConfigList!: pulumi.Output<outputs.AppFlow.FlowDestinationFlowConfig[]>;
+    public /*out*/ readonly flowArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
      */
-    public readonly FlowName!: pulumi.Output<string>;
+    public readonly flowName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
      */
-    public readonly KMSArn!: pulumi.Output<string | undefined>;
+    public readonly kMSArn!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
      */
-    public readonly SourceFlowConfig!: pulumi.Output<outputs.AppFlow.FlowSourceFlowConfig>;
+    public readonly sourceFlowConfig!: pulumi.Output<outputs.AppFlow.FlowSourceFlowConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
      */
-    public readonly Tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
      */
-    public readonly Tasks!: pulumi.Output<outputs.AppFlow.FlowTask[]>;
+    public readonly tasks!: pulumi.Output<outputs.AppFlow.FlowTask[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
      */
-    public readonly TriggerConfig!: pulumi.Output<outputs.AppFlow.FlowTriggerConfig>;
+    public readonly triggerConfig!: pulumi.Output<outputs.AppFlow.FlowTriggerConfig>;
 
     /**
      * Create a Flow resource with the given unique name, arguments, and options.
@@ -79,40 +79,40 @@ export class Flow extends pulumi.CustomResource {
     constructor(name: string, args: FlowArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.DestinationFlowConfigList === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'DestinationFlowConfigList'");
+            if ((!args || args.destinationFlowConfigList === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'destinationFlowConfigList'");
             }
-            if ((!args || args.FlowName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'FlowName'");
+            if ((!args || args.flowName === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'flowName'");
             }
-            if ((!args || args.SourceFlowConfig === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'SourceFlowConfig'");
+            if ((!args || args.sourceFlowConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'sourceFlowConfig'");
             }
-            if ((!args || args.Tasks === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'Tasks'");
+            if ((!args || args.tasks === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'tasks'");
             }
-            if ((!args || args.TriggerConfig === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'TriggerConfig'");
+            if ((!args || args.triggerConfig === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'triggerConfig'");
             }
-            inputs["Description"] = args ? args.Description : undefined;
-            inputs["DestinationFlowConfigList"] = args ? args.DestinationFlowConfigList : undefined;
-            inputs["FlowName"] = args ? args.FlowName : undefined;
-            inputs["KMSArn"] = args ? args.KMSArn : undefined;
-            inputs["SourceFlowConfig"] = args ? args.SourceFlowConfig : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Tasks"] = args ? args.Tasks : undefined;
-            inputs["TriggerConfig"] = args ? args.TriggerConfig : undefined;
-            inputs["FlowArn"] = undefined /*out*/;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["destinationFlowConfigList"] = args ? args.destinationFlowConfigList : undefined;
+            inputs["flowName"] = args ? args.flowName : undefined;
+            inputs["kMSArn"] = args ? args.kMSArn : undefined;
+            inputs["sourceFlowConfig"] = args ? args.sourceFlowConfig : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["tasks"] = args ? args.tasks : undefined;
+            inputs["triggerConfig"] = args ? args.triggerConfig : undefined;
+            inputs["flowArn"] = undefined /*out*/;
         } else {
-            inputs["Description"] = undefined /*out*/;
-            inputs["DestinationFlowConfigList"] = undefined /*out*/;
-            inputs["FlowArn"] = undefined /*out*/;
-            inputs["FlowName"] = undefined /*out*/;
-            inputs["KMSArn"] = undefined /*out*/;
-            inputs["SourceFlowConfig"] = undefined /*out*/;
-            inputs["Tags"] = undefined /*out*/;
-            inputs["Tasks"] = undefined /*out*/;
-            inputs["TriggerConfig"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["destinationFlowConfigList"] = undefined /*out*/;
+            inputs["flowArn"] = undefined /*out*/;
+            inputs["flowName"] = undefined /*out*/;
+            inputs["kMSArn"] = undefined /*out*/;
+            inputs["sourceFlowConfig"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["tasks"] = undefined /*out*/;
+            inputs["triggerConfig"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -132,33 +132,33 @@ export interface FlowArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
      */
-    readonly Description?: pulumi.Input<string>;
+    readonly description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
      */
-    readonly DestinationFlowConfigList: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowDestinationFlowConfig>[]>;
+    readonly destinationFlowConfigList: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowDestinationFlowConfig>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
      */
-    readonly FlowName: pulumi.Input<string>;
+    readonly flowName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
      */
-    readonly KMSArn?: pulumi.Input<string>;
+    readonly kMSArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
      */
-    readonly SourceFlowConfig: pulumi.Input<inputs.AppFlow.FlowSourceFlowConfig>;
+    readonly sourceFlowConfig: pulumi.Input<inputs.AppFlow.FlowSourceFlowConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
      */
-    readonly Tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
      */
-    readonly Tasks: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowTask>[]>;
+    readonly tasks: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowTask>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
      */
-    readonly TriggerConfig: pulumi.Input<inputs.AppFlow.FlowTriggerConfig>;
+    readonly triggerConfig: pulumi.Input<inputs.AppFlow.FlowTriggerConfig>;
 }

@@ -18,127 +18,127 @@ namespace Pulumi.AwsNative.MWAA
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
         /// </summary>
-        [Output("AirflowConfigurationOptions")]
+        [Output("airflowConfigurationOptions")]
         public Output<Outputs.EnvironmentAirflowConfigurationOptions?> AirflowConfigurationOptions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
         /// </summary>
-        [Output("AirflowVersion")]
+        [Output("airflowVersion")]
         public Output<string?> AirflowVersion { get; private set; } = null!;
 
-        [Output("Arn")]
+        [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("CreatedAt")]
+        [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
         /// </summary>
-        [Output("DagS3Path")]
+        [Output("dagS3Path")]
         public Output<string?> DagS3Path { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass
         /// </summary>
-        [Output("EnvironmentClass")]
+        [Output("environmentClass")]
         public Output<string?> EnvironmentClass { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-executionrolearn
         /// </summary>
-        [Output("ExecutionRoleArn")]
+        [Output("executionRoleArn")]
         public Output<string?> ExecutionRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey
         /// </summary>
-        [Output("KmsKey")]
+        [Output("kmsKey")]
         public Output<string?> KmsKey { get; private set; } = null!;
 
-        [Output("LastUpdate")]
+        [Output("lastUpdate")]
         public Output<Outputs.EnvironmentLastUpdate> LastUpdate { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
         /// </summary>
-        [Output("LoggingConfiguration")]
+        [Output("loggingConfiguration")]
         public Output<Outputs.EnvironmentLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
         /// </summary>
-        [Output("MaxWorkers")]
+        [Output("maxWorkers")]
         public Output<int?> MaxWorkers { get; private set; } = null!;
 
-        [Output("Name")]
+        [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
         /// </summary>
-        [Output("NetworkConfiguration")]
+        [Output("networkConfiguration")]
         public Output<Outputs.EnvironmentNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
         /// </summary>
-        [Output("PluginsS3ObjectVersion")]
+        [Output("pluginsS3ObjectVersion")]
         public Output<string?> PluginsS3ObjectVersion { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3path
         /// </summary>
-        [Output("PluginsS3Path")]
+        [Output("pluginsS3Path")]
         public Output<string?> PluginsS3Path { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3objectversion
         /// </summary>
-        [Output("RequirementsS3ObjectVersion")]
+        [Output("requirementsS3ObjectVersion")]
         public Output<string?> RequirementsS3ObjectVersion { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
         /// </summary>
-        [Output("RequirementsS3Path")]
+        [Output("requirementsS3Path")]
         public Output<string?> RequirementsS3Path { get; private set; } = null!;
 
-        [Output("ServiceRoleArn")]
+        [Output("serviceRoleArn")]
         public Output<string> ServiceRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
         /// </summary>
-        [Output("SourceBucketArn")]
+        [Output("sourceBucketArn")]
         public Output<string?> SourceBucketArn { get; private set; } = null!;
 
-        [Output("Status")]
+        [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<Outputs.EnvironmentTagMap?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
         /// </summary>
-        [Output("WebserverAccessMode")]
+        [Output("webserverAccessMode")]
         public Output<string?> WebserverAccessMode { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
         /// </summary>
-        [Output("WebserverUrl")]
+        [Output("webserverUrl")]
         public Output<string?> WebserverUrl { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
         /// </summary>
-        [Output("WeeklyMaintenanceWindowStart")]
+        [Output("weeklyMaintenanceWindowStart")]
         public Output<string?> WeeklyMaintenanceWindowStart { get; private set; } = null!;
 
 
@@ -189,109 +189,109 @@ namespace Pulumi.AwsNative.MWAA
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
         /// </summary>
-        [Input("AirflowConfigurationOptions")]
+        [Input("airflowConfigurationOptions")]
         public Input<Inputs.EnvironmentAirflowConfigurationOptionsArgs>? AirflowConfigurationOptions { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
         /// </summary>
-        [Input("AirflowVersion")]
+        [Input("airflowVersion")]
         public Input<string>? AirflowVersion { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
         /// </summary>
-        [Input("DagS3Path")]
+        [Input("dagS3Path")]
         public Input<string>? DagS3Path { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass
         /// </summary>
-        [Input("EnvironmentClass")]
+        [Input("environmentClass")]
         public Input<string>? EnvironmentClass { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-executionrolearn
         /// </summary>
-        [Input("ExecutionRoleArn")]
+        [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey
         /// </summary>
-        [Input("KmsKey")]
+        [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
         /// </summary>
-        [Input("LoggingConfiguration")]
+        [Input("loggingConfiguration")]
         public Input<Inputs.EnvironmentLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
         /// </summary>
-        [Input("MaxWorkers")]
+        [Input("maxWorkers")]
         public Input<int>? MaxWorkers { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
         /// </summary>
-        [Input("NetworkConfiguration")]
+        [Input("networkConfiguration")]
         public Input<Inputs.EnvironmentNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
         /// </summary>
-        [Input("PluginsS3ObjectVersion")]
+        [Input("pluginsS3ObjectVersion")]
         public Input<string>? PluginsS3ObjectVersion { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3path
         /// </summary>
-        [Input("PluginsS3Path")]
+        [Input("pluginsS3Path")]
         public Input<string>? PluginsS3Path { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3objectversion
         /// </summary>
-        [Input("RequirementsS3ObjectVersion")]
+        [Input("requirementsS3ObjectVersion")]
         public Input<string>? RequirementsS3ObjectVersion { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
         /// </summary>
-        [Input("RequirementsS3Path")]
+        [Input("requirementsS3Path")]
         public Input<string>? RequirementsS3Path { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
         /// </summary>
-        [Input("SourceBucketArn")]
+        [Input("sourceBucketArn")]
         public Input<string>? SourceBucketArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
         /// </summary>
-        [Input("Tags")]
+        [Input("tags")]
         public Input<Inputs.EnvironmentTagMapArgs>? Tags { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
         /// </summary>
-        [Input("WebserverAccessMode")]
+        [Input("webserverAccessMode")]
         public Input<string>? WebserverAccessMode { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
         /// </summary>
-        [Input("WebserverUrl")]
+        [Input("webserverUrl")]
         public Input<string>? WebserverUrl { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
         /// </summary>
-        [Input("WeeklyMaintenanceWindowStart")]
+        [Input("weeklyMaintenanceWindowStart")]
         public Input<string>? WeeklyMaintenanceWindowStart { get; set; }
 
         public EnvironmentArgs()

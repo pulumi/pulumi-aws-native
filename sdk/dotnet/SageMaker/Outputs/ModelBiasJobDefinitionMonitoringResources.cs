@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly Outputs.ModelBiasJobDefinitionClusterConfig ClusterConfig;
 
         [OutputConstructor]
-        private ModelBiasJobDefinitionMonitoringResources(Outputs.ModelBiasJobDefinitionClusterConfig ClusterConfig)
+        private ModelBiasJobDefinitionMonitoringResources(Outputs.ModelBiasJobDefinitionClusterConfig clusterConfig)
         {
-            this.ClusterConfig = ClusterConfig;
+            ClusterConfig = clusterConfig;
         }
     }
 }
