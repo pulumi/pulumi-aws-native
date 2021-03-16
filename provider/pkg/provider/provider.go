@@ -633,7 +633,14 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	if err != nil {
 		return nil, err
 	}
-	if _, err = p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
+	if pi, err := p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
+		if pi != nil {
+			errorCode := aws.StringValue(pi.ErrorCode)
+			if errorCode == cloudformation.HandlerErrorCodeNotFound {
+				// NotFound means that the resource was already deleted, so the operation can succeed.
+				return &pbempty.Empty{}, nil
+			}
+		}
 		return nil, err
 	}
 
@@ -728,7 +735,7 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *cloud
 		case "SUCCESS":
 			return pi, nil
 		case "FAILED":
-			return nil, errors.Errorf("operation %s failed with %q: %s", aws.StringValue(pi.Operation), aws.StringValue(pi.ErrorCode), aws.StringValue(pi.StatusMessage))
+			return pi, errors.Errorf("operation %s failed with %q: %s", aws.StringValue(pi.Operation), aws.StringValue(pi.ErrorCode), aws.StringValue(pi.StatusMessage))
 		case "IN_PROGRESS":
 			// TODO: back-off?
 			time.Sleep(1 * time.Second)
