@@ -1,8 +1,13 @@
 package schema
 
 import (
-	"github.com/stretchr/testify/assert"
+	"sort"
 	"testing"
+
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/service/cloudformation"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCfnToSdk(t *testing.T) {
@@ -14,6 +19,46 @@ func TestSdkToCfn(t *testing.T) {
 	actual, err := SdkToCfn(sampleSchema, "AWS::ECS::Service", sdkState)
 	assert.NoError(t, err)
 	assert.Equal(t, cfnPayload, actual)
+}
+
+func TestDiffToPatch(t *testing.T) {
+	diff := resource.ObjectDiff{
+		Updates: map[resource.PropertyKey]resource.ValueDiff{
+			"desiredCount":         {New: resource.NewNumberProperty(2)},
+			"enableECSManagedTags": {New: resource.NewBoolProperty(true)},
+			"loadBalancers": {
+				New: resource.NewArrayProperty([]resource.PropertyValue{
+					resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
+						"containerName": "my-app",
+						"containerPort": 80,
+					})),
+				}),
+			},
+		},
+		Adds: map[resource.PropertyKey]resource.PropertyValue{
+			"launchType": resource.NewStringProperty("FARGATE"),
+		},
+		Deletes: map[resource.PropertyKey]resource.PropertyValue{
+			"platformVersion": resource.NewStringProperty("LATEST"),
+		},
+	}
+	expected := []*cloudformation.PatchOperation{
+		{Op: aws.String("replace"), Path: aws.String("/DesiredCount"), IntegerValue: aws.Int64(2)},
+		{Op: aws.String("replace"), Path: aws.String("/EnableECSManagedTags"), BooleanValue: aws.Bool(true)},
+		{Op: aws.String("add"), Path: aws.String("/LaunchType"), StringValue: aws.String("FARGATE")},
+		{
+			Op:          aws.String("replace"),
+			Path:        aws.String("/LoadBalancers"),
+			ObjectValue: aws.String("[{\"ContainerName\":\"my-app\",\"ContainerPort\":80}]"),
+		},
+		{Op: aws.String("remove"), Path: aws.String("/PlatformVersion")},
+	}
+	actual, err := DiffToPatch(sampleSchema, "AWS::ECS::Service", &diff)
+	assert.NoError(t, err)
+	sort.SliceStable(actual, func(i, j int) bool {
+		return aws.StringValue(actual[i].Path) < aws.StringValue(actual[j].Path)
+	})
+	assert.Equal(t, expected, actual)
 }
 
 var cfnPayload = map[string]interface{}{
