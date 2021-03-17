@@ -1,12 +1,18 @@
 import * as aws_native from "@pulumi/aws-native";
 import * as old from "./unsupported";
 
+// A basic resource - good to play with.
 const logGroup = new aws_native.logs.LogGroup("test", {
     logGroupName: "LGN1",
     retentionInDays: 90,
 });
 
 export const arn = logGroup.arn;
+
+// A nice example of a resource that isn't supported by the classic provider.
+const cassandraKeyspace = new aws_native.cassandra.Keyspace("cassandra", {
+    keyspaceName: "cassandrademo",
+});
 
 const cluster = new aws_native.ecs.Cluster("cluster", {
     clusterName: "cloud-api-cluster",
@@ -42,7 +48,6 @@ const taskDefinition = new aws_native.ecs.TaskDefinition("app-task", {
 
 const service = new aws_native.ecs.Service("app-svc", {
     serviceName: "app-svc-cloud-api",
-    serviceArn: "arn:aws:ecs:us-west-2:616138583583:service/cloud-api-cluster/app-svc-cloud-api", // this is currently required, otherwise creation fails
     cluster: cluster.arn,
     desiredCount: 3,
     launchType: "FARGATE",
