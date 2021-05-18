@@ -6,10 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./backupPlan";
+export * from "./backupSelection";
 export * from "./backupVault";
 
 // Import resources to register:
 import { BackupPlan } from "./backupPlan";
+import { BackupSelection } from "./backupSelection";
 import { BackupVault } from "./backupVault";
 
 const _module = {
@@ -18,6 +20,8 @@ const _module = {
         switch (type) {
             case "aws-native:Backup:BackupPlan":
                 return new BackupPlan(name, <any>undefined, { urn })
+            case "aws-native:Backup:BackupSelection":
+                return new BackupSelection(name, <any>undefined, { urn })
             case "aws-native:Backup:BackupVault":
                 return new BackupVault(name, <any>undefined, { urn })
             default:

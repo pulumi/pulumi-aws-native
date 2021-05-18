@@ -56,6 +56,7 @@ import * as greengrassv2 from "./greengrassv2";
 import * as groundstation from "./groundstation";
 import * as imagebuilder from "./imagebuilder";
 import * as iot from "./iot";
+import * as iotevents from "./iotevents";
 import * as iotsitewise from "./iotsitewise";
 import * as ivs from "./ivs";
 import * as kendra from "./kendra";
@@ -130,6 +131,7 @@ export {
     groundstation,
     imagebuilder,
     iot,
+    iotevents,
     iotsitewise,
     ivs,
     kendra,
