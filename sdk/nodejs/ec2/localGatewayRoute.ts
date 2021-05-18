@@ -58,14 +58,15 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
      */
     constructor(name: string, args: LocalGatewayRouteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.destinationCidrBlock === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if ((!args || args.localGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.localGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayRouteTableId'");
             }
-            if ((!args || args.localGatewayVirtualInterfaceGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.localGatewayVirtualInterfaceGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayVirtualInterfaceGroupId'");
             }
             inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
@@ -80,12 +81,8 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LocalGatewayRoute.__pulumiType, name, inputs, opts);
     }

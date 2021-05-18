@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -21,6 +21,27 @@ class CertificateAuthorityCrlConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customCname":
+            suggest = "custom_cname"
+        elif key == "expirationInDays":
+            suggest = "expiration_in_days"
+        elif key == "s3BucketName":
+            suggest = "s3_bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityCrlConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityCrlConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityCrlConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_cname: Optional[str] = None,
                  enabled: Optional[bool] = None,
@@ -74,20 +95,34 @@ class CertificateAuthorityCrlConfiguration(dict):
         """
         return pulumi.get(self, "s3_bucket_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CertificateAuthorityRevocationConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crlConfiguration":
+            suggest = "crl_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityRevocationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityRevocationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityRevocationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  crl_configuration: Optional['outputs.CertificateAuthorityCrlConfiguration'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html
-        :param 'CertificateAuthorityCrlConfigurationArgs' crl_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-crlconfiguration
+        :param 'CertificateAuthorityCrlConfiguration' crl_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-crlconfiguration
         """
         if crl_configuration is not None:
             pulumi.set(__self__, "crl_configuration", crl_configuration)
@@ -100,15 +135,39 @@ class CertificateAuthorityRevocationConfiguration(dict):
         """
         return pulumi.get(self, "crl_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CertificateAuthoritySubject(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonName":
+            suggest = "common_name"
+        elif key == "distinguishedNameQualifier":
+            suggest = "distinguished_name_qualifier"
+        elif key == "generationQualifier":
+            suggest = "generation_qualifier"
+        elif key == "givenName":
+            suggest = "given_name"
+        elif key == "organizationalUnit":
+            suggest = "organizational_unit"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthoritySubject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthoritySubject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthoritySubject.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  common_name: Optional[str] = None,
                  country: Optional[str] = None,
@@ -282,9 +341,6 @@ class CertificateAuthoritySubject(dict):
         """
         return pulumi.get(self, "title")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CertificateValidity(dict):
@@ -317,8 +373,5 @@ class CertificateValidity(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

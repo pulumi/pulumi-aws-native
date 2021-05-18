@@ -5,17 +5,88 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['Analyzer']
+__all__ = ['AnalyzerArgs', 'Analyzer']
+
+@pulumi.input_type
+class AnalyzerArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 analyzer_name: Optional[pulumi.Input[str]] = None,
+                 archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a Analyzer resource.
+        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
+        :param pulumi.Input[str] analyzer_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]] archive_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
+        """
+        pulumi.set(__self__, "type", type)
+        if analyzer_name is not None:
+            pulumi.set(__self__, "analyzer_name", analyzer_name)
+        if archive_rules is not None:
+            pulumi.set(__self__, "archive_rules", archive_rules)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="analyzerName")
+    def analyzer_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
+        """
+        return pulumi.get(self, "analyzer_name")
+
+    @analyzer_name.setter
+    def analyzer_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "analyzer_name", value)
+
+    @property
+    @pulumi.getter(name="archiveRules")
+    def archive_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
+        """
+        return pulumi.get(self, "archive_rules")
+
+    @archive_rules.setter
+    def archive_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]]):
+        pulumi.set(self, "archive_rules", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Analyzer(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -23,9 +94,7 @@ class Analyzer(pulumi.CustomResource):
                  archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerArchiveRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
 
@@ -36,12 +105,35 @@ class Analyzer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
         :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AnalyzerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
+
+        :param str resource_name: The name of the resource.
+        :param AnalyzerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AnalyzerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 analyzer_name: Optional[pulumi.Input[str]] = None,
+                 archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerArchiveRuleArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -51,15 +143,15 @@ class Analyzer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AnalyzerArgs.__new__(AnalyzerArgs)
 
-            __props__['analyzer_name'] = analyzer_name
-            __props__['archive_rules'] = archive_rules
-            __props__['tags'] = tags
+            __props__.__dict__["analyzer_name"] = analyzer_name
+            __props__.__dict__["archive_rules"] = archive_rules
+            __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
-            __props__['arn'] = None
+            __props__.__dict__["type"] = type
+            __props__.__dict__["arn"] = None
         super(Analyzer, __self__).__init__(
             'aws-native:AccessAnalyzer:Analyzer',
             resource_name,
@@ -80,8 +172,13 @@ class Analyzer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AnalyzerArgs.__new__(AnalyzerArgs)
 
+        __props__.__dict__["analyzer_name"] = None
+        __props__.__dict__["archive_rules"] = None
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return Analyzer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -120,10 +217,4 @@ class Analyzer(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

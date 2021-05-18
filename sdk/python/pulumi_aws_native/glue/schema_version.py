@@ -5,23 +5,59 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SchemaVersion']
+__all__ = ['SchemaVersionArgs', 'SchemaVersion']
+
+@pulumi.input_type
+class SchemaVersionArgs:
+    def __init__(__self__, *,
+                 schema: pulumi.Input['SchemaVersionSchemaArgs'],
+                 schema_definition: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a SchemaVersion resource.
+        :param pulumi.Input['SchemaVersionSchemaArgs'] schema: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
+        :param pulumi.Input[str] schema_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+        """
+        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "schema_definition", schema_definition)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> pulumi.Input['SchemaVersionSchemaArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: pulumi.Input['SchemaVersionSchemaArgs']):
+        pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter(name="schemaDefinition")
+    def schema_definition(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+        """
+        return pulumi.get(self, "schema_definition")
+
+    @schema_definition.setter
+    def schema_definition(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schema_definition", value)
 
 
 class SchemaVersion(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  schema: Optional[pulumi.Input[pulumi.InputType['SchemaVersionSchemaArgs']]] = None,
                  schema_definition: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
 
@@ -30,12 +66,33 @@ class SchemaVersion(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SchemaVersionSchemaArgs']] schema: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
         :param pulumi.Input[str] schema_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SchemaVersionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
+
+        :param str resource_name: The name of the resource.
+        :param SchemaVersionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SchemaVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 schema: Optional[pulumi.Input[pulumi.InputType['SchemaVersionSchemaArgs']]] = None,
+                 schema_definition: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -45,15 +102,15 @@ class SchemaVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SchemaVersionArgs.__new__(SchemaVersionArgs)
 
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
-            __props__['schema'] = schema
+            __props__.__dict__["schema"] = schema
             if schema_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_definition'")
-            __props__['schema_definition'] = schema_definition
-            __props__['version_id'] = None
+            __props__.__dict__["schema_definition"] = schema_definition
+            __props__.__dict__["version_id"] = None
         super(SchemaVersion, __self__).__init__(
             'aws-native:Glue:SchemaVersion',
             resource_name,
@@ -74,8 +131,11 @@ class SchemaVersion(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SchemaVersionArgs.__new__(SchemaVersionArgs)
 
+        __props__.__dict__["schema"] = None
+        __props__.__dict__["schema_definition"] = None
+        __props__.__dict__["version_id"] = None
         return SchemaVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -98,10 +158,4 @@ class SchemaVersion(pulumi.CustomResource):
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "version_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

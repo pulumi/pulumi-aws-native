@@ -67,8 +67,9 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccessPointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.fileSystemId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
             inputs["accessPointTags"] = args ? args.accessPointTags : undefined;
@@ -87,12 +88,8 @@ export class AccessPoint extends pulumi.CustomResource {
             inputs["posixUser"] = undefined /*out*/;
             inputs["rootDirectory"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AccessPoint.__pulumiType, name, inputs, opts);
     }
@@ -105,7 +102,7 @@ export interface AccessPointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
      */
-    readonly accessPointTags?: pulumi.Input<pulumi.Input<inputs.EFS.AccessPointAccessPointTag>[]>;
+    readonly accessPointTags?: pulumi.Input<pulumi.Input<inputs.EFS.AccessPointAccessPointTagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
      */
@@ -117,9 +114,9 @@ export interface AccessPointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
      */
-    readonly posixUser?: pulumi.Input<inputs.EFS.AccessPointPosixUser>;
+    readonly posixUser?: pulumi.Input<inputs.EFS.AccessPointPosixUserArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
      */
-    readonly rootDirectory?: pulumi.Input<inputs.EFS.AccessPointRootDirectory>;
+    readonly rootDirectory?: pulumi.Input<inputs.EFS.AccessPointRootDirectoryArgs>;
 }

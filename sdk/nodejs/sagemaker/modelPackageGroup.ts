@@ -64,8 +64,9 @@ export class ModelPackageGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ModelPackageGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.modelPackageGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.modelPackageGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'modelPackageGroupName'");
             }
             inputs["modelPackageGroupDescription"] = args ? args.modelPackageGroupDescription : undefined;
@@ -84,12 +85,8 @@ export class ModelPackageGroup extends pulumi.CustomResource {
             inputs["modelPackageGroupStatus"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ModelPackageGroup.__pulumiType, name, inputs, opts);
     }
@@ -114,5 +111,5 @@ export interface ModelPackageGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

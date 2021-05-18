@@ -60,14 +60,15 @@ export class MemberInvitation extends pulumi.CustomResource {
      */
     constructor(name: string, args: MemberInvitationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.graphArn === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.graphArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'graphArn'");
             }
-            if ((!args || args.memberEmailAddress === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.memberEmailAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'memberEmailAddress'");
             }
-            if ((!args || args.memberId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.memberId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'memberId'");
             }
             inputs["graphArn"] = args ? args.graphArn : undefined;
@@ -80,12 +81,8 @@ export class MemberInvitation extends pulumi.CustomResource {
             inputs["memberId"] = undefined /*out*/;
             inputs["message"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MemberInvitation.__pulumiType, name, inputs, opts);
     }

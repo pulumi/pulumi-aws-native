@@ -67,14 +67,15 @@ export class Dashboard extends pulumi.CustomResource {
      */
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.dashboardDefinition === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.dashboardDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dashboardDefinition'");
             }
-            if ((!args || args.dashboardDescription === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dashboardDescription === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dashboardDescription'");
             }
-            if ((!args || args.dashboardName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dashboardName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dashboardName'");
             }
             inputs["dashboardDefinition"] = args ? args.dashboardDefinition : undefined;
@@ -93,12 +94,8 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["projectId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Dashboard.__pulumiType, name, inputs, opts);
     }
@@ -127,5 +124,5 @@ export interface DashboardArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

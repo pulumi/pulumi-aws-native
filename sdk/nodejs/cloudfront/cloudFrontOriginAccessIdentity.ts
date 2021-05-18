@@ -50,8 +50,9 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
      */
     constructor(name: string, args: CloudFrontOriginAccessIdentityArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.cloudFrontOriginAccessIdentityConfig === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.cloudFrontOriginAccessIdentityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cloudFrontOriginAccessIdentityConfig'");
             }
             inputs["cloudFrontOriginAccessIdentityConfig"] = args ? args.cloudFrontOriginAccessIdentityConfig : undefined;
@@ -60,12 +61,8 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
             inputs["cloudFrontOriginAccessIdentityConfig"] = undefined /*out*/;
             inputs["s3CanonicalUserId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CloudFrontOriginAccessIdentity.__pulumiType, name, inputs, opts);
     }
@@ -78,5 +75,5 @@ export interface CloudFrontOriginAccessIdentityArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
      */
-    readonly cloudFrontOriginAccessIdentityConfig: pulumi.Input<inputs.CloudFront.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig>;
+    readonly cloudFrontOriginAccessIdentityConfig: pulumi.Input<inputs.CloudFront.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs>;
 }

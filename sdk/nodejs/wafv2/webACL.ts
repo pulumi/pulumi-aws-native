@@ -76,14 +76,15 @@ export class WebACL extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebACLArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.defaultAction === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.defaultAction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.visibilityConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
             inputs["defaultAction"] = args ? args.defaultAction : undefined;
@@ -108,12 +109,8 @@ export class WebACL extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["visibilityConfig"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(WebACL.__pulumiType, name, inputs, opts);
     }
@@ -126,7 +123,7 @@ export interface WebACLArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
      */
-    readonly defaultAction: pulumi.Input<inputs.WAFv2.WebACLDefaultAction>;
+    readonly defaultAction: pulumi.Input<inputs.WAFv2.WebACLDefaultActionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
      */
@@ -138,7 +135,7 @@ export interface WebACLArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLRule>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLRuleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
      */
@@ -146,9 +143,9 @@ export interface WebACLArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
      */
-    readonly visibilityConfig: pulumi.Input<inputs.WAFv2.WebACLVisibilityConfig>;
+    readonly visibilityConfig: pulumi.Input<inputs.WAFv2.WebACLVisibilityConfigArgs>;
 }

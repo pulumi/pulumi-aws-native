@@ -48,17 +48,14 @@ export class Keyspace extends pulumi.CustomResource {
      */
     constructor(name: string, args?: KeyspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["keyspaceName"] = args ? args.keyspaceName : undefined;
         } else {
             inputs["keyspaceName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Keyspace.__pulumiType, name, inputs, opts);
     }

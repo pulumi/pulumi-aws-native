@@ -5,17 +5,118 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['FargateProfile']
+__all__ = ['FargateProfileArgs', 'FargateProfile']
+
+@pulumi.input_type
+class FargateProfileArgs:
+    def __init__(__self__, *,
+                 cluster_name: pulumi.Input[str],
+                 pod_execution_role_arn: pulumi.Input[str],
+                 selectors: pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]],
+                 fargate_profile_name: Optional[pulumi.Input[str]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a FargateProfile resource.
+        :param pulumi.Input[str] cluster_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
+        :param pulumi.Input[str] pod_execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
+        :param pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]] selectors: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
+        :param pulumi.Input[str] fargate_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
+        """
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "pod_execution_role_arn", pod_execution_role_arn)
+        pulumi.set(__self__, "selectors", selectors)
+        if fargate_profile_name is not None:
+            pulumi.set(__self__, "fargate_profile_name", fargate_profile_name)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="podExecutionRoleArn")
+    def pod_execution_role_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
+        """
+        return pulumi.get(self, "pod_execution_role_arn")
+
+    @pod_execution_role_arn.setter
+    def pod_execution_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pod_execution_role_arn", value)
+
+    @property
+    @pulumi.getter
+    def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
+        """
+        return pulumi.get(self, "selectors")
+
+    @selectors.setter
+    def selectors(self, value: pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]]):
+        pulumi.set(self, "selectors", value)
+
+    @property
+    @pulumi.getter(name="fargateProfileName")
+    def fargate_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
+        """
+        return pulumi.get(self, "fargate_profile_name")
+
+    @fargate_profile_name.setter
+    def fargate_profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fargate_profile_name", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnets", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class FargateProfile(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -25,9 +126,7 @@ class FargateProfile(pulumi.CustomResource):
                  selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html
 
@@ -40,12 +139,37 @@ class FargateProfile(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FargateProfileArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html
+
+        :param str resource_name: The name of the resource.
+        :param FargateProfileArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FargateProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 fargate_profile_name: Optional[pulumi.Input[str]] = None,
+                 pod_execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -55,21 +179,21 @@ class FargateProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FargateProfileArgs.__new__(FargateProfileArgs)
 
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
-            __props__['cluster_name'] = cluster_name
-            __props__['fargate_profile_name'] = fargate_profile_name
+            __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["fargate_profile_name"] = fargate_profile_name
             if pod_execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'pod_execution_role_arn'")
-            __props__['pod_execution_role_arn'] = pod_execution_role_arn
+            __props__.__dict__["pod_execution_role_arn"] = pod_execution_role_arn
             if selectors is None and not opts.urn:
                 raise TypeError("Missing required property 'selectors'")
-            __props__['selectors'] = selectors
-            __props__['subnets'] = subnets
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["selectors"] = selectors
+            __props__.__dict__["subnets"] = subnets
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(FargateProfile, __self__).__init__(
             'aws-native:EKS:FargateProfile',
             resource_name,
@@ -90,8 +214,15 @@ class FargateProfile(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FargateProfileArgs.__new__(FargateProfileArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["cluster_name"] = None
+        __props__.__dict__["fargate_profile_name"] = None
+        __props__.__dict__["pod_execution_role_arn"] = None
+        __props__.__dict__["selectors"] = None
+        __props__.__dict__["subnets"] = None
+        __props__.__dict__["tags"] = None
         return FargateProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -146,10 +277,4 @@ class FargateProfile(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

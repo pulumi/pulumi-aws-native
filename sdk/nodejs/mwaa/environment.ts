@@ -123,7 +123,8 @@ export class Environment extends pulumi.CustomResource {
      */
     constructor(name: string, args?: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["airflowConfigurationOptions"] = args ? args.airflowConfigurationOptions : undefined;
             inputs["airflowVersion"] = args ? args.airflowVersion : undefined;
             inputs["dagS3Path"] = args ? args.dagS3Path : undefined;
@@ -174,12 +175,8 @@ export class Environment extends pulumi.CustomResource {
             inputs["webserverUrl"] = undefined /*out*/;
             inputs["weeklyMaintenanceWindowStart"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Environment.__pulumiType, name, inputs, opts);
     }
@@ -192,7 +189,7 @@ export interface EnvironmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
      */
-    readonly airflowConfigurationOptions?: pulumi.Input<inputs.MWAA.EnvironmentAirflowConfigurationOptions>;
+    readonly airflowConfigurationOptions?: pulumi.Input<inputs.MWAA.EnvironmentAirflowConfigurationOptionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
      */
@@ -216,7 +213,7 @@ export interface EnvironmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
      */
-    readonly loggingConfiguration?: pulumi.Input<inputs.MWAA.EnvironmentLoggingConfiguration>;
+    readonly loggingConfiguration?: pulumi.Input<inputs.MWAA.EnvironmentLoggingConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
      */
@@ -224,7 +221,7 @@ export interface EnvironmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
      */
-    readonly networkConfiguration?: pulumi.Input<inputs.MWAA.EnvironmentNetworkConfiguration>;
+    readonly networkConfiguration?: pulumi.Input<inputs.MWAA.EnvironmentNetworkConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
      */
@@ -248,7 +245,7 @@ export interface EnvironmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
      */
-    readonly tags?: pulumi.Input<inputs.MWAA.EnvironmentTagMap>;
+    readonly tags?: pulumi.Input<inputs.MWAA.EnvironmentTagMapArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
      */

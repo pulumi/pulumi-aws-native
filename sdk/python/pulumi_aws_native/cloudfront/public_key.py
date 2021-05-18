@@ -5,22 +5,43 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['PublicKey']
+__all__ = ['PublicKeyArgs', 'PublicKey']
+
+@pulumi.input_type
+class PublicKeyArgs:
+    def __init__(__self__, *,
+                 public_key_config: pulumi.Input['PublicKeyPublicKeyConfigArgs']):
+        """
+        The set of arguments for constructing a PublicKey resource.
+        :param pulumi.Input['PublicKeyPublicKeyConfigArgs'] public_key_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
+        """
+        pulumi.set(__self__, "public_key_config", public_key_config)
+
+    @property
+    @pulumi.getter(name="publicKeyConfig")
+    def public_key_config(self) -> pulumi.Input['PublicKeyPublicKeyConfigArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
+        """
+        return pulumi.get(self, "public_key_config")
+
+    @public_key_config.setter
+    def public_key_config(self, value: pulumi.Input['PublicKeyPublicKeyConfigArgs']):
+        pulumi.set(self, "public_key_config", value)
 
 
 class PublicKey(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  public_key_config: Optional[pulumi.Input[pulumi.InputType['PublicKeyPublicKeyConfigArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
 
@@ -28,12 +49,32 @@ class PublicKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PublicKeyPublicKeyConfigArgs']] public_key_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PublicKeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
+
+        :param str resource_name: The name of the resource.
+        :param PublicKeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PublicKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 public_key_config: Optional[pulumi.Input[pulumi.InputType['PublicKeyPublicKeyConfigArgs']]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -43,13 +84,13 @@ class PublicKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PublicKeyArgs.__new__(PublicKeyArgs)
 
             if public_key_config is None and not opts.urn:
                 raise TypeError("Missing required property 'public_key_config'")
-            __props__['public_key_config'] = public_key_config
-            __props__['created_time'] = None
-            __props__['id'] = None
+            __props__.__dict__["public_key_config"] = public_key_config
+            __props__.__dict__["created_time"] = None
+            __props__.__dict__["id"] = None
         super(PublicKey, __self__).__init__(
             'aws-native:CloudFront:PublicKey',
             resource_name,
@@ -70,8 +111,11 @@ class PublicKey(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PublicKeyArgs.__new__(PublicKeyArgs)
 
+        __props__.__dict__["created_time"] = None
+        __props__.__dict__["id"] = None
+        __props__.__dict__["public_key_config"] = None
         return PublicKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -91,10 +135,4 @@ class PublicKey(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
         """
         return pulumi.get(self, "public_key_config")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -5,15 +5,149 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 
-__all__ = ['Repository']
+__all__ = ['RepositoryArgs', 'Repository']
+
+@pulumi.input_type
+class RepositoryArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 repository_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 domain_owner: Optional[pulumi.Input[str]] = None,
+                 external_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 permissions_policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Repository resource.
+        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainname
+        :param pulumi.Input[str] repository_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
+        :param pulumi.Input[str] domain_owner: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainowner
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_connections: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
+        :param pulumi.Input[Union[Any, str]] permissions_policy_document: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] upstreams: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "repository_name", repository_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if domain_owner is not None:
+            pulumi.set(__self__, "domain_owner", domain_owner)
+        if external_connections is not None:
+            pulumi.set(__self__, "external_connections", external_connections)
+        if permissions_policy_document is not None:
+            pulumi.set(__self__, "permissions_policy_document", permissions_policy_document)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if upstreams is not None:
+            pulumi.set(__self__, "upstreams", upstreams)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainname
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="domainOwner")
+    def domain_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainowner
+        """
+        return pulumi.get(self, "domain_owner")
+
+    @domain_owner.setter
+    def domain_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_owner", value)
+
+    @property
+    @pulumi.getter(name="externalConnections")
+    def external_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
+        """
+        return pulumi.get(self, "external_connections")
+
+    @external_connections.setter
+    def external_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_connections", value)
+
+    @property
+    @pulumi.getter(name="permissionsPolicyDocument")
+    def permissions_policy_document(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
+        """
+        return pulumi.get(self, "permissions_policy_document")
+
+    @permissions_policy_document.setter
+    def permissions_policy_document(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "permissions_policy_document", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def upstreams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
+        """
+        return pulumi.get(self, "upstreams")
+
+    @upstreams.setter
+    def upstreams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "upstreams", value)
 
 
 class Repository(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -25,9 +159,7 @@ class Repository(pulumi.CustomResource):
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html
 
@@ -42,12 +174,39 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] upstreams: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RepositoryArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html
+
+        :param str resource_name: The name of the resource.
+        :param RepositoryArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RepositoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_owner: Optional[pulumi.Input[str]] = None,
+                 external_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 permissions_policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -57,22 +216,22 @@ class Repository(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
-            __props__['domain_name'] = domain_name
-            __props__['domain_owner'] = domain_owner
-            __props__['external_connections'] = external_connections
-            __props__['permissions_policy_document'] = permissions_policy_document
+            __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["domain_owner"] = domain_owner
+            __props__.__dict__["external_connections"] = external_connections
+            __props__.__dict__["permissions_policy_document"] = permissions_policy_document
             if repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_name'")
-            __props__['repository_name'] = repository_name
-            __props__['tags'] = tags
-            __props__['upstreams'] = upstreams
-            __props__['arn'] = None
-            __props__['name'] = None
+            __props__.__dict__["repository_name"] = repository_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["upstreams"] = upstreams
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["name"] = None
         super(Repository, __self__).__init__(
             'aws-native:CodeArtifact:Repository',
             resource_name,
@@ -93,8 +252,18 @@ class Repository(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["domain_name"] = None
+        __props__.__dict__["domain_owner"] = None
+        __props__.__dict__["external_connections"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["permissions_policy_document"] = None
+        __props__.__dict__["repository_name"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["upstreams"] = None
         return Repository(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -164,10 +333,4 @@ class Repository(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
         """
         return pulumi.get(self, "upstreams")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

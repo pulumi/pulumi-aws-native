@@ -5,15 +5,100 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ConnectorProfile']
+__all__ = ['ConnectorProfileArgs', 'ConnectorProfile']
+
+@pulumi.input_type
+class ConnectorProfileArgs:
+    def __init__(__self__, *,
+                 connection_mode: pulumi.Input[str],
+                 connector_profile_name: pulumi.Input[str],
+                 connector_type: pulumi.Input[str],
+                 connector_profile_config: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']] = None,
+                 k_ms_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ConnectorProfile resource.
+        :param pulumi.Input[str] connection_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
+        :param pulumi.Input[str] connector_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
+        :param pulumi.Input[str] connector_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'] connector_profile_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
+        :param pulumi.Input[str] k_ms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
+        """
+        pulumi.set(__self__, "connection_mode", connection_mode)
+        pulumi.set(__self__, "connector_profile_name", connector_profile_name)
+        pulumi.set(__self__, "connector_type", connector_type)
+        if connector_profile_config is not None:
+            pulumi.set(__self__, "connector_profile_config", connector_profile_config)
+        if k_ms_arn is not None:
+            pulumi.set(__self__, "k_ms_arn", k_ms_arn)
+
+    @property
+    @pulumi.getter(name="connectionMode")
+    def connection_mode(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
+        """
+        return pulumi.get(self, "connection_mode")
+
+    @connection_mode.setter
+    def connection_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "connection_mode", value)
+
+    @property
+    @pulumi.getter(name="connectorProfileName")
+    def connector_profile_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
+        """
+        return pulumi.get(self, "connector_profile_name")
+
+    @connector_profile_name.setter
+    def connector_profile_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "connector_profile_name", value)
+
+    @property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
+        """
+        return pulumi.get(self, "connector_type")
+
+    @connector_type.setter
+    def connector_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "connector_type", value)
+
+    @property
+    @pulumi.getter(name="connectorProfileConfig")
+    def connector_profile_config(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
+        """
+        return pulumi.get(self, "connector_profile_config")
+
+    @connector_profile_config.setter
+    def connector_profile_config(self, value: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']]):
+        pulumi.set(self, "connector_profile_config", value)
+
+    @property
+    @pulumi.getter(name="kMSArn")
+    def k_ms_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
+        """
+        return pulumi.get(self, "k_ms_arn")
+
+    @k_ms_arn.setter
+    def k_ms_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "k_ms_arn", value)
 
 
 class ConnectorProfile(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -22,9 +107,7 @@ class ConnectorProfile(pulumi.CustomResource):
                  connector_profile_name: Optional[pulumi.Input[str]] = None,
                  connector_type: Optional[pulumi.Input[str]] = None,
                  k_ms_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html
 
@@ -36,12 +119,36 @@ class ConnectorProfile(pulumi.CustomResource):
         :param pulumi.Input[str] connector_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
         :param pulumi.Input[str] k_ms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ConnectorProfileArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html
+
+        :param str resource_name: The name of the resource.
+        :param ConnectorProfileArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectorProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_mode: Optional[pulumi.Input[str]] = None,
+                 connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']]] = None,
+                 connector_profile_name: Optional[pulumi.Input[str]] = None,
+                 connector_type: Optional[pulumi.Input[str]] = None,
+                 k_ms_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -51,21 +158,21 @@ class ConnectorProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ConnectorProfileArgs.__new__(ConnectorProfileArgs)
 
             if connection_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_mode'")
-            __props__['connection_mode'] = connection_mode
-            __props__['connector_profile_config'] = connector_profile_config
+            __props__.__dict__["connection_mode"] = connection_mode
+            __props__.__dict__["connector_profile_config"] = connector_profile_config
             if connector_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_profile_name'")
-            __props__['connector_profile_name'] = connector_profile_name
+            __props__.__dict__["connector_profile_name"] = connector_profile_name
             if connector_type is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_type'")
-            __props__['connector_type'] = connector_type
-            __props__['k_ms_arn'] = k_ms_arn
-            __props__['connector_profile_arn'] = None
-            __props__['credentials_arn'] = None
+            __props__.__dict__["connector_type"] = connector_type
+            __props__.__dict__["k_ms_arn"] = k_ms_arn
+            __props__.__dict__["connector_profile_arn"] = None
+            __props__.__dict__["credentials_arn"] = None
         super(ConnectorProfile, __self__).__init__(
             'aws-native:AppFlow:ConnectorProfile',
             resource_name,
@@ -86,8 +193,15 @@ class ConnectorProfile(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ConnectorProfileArgs.__new__(ConnectorProfileArgs)
 
+        __props__.__dict__["connection_mode"] = None
+        __props__.__dict__["connector_profile_arn"] = None
+        __props__.__dict__["connector_profile_config"] = None
+        __props__.__dict__["connector_profile_name"] = None
+        __props__.__dict__["connector_type"] = None
+        __props__.__dict__["credentials_arn"] = None
+        __props__.__dict__["k_ms_arn"] = None
         return ConnectorProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -139,10 +253,4 @@ class ConnectorProfile(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
         """
         return pulumi.get(self, "k_ms_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

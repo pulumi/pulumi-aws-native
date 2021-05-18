@@ -65,11 +65,12 @@ export class NamedQuery extends pulumi.CustomResource {
      */
     constructor(name: string, args: NamedQueryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.database === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.database === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.queryString === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.queryString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryString'");
             }
             inputs["database"] = args ? args.database : undefined;
@@ -86,12 +87,8 @@ export class NamedQuery extends pulumi.CustomResource {
             inputs["queryString"] = undefined /*out*/;
             inputs["workGroup"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NamedQuery.__pulumiType, name, inputs, opts);
     }

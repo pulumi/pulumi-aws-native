@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'HealthCheckHealthCheckTag',
@@ -48,9 +48,6 @@ class HealthCheckHealthCheckTag(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HostedZoneHostedZoneConfig(dict):
@@ -73,9 +70,6 @@ class HostedZoneHostedZoneConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
         """
         return pulumi.get(self, "comment")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -110,15 +104,29 @@ class HostedZoneHostedZoneTag(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HostedZoneQueryLoggingConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogsLogGroupArn":
+            suggest = "cloud_watch_logs_log_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostedZoneQueryLoggingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostedZoneQueryLoggingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostedZoneQueryLoggingConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloud_watch_logs_log_group_arn: str):
         """
@@ -135,15 +143,31 @@ class HostedZoneQueryLoggingConfig(dict):
         """
         return pulumi.get(self, "cloud_watch_logs_log_group_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HostedZoneVPC(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vPCId":
+            suggest = "v_pc_id"
+        elif key == "vPCRegion":
+            suggest = "v_pc_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostedZoneVPC. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostedZoneVPC.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostedZoneVPC.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  v_pc_id: str,
                  v_pc_region: str):
@@ -170,8 +194,5 @@ class HostedZoneVPC(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
         """
         return pulumi.get(self, "v_pc_region")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

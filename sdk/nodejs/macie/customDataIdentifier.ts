@@ -72,11 +72,12 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
      */
     constructor(name: string, args: CustomDataIdentifierArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.regex === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.regex === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'regex'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -101,12 +102,8 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["regex"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CustomDataIdentifier.__pulumiType, name, inputs, opts);
     }

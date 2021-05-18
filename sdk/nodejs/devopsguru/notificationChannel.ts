@@ -50,8 +50,9 @@ export class NotificationChannel extends pulumi.CustomResource {
      */
     constructor(name: string, args: NotificationChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.config === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.config === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'config'");
             }
             inputs["config"] = args ? args.config : undefined;
@@ -60,12 +61,8 @@ export class NotificationChannel extends pulumi.CustomResource {
             inputs["config"] = undefined /*out*/;
             inputs["id"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NotificationChannel.__pulumiType, name, inputs, opts);
     }
@@ -78,5 +75,5 @@ export interface NotificationChannelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
      */
-    readonly config: pulumi.Input<inputs.DevOpsGuru.NotificationChannelNotificationChannelConfig>;
+    readonly config: pulumi.Input<inputs.DevOpsGuru.NotificationChannelNotificationChannelConfigArgs>;
 }

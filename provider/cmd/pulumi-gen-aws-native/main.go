@@ -12,12 +12,12 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
-	dotnetgen "github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
-	gogen "github.com/pulumi/pulumi/pkg/v2/codegen/go"
-	nodejsgen "github.com/pulumi/pulumi/pkg/v2/codegen/nodejs"
-	pythongen "github.com/pulumi/pulumi/pkg/v2/codegen/python"
-	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
+	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
+	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
+	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
+	pythongen "github.com/pulumi/pulumi/pkg/v3/codegen/python"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 func main() {

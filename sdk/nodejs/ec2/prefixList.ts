@@ -69,14 +69,15 @@ export class PrefixList extends pulumi.CustomResource {
      */
     constructor(name: string, args: PrefixListArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.addressFamily === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.addressFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if ((!args || args.maxEntries === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.maxEntries === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxEntries'");
             }
-            if ((!args || args.prefixListName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.prefixListName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'prefixListName'");
             }
             inputs["addressFamily"] = args ? args.addressFamily : undefined;
@@ -99,12 +100,8 @@ export class PrefixList extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PrefixList.__pulumiType, name, inputs, opts);
     }
@@ -121,7 +118,7 @@ export interface PrefixListArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
      */
-    readonly entries?: pulumi.Input<pulumi.Input<inputs.EC2.PrefixListEntry>[]>;
+    readonly entries?: pulumi.Input<pulumi.Input<inputs.EC2.PrefixListEntryArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
      */
@@ -133,5 +130,5 @@ export interface PrefixListArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

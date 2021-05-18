@@ -5,17 +5,102 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['PrefixList']
+__all__ = ['PrefixListArgs', 'PrefixList']
+
+@pulumi.input_type
+class PrefixListArgs:
+    def __init__(__self__, *,
+                 address_family: pulumi.Input[str],
+                 max_entries: pulumi.Input[int],
+                 prefix_list_name: pulumi.Input[str],
+                 entries: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a PrefixList resource.
+        :param pulumi.Input[str] address_family: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
+        :param pulumi.Input[int] max_entries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
+        :param pulumi.Input[str] prefix_list_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
+        :param pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]] entries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
+        """
+        pulumi.set(__self__, "address_family", address_family)
+        pulumi.set(__self__, "max_entries", max_entries)
+        pulumi.set(__self__, "prefix_list_name", prefix_list_name)
+        if entries is not None:
+            pulumi.set(__self__, "entries", entries)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="addressFamily")
+    def address_family(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
+        """
+        return pulumi.get(self, "address_family")
+
+    @address_family.setter
+    def address_family(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address_family", value)
+
+    @property
+    @pulumi.getter(name="maxEntries")
+    def max_entries(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
+        """
+        return pulumi.get(self, "max_entries")
+
+    @max_entries.setter
+    def max_entries(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_entries", value)
+
+    @property
+    @pulumi.getter(name="prefixListName")
+    def prefix_list_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
+        """
+        return pulumi.get(self, "prefix_list_name")
+
+    @prefix_list_name.setter
+    def prefix_list_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prefix_list_name", value)
+
+    @property
+    @pulumi.getter
+    def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
+        """
+        return pulumi.get(self, "entries")
+
+    @entries.setter
+    def entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]]]):
+        pulumi.set(self, "entries", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class PrefixList(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -24,9 +109,7 @@ class PrefixList(pulumi.CustomResource):
                  max_entries: Optional[pulumi.Input[int]] = None,
                  prefix_list_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html
 
@@ -38,12 +121,36 @@ class PrefixList(pulumi.CustomResource):
         :param pulumi.Input[str] prefix_list_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PrefixListArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html
+
+        :param str resource_name: The name of the resource.
+        :param PrefixListArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PrefixListArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address_family: Optional[pulumi.Input[str]] = None,
+                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrefixListEntryArgs']]]]] = None,
+                 max_entries: Optional[pulumi.Input[int]] = None,
+                 prefix_list_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -53,23 +160,23 @@ class PrefixList(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PrefixListArgs.__new__(PrefixListArgs)
 
             if address_family is None and not opts.urn:
                 raise TypeError("Missing required property 'address_family'")
-            __props__['address_family'] = address_family
-            __props__['entries'] = entries
+            __props__.__dict__["address_family"] = address_family
+            __props__.__dict__["entries"] = entries
             if max_entries is None and not opts.urn:
                 raise TypeError("Missing required property 'max_entries'")
-            __props__['max_entries'] = max_entries
+            __props__.__dict__["max_entries"] = max_entries
             if prefix_list_name is None and not opts.urn:
                 raise TypeError("Missing required property 'prefix_list_name'")
-            __props__['prefix_list_name'] = prefix_list_name
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['owner_id'] = None
-            __props__['prefix_list_id'] = None
-            __props__['version'] = None
+            __props__.__dict__["prefix_list_name"] = prefix_list_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["owner_id"] = None
+            __props__.__dict__["prefix_list_id"] = None
+            __props__.__dict__["version"] = None
         super(PrefixList, __self__).__init__(
             'aws-native:EC2:PrefixList',
             resource_name,
@@ -90,8 +197,17 @@ class PrefixList(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PrefixListArgs.__new__(PrefixListArgs)
 
+        __props__.__dict__["address_family"] = None
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["entries"] = None
+        __props__.__dict__["max_entries"] = None
+        __props__.__dict__["owner_id"] = None
+        __props__.__dict__["prefix_list_id"] = None
+        __props__.__dict__["prefix_list_name"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["version"] = None
         return PrefixList(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -153,10 +269,4 @@ class PrefixList(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

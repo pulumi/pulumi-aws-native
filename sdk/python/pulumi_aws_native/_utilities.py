@@ -3,8 +3,14 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+import json
 import os
+import sys
+import importlib.util
 import pkg_resources
+
+import pulumi
+import pulumi.runtime
 
 from semver import VersionInfo as SemverVersion
 from parver import Version as PEP440Version
@@ -81,5 +87,104 @@ def get_semver_version():
     # their own semver string.
     return SemverVersion(major=major, minor=minor, patch=patch, prerelease=prerelease)
 
+
 def get_version():
-	return str(get_semver_version())
+    return str(get_semver_version())
+
+
+def get_resource_args_opts(resource_args_type, resource_options_type, *args, **kwargs):
+    """
+    Return the resource args and options given the *args and **kwargs of a resource's
+    __init__ method.
+    """
+
+    resource_args, opts = None, None
+
+    # If the first item is the resource args type, save it and remove it from the args list.
+    if args and isinstance(args[0], resource_args_type):
+        resource_args, args = args[0], args[1:]
+
+    # Now look at the first item in the args list again.
+    # If the first item is the resource options class, save it.
+    if args and isinstance(args[0], resource_options_type):
+        opts = args[0]
+
+    # If resource_args is None, see if "args" is in kwargs, and, if so, if it's typed as the
+    # the resource args type.
+    if resource_args is None:
+        a = kwargs.get("args")
+        if isinstance(a, resource_args_type):
+            resource_args = a
+
+    # If opts is None, look it up in kwargs.
+    if opts is None:
+        opts = kwargs.get("opts")
+
+    return resource_args, opts
+
+
+# https://github.com/python/cpython/blob/master/Doc/library/importlib.rst#implementing-lazy-imports
+def lazy_import(fullname):
+    module = sys.modules.get(fullname, None)
+
+    if module is not None:
+        return module
+
+    spec = importlib.util.find_spec(fullname)
+    loader = importlib.util.LazyLoader(spec.loader)
+    spec.loader = loader
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[fullname] = module
+    loader.exec_module(module)
+    return module
+
+
+class Package(pulumi.runtime.ResourcePackage):
+    _version = get_semver_version()
+
+    def __init__(self, pkg_info):
+        super().__init__()
+        self.pkg_info = pkg_info
+
+    def version(self):
+        return Package._version
+
+    def construct_provider(self, name: str, typ: str, urn: str) -> pulumi.ProviderResource:
+        if typ != self.pkg_info['token']:
+            raise Exception(f"unknown provider type {typ}")
+        Provider = getattr(lazy_import(self.pkg_info['fqn']), self.pkg_info['class'])
+        return Provider(name, pulumi.ResourceOptions(urn=urn))
+
+
+class Module(pulumi.runtime.ResourceModule):
+    _version = get_semver_version()
+
+    def __init__(self, mod_info):
+        super().__init__()
+        self.mod_info = mod_info
+
+    def version(self):
+        return Module._version
+
+    def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+        class_name = self.mod_info['classes'].get(typ, None)
+
+        if class_name is None:
+            raise Exception(f"unknown resource type {typ}")
+
+        TheClass = getattr(lazy_import(self.mod_info['fqn']), class_name)
+        return TheClass(name, pulumi.ResourceOptions(urn=urn))
+
+
+def register(resource_modules, resource_packages):
+    resource_modules = json.loads(resource_modules)
+    resource_packages = json.loads(resource_packages)
+
+    for pkg_info in resource_packages:
+        pulumi.runtime.register_resource_package(pkg_info['pkg'], Package(pkg_info))
+
+    for mod_info in resource_modules:
+        pulumi.runtime.register_resource_module(
+            mod_info['pkg'],
+            mod_info['mod'],
+            Module(mod_info))

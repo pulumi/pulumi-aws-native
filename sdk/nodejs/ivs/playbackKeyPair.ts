@@ -59,8 +59,9 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
      */
     constructor(name: string, args: PlaybackKeyPairArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.publicKeyMaterial === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.publicKeyMaterial === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publicKeyMaterial'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -75,12 +76,8 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
             inputs["publicKeyMaterial"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PlaybackKeyPair.__pulumiType, name, inputs, opts);
     }
@@ -101,5 +98,5 @@ export interface PlaybackKeyPairArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -5,17 +5,169 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['Assessment']
+__all__ = ['AssessmentArgs', 'Assessment']
+
+@pulumi.input_type
+class AssessmentArgs:
+    def __init__(__self__, *,
+                 assessment_reports_destination: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']] = None,
+                 aws_account: Optional[pulumi.Input['AssessmentAWSAccountArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 framework_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 roles: Optional[pulumi.Input['AssessmentRolesArgs']] = None,
+                 scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input['AssessmentTagsArgs']] = None):
+        """
+        The set of arguments for constructing a Assessment resource.
+        :param pulumi.Input['AssessmentAssessmentReportsDestinationArgs'] assessment_reports_destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
+        :param pulumi.Input['AssessmentAWSAccountArgs'] aws_account: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
+        :param pulumi.Input[str] framework_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
+        :param pulumi.Input['AssessmentRolesArgs'] roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
+        :param pulumi.Input['AssessmentScopeArgs'] scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
+        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
+        :param pulumi.Input['AssessmentTagsArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
+        """
+        if assessment_reports_destination is not None:
+            pulumi.set(__self__, "assessment_reports_destination", assessment_reports_destination)
+        if aws_account is not None:
+            pulumi.set(__self__, "aws_account", aws_account)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if framework_id is not None:
+            pulumi.set(__self__, "framework_id", framework_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="assessmentReportsDestination")
+    def assessment_reports_destination(self) -> Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
+        """
+        return pulumi.get(self, "assessment_reports_destination")
+
+    @assessment_reports_destination.setter
+    def assessment_reports_destination(self, value: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']]):
+        pulumi.set(self, "assessment_reports_destination", value)
+
+    @property
+    @pulumi.getter(name="awsAccount")
+    def aws_account(self) -> Optional[pulumi.Input['AssessmentAWSAccountArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
+        """
+        return pulumi.get(self, "aws_account")
+
+    @aws_account.setter
+    def aws_account(self, value: Optional[pulumi.Input['AssessmentAWSAccountArgs']]):
+        pulumi.set(self, "aws_account", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="frameworkId")
+    def framework_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
+        """
+        return pulumi.get(self, "framework_id")
+
+    @framework_id.setter
+    def framework_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "framework_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input['AssessmentRolesArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input['AssessmentRolesArgs']]):
+        pulumi.set(self, "roles", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['AssessmentScopeArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['AssessmentScopeArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input['AssessmentTagsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input['AssessmentTagsArgs']]):
+        pulumi.set(self, "tags", value)
 
 
 class Assessment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -28,9 +180,7 @@ class Assessment(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArgs']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['AssessmentTagsArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html
 
@@ -46,12 +196,40 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
         :param pulumi.Input[pulumi.InputType['AssessmentTagsArgs']] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[AssessmentArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html
+
+        :param str resource_name: The name of the resource.
+        :param AssessmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AssessmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentAssessmentReportsDestinationArgs']]] = None,
+                 aws_account: Optional[pulumi.Input[pulumi.InputType['AssessmentAWSAccountArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 framework_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 roles: Optional[pulumi.Input[pulumi.InputType['AssessmentRolesArgs']]] = None,
+                 scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArgs']]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['AssessmentTagsArgs']]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -61,21 +239,21 @@ class Assessment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
-            __props__['assessment_reports_destination'] = assessment_reports_destination
-            __props__['aws_account'] = aws_account
-            __props__['description'] = description
-            __props__['framework_id'] = framework_id
-            __props__['name'] = name
-            __props__['roles'] = roles
-            __props__['scope'] = scope
-            __props__['status'] = status
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['assessment_id'] = None
-            __props__['creation_time'] = None
-            __props__['delegations'] = None
+            __props__.__dict__["assessment_reports_destination"] = assessment_reports_destination
+            __props__.__dict__["aws_account"] = aws_account
+            __props__.__dict__["description"] = description
+            __props__.__dict__["framework_id"] = framework_id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["roles"] = roles
+            __props__.__dict__["scope"] = scope
+            __props__.__dict__["status"] = status
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["assessment_id"] = None
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["delegations"] = None
         super(Assessment, __self__).__init__(
             'aws-native:AuditManager:Assessment',
             resource_name,
@@ -96,8 +274,21 @@ class Assessment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["assessment_id"] = None
+        __props__.__dict__["assessment_reports_destination"] = None
+        __props__.__dict__["aws_account"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["delegations"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["framework_id"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["roles"] = None
+        __props__.__dict__["scope"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
         return Assessment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -188,10 +379,4 @@ class Assessment(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -52,6 +52,25 @@ class DeliveryStreamBufferingHints(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+        elif key == "sizeInMBs":
+            suggest = "size_in_mbs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamBufferingHints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamBufferingHints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamBufferingHints.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  interval_in_seconds: Optional[int] = None,
                  size_in_mbs: Optional[int] = None):
@@ -81,15 +100,31 @@ class DeliveryStreamBufferingHints(dict):
         """
         return pulumi.get(self, "size_in_mbs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamCloudWatchLoggingOptions(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamCloudWatchLoggingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamCloudWatchLoggingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamCloudWatchLoggingOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_group_name: Optional[str] = None,
@@ -131,15 +166,33 @@ class DeliveryStreamCloudWatchLoggingOptions(dict):
         """
         return pulumi.get(self, "log_stream_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamCopyCommand(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataTableName":
+            suggest = "data_table_name"
+        elif key == "copyOptions":
+            suggest = "copy_options"
+        elif key == "dataTableColumns":
+            suggest = "data_table_columns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamCopyCommand. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamCopyCommand.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamCopyCommand.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_table_name: str,
                  copy_options: Optional[str] = None,
@@ -180,15 +233,33 @@ class DeliveryStreamCopyCommand(dict):
         """
         return pulumi.get(self, "data_table_columns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamDataFormatConversionConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputFormatConfiguration":
+            suggest = "input_format_configuration"
+        elif key == "outputFormatConfiguration":
+            suggest = "output_format_configuration"
+        elif key == "schemaConfiguration":
+            suggest = "schema_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamDataFormatConversionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamDataFormatConversionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamDataFormatConversionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  input_format_configuration: Optional['outputs.DeliveryStreamInputFormatConfiguration'] = None,
@@ -197,9 +268,9 @@ class DeliveryStreamDataFormatConversionConfiguration(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html
         :param bool enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-enabled
-        :param 'DeliveryStreamInputFormatConfigurationArgs' input_format_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-inputformatconfiguration
-        :param 'DeliveryStreamOutputFormatConfigurationArgs' output_format_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-outputformatconfiguration
-        :param 'DeliveryStreamSchemaConfigurationArgs' schema_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-schemaconfiguration
+        :param 'DeliveryStreamInputFormatConfiguration' input_format_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-inputformatconfiguration
+        :param 'DeliveryStreamOutputFormatConfiguration' output_format_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-outputformatconfiguration
+        :param 'DeliveryStreamSchemaConfiguration' schema_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-schemaconfiguration
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -242,15 +313,31 @@ class DeliveryStreamDataFormatConversionConfiguration(dict):
         """
         return pulumi.get(self, "schema_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamDeliveryStreamEncryptionConfigurationInput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyType":
+            suggest = "key_type"
+        elif key == "keyARN":
+            suggest = "key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamDeliveryStreamEncryptionConfigurationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamDeliveryStreamEncryptionConfigurationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamDeliveryStreamEncryptionConfigurationInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_type: str,
                  key_arn: Optional[str] = None):
@@ -279,22 +366,38 @@ class DeliveryStreamDeliveryStreamEncryptionConfigurationInput(dict):
         """
         return pulumi.get(self, "key_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamDeserializer(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hiveJsonSerDe":
+            suggest = "hive_json_ser_de"
+        elif key == "openXJsonSerDe":
+            suggest = "open_x_json_ser_de"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamDeserializer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamDeserializer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamDeserializer.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hive_json_ser_de: Optional['outputs.DeliveryStreamHiveJsonSerDe'] = None,
                  open_x_json_ser_de: Optional['outputs.DeliveryStreamOpenXJsonSerDe'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html
-        :param 'DeliveryStreamHiveJsonSerDeArgs' hive_json_ser_de: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-hivejsonserde
-        :param 'DeliveryStreamOpenXJsonSerDeArgs' open_x_json_ser_de: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-openxjsonserde
+        :param 'DeliveryStreamHiveJsonSerDe' hive_json_ser_de: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-hivejsonserde
+        :param 'DeliveryStreamOpenXJsonSerDe' open_x_json_ser_de: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-openxjsonserde
         """
         if hive_json_ser_de is not None:
             pulumi.set(__self__, "hive_json_ser_de", hive_json_ser_de)
@@ -317,15 +420,31 @@ class DeliveryStreamDeserializer(dict):
         """
         return pulumi.get(self, "open_x_json_ser_de")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamElasticsearchBufferingHints(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+        elif key == "sizeInMBs":
+            suggest = "size_in_mbs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamElasticsearchBufferingHints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamElasticsearchBufferingHints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamElasticsearchBufferingHints.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  interval_in_seconds: Optional[int] = None,
                  size_in_mbs: Optional[int] = None):
@@ -355,15 +474,53 @@ class DeliveryStreamElasticsearchBufferingHints(dict):
         """
         return pulumi.get(self, "size_in_mbs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamElasticsearchDestinationConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "indexName":
+            suggest = "index_name"
+        elif key == "roleARN":
+            suggest = "role_arn"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
+        elif key == "bufferingHints":
+            suggest = "buffering_hints"
+        elif key == "cloudWatchLoggingOptions":
+            suggest = "cloud_watch_logging_options"
+        elif key == "clusterEndpoint":
+            suggest = "cluster_endpoint"
+        elif key == "domainARN":
+            suggest = "domain_arn"
+        elif key == "indexRotationPeriod":
+            suggest = "index_rotation_period"
+        elif key == "processingConfiguration":
+            suggest = "processing_configuration"
+        elif key == "retryOptions":
+            suggest = "retry_options"
+        elif key == "s3BackupMode":
+            suggest = "s3_backup_mode"
+        elif key == "typeName":
+            suggest = "type_name"
+        elif key == "vpcConfiguration":
+            suggest = "vpc_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamElasticsearchDestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamElasticsearchDestinationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamElasticsearchDestinationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index_name: str,
                  role_arn: str,
@@ -382,17 +539,17 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html
         :param str index_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-indexname
         :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-rolearn
-        :param 'DeliveryStreamS3DestinationConfigurationArgs' s3_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-s3configuration
-        :param 'DeliveryStreamElasticsearchBufferingHintsArgs' buffering_hints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-bufferinghints
-        :param 'DeliveryStreamCloudWatchLoggingOptionsArgs' cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-cloudwatchloggingoptions
+        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-s3configuration
+        :param 'DeliveryStreamElasticsearchBufferingHints' buffering_hints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-bufferinghints
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-cloudwatchloggingoptions
         :param str cluster_endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-clusterendpoint
         :param str domain_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-domainarn
         :param str index_rotation_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-indexrotationperiod
-        :param 'DeliveryStreamProcessingConfigurationArgs' processing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-processingconfiguration
-        :param 'DeliveryStreamElasticsearchRetryOptionsArgs' retry_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-retryoptions
+        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-processingconfiguration
+        :param 'DeliveryStreamElasticsearchRetryOptions' retry_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-retryoptions
         :param str s3_backup_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-s3backupmode
         :param str type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-typename
-        :param 'DeliveryStreamVpcConfigurationArgs' vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-vpcconfiguration
+        :param 'DeliveryStreamVpcConfiguration' vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-vpcconfiguration
         """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -522,15 +679,29 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         """
         return pulumi.get(self, "vpc_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamElasticsearchRetryOptions(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchretryoptions.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationInSeconds":
+            suggest = "duration_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamElasticsearchRetryOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamElasticsearchRetryOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamElasticsearchRetryOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration_in_seconds: Optional[int] = None):
         """
@@ -548,21 +719,37 @@ class DeliveryStreamElasticsearchRetryOptions(dict):
         """
         return pulumi.get(self, "duration_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamEncryptionConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kMSEncryptionConfig":
+            suggest = "k_ms_encryption_config"
+        elif key == "noEncryptionConfig":
+            suggest = "no_encryption_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  k_ms_encryption_config: Optional['outputs.DeliveryStreamKMSEncryptionConfig'] = None,
                  no_encryption_config: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html
-        :param 'DeliveryStreamKMSEncryptionConfigArgs' k_ms_encryption_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-kmsencryptionconfig
+        :param 'DeliveryStreamKMSEncryptionConfig' k_ms_encryption_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-kmsencryptionconfig
         :param str no_encryption_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-noencryptionconfig
         """
         if k_ms_encryption_config is not None:
@@ -586,15 +773,49 @@ class DeliveryStreamEncryptionConfiguration(dict):
         """
         return pulumi.get(self, "no_encryption_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamExtendedS3DestinationConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketARN":
+            suggest = "bucket_arn"
+        elif key == "roleARN":
+            suggest = "role_arn"
+        elif key == "bufferingHints":
+            suggest = "buffering_hints"
+        elif key == "cloudWatchLoggingOptions":
+            suggest = "cloud_watch_logging_options"
+        elif key == "compressionFormat":
+            suggest = "compression_format"
+        elif key == "dataFormatConversionConfiguration":
+            suggest = "data_format_conversion_configuration"
+        elif key == "encryptionConfiguration":
+            suggest = "encryption_configuration"
+        elif key == "errorOutputPrefix":
+            suggest = "error_output_prefix"
+        elif key == "processingConfiguration":
+            suggest = "processing_configuration"
+        elif key == "s3BackupConfiguration":
+            suggest = "s3_backup_configuration"
+        elif key == "s3BackupMode":
+            suggest = "s3_backup_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamExtendedS3DestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamExtendedS3DestinationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamExtendedS3DestinationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_arn: str,
                  role_arn: str,
@@ -612,15 +833,15 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html
         :param str bucket_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bucketarn
         :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-rolearn
-        :param 'DeliveryStreamBufferingHintsArgs' buffering_hints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bufferinghints
-        :param 'DeliveryStreamCloudWatchLoggingOptionsArgs' cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-cloudwatchloggingoptions
+        :param 'DeliveryStreamBufferingHints' buffering_hints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bufferinghints
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-cloudwatchloggingoptions
         :param str compression_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-compressionformat
-        :param 'DeliveryStreamDataFormatConversionConfigurationArgs' data_format_conversion_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dataformatconversionconfiguration
-        :param 'DeliveryStreamEncryptionConfigurationArgs' encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
+        :param 'DeliveryStreamDataFormatConversionConfiguration' data_format_conversion_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dataformatconversionconfiguration
+        :param 'DeliveryStreamEncryptionConfiguration' encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
         :param str error_output_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-erroroutputprefix
         :param str prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-prefix
-        :param 'DeliveryStreamProcessingConfigurationArgs' processing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-processingconfiguration
-        :param 'DeliveryStreamS3DestinationConfigurationArgs' s3_backup_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupconfiguration
+        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-processingconfiguration
+        :param 'DeliveryStreamS3DestinationConfiguration' s3_backup_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupconfiguration
         :param str s3_backup_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupmode
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
@@ -742,15 +963,29 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         """
         return pulumi.get(self, "s3_backup_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamHiveJsonSerDe(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-hivejsonserde.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timestampFormats":
+            suggest = "timestamp_formats"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamHiveJsonSerDe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamHiveJsonSerDe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamHiveJsonSerDe.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  timestamp_formats: Optional[Sequence[str]] = None):
         """
@@ -768,15 +1003,31 @@ class DeliveryStreamHiveJsonSerDe(dict):
         """
         return pulumi.get(self, "timestamp_formats")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamHttpEndpointCommonAttribute(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeName":
+            suggest = "attribute_name"
+        elif key == "attributeValue":
+            suggest = "attribute_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamHttpEndpointCommonAttribute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamHttpEndpointCommonAttribute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamHttpEndpointCommonAttribute.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  attribute_name: str,
                  attribute_value: str):
@@ -804,15 +1055,29 @@ class DeliveryStreamHttpEndpointCommonAttribute(dict):
         """
         return pulumi.get(self, "attribute_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamHttpEndpointConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKey":
+            suggest = "access_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamHttpEndpointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamHttpEndpointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamHttpEndpointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  url: str,
                  access_key: Optional[str] = None,
@@ -853,15 +1118,45 @@ class DeliveryStreamHttpEndpointConfiguration(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointConfiguration":
+            suggest = "endpoint_configuration"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
+        elif key == "bufferingHints":
+            suggest = "buffering_hints"
+        elif key == "cloudWatchLoggingOptions":
+            suggest = "cloud_watch_logging_options"
+        elif key == "processingConfiguration":
+            suggest = "processing_configuration"
+        elif key == "requestConfiguration":
+            suggest = "request_configuration"
+        elif key == "retryOptions":
+            suggest = "retry_options"
+        elif key == "roleARN":
+            suggest = "role_arn"
+        elif key == "s3BackupMode":
+            suggest = "s3_backup_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamHttpEndpointDestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamHttpEndpointDestinationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamHttpEndpointDestinationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_configuration: 'outputs.DeliveryStreamHttpEndpointConfiguration',
                  s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
@@ -874,13 +1169,13 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
                  s3_backup_mode: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html
-        :param 'DeliveryStreamHttpEndpointConfigurationArgs' endpoint_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-endpointconfiguration
-        :param 'DeliveryStreamS3DestinationConfigurationArgs' s3_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3configuration
-        :param 'DeliveryStreamBufferingHintsArgs' buffering_hints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-bufferinghints
-        :param 'DeliveryStreamCloudWatchLoggingOptionsArgs' cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-cloudwatchloggingoptions
-        :param 'DeliveryStreamProcessingConfigurationArgs' processing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-processingconfiguration
-        :param 'DeliveryStreamHttpEndpointRequestConfigurationArgs' request_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-requestconfiguration
-        :param 'DeliveryStreamRetryOptionsArgs' retry_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-retryoptions
+        :param 'DeliveryStreamHttpEndpointConfiguration' endpoint_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-endpointconfiguration
+        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3configuration
+        :param 'DeliveryStreamBufferingHints' buffering_hints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-bufferinghints
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-cloudwatchloggingoptions
+        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-processingconfiguration
+        :param 'DeliveryStreamHttpEndpointRequestConfiguration' request_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-requestconfiguration
+        :param 'DeliveryStreamRetryOptions' retry_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-retryoptions
         :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-rolearn
         :param str s3_backup_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3backupmode
         """
@@ -973,21 +1268,37 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
         """
         return pulumi.get(self, "s3_backup_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamHttpEndpointRequestConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonAttributes":
+            suggest = "common_attributes"
+        elif key == "contentEncoding":
+            suggest = "content_encoding"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamHttpEndpointRequestConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamHttpEndpointRequestConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamHttpEndpointRequestConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  common_attributes: Optional[Sequence['outputs.DeliveryStreamHttpEndpointCommonAttribute']] = None,
                  content_encoding: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html
-        :param Sequence['DeliveryStreamHttpEndpointCommonAttributeArgs'] common_attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-commonattributes
+        :param Sequence['DeliveryStreamHttpEndpointCommonAttribute'] common_attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-commonattributes
         :param str content_encoding: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-contentencoding
         """
         if common_attributes is not None:
@@ -1011,9 +1322,6 @@ class DeliveryStreamHttpEndpointRequestConfiguration(dict):
         """
         return pulumi.get(self, "content_encoding")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamInputFormatConfiguration(dict):
@@ -1024,7 +1332,7 @@ class DeliveryStreamInputFormatConfiguration(dict):
                  deserializer: Optional['outputs.DeliveryStreamDeserializer'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html
-        :param 'DeliveryStreamDeserializerArgs' deserializer: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-inputformatconfiguration-deserializer
+        :param 'DeliveryStreamDeserializer' deserializer: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-inputformatconfiguration-deserializer
         """
         if deserializer is not None:
             pulumi.set(__self__, "deserializer", deserializer)
@@ -1037,15 +1345,29 @@ class DeliveryStreamInputFormatConfiguration(dict):
         """
         return pulumi.get(self, "deserializer")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamKMSEncryptionConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aWSKMSKeyARN":
+            suggest = "a_wskms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamKMSEncryptionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamKMSEncryptionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamKMSEncryptionConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  a_wskms_key_arn: str):
         """
@@ -1062,15 +1384,31 @@ class DeliveryStreamKMSEncryptionConfig(dict):
         """
         return pulumi.get(self, "a_wskms_key_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamKinesisStreamSourceConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kinesisStreamARN":
+            suggest = "kinesis_stream_arn"
+        elif key == "roleARN":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamKinesisStreamSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamKinesisStreamSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamKinesisStreamSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kinesis_stream_arn: str,
                  role_arn: str):
@@ -1098,15 +1436,33 @@ class DeliveryStreamKinesisStreamSourceConfiguration(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamOpenXJsonSerDe(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caseInsensitive":
+            suggest = "case_insensitive"
+        elif key == "columnToJsonKeyMappings":
+            suggest = "column_to_json_key_mappings"
+        elif key == "convertDotsInJsonKeysToUnderscores":
+            suggest = "convert_dots_in_json_keys_to_underscores"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamOpenXJsonSerDe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamOpenXJsonSerDe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamOpenXJsonSerDe.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  case_insensitive: Optional[bool] = None,
                  column_to_json_key_mappings: Optional[Mapping[str, str]] = None,
@@ -1148,15 +1504,45 @@ class DeliveryStreamOpenXJsonSerDe(dict):
         """
         return pulumi.get(self, "convert_dots_in_json_keys_to_underscores")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamOrcSerDe(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockSizeBytes":
+            suggest = "block_size_bytes"
+        elif key == "bloomFilterColumns":
+            suggest = "bloom_filter_columns"
+        elif key == "bloomFilterFalsePositiveProbability":
+            suggest = "bloom_filter_false_positive_probability"
+        elif key == "dictionaryKeyThreshold":
+            suggest = "dictionary_key_threshold"
+        elif key == "enablePadding":
+            suggest = "enable_padding"
+        elif key == "formatVersion":
+            suggest = "format_version"
+        elif key == "paddingTolerance":
+            suggest = "padding_tolerance"
+        elif key == "rowIndexStride":
+            suggest = "row_index_stride"
+        elif key == "stripeSizeBytes":
+            suggest = "stripe_size_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamOrcSerDe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamOrcSerDe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamOrcSerDe.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  block_size_bytes: Optional[int] = None,
                  bloom_filter_columns: Optional[Sequence[str]] = None,
@@ -1282,9 +1668,6 @@ class DeliveryStreamOrcSerDe(dict):
         """
         return pulumi.get(self, "stripe_size_bytes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamOutputFormatConfiguration(dict):
@@ -1295,7 +1678,7 @@ class DeliveryStreamOutputFormatConfiguration(dict):
                  serializer: Optional['outputs.DeliveryStreamSerializer'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html
-        :param 'DeliveryStreamSerializerArgs' serializer: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-outputformatconfiguration-serializer
+        :param 'DeliveryStreamSerializer' serializer: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-outputformatconfiguration-serializer
         """
         if serializer is not None:
             pulumi.set(__self__, "serializer", serializer)
@@ -1308,15 +1691,37 @@ class DeliveryStreamOutputFormatConfiguration(dict):
         """
         return pulumi.get(self, "serializer")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamParquetSerDe(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockSizeBytes":
+            suggest = "block_size_bytes"
+        elif key == "enableDictionaryCompression":
+            suggest = "enable_dictionary_compression"
+        elif key == "maxPaddingBytes":
+            suggest = "max_padding_bytes"
+        elif key == "pageSizeBytes":
+            suggest = "page_size_bytes"
+        elif key == "writerVersion":
+            suggest = "writer_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamParquetSerDe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamParquetSerDe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamParquetSerDe.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  block_size_bytes: Optional[int] = None,
                  compression: Optional[str] = None,
@@ -1394,9 +1799,6 @@ class DeliveryStreamParquetSerDe(dict):
         """
         return pulumi.get(self, "writer_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamProcessingConfiguration(dict):
@@ -1409,7 +1811,7 @@ class DeliveryStreamProcessingConfiguration(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html
         :param bool enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-enabled
-        :param Sequence['DeliveryStreamProcessorArgs'] processors: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-processors
+        :param Sequence['DeliveryStreamProcessor'] processors: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-processors
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1432,9 +1834,6 @@ class DeliveryStreamProcessingConfiguration(dict):
         """
         return pulumi.get(self, "processors")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamProcessor(dict):
@@ -1447,7 +1846,7 @@ class DeliveryStreamProcessor(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html
         :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-type
-        :param Sequence['DeliveryStreamProcessorParameterArgs'] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-parameters
+        :param Sequence['DeliveryStreamProcessorParameter'] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-parameters
         """
         pulumi.set(__self__, "type", type)
         if parameters is not None:
@@ -1469,15 +1868,31 @@ class DeliveryStreamProcessor(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamProcessorParameter(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamProcessorParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamProcessorParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamProcessorParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parameter_name: str,
                  parameter_value: str):
@@ -1505,15 +1920,45 @@ class DeliveryStreamProcessorParameter(dict):
         """
         return pulumi.get(self, "parameter_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamRedshiftDestinationConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterJDBCURL":
+            suggest = "cluster_jdbcurl"
+        elif key == "copyCommand":
+            suggest = "copy_command"
+        elif key == "roleARN":
+            suggest = "role_arn"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
+        elif key == "cloudWatchLoggingOptions":
+            suggest = "cloud_watch_logging_options"
+        elif key == "processingConfiguration":
+            suggest = "processing_configuration"
+        elif key == "retryOptions":
+            suggest = "retry_options"
+        elif key == "s3BackupConfiguration":
+            suggest = "s3_backup_configuration"
+        elif key == "s3BackupMode":
+            suggest = "s3_backup_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamRedshiftDestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamRedshiftDestinationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamRedshiftDestinationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_jdbcurl: str,
                  copy_command: 'outputs.DeliveryStreamCopyCommand',
@@ -1529,15 +1974,15 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html
         :param str cluster_jdbcurl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-clusterjdbcurl
-        :param 'DeliveryStreamCopyCommandArgs' copy_command: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-copycommand
+        :param 'DeliveryStreamCopyCommand' copy_command: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-copycommand
         :param str password: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-password
         :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-rolearn
-        :param 'DeliveryStreamS3DestinationConfigurationArgs' s3_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3configuration
+        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3configuration
         :param str username: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-username
-        :param 'DeliveryStreamCloudWatchLoggingOptionsArgs' cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-cloudwatchloggingoptions
-        :param 'DeliveryStreamProcessingConfigurationArgs' processing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-processingconfiguration
-        :param 'DeliveryStreamRedshiftRetryOptionsArgs' retry_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-retryoptions
-        :param 'DeliveryStreamS3DestinationConfigurationArgs' s3_backup_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupconfiguration
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-cloudwatchloggingoptions
+        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-processingconfiguration
+        :param 'DeliveryStreamRedshiftRetryOptions' retry_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-retryoptions
+        :param 'DeliveryStreamS3DestinationConfiguration' s3_backup_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupconfiguration
         :param str s3_backup_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupmode
         """
         pulumi.set(__self__, "cluster_jdbcurl", cluster_jdbcurl)
@@ -1645,15 +2090,29 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         """
         return pulumi.get(self, "s3_backup_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamRedshiftRetryOptions(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationInSeconds":
+            suggest = "duration_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamRedshiftRetryOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamRedshiftRetryOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamRedshiftRetryOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration_in_seconds: Optional[int] = None):
         """
@@ -1671,15 +2130,29 @@ class DeliveryStreamRedshiftRetryOptions(dict):
         """
         return pulumi.get(self, "duration_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamRetryOptions(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationInSeconds":
+            suggest = "duration_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamRetryOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamRetryOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamRetryOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration_in_seconds: Optional[int] = None):
         """
@@ -1697,15 +2170,41 @@ class DeliveryStreamRetryOptions(dict):
         """
         return pulumi.get(self, "duration_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamS3DestinationConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketARN":
+            suggest = "bucket_arn"
+        elif key == "roleARN":
+            suggest = "role_arn"
+        elif key == "bufferingHints":
+            suggest = "buffering_hints"
+        elif key == "cloudWatchLoggingOptions":
+            suggest = "cloud_watch_logging_options"
+        elif key == "compressionFormat":
+            suggest = "compression_format"
+        elif key == "encryptionConfiguration":
+            suggest = "encryption_configuration"
+        elif key == "errorOutputPrefix":
+            suggest = "error_output_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamS3DestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamS3DestinationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamS3DestinationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_arn: str,
                  role_arn: str,
@@ -1719,10 +2218,10 @@ class DeliveryStreamS3DestinationConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html
         :param str bucket_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-bucketarn
         :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-rolearn
-        :param 'DeliveryStreamBufferingHintsArgs' buffering_hints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-bufferinghints
-        :param 'DeliveryStreamCloudWatchLoggingOptionsArgs' cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-cloudwatchloggingoptions
+        :param 'DeliveryStreamBufferingHints' buffering_hints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-bufferinghints
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-cloudwatchloggingoptions
         :param str compression_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-compressionformat
-        :param 'DeliveryStreamEncryptionConfigurationArgs' encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-encryptionconfiguration
+        :param 'DeliveryStreamEncryptionConfiguration' encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-encryptionconfiguration
         :param str error_output_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-erroroutputprefix
         :param str prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-prefix
         """
@@ -1805,15 +2304,37 @@ class DeliveryStreamS3DestinationConfiguration(dict):
         """
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamSchemaConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogId":
+            suggest = "catalog_id"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "roleARN":
+            suggest = "role_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "versionId":
+            suggest = "version_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamSchemaConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamSchemaConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamSchemaConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  catalog_id: Optional[str] = None,
                  database_name: Optional[str] = None,
@@ -1891,22 +2412,38 @@ class DeliveryStreamSchemaConfiguration(dict):
         """
         return pulumi.get(self, "version_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamSerializer(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "orcSerDe":
+            suggest = "orc_ser_de"
+        elif key == "parquetSerDe":
+            suggest = "parquet_ser_de"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamSerializer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamSerializer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamSerializer.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  orc_ser_de: Optional['outputs.DeliveryStreamOrcSerDe'] = None,
                  parquet_ser_de: Optional['outputs.DeliveryStreamParquetSerDe'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html
-        :param 'DeliveryStreamOrcSerDeArgs' orc_ser_de: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-orcserde
-        :param 'DeliveryStreamParquetSerDeArgs' parquet_ser_de: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-parquetserde
+        :param 'DeliveryStreamOrcSerDe' orc_ser_de: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-orcserde
+        :param 'DeliveryStreamParquetSerDe' parquet_ser_de: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-parquetserde
         """
         if orc_ser_de is not None:
             pulumi.set(__self__, "orc_ser_de", orc_ser_de)
@@ -1929,15 +2466,45 @@ class DeliveryStreamSerializer(dict):
         """
         return pulumi.get(self, "parquet_ser_de")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamSplunkDestinationConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hECEndpoint":
+            suggest = "h_ec_endpoint"
+        elif key == "hECEndpointType":
+            suggest = "h_ec_endpoint_type"
+        elif key == "hECToken":
+            suggest = "h_ec_token"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
+        elif key == "cloudWatchLoggingOptions":
+            suggest = "cloud_watch_logging_options"
+        elif key == "hECAcknowledgmentTimeoutInSeconds":
+            suggest = "h_ec_acknowledgment_timeout_in_seconds"
+        elif key == "processingConfiguration":
+            suggest = "processing_configuration"
+        elif key == "retryOptions":
+            suggest = "retry_options"
+        elif key == "s3BackupMode":
+            suggest = "s3_backup_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamSplunkDestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamSplunkDestinationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamSplunkDestinationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  h_ec_endpoint: str,
                  h_ec_endpoint_type: str,
@@ -1953,11 +2520,11 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
         :param str h_ec_endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecendpoint
         :param str h_ec_endpoint_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecendpointtype
         :param str h_ec_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hectoken
-        :param 'DeliveryStreamS3DestinationConfigurationArgs' s3_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3configuration
-        :param 'DeliveryStreamCloudWatchLoggingOptionsArgs' cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-cloudwatchloggingoptions
+        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3configuration
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-cloudwatchloggingoptions
         :param int h_ec_acknowledgment_timeout_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecacknowledgmenttimeoutinseconds
-        :param 'DeliveryStreamProcessingConfigurationArgs' processing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-processingconfiguration
-        :param 'DeliveryStreamSplunkRetryOptionsArgs' retry_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-retryoptions
+        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-processingconfiguration
+        :param 'DeliveryStreamSplunkRetryOptions' retry_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-retryoptions
         :param str s3_backup_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3backupmode
         """
         pulumi.set(__self__, "h_ec_endpoint", h_ec_endpoint)
@@ -2047,15 +2614,29 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
         """
         return pulumi.get(self, "s3_backup_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamSplunkRetryOptions(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkretryoptions.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationInSeconds":
+            suggest = "duration_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamSplunkRetryOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamSplunkRetryOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamSplunkRetryOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration_in_seconds: Optional[int] = None):
         """
@@ -2073,15 +2654,33 @@ class DeliveryStreamSplunkRetryOptions(dict):
         """
         return pulumi.get(self, "duration_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryStreamVpcConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleARN":
+            suggest = "role_arn"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  security_group_ids: Sequence[str],
@@ -2119,8 +2718,5 @@ class DeliveryStreamVpcConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-subnetids
         """
         return pulumi.get(self, "subnet_ids")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

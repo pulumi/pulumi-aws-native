@@ -87,20 +87,21 @@ export class DBProxy extends pulumi.CustomResource {
      */
     constructor(name: string, args: DBProxyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.auth === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.auth === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'auth'");
             }
-            if ((!args || args.dBProxyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dBProxyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dBProxyName'");
             }
-            if ((!args || args.engineFamily === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.engineFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineFamily'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.vpcSubnetIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
             inputs["auth"] = args ? args.auth : undefined;
@@ -129,12 +130,8 @@ export class DBProxy extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = undefined /*out*/;
             inputs["vpcSubnetIds"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DBProxy.__pulumiType, name, inputs, opts);
     }
@@ -147,7 +144,7 @@ export interface DBProxyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
      */
-    readonly auth: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyAuthFormat>[]>;
+    readonly auth: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyAuthFormatArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
      */
@@ -175,7 +172,7 @@ export interface DBProxyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyTagFormat>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyTagFormatArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
      */

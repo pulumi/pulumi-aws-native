@@ -62,8 +62,9 @@ export class Archive extends pulumi.CustomResource {
      */
     constructor(name: string, args: ArchiveArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.sourceArn === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.sourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
             inputs["archiveName"] = args ? args.archiveName : undefined;
@@ -80,12 +81,8 @@ export class Archive extends pulumi.CustomResource {
             inputs["retentionDays"] = undefined /*out*/;
             inputs["sourceArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Archive.__pulumiType, name, inputs, opts);
     }

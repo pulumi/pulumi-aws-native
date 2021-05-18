@@ -68,23 +68,24 @@ export class Assignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.instanceArn === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.permissionSetArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.permissionSetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionSetArn'");
             }
-            if ((!args || args.principalId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principalId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.principalType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principalType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalType'");
             }
-            if ((!args || args.targetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            if ((!args || args.targetType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
             inputs["instanceArn"] = args ? args.instanceArn : undefined;
@@ -101,12 +102,8 @@ export class Assignment extends pulumi.CustomResource {
             inputs["targetId"] = undefined /*out*/;
             inputs["targetType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Assignment.__pulumiType, name, inputs, opts);
     }

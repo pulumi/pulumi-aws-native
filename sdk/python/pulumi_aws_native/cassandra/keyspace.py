@@ -5,20 +5,42 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['Keyspace']
+__all__ = ['KeyspaceArgs', 'Keyspace']
+
+@pulumi.input_type
+class KeyspaceArgs:
+    def __init__(__self__, *,
+                 keyspace_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Keyspace resource.
+        :param pulumi.Input[str] keyspace_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
+        """
+        if keyspace_name is not None:
+            pulumi.set(__self__, "keyspace_name", keyspace_name)
+
+    @property
+    @pulumi.getter(name="keyspaceName")
+    def keyspace_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
+        """
+        return pulumi.get(self, "keyspace_name")
+
+    @keyspace_name.setter
+    def keyspace_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "keyspace_name", value)
 
 
 class Keyspace(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
 
@@ -26,12 +48,32 @@ class Keyspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] keyspace_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[KeyspaceArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
+
+        :param str resource_name: The name of the resource.
+        :param KeyspaceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(KeyspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 keyspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -41,9 +83,9 @@ class Keyspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = KeyspaceArgs.__new__(KeyspaceArgs)
 
-            __props__['keyspace_name'] = keyspace_name
+            __props__.__dict__["keyspace_name"] = keyspace_name
         super(Keyspace, __self__).__init__(
             'aws-native:Cassandra:Keyspace',
             resource_name,
@@ -64,8 +106,9 @@ class Keyspace(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = KeyspaceArgs.__new__(KeyspaceArgs)
 
+        __props__.__dict__["keyspace_name"] = None
         return Keyspace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -75,10 +118,4 @@ class Keyspace(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
         """
         return pulumi.get(self, "keyspace_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

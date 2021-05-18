@@ -5,17 +5,105 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['Cluster']
+__all__ = ['ClusterArgs', 'Cluster']
+
+@pulumi.input_type
+class ClusterArgs:
+    def __init__(__self__, *,
+                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterSettingsArgs']]]] = None,
+                 default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a Cluster resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capacity_providers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-capacityproviders
+        :param pulumi.Input[str] cluster_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterSettingsArgs']]] cluster_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]] default_capacity_provider_strategy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
+        """
+        if capacity_providers is not None:
+            pulumi.set(__self__, "capacity_providers", capacity_providers)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if cluster_settings is not None:
+            pulumi.set(__self__, "cluster_settings", cluster_settings)
+        if default_capacity_provider_strategy is not None:
+            pulumi.set(__self__, "default_capacity_provider_strategy", default_capacity_provider_strategy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="capacityProviders")
+    def capacity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-capacityproviders
+        """
+        return pulumi.get(self, "capacity_providers")
+
+    @capacity_providers.setter
+    def capacity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "capacity_providers", value)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="clusterSettings")
+    def cluster_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterSettingsArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
+        """
+        return pulumi.get(self, "cluster_settings")
+
+    @cluster_settings.setter
+    def cluster_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterSettingsArgs']]]]):
+        pulumi.set(self, "cluster_settings", value)
+
+    @property
+    @pulumi.getter(name="defaultCapacityProviderStrategy")
+    def default_capacity_provider_strategy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
+        """
+        return pulumi.get(self, "default_capacity_provider_strategy")
+
+    @default_capacity_provider_strategy.setter
+    def default_capacity_provider_strategy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]]):
+        pulumi.set(self, "default_capacity_provider_strategy", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Cluster(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -24,9 +112,7 @@ class Cluster(pulumi.CustomResource):
                  cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterSettingsArgs']]]]] = None,
                  default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderStrategyItemArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html
 
@@ -38,12 +124,36 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderStrategyItemArgs']]]] default_capacity_provider_strategy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[ClusterArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html
+
+        :param str resource_name: The name of the resource.
+        :param ClusterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterSettingsArgs']]]]] = None,
+                 default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderStrategyItemArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -53,14 +163,14 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            __props__['capacity_providers'] = capacity_providers
-            __props__['cluster_name'] = cluster_name
-            __props__['cluster_settings'] = cluster_settings
-            __props__['default_capacity_provider_strategy'] = default_capacity_provider_strategy
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["capacity_providers"] = capacity_providers
+            __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["cluster_settings"] = cluster_settings
+            __props__.__dict__["default_capacity_provider_strategy"] = default_capacity_provider_strategy
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(Cluster, __self__).__init__(
             'aws-native:ECS:Cluster',
             resource_name,
@@ -81,8 +191,14 @@ class Cluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ClusterArgs.__new__(ClusterArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["capacity_providers"] = None
+        __props__.__dict__["cluster_name"] = None
+        __props__.__dict__["cluster_settings"] = None
+        __props__.__dict__["default_capacity_provider_strategy"] = None
+        __props__.__dict__["tags"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -129,10 +245,4 @@ class Cluster(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

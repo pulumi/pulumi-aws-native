@@ -5,15 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Table']
+__all__ = ['TableArgs', 'Table']
+
+@pulumi.input_type
+class TableArgs:
+    def __init__(__self__, *,
+                 keyspace_name: pulumi.Input[str],
+                 partition_key_columns: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]],
+                 billing_mode: Optional[pulumi.Input['TableBillingModeArgs']] = None,
+                 clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]] = None,
+                 regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Table resource.
+        :param pulumi.Input[str] keyspace_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
+        :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] partition_key_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
+        :param pulumi.Input['TableBillingModeArgs'] billing_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
+        :param pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]] clustering_key_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
+        :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] regular_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
+        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
+        """
+        pulumi.set(__self__, "keyspace_name", keyspace_name)
+        pulumi.set(__self__, "partition_key_columns", partition_key_columns)
+        if billing_mode is not None:
+            pulumi.set(__self__, "billing_mode", billing_mode)
+        if clustering_key_columns is not None:
+            pulumi.set(__self__, "clustering_key_columns", clustering_key_columns)
+        if regular_columns is not None:
+            pulumi.set(__self__, "regular_columns", regular_columns)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="keyspaceName")
+    def keyspace_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
+        """
+        return pulumi.get(self, "keyspace_name")
+
+    @keyspace_name.setter
+    def keyspace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "keyspace_name", value)
+
+    @property
+    @pulumi.getter(name="partitionKeyColumns")
+    def partition_key_columns(self) -> pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
+        """
+        return pulumi.get(self, "partition_key_columns")
+
+    @partition_key_columns.setter
+    def partition_key_columns(self, value: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]):
+        pulumi.set(self, "partition_key_columns", value)
+
+    @property
+    @pulumi.getter(name="billingMode")
+    def billing_mode(self) -> Optional[pulumi.Input['TableBillingModeArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
+        """
+        return pulumi.get(self, "billing_mode")
+
+    @billing_mode.setter
+    def billing_mode(self, value: Optional[pulumi.Input['TableBillingModeArgs']]):
+        pulumi.set(self, "billing_mode", value)
+
+    @property
+    @pulumi.getter(name="clusteringKeyColumns")
+    def clustering_key_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
+        """
+        return pulumi.get(self, "clustering_key_columns")
+
+    @clustering_key_columns.setter
+    def clustering_key_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]]):
+        pulumi.set(self, "clustering_key_columns", value)
+
+    @property
+    @pulumi.getter(name="regularColumns")
+    def regular_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
+        """
+        return pulumi.get(self, "regular_columns")
+
+    @regular_columns.setter
+    def regular_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]):
+        pulumi.set(self, "regular_columns", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_name", value)
 
 
 class Table(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -23,9 +125,7 @@ class Table(pulumi.CustomResource):
                  partition_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
                  regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
 
@@ -38,12 +138,37 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] regular_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
         :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TableArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
+
+        :param str resource_name: The name of the resource.
+        :param TableArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 billing_mode: Optional[pulumi.Input[pulumi.InputType['TableBillingModeArgs']]] = None,
+                 clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableClusteringKeyColumnArgs']]]]] = None,
+                 keyspace_name: Optional[pulumi.Input[str]] = None,
+                 partition_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
+                 regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -53,18 +178,18 @@ class Table(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TableArgs.__new__(TableArgs)
 
-            __props__['billing_mode'] = billing_mode
-            __props__['clustering_key_columns'] = clustering_key_columns
+            __props__.__dict__["billing_mode"] = billing_mode
+            __props__.__dict__["clustering_key_columns"] = clustering_key_columns
             if keyspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'keyspace_name'")
-            __props__['keyspace_name'] = keyspace_name
+            __props__.__dict__["keyspace_name"] = keyspace_name
             if partition_key_columns is None and not opts.urn:
                 raise TypeError("Missing required property 'partition_key_columns'")
-            __props__['partition_key_columns'] = partition_key_columns
-            __props__['regular_columns'] = regular_columns
-            __props__['table_name'] = table_name
+            __props__.__dict__["partition_key_columns"] = partition_key_columns
+            __props__.__dict__["regular_columns"] = regular_columns
+            __props__.__dict__["table_name"] = table_name
         super(Table, __self__).__init__(
             'aws-native:Cassandra:Table',
             resource_name,
@@ -85,8 +210,14 @@ class Table(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = TableArgs.__new__(TableArgs)
 
+        __props__.__dict__["billing_mode"] = None
+        __props__.__dict__["clustering_key_columns"] = None
+        __props__.__dict__["keyspace_name"] = None
+        __props__.__dict__["partition_key_columns"] = None
+        __props__.__dict__["regular_columns"] = None
+        __props__.__dict__["table_name"] = None
         return Table(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -136,10 +267,4 @@ class Table(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
         """
         return pulumi.get(self, "table_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

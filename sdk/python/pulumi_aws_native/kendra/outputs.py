@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
 
@@ -81,6 +81,23 @@ class DataSourceAccessControlListConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-accesscontrollistconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyPath":
+            suggest = "key_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceAccessControlListConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceAccessControlListConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceAccessControlListConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_path: Optional[str] = None):
         """
@@ -98,15 +115,29 @@ class DataSourceAccessControlListConfiguration(dict):
         """
         return pulumi.get(self, "key_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceAclConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedGroupsColumnName":
+            suggest = "allowed_groups_column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceAclConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceAclConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceAclConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_groups_column_name: str):
         """
@@ -123,15 +154,29 @@ class DataSourceAclConfiguration(dict):
         """
         return pulumi.get(self, "allowed_groups_column_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceChangeDetectingColumns(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-changedetectingcolumns.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changeDetectingColumns":
+            suggest = "change_detecting_columns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceChangeDetectingColumns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceChangeDetectingColumns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceChangeDetectingColumns.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  change_detecting_columns: Optional[Sequence[str]] = None):
         """
@@ -149,15 +194,37 @@ class DataSourceChangeDetectingColumns(dict):
         """
         return pulumi.get(self, "change_detecting_columns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceColumnConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changeDetectingColumns":
+            suggest = "change_detecting_columns"
+        elif key == "documentDataColumnName":
+            suggest = "document_data_column_name"
+        elif key == "documentIdColumnName":
+            suggest = "document_id_column_name"
+        elif key == "documentTitleColumnName":
+            suggest = "document_title_column_name"
+        elif key == "fieldMappings":
+            suggest = "field_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceColumnConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceColumnConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceColumnConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  change_detecting_columns: 'outputs.DataSourceChangeDetectingColumns',
                  document_data_column_name: str,
@@ -166,11 +233,11 @@ class DataSourceColumnConfiguration(dict):
                  field_mappings: Optional['outputs.DataSourceDataSourceToIndexFieldMappingList'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html
-        :param 'DataSourceChangeDetectingColumnsArgs' change_detecting_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
+        :param 'DataSourceChangeDetectingColumns' change_detecting_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
         :param str document_data_column_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentdatacolumnname
         :param str document_id_column_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentidcolumnname
         :param str document_title_column_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documenttitlecolumnname
-        :param 'DataSourceDataSourceToIndexFieldMappingListArgs' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
+        :param 'DataSourceDataSourceToIndexFieldMappingList' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
         """
         pulumi.set(__self__, "change_detecting_columns", change_detecting_columns)
         pulumi.set(__self__, "document_data_column_name", document_data_column_name)
@@ -220,21 +287,37 @@ class DataSourceColumnConfiguration(dict):
         """
         return pulumi.get(self, "field_mappings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluenceAttachmentConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachmentFieldMappings":
+            suggest = "attachment_field_mappings"
+        elif key == "crawlAttachments":
+            suggest = "crawl_attachments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluenceAttachmentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluenceAttachmentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluenceAttachmentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  attachment_field_mappings: Optional['outputs.DataSourceConfluenceAttachmentFieldMappingsList'] = None,
                  crawl_attachments: Optional[bool] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html
-        :param 'DataSourceConfluenceAttachmentFieldMappingsListArgs' attachment_field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings
+        :param 'DataSourceConfluenceAttachmentFieldMappingsList' attachment_field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings
         :param bool crawl_attachments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-crawlattachments
         """
         if attachment_field_mappings is not None:
@@ -258,20 +341,34 @@ class DataSourceConfluenceAttachmentConfiguration(dict):
         """
         return pulumi.get(self, "crawl_attachments")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluenceAttachmentFieldMappingsList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confluenceAttachmentFieldMappingsList":
+            suggest = "confluence_attachment_field_mappings_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluenceAttachmentFieldMappingsList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluenceAttachmentFieldMappingsList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluenceAttachmentFieldMappingsList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  confluence_attachment_field_mappings_list: Optional[Sequence['outputs.DataSourceConfluenceAttachmentToIndexFieldMapping']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html
-        :param Sequence['DataSourceConfluenceAttachmentToIndexFieldMappingArgs'] confluence_attachment_field_mappings_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html#cfn-kendra-datasource-confluenceattachmentfieldmappingslist-confluenceattachmentfieldmappingslist
+        :param Sequence['DataSourceConfluenceAttachmentToIndexFieldMapping'] confluence_attachment_field_mappings_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html#cfn-kendra-datasource-confluenceattachmentfieldmappingslist-confluenceattachmentfieldmappingslist
         """
         if confluence_attachment_field_mappings_list is not None:
             pulumi.set(__self__, "confluence_attachment_field_mappings_list", confluence_attachment_field_mappings_list)
@@ -284,15 +381,33 @@ class DataSourceConfluenceAttachmentFieldMappingsList(dict):
         """
         return pulumi.get(self, "confluence_attachment_field_mappings_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluenceAttachmentToIndexFieldMapping(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceFieldName":
+            suggest = "data_source_field_name"
+        elif key == "indexFieldName":
+            suggest = "index_field_name"
+        elif key == "dateFieldFormat":
+            suggest = "date_field_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluenceAttachmentToIndexFieldMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluenceAttachmentToIndexFieldMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluenceAttachmentToIndexFieldMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_source_field_name: str,
                  index_field_name: str,
@@ -332,20 +447,34 @@ class DataSourceConfluenceAttachmentToIndexFieldMapping(dict):
         """
         return pulumi.get(self, "date_field_format")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluenceBlogConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blogFieldMappings":
+            suggest = "blog_field_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluenceBlogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluenceBlogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluenceBlogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blog_field_mappings: Optional['outputs.DataSourceConfluenceBlogFieldMappingsList'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html
-        :param 'DataSourceConfluenceBlogFieldMappingsListArgs' blog_field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html#cfn-kendra-datasource-confluenceblogconfiguration-blogfieldmappings
+        :param 'DataSourceConfluenceBlogFieldMappingsList' blog_field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html#cfn-kendra-datasource-confluenceblogconfiguration-blogfieldmappings
         """
         if blog_field_mappings is not None:
             pulumi.set(__self__, "blog_field_mappings", blog_field_mappings)
@@ -358,20 +487,34 @@ class DataSourceConfluenceBlogConfiguration(dict):
         """
         return pulumi.get(self, "blog_field_mappings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluenceBlogFieldMappingsList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confluenceBlogFieldMappingsList":
+            suggest = "confluence_blog_field_mappings_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluenceBlogFieldMappingsList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluenceBlogFieldMappingsList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluenceBlogFieldMappingsList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  confluence_blog_field_mappings_list: Optional[Sequence['outputs.DataSourceConfluenceBlogToIndexFieldMapping']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html
-        :param Sequence['DataSourceConfluenceBlogToIndexFieldMappingArgs'] confluence_blog_field_mappings_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html#cfn-kendra-datasource-confluenceblogfieldmappingslist-confluenceblogfieldmappingslist
+        :param Sequence['DataSourceConfluenceBlogToIndexFieldMapping'] confluence_blog_field_mappings_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html#cfn-kendra-datasource-confluenceblogfieldmappingslist-confluenceblogfieldmappingslist
         """
         if confluence_blog_field_mappings_list is not None:
             pulumi.set(__self__, "confluence_blog_field_mappings_list", confluence_blog_field_mappings_list)
@@ -384,15 +527,33 @@ class DataSourceConfluenceBlogFieldMappingsList(dict):
         """
         return pulumi.get(self, "confluence_blog_field_mappings_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluenceBlogToIndexFieldMapping(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceFieldName":
+            suggest = "data_source_field_name"
+        elif key == "indexFieldName":
+            suggest = "index_field_name"
+        elif key == "dateFieldFormat":
+            suggest = "date_field_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluenceBlogToIndexFieldMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluenceBlogToIndexFieldMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluenceBlogToIndexFieldMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_source_field_name: str,
                  index_field_name: str,
@@ -432,15 +593,45 @@ class DataSourceConfluenceBlogToIndexFieldMapping(dict):
         """
         return pulumi.get(self, "date_field_format")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluenceConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+        elif key == "serverUrl":
+            suggest = "server_url"
+        elif key == "attachmentConfiguration":
+            suggest = "attachment_configuration"
+        elif key == "blogConfiguration":
+            suggest = "blog_configuration"
+        elif key == "exclusionPatterns":
+            suggest = "exclusion_patterns"
+        elif key == "inclusionPatterns":
+            suggest = "inclusion_patterns"
+        elif key == "pageConfiguration":
+            suggest = "page_configuration"
+        elif key == "spaceConfiguration":
+            suggest = "space_configuration"
+        elif key == "vpcConfiguration":
+            suggest = "vpc_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluenceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluenceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluenceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_arn: str,
                  server_url: str,
@@ -457,13 +648,13 @@ class DataSourceConfluenceConfiguration(dict):
         :param str secret_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-secretarn
         :param str server_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-serverurl
         :param str version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-version
-        :param 'DataSourceConfluenceAttachmentConfigurationArgs' attachment_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-attachmentconfiguration
-        :param 'DataSourceConfluenceBlogConfigurationArgs' blog_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-blogconfiguration
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' exclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' inclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns
-        :param 'DataSourceConfluencePageConfigurationArgs' page_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-pageconfiguration
-        :param 'DataSourceConfluenceSpaceConfigurationArgs' space_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-spaceconfiguration
-        :param 'DataSourceDataSourceVpcConfigurationArgs' vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-vpcconfiguration
+        :param 'DataSourceConfluenceAttachmentConfiguration' attachment_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-attachmentconfiguration
+        :param 'DataSourceConfluenceBlogConfiguration' blog_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-blogconfiguration
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' exclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' inclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns
+        :param 'DataSourceConfluencePageConfiguration' page_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-pageconfiguration
+        :param 'DataSourceConfluenceSpaceConfiguration' space_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-spaceconfiguration
+        :param 'DataSourceDataSourceVpcConfiguration' vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-vpcconfiguration
         """
         pulumi.set(__self__, "secret_arn", secret_arn)
         pulumi.set(__self__, "server_url", server_url)
@@ -563,20 +754,34 @@ class DataSourceConfluenceConfiguration(dict):
         """
         return pulumi.get(self, "vpc_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluencePageConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pageFieldMappings":
+            suggest = "page_field_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluencePageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluencePageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluencePageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  page_field_mappings: Optional['outputs.DataSourceConfluencePageFieldMappingsList'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html
-        :param 'DataSourceConfluencePageFieldMappingsListArgs' page_field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html#cfn-kendra-datasource-confluencepageconfiguration-pagefieldmappings
+        :param 'DataSourceConfluencePageFieldMappingsList' page_field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html#cfn-kendra-datasource-confluencepageconfiguration-pagefieldmappings
         """
         if page_field_mappings is not None:
             pulumi.set(__self__, "page_field_mappings", page_field_mappings)
@@ -589,20 +794,34 @@ class DataSourceConfluencePageConfiguration(dict):
         """
         return pulumi.get(self, "page_field_mappings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluencePageFieldMappingsList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confluencePageFieldMappingsList":
+            suggest = "confluence_page_field_mappings_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluencePageFieldMappingsList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluencePageFieldMappingsList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluencePageFieldMappingsList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  confluence_page_field_mappings_list: Optional[Sequence['outputs.DataSourceConfluencePageToIndexFieldMapping']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html
-        :param Sequence['DataSourceConfluencePageToIndexFieldMappingArgs'] confluence_page_field_mappings_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html#cfn-kendra-datasource-confluencepagefieldmappingslist-confluencepagefieldmappingslist
+        :param Sequence['DataSourceConfluencePageToIndexFieldMapping'] confluence_page_field_mappings_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html#cfn-kendra-datasource-confluencepagefieldmappingslist-confluencepagefieldmappingslist
         """
         if confluence_page_field_mappings_list is not None:
             pulumi.set(__self__, "confluence_page_field_mappings_list", confluence_page_field_mappings_list)
@@ -615,15 +834,33 @@ class DataSourceConfluencePageFieldMappingsList(dict):
         """
         return pulumi.get(self, "confluence_page_field_mappings_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluencePageToIndexFieldMapping(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagetoindexfieldmapping.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceFieldName":
+            suggest = "data_source_field_name"
+        elif key == "indexFieldName":
+            suggest = "index_field_name"
+        elif key == "dateFieldFormat":
+            suggest = "date_field_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluencePageToIndexFieldMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluencePageToIndexFieldMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluencePageToIndexFieldMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_source_field_name: str,
                  index_field_name: str,
@@ -663,15 +900,37 @@ class DataSourceConfluencePageToIndexFieldMapping(dict):
         """
         return pulumi.get(self, "date_field_format")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluenceSpaceConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crawlArchivedSpaces":
+            suggest = "crawl_archived_spaces"
+        elif key == "crawlPersonalSpaces":
+            suggest = "crawl_personal_spaces"
+        elif key == "excludeSpaces":
+            suggest = "exclude_spaces"
+        elif key == "includeSpaces":
+            suggest = "include_spaces"
+        elif key == "spaceFieldMappings":
+            suggest = "space_field_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluenceSpaceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluenceSpaceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluenceSpaceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  crawl_archived_spaces: Optional[bool] = None,
                  crawl_personal_spaces: Optional[bool] = None,
@@ -682,9 +941,9 @@ class DataSourceConfluenceSpaceConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html
         :param bool crawl_archived_spaces: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlarchivedspaces
         :param bool crawl_personal_spaces: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlpersonalspaces
-        :param 'DataSourceConfluenceSpaceListArgs' exclude_spaces: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
-        :param 'DataSourceConfluenceSpaceListArgs' include_spaces: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
-        :param 'DataSourceConfluenceSpaceFieldMappingsListArgs' space_field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
+        :param 'DataSourceConfluenceSpaceList' exclude_spaces: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
+        :param 'DataSourceConfluenceSpaceList' include_spaces: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
+        :param 'DataSourceConfluenceSpaceFieldMappingsList' space_field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
         """
         if crawl_archived_spaces is not None:
             pulumi.set(__self__, "crawl_archived_spaces", crawl_archived_spaces)
@@ -737,20 +996,34 @@ class DataSourceConfluenceSpaceConfiguration(dict):
         """
         return pulumi.get(self, "space_field_mappings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluenceSpaceFieldMappingsList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confluenceSpaceFieldMappingsList":
+            suggest = "confluence_space_field_mappings_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluenceSpaceFieldMappingsList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluenceSpaceFieldMappingsList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluenceSpaceFieldMappingsList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  confluence_space_field_mappings_list: Optional[Sequence['outputs.DataSourceConfluenceSpaceToIndexFieldMapping']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html
-        :param Sequence['DataSourceConfluenceSpaceToIndexFieldMappingArgs'] confluence_space_field_mappings_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html#cfn-kendra-datasource-confluencespacefieldmappingslist-confluencespacefieldmappingslist
+        :param Sequence['DataSourceConfluenceSpaceToIndexFieldMapping'] confluence_space_field_mappings_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html#cfn-kendra-datasource-confluencespacefieldmappingslist-confluencespacefieldmappingslist
         """
         if confluence_space_field_mappings_list is not None:
             pulumi.set(__self__, "confluence_space_field_mappings_list", confluence_space_field_mappings_list)
@@ -763,15 +1036,29 @@ class DataSourceConfluenceSpaceFieldMappingsList(dict):
         """
         return pulumi.get(self, "confluence_space_field_mappings_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluenceSpaceList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacelist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confluenceSpaceList":
+            suggest = "confluence_space_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluenceSpaceList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluenceSpaceList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluenceSpaceList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  confluence_space_list: Optional[Sequence[str]] = None):
         """
@@ -789,15 +1076,33 @@ class DataSourceConfluenceSpaceList(dict):
         """
         return pulumi.get(self, "confluence_space_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConfluenceSpaceToIndexFieldMapping(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacetoindexfieldmapping.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceFieldName":
+            suggest = "data_source_field_name"
+        elif key == "indexFieldName":
+            suggest = "index_field_name"
+        elif key == "dateFieldFormat":
+            suggest = "date_field_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfluenceSpaceToIndexFieldMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfluenceSpaceToIndexFieldMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfluenceSpaceToIndexFieldMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_source_field_name: str,
                  index_field_name: str,
@@ -837,15 +1142,37 @@ class DataSourceConfluenceSpaceToIndexFieldMapping(dict):
         """
         return pulumi.get(self, "date_field_format")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceConnectionConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseHost":
+            suggest = "database_host"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "databasePort":
+            suggest = "database_port"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConnectionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConnectionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConnectionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_host: str,
                  database_name: str,
@@ -906,15 +1233,41 @@ class DataSourceConnectionConfiguration(dict):
         """
         return pulumi.get(self, "table_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceDataSourceConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confluenceConfiguration":
+            suggest = "confluence_configuration"
+        elif key == "databaseConfiguration":
+            suggest = "database_configuration"
+        elif key == "oneDriveConfiguration":
+            suggest = "one_drive_configuration"
+        elif key == "s3Configuration":
+            suggest = "s3_configuration"
+        elif key == "salesforceConfiguration":
+            suggest = "salesforce_configuration"
+        elif key == "serviceNowConfiguration":
+            suggest = "service_now_configuration"
+        elif key == "sharePointConfiguration":
+            suggest = "share_point_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDataSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDataSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDataSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  confluence_configuration: Optional['outputs.DataSourceConfluenceConfiguration'] = None,
                  database_configuration: Optional['outputs.DataSourceDatabaseConfiguration'] = None,
@@ -925,13 +1278,13 @@ class DataSourceDataSourceConfiguration(dict):
                  share_point_configuration: Optional['outputs.DataSourceSharePointConfiguration'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html
-        :param 'DataSourceConfluenceConfigurationArgs' confluence_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-confluenceconfiguration
-        :param 'DataSourceDatabaseConfigurationArgs' database_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-databaseconfiguration
-        :param 'DataSourceOneDriveConfigurationArgs' one_drive_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
-        :param 'DataSourceS3DataSourceConfigurationArgs' s3_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-s3configuration
-        :param 'DataSourceSalesforceConfigurationArgs' salesforce_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-salesforceconfiguration
-        :param 'DataSourceServiceNowConfigurationArgs' service_now_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-servicenowconfiguration
-        :param 'DataSourceSharePointConfigurationArgs' share_point_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-sharepointconfiguration
+        :param 'DataSourceConfluenceConfiguration' confluence_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-confluenceconfiguration
+        :param 'DataSourceDatabaseConfiguration' database_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-databaseconfiguration
+        :param 'DataSourceOneDriveConfiguration' one_drive_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
+        :param 'DataSourceS3DataSourceConfiguration' s3_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-s3configuration
+        :param 'DataSourceSalesforceConfiguration' salesforce_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-salesforceconfiguration
+        :param 'DataSourceServiceNowConfiguration' service_now_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-servicenowconfiguration
+        :param 'DataSourceSharePointConfiguration' share_point_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-sharepointconfiguration
         """
         if confluence_configuration is not None:
             pulumi.set(__self__, "confluence_configuration", confluence_configuration)
@@ -1004,15 +1357,29 @@ class DataSourceDataSourceConfiguration(dict):
         """
         return pulumi.get(self, "share_point_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceDataSourceInclusionsExclusionsStrings(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceinclusionsexclusionsstrings.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceInclusionsExclusionsStrings":
+            suggest = "data_source_inclusions_exclusions_strings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDataSourceInclusionsExclusionsStrings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDataSourceInclusionsExclusionsStrings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDataSourceInclusionsExclusionsStrings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_source_inclusions_exclusions_strings: Optional[Sequence[str]] = None):
         """
@@ -1030,15 +1397,33 @@ class DataSourceDataSourceInclusionsExclusionsStrings(dict):
         """
         return pulumi.get(self, "data_source_inclusions_exclusions_strings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceDataSourceToIndexFieldMapping(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmapping.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceFieldName":
+            suggest = "data_source_field_name"
+        elif key == "indexFieldName":
+            suggest = "index_field_name"
+        elif key == "dateFieldFormat":
+            suggest = "date_field_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDataSourceToIndexFieldMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDataSourceToIndexFieldMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDataSourceToIndexFieldMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_source_field_name: str,
                  index_field_name: str,
@@ -1078,20 +1463,34 @@ class DataSourceDataSourceToIndexFieldMapping(dict):
         """
         return pulumi.get(self, "date_field_format")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceDataSourceToIndexFieldMappingList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceToIndexFieldMappingList":
+            suggest = "data_source_to_index_field_mapping_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDataSourceToIndexFieldMappingList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDataSourceToIndexFieldMappingList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDataSourceToIndexFieldMappingList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_source_to_index_field_mapping_list: Optional[Sequence['outputs.DataSourceDataSourceToIndexFieldMapping']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html
-        :param Sequence['DataSourceDataSourceToIndexFieldMappingArgs'] data_source_to_index_field_mapping_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html#cfn-kendra-datasource-datasourcetoindexfieldmappinglist-datasourcetoindexfieldmappinglist
+        :param Sequence['DataSourceDataSourceToIndexFieldMapping'] data_source_to_index_field_mapping_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html#cfn-kendra-datasource-datasourcetoindexfieldmappinglist-datasourcetoindexfieldmappinglist
         """
         if data_source_to_index_field_mapping_list is not None:
             pulumi.set(__self__, "data_source_to_index_field_mapping_list", data_source_to_index_field_mapping_list)
@@ -1104,15 +1503,31 @@ class DataSourceDataSourceToIndexFieldMappingList(dict):
         """
         return pulumi.get(self, "data_source_to_index_field_mapping_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceDataSourceVpcConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcevpcconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDataSourceVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDataSourceVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDataSourceVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str]):
@@ -1140,15 +1555,39 @@ class DataSourceDataSourceVpcConfiguration(dict):
         """
         return pulumi.get(self, "subnet_ids")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceDatabaseConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnConfiguration":
+            suggest = "column_configuration"
+        elif key == "connectionConfiguration":
+            suggest = "connection_configuration"
+        elif key == "databaseEngineType":
+            suggest = "database_engine_type"
+        elif key == "aclConfiguration":
+            suggest = "acl_configuration"
+        elif key == "sqlConfiguration":
+            suggest = "sql_configuration"
+        elif key == "vpcConfiguration":
+            suggest = "vpc_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDatabaseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDatabaseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDatabaseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column_configuration: 'outputs.DataSourceColumnConfiguration',
                  connection_configuration: 'outputs.DataSourceConnectionConfiguration',
@@ -1158,12 +1597,12 @@ class DataSourceDatabaseConfiguration(dict):
                  vpc_configuration: Optional['outputs.DataSourceDataSourceVpcConfiguration'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html
-        :param 'DataSourceColumnConfigurationArgs' column_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-columnconfiguration
-        :param 'DataSourceConnectionConfigurationArgs' connection_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-connectionconfiguration
+        :param 'DataSourceColumnConfiguration' column_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-columnconfiguration
+        :param 'DataSourceConnectionConfiguration' connection_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-connectionconfiguration
         :param str database_engine_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-databaseenginetype
-        :param 'DataSourceAclConfigurationArgs' acl_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-aclconfiguration
-        :param 'DataSourceSqlConfigurationArgs' sql_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-sqlconfiguration
-        :param 'DataSourceDataSourceVpcConfigurationArgs' vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-vpcconfiguration
+        :param 'DataSourceAclConfiguration' acl_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-aclconfiguration
+        :param 'DataSourceSqlConfiguration' sql_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-sqlconfiguration
+        :param 'DataSourceDataSourceVpcConfiguration' vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-vpcconfiguration
         """
         pulumi.set(__self__, "column_configuration", column_configuration)
         pulumi.set(__self__, "connection_configuration", connection_configuration)
@@ -1223,15 +1662,29 @@ class DataSourceDatabaseConfiguration(dict):
         """
         return pulumi.get(self, "vpc_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceDocumentsMetadataConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentsmetadataconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Prefix":
+            suggest = "s3_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDocumentsMetadataConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDocumentsMetadataConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDocumentsMetadataConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_prefix: Optional[str] = None):
         """
@@ -1249,15 +1702,41 @@ class DataSourceDocumentsMetadataConfiguration(dict):
         """
         return pulumi.get(self, "s3_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceOneDriveConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oneDriveUsers":
+            suggest = "one_drive_users"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+        elif key == "tenantDomain":
+            suggest = "tenant_domain"
+        elif key == "disableLocalGroups":
+            suggest = "disable_local_groups"
+        elif key == "exclusionPatterns":
+            suggest = "exclusion_patterns"
+        elif key == "fieldMappings":
+            suggest = "field_mappings"
+        elif key == "inclusionPatterns":
+            suggest = "inclusion_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceOneDriveConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceOneDriveConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceOneDriveConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  one_drive_users: 'outputs.DataSourceOneDriveUsers',
                  secret_arn: str,
@@ -1268,13 +1747,13 @@ class DataSourceOneDriveConfiguration(dict):
                  inclusion_patterns: Optional['outputs.DataSourceDataSourceInclusionsExclusionsStrings'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html
-        :param 'DataSourceOneDriveUsersArgs' one_drive_users: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-onedriveusers
+        :param 'DataSourceOneDriveUsers' one_drive_users: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-onedriveusers
         :param str secret_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-secretarn
         :param str tenant_domain: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-tenantdomain
         :param bool disable_local_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-disablelocalgroups
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' exclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-exclusionpatterns
-        :param 'DataSourceDataSourceToIndexFieldMappingListArgs' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-fieldmappings
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' inclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-inclusionpatterns
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' exclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-exclusionpatterns
+        :param 'DataSourceDataSourceToIndexFieldMappingList' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-fieldmappings
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' inclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-inclusionpatterns
         """
         pulumi.set(__self__, "one_drive_users", one_drive_users)
         pulumi.set(__self__, "secret_arn", secret_arn)
@@ -1344,15 +1823,29 @@ class DataSourceOneDriveConfiguration(dict):
         """
         return pulumi.get(self, "inclusion_patterns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceOneDriveUserList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveuserlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oneDriveUserList":
+            suggest = "one_drive_user_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceOneDriveUserList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceOneDriveUserList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceOneDriveUserList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  one_drive_user_list: Optional[Sequence[str]] = None):
         """
@@ -1370,22 +1863,38 @@ class DataSourceOneDriveUserList(dict):
         """
         return pulumi.get(self, "one_drive_user_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceOneDriveUsers(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oneDriveUserList":
+            suggest = "one_drive_user_list"
+        elif key == "oneDriveUserS3Path":
+            suggest = "one_drive_user_s3_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceOneDriveUsers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceOneDriveUsers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceOneDriveUsers.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  one_drive_user_list: Optional['outputs.DataSourceOneDriveUserList'] = None,
                  one_drive_user_s3_path: Optional['outputs.DataSourceS3Path'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html
-        :param 'DataSourceOneDriveUserListArgs' one_drive_user_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
-        :param 'DataSourceS3PathArgs' one_drive_user_s3_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path
+        :param 'DataSourceOneDriveUserList' one_drive_user_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
+        :param 'DataSourceS3Path' one_drive_user_s3_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path
         """
         if one_drive_user_list is not None:
             pulumi.set(__self__, "one_drive_user_list", one_drive_user_list)
@@ -1408,15 +1917,39 @@ class DataSourceOneDriveUsers(dict):
         """
         return pulumi.get(self, "one_drive_user_s3_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceS3DataSourceConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "accessControlListConfiguration":
+            suggest = "access_control_list_configuration"
+        elif key == "documentsMetadataConfiguration":
+            suggest = "documents_metadata_configuration"
+        elif key == "exclusionPatterns":
+            suggest = "exclusion_patterns"
+        elif key == "inclusionPatterns":
+            suggest = "inclusion_patterns"
+        elif key == "inclusionPrefixes":
+            suggest = "inclusion_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceS3DataSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceS3DataSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceS3DataSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: str,
                  access_control_list_configuration: Optional['outputs.DataSourceAccessControlListConfiguration'] = None,
@@ -1427,11 +1960,11 @@ class DataSourceS3DataSourceConfiguration(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html
         :param str bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-bucketname
-        :param 'DataSourceAccessControlListConfigurationArgs' access_control_list_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-accesscontrollistconfiguration
-        :param 'DataSourceDocumentsMetadataConfigurationArgs' documents_metadata_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-documentsmetadataconfiguration
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' exclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' inclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' inclusion_prefixes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionprefixes
+        :param 'DataSourceAccessControlListConfiguration' access_control_list_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-accesscontrollistconfiguration
+        :param 'DataSourceDocumentsMetadataConfiguration' documents_metadata_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-documentsmetadataconfiguration
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' exclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' inclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' inclusion_prefixes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionprefixes
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if access_control_list_configuration is not None:
@@ -1493,9 +2026,6 @@ class DataSourceS3DataSourceConfiguration(dict):
         """
         return pulumi.get(self, "inclusion_prefixes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceS3Path(dict):
@@ -1529,15 +2059,35 @@ class DataSourceS3Path(dict):
         """
         return pulumi.get(self, "key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceSalesforceChatterFeedConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentDataFieldName":
+            suggest = "document_data_field_name"
+        elif key == "documentTitleFieldName":
+            suggest = "document_title_field_name"
+        elif key == "fieldMappings":
+            suggest = "field_mappings"
+        elif key == "includeFilterTypes":
+            suggest = "include_filter_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSalesforceChatterFeedConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSalesforceChatterFeedConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSalesforceChatterFeedConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  document_data_field_name: str,
                  document_title_field_name: Optional[str] = None,
@@ -1547,8 +2097,8 @@ class DataSourceSalesforceChatterFeedConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html
         :param str document_data_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documentdatafieldname
         :param str document_title_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documenttitlefieldname
-        :param 'DataSourceDataSourceToIndexFieldMappingListArgs' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings
-        :param 'DataSourceSalesforceChatterFeedIncludeFilterTypesArgs' include_filter_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-includefiltertypes
+        :param 'DataSourceDataSourceToIndexFieldMappingList' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings
+        :param 'DataSourceSalesforceChatterFeedIncludeFilterTypes' include_filter_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-includefiltertypes
         """
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if document_title_field_name is not None:
@@ -1590,15 +2140,29 @@ class DataSourceSalesforceChatterFeedConfiguration(dict):
         """
         return pulumi.get(self, "include_filter_types")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceSalesforceChatterFeedIncludeFilterTypes(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedincludefiltertypes.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "salesforceChatterFeedIncludeFilterTypes":
+            suggest = "salesforce_chatter_feed_include_filter_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSalesforceChatterFeedIncludeFilterTypes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSalesforceChatterFeedIncludeFilterTypes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSalesforceChatterFeedIncludeFilterTypes.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  salesforce_chatter_feed_include_filter_types: Optional[Sequence[str]] = None):
         """
@@ -1616,15 +2180,45 @@ class DataSourceSalesforceChatterFeedIncludeFilterTypes(dict):
         """
         return pulumi.get(self, "salesforce_chatter_feed_include_filter_types")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceSalesforceConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+        elif key == "serverUrl":
+            suggest = "server_url"
+        elif key == "chatterFeedConfiguration":
+            suggest = "chatter_feed_configuration"
+        elif key == "crawlAttachments":
+            suggest = "crawl_attachments"
+        elif key == "excludeAttachmentFilePatterns":
+            suggest = "exclude_attachment_file_patterns"
+        elif key == "includeAttachmentFilePatterns":
+            suggest = "include_attachment_file_patterns"
+        elif key == "knowledgeArticleConfiguration":
+            suggest = "knowledge_article_configuration"
+        elif key == "standardObjectAttachmentConfiguration":
+            suggest = "standard_object_attachment_configuration"
+        elif key == "standardObjectConfigurations":
+            suggest = "standard_object_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSalesforceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSalesforceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSalesforceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_arn: str,
                  server_url: str,
@@ -1639,13 +2233,13 @@ class DataSourceSalesforceConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html
         :param str secret_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-secretarn
         :param str server_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-serverurl
-        :param 'DataSourceSalesforceChatterFeedConfigurationArgs' chatter_feed_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-chatterfeedconfiguration
+        :param 'DataSourceSalesforceChatterFeedConfiguration' chatter_feed_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-chatterfeedconfiguration
         :param bool crawl_attachments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-crawlattachments
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' exclude_attachment_file_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' include_attachment_file_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns
-        :param 'DataSourceSalesforceKnowledgeArticleConfigurationArgs' knowledge_article_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
-        :param 'DataSourceSalesforceStandardObjectAttachmentConfigurationArgs' standard_object_attachment_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectattachmentconfiguration
-        :param 'DataSourceSalesforceStandardObjectConfigurationListArgs' standard_object_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' exclude_attachment_file_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' include_attachment_file_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns
+        :param 'DataSourceSalesforceKnowledgeArticleConfiguration' knowledge_article_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
+        :param 'DataSourceSalesforceStandardObjectAttachmentConfiguration' standard_object_attachment_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectattachmentconfiguration
+        :param 'DataSourceSalesforceStandardObjectConfigurationList' standard_object_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
         """
         pulumi.set(__self__, "secret_arn", secret_arn)
         pulumi.set(__self__, "server_url", server_url)
@@ -1736,15 +2330,33 @@ class DataSourceSalesforceConfiguration(dict):
         """
         return pulumi.get(self, "standard_object_configurations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentDataFieldName":
+            suggest = "document_data_field_name"
+        elif key == "documentTitleFieldName":
+            suggest = "document_title_field_name"
+        elif key == "fieldMappings":
+            suggest = "field_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  document_data_field_name: str,
                  name: str,
@@ -1755,7 +2367,7 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration(dict):
         :param str document_data_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-documentdatafieldname
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-name
         :param str document_title_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-documenttitlefieldname
-        :param 'DataSourceDataSourceToIndexFieldMappingListArgs' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-fieldmappings
+        :param 'DataSourceDataSourceToIndexFieldMappingList' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-fieldmappings
         """
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         pulumi.set(__self__, "name", name)
@@ -1796,20 +2408,34 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration(dict):
         """
         return pulumi.get(self, "field_mappings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "salesforceCustomKnowledgeArticleTypeConfigurationList":
+            suggest = "salesforce_custom_knowledge_article_type_configuration_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  salesforce_custom_knowledge_article_type_configuration_list: Optional[Sequence['outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html
-        :param Sequence['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs'] salesforce_custom_knowledge_article_type_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist-salesforcecustomknowledgearticletypeconfigurationlist
+        :param Sequence['DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration'] salesforce_custom_knowledge_article_type_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist-salesforcecustomknowledgearticletypeconfigurationlist
         """
         if salesforce_custom_knowledge_article_type_configuration_list is not None:
             pulumi.set(__self__, "salesforce_custom_knowledge_article_type_configuration_list", salesforce_custom_knowledge_article_type_configuration_list)
@@ -1822,24 +2448,42 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList(dict):
         """
         return pulumi.get(self, "salesforce_custom_knowledge_article_type_configuration_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceSalesforceKnowledgeArticleConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includedStates":
+            suggest = "included_states"
+        elif key == "customKnowledgeArticleTypeConfigurations":
+            suggest = "custom_knowledge_article_type_configurations"
+        elif key == "standardKnowledgeArticleTypeConfiguration":
+            suggest = "standard_knowledge_article_type_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSalesforceKnowledgeArticleConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSalesforceKnowledgeArticleConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSalesforceKnowledgeArticleConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  included_states: 'outputs.DataSourceSalesforceKnowledgeArticleStateList',
                  custom_knowledge_article_type_configurations: Optional['outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList'] = None,
                  standard_knowledge_article_type_configuration: Optional['outputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html
-        :param 'DataSourceSalesforceKnowledgeArticleStateListArgs' included_states: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
-        :param 'DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs' custom_knowledge_article_type_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
-        :param 'DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs' standard_knowledge_article_type_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration
+        :param 'DataSourceSalesforceKnowledgeArticleStateList' included_states: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
+        :param 'DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList' custom_knowledge_article_type_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
+        :param 'DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration' standard_knowledge_article_type_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration
         """
         pulumi.set(__self__, "included_states", included_states)
         if custom_knowledge_article_type_configurations is not None:
@@ -1871,15 +2515,29 @@ class DataSourceSalesforceKnowledgeArticleConfiguration(dict):
         """
         return pulumi.get(self, "standard_knowledge_article_type_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceSalesforceKnowledgeArticleStateList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticlestatelist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "salesforceKnowledgeArticleStateList":
+            suggest = "salesforce_knowledge_article_state_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSalesforceKnowledgeArticleStateList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSalesforceKnowledgeArticleStateList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSalesforceKnowledgeArticleStateList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  salesforce_knowledge_article_state_list: Optional[Sequence[str]] = None):
         """
@@ -1897,15 +2555,33 @@ class DataSourceSalesforceKnowledgeArticleStateList(dict):
         """
         return pulumi.get(self, "salesforce_knowledge_article_state_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentDataFieldName":
+            suggest = "document_data_field_name"
+        elif key == "documentTitleFieldName":
+            suggest = "document_title_field_name"
+        elif key == "fieldMappings":
+            suggest = "field_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  document_data_field_name: str,
                  document_title_field_name: Optional[str] = None,
@@ -1914,7 +2590,7 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html
         :param str document_data_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-documentdatafieldname
         :param str document_title_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-documenttitlefieldname
-        :param 'DataSourceDataSourceToIndexFieldMappingListArgs' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-fieldmappings
+        :param 'DataSourceDataSourceToIndexFieldMappingList' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-fieldmappings
         """
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if document_title_field_name is not None:
@@ -1946,22 +2622,38 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration(dict):
         """
         return pulumi.get(self, "field_mappings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceSalesforceStandardObjectAttachmentConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentTitleFieldName":
+            suggest = "document_title_field_name"
+        elif key == "fieldMappings":
+            suggest = "field_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSalesforceStandardObjectAttachmentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSalesforceStandardObjectAttachmentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSalesforceStandardObjectAttachmentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  document_title_field_name: Optional[str] = None,
                  field_mappings: Optional['outputs.DataSourceDataSourceToIndexFieldMappingList'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html
         :param str document_title_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-documenttitlefieldname
-        :param 'DataSourceDataSourceToIndexFieldMappingListArgs' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-fieldmappings
+        :param 'DataSourceDataSourceToIndexFieldMappingList' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-fieldmappings
         """
         if document_title_field_name is not None:
             pulumi.set(__self__, "document_title_field_name", document_title_field_name)
@@ -1984,15 +2676,33 @@ class DataSourceSalesforceStandardObjectAttachmentConfiguration(dict):
         """
         return pulumi.get(self, "field_mappings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceSalesforceStandardObjectConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentDataFieldName":
+            suggest = "document_data_field_name"
+        elif key == "documentTitleFieldName":
+            suggest = "document_title_field_name"
+        elif key == "fieldMappings":
+            suggest = "field_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSalesforceStandardObjectConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSalesforceStandardObjectConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSalesforceStandardObjectConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  document_data_field_name: str,
                  name: str,
@@ -2003,7 +2713,7 @@ class DataSourceSalesforceStandardObjectConfiguration(dict):
         :param str document_data_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-documentdatafieldname
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-name
         :param str document_title_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-documenttitlefieldname
-        :param 'DataSourceDataSourceToIndexFieldMappingListArgs' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-fieldmappings
+        :param 'DataSourceDataSourceToIndexFieldMappingList' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-fieldmappings
         """
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         pulumi.set(__self__, "name", name)
@@ -2044,20 +2754,34 @@ class DataSourceSalesforceStandardObjectConfiguration(dict):
         """
         return pulumi.get(self, "field_mappings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceSalesforceStandardObjectConfigurationList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "salesforceStandardObjectConfigurationList":
+            suggest = "salesforce_standard_object_configuration_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSalesforceStandardObjectConfigurationList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSalesforceStandardObjectConfigurationList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSalesforceStandardObjectConfigurationList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  salesforce_standard_object_configuration_list: Optional[Sequence['outputs.DataSourceSalesforceStandardObjectConfiguration']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html
-        :param Sequence['DataSourceSalesforceStandardObjectConfigurationArgs'] salesforce_standard_object_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html#cfn-kendra-datasource-salesforcestandardobjectconfigurationlist-salesforcestandardobjectconfigurationlist
+        :param Sequence['DataSourceSalesforceStandardObjectConfiguration'] salesforce_standard_object_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html#cfn-kendra-datasource-salesforcestandardobjectconfigurationlist-salesforcestandardobjectconfigurationlist
         """
         if salesforce_standard_object_configuration_list is not None:
             pulumi.set(__self__, "salesforce_standard_object_configuration_list", salesforce_standard_object_configuration_list)
@@ -2070,15 +2794,37 @@ class DataSourceSalesforceStandardObjectConfigurationList(dict):
         """
         return pulumi.get(self, "salesforce_standard_object_configuration_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceServiceNowConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostUrl":
+            suggest = "host_url"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+        elif key == "serviceNowBuildVersion":
+            suggest = "service_now_build_version"
+        elif key == "knowledgeArticleConfiguration":
+            suggest = "knowledge_article_configuration"
+        elif key == "serviceCatalogConfiguration":
+            suggest = "service_catalog_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceServiceNowConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceServiceNowConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceServiceNowConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host_url: str,
                  secret_arn: str,
@@ -2090,8 +2836,8 @@ class DataSourceServiceNowConfiguration(dict):
         :param str host_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-hosturl
         :param str secret_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-secretarn
         :param str service_now_build_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-servicenowbuildversion
-        :param 'DataSourceServiceNowKnowledgeArticleConfigurationArgs' knowledge_article_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-knowledgearticleconfiguration
-        :param 'DataSourceServiceNowServiceCatalogConfigurationArgs' service_catalog_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-servicecatalogconfiguration
+        :param 'DataSourceServiceNowKnowledgeArticleConfiguration' knowledge_article_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-knowledgearticleconfiguration
+        :param 'DataSourceServiceNowServiceCatalogConfiguration' service_catalog_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-servicecatalogconfiguration
         """
         pulumi.set(__self__, "host_url", host_url)
         pulumi.set(__self__, "secret_arn", secret_arn)
@@ -2141,15 +2887,39 @@ class DataSourceServiceNowConfiguration(dict):
         """
         return pulumi.get(self, "service_catalog_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceServiceNowKnowledgeArticleConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentDataFieldName":
+            suggest = "document_data_field_name"
+        elif key == "crawlAttachments":
+            suggest = "crawl_attachments"
+        elif key == "documentTitleFieldName":
+            suggest = "document_title_field_name"
+        elif key == "excludeAttachmentFilePatterns":
+            suggest = "exclude_attachment_file_patterns"
+        elif key == "fieldMappings":
+            suggest = "field_mappings"
+        elif key == "includeAttachmentFilePatterns":
+            suggest = "include_attachment_file_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceServiceNowKnowledgeArticleConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceServiceNowKnowledgeArticleConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceServiceNowKnowledgeArticleConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  document_data_field_name: str,
                  crawl_attachments: Optional[bool] = None,
@@ -2162,9 +2932,9 @@ class DataSourceServiceNowKnowledgeArticleConfiguration(dict):
         :param str document_data_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-documentdatafieldname
         :param bool crawl_attachments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-crawlattachments
         :param str document_title_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-documenttitlefieldname
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' exclude_attachment_file_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-excludeattachmentfilepatterns
-        :param 'DataSourceDataSourceToIndexFieldMappingListArgs' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-fieldmappings
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' include_attachment_file_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-includeattachmentfilepatterns
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' exclude_attachment_file_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-excludeattachmentfilepatterns
+        :param 'DataSourceDataSourceToIndexFieldMappingList' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-fieldmappings
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' include_attachment_file_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-includeattachmentfilepatterns
         """
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if crawl_attachments is not None:
@@ -2226,15 +2996,39 @@ class DataSourceServiceNowKnowledgeArticleConfiguration(dict):
         """
         return pulumi.get(self, "include_attachment_file_patterns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceServiceNowServiceCatalogConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentDataFieldName":
+            suggest = "document_data_field_name"
+        elif key == "crawlAttachments":
+            suggest = "crawl_attachments"
+        elif key == "documentTitleFieldName":
+            suggest = "document_title_field_name"
+        elif key == "excludeAttachmentFilePatterns":
+            suggest = "exclude_attachment_file_patterns"
+        elif key == "fieldMappings":
+            suggest = "field_mappings"
+        elif key == "includeAttachmentFilePatterns":
+            suggest = "include_attachment_file_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceServiceNowServiceCatalogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceServiceNowServiceCatalogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceServiceNowServiceCatalogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  document_data_field_name: str,
                  crawl_attachments: Optional[bool] = None,
@@ -2247,9 +3041,9 @@ class DataSourceServiceNowServiceCatalogConfiguration(dict):
         :param str document_data_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-documentdatafieldname
         :param bool crawl_attachments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-crawlattachments
         :param str document_title_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-documenttitlefieldname
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' exclude_attachment_file_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-excludeattachmentfilepatterns
-        :param 'DataSourceDataSourceToIndexFieldMappingListArgs' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-fieldmappings
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' include_attachment_file_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-includeattachmentfilepatterns
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' exclude_attachment_file_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-excludeattachmentfilepatterns
+        :param 'DataSourceDataSourceToIndexFieldMappingList' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-fieldmappings
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' include_attachment_file_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-includeattachmentfilepatterns
         """
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if crawl_attachments is not None:
@@ -2311,15 +3105,47 @@ class DataSourceServiceNowServiceCatalogConfiguration(dict):
         """
         return pulumi.get(self, "include_attachment_file_patterns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceSharePointConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+        elif key == "sharePointVersion":
+            suggest = "share_point_version"
+        elif key == "crawlAttachments":
+            suggest = "crawl_attachments"
+        elif key == "disableLocalGroups":
+            suggest = "disable_local_groups"
+        elif key == "documentTitleFieldName":
+            suggest = "document_title_field_name"
+        elif key == "exclusionPatterns":
+            suggest = "exclusion_patterns"
+        elif key == "fieldMappings":
+            suggest = "field_mappings"
+        elif key == "inclusionPatterns":
+            suggest = "inclusion_patterns"
+        elif key == "useChangeLog":
+            suggest = "use_change_log"
+        elif key == "vpcConfiguration":
+            suggest = "vpc_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSharePointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSharePointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSharePointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_arn: str,
                  share_point_version: str,
@@ -2340,11 +3166,11 @@ class DataSourceSharePointConfiguration(dict):
         :param bool crawl_attachments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-crawlattachments
         :param bool disable_local_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-disablelocalgroups
         :param str document_title_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-documenttitlefieldname
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' exclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-exclusionpatterns
-        :param 'DataSourceDataSourceToIndexFieldMappingListArgs' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-fieldmappings
-        :param 'DataSourceDataSourceInclusionsExclusionsStringsArgs' inclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-inclusionpatterns
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' exclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-exclusionpatterns
+        :param 'DataSourceDataSourceToIndexFieldMappingList' field_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-fieldmappings
+        :param 'DataSourceDataSourceInclusionsExclusionsStrings' inclusion_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-inclusionpatterns
         :param bool use_change_log: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-usechangelog
-        :param 'DataSourceDataSourceVpcConfigurationArgs' vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-vpcconfiguration
+        :param 'DataSourceDataSourceVpcConfiguration' vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-vpcconfiguration
         """
         pulumi.set(__self__, "secret_arn", secret_arn)
         pulumi.set(__self__, "share_point_version", share_point_version)
@@ -2454,15 +3280,29 @@ class DataSourceSharePointConfiguration(dict):
         """
         return pulumi.get(self, "vpc_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceSqlConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sqlconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryIdentifiersEnclosingOption":
+            suggest = "query_identifiers_enclosing_option"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSqlConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSqlConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSqlConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query_identifiers_enclosing_option: Optional[str] = None):
         """
@@ -2480,20 +3320,34 @@ class DataSourceSqlConfiguration(dict):
         """
         return pulumi.get(self, "query_identifiers_enclosing_option")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourceTagList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagList":
+            suggest = "tag_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceTagList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceTagList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceTagList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  tag_list: Optional[Sequence['_root_outputs.Tag']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html
-        :param Sequence['_root_inputs.TagArgs'] tag_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html#cfn-kendra-datasource-taglist-taglist
+        :param Sequence['_root_inputs.Tag'] tag_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html#cfn-kendra-datasource-taglist-taglist
         """
         if tag_list is not None:
             pulumi.set(__self__, "tag_list", tag_list)
@@ -2505,9 +3359,6 @@ class DataSourceTagList(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html#cfn-kendra-datasource-taglist-taglist
         """
         return pulumi.get(self, "tag_list")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2542,20 +3393,34 @@ class FaqS3Path(dict):
         """
         return pulumi.get(self, "key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FaqTagList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagList":
+            suggest = "tag_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FaqTagList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FaqTagList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FaqTagList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  tag_list: Optional[Sequence['_root_outputs.Tag']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html
-        :param Sequence['_root_inputs.TagArgs'] tag_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html#cfn-kendra-faq-taglist-taglist
+        :param Sequence['_root_inputs.Tag'] tag_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html#cfn-kendra-faq-taglist-taglist
         """
         if tag_list is not None:
             pulumi.set(__self__, "tag_list", tag_list)
@@ -2568,15 +3433,31 @@ class FaqTagList(dict):
         """
         return pulumi.get(self, "tag_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IndexCapacityUnitsConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryCapacityUnits":
+            suggest = "query_capacity_units"
+        elif key == "storageCapacityUnits":
+            suggest = "storage_capacity_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexCapacityUnitsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexCapacityUnitsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexCapacityUnitsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query_capacity_units: int,
                  storage_capacity_units: int):
@@ -2604,9 +3485,6 @@ class IndexCapacityUnitsConfiguration(dict):
         """
         return pulumi.get(self, "storage_capacity_units")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IndexDocumentMetadataConfiguration(dict):
@@ -2622,8 +3500,8 @@ class IndexDocumentMetadataConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-name
         :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-type
-        :param 'IndexRelevanceArgs' relevance: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-relevance
-        :param 'IndexSearchArgs' search: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-search
+        :param 'IndexRelevance' relevance: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-relevance
+        :param 'IndexSearch' search: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-search
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -2664,20 +3542,34 @@ class IndexDocumentMetadataConfiguration(dict):
         """
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IndexDocumentMetadataConfigurationList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentMetadataConfigurationList":
+            suggest = "document_metadata_configuration_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexDocumentMetadataConfigurationList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexDocumentMetadataConfigurationList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexDocumentMetadataConfigurationList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  document_metadata_configuration_list: Optional[Sequence['outputs.IndexDocumentMetadataConfiguration']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html
-        :param Sequence['IndexDocumentMetadataConfigurationArgs'] document_metadata_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html#cfn-kendra-index-documentmetadataconfigurationlist-documentmetadataconfigurationlist
+        :param Sequence['IndexDocumentMetadataConfiguration'] document_metadata_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html#cfn-kendra-index-documentmetadataconfigurationlist-documentmetadataconfigurationlist
         """
         if document_metadata_configuration_list is not None:
             pulumi.set(__self__, "document_metadata_configuration_list", document_metadata_configuration_list)
@@ -2690,15 +3582,31 @@ class IndexDocumentMetadataConfigurationList(dict):
         """
         return pulumi.get(self, "document_metadata_configuration_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IndexJsonTokenTypeConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupAttributeField":
+            suggest = "group_attribute_field"
+        elif key == "userNameAttributeField":
+            suggest = "user_name_attribute_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexJsonTokenTypeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexJsonTokenTypeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexJsonTokenTypeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  group_attribute_field: str,
                  user_name_attribute_field: str):
@@ -2726,15 +3634,39 @@ class IndexJsonTokenTypeConfiguration(dict):
         """
         return pulumi.get(self, "user_name_attribute_field")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IndexJwtTokenTypeConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyLocation":
+            suggest = "key_location"
+        elif key == "claimRegex":
+            suggest = "claim_regex"
+        elif key == "groupAttributeField":
+            suggest = "group_attribute_field"
+        elif key == "secretManagerArn":
+            suggest = "secret_manager_arn"
+        elif key == "uRL":
+            suggest = "u_rl"
+        elif key == "userNameAttributeField":
+            suggest = "user_name_attribute_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexJwtTokenTypeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexJwtTokenTypeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexJwtTokenTypeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_location: str,
                  claim_regex: Optional[str] = None,
@@ -2823,15 +3755,31 @@ class IndexJwtTokenTypeConfiguration(dict):
         """
         return pulumi.get(self, "user_name_attribute_field")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IndexRelevance(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rankOrder":
+            suggest = "rank_order"
+        elif key == "valueImportanceItems":
+            suggest = "value_importance_items"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexRelevance. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexRelevance.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexRelevance.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration: Optional[str] = None,
                  freshness: Optional[bool] = None,
@@ -2844,7 +3792,7 @@ class IndexRelevance(dict):
         :param bool freshness: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-freshness
         :param int importance: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-importance
         :param str rank_order: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-rankorder
-        :param 'IndexValueImportanceItemsArgs' value_importance_items: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
+        :param 'IndexValueImportanceItems' value_importance_items: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
         """
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
@@ -2896,9 +3844,6 @@ class IndexRelevance(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
         """
         return pulumi.get(self, "value_importance_items")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2959,15 +3904,29 @@ class IndexSearch(dict):
         """
         return pulumi.get(self, "sortable")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IndexServerSideEncryptionConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-serversideencryptionconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexServerSideEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexServerSideEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexServerSideEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kms_key_id: Optional[str] = None):
         """
@@ -2985,20 +3944,34 @@ class IndexServerSideEncryptionConfiguration(dict):
         """
         return pulumi.get(self, "kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IndexTagList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagList":
+            suggest = "tag_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexTagList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexTagList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexTagList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  tag_list: Optional[Sequence['_root_outputs.Tag']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html
-        :param Sequence['_root_inputs.TagArgs'] tag_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html#cfn-kendra-index-taglist-taglist
+        :param Sequence['_root_inputs.Tag'] tag_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html#cfn-kendra-index-taglist-taglist
         """
         if tag_list is not None:
             pulumi.set(__self__, "tag_list", tag_list)
@@ -3011,22 +3984,38 @@ class IndexTagList(dict):
         """
         return pulumi.get(self, "tag_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IndexUserTokenConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonTokenTypeConfiguration":
+            suggest = "json_token_type_configuration"
+        elif key == "jwtTokenTypeConfiguration":
+            suggest = "jwt_token_type_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexUserTokenConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexUserTokenConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexUserTokenConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  json_token_type_configuration: Optional['outputs.IndexJsonTokenTypeConfiguration'] = None,
                  jwt_token_type_configuration: Optional['outputs.IndexJwtTokenTypeConfiguration'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html
-        :param 'IndexJsonTokenTypeConfigurationArgs' json_token_type_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jsontokentypeconfiguration
-        :param 'IndexJwtTokenTypeConfigurationArgs' jwt_token_type_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jwttokentypeconfiguration
+        :param 'IndexJsonTokenTypeConfiguration' json_token_type_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jsontokentypeconfiguration
+        :param 'IndexJwtTokenTypeConfiguration' jwt_token_type_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jwttokentypeconfiguration
         """
         if json_token_type_configuration is not None:
             pulumi.set(__self__, "json_token_type_configuration", json_token_type_configuration)
@@ -3049,20 +4038,34 @@ class IndexUserTokenConfiguration(dict):
         """
         return pulumi.get(self, "jwt_token_type_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IndexUserTokenConfigurationList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userTokenConfigurationList":
+            suggest = "user_token_configuration_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexUserTokenConfigurationList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexUserTokenConfigurationList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexUserTokenConfigurationList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_token_configuration_list: Optional[Sequence['outputs.IndexUserTokenConfiguration']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html
-        :param Sequence['IndexUserTokenConfigurationArgs'] user_token_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
+        :param Sequence['IndexUserTokenConfiguration'] user_token_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
         """
         if user_token_configuration_list is not None:
             pulumi.set(__self__, "user_token_configuration_list", user_token_configuration_list)
@@ -3074,9 +4077,6 @@ class IndexUserTokenConfigurationList(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
         """
         return pulumi.get(self, "user_token_configuration_list")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3113,20 +4113,34 @@ class IndexValueImportanceItem(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IndexValueImportanceItems(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueImportanceItems":
+            suggest = "value_importance_items"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexValueImportanceItems. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexValueImportanceItems.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexValueImportanceItems.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  value_importance_items: Optional[Sequence['outputs.IndexValueImportanceItem']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html
-        :param Sequence['IndexValueImportanceItemArgs'] value_importance_items: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems
+        :param Sequence['IndexValueImportanceItem'] value_importance_items: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems
         """
         if value_importance_items is not None:
             pulumi.set(__self__, "value_importance_items", value_importance_items)
@@ -3138,8 +4152,5 @@ class IndexValueImportanceItems(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems
         """
         return pulumi.get(self, "value_importance_items")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

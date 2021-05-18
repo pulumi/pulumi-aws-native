@@ -97,7 +97,8 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
      */
     constructor(name: string, args?: CloudFormationProvisionedProductArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
             inputs["notificationArns"] = args ? args.notificationArns : undefined;
             inputs["pathId"] = args ? args.pathId : undefined;
@@ -132,12 +133,8 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
             inputs["recordId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CloudFormationProvisionedProduct.__pulumiType, name, inputs, opts);
     }
@@ -186,13 +183,13 @@ export interface CloudFormationProvisionedProductArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
      */
-    readonly provisioningParameters?: pulumi.Input<pulumi.Input<inputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningParameter>[]>;
+    readonly provisioningParameters?: pulumi.Input<pulumi.Input<inputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningParameterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
      */
-    readonly provisioningPreferences?: pulumi.Input<inputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferences>;
+    readonly provisioningPreferences?: pulumi.Input<inputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferencesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

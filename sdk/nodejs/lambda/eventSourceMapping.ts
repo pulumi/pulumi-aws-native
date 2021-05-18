@@ -118,8 +118,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventSourceMappingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.functionName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
             inputs["batchSize"] = args ? args.batchSize : undefined;
@@ -162,12 +163,8 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["topics"] = undefined /*out*/;
             inputs["tumblingWindowInSeconds"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EventSourceMapping.__pulumiType, name, inputs, opts);
     }
@@ -188,7 +185,7 @@ export interface EventSourceMappingArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
      */
-    readonly destinationConfig?: pulumi.Input<inputs.Lambda.EventSourceMappingDestinationConfig>;
+    readonly destinationConfig?: pulumi.Input<inputs.Lambda.EventSourceMappingDestinationConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
      */
@@ -232,11 +229,11 @@ export interface EventSourceMappingArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
      */
-    readonly selfManagedEventSource?: pulumi.Input<inputs.Lambda.EventSourceMappingSelfManagedEventSource>;
+    readonly selfManagedEventSource?: pulumi.Input<inputs.Lambda.EventSourceMappingSelfManagedEventSourceArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
      */
-    readonly sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.Lambda.EventSourceMappingSourceAccessConfiguration>[]>;
+    readonly sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.Lambda.EventSourceMappingSourceAccessConfigurationArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
      */

@@ -5,15 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 
-__all__ = ['ModelPackageGroup']
+__all__ = ['ModelPackageGroupArgs', 'ModelPackageGroup']
+
+@pulumi.input_type
+class ModelPackageGroupArgs:
+    def __init__(__self__, *,
+                 model_package_group_name: pulumi.Input[str],
+                 model_package_group_description: Optional[pulumi.Input[str]] = None,
+                 model_package_group_policy: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a ModelPackageGroup resource.
+        :param pulumi.Input[str] model_package_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
+        :param pulumi.Input[str] model_package_group_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
+        :param Any model_package_group_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
+        """
+        pulumi.set(__self__, "model_package_group_name", model_package_group_name)
+        if model_package_group_description is not None:
+            pulumi.set(__self__, "model_package_group_description", model_package_group_description)
+        if model_package_group_policy is not None:
+            pulumi.set(__self__, "model_package_group_policy", model_package_group_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="modelPackageGroupName")
+    def model_package_group_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
+        """
+        return pulumi.get(self, "model_package_group_name")
+
+    @model_package_group_name.setter
+    def model_package_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "model_package_group_name", value)
+
+    @property
+    @pulumi.getter(name="modelPackageGroupDescription")
+    def model_package_group_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
+        """
+        return pulumi.get(self, "model_package_group_description")
+
+    @model_package_group_description.setter
+    def model_package_group_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_group_description", value)
+
+    @property
+    @pulumi.getter(name="modelPackageGroupPolicy")
+    def model_package_group_policy(self) -> Optional[Any]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
+        """
+        return pulumi.get(self, "model_package_group_policy")
+
+    @model_package_group_policy.setter
+    def model_package_group_policy(self, value: Optional[Any]):
+        pulumi.set(self, "model_package_group_policy", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ModelPackageGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -21,9 +92,7 @@ class ModelPackageGroup(pulumi.CustomResource):
                  model_package_group_name: Optional[pulumi.Input[str]] = None,
                  model_package_group_policy: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html
 
@@ -34,12 +103,35 @@ class ModelPackageGroup(pulumi.CustomResource):
         :param Any model_package_group_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ModelPackageGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html
+
+        :param str resource_name: The name of the resource.
+        :param ModelPackageGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ModelPackageGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 model_package_group_description: Optional[pulumi.Input[str]] = None,
+                 model_package_group_name: Optional[pulumi.Input[str]] = None,
+                 model_package_group_policy: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -49,17 +141,17 @@ class ModelPackageGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ModelPackageGroupArgs.__new__(ModelPackageGroupArgs)
 
-            __props__['model_package_group_description'] = model_package_group_description
+            __props__.__dict__["model_package_group_description"] = model_package_group_description
             if model_package_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'model_package_group_name'")
-            __props__['model_package_group_name'] = model_package_group_name
-            __props__['model_package_group_policy'] = model_package_group_policy
-            __props__['tags'] = tags
-            __props__['creation_time'] = None
-            __props__['model_package_group_arn'] = None
-            __props__['model_package_group_status'] = None
+            __props__.__dict__["model_package_group_name"] = model_package_group_name
+            __props__.__dict__["model_package_group_policy"] = model_package_group_policy
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["model_package_group_arn"] = None
+            __props__.__dict__["model_package_group_status"] = None
         super(ModelPackageGroup, __self__).__init__(
             'aws-native:SageMaker:ModelPackageGroup',
             resource_name,
@@ -80,8 +172,15 @@ class ModelPackageGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ModelPackageGroupArgs.__new__(ModelPackageGroupArgs)
 
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["model_package_group_arn"] = None
+        __props__.__dict__["model_package_group_description"] = None
+        __props__.__dict__["model_package_group_name"] = None
+        __props__.__dict__["model_package_group_policy"] = None
+        __props__.__dict__["model_package_group_status"] = None
+        __props__.__dict__["tags"] = None
         return ModelPackageGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -130,10 +229,4 @@ class ModelPackageGroup(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

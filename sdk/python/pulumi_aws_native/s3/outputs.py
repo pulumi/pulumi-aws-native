@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -31,6 +31,29 @@ class AccessPointPublicAccessBlockConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockPublicAcls":
+            suggest = "block_public_acls"
+        elif key == "blockPublicPolicy":
+            suggest = "block_public_policy"
+        elif key == "ignorePublicAcls":
+            suggest = "ignore_public_acls"
+        elif key == "restrictPublicBuckets":
+            suggest = "restrict_public_buckets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointPublicAccessBlockConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointPublicAccessBlockConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointPublicAccessBlockConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  block_public_acls: Optional[bool] = None,
                  block_public_policy: Optional[bool] = None,
@@ -84,15 +107,29 @@ class AccessPointPublicAccessBlockConfiguration(dict):
         """
         return pulumi.get(self, "restrict_public_buckets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccessPointVpcConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  vpc_id: Optional[str] = None):
         """
@@ -110,22 +147,38 @@ class AccessPointVpcConfiguration(dict):
         """
         return pulumi.get(self, "vpc_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageLensAccountLevel(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketLevel":
+            suggest = "bucket_level"
+        elif key == "activityMetrics":
+            suggest = "activity_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensAccountLevel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensAccountLevel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensAccountLevel.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_level: 'outputs.StorageLensBucketLevel',
                  activity_metrics: Optional['outputs.StorageLensActivityMetrics'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
-        :param 'StorageLensBucketLevelArgs' bucket_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
-        :param 'StorageLensActivityMetricsArgs' activity_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
+        :param 'StorageLensBucketLevel' bucket_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
+        :param 'StorageLensActivityMetrics' activity_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
         """
         pulumi.set(__self__, "bucket_level", bucket_level)
         if activity_metrics is not None:
@@ -147,15 +200,29 @@ class StorageLensAccountLevel(dict):
         """
         return pulumi.get(self, "activity_metrics")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageLensActivityMetrics(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensActivityMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensActivityMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensActivityMetrics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_enabled: Optional[bool] = None):
         """
@@ -172,9 +239,6 @@ class StorageLensActivityMetrics(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
         """
         return pulumi.get(self, "is_enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -198,22 +262,38 @@ class StorageLensAwsOrg(dict):
         """
         return pulumi.get(self, "arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageLensBucketLevel(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activityMetrics":
+            suggest = "activity_metrics"
+        elif key == "prefixLevel":
+            suggest = "prefix_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensBucketLevel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensBucketLevel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensBucketLevel.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  activity_metrics: Optional['outputs.StorageLensActivityMetrics'] = None,
                  prefix_level: Optional['outputs.StorageLensPrefixLevel'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html
-        :param 'StorageLensActivityMetricsArgs' activity_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
-        :param 'StorageLensPrefixLevelArgs' prefix_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
+        :param 'StorageLensActivityMetrics' activity_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
+        :param 'StorageLensPrefixLevel' prefix_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
         """
         if activity_metrics is not None:
             pulumi.set(__self__, "activity_metrics", activity_metrics)
@@ -235,9 +315,6 @@ class StorageLensBucketLevel(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
         """
         return pulumi.get(self, "prefix_level")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -274,20 +351,34 @@ class StorageLensBucketsAndRegions(dict):
         """
         return pulumi.get(self, "regions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageLensDataExport(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3BucketDestination":
+            suggest = "s3_bucket_destination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensDataExport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensDataExport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensDataExport.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_bucket_destination: 'outputs.StorageLensS3BucketDestination'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
-        :param 'StorageLensS3BucketDestinationArgs' s3_bucket_destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
+        :param 'StorageLensS3BucketDestination' s3_bucket_destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
         """
         pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
 
@@ -298,9 +389,6 @@ class StorageLensDataExport(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
         """
         return pulumi.get(self, "s3_bucket_destination")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -314,20 +402,34 @@ class StorageLensEncryption(dict):
         """
         pass
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageLensPrefixLevel(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageMetrics":
+            suggest = "storage_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensPrefixLevel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensPrefixLevel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensPrefixLevel.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  storage_metrics: 'outputs.StorageLensPrefixLevelStorageMetrics'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
-        :param 'StorageLensPrefixLevelStorageMetricsArgs' storage_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
+        :param 'StorageLensPrefixLevelStorageMetrics' storage_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
         """
         pulumi.set(__self__, "storage_metrics", storage_metrics)
 
@@ -339,22 +441,38 @@ class StorageLensPrefixLevel(dict):
         """
         return pulumi.get(self, "storage_metrics")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageLensPrefixLevelStorageMetrics(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "selectionCriteria":
+            suggest = "selection_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensPrefixLevelStorageMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensPrefixLevelStorageMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensPrefixLevelStorageMetrics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_enabled: Optional[bool] = None,
                  selection_criteria: Optional['outputs.StorageLensSelectionCriteria'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html
         :param bool is_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
-        :param 'StorageLensSelectionCriteriaArgs' selection_criteria: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
+        :param 'StorageLensSelectionCriteria' selection_criteria: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
         """
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
@@ -377,15 +495,31 @@ class StorageLensPrefixLevelStorageMetrics(dict):
         """
         return pulumi.get(self, "selection_criteria")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageLensS3BucketDestination(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "outputSchemaVersion":
+            suggest = "output_schema_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensS3BucketDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensS3BucketDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensS3BucketDestination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_id: str,
                  arn: str,
@@ -399,7 +533,7 @@ class StorageLensS3BucketDestination(dict):
         :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
         :param str format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
         :param str output_schema_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
-        :param 'StorageLensEncryptionArgs' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
+        :param 'StorageLensEncryption' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
         :param str prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -459,15 +593,31 @@ class StorageLensS3BucketDestination(dict):
         """
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageLensSelectionCriteria(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxDepth":
+            suggest = "max_depth"
+        elif key == "minStorageBytesPercentage":
+            suggest = "min_storage_bytes_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensSelectionCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensSelectionCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensSelectionCriteria.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delimiter: Optional[str] = None,
                  max_depth: Optional[int] = None,
@@ -509,15 +659,37 @@ class StorageLensSelectionCriteria(dict):
         """
         return pulumi.get(self, "min_storage_bytes_percentage")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageLensStorageLensConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountLevel":
+            suggest = "account_level"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "awsOrg":
+            suggest = "aws_org"
+        elif key == "dataExport":
+            suggest = "data_export"
+        elif key == "storageLensArn":
+            suggest = "storage_lens_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensStorageLensConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensStorageLensConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensStorageLensConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_level: 'outputs.StorageLensAccountLevel',
                  id: str,
@@ -529,13 +701,13 @@ class StorageLensStorageLensConfiguration(dict):
                  storage_lens_arn: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html
-        :param 'StorageLensAccountLevelArgs' account_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
+        :param 'StorageLensAccountLevel' account_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
         :param str id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
         :param bool is_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
-        :param 'StorageLensAwsOrgArgs' aws_org: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
-        :param 'StorageLensDataExportArgs' data_export: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
-        :param 'StorageLensBucketsAndRegionsArgs' exclude: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
-        :param 'StorageLensBucketsAndRegionsArgs' include: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
+        :param 'StorageLensAwsOrg' aws_org: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
+        :param 'StorageLensDataExport' data_export: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
+        :param 'StorageLensBucketsAndRegions' exclude: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
+        :param 'StorageLensBucketsAndRegions' include: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
         :param str storage_lens_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
         """
         pulumi.set(__self__, "account_level", account_level)
@@ -615,8 +787,5 @@ class StorageLensStorageLensConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
         """
         return pulumi.get(self, "storage_lens_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

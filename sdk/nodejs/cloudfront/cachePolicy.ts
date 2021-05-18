@@ -51,8 +51,9 @@ export class CachePolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: CachePolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.cachePolicyConfig === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.cachePolicyConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cachePolicyConfig'");
             }
             inputs["cachePolicyConfig"] = args ? args.cachePolicyConfig : undefined;
@@ -63,12 +64,8 @@ export class CachePolicy extends pulumi.CustomResource {
             inputs["id"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CachePolicy.__pulumiType, name, inputs, opts);
     }
@@ -81,5 +78,5 @@ export interface CachePolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
      */
-    readonly cachePolicyConfig: pulumi.Input<inputs.CloudFront.CachePolicyCachePolicyConfig>;
+    readonly cachePolicyConfig: pulumi.Input<inputs.CloudFront.CachePolicyCachePolicyConfigArgs>;
 }

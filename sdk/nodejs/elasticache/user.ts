@@ -73,14 +73,15 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.engine === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.engine === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            if ((!args || args.userId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            if ((!args || args.userName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
             inputs["accessString"] = args ? args.accessString : undefined;
@@ -105,12 +106,8 @@ export class User extends pulumi.CustomResource {
             inputs["userId"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(User.__pulumiType, name, inputs, opts);
     }
@@ -135,7 +132,7 @@ export interface UserArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
      */
-    readonly passwords?: pulumi.Input<inputs.ElastiCache.UserPasswordList>;
+    readonly passwords?: pulumi.Input<inputs.ElastiCache.UserPasswordListArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
      */

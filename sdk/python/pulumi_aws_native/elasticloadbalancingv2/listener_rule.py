@@ -5,15 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ListenerRule']
+__all__ = ['ListenerRuleArgs', 'ListenerRule']
+
+@pulumi.input_type
+class ListenerRuleArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]],
+                 conditions: pulumi.Input[Sequence[pulumi.Input['ListenerRuleRuleConditionArgs']]],
+                 listener_arn: pulumi.Input[str],
+                 priority: pulumi.Input[int]):
+        """
+        The set of arguments for constructing a ListenerRule resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleRuleConditionArgs']]] conditions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
+        :param pulumi.Input[str] listener_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
+        :param pulumi.Input[int] priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "conditions", conditions)
+        pulumi.set(__self__, "listener_arn", listener_arn)
+        pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleRuleConditionArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerRuleRuleConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter(name="listenerArn")
+    def listener_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
+        """
+        return pulumi.get(self, "listener_arn")
+
+    @listener_arn.setter
+    def listener_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "listener_arn", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
 
 
 class ListenerRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -21,9 +89,7 @@ class ListenerRule(pulumi.CustomResource):
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleRuleConditionArgs']]]]] = None,
                  listener_arn: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
 
@@ -34,12 +100,35 @@ class ListenerRule(pulumi.CustomResource):
         :param pulumi.Input[str] listener_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
         :param pulumi.Input[int] priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ListenerRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
+
+        :param str resource_name: The name of the resource.
+        :param ListenerRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ListenerRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleRuleConditionArgs']]]]] = None,
+                 listener_arn: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -49,20 +138,20 @@ class ListenerRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ListenerRuleArgs.__new__(ListenerRuleArgs)
 
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
-            __props__['actions'] = actions
+            __props__.__dict__["actions"] = actions
             if conditions is None and not opts.urn:
                 raise TypeError("Missing required property 'conditions'")
-            __props__['conditions'] = conditions
+            __props__.__dict__["conditions"] = conditions
             if listener_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'listener_arn'")
-            __props__['listener_arn'] = listener_arn
+            __props__.__dict__["listener_arn"] = listener_arn
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
-            __props__['priority'] = priority
+            __props__.__dict__["priority"] = priority
         super(ListenerRule, __self__).__init__(
             'aws-native:ElasticLoadBalancingV2:ListenerRule',
             resource_name,
@@ -83,8 +172,12 @@ class ListenerRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ListenerRuleArgs.__new__(ListenerRuleArgs)
 
+        __props__.__dict__["actions"] = None
+        __props__.__dict__["conditions"] = None
+        __props__.__dict__["listener_arn"] = None
+        __props__.__dict__["priority"] = None
         return ListenerRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -118,10 +211,4 @@ class ListenerRule(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
         """
         return pulumi.get(self, "priority")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

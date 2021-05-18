@@ -63,11 +63,12 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: FirewallPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.firewallPolicy === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.firewallPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicy'");
             }
-            if ((!args || args.firewallPolicyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.firewallPolicyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicyName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -84,12 +85,8 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["firewallPolicyName"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FirewallPolicy.__pulumiType, name, inputs, opts);
     }
@@ -106,7 +103,7 @@ export interface FirewallPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
      */
-    readonly firewallPolicy: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyFirewallPolicy>;
+    readonly firewallPolicy: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyFirewallPolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
      */
@@ -114,5 +111,5 @@ export interface FirewallPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

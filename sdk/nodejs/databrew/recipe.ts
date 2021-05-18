@@ -61,11 +61,12 @@ export class Recipe extends pulumi.CustomResource {
      */
     constructor(name: string, args: RecipeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.steps === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.steps === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'steps'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -78,12 +79,8 @@ export class Recipe extends pulumi.CustomResource {
             inputs["steps"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Recipe.__pulumiType, name, inputs, opts);
     }
@@ -104,9 +101,9 @@ export interface RecipeArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
      */
-    readonly steps: pulumi.Input<pulumi.Input<inputs.DataBrew.RecipeRecipeStep>[]>;
+    readonly steps: pulumi.Input<pulumi.Input<inputs.DataBrew.RecipeRecipeStepArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

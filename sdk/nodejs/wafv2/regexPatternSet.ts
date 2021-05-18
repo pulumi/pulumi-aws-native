@@ -67,11 +67,12 @@ export class RegexPatternSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: RegexPatternSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.regularExpressionList === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.regularExpressionList === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'regularExpressionList'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -90,12 +91,8 @@ export class RegexPatternSet extends pulumi.CustomResource {
             inputs["scope"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RegexPatternSet.__pulumiType, name, inputs, opts);
     }
@@ -124,5 +121,5 @@ export interface RegexPatternSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html#cfn-wafv2-regexpatternset-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

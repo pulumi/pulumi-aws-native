@@ -59,7 +59,8 @@ export class TopicRuleDestination extends pulumi.CustomResource {
      */
     constructor(name: string, args?: TopicRuleDestinationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["httpUrlProperties"] = args ? args.httpUrlProperties : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["vpcProperties"] = args ? args.vpcProperties : undefined;
@@ -72,12 +73,8 @@ export class TopicRuleDestination extends pulumi.CustomResource {
             inputs["statusReason"] = undefined /*out*/;
             inputs["vpcProperties"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TopicRuleDestination.__pulumiType, name, inputs, opts);
     }
@@ -90,7 +87,7 @@ export interface TopicRuleDestinationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
      */
-    readonly httpUrlProperties?: pulumi.Input<inputs.IoT.TopicRuleDestinationHttpUrlDestinationSummary>;
+    readonly httpUrlProperties?: pulumi.Input<inputs.IoT.TopicRuleDestinationHttpUrlDestinationSummaryArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
      */
@@ -98,5 +95,5 @@ export interface TopicRuleDestinationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
      */
-    readonly vpcProperties?: pulumi.Input<inputs.IoT.TopicRuleDestinationVpcDestinationProperties>;
+    readonly vpcProperties?: pulumi.Input<inputs.IoT.TopicRuleDestinationVpcDestinationPropertiesArgs>;
 }

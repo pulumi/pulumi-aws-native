@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -21,11 +21,28 @@ class AssociationInstanceAssociationOutputLocation(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Location":
+            suggest = "s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationInstanceAssociationOutputLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationInstanceAssociationOutputLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationInstanceAssociationOutputLocation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_location: Optional['outputs.AssociationS3OutputLocation'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html
-        :param 'AssociationS3OutputLocationArgs' s3_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location
+        :param 'AssociationS3OutputLocation' s3_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location
         """
         if s3_location is not None:
             pulumi.set(__self__, "s3_location", s3_location)
@@ -38,15 +55,29 @@ class AssociationInstanceAssociationOutputLocation(dict):
         """
         return pulumi.get(self, "s3_location")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssociationParameterValues(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterValues":
+            suggest = "parameter_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationParameterValues. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationParameterValues.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationParameterValues.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parameter_values: Optional[Sequence[str]] = None):
         """
@@ -64,15 +95,33 @@ class AssociationParameterValues(dict):
         """
         return pulumi.get(self, "parameter_values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssociationS3OutputLocation(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputS3BucketName":
+            suggest = "output_s3_bucket_name"
+        elif key == "outputS3KeyPrefix":
+            suggest = "output_s3_key_prefix"
+        elif key == "outputS3Region":
+            suggest = "output_s3_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationS3OutputLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationS3OutputLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationS3OutputLocation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  output_s3_bucket_name: Optional[str] = None,
                  output_s3_key_prefix: Optional[str] = None,
@@ -114,9 +163,6 @@ class AssociationS3OutputLocation(dict):
         """
         return pulumi.get(self, "output_s3_region")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssociationTarget(dict):
@@ -149,8 +195,5 @@ class AssociationTarget(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-values
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

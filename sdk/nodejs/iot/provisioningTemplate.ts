@@ -74,11 +74,12 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProvisioningTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.provisioningRoleArn === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.provisioningRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'provisioningRoleArn'");
             }
-            if ((!args || args.templateBody === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.templateBody === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateBody'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -99,12 +100,8 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
             inputs["templateBody"] = undefined /*out*/;
             inputs["templateName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProvisioningTemplate.__pulumiType, name, inputs, opts);
     }
@@ -125,7 +122,7 @@ export interface ProvisioningTemplateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
      */
-    readonly preProvisioningHook?: pulumi.Input<inputs.IoT.ProvisioningTemplateProvisioningHook>;
+    readonly preProvisioningHook?: pulumi.Input<inputs.IoT.ProvisioningTemplateProvisioningHookArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
      */
@@ -133,7 +130,7 @@ export interface ProvisioningTemplateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
      */
-    readonly tags?: pulumi.Input<inputs.IoT.ProvisioningTemplateTags>;
+    readonly tags?: pulumi.Input<inputs.IoT.ProvisioningTemplateTagsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
      */

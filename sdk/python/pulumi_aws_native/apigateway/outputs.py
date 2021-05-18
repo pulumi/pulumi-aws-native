@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ApiKeyStageKey',
@@ -19,6 +19,25 @@ class ApiKeyStageKey(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restApiId":
+            suggest = "rest_api_id"
+        elif key == "stageName":
+            suggest = "stage_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiKeyStageKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiKeyStageKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiKeyStageKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rest_api_id: Optional[str] = None,
                  stage_name: Optional[str] = None):
@@ -48,9 +67,6 @@ class ApiKeyStageKey(dict):
         """
         return pulumi.get(self, "stage_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainNameEndpointConfiguration(dict):
@@ -74,15 +90,31 @@ class DomainNameEndpointConfiguration(dict):
         """
         return pulumi.get(self, "types")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainNameMutualTlsAuthentication(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "truststoreUri":
+            suggest = "truststore_uri"
+        elif key == "truststoreVersion":
+            suggest = "truststore_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainNameMutualTlsAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainNameMutualTlsAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainNameMutualTlsAuthentication.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  truststore_uri: Optional[str] = None,
                  truststore_version: Optional[str] = None):
@@ -111,8 +143,5 @@ class DomainNameMutualTlsAuthentication(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreversion
         """
         return pulumi.get(self, "truststore_version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

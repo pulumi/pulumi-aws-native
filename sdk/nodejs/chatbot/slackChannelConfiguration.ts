@@ -69,17 +69,18 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: SlackChannelConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.configurationName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.configurationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configurationName'");
             }
-            if ((!args || args.iamRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if ((!args || args.slackChannelId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.slackChannelId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slackChannelId'");
             }
-            if ((!args || args.slackWorkspaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.slackWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slackWorkspaceId'");
             }
             inputs["configurationName"] = args ? args.configurationName : undefined;
@@ -98,12 +99,8 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
             inputs["slackWorkspaceId"] = undefined /*out*/;
             inputs["snsTopicArns"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SlackChannelConfiguration.__pulumiType, name, inputs, opts);
     }

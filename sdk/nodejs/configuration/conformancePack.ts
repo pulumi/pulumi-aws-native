@@ -69,8 +69,9 @@ export class ConformancePack extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConformancePackArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.conformancePackName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.conformancePackName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'conformancePackName'");
             }
             inputs["conformancePackInputParameters"] = args ? args.conformancePackInputParameters : undefined;
@@ -87,12 +88,8 @@ export class ConformancePack extends pulumi.CustomResource {
             inputs["templateBody"] = undefined /*out*/;
             inputs["templateS3Uri"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ConformancePack.__pulumiType, name, inputs, opts);
     }
@@ -105,7 +102,7 @@ export interface ConformancePackArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
      */
-    readonly conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.Configuration.ConformancePackConformancePackInputParameter>[]>;
+    readonly conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.Configuration.ConformancePackConformancePackInputParameterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
      */

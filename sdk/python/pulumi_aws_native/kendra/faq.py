@@ -5,17 +5,133 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['Faq']
+__all__ = ['FaqArgs', 'Faq']
+
+@pulumi.input_type
+class FaqArgs:
+    def __init__(__self__, *,
+                 index_id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 s3_path: pulumi.Input['FaqS3PathArgs'],
+                 description: Optional[pulumi.Input[str]] = None,
+                 file_format: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input['FaqTagListArgs']] = None):
+        """
+        The set of arguments for constructing a Faq resource.
+        :param pulumi.Input[str] index_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-indexid
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-name
+        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-rolearn
+        :param pulumi.Input['FaqS3PathArgs'] s3_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-description
+        :param pulumi.Input[str] file_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-fileformat
+        :param pulumi.Input['FaqTagListArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
+        """
+        pulumi.set(__self__, "index_id", index_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_path", s3_path)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if file_format is not None:
+            pulumi.set(__self__, "file_format", file_format)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="indexId")
+    def index_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-indexid
+        """
+        return pulumi.get(self, "index_id")
+
+    @index_id.setter
+    def index_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "index_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="s3Path")
+    def s3_path(self) -> pulumi.Input['FaqS3PathArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
+        """
+        return pulumi.get(self, "s3_path")
+
+    @s3_path.setter
+    def s3_path(self, value: pulumi.Input['FaqS3PathArgs']):
+        pulumi.set(self, "s3_path", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="fileFormat")
+    def file_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-fileformat
+        """
+        return pulumi.get(self, "file_format")
+
+    @file_format.setter
+    def file_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_format", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input['FaqTagListArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input['FaqTagListArgs']]):
+        pulumi.set(self, "tags", value)
 
 
 class Faq(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -26,9 +142,7 @@ class Faq(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  s3_path: Optional[pulumi.Input[pulumi.InputType['FaqS3PathArgs']]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['FaqTagListArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html
 
@@ -42,12 +156,38 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FaqS3PathArgs']] s3_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
         :param pulumi.Input[pulumi.InputType['FaqTagListArgs']] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FaqArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html
+
+        :param str resource_name: The name of the resource.
+        :param FaqArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FaqArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 file_format: Optional[pulumi.Input[str]] = None,
+                 index_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 s3_path: Optional[pulumi.Input[pulumi.InputType['FaqS3PathArgs']]] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['FaqTagListArgs']]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -57,25 +197,25 @@ class Faq(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FaqArgs.__new__(FaqArgs)
 
-            __props__['description'] = description
-            __props__['file_format'] = file_format
+            __props__.__dict__["description"] = description
+            __props__.__dict__["file_format"] = file_format
             if index_id is None and not opts.urn:
                 raise TypeError("Missing required property 'index_id'")
-            __props__['index_id'] = index_id
+            __props__.__dict__["index_id"] = index_id
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
+            __props__.__dict__["role_arn"] = role_arn
             if s3_path is None and not opts.urn:
                 raise TypeError("Missing required property 's3_path'")
-            __props__['s3_path'] = s3_path
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['id'] = None
+            __props__.__dict__["s3_path"] = s3_path
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["id"] = None
         super(Faq, __self__).__init__(
             'aws-native:Kendra:Faq',
             resource_name,
@@ -96,8 +236,17 @@ class Faq(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FaqArgs.__new__(FaqArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["file_format"] = None
+        __props__.__dict__["id"] = None
+        __props__.__dict__["index_id"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["role_arn"] = None
+        __props__.__dict__["s3_path"] = None
+        __props__.__dict__["tags"] = None
         return Faq(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -165,10 +314,4 @@ class Faq(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

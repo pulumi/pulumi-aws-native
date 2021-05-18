@@ -73,11 +73,12 @@ export class Repository extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.repositoryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repositoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -102,12 +103,8 @@ export class Repository extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["upstreams"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Repository.__pulumiType, name, inputs, opts);
     }
@@ -144,7 +141,7 @@ export interface RepositoryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
      */

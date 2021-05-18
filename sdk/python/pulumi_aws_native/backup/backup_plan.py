@@ -5,23 +5,60 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BackupPlan']
+__all__ = ['BackupPlanArgs', 'BackupPlan']
+
+@pulumi.input_type
+class BackupPlanArgs:
+    def __init__(__self__, *,
+                 backup_plan: pulumi.Input['BackupPlanBackupPlanResourceTypeArgs'],
+                 backup_plan_tags: Optional[pulumi.Input[Union[Any, str]]] = None):
+        """
+        The set of arguments for constructing a BackupPlan resource.
+        :param pulumi.Input['BackupPlanBackupPlanResourceTypeArgs'] backup_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
+        :param pulumi.Input[Union[Any, str]] backup_plan_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
+        """
+        pulumi.set(__self__, "backup_plan", backup_plan)
+        if backup_plan_tags is not None:
+            pulumi.set(__self__, "backup_plan_tags", backup_plan_tags)
+
+    @property
+    @pulumi.getter(name="backupPlan")
+    def backup_plan(self) -> pulumi.Input['BackupPlanBackupPlanResourceTypeArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
+        """
+        return pulumi.get(self, "backup_plan")
+
+    @backup_plan.setter
+    def backup_plan(self, value: pulumi.Input['BackupPlanBackupPlanResourceTypeArgs']):
+        pulumi.set(self, "backup_plan", value)
+
+    @property
+    @pulumi.getter(name="backupPlanTags")
+    def backup_plan_tags(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
+        """
+        return pulumi.get(self, "backup_plan_tags")
+
+    @backup_plan_tags.setter
+    def backup_plan_tags(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "backup_plan_tags", value)
 
 
 class BackupPlan(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_plan: Optional[pulumi.Input[pulumi.InputType['BackupPlanBackupPlanResourceTypeArgs']]] = None,
                  backup_plan_tags: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
 
@@ -30,12 +67,33 @@ class BackupPlan(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['BackupPlanBackupPlanResourceTypeArgs']] backup_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
         :param pulumi.Input[Union[Any, str]] backup_plan_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BackupPlanArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
+
+        :param str resource_name: The name of the resource.
+        :param BackupPlanArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BackupPlanArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backup_plan: Optional[pulumi.Input[pulumi.InputType['BackupPlanBackupPlanResourceTypeArgs']]] = None,
+                 backup_plan_tags: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -45,15 +103,15 @@ class BackupPlan(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BackupPlanArgs.__new__(BackupPlanArgs)
 
             if backup_plan is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_plan'")
-            __props__['backup_plan'] = backup_plan
-            __props__['backup_plan_tags'] = backup_plan_tags
-            __props__['backup_plan_arn'] = None
-            __props__['backup_plan_id'] = None
-            __props__['version_id'] = None
+            __props__.__dict__["backup_plan"] = backup_plan
+            __props__.__dict__["backup_plan_tags"] = backup_plan_tags
+            __props__.__dict__["backup_plan_arn"] = None
+            __props__.__dict__["backup_plan_id"] = None
+            __props__.__dict__["version_id"] = None
         super(BackupPlan, __self__).__init__(
             'aws-native:Backup:BackupPlan',
             resource_name,
@@ -74,8 +132,13 @@ class BackupPlan(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BackupPlanArgs.__new__(BackupPlanArgs)
 
+        __props__.__dict__["backup_plan"] = None
+        __props__.__dict__["backup_plan_arn"] = None
+        __props__.__dict__["backup_plan_id"] = None
+        __props__.__dict__["backup_plan_tags"] = None
+        __props__.__dict__["version_id"] = None
         return BackupPlan(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -108,10 +171,4 @@ class BackupPlan(pulumi.CustomResource):
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "version_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

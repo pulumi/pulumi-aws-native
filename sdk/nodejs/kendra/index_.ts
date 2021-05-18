@@ -87,14 +87,15 @@ export class Index extends pulumi.CustomResource {
      */
     constructor(name: string, args: IndexArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.edition === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.edition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'edition'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["capacityUnits"] = args ? args.capacityUnits : undefined;
@@ -123,12 +124,8 @@ export class Index extends pulumi.CustomResource {
             inputs["userContextPolicy"] = undefined /*out*/;
             inputs["userTokenConfigurations"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Index.__pulumiType, name, inputs, opts);
     }
@@ -141,7 +138,7 @@ export interface IndexArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
      */
-    readonly capacityUnits?: pulumi.Input<inputs.Kendra.IndexCapacityUnitsConfiguration>;
+    readonly capacityUnits?: pulumi.Input<inputs.Kendra.IndexCapacityUnitsConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
      */
@@ -149,7 +146,7 @@ export interface IndexArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
      */
-    readonly documentMetadataConfigurations?: pulumi.Input<inputs.Kendra.IndexDocumentMetadataConfigurationList>;
+    readonly documentMetadataConfigurations?: pulumi.Input<inputs.Kendra.IndexDocumentMetadataConfigurationListArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
      */
@@ -165,11 +162,11 @@ export interface IndexArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
      */
-    readonly serverSideEncryptionConfiguration?: pulumi.Input<inputs.Kendra.IndexServerSideEncryptionConfiguration>;
+    readonly serverSideEncryptionConfiguration?: pulumi.Input<inputs.Kendra.IndexServerSideEncryptionConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
      */
-    readonly tags?: pulumi.Input<inputs.Kendra.IndexTagList>;
+    readonly tags?: pulumi.Input<inputs.Kendra.IndexTagListArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
      */
@@ -177,5 +174,5 @@ export interface IndexArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
      */
-    readonly userTokenConfigurations?: pulumi.Input<inputs.Kendra.IndexUserTokenConfigurationList>;
+    readonly userTokenConfigurations?: pulumi.Input<inputs.Kendra.IndexUserTokenConfigurationListArgs>;
 }

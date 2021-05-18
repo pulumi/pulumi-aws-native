@@ -58,7 +58,8 @@ export class Database extends pulumi.CustomResource {
      */
     constructor(name: string, args?: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -69,12 +70,8 @@ export class Database extends pulumi.CustomResource {
             inputs["kmsKeyId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Database.__pulumiType, name, inputs, opts);
     }
@@ -95,5 +92,5 @@ export interface DatabaseArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html#cfn-timestream-database-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

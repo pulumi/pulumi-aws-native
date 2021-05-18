@@ -5,17 +5,148 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['Flow']
+__all__ = ['FlowArgs', 'Flow']
+
+@pulumi.input_type
+class FlowArgs:
+    def __init__(__self__, *,
+                 destination_flow_config_list: pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]],
+                 flow_name: pulumi.Input[str],
+                 source_flow_config: pulumi.Input['FlowSourceFlowConfigArgs'],
+                 tasks: pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]],
+                 trigger_config: pulumi.Input['FlowTriggerConfigArgs'],
+                 description: Optional[pulumi.Input[str]] = None,
+                 k_ms_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a Flow resource.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]] destination_flow_config_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
+        :param pulumi.Input[str] flow_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
+        :param pulumi.Input['FlowSourceFlowConfigArgs'] source_flow_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
+        :param pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]] tasks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
+        :param pulumi.Input['FlowTriggerConfigArgs'] trigger_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
+        :param pulumi.Input[str] k_ms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
+        """
+        pulumi.set(__self__, "destination_flow_config_list", destination_flow_config_list)
+        pulumi.set(__self__, "flow_name", flow_name)
+        pulumi.set(__self__, "source_flow_config", source_flow_config)
+        pulumi.set(__self__, "tasks", tasks)
+        pulumi.set(__self__, "trigger_config", trigger_config)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if k_ms_arn is not None:
+            pulumi.set(__self__, "k_ms_arn", k_ms_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="destinationFlowConfigList")
+    def destination_flow_config_list(self) -> pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
+        """
+        return pulumi.get(self, "destination_flow_config_list")
+
+    @destination_flow_config_list.setter
+    def destination_flow_config_list(self, value: pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]):
+        pulumi.set(self, "destination_flow_config_list", value)
+
+    @property
+    @pulumi.getter(name="flowName")
+    def flow_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
+        """
+        return pulumi.get(self, "flow_name")
+
+    @flow_name.setter
+    def flow_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "flow_name", value)
+
+    @property
+    @pulumi.getter(name="sourceFlowConfig")
+    def source_flow_config(self) -> pulumi.Input['FlowSourceFlowConfigArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
+        """
+        return pulumi.get(self, "source_flow_config")
+
+    @source_flow_config.setter
+    def source_flow_config(self, value: pulumi.Input['FlowSourceFlowConfigArgs']):
+        pulumi.set(self, "source_flow_config", value)
+
+    @property
+    @pulumi.getter
+    def tasks(self) -> pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
+        """
+        return pulumi.get(self, "tasks")
+
+    @tasks.setter
+    def tasks(self, value: pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]]):
+        pulumi.set(self, "tasks", value)
+
+    @property
+    @pulumi.getter(name="triggerConfig")
+    def trigger_config(self) -> pulumi.Input['FlowTriggerConfigArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
+        """
+        return pulumi.get(self, "trigger_config")
+
+    @trigger_config.setter
+    def trigger_config(self, value: pulumi.Input['FlowTriggerConfigArgs']):
+        pulumi.set(self, "trigger_config", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="kMSArn")
+    def k_ms_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
+        """
+        return pulumi.get(self, "k_ms_arn")
+
+    @k_ms_arn.setter
+    def k_ms_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "k_ms_arn", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Flow(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -27,9 +158,7 @@ class Flow(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  tasks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTaskArgs']]]]] = None,
                  trigger_config: Optional[pulumi.Input[pulumi.InputType['FlowTriggerConfigArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
 
@@ -44,12 +173,39 @@ class Flow(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTaskArgs']]]] tasks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
         :param pulumi.Input[pulumi.InputType['FlowTriggerConfigArgs']] trigger_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FlowArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
+
+        :param str resource_name: The name of the resource.
+        :param FlowArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FlowArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 destination_flow_config_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowDestinationFlowConfigArgs']]]]] = None,
+                 flow_name: Optional[pulumi.Input[str]] = None,
+                 k_ms_arn: Optional[pulumi.Input[str]] = None,
+                 source_flow_config: Optional[pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tasks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTaskArgs']]]]] = None,
+                 trigger_config: Optional[pulumi.Input[pulumi.InputType['FlowTriggerConfigArgs']]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -59,27 +215,27 @@ class Flow(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FlowArgs.__new__(FlowArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if destination_flow_config_list is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_flow_config_list'")
-            __props__['destination_flow_config_list'] = destination_flow_config_list
+            __props__.__dict__["destination_flow_config_list"] = destination_flow_config_list
             if flow_name is None and not opts.urn:
                 raise TypeError("Missing required property 'flow_name'")
-            __props__['flow_name'] = flow_name
-            __props__['k_ms_arn'] = k_ms_arn
+            __props__.__dict__["flow_name"] = flow_name
+            __props__.__dict__["k_ms_arn"] = k_ms_arn
             if source_flow_config is None and not opts.urn:
                 raise TypeError("Missing required property 'source_flow_config'")
-            __props__['source_flow_config'] = source_flow_config
-            __props__['tags'] = tags
+            __props__.__dict__["source_flow_config"] = source_flow_config
+            __props__.__dict__["tags"] = tags
             if tasks is None and not opts.urn:
                 raise TypeError("Missing required property 'tasks'")
-            __props__['tasks'] = tasks
+            __props__.__dict__["tasks"] = tasks
             if trigger_config is None and not opts.urn:
                 raise TypeError("Missing required property 'trigger_config'")
-            __props__['trigger_config'] = trigger_config
-            __props__['flow_arn'] = None
+            __props__.__dict__["trigger_config"] = trigger_config
+            __props__.__dict__["flow_arn"] = None
         super(Flow, __self__).__init__(
             'aws-native:AppFlow:Flow',
             resource_name,
@@ -100,8 +256,17 @@ class Flow(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FlowArgs.__new__(FlowArgs)
 
+        __props__.__dict__["description"] = None
+        __props__.__dict__["destination_flow_config_list"] = None
+        __props__.__dict__["flow_arn"] = None
+        __props__.__dict__["flow_name"] = None
+        __props__.__dict__["k_ms_arn"] = None
+        __props__.__dict__["source_flow_config"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["tasks"] = None
+        __props__.__dict__["trigger_config"] = None
         return Flow(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -172,10 +337,4 @@ class Flow(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
         """
         return pulumi.get(self, "trigger_config")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

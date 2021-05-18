@@ -59,8 +59,9 @@ export class PackagingGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: PackagingGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.id === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'id'");
             }
             inputs["authorization"] = args ? args.authorization : undefined;
@@ -75,12 +76,8 @@ export class PackagingGroup extends pulumi.CustomResource {
             inputs["id"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PackagingGroup.__pulumiType, name, inputs, opts);
     }
@@ -93,7 +90,7 @@ export interface PackagingGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
      */
-    readonly authorization?: pulumi.Input<inputs.MediaPackage.PackagingGroupAuthorization>;
+    readonly authorization?: pulumi.Input<inputs.MediaPackage.PackagingGroupAuthorizationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
      */
@@ -101,5 +98,5 @@ export interface PackagingGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -24,6 +24,25 @@ class DistributionConfigurationDistribution(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amiDistributionConfiguration":
+            suggest = "ami_distribution_configuration"
+        elif key == "licenseConfigurationArns":
+            suggest = "license_configuration_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistribution. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationDistribution.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationDistribution.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  region: str,
                  ami_distribution_configuration: Optional[str] = None,
@@ -64,15 +83,31 @@ class DistributionConfigurationDistribution(dict):
         """
         return pulumi.get(self, "license_configuration_arns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageImageTestsConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageTestsEnabled":
+            suggest = "image_tests_enabled"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageImageTestsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageImageTestsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageImageTestsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  image_tests_enabled: Optional[bool] = None,
                  timeout_minutes: Optional[int] = None):
@@ -102,15 +137,31 @@ class ImageImageTestsConfiguration(dict):
         """
         return pulumi.get(self, "timeout_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImagePipelineImageTestsConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageTestsEnabled":
+            suggest = "image_tests_enabled"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImagePipelineImageTestsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImagePipelineImageTestsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImagePipelineImageTestsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  image_tests_enabled: Optional[bool] = None,
                  timeout_minutes: Optional[int] = None):
@@ -140,15 +191,31 @@ class ImagePipelineImageTestsConfiguration(dict):
         """
         return pulumi.get(self, "timeout_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImagePipelineSchedule(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pipelineExecutionStartCondition":
+            suggest = "pipeline_execution_start_condition"
+        elif key == "scheduleExpression":
+            suggest = "schedule_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImagePipelineSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImagePipelineSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImagePipelineSchedule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  pipeline_execution_start_condition: Optional[str] = None,
                  schedule_expression: Optional[str] = None):
@@ -178,15 +245,29 @@ class ImagePipelineSchedule(dict):
         """
         return pulumi.get(self, "schedule_expression")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageRecipeComponentConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentArn":
+            suggest = "component_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRecipeComponentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRecipeComponentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRecipeComponentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  component_arn: Optional[str] = None):
         """
@@ -204,15 +285,37 @@ class ImageRecipeComponentConfiguration(dict):
         """
         return pulumi.get(self, "component_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteOnTermination":
+            suggest = "delete_on_termination"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "snapshotId":
+            suggest = "snapshot_id"
+        elif key == "volumeSize":
+            suggest = "volume_size"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRecipeEbsInstanceBlockDeviceSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRecipeEbsInstanceBlockDeviceSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRecipeEbsInstanceBlockDeviceSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete_on_termination: Optional[bool] = None,
                  encrypted: Optional[bool] = None,
@@ -302,15 +405,33 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
         """
         return pulumi.get(self, "volume_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageRecipeInstanceBlockDeviceMapping(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceName":
+            suggest = "device_name"
+        elif key == "noDevice":
+            suggest = "no_device"
+        elif key == "virtualName":
+            suggest = "virtual_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRecipeInstanceBlockDeviceMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRecipeInstanceBlockDeviceMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRecipeInstanceBlockDeviceMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  device_name: Optional[str] = None,
                  ebs: Optional['outputs.ImageRecipeEbsInstanceBlockDeviceSpecification'] = None,
@@ -319,7 +440,7 @@ class ImageRecipeInstanceBlockDeviceMapping(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html
         :param str device_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-devicename
-        :param 'ImageRecipeEbsInstanceBlockDeviceSpecificationArgs' ebs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
+        :param 'ImageRecipeEbsInstanceBlockDeviceSpecification' ebs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
         :param str no_device: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-nodevice
         :param str virtual_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-virtualname
         """
@@ -363,8 +484,5 @@ class ImageRecipeInstanceBlockDeviceMapping(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-virtualname
         """
         return pulumi.get(self, "virtual_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

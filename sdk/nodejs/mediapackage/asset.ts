@@ -75,17 +75,18 @@ export class Asset extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.id === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'id'");
             }
-            if ((!args || args.packagingGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.packagingGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packagingGroupId'");
             }
-            if ((!args || args.sourceArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            if ((!args || args.sourceRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceRoleArn'");
             }
             inputs["egressEndpoints"] = args ? args.egressEndpoints : undefined;
@@ -108,12 +109,8 @@ export class Asset extends pulumi.CustomResource {
             inputs["sourceRoleArn"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Asset.__pulumiType, name, inputs, opts);
     }
@@ -126,7 +123,7 @@ export interface AssetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
      */
-    readonly egressEndpoints?: pulumi.Input<pulumi.Input<inputs.MediaPackage.AssetEgressEndpoint>[]>;
+    readonly egressEndpoints?: pulumi.Input<pulumi.Input<inputs.MediaPackage.AssetEgressEndpointArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
      */
@@ -150,5 +147,5 @@ export interface AssetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -66,8 +66,9 @@ export class Stream extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.shardCount === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.shardCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shardCount'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -84,12 +85,8 @@ export class Stream extends pulumi.CustomResource {
             inputs["streamEncryption"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Stream.__pulumiType, name, inputs, opts);
     }
@@ -114,9 +111,9 @@ export interface StreamArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
      */
-    readonly streamEncryption?: pulumi.Input<inputs.Kinesis.StreamStreamEncryption>;
+    readonly streamEncryption?: pulumi.Input<inputs.Kinesis.StreamStreamEncryptionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -5,17 +5,213 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['GameServerGroup']
+__all__ = ['GameServerGroupArgs', 'GameServerGroup']
+
+@pulumi.input_type
+class GameServerGroupArgs:
+    def __init__(__self__, *,
+                 game_server_group_name: pulumi.Input[str],
+                 instance_definitions: pulumi.Input['GameServerGroupInstanceDefinitionsArgs'],
+                 launch_template: pulumi.Input['GameServerGroupLaunchTemplateArgs'],
+                 role_arn: pulumi.Input[str],
+                 auto_scaling_policy: Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']] = None,
+                 balancing_strategy: Optional[pulumi.Input[str]] = None,
+                 delete_option: Optional[pulumi.Input[str]] = None,
+                 game_server_protection_policy: Optional[pulumi.Input[str]] = None,
+                 max_size: Optional[pulumi.Input[float]] = None,
+                 min_size: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input['GameServerGroupTagsArgs']] = None,
+                 vpc_subnets: Optional[pulumi.Input['GameServerGroupVpcSubnetsArgs']] = None):
+        """
+        The set of arguments for constructing a GameServerGroup resource.
+        :param pulumi.Input[str] game_server_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
+        :param pulumi.Input['GameServerGroupInstanceDefinitionsArgs'] instance_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+        :param pulumi.Input['GameServerGroupLaunchTemplateArgs'] launch_template: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+        :param pulumi.Input['GameServerGroupAutoScalingPolicyArgs'] auto_scaling_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
+        :param pulumi.Input[str] balancing_strategy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
+        :param pulumi.Input[str] delete_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
+        :param pulumi.Input[str] game_server_protection_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+        :param pulumi.Input[float] max_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+        :param pulumi.Input[float] min_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+        :param pulumi.Input['GameServerGroupTagsArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+        :param pulumi.Input['GameServerGroupVpcSubnetsArgs'] vpc_subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+        """
+        pulumi.set(__self__, "game_server_group_name", game_server_group_name)
+        pulumi.set(__self__, "instance_definitions", instance_definitions)
+        pulumi.set(__self__, "launch_template", launch_template)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if auto_scaling_policy is not None:
+            pulumi.set(__self__, "auto_scaling_policy", auto_scaling_policy)
+        if balancing_strategy is not None:
+            pulumi.set(__self__, "balancing_strategy", balancing_strategy)
+        if delete_option is not None:
+            pulumi.set(__self__, "delete_option", delete_option)
+        if game_server_protection_policy is not None:
+            pulumi.set(__self__, "game_server_protection_policy", game_server_protection_policy)
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if min_size is not None:
+            pulumi.set(__self__, "min_size", min_size)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_subnets is not None:
+            pulumi.set(__self__, "vpc_subnets", vpc_subnets)
+
+    @property
+    @pulumi.getter(name="gameServerGroupName")
+    def game_server_group_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
+        """
+        return pulumi.get(self, "game_server_group_name")
+
+    @game_server_group_name.setter
+    def game_server_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "game_server_group_name", value)
+
+    @property
+    @pulumi.getter(name="instanceDefinitions")
+    def instance_definitions(self) -> pulumi.Input['GameServerGroupInstanceDefinitionsArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+        """
+        return pulumi.get(self, "instance_definitions")
+
+    @instance_definitions.setter
+    def instance_definitions(self, value: pulumi.Input['GameServerGroupInstanceDefinitionsArgs']):
+        pulumi.set(self, "instance_definitions", value)
+
+    @property
+    @pulumi.getter(name="launchTemplate")
+    def launch_template(self) -> pulumi.Input['GameServerGroupLaunchTemplateArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+        """
+        return pulumi.get(self, "launch_template")
+
+    @launch_template.setter
+    def launch_template(self, value: pulumi.Input['GameServerGroupLaunchTemplateArgs']):
+        pulumi.set(self, "launch_template", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="autoScalingPolicy")
+    def auto_scaling_policy(self) -> Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
+        """
+        return pulumi.get(self, "auto_scaling_policy")
+
+    @auto_scaling_policy.setter
+    def auto_scaling_policy(self, value: Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']]):
+        pulumi.set(self, "auto_scaling_policy", value)
+
+    @property
+    @pulumi.getter(name="balancingStrategy")
+    def balancing_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
+        """
+        return pulumi.get(self, "balancing_strategy")
+
+    @balancing_strategy.setter
+    def balancing_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "balancing_strategy", value)
+
+    @property
+    @pulumi.getter(name="deleteOption")
+    def delete_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
+        """
+        return pulumi.get(self, "delete_option")
+
+    @delete_option.setter
+    def delete_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete_option", value)
+
+    @property
+    @pulumi.getter(name="gameServerProtectionPolicy")
+    def game_server_protection_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+        """
+        return pulumi.get(self, "game_server_protection_policy")
+
+    @game_server_protection_policy.setter
+    def game_server_protection_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "game_server_protection_policy", value)
+
+    @property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+        """
+        return pulumi.get(self, "max_size")
+
+    @max_size.setter
+    def max_size(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_size", value)
+
+    @property
+    @pulumi.getter(name="minSize")
+    def min_size(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+        """
+        return pulumi.get(self, "min_size")
+
+    @min_size.setter
+    def min_size(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_size", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input['GameServerGroupTagsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input['GameServerGroupTagsArgs']]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcSubnets")
+    def vpc_subnets(self) -> Optional[pulumi.Input['GameServerGroupVpcSubnetsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+        """
+        return pulumi.get(self, "vpc_subnets")
+
+    @vpc_subnets.setter
+    def vpc_subnets(self, value: Optional[pulumi.Input['GameServerGroupVpcSubnetsArgs']]):
+        pulumi.set(self, "vpc_subnets", value)
 
 
 class GameServerGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -31,9 +227,7 @@ class GameServerGroup(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['GameServerGroupTagsArgs']]] = None,
                  vpc_subnets: Optional[pulumi.Input[pulumi.InputType['GameServerGroupVpcSubnetsArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html
 
@@ -52,12 +246,43 @@ class GameServerGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GameServerGroupTagsArgs']] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
         :param pulumi.Input[pulumi.InputType['GameServerGroupVpcSubnetsArgs']] vpc_subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GameServerGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html
+
+        :param str resource_name: The name of the resource.
+        :param GameServerGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GameServerGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_scaling_policy: Optional[pulumi.Input[pulumi.InputType['GameServerGroupAutoScalingPolicyArgs']]] = None,
+                 balancing_strategy: Optional[pulumi.Input[str]] = None,
+                 delete_option: Optional[pulumi.Input[str]] = None,
+                 game_server_group_name: Optional[pulumi.Input[str]] = None,
+                 game_server_protection_policy: Optional[pulumi.Input[str]] = None,
+                 instance_definitions: Optional[pulumi.Input[pulumi.InputType['GameServerGroupInstanceDefinitionsArgs']]] = None,
+                 launch_template: Optional[pulumi.Input[pulumi.InputType['GameServerGroupLaunchTemplateArgs']]] = None,
+                 max_size: Optional[pulumi.Input[float]] = None,
+                 min_size: Optional[pulumi.Input[float]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['GameServerGroupTagsArgs']]] = None,
+                 vpc_subnets: Optional[pulumi.Input[pulumi.InputType['GameServerGroupVpcSubnetsArgs']]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -67,30 +292,30 @@ class GameServerGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GameServerGroupArgs.__new__(GameServerGroupArgs)
 
-            __props__['auto_scaling_policy'] = auto_scaling_policy
-            __props__['balancing_strategy'] = balancing_strategy
-            __props__['delete_option'] = delete_option
+            __props__.__dict__["auto_scaling_policy"] = auto_scaling_policy
+            __props__.__dict__["balancing_strategy"] = balancing_strategy
+            __props__.__dict__["delete_option"] = delete_option
             if game_server_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'game_server_group_name'")
-            __props__['game_server_group_name'] = game_server_group_name
-            __props__['game_server_protection_policy'] = game_server_protection_policy
+            __props__.__dict__["game_server_group_name"] = game_server_group_name
+            __props__.__dict__["game_server_protection_policy"] = game_server_protection_policy
             if instance_definitions is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_definitions'")
-            __props__['instance_definitions'] = instance_definitions
+            __props__.__dict__["instance_definitions"] = instance_definitions
             if launch_template is None and not opts.urn:
                 raise TypeError("Missing required property 'launch_template'")
-            __props__['launch_template'] = launch_template
-            __props__['max_size'] = max_size
-            __props__['min_size'] = min_size
+            __props__.__dict__["launch_template"] = launch_template
+            __props__.__dict__["max_size"] = max_size
+            __props__.__dict__["min_size"] = min_size
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
-            __props__['tags'] = tags
-            __props__['vpc_subnets'] = vpc_subnets
-            __props__['auto_scaling_group_arn'] = None
-            __props__['game_server_group_arn'] = None
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vpc_subnets"] = vpc_subnets
+            __props__.__dict__["auto_scaling_group_arn"] = None
+            __props__.__dict__["game_server_group_arn"] = None
         super(GameServerGroup, __self__).__init__(
             'aws-native:GameLift:GameServerGroup',
             resource_name,
@@ -111,8 +336,22 @@ class GameServerGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = GameServerGroupArgs.__new__(GameServerGroupArgs)
 
+        __props__.__dict__["auto_scaling_group_arn"] = None
+        __props__.__dict__["auto_scaling_policy"] = None
+        __props__.__dict__["balancing_strategy"] = None
+        __props__.__dict__["delete_option"] = None
+        __props__.__dict__["game_server_group_arn"] = None
+        __props__.__dict__["game_server_group_name"] = None
+        __props__.__dict__["game_server_protection_policy"] = None
+        __props__.__dict__["instance_definitions"] = None
+        __props__.__dict__["launch_template"] = None
+        __props__.__dict__["max_size"] = None
+        __props__.__dict__["min_size"] = None
+        __props__.__dict__["role_arn"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["vpc_subnets"] = None
         return GameServerGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -220,10 +459,4 @@ class GameServerGroup(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
         """
         return pulumi.get(self, "vpc_subnets")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

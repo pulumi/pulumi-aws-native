@@ -7,7 +7,7 @@ import { input as inputs, output as outputs } from "../types";
 /**
  * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html
  */
-export interface Tag {
+export interface TagArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key
      */
@@ -21,7 +21,7 @@ export namespace ACMPCA {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html
      */
-    export interface CertificateAuthorityCrlConfiguration {
+    export interface CertificateAuthorityCrlConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-customcname
          */
@@ -43,17 +43,17 @@ export namespace ACMPCA {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html
      */
-    export interface CertificateAuthorityRevocationConfiguration {
+    export interface CertificateAuthorityRevocationConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-crlconfiguration
          */
-        crlConfiguration?: pulumi.Input<inputs.ACMPCA.CertificateAuthorityCrlConfiguration>;
+        crlConfiguration?: pulumi.Input<inputs.ACMPCA.CertificateAuthorityCrlConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html
      */
-    export interface CertificateAuthoritySubject {
+    export interface CertificateAuthoritySubjectArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-commonname
          */
@@ -115,7 +115,7 @@ export namespace ACMPCA {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html
      */
-    export interface CertificateValidity {
+    export interface CertificateValidityArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-type
          */
@@ -131,11 +131,11 @@ export namespace AccessAnalyzer {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html
      */
-    export interface AnalyzerArchiveRule {
+    export interface AnalyzerArchiveRuleArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
          */
-        filter: pulumi.Input<pulumi.Input<inputs.AccessAnalyzer.AnalyzerFilter>[]>;
+        filter: pulumi.Input<pulumi.Input<inputs.AccessAnalyzer.AnalyzerFilterArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
          */
@@ -145,7 +145,7 @@ export namespace AccessAnalyzer {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html
      */
-    export interface AnalyzerFilter {
+    export interface AnalyzerFilterArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
          */
@@ -173,7 +173,7 @@ export namespace ApiGateway {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html
      */
-    export interface ApiKeyStageKey {
+    export interface ApiKeyStageKeyArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
          */
@@ -187,7 +187,7 @@ export namespace ApiGateway {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html
      */
-    export interface DomainNameEndpointConfiguration {
+    export interface DomainNameEndpointConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html#cfn-apigateway-domainname-endpointconfiguration-types
          */
@@ -197,7 +197,7 @@ export namespace ApiGateway {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html
      */
-    export interface DomainNameMutualTlsAuthentication {
+    export interface DomainNameMutualTlsAuthenticationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreuri
          */
@@ -213,7 +213,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileAmplitudeConnectorProfileCredentials {
+    export interface ConnectorProfileAmplitudeConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-apikey
          */
@@ -227,7 +227,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html
      */
-    export interface ConnectorProfileConnectorOAuthRequest {
+    export interface ConnectorProfileConnectorOAuthRequestArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-authcode
          */
@@ -241,137 +241,137 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html
      */
-    export interface ConnectorProfileConnectorProfileConfig {
+    export interface ConnectorProfileConnectorProfileConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
          */
-        connectorProfileCredentials: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorProfileCredentials>;
+        connectorProfileCredentials: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
          */
-        connectorProfileProperties?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorProfileProperties>;
+        connectorProfileProperties?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorProfilePropertiesArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html
      */
-    export interface ConnectorProfileConnectorProfileCredentials {
+    export interface ConnectorProfileConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-amplitude
          */
-        amplitude?: pulumi.Input<inputs.AppFlow.ConnectorProfileAmplitudeConnectorProfileCredentials>;
+        amplitude?: pulumi.Input<inputs.AppFlow.ConnectorProfileAmplitudeConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-datadog
          */
-        datadog?: pulumi.Input<inputs.AppFlow.ConnectorProfileDatadogConnectorProfileCredentials>;
+        datadog?: pulumi.Input<inputs.AppFlow.ConnectorProfileDatadogConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-dynatrace
          */
-        dynatrace?: pulumi.Input<inputs.AppFlow.ConnectorProfileDynatraceConnectorProfileCredentials>;
+        dynatrace?: pulumi.Input<inputs.AppFlow.ConnectorProfileDynatraceConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-googleanalytics
          */
-        googleAnalytics?: pulumi.Input<inputs.AppFlow.ConnectorProfileGoogleAnalyticsConnectorProfileCredentials>;
+        googleAnalytics?: pulumi.Input<inputs.AppFlow.ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-infornexus
          */
-        inforNexus?: pulumi.Input<inputs.AppFlow.ConnectorProfileInforNexusConnectorProfileCredentials>;
+        inforNexus?: pulumi.Input<inputs.AppFlow.ConnectorProfileInforNexusConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-marketo
          */
-        marketo?: pulumi.Input<inputs.AppFlow.ConnectorProfileMarketoConnectorProfileCredentials>;
+        marketo?: pulumi.Input<inputs.AppFlow.ConnectorProfileMarketoConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-redshift
          */
-        redshift?: pulumi.Input<inputs.AppFlow.ConnectorProfileRedshiftConnectorProfileCredentials>;
+        redshift?: pulumi.Input<inputs.AppFlow.ConnectorProfileRedshiftConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-salesforce
          */
-        salesforce?: pulumi.Input<inputs.AppFlow.ConnectorProfileSalesforceConnectorProfileCredentials>;
+        salesforce?: pulumi.Input<inputs.AppFlow.ConnectorProfileSalesforceConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-servicenow
          */
-        serviceNow?: pulumi.Input<inputs.AppFlow.ConnectorProfileServiceNowConnectorProfileCredentials>;
+        serviceNow?: pulumi.Input<inputs.AppFlow.ConnectorProfileServiceNowConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-singular
          */
-        singular?: pulumi.Input<inputs.AppFlow.ConnectorProfileSingularConnectorProfileCredentials>;
+        singular?: pulumi.Input<inputs.AppFlow.ConnectorProfileSingularConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-slack
          */
-        slack?: pulumi.Input<inputs.AppFlow.ConnectorProfileSlackConnectorProfileCredentials>;
+        slack?: pulumi.Input<inputs.AppFlow.ConnectorProfileSlackConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-snowflake
          */
-        snowflake?: pulumi.Input<inputs.AppFlow.ConnectorProfileSnowflakeConnectorProfileCredentials>;
+        snowflake?: pulumi.Input<inputs.AppFlow.ConnectorProfileSnowflakeConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-trendmicro
          */
-        trendmicro?: pulumi.Input<inputs.AppFlow.ConnectorProfileTrendmicroConnectorProfileCredentials>;
+        trendmicro?: pulumi.Input<inputs.AppFlow.ConnectorProfileTrendmicroConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-veeva
          */
-        veeva?: pulumi.Input<inputs.AppFlow.ConnectorProfileVeevaConnectorProfileCredentials>;
+        veeva?: pulumi.Input<inputs.AppFlow.ConnectorProfileVeevaConnectorProfileCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-zendesk
          */
-        zendesk?: pulumi.Input<inputs.AppFlow.ConnectorProfileZendeskConnectorProfileCredentials>;
+        zendesk?: pulumi.Input<inputs.AppFlow.ConnectorProfileZendeskConnectorProfileCredentialsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html
      */
-    export interface ConnectorProfileConnectorProfileProperties {
+    export interface ConnectorProfileConnectorProfilePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-datadog
          */
-        datadog?: pulumi.Input<inputs.AppFlow.ConnectorProfileDatadogConnectorProfileProperties>;
+        datadog?: pulumi.Input<inputs.AppFlow.ConnectorProfileDatadogConnectorProfilePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-dynatrace
          */
-        dynatrace?: pulumi.Input<inputs.AppFlow.ConnectorProfileDynatraceConnectorProfileProperties>;
+        dynatrace?: pulumi.Input<inputs.AppFlow.ConnectorProfileDynatraceConnectorProfilePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-infornexus
          */
-        inforNexus?: pulumi.Input<inputs.AppFlow.ConnectorProfileInforNexusConnectorProfileProperties>;
+        inforNexus?: pulumi.Input<inputs.AppFlow.ConnectorProfileInforNexusConnectorProfilePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-marketo
          */
-        marketo?: pulumi.Input<inputs.AppFlow.ConnectorProfileMarketoConnectorProfileProperties>;
+        marketo?: pulumi.Input<inputs.AppFlow.ConnectorProfileMarketoConnectorProfilePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-redshift
          */
-        redshift?: pulumi.Input<inputs.AppFlow.ConnectorProfileRedshiftConnectorProfileProperties>;
+        redshift?: pulumi.Input<inputs.AppFlow.ConnectorProfileRedshiftConnectorProfilePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-salesforce
          */
-        salesforce?: pulumi.Input<inputs.AppFlow.ConnectorProfileSalesforceConnectorProfileProperties>;
+        salesforce?: pulumi.Input<inputs.AppFlow.ConnectorProfileSalesforceConnectorProfilePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-servicenow
          */
-        serviceNow?: pulumi.Input<inputs.AppFlow.ConnectorProfileServiceNowConnectorProfileProperties>;
+        serviceNow?: pulumi.Input<inputs.AppFlow.ConnectorProfileServiceNowConnectorProfilePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-slack
          */
-        slack?: pulumi.Input<inputs.AppFlow.ConnectorProfileSlackConnectorProfileProperties>;
+        slack?: pulumi.Input<inputs.AppFlow.ConnectorProfileSlackConnectorProfilePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-snowflake
          */
-        snowflake?: pulumi.Input<inputs.AppFlow.ConnectorProfileSnowflakeConnectorProfileProperties>;
+        snowflake?: pulumi.Input<inputs.AppFlow.ConnectorProfileSnowflakeConnectorProfilePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-veeva
          */
-        veeva?: pulumi.Input<inputs.AppFlow.ConnectorProfileVeevaConnectorProfileProperties>;
+        veeva?: pulumi.Input<inputs.AppFlow.ConnectorProfileVeevaConnectorProfilePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-zendesk
          */
-        zendesk?: pulumi.Input<inputs.AppFlow.ConnectorProfileZendeskConnectorProfileProperties>;
+        zendesk?: pulumi.Input<inputs.AppFlow.ConnectorProfileZendeskConnectorProfilePropertiesArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileDatadogConnectorProfileCredentials {
+    export interface ConnectorProfileDatadogConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-apikey
          */
@@ -385,7 +385,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html
      */
-    export interface ConnectorProfileDatadogConnectorProfileProperties {
+    export interface ConnectorProfileDatadogConnectorProfilePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html#cfn-appflow-connectorprofile-datadogconnectorprofileproperties-instanceurl
          */
@@ -395,7 +395,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileDynatraceConnectorProfileCredentials {
+    export interface ConnectorProfileDynatraceConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-dynatraceconnectorprofilecredentials-apitoken
          */
@@ -405,7 +405,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html
      */
-    export interface ConnectorProfileDynatraceConnectorProfileProperties {
+    export interface ConnectorProfileDynatraceConnectorProfilePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html#cfn-appflow-connectorprofile-dynatraceconnectorprofileproperties-instanceurl
          */
@@ -415,7 +415,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileGoogleAnalyticsConnectorProfileCredentials {
+    export interface ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-accesstoken
          */
@@ -431,7 +431,7 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-connectoroauthrequest
          */
-        connectorOAuthRequest?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorOAuthRequest>;
+        connectorOAuthRequest?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorOAuthRequestArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-refreshtoken
          */
@@ -441,7 +441,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileInforNexusConnectorProfileCredentials {
+    export interface ConnectorProfileInforNexusConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-accesskeyid
          */
@@ -463,7 +463,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html
      */
-    export interface ConnectorProfileInforNexusConnectorProfileProperties {
+    export interface ConnectorProfileInforNexusConnectorProfilePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html#cfn-appflow-connectorprofile-infornexusconnectorprofileproperties-instanceurl
          */
@@ -473,7 +473,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileMarketoConnectorProfileCredentials {
+    export interface ConnectorProfileMarketoConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-accesstoken
          */
@@ -489,13 +489,13 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-connectoroauthrequest
          */
-        connectorOAuthRequest?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorOAuthRequest>;
+        connectorOAuthRequest?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorOAuthRequestArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html
      */
-    export interface ConnectorProfileMarketoConnectorProfileProperties {
+    export interface ConnectorProfileMarketoConnectorProfilePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html#cfn-appflow-connectorprofile-marketoconnectorprofileproperties-instanceurl
          */
@@ -505,7 +505,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileRedshiftConnectorProfileCredentials {
+    export interface ConnectorProfileRedshiftConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html#cfn-appflow-connectorprofile-redshiftconnectorprofilecredentials-password
          */
@@ -519,7 +519,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html
      */
-    export interface ConnectorProfileRedshiftConnectorProfileProperties {
+    export interface ConnectorProfileRedshiftConnectorProfilePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketname
          */
@@ -541,7 +541,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileSalesforceConnectorProfileCredentials {
+    export interface ConnectorProfileSalesforceConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-accesstoken
          */
@@ -553,7 +553,7 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-connectoroauthrequest
          */
-        connectorOAuthRequest?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorOAuthRequest>;
+        connectorOAuthRequest?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorOAuthRequestArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-refreshtoken
          */
@@ -563,7 +563,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html
      */
-    export interface ConnectorProfileSalesforceConnectorProfileProperties {
+    export interface ConnectorProfileSalesforceConnectorProfilePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-instanceurl
          */
@@ -577,7 +577,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileServiceNowConnectorProfileCredentials {
+    export interface ConnectorProfileServiceNowConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-password
          */
@@ -591,7 +591,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html
      */
-    export interface ConnectorProfileServiceNowConnectorProfileProperties {
+    export interface ConnectorProfileServiceNowConnectorProfilePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html#cfn-appflow-connectorprofile-servicenowconnectorprofileproperties-instanceurl
          */
@@ -601,7 +601,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileSingularConnectorProfileCredentials {
+    export interface ConnectorProfileSingularConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html#cfn-appflow-connectorprofile-singularconnectorprofilecredentials-apikey
          */
@@ -611,7 +611,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileSlackConnectorProfileCredentials {
+    export interface ConnectorProfileSlackConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-accesstoken
          */
@@ -627,13 +627,13 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-connectoroauthrequest
          */
-        connectorOAuthRequest?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorOAuthRequest>;
+        connectorOAuthRequest?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorOAuthRequestArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html
      */
-    export interface ConnectorProfileSlackConnectorProfileProperties {
+    export interface ConnectorProfileSlackConnectorProfilePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html#cfn-appflow-connectorprofile-slackconnectorprofileproperties-instanceurl
          */
@@ -643,7 +643,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileSnowflakeConnectorProfileCredentials {
+    export interface ConnectorProfileSnowflakeConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-password
          */
@@ -657,7 +657,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html
      */
-    export interface ConnectorProfileSnowflakeConnectorProfileProperties {
+    export interface ConnectorProfileSnowflakeConnectorProfilePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-accountname
          */
@@ -691,7 +691,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileTrendmicroConnectorProfileCredentials {
+    export interface ConnectorProfileTrendmicroConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html#cfn-appflow-connectorprofile-trendmicroconnectorprofilecredentials-apisecretkey
          */
@@ -701,7 +701,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileVeevaConnectorProfileCredentials {
+    export interface ConnectorProfileVeevaConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html#cfn-appflow-connectorprofile-veevaconnectorprofilecredentials-password
          */
@@ -715,7 +715,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html
      */
-    export interface ConnectorProfileVeevaConnectorProfileProperties {
+    export interface ConnectorProfileVeevaConnectorProfilePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html#cfn-appflow-connectorprofile-veevaconnectorprofileproperties-instanceurl
          */
@@ -725,7 +725,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html
      */
-    export interface ConnectorProfileZendeskConnectorProfileCredentials {
+    export interface ConnectorProfileZendeskConnectorProfileCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-accesstoken
          */
@@ -741,13 +741,13 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-connectoroauthrequest
          */
-        connectorOAuthRequest?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorOAuthRequest>;
+        connectorOAuthRequest?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorOAuthRequestArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html
      */
-    export interface ConnectorProfileZendeskConnectorProfileProperties {
+    export interface ConnectorProfileZendeskConnectorProfilePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html#cfn-appflow-connectorprofile-zendeskconnectorprofileproperties-instanceurl
          */
@@ -757,7 +757,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html
      */
-    export interface FlowAggregationConfig {
+    export interface FlowAggregationConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-aggregationtype
          */
@@ -767,7 +767,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html
      */
-    export interface FlowAmplitudeSourceProperties {
+    export interface FlowAmplitudeSourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html#cfn-appflow-flow-amplitudesourceproperties-object
          */
@@ -777,7 +777,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html
      */
-    export interface FlowConnectorOperator {
+    export interface FlowConnectorOperatorArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-amplitude
          */
@@ -839,7 +839,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html
      */
-    export interface FlowDatadogSourceProperties {
+    export interface FlowDatadogSourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html#cfn-appflow-flow-datadogsourceproperties-object
          */
@@ -849,37 +849,37 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html
      */
-    export interface FlowDestinationConnectorProperties {
+    export interface FlowDestinationConnectorPropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
          */
-        eventBridge?: pulumi.Input<inputs.AppFlow.FlowEventBridgeDestinationProperties>;
+        eventBridge?: pulumi.Input<inputs.AppFlow.FlowEventBridgeDestinationPropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
          */
-        redshift?: pulumi.Input<inputs.AppFlow.FlowRedshiftDestinationProperties>;
+        redshift?: pulumi.Input<inputs.AppFlow.FlowRedshiftDestinationPropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
          */
-        s3?: pulumi.Input<inputs.AppFlow.FlowS3DestinationProperties>;
+        s3?: pulumi.Input<inputs.AppFlow.FlowS3DestinationPropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce
          */
-        salesforce?: pulumi.Input<inputs.AppFlow.FlowSalesforceDestinationProperties>;
+        salesforce?: pulumi.Input<inputs.AppFlow.FlowSalesforceDestinationPropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake
          */
-        snowflake?: pulumi.Input<inputs.AppFlow.FlowSnowflakeDestinationProperties>;
+        snowflake?: pulumi.Input<inputs.AppFlow.FlowSnowflakeDestinationPropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
          */
-        upsolver?: pulumi.Input<inputs.AppFlow.FlowUpsolverDestinationProperties>;
+        upsolver?: pulumi.Input<inputs.AppFlow.FlowUpsolverDestinationPropertiesArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html
      */
-    export interface FlowDestinationFlowConfig {
+    export interface FlowDestinationFlowConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectorprofilename
          */
@@ -891,13 +891,13 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-destinationconnectorproperties
          */
-        destinationConnectorProperties: pulumi.Input<inputs.AppFlow.FlowDestinationConnectorProperties>;
+        destinationConnectorProperties: pulumi.Input<inputs.AppFlow.FlowDestinationConnectorPropertiesArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-dynatracesourceproperties.html
      */
-    export interface FlowDynatraceSourceProperties {
+    export interface FlowDynatraceSourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-dynatracesourceproperties.html#cfn-appflow-flow-dynatracesourceproperties-object
          */
@@ -907,7 +907,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html
      */
-    export interface FlowErrorHandlingConfig {
+    export interface FlowErrorHandlingConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-bucketname
          */
@@ -925,11 +925,11 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html
      */
-    export interface FlowEventBridgeDestinationProperties {
+    export interface FlowEventBridgeDestinationPropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-errorhandlingconfig
          */
-        errorHandlingConfig?: pulumi.Input<inputs.AppFlow.FlowErrorHandlingConfig>;
+        errorHandlingConfig?: pulumi.Input<inputs.AppFlow.FlowErrorHandlingConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-object
          */
@@ -939,7 +939,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html
      */
-    export interface FlowGoogleAnalyticsSourceProperties {
+    export interface FlowGoogleAnalyticsSourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html#cfn-appflow-flow-googleanalyticssourceproperties-object
          */
@@ -949,7 +949,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html
      */
-    export interface FlowIncrementalPullConfig {
+    export interface FlowIncrementalPullConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html#cfn-appflow-flow-incrementalpullconfig-datetimetypefieldname
          */
@@ -959,7 +959,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html
      */
-    export interface FlowInforNexusSourceProperties {
+    export interface FlowInforNexusSourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html#cfn-appflow-flow-infornexussourceproperties-object
          */
@@ -969,7 +969,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html
      */
-    export interface FlowMarketoSourceProperties {
+    export interface FlowMarketoSourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html#cfn-appflow-flow-marketosourceproperties-object
          */
@@ -979,7 +979,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html
      */
-    export interface FlowPrefixConfig {
+    export interface FlowPrefixConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixformat
          */
@@ -993,7 +993,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html
      */
-    export interface FlowRedshiftDestinationProperties {
+    export interface FlowRedshiftDestinationPropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-bucketprefix
          */
@@ -1001,7 +1001,7 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-errorhandlingconfig
          */
-        errorHandlingConfig?: pulumi.Input<inputs.AppFlow.FlowErrorHandlingConfig>;
+        errorHandlingConfig?: pulumi.Input<inputs.AppFlow.FlowErrorHandlingConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-intermediatebucketname
          */
@@ -1015,7 +1015,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html
      */
-    export interface FlowS3DestinationProperties {
+    export interface FlowS3DestinationPropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketname
          */
@@ -1027,17 +1027,17 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-s3outputformatconfig
          */
-        s3OutputFormatConfig?: pulumi.Input<inputs.AppFlow.FlowS3OutputFormatConfig>;
+        s3OutputFormatConfig?: pulumi.Input<inputs.AppFlow.FlowS3OutputFormatConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html
      */
-    export interface FlowS3OutputFormatConfig {
+    export interface FlowS3OutputFormatConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-aggregationconfig
          */
-        aggregationConfig?: pulumi.Input<inputs.AppFlow.FlowAggregationConfig>;
+        aggregationConfig?: pulumi.Input<inputs.AppFlow.FlowAggregationConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-filetype
          */
@@ -1045,13 +1045,13 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-prefixconfig
          */
-        prefixConfig?: pulumi.Input<inputs.AppFlow.FlowPrefixConfig>;
+        prefixConfig?: pulumi.Input<inputs.AppFlow.FlowPrefixConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html
      */
-    export interface FlowS3SourceProperties {
+    export interface FlowS3SourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketname
          */
@@ -1065,11 +1065,11 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html
      */
-    export interface FlowSalesforceDestinationProperties {
+    export interface FlowSalesforceDestinationPropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-errorhandlingconfig
          */
-        errorHandlingConfig?: pulumi.Input<inputs.AppFlow.FlowErrorHandlingConfig>;
+        errorHandlingConfig?: pulumi.Input<inputs.AppFlow.FlowErrorHandlingConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
          */
@@ -1079,7 +1079,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html
      */
-    export interface FlowSalesforceSourceProperties {
+    export interface FlowSalesforceSourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-enabledynamicfieldupdate
          */
@@ -1097,7 +1097,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html
      */
-    export interface FlowScheduledTriggerProperties {
+    export interface FlowScheduledTriggerPropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-datapullmode
          */
@@ -1123,7 +1123,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html
      */
-    export interface FlowServiceNowSourceProperties {
+    export interface FlowServiceNowSourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html#cfn-appflow-flow-servicenowsourceproperties-object
          */
@@ -1133,7 +1133,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html
      */
-    export interface FlowSingularSourceProperties {
+    export interface FlowSingularSourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html#cfn-appflow-flow-singularsourceproperties-object
          */
@@ -1143,7 +1143,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html
      */
-    export interface FlowSlackSourceProperties {
+    export interface FlowSlackSourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html#cfn-appflow-flow-slacksourceproperties-object
          */
@@ -1153,7 +1153,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html
      */
-    export interface FlowSnowflakeDestinationProperties {
+    export interface FlowSnowflakeDestinationPropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-bucketprefix
          */
@@ -1161,7 +1161,7 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-errorhandlingconfig
          */
-        errorHandlingConfig?: pulumi.Input<inputs.AppFlow.FlowErrorHandlingConfig>;
+        errorHandlingConfig?: pulumi.Input<inputs.AppFlow.FlowErrorHandlingConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-intermediatebucketname
          */
@@ -1175,69 +1175,69 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html
      */
-    export interface FlowSourceConnectorProperties {
+    export interface FlowSourceConnectorPropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-amplitude
          */
-        amplitude?: pulumi.Input<inputs.AppFlow.FlowAmplitudeSourceProperties>;
+        amplitude?: pulumi.Input<inputs.AppFlow.FlowAmplitudeSourcePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-datadog
          */
-        datadog?: pulumi.Input<inputs.AppFlow.FlowDatadogSourceProperties>;
+        datadog?: pulumi.Input<inputs.AppFlow.FlowDatadogSourcePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-dynatrace
          */
-        dynatrace?: pulumi.Input<inputs.AppFlow.FlowDynatraceSourceProperties>;
+        dynatrace?: pulumi.Input<inputs.AppFlow.FlowDynatraceSourcePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-googleanalytics
          */
-        googleAnalytics?: pulumi.Input<inputs.AppFlow.FlowGoogleAnalyticsSourceProperties>;
+        googleAnalytics?: pulumi.Input<inputs.AppFlow.FlowGoogleAnalyticsSourcePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-infornexus
          */
-        inforNexus?: pulumi.Input<inputs.AppFlow.FlowInforNexusSourceProperties>;
+        inforNexus?: pulumi.Input<inputs.AppFlow.FlowInforNexusSourcePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-marketo
          */
-        marketo?: pulumi.Input<inputs.AppFlow.FlowMarketoSourceProperties>;
+        marketo?: pulumi.Input<inputs.AppFlow.FlowMarketoSourcePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-s3
          */
-        s3?: pulumi.Input<inputs.AppFlow.FlowS3SourceProperties>;
+        s3?: pulumi.Input<inputs.AppFlow.FlowS3SourcePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-salesforce
          */
-        salesforce?: pulumi.Input<inputs.AppFlow.FlowSalesforceSourceProperties>;
+        salesforce?: pulumi.Input<inputs.AppFlow.FlowSalesforceSourcePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-servicenow
          */
-        serviceNow?: pulumi.Input<inputs.AppFlow.FlowServiceNowSourceProperties>;
+        serviceNow?: pulumi.Input<inputs.AppFlow.FlowServiceNowSourcePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-singular
          */
-        singular?: pulumi.Input<inputs.AppFlow.FlowSingularSourceProperties>;
+        singular?: pulumi.Input<inputs.AppFlow.FlowSingularSourcePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-slack
          */
-        slack?: pulumi.Input<inputs.AppFlow.FlowSlackSourceProperties>;
+        slack?: pulumi.Input<inputs.AppFlow.FlowSlackSourcePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-trendmicro
          */
-        trendmicro?: pulumi.Input<inputs.AppFlow.FlowTrendmicroSourceProperties>;
+        trendmicro?: pulumi.Input<inputs.AppFlow.FlowTrendmicroSourcePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-veeva
          */
-        veeva?: pulumi.Input<inputs.AppFlow.FlowVeevaSourceProperties>;
+        veeva?: pulumi.Input<inputs.AppFlow.FlowVeevaSourcePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-zendesk
          */
-        zendesk?: pulumi.Input<inputs.AppFlow.FlowZendeskSourceProperties>;
+        zendesk?: pulumi.Input<inputs.AppFlow.FlowZendeskSourcePropertiesArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html
      */
-    export interface FlowSourceFlowConfig {
+    export interface FlowSourceFlowConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectorprofilename
          */
@@ -1249,21 +1249,21 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-incrementalpullconfig
          */
-        incrementalPullConfig?: pulumi.Input<inputs.AppFlow.FlowIncrementalPullConfig>;
+        incrementalPullConfig?: pulumi.Input<inputs.AppFlow.FlowIncrementalPullConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-sourceconnectorproperties
          */
-        sourceConnectorProperties: pulumi.Input<inputs.AppFlow.FlowSourceConnectorProperties>;
+        sourceConnectorProperties: pulumi.Input<inputs.AppFlow.FlowSourceConnectorPropertiesArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html
      */
-    export interface FlowTask {
+    export interface FlowTaskArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator
          */
-        connectorOperator?: pulumi.Input<inputs.AppFlow.FlowConnectorOperator>;
+        connectorOperator?: pulumi.Input<inputs.AppFlow.FlowConnectorOperatorArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-destinationfield
          */
@@ -1275,7 +1275,7 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
          */
-        taskProperties?: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowTaskPropertiesObject>[]>;
+        taskProperties?: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowTaskPropertiesObjectArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-tasktype
          */
@@ -1285,7 +1285,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html
      */
-    export interface FlowTaskPropertiesObject {
+    export interface FlowTaskPropertiesObjectArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-key
          */
@@ -1299,7 +1299,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html
      */
-    export interface FlowTrendmicroSourceProperties {
+    export interface FlowTrendmicroSourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html#cfn-appflow-flow-trendmicrosourceproperties-object
          */
@@ -1309,11 +1309,11 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html
      */
-    export interface FlowTriggerConfig {
+    export interface FlowTriggerConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggerproperties
          */
-        triggerProperties?: pulumi.Input<inputs.AppFlow.FlowScheduledTriggerProperties>;
+        triggerProperties?: pulumi.Input<inputs.AppFlow.FlowScheduledTriggerPropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggertype
          */
@@ -1323,7 +1323,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html
      */
-    export interface FlowUpsolverDestinationProperties {
+    export interface FlowUpsolverDestinationPropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketname
          */
@@ -1335,17 +1335,17 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-s3outputformatconfig
          */
-        s3OutputFormatConfig: pulumi.Input<inputs.AppFlow.FlowUpsolverS3OutputFormatConfig>;
+        s3OutputFormatConfig: pulumi.Input<inputs.AppFlow.FlowUpsolverS3OutputFormatConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html
      */
-    export interface FlowUpsolverS3OutputFormatConfig {
+    export interface FlowUpsolverS3OutputFormatConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-aggregationconfig
          */
-        aggregationConfig?: pulumi.Input<inputs.AppFlow.FlowAggregationConfig>;
+        aggregationConfig?: pulumi.Input<inputs.AppFlow.FlowAggregationConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-filetype
          */
@@ -1353,13 +1353,13 @@ export namespace AppFlow {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-prefixconfig
          */
-        prefixConfig: pulumi.Input<inputs.AppFlow.FlowPrefixConfig>;
+        prefixConfig: pulumi.Input<inputs.AppFlow.FlowPrefixConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html
      */
-    export interface FlowVeevaSourceProperties {
+    export interface FlowVeevaSourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-object
          */
@@ -1369,7 +1369,7 @@ export namespace AppFlow {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html
      */
-    export interface FlowZendeskSourceProperties {
+    export interface FlowZendeskSourcePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html#cfn-appflow-flow-zendesksourceproperties-object
          */
@@ -1381,7 +1381,7 @@ export namespace ApplicationInsights {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html
      */
-    export interface ApplicationAlarm {
+    export interface ApplicationAlarmArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-alarmname
          */
@@ -1395,7 +1395,7 @@ export namespace ApplicationInsights {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html
      */
-    export interface ApplicationAlarmMetric {
+    export interface ApplicationAlarmMetricArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
          */
@@ -1405,21 +1405,21 @@ export namespace ApplicationInsights {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html
      */
-    export interface ApplicationComponentConfiguration {
+    export interface ApplicationComponentConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-configurationdetails
          */
-        configurationDetails?: pulumi.Input<inputs.ApplicationInsights.ApplicationConfigurationDetails>;
+        configurationDetails?: pulumi.Input<inputs.ApplicationInsights.ApplicationConfigurationDetailsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-subcomponenttypeconfigurations
          */
-        subComponentTypeConfigurations?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationSubComponentTypeConfiguration>[]>;
+        subComponentTypeConfigurations?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationSubComponentTypeConfigurationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html
      */
-    export interface ApplicationComponentMonitoringSetting {
+    export interface ApplicationComponentMonitoringSettingArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
          */
@@ -1435,11 +1435,11 @@ export namespace ApplicationInsights {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-customcomponentconfiguration
          */
-        customComponentConfiguration?: pulumi.Input<inputs.ApplicationInsights.ApplicationComponentConfiguration>;
+        customComponentConfiguration?: pulumi.Input<inputs.ApplicationInsights.ApplicationComponentConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration
          */
-        defaultOverwriteComponentConfiguration?: pulumi.Input<inputs.ApplicationInsights.ApplicationComponentConfiguration>;
+        defaultOverwriteComponentConfiguration?: pulumi.Input<inputs.ApplicationInsights.ApplicationComponentConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
          */
@@ -1449,33 +1449,33 @@ export namespace ApplicationInsights {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html
      */
-    export interface ApplicationConfigurationDetails {
+    export interface ApplicationConfigurationDetailsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
          */
-        alarmMetrics?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationAlarmMetric>[]>;
+        alarmMetrics?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationAlarmMetricArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
          */
-        alarms?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationAlarm>[]>;
+        alarms?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationAlarmArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
          */
-        jMXPrometheusExporter?: pulumi.Input<inputs.ApplicationInsights.ApplicationJMXPrometheusExporter>;
+        jMXPrometheusExporter?: pulumi.Input<inputs.ApplicationInsights.ApplicationJMXPrometheusExporterArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
          */
-        logs?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationLog>[]>;
+        logs?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationLogArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
          */
-        windowsEvents?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationWindowsEvent>[]>;
+        windowsEvents?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationWindowsEventArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html
      */
-    export interface ApplicationCustomComponent {
+    export interface ApplicationCustomComponentArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-componentname
          */
@@ -1489,7 +1489,7 @@ export namespace ApplicationInsights {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html
      */
-    export interface ApplicationJMXPrometheusExporter {
+    export interface ApplicationJMXPrometheusExporterArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-hostport
          */
@@ -1507,7 +1507,7 @@ export namespace ApplicationInsights {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html
      */
-    export interface ApplicationLog {
+    export interface ApplicationLogArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-encoding
          */
@@ -1533,7 +1533,7 @@ export namespace ApplicationInsights {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html
      */
-    export interface ApplicationLogPattern {
+    export interface ApplicationLogPatternArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
          */
@@ -1551,11 +1551,11 @@ export namespace ApplicationInsights {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html
      */
-    export interface ApplicationLogPatternSet {
+    export interface ApplicationLogPatternSetArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
          */
-        logPatterns: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationLogPattern>[]>;
+        logPatterns: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationLogPatternArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
          */
@@ -1565,29 +1565,29 @@ export namespace ApplicationInsights {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html
      */
-    export interface ApplicationSubComponentConfigurationDetails {
+    export interface ApplicationSubComponentConfigurationDetailsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics
          */
-        alarmMetrics?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationAlarmMetric>[]>;
+        alarmMetrics?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationAlarmMetricArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
          */
-        logs?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationLog>[]>;
+        logs?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationLogArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents
          */
-        windowsEvents?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationWindowsEvent>[]>;
+        windowsEvents?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationWindowsEventArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html
      */
-    export interface ApplicationSubComponentTypeConfiguration {
+    export interface ApplicationSubComponentTypeConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails
          */
-        subComponentConfigurationDetails: pulumi.Input<inputs.ApplicationInsights.ApplicationSubComponentConfigurationDetails>;
+        subComponentConfigurationDetails: pulumi.Input<inputs.ApplicationInsights.ApplicationSubComponentConfigurationDetailsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype
          */
@@ -1597,7 +1597,7 @@ export namespace ApplicationInsights {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html
      */
-    export interface ApplicationWindowsEvent {
+    export interface ApplicationWindowsEventArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels
          */
@@ -1621,17 +1621,17 @@ export namespace Athena {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html
      */
-    export interface DataCatalogTags {
+    export interface DataCatalogTagsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
          */
-        tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+        tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html
      */
-    export interface WorkGroupEncryptionConfiguration {
+    export interface WorkGroupEncryptionConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-encryptionoption
          */
@@ -1645,11 +1645,11 @@ export namespace Athena {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html
      */
-    export interface WorkGroupResultConfiguration {
+    export interface WorkGroupResultConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-encryptionconfiguration
          */
-        encryptionConfiguration?: pulumi.Input<inputs.Athena.WorkGroupEncryptionConfiguration>;
+        encryptionConfiguration?: pulumi.Input<inputs.Athena.WorkGroupEncryptionConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-outputlocation
          */
@@ -1659,11 +1659,11 @@ export namespace Athena {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html
      */
-    export interface WorkGroupResultConfigurationUpdates {
+    export interface WorkGroupResultConfigurationUpdatesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-encryptionconfiguration
          */
-        encryptionConfiguration?: pulumi.Input<inputs.Athena.WorkGroupEncryptionConfiguration>;
+        encryptionConfiguration?: pulumi.Input<inputs.Athena.WorkGroupEncryptionConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-outputlocation
          */
@@ -1681,17 +1681,17 @@ export namespace Athena {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html
      */
-    export interface WorkGroupTags {
+    export interface WorkGroupTagsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html#cfn-athena-workgroup-tags-tags
          */
-        tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+        tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html
      */
-    export interface WorkGroupWorkGroupConfiguration {
+    export interface WorkGroupWorkGroupConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
          */
@@ -1711,13 +1711,13 @@ export namespace Athena {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration
          */
-        resultConfiguration?: pulumi.Input<inputs.Athena.WorkGroupResultConfiguration>;
+        resultConfiguration?: pulumi.Input<inputs.Athena.WorkGroupResultConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html
      */
-    export interface WorkGroupWorkGroupConfigurationUpdates {
+    export interface WorkGroupWorkGroupConfigurationUpdatesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-bytesscannedcutoffperquery
          */
@@ -1741,7 +1741,7 @@ export namespace Athena {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-resultconfigurationupdates
          */
-        resultConfigurationUpdates?: pulumi.Input<inputs.Athena.WorkGroupResultConfigurationUpdates>;
+        resultConfigurationUpdates?: pulumi.Input<inputs.Athena.WorkGroupResultConfigurationUpdatesArgs>;
     }
 }
 
@@ -1749,7 +1749,7 @@ export namespace AuditManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html
      */
-    export interface AssessmentAWSAccount {
+    export interface AssessmentAWSAccountArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
          */
@@ -1767,17 +1767,17 @@ export namespace AuditManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html
      */
-    export interface AssessmentAWSAccounts {
+    export interface AssessmentAWSAccountsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
          */
-        aWSAccounts?: pulumi.Input<pulumi.Input<inputs.AuditManager.AssessmentAWSAccount>[]>;
+        aWSAccounts?: pulumi.Input<pulumi.Input<inputs.AuditManager.AssessmentAWSAccountArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
      */
-    export interface AssessmentAWSService {
+    export interface AssessmentAWSServiceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
          */
@@ -1787,17 +1787,17 @@ export namespace AuditManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html
      */
-    export interface AssessmentAWSServices {
+    export interface AssessmentAWSServicesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
          */
-        aWSServices?: pulumi.Input<pulumi.Input<inputs.AuditManager.AssessmentAWSService>[]>;
+        aWSServices?: pulumi.Input<pulumi.Input<inputs.AuditManager.AssessmentAWSServiceArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html
      */
-    export interface AssessmentAssessmentReportsDestination {
+    export interface AssessmentAssessmentReportsDestinationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destination
          */
@@ -1811,7 +1811,7 @@ export namespace AuditManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
      */
-    export interface AssessmentRole {
+    export interface AssessmentRoleArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn
          */
@@ -1825,35 +1825,35 @@ export namespace AuditManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html
      */
-    export interface AssessmentRoles {
+    export interface AssessmentRolesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html#cfn-auditmanager-assessment-roles-roles
          */
-        roles?: pulumi.Input<pulumi.Input<inputs.AuditManager.AssessmentRole>[]>;
+        roles?: pulumi.Input<pulumi.Input<inputs.AuditManager.AssessmentRoleArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
      */
-    export interface AssessmentScope {
+    export interface AssessmentScopeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
          */
-        awsAccounts?: pulumi.Input<inputs.AuditManager.AssessmentAWSAccounts>;
+        awsAccounts?: pulumi.Input<inputs.AuditManager.AssessmentAWSAccountsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
          */
-        awsServices?: pulumi.Input<inputs.AuditManager.AssessmentAWSServices>;
+        awsServices?: pulumi.Input<inputs.AuditManager.AssessmentAWSServicesArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html
      */
-    export interface AssessmentTags {
+    export interface AssessmentTagsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html#cfn-auditmanager-assessment-tags-tags
          */
-        tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+        tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     }
 }
 
@@ -1861,7 +1861,7 @@ export namespace Backup {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html
      */
-    export interface BackupPlanAdvancedBackupSettingResourceType {
+    export interface BackupPlanAdvancedBackupSettingResourceTypeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions
          */
@@ -1875,11 +1875,11 @@ export namespace Backup {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html
      */
-    export interface BackupPlanBackupPlanResourceType {
+    export interface BackupPlanBackupPlanResourceTypeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
          */
-        advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.Backup.BackupPlanAdvancedBackupSettingResourceType>[]>;
+        advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.Backup.BackupPlanAdvancedBackupSettingResourceTypeArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
          */
@@ -1887,13 +1887,13 @@ export namespace Backup {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
          */
-        backupPlanRule: pulumi.Input<pulumi.Input<inputs.Backup.BackupPlanBackupRuleResourceType>[]>;
+        backupPlanRule: pulumi.Input<pulumi.Input<inputs.Backup.BackupPlanBackupRuleResourceTypeArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html
      */
-    export interface BackupPlanBackupRuleResourceType {
+    export interface BackupPlanBackupRuleResourceTypeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-completionwindowminutes
          */
@@ -1901,11 +1901,11 @@ export namespace Backup {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
          */
-        copyActions?: pulumi.Input<pulumi.Input<inputs.Backup.BackupPlanCopyActionResourceType>[]>;
+        copyActions?: pulumi.Input<pulumi.Input<inputs.Backup.BackupPlanCopyActionResourceTypeArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
          */
-        lifecycle?: pulumi.Input<inputs.Backup.BackupPlanLifecycleResourceType>;
+        lifecycle?: pulumi.Input<inputs.Backup.BackupPlanLifecycleResourceTypeArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
          */
@@ -1931,7 +1931,7 @@ export namespace Backup {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html
      */
-    export interface BackupPlanCopyActionResourceType {
+    export interface BackupPlanCopyActionResourceTypeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-destinationbackupvaultarn
          */
@@ -1939,13 +1939,13 @@ export namespace Backup {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-lifecycle
          */
-        lifecycle?: pulumi.Input<inputs.Backup.BackupPlanLifecycleResourceType>;
+        lifecycle?: pulumi.Input<inputs.Backup.BackupPlanLifecycleResourceTypeArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html
      */
-    export interface BackupPlanLifecycleResourceType {
+    export interface BackupPlanLifecycleResourceTypeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-deleteafterdays
          */
@@ -1959,7 +1959,7 @@ export namespace Backup {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html
      */
-    export interface BackupVaultNotificationObjectType {
+    export interface BackupVaultNotificationObjectTypeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents
          */
@@ -1975,7 +1975,7 @@ export namespace Cassandra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html
      */
-    export interface TableBillingMode {
+    export interface TableBillingModeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-mode
          */
@@ -1983,17 +1983,17 @@ export namespace Cassandra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-provisionedthroughput
          */
-        provisionedThroughput?: pulumi.Input<inputs.Cassandra.TableProvisionedThroughput>;
+        provisionedThroughput?: pulumi.Input<inputs.Cassandra.TableProvisionedThroughputArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html
      */
-    export interface TableClusteringKeyColumn {
+    export interface TableClusteringKeyColumnArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-column
          */
-        column: pulumi.Input<inputs.Cassandra.TableColumn>;
+        column: pulumi.Input<inputs.Cassandra.TableColumnArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-orderby
          */
@@ -2003,7 +2003,7 @@ export namespace Cassandra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html
      */
-    export interface TableColumn {
+    export interface TableColumnArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columnname
          */
@@ -2017,7 +2017,7 @@ export namespace Cassandra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html
      */
-    export interface TableProvisionedThroughput {
+    export interface TableProvisionedThroughputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-readcapacityunits
          */
@@ -2033,7 +2033,7 @@ export namespace CloudFormation {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html
      */
-    export interface StackSetAutoDeployment {
+    export interface StackSetAutoDeploymentArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
          */
@@ -2047,7 +2047,7 @@ export namespace CloudFormation {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
      */
-    export interface StackSetDeploymentTargets {
+    export interface StackSetDeploymentTargetsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
          */
@@ -2061,7 +2061,7 @@ export namespace CloudFormation {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html
      */
-    export interface StackSetOperationPreferences {
+    export interface StackSetOperationPreferencesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
          */
@@ -2087,7 +2087,7 @@ export namespace CloudFormation {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html
      */
-    export interface StackSetParameter {
+    export interface StackSetParameterArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parameterkey
          */
@@ -2101,15 +2101,15 @@ export namespace CloudFormation {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
      */
-    export interface StackSetStackInstances {
+    export interface StackSetStackInstancesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
          */
-        deploymentTargets: pulumi.Input<inputs.CloudFormation.StackSetDeploymentTargets>;
+        deploymentTargets: pulumi.Input<inputs.CloudFormation.StackSetDeploymentTargetsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
          */
-        parameterOverrides?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetParameter>[]>;
+        parameterOverrides?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetParameterArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
          */
@@ -2121,7 +2121,7 @@ export namespace CloudFront {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html
      */
-    export interface CachePolicyCachePolicyConfig {
+    export interface CachePolicyCachePolicyConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment
          */
@@ -2145,13 +2145,13 @@ export namespace CloudFront {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
          */
-        parametersInCacheKeyAndForwardedToOrigin: pulumi.Input<inputs.CloudFront.CachePolicyParametersInCacheKeyAndForwardedToOrigin>;
+        parametersInCacheKeyAndForwardedToOrigin: pulumi.Input<inputs.CloudFront.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html
      */
-    export interface CachePolicyCookiesConfig {
+    export interface CachePolicyCookiesConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
          */
@@ -2165,7 +2165,7 @@ export namespace CloudFront {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html
      */
-    export interface CachePolicyHeadersConfig {
+    export interface CachePolicyHeadersConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior
          */
@@ -2179,11 +2179,11 @@ export namespace CloudFront {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html
      */
-    export interface CachePolicyParametersInCacheKeyAndForwardedToOrigin {
+    export interface CachePolicyParametersInCacheKeyAndForwardedToOriginArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
          */
-        cookiesConfig: pulumi.Input<inputs.CloudFront.CachePolicyCookiesConfig>;
+        cookiesConfig: pulumi.Input<inputs.CloudFront.CachePolicyCookiesConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli
          */
@@ -2195,17 +2195,17 @@ export namespace CloudFront {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
          */
-        headersConfig: pulumi.Input<inputs.CloudFront.CachePolicyHeadersConfig>;
+        headersConfig: pulumi.Input<inputs.CloudFront.CachePolicyHeadersConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
          */
-        queryStringsConfig: pulumi.Input<inputs.CloudFront.CachePolicyQueryStringsConfig>;
+        queryStringsConfig: pulumi.Input<inputs.CloudFront.CachePolicyQueryStringsConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html
      */
-    export interface CachePolicyQueryStringsConfig {
+    export interface CachePolicyQueryStringsConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior
          */
@@ -2219,7 +2219,7 @@ export namespace CloudFront {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html
      */
-    export interface CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig {
+    export interface CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
          */
@@ -2229,7 +2229,7 @@ export namespace CloudFront {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html
      */
-    export interface KeyGroupKeyGroupConfig {
+    export interface KeyGroupKeyGroupConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
          */
@@ -2247,7 +2247,7 @@ export namespace CloudFront {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html
      */
-    export interface OriginRequestPolicyCookiesConfig {
+    export interface OriginRequestPolicyCookiesConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookiebehavior
          */
@@ -2261,7 +2261,7 @@ export namespace CloudFront {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html
      */
-    export interface OriginRequestPolicyHeadersConfig {
+    export interface OriginRequestPolicyHeadersConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headerbehavior
          */
@@ -2275,7 +2275,7 @@ export namespace CloudFront {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html
      */
-    export interface OriginRequestPolicyOriginRequestPolicyConfig {
+    export interface OriginRequestPolicyOriginRequestPolicyConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
          */
@@ -2283,11 +2283,11 @@ export namespace CloudFront {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
          */
-        cookiesConfig: pulumi.Input<inputs.CloudFront.OriginRequestPolicyCookiesConfig>;
+        cookiesConfig: pulumi.Input<inputs.CloudFront.OriginRequestPolicyCookiesConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
          */
-        headersConfig: pulumi.Input<inputs.CloudFront.OriginRequestPolicyHeadersConfig>;
+        headersConfig: pulumi.Input<inputs.CloudFront.OriginRequestPolicyHeadersConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
          */
@@ -2295,13 +2295,13 @@ export namespace CloudFront {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
          */
-        queryStringsConfig: pulumi.Input<inputs.CloudFront.OriginRequestPolicyQueryStringsConfig>;
+        queryStringsConfig: pulumi.Input<inputs.CloudFront.OriginRequestPolicyQueryStringsConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html
      */
-    export interface OriginRequestPolicyQueryStringsConfig {
+    export interface OriginRequestPolicyQueryStringsConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystringbehavior
          */
@@ -2315,7 +2315,7 @@ export namespace CloudFront {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html
      */
-    export interface PublicKeyPublicKeyConfig {
+    export interface PublicKeyPublicKeyConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-callerreference
          */
@@ -2337,11 +2337,11 @@ export namespace CloudFront {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html
      */
-    export interface RealtimeLogConfigEndPoint {
+    export interface RealtimeLogConfigEndPointArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
          */
-        kinesisStreamConfig: pulumi.Input<inputs.CloudFront.RealtimeLogConfigKinesisStreamConfig>;
+        kinesisStreamConfig: pulumi.Input<inputs.CloudFront.RealtimeLogConfigKinesisStreamConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype
          */
@@ -2351,7 +2351,7 @@ export namespace CloudFront {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html
      */
-    export interface RealtimeLogConfigKinesisStreamConfig {
+    export interface RealtimeLogConfigKinesisStreamConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-rolearn
          */
@@ -2367,7 +2367,7 @@ export namespace CloudWatch {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html
      */
-    export interface MetricStreamMetricStreamFilter {
+    export interface MetricStreamMetricStreamFilterArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace
          */
@@ -2379,7 +2379,7 @@ export namespace CodeGuruProfiler {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html
      */
-    export interface ProfilingGroupChannel {
+    export interface ProfilingGroupChannelArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
          */
@@ -2395,7 +2395,7 @@ export namespace Configuration {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html
      */
-    export interface ConformancePackConformancePackInputParameter {
+    export interface ConformancePackConformancePackInputParameterArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametername
          */
@@ -2409,7 +2409,7 @@ export namespace Configuration {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html
      */
-    export interface OrganizationConformancePackConformancePackInputParameter {
+    export interface OrganizationConformancePackConformancePackInputParameterArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametername
          */
@@ -2425,7 +2425,7 @@ export namespace DataBrew {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html
      */
-    export interface JobOutput {
+    export interface JobOutputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-compressionformat
          */
@@ -2437,7 +2437,7 @@ export namespace DataBrew {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
          */
-        location: pulumi.Input<inputs.DataBrew.JobS3Location>;
+        location: pulumi.Input<inputs.DataBrew.JobS3LocationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-overwrite
          */
@@ -2451,7 +2451,7 @@ export namespace DataBrew {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html
      */
-    export interface JobS3Location {
+    export interface JobS3LocationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-bucket
          */
@@ -2465,7 +2465,7 @@ export namespace DataBrew {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html
      */
-    export interface RecipeAction {
+    export interface RecipeActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
          */
@@ -2479,7 +2479,7 @@ export namespace DataBrew {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html
      */
-    export interface RecipeConditionExpression {
+    export interface RecipeConditionExpressionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-condition
          */
@@ -2497,15 +2497,15 @@ export namespace DataBrew {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html
      */
-    export interface RecipeRecipeStep {
+    export interface RecipeRecipeStepArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-action
          */
-        action: pulumi.Input<inputs.DataBrew.RecipeAction>;
+        action: pulumi.Input<inputs.DataBrew.RecipeActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions
          */
-        conditionExpressions?: pulumi.Input<pulumi.Input<inputs.DataBrew.RecipeConditionExpression>[]>;
+        conditionExpressions?: pulumi.Input<pulumi.Input<inputs.DataBrew.RecipeConditionExpressionArgs>[]>;
     }
 
 }
@@ -2514,17 +2514,17 @@ export namespace DevOpsGuru {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html
      */
-    export interface NotificationChannelNotificationChannelConfig {
+    export interface NotificationChannelNotificationChannelConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-sns
          */
-        sns?: pulumi.Input<inputs.DevOpsGuru.NotificationChannelSnsChannelConfig>;
+        sns?: pulumi.Input<inputs.DevOpsGuru.NotificationChannelSnsChannelConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html
      */
-    export interface NotificationChannelSnsChannelConfig {
+    export interface NotificationChannelSnsChannelConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html#cfn-devopsguru-notificationchannel-snschannelconfig-topicarn
          */
@@ -2534,7 +2534,7 @@ export namespace DevOpsGuru {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html
      */
-    export interface ResourceCollectionCloudFormationCollectionFilter {
+    export interface ResourceCollectionCloudFormationCollectionFilterArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
          */
@@ -2544,11 +2544,11 @@ export namespace DevOpsGuru {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html
      */
-    export interface ResourceCollectionResourceCollectionFilter {
+    export interface ResourceCollectionResourceCollectionFilterArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation
          */
-        cloudFormation?: pulumi.Input<inputs.DevOpsGuru.ResourceCollectionCloudFormationCollectionFilter>;
+        cloudFormation?: pulumi.Input<inputs.DevOpsGuru.ResourceCollectionCloudFormationCollectionFilterArgs>;
     }
 }
 
@@ -2556,27 +2556,27 @@ export namespace EC2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html
      */
-    export interface CarrierGatewayTags {
+    export interface CarrierGatewayTagsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html#cfn-ec2-carriergateway-tags-tags
          */
-        tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+        tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html
      */
-    export interface LocalGatewayRouteTableVPCAssociationTags {
+    export interface LocalGatewayRouteTableVPCAssociationTagsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html#cfn-ec2-localgatewayroutetablevpcassociation-tags-tags
          */
-        tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+        tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html
      */
-    export interface PrefixListEntry {
+    export interface PrefixListEntryArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-cidr
          */
@@ -2592,7 +2592,7 @@ export namespace ECR {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html
      */
-    export interface RepositoryLifecyclePolicy {
+    export interface RepositoryLifecyclePolicyArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext
          */
@@ -2608,7 +2608,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html
      */
-    export interface CapacityProviderAutoScalingGroupProvider {
+    export interface CapacityProviderAutoScalingGroupProviderArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-autoscalinggrouparn
          */
@@ -2616,7 +2616,7 @@ export namespace ECS {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedscaling
          */
-        managedScaling?: pulumi.Input<inputs.ECS.CapacityProviderManagedScaling>;
+        managedScaling?: pulumi.Input<inputs.ECS.CapacityProviderManagedScalingArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedterminationprotection
          */
@@ -2626,7 +2626,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html
      */
-    export interface CapacityProviderManagedScaling {
+    export interface CapacityProviderManagedScalingArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
          */
@@ -2648,7 +2648,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html
      */
-    export interface ClusterCapacityProviderStrategyItem {
+    export interface ClusterCapacityProviderStrategyItemArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-base
          */
@@ -2666,7 +2666,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html
      */
-    export interface ClusterClusterSettings {
+    export interface ClusterClusterSettingsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-name
          */
@@ -2680,7 +2680,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html
      */
-    export interface ServiceAwsVpcConfiguration {
+    export interface ServiceAwsVpcConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-assignpublicip
          */
@@ -2698,7 +2698,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html
      */
-    export interface ServiceCapacityProviderStrategyItem {
+    export interface ServiceCapacityProviderStrategyItemArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-base
          */
@@ -2716,7 +2716,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html
      */
-    export interface ServiceDeploymentCircuitBreaker {
+    export interface ServiceDeploymentCircuitBreakerArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-enable
          */
@@ -2730,11 +2730,11 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html
      */
-    export interface ServiceDeploymentConfiguration {
+    export interface ServiceDeploymentConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker
          */
-        deploymentCircuitBreaker?: pulumi.Input<inputs.ECS.ServiceDeploymentCircuitBreaker>;
+        deploymentCircuitBreaker?: pulumi.Input<inputs.ECS.ServiceDeploymentCircuitBreakerArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent
          */
@@ -2748,7 +2748,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html
      */
-    export interface ServiceDeploymentController {
+    export interface ServiceDeploymentControllerArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html#cfn-ecs-service-deploymentcontroller-type
          */
@@ -2758,7 +2758,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html
      */
-    export interface ServiceLoadBalancer {
+    export interface ServiceLoadBalancerArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containername
          */
@@ -2780,17 +2780,17 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html
      */
-    export interface ServiceNetworkConfiguration {
+    export interface ServiceNetworkConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
          */
-        awsvpcConfiguration?: pulumi.Input<inputs.ECS.ServiceAwsVpcConfiguration>;
+        awsvpcConfiguration?: pulumi.Input<inputs.ECS.ServiceAwsVpcConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html
      */
-    export interface ServicePlacementConstraint {
+    export interface ServicePlacementConstraintArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html#cfn-ecs-service-placementconstraint-expression
          */
@@ -2804,7 +2804,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html
      */
-    export interface ServicePlacementStrategy {
+    export interface ServicePlacementStrategyArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html#cfn-ecs-service-placementstrategy-field
          */
@@ -2818,7 +2818,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html
      */
-    export interface ServiceServiceRegistry {
+    export interface ServiceServiceRegistryArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-containername
          */
@@ -2840,7 +2840,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html
      */
-    export interface TaskDefinitionContainerDefinition {
+    export interface TaskDefinitionContainerDefinitionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-command
          */
@@ -2852,7 +2852,7 @@ export namespace ECS {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dependson
          */
-        dependsOn?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionContainerDependency>[]>;
+        dependsOn?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionContainerDependencyArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-disablenetworking
          */
@@ -2880,11 +2880,11 @@ export namespace ECS {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environment
          */
-        environment?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionKeyValuePair>[]>;
+        environment?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionKeyValuePairArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles
          */
-        environmentFiles?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionEnvironmentFile>[]>;
+        environmentFiles?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionEnvironmentFileArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential
          */
@@ -2892,15 +2892,15 @@ export namespace ECS {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts
          */
-        extraHosts?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionHostEntry>[]>;
+        extraHosts?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionHostEntryArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration
          */
-        firelensConfiguration?: pulumi.Input<inputs.ECS.TaskDefinitionFirelensConfiguration>;
+        firelensConfiguration?: pulumi.Input<inputs.ECS.TaskDefinitionFirelensConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-healthcheck
          */
-        healthCheck?: pulumi.Input<inputs.ECS.TaskDefinitionHealthCheck>;
+        healthCheck?: pulumi.Input<inputs.ECS.TaskDefinitionHealthCheckArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-hostname
          */
@@ -2920,11 +2920,11 @@ export namespace ECS {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-linuxparameters
          */
-        linuxParameters?: pulumi.Input<inputs.ECS.TaskDefinitionLinuxParameters>;
+        linuxParameters?: pulumi.Input<inputs.ECS.TaskDefinitionLinuxParametersArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration
          */
-        logConfiguration?: pulumi.Input<inputs.ECS.TaskDefinitionLogConfiguration>;
+        logConfiguration?: pulumi.Input<inputs.ECS.TaskDefinitionLogConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memory
          */
@@ -2936,7 +2936,7 @@ export namespace ECS {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints
          */
-        mountPoints?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionMountPoint>[]>;
+        mountPoints?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionMountPointArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-name
          */
@@ -2944,7 +2944,7 @@ export namespace ECS {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-portmappings
          */
-        portMappings?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionPortMapping>[]>;
+        portMappings?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionPortMappingArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-privileged
          */
@@ -2960,15 +2960,15 @@ export namespace ECS {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
          */
-        repositoryCredentials?: pulumi.Input<inputs.ECS.TaskDefinitionRepositoryCredentials>;
+        repositoryCredentials?: pulumi.Input<inputs.ECS.TaskDefinitionRepositoryCredentialsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements
          */
-        resourceRequirements?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionResourceRequirement>[]>;
+        resourceRequirements?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionResourceRequirementArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets
          */
-        secrets?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionSecret>[]>;
+        secrets?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionSecretArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-starttimeout
          */
@@ -2980,11 +2980,11 @@ export namespace ECS {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols
          */
-        systemControls?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionSystemControl>[]>;
+        systemControls?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionSystemControlArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
          */
-        ulimits?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionUlimit>[]>;
+        ulimits?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionUlimitArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-user
          */
@@ -2992,7 +2992,7 @@ export namespace ECS {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom
          */
-        volumesFrom?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionVolumeFrom>[]>;
+        volumesFrom?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionVolumeFromArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-workingdirectory
          */
@@ -3002,7 +3002,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html
      */
-    export interface TaskDefinitionContainerDependency {
+    export interface TaskDefinitionContainerDependencyArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-condition
          */
@@ -3016,7 +3016,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html
      */
-    export interface TaskDefinitionDevice {
+    export interface TaskDefinitionDeviceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-containerpath
          */
@@ -3034,7 +3034,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html
      */
-    export interface TaskDefinitionDockerVolumeConfiguration {
+    export interface TaskDefinitionDockerVolumeConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-autoprovision
          */
@@ -3060,7 +3060,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html
      */
-    export interface TaskDefinitionEFSVolumeConfiguration {
+    export interface TaskDefinitionEFSVolumeConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-authorizationconfig
          */
@@ -3086,7 +3086,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html
      */
-    export interface TaskDefinitionEnvironmentFile {
+    export interface TaskDefinitionEnvironmentFileArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-type
          */
@@ -3100,7 +3100,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html
      */
-    export interface TaskDefinitionFirelensConfiguration {
+    export interface TaskDefinitionFirelensConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-options
          */
@@ -3114,7 +3114,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html
      */
-    export interface TaskDefinitionHealthCheck {
+    export interface TaskDefinitionHealthCheckArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command
          */
@@ -3140,7 +3140,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html
      */
-    export interface TaskDefinitionHostEntry {
+    export interface TaskDefinitionHostEntryArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-hostname
          */
@@ -3154,7 +3154,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html
      */
-    export interface TaskDefinitionHostVolumeProperties {
+    export interface TaskDefinitionHostVolumePropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html#cfn-ecs-taskdefinition-volumes-host-sourcepath
          */
@@ -3164,7 +3164,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html
      */
-    export interface TaskDefinitionInferenceAccelerator {
+    export interface TaskDefinitionInferenceAcceleratorArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicename
          */
@@ -3178,7 +3178,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html
      */
-    export interface TaskDefinitionKernelCapabilities {
+    export interface TaskDefinitionKernelCapabilitiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-add
          */
@@ -3192,7 +3192,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html
      */
-    export interface TaskDefinitionKeyValuePair {
+    export interface TaskDefinitionKeyValuePairArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html#cfn-ecs-taskdefinition-containerdefinition-environment-name
          */
@@ -3206,15 +3206,15 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html
      */
-    export interface TaskDefinitionLinuxParameters {
+    export interface TaskDefinitionLinuxParametersArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-capabilities
          */
-        capabilities?: pulumi.Input<inputs.ECS.TaskDefinitionKernelCapabilities>;
+        capabilities?: pulumi.Input<inputs.ECS.TaskDefinitionKernelCapabilitiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices
          */
-        devices?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionDevice>[]>;
+        devices?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionDeviceArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-initprocessenabled
          */
@@ -3234,13 +3234,13 @@ export namespace ECS {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
          */
-        tmpfs?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionTmpfs>[]>;
+        tmpfs?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionTmpfsArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html
      */
-    export interface TaskDefinitionLogConfiguration {
+    export interface TaskDefinitionLogConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver
          */
@@ -3252,13 +3252,13 @@ export namespace ECS {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
          */
-        secretOptions?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionSecret>[]>;
+        secretOptions?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionSecretArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html
      */
-    export interface TaskDefinitionMountPoint {
+    export interface TaskDefinitionMountPointArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-containerpath
          */
@@ -3276,7 +3276,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html
      */
-    export interface TaskDefinitionPortMapping {
+    export interface TaskDefinitionPortMappingArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-containerport
          */
@@ -3294,7 +3294,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html
      */
-    export interface TaskDefinitionProxyConfiguration {
+    export interface TaskDefinitionProxyConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-containername
          */
@@ -3302,7 +3302,7 @@ export namespace ECS {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties
          */
-        proxyConfigurationProperties?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionKeyValuePair>[]>;
+        proxyConfigurationProperties?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionKeyValuePairArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-type
          */
@@ -3312,7 +3312,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html
      */
-    export interface TaskDefinitionRepositoryCredentials {
+    export interface TaskDefinitionRepositoryCredentialsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html#cfn-ecs-taskdefinition-repositorycredentials-credentialsparameter
          */
@@ -3322,7 +3322,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html
      */
-    export interface TaskDefinitionResourceRequirement {
+    export interface TaskDefinitionResourceRequirementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-type
          */
@@ -3336,7 +3336,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html
      */
-    export interface TaskDefinitionSecret {
+    export interface TaskDefinitionSecretArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html#cfn-ecs-taskdefinition-secret-name
          */
@@ -3350,7 +3350,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html
      */
-    export interface TaskDefinitionSystemControl {
+    export interface TaskDefinitionSystemControlArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-namespace
          */
@@ -3364,7 +3364,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html
      */
-    export interface TaskDefinitionTaskDefinitionPlacementConstraint {
+    export interface TaskDefinitionTaskDefinitionPlacementConstraintArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html#cfn-ecs-taskdefinition-taskdefinitionplacementconstraint-expression
          */
@@ -3378,7 +3378,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html
      */
-    export interface TaskDefinitionTmpfs {
+    export interface TaskDefinitionTmpfsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-containerpath
          */
@@ -3396,7 +3396,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html
      */
-    export interface TaskDefinitionUlimit {
+    export interface TaskDefinitionUlimitArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-hardlimit
          */
@@ -3414,19 +3414,19 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html
      */
-    export interface TaskDefinitionVolume {
+    export interface TaskDefinitionVolumeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration
          */
-        dockerVolumeConfiguration?: pulumi.Input<inputs.ECS.TaskDefinitionDockerVolumeConfiguration>;
+        dockerVolumeConfiguration?: pulumi.Input<inputs.ECS.TaskDefinitionDockerVolumeConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
          */
-        eFSVolumeConfiguration?: pulumi.Input<inputs.ECS.TaskDefinitionEFSVolumeConfiguration>;
+        eFSVolumeConfiguration?: pulumi.Input<inputs.ECS.TaskDefinitionEFSVolumeConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-host
          */
-        host?: pulumi.Input<inputs.ECS.TaskDefinitionHostVolumeProperties>;
+        host?: pulumi.Input<inputs.ECS.TaskDefinitionHostVolumePropertiesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-name
          */
@@ -3436,7 +3436,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html
      */
-    export interface TaskDefinitionVolumeFrom {
+    export interface TaskDefinitionVolumeFromArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-readonly
          */
@@ -3450,7 +3450,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html
      */
-    export interface TaskSetAwsVpcConfiguration {
+    export interface TaskSetAwsVpcConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-assignpublicip
          */
@@ -3468,7 +3468,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html
      */
-    export interface TaskSetLoadBalancer {
+    export interface TaskSetLoadBalancerArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-containername
          */
@@ -3490,17 +3490,17 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html
      */
-    export interface TaskSetNetworkConfiguration {
+    export interface TaskSetNetworkConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration
          */
-        awsVpcConfiguration?: pulumi.Input<inputs.ECS.TaskSetAwsVpcConfiguration>;
+        awsVpcConfiguration?: pulumi.Input<inputs.ECS.TaskSetAwsVpcConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html
      */
-    export interface TaskSetScale {
+    export interface TaskSetScaleArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-unit
          */
@@ -3514,7 +3514,7 @@ export namespace ECS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html
      */
-    export interface TaskSetServiceRegistry {
+    export interface TaskSetServiceRegistryArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-containername
          */
@@ -3538,7 +3538,7 @@ export namespace EFS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html
      */
-    export interface AccessPointAccessPointTag {
+    export interface AccessPointAccessPointTagArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-key
          */
@@ -3552,7 +3552,7 @@ export namespace EFS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html
      */
-    export interface AccessPointCreationInfo {
+    export interface AccessPointCreationInfoArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-ownergid
          */
@@ -3570,7 +3570,7 @@ export namespace EFS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html
      */
-    export interface AccessPointPosixUser {
+    export interface AccessPointPosixUserArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid
          */
@@ -3588,11 +3588,11 @@ export namespace EFS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html
      */
-    export interface AccessPointRootDirectory {
+    export interface AccessPointRootDirectoryArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-creationinfo
          */
-        creationInfo?: pulumi.Input<inputs.EFS.AccessPointCreationInfo>;
+        creationInfo?: pulumi.Input<inputs.EFS.AccessPointCreationInfoArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path
          */
@@ -3602,7 +3602,7 @@ export namespace EFS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html
      */
-    export interface FileSystemBackupPolicy {
+    export interface FileSystemBackupPolicyArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
          */
@@ -3612,7 +3612,7 @@ export namespace EFS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html
      */
-    export interface FileSystemElasticFileSystemTag {
+    export interface FileSystemElasticFileSystemTagArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-key
          */
@@ -3626,7 +3626,7 @@ export namespace EFS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html
      */
-    export interface FileSystemLifecyclePolicy {
+    export interface FileSystemLifecyclePolicyArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
          */
@@ -3638,7 +3638,7 @@ export namespace EKS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html
      */
-    export interface FargateProfileLabel {
+    export interface FargateProfileLabelArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-key
          */
@@ -3652,11 +3652,11 @@ export namespace EKS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html
      */
-    export interface FargateProfileSelector {
+    export interface FargateProfileSelectorArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-labels
          */
-        labels?: pulumi.Input<pulumi.Input<inputs.EKS.FargateProfileLabel>[]>;
+        labels?: pulumi.Input<pulumi.Input<inputs.EKS.FargateProfileLabelArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-namespace
          */
@@ -3668,7 +3668,7 @@ export namespace ElastiCache {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html
      */
-    export interface UserGroupUserIdList {
+    export interface UserGroupUserIdListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html#cfn-elasticache-usergroup-useridlist-useridlist
          */
@@ -3678,7 +3678,7 @@ export namespace ElastiCache {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html
      */
-    export interface UserPasswordList {
+    export interface UserPasswordListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist
          */
@@ -3691,23 +3691,23 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html
      */
-    export interface ListenerAction {
+    export interface ListenerActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticatecognitoconfig
          */
-        authenticateCognitoConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerAuthenticateCognitoConfig>;
+        authenticateCognitoConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerAuthenticateCognitoConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticateoidcconfig
          */
-        authenticateOidcConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerAuthenticateOidcConfig>;
+        authenticateOidcConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerAuthenticateOidcConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig
          */
-        fixedResponseConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerFixedResponseConfig>;
+        fixedResponseConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerFixedResponseConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig
          */
-        forwardConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerForwardConfig>;
+        forwardConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerForwardConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-order
          */
@@ -3715,7 +3715,7 @@ export namespace ElasticLoadBalancingV2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-redirectconfig
          */
-        redirectConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRedirectConfig>;
+        redirectConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRedirectConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-targetgrouparn
          */
@@ -3729,7 +3729,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html
      */
-    export interface ListenerAuthenticateCognitoConfig {
+    export interface ListenerAuthenticateCognitoConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-authenticationrequestextraparams
          */
@@ -3767,7 +3767,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html
      */
-    export interface ListenerAuthenticateOidcConfig {
+    export interface ListenerAuthenticateOidcConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-authenticationrequestextraparams
          */
@@ -3817,7 +3817,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html
      */
-    export interface ListenerCertificate {
+    export interface ListenerCertificateArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html#cfn-elasticloadbalancingv2-listener-certificate-certificatearn
          */
@@ -3827,7 +3827,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html
      */
-    export interface ListenerFixedResponseConfig {
+    export interface ListenerFixedResponseConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-contenttype
          */
@@ -3845,21 +3845,21 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html
      */
-    export interface ListenerForwardConfig {
+    export interface ListenerForwardConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroupstickinessconfig
          */
-        targetGroupStickinessConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerTargetGroupStickinessConfig>;
+        targetGroupStickinessConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerTargetGroupStickinessConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroups
          */
-        targetGroups?: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerTargetGroupTuple>[]>;
+        targetGroups?: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerTargetGroupTupleArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html
      */
-    export interface ListenerRedirectConfig {
+    export interface ListenerRedirectConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-host
          */
@@ -3889,23 +3889,23 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html
      */
-    export interface ListenerRuleAction {
+    export interface ListenerRuleActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticatecognitoconfig
          */
-        authenticateCognitoConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleAuthenticateCognitoConfig>;
+        authenticateCognitoConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleAuthenticateCognitoConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticateoidcconfig
          */
-        authenticateOidcConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleAuthenticateOidcConfig>;
+        authenticateOidcConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleAuthenticateOidcConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-fixedresponseconfig
          */
-        fixedResponseConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleFixedResponseConfig>;
+        fixedResponseConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleFixedResponseConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-forwardconfig
          */
-        forwardConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleForwardConfig>;
+        forwardConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleForwardConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-order
          */
@@ -3913,7 +3913,7 @@ export namespace ElasticLoadBalancingV2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-redirectconfig
          */
-        redirectConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleRedirectConfig>;
+        redirectConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleRedirectConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-targetgrouparn
          */
@@ -3927,7 +3927,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html
      */
-    export interface ListenerRuleAuthenticateCognitoConfig {
+    export interface ListenerRuleAuthenticateCognitoConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-authenticationrequestextraparams
          */
@@ -3965,7 +3965,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html
      */
-    export interface ListenerRuleAuthenticateOidcConfig {
+    export interface ListenerRuleAuthenticateOidcConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-authenticationrequestextraparams
          */
@@ -4015,7 +4015,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-fixedresponseconfig.html
      */
-    export interface ListenerRuleFixedResponseConfig {
+    export interface ListenerRuleFixedResponseConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listenerrule-fixedresponseconfig-contenttype
          */
@@ -4033,21 +4033,21 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html
      */
-    export interface ListenerRuleForwardConfig {
+    export interface ListenerRuleForwardConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroupstickinessconfig
          */
-        targetGroupStickinessConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleTargetGroupStickinessConfig>;
+        targetGroupStickinessConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleTargetGroupStickinessConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroups
          */
-        targetGroups?: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleTargetGroupTuple>[]>;
+        targetGroups?: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleTargetGroupTupleArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-hostheaderconfig.html
      */
-    export interface ListenerRuleHostHeaderConfig {
+    export interface ListenerRuleHostHeaderConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-hostheaderconfig.html#cfn-elasticloadbalancingv2-listenerrule-hostheaderconfig-values
          */
@@ -4057,7 +4057,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html
      */
-    export interface ListenerRuleHttpHeaderConfig {
+    export interface ListenerRuleHttpHeaderConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html#cfn-elasticloadbalancingv2-listenerrule-httpheaderconfig-httpheadername
          */
@@ -4071,7 +4071,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httprequestmethodconfig.html
      */
-    export interface ListenerRuleHttpRequestMethodConfig {
+    export interface ListenerRuleHttpRequestMethodConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httprequestmethodconfig.html#cfn-elasticloadbalancingv2-listenerrule-httprequestmethodconfig-values
          */
@@ -4081,7 +4081,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html
      */
-    export interface ListenerRulePathPatternConfig {
+    export interface ListenerRulePathPatternConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html#cfn-elasticloadbalancingv2-listenerrule-pathpatternconfig-values
          */
@@ -4091,17 +4091,17 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html
      */
-    export interface ListenerRuleQueryStringConfig {
+    export interface ListenerRuleQueryStringConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html#cfn-elasticloadbalancingv2-listenerrule-querystringconfig-values
          */
-        values?: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleQueryStringKeyValue>[]>;
+        values?: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleQueryStringKeyValueArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringkeyvalue.html
      */
-    export interface ListenerRuleQueryStringKeyValue {
+    export interface ListenerRuleQueryStringKeyValueArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringkeyvalue.html#cfn-elasticloadbalancingv2-listenerrule-querystringkeyvalue-key
          */
@@ -4115,7 +4115,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html
      */
-    export interface ListenerRuleRedirectConfig {
+    export interface ListenerRuleRedirectConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-host
          */
@@ -4145,7 +4145,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html
      */
-    export interface ListenerRuleRuleCondition {
+    export interface ListenerRuleRuleConditionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-field
          */
@@ -4153,27 +4153,27 @@ export namespace ElasticLoadBalancingV2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
          */
-        hostHeaderConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleHostHeaderConfig>;
+        hostHeaderConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleHostHeaderConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig
          */
-        httpHeaderConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleHttpHeaderConfig>;
+        httpHeaderConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleHttpHeaderConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig
          */
-        httpRequestMethodConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleHttpRequestMethodConfig>;
+        httpRequestMethodConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleHttpRequestMethodConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig
          */
-        pathPatternConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRulePathPatternConfig>;
+        pathPatternConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRulePathPatternConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
          */
-        queryStringConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleQueryStringConfig>;
+        queryStringConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleQueryStringConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig
          */
-        sourceIpConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleSourceIpConfig>;
+        sourceIpConfig?: pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleSourceIpConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-values
          */
@@ -4183,7 +4183,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-sourceipconfig.html
      */
-    export interface ListenerRuleSourceIpConfig {
+    export interface ListenerRuleSourceIpConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-sourceipconfig.html#cfn-elasticloadbalancingv2-listenerrule-sourceipconfig-values
          */
@@ -4193,7 +4193,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html
      */
-    export interface ListenerRuleTargetGroupStickinessConfig {
+    export interface ListenerRuleTargetGroupStickinessConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig-durationseconds
          */
@@ -4207,7 +4207,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html
      */
-    export interface ListenerRuleTargetGroupTuple {
+    export interface ListenerRuleTargetGroupTupleArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-targetgrouparn
          */
@@ -4221,7 +4221,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html
      */
-    export interface ListenerTargetGroupStickinessConfig {
+    export interface ListenerTargetGroupStickinessConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html#cfn-elasticloadbalancingv2-listener-targetgroupstickinessconfig-durationseconds
          */
@@ -4235,7 +4235,7 @@ export namespace ElasticLoadBalancingV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgrouptuple.html
      */
-    export interface ListenerTargetGroupTuple {
+    export interface ListenerTargetGroupTupleArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgrouptuple.html#cfn-elasticloadbalancingv2-listener-targetgrouptuple-targetgrouparn
          */
@@ -4251,7 +4251,7 @@ export namespace FMS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
      */
-    export interface PolicyIEMap {
+    export interface PolicyIEMapArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
          */
@@ -4265,7 +4265,7 @@ export namespace FMS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html
      */
-    export interface PolicyPolicyTag {
+    export interface PolicyPolicyTagArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-key
          */
@@ -4279,7 +4279,7 @@ export namespace FMS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html
      */
-    export interface PolicyResourceTag {
+    export interface PolicyResourceTagArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-key
          */
@@ -4295,7 +4295,7 @@ export namespace GameLift {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html
      */
-    export interface AliasRoutingStrategy {
+    export interface AliasRoutingStrategyArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid
          */
@@ -4313,7 +4313,7 @@ export namespace GameLift {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html
      */
-    export interface GameServerGroupAutoScalingPolicy {
+    export interface GameServerGroupAutoScalingPolicyArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
          */
@@ -4321,13 +4321,13 @@ export namespace GameLift {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
          */
-        targetTrackingConfiguration: pulumi.Input<inputs.GameLift.GameServerGroupTargetTrackingConfiguration>;
+        targetTrackingConfiguration: pulumi.Input<inputs.GameLift.GameServerGroupTargetTrackingConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html
      */
-    export interface GameServerGroupInstanceDefinition {
+    export interface GameServerGroupInstanceDefinitionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype
          */
@@ -4341,17 +4341,17 @@ export namespace GameLift {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html
      */
-    export interface GameServerGroupInstanceDefinitions {
+    export interface GameServerGroupInstanceDefinitionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
          */
-        instanceDefinitions?: pulumi.Input<pulumi.Input<inputs.GameLift.GameServerGroupInstanceDefinition>[]>;
+        instanceDefinitions?: pulumi.Input<pulumi.Input<inputs.GameLift.GameServerGroupInstanceDefinitionArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html
      */
-    export interface GameServerGroupLaunchTemplate {
+    export interface GameServerGroupLaunchTemplateArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
          */
@@ -4369,17 +4369,17 @@ export namespace GameLift {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html
      */
-    export interface GameServerGroupTags {
+    export interface GameServerGroupTagsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html#cfn-gamelift-gameservergroup-tags-tags
          */
-        tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+        tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html
      */
-    export interface GameServerGroupTargetTrackingConfiguration {
+    export interface GameServerGroupTargetTrackingConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
          */
@@ -4389,7 +4389,7 @@ export namespace GameLift {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html
      */
-    export interface GameServerGroupVpcSubnets {
+    export interface GameServerGroupVpcSubnetsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html#cfn-gamelift-gameservergroup-vpcsubnets-vpcsubnets
          */
@@ -4401,7 +4401,7 @@ export namespace GlobalAccelerator {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html
      */
-    export interface EndpointGroupEndpointConfiguration {
+    export interface EndpointGroupEndpointConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-clientippreservationenabled
          */
@@ -4419,7 +4419,7 @@ export namespace GlobalAccelerator {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html
      */
-    export interface EndpointGroupPortOverride {
+    export interface EndpointGroupPortOverrideArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-endpointport
          */
@@ -4433,7 +4433,7 @@ export namespace GlobalAccelerator {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html
      */
-    export interface ListenerPortRange {
+    export interface ListenerPortRangeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-fromport
          */
@@ -4449,7 +4449,7 @@ export namespace Glue {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html
      */
-    export interface SchemaRegistry {
+    export interface SchemaRegistryArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-arn
          */
@@ -4463,7 +4463,7 @@ export namespace Glue {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html
      */
-    export interface SchemaSchemaVersion {
+    export interface SchemaSchemaVersionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-islatest
          */
@@ -4477,7 +4477,7 @@ export namespace Glue {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html
      */
-    export interface SchemaVersionSchema {
+    export interface SchemaVersionSchemaArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-registryname
          */
@@ -4497,7 +4497,7 @@ export namespace GreengrassV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html
      */
-    export interface ComponentVersionComponentDependencyRequirement {
+    export interface ComponentVersionComponentDependencyRequirementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-dependencytype
          */
@@ -4511,7 +4511,7 @@ export namespace GreengrassV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html
      */
-    export interface ComponentVersionComponentPlatform {
+    export interface ComponentVersionComponentPlatformArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-attributes
          */
@@ -4525,11 +4525,11 @@ export namespace GreengrassV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html
      */
-    export interface ComponentVersionLambdaContainerParams {
+    export interface ComponentVersionLambdaContainerParamsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-devices
          */
-        devices?: pulumi.Input<pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaDeviceMount>[]>;
+        devices?: pulumi.Input<pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaDeviceMountArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-memorysizeinkb
          */
@@ -4541,13 +4541,13 @@ export namespace GreengrassV2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-volumes
          */
-        volumes?: pulumi.Input<pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaVolumeMount>[]>;
+        volumes?: pulumi.Input<pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaVolumeMountArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html
      */
-    export interface ComponentVersionLambdaDeviceMount {
+    export interface ComponentVersionLambdaDeviceMountArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-addgroupowner
          */
@@ -4565,7 +4565,7 @@ export namespace GreengrassV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html
      */
-    export interface ComponentVersionLambdaEventSource {
+    export interface ComponentVersionLambdaEventSourceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html#cfn-greengrassv2-componentversion-lambdaeventsource-topic
          */
@@ -4579,7 +4579,7 @@ export namespace GreengrassV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html
      */
-    export interface ComponentVersionLambdaExecutionParameters {
+    export interface ComponentVersionLambdaExecutionParametersArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-environmentvariables
          */
@@ -4587,7 +4587,7 @@ export namespace GreengrassV2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-eventsources
          */
-        eventSources?: pulumi.Input<pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaEventSource>[]>;
+        eventSources?: pulumi.Input<pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaEventSourceArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-execargs
          */
@@ -4599,7 +4599,7 @@ export namespace GreengrassV2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-linuxprocessparams
          */
-        linuxProcessParams?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaLinuxProcessParams>;
+        linuxProcessParams?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaLinuxProcessParamsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxidletimeinseconds
          */
@@ -4629,15 +4629,15 @@ export namespace GreengrassV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html
      */
-    export interface ComponentVersionLambdaFunctionRecipeSource {
+    export interface ComponentVersionLambdaFunctionRecipeSourceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentdependencies
          */
-        componentDependencies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.GreengrassV2.ComponentVersionComponentDependencyRequirement>}>;
+        componentDependencies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.GreengrassV2.ComponentVersionComponentDependencyRequirementArgs>}>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentlambdaparameters
          */
-        componentLambdaParameters?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaExecutionParameters>;
+        componentLambdaParameters?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaExecutionParametersArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentname
          */
@@ -4645,7 +4645,7 @@ export namespace GreengrassV2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentplatforms
          */
-        componentPlatforms?: pulumi.Input<pulumi.Input<inputs.GreengrassV2.ComponentVersionComponentPlatform>[]>;
+        componentPlatforms?: pulumi.Input<pulumi.Input<inputs.GreengrassV2.ComponentVersionComponentPlatformArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentversion
          */
@@ -4659,11 +4659,11 @@ export namespace GreengrassV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html
      */
-    export interface ComponentVersionLambdaLinuxProcessParams {
+    export interface ComponentVersionLambdaLinuxProcessParamsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-containerparams
          */
-        containerParams?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaContainerParams>;
+        containerParams?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaContainerParamsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-isolationmode
          */
@@ -4673,7 +4673,7 @@ export namespace GreengrassV2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html
      */
-    export interface ComponentVersionLambdaVolumeMount {
+    export interface ComponentVersionLambdaVolumeMountArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-addgroupowner
          */
@@ -4697,11 +4697,11 @@ export namespace GroundStation {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html
      */
-    export interface DataflowEndpointGroupDataflowEndpoint {
+    export interface DataflowEndpointGroupDataflowEndpointArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-address
          */
-        address?: pulumi.Input<inputs.GroundStation.DataflowEndpointGroupSocketAddress>;
+        address?: pulumi.Input<inputs.GroundStation.DataflowEndpointGroupSocketAddressArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-mtu
          */
@@ -4719,21 +4719,21 @@ export namespace GroundStation {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html
      */
-    export interface DataflowEndpointGroupEndpointDetails {
+    export interface DataflowEndpointGroupEndpointDetailsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-endpoint
          */
-        endpoint?: pulumi.Input<inputs.GroundStation.DataflowEndpointGroupDataflowEndpoint>;
+        endpoint?: pulumi.Input<inputs.GroundStation.DataflowEndpointGroupDataflowEndpointArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-securitydetails
          */
-        securityDetails?: pulumi.Input<inputs.GroundStation.DataflowEndpointGroupSecurityDetails>;
+        securityDetails?: pulumi.Input<inputs.GroundStation.DataflowEndpointGroupSecurityDetailsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html
      */
-    export interface DataflowEndpointGroupSecurityDetails {
+    export interface DataflowEndpointGroupSecurityDetailsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html#cfn-groundstation-dataflowendpointgroup-securitydetails-rolearn
          */
@@ -4751,7 +4751,7 @@ export namespace GroundStation {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html
      */
-    export interface DataflowEndpointGroupSocketAddress {
+    export interface DataflowEndpointGroupSocketAddressArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html#cfn-groundstation-dataflowendpointgroup-socketaddress-name
          */
@@ -4765,7 +4765,7 @@ export namespace GroundStation {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html
      */
-    export interface MissionProfileDataflowEdge {
+    export interface MissionProfileDataflowEdgeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-destination
          */
@@ -4781,7 +4781,7 @@ export namespace ImageBuilder {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html
      */
-    export interface DistributionConfigurationDistribution {
+    export interface DistributionConfigurationDistributionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
          */
@@ -4799,7 +4799,7 @@ export namespace ImageBuilder {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html
      */
-    export interface ImageImageTestsConfiguration {
+    export interface ImageImageTestsConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-imagetestsenabled
          */
@@ -4813,7 +4813,7 @@ export namespace ImageBuilder {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html
      */
-    export interface ImagePipelineImageTestsConfiguration {
+    export interface ImagePipelineImageTestsConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-imagetestsenabled
          */
@@ -4827,7 +4827,7 @@ export namespace ImageBuilder {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html
      */
-    export interface ImagePipelineSchedule {
+    export interface ImagePipelineScheduleArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-pipelineexecutionstartcondition
          */
@@ -4841,7 +4841,7 @@ export namespace ImageBuilder {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html
      */
-    export interface ImageRecipeComponentConfiguration {
+    export interface ImageRecipeComponentConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
          */
@@ -4851,7 +4851,7 @@ export namespace ImageBuilder {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html
      */
-    export interface ImageRecipeEbsInstanceBlockDeviceSpecification {
+    export interface ImageRecipeEbsInstanceBlockDeviceSpecificationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-deleteontermination
          */
@@ -4885,7 +4885,7 @@ export namespace ImageBuilder {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html
      */
-    export interface ImageRecipeInstanceBlockDeviceMapping {
+    export interface ImageRecipeInstanceBlockDeviceMappingArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-devicename
          */
@@ -4893,7 +4893,7 @@ export namespace ImageBuilder {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
          */
-        ebs?: pulumi.Input<inputs.ImageBuilder.ImageRecipeEbsInstanceBlockDeviceSpecification>;
+        ebs?: pulumi.Input<inputs.ImageBuilder.ImageRecipeEbsInstanceBlockDeviceSpecificationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-nodevice
          */
@@ -4910,7 +4910,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html
      */
-    export interface AuthorizerTags {
+    export interface AuthorizerTagsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html#cfn-iot-authorizer-tags-tags
          */
@@ -4920,13 +4920,13 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tokensigningpublickeys.html
      */
-    export interface AuthorizerTokenSigningPublicKeys {
+    export interface AuthorizerTokenSigningPublicKeysArgs {
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html
      */
-    export interface ProvisioningTemplateProvisioningHook {
+    export interface ProvisioningTemplateProvisioningHookArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-payloadversion
          */
@@ -4940,7 +4940,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html
      */
-    export interface ProvisioningTemplateTags {
+    export interface ProvisioningTemplateTagsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html#cfn-iot-provisioningtemplate-tags-tags
          */
@@ -4950,81 +4950,81 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html
      */
-    export interface TopicRuleAction {
+    export interface TopicRuleActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm
          */
-        cloudwatchAlarm?: pulumi.Input<inputs.IoT.TopicRuleCloudwatchAlarmAction>;
+        cloudwatchAlarm?: pulumi.Input<inputs.IoT.TopicRuleCloudwatchAlarmActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchmetric
          */
-        cloudwatchMetric?: pulumi.Input<inputs.IoT.TopicRuleCloudwatchMetricAction>;
+        cloudwatchMetric?: pulumi.Input<inputs.IoT.TopicRuleCloudwatchMetricActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodb
          */
-        dynamoDB?: pulumi.Input<inputs.IoT.TopicRuleDynamoDBAction>;
+        dynamoDB?: pulumi.Input<inputs.IoT.TopicRuleDynamoDBActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodbv2
          */
-        dynamoDBv2?: pulumi.Input<inputs.IoT.TopicRuleDynamoDBv2Action>;
+        dynamoDBv2?: pulumi.Input<inputs.IoT.TopicRuleDynamoDBv2ActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-elasticsearch
          */
-        elasticsearch?: pulumi.Input<inputs.IoT.TopicRuleElasticsearchAction>;
+        elasticsearch?: pulumi.Input<inputs.IoT.TopicRuleElasticsearchActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose
          */
-        firehose?: pulumi.Input<inputs.IoT.TopicRuleFirehoseAction>;
+        firehose?: pulumi.Input<inputs.IoT.TopicRuleFirehoseActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http
          */
-        http?: pulumi.Input<inputs.IoT.TopicRuleHttpAction>;
+        http?: pulumi.Input<inputs.IoT.TopicRuleHttpActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
          */
-        iotAnalytics?: pulumi.Input<inputs.IoT.TopicRuleIotAnalyticsAction>;
+        iotAnalytics?: pulumi.Input<inputs.IoT.TopicRuleIotAnalyticsActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents
          */
-        iotEvents?: pulumi.Input<inputs.IoT.TopicRuleIotEventsAction>;
+        iotEvents?: pulumi.Input<inputs.IoT.TopicRuleIotEventsActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise
          */
-        iotSiteWise?: pulumi.Input<inputs.IoT.TopicRuleIotSiteWiseAction>;
+        iotSiteWise?: pulumi.Input<inputs.IoT.TopicRuleIotSiteWiseActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
          */
-        kinesis?: pulumi.Input<inputs.IoT.TopicRuleKinesisAction>;
+        kinesis?: pulumi.Input<inputs.IoT.TopicRuleKinesisActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-lambda
          */
-        lambda?: pulumi.Input<inputs.IoT.TopicRuleLambdaAction>;
+        lambda?: pulumi.Input<inputs.IoT.TopicRuleLambdaActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-republish
          */
-        republish?: pulumi.Input<inputs.IoT.TopicRuleRepublishAction>;
+        republish?: pulumi.Input<inputs.IoT.TopicRuleRepublishActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-s3
          */
-        s3?: pulumi.Input<inputs.IoT.TopicRuleS3Action>;
+        s3?: pulumi.Input<inputs.IoT.TopicRuleS3ActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sns
          */
-        sns?: pulumi.Input<inputs.IoT.TopicRuleSnsAction>;
+        sns?: pulumi.Input<inputs.IoT.TopicRuleSnsActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs
          */
-        sqs?: pulumi.Input<inputs.IoT.TopicRuleSqsAction>;
+        sqs?: pulumi.Input<inputs.IoT.TopicRuleSqsActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
          */
-        stepFunctions?: pulumi.Input<inputs.IoT.TopicRuleStepFunctionsAction>;
+        stepFunctions?: pulumi.Input<inputs.IoT.TopicRuleStepFunctionsActionArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html
      */
-    export interface TopicRuleAssetPropertyTimestamp {
+    export interface TopicRuleAssetPropertyTimestampArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-offsetinnanos
          */
@@ -5038,7 +5038,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html
      */
-    export interface TopicRuleAssetPropertyValue {
+    export interface TopicRuleAssetPropertyValueArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality
          */
@@ -5046,17 +5046,17 @@ export namespace IoT {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp
          */
-        timestamp: pulumi.Input<inputs.IoT.TopicRuleAssetPropertyTimestamp>;
+        timestamp: pulumi.Input<inputs.IoT.TopicRuleAssetPropertyTimestampArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value
          */
-        value: pulumi.Input<inputs.IoT.TopicRuleAssetPropertyVariant>;
+        value: pulumi.Input<inputs.IoT.TopicRuleAssetPropertyVariantArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html
      */
-    export interface TopicRuleAssetPropertyVariant {
+    export interface TopicRuleAssetPropertyVariantArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-booleanvalue
          */
@@ -5078,7 +5078,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html
      */
-    export interface TopicRuleCloudwatchAlarmAction {
+    export interface TopicRuleCloudwatchAlarmActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-alarmname
          */
@@ -5100,7 +5100,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html
      */
-    export interface TopicRuleCloudwatchMetricAction {
+    export interface TopicRuleCloudwatchMetricActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricname
          */
@@ -5130,7 +5130,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html
      */
-    export interface TopicRuleDestinationHttpUrlDestinationSummary {
+    export interface TopicRuleDestinationHttpUrlDestinationSummaryArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
          */
@@ -5140,7 +5140,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html
      */
-    export interface TopicRuleDestinationVpcDestinationProperties {
+    export interface TopicRuleDestinationVpcDestinationPropertiesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-rolearn
          */
@@ -5162,7 +5162,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html
      */
-    export interface TopicRuleDynamoDBAction {
+    export interface TopicRuleDynamoDBActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyfield
          */
@@ -5204,11 +5204,11 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html
      */
-    export interface TopicRuleDynamoDBv2Action {
+    export interface TopicRuleDynamoDBv2ActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem
          */
-        putItem?: pulumi.Input<inputs.IoT.TopicRulePutItemInput>;
+        putItem?: pulumi.Input<inputs.IoT.TopicRulePutItemInputArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn
          */
@@ -5218,7 +5218,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html
      */
-    export interface TopicRuleElasticsearchAction {
+    export interface TopicRuleElasticsearchActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-endpoint
          */
@@ -5244,7 +5244,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html
      */
-    export interface TopicRuleFirehoseAction {
+    export interface TopicRuleFirehoseActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-deliverystreamname
          */
@@ -5262,11 +5262,11 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html
      */
-    export interface TopicRuleHttpAction {
+    export interface TopicRuleHttpActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-auth
          */
-        auth?: pulumi.Input<inputs.IoT.TopicRuleHttpAuthorization>;
+        auth?: pulumi.Input<inputs.IoT.TopicRuleHttpAuthorizationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-confirmationurl
          */
@@ -5274,7 +5274,7 @@ export namespace IoT {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers
          */
-        headers?: pulumi.Input<pulumi.Input<inputs.IoT.TopicRuleHttpActionHeader>[]>;
+        headers?: pulumi.Input<pulumi.Input<inputs.IoT.TopicRuleHttpActionHeaderArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-url
          */
@@ -5284,7 +5284,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html
      */
-    export interface TopicRuleHttpActionHeader {
+    export interface TopicRuleHttpActionHeaderArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-key
          */
@@ -5298,17 +5298,17 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html
      */
-    export interface TopicRuleHttpAuthorization {
+    export interface TopicRuleHttpAuthorizationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4
          */
-        sigv4?: pulumi.Input<inputs.IoT.TopicRuleSigV4Authorization>;
+        sigv4?: pulumi.Input<inputs.IoT.TopicRuleSigV4AuthorizationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html
      */
-    export interface TopicRuleIotAnalyticsAction {
+    export interface TopicRuleIotAnalyticsActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-channelname
          */
@@ -5322,7 +5322,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html
      */
-    export interface TopicRuleIotEventsAction {
+    export interface TopicRuleIotEventsActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-inputname
          */
@@ -5340,11 +5340,11 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html
      */
-    export interface TopicRuleIotSiteWiseAction {
+    export interface TopicRuleIotSiteWiseActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-putassetpropertyvalueentries
          */
-        putAssetPropertyValueEntries: pulumi.Input<pulumi.Input<inputs.IoT.TopicRulePutAssetPropertyValueEntry>[]>;
+        putAssetPropertyValueEntries: pulumi.Input<pulumi.Input<inputs.IoT.TopicRulePutAssetPropertyValueEntryArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-rolearn
          */
@@ -5354,7 +5354,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html
      */
-    export interface TopicRuleKinesisAction {
+    export interface TopicRuleKinesisActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-partitionkey
          */
@@ -5372,7 +5372,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html
      */
-    export interface TopicRuleLambdaAction {
+    export interface TopicRuleLambdaActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html#cfn-iot-topicrule-lambdaaction-functionarn
          */
@@ -5382,7 +5382,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html
      */
-    export interface TopicRulePutAssetPropertyValueEntry {
+    export interface TopicRulePutAssetPropertyValueEntryArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-assetid
          */
@@ -5402,13 +5402,13 @@ export namespace IoT {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyvalues
          */
-        propertyValues: pulumi.Input<pulumi.Input<inputs.IoT.TopicRuleAssetPropertyValue>[]>;
+        propertyValues: pulumi.Input<pulumi.Input<inputs.IoT.TopicRuleAssetPropertyValueArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html
      */
-    export interface TopicRulePutItemInput {
+    export interface TopicRulePutItemInputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html#cfn-iot-topicrule-putiteminput-tablename
          */
@@ -5418,7 +5418,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html
      */
-    export interface TopicRuleRepublishAction {
+    export interface TopicRuleRepublishActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos
          */
@@ -5436,7 +5436,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html
      */
-    export interface TopicRuleS3Action {
+    export interface TopicRuleS3ActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-bucketname
          */
@@ -5454,7 +5454,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html
      */
-    export interface TopicRuleSigV4Authorization {
+    export interface TopicRuleSigV4AuthorizationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-rolearn
          */
@@ -5472,7 +5472,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html
      */
-    export interface TopicRuleSnsAction {
+    export interface TopicRuleSnsActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-messageformat
          */
@@ -5490,7 +5490,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html
      */
-    export interface TopicRuleSqsAction {
+    export interface TopicRuleSqsActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-queueurl
          */
@@ -5508,7 +5508,7 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html
      */
-    export interface TopicRuleStepFunctionsAction {
+    export interface TopicRuleStepFunctionsActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-executionnameprefix
          */
@@ -5526,11 +5526,11 @@ export namespace IoT {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html
      */
-    export interface TopicRuleTopicRulePayload {
+    export interface TopicRuleTopicRulePayloadArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
          */
-        actions: pulumi.Input<pulumi.Input<inputs.IoT.TopicRuleAction>[]>;
+        actions: pulumi.Input<pulumi.Input<inputs.IoT.TopicRuleActionArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion
          */
@@ -5542,7 +5542,7 @@ export namespace IoT {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
          */
-        errorAction?: pulumi.Input<inputs.IoT.TopicRuleAction>;
+        errorAction?: pulumi.Input<inputs.IoT.TopicRuleActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
          */
@@ -5558,31 +5558,31 @@ export namespace IoTSiteWise {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html
      */
-    export interface AccessPolicyAccessPolicyIdentity {
+    export interface AccessPolicyAccessPolicyIdentityArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
          */
-        user?: pulumi.Input<inputs.IoTSiteWise.AccessPolicyUser>;
+        user?: pulumi.Input<inputs.IoTSiteWise.AccessPolicyUserArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html
      */
-    export interface AccessPolicyAccessPolicyResource {
+    export interface AccessPolicyAccessPolicyResourceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-portal
          */
-        portal?: pulumi.Input<inputs.IoTSiteWise.AccessPolicyPortal>;
+        portal?: pulumi.Input<inputs.IoTSiteWise.AccessPolicyPortalArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-project
          */
-        project?: pulumi.Input<inputs.IoTSiteWise.AccessPolicyProject>;
+        project?: pulumi.Input<inputs.IoTSiteWise.AccessPolicyProjectArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html
      */
-    export interface AccessPolicyPortal {
+    export interface AccessPolicyPortalArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html#cfn-iotsitewise-accesspolicy-portal-id
          */
@@ -5592,7 +5592,7 @@ export namespace IoTSiteWise {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html
      */
-    export interface AccessPolicyProject {
+    export interface AccessPolicyProjectArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html#cfn-iotsitewise-accesspolicy-project-id
          */
@@ -5602,7 +5602,7 @@ export namespace IoTSiteWise {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html
      */
-    export interface AccessPolicyUser {
+    export interface AccessPolicyUserArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html#cfn-iotsitewise-accesspolicy-user-id
          */
@@ -5612,7 +5612,7 @@ export namespace IoTSiteWise {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html
      */
-    export interface AssetAssetHierarchy {
+    export interface AssetAssetHierarchyArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-childassetid
          */
@@ -5626,7 +5626,7 @@ export namespace IoTSiteWise {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html
      */
-    export interface AssetAssetProperty {
+    export interface AssetAssetPropertyArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-alias
          */
@@ -5644,7 +5644,7 @@ export namespace IoTSiteWise {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html
      */
-    export interface AssetModelAssetModelHierarchy {
+    export interface AssetModelAssetModelHierarchyArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-childassetmodelid
          */
@@ -5662,7 +5662,7 @@ export namespace IoTSiteWise {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html
      */
-    export interface AssetModelAssetModelProperty {
+    export interface AssetModelAssetModelPropertyArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype
          */
@@ -5678,7 +5678,7 @@ export namespace IoTSiteWise {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-type
          */
-        type: pulumi.Input<inputs.IoTSiteWise.AssetModelPropertyType>;
+        type: pulumi.Input<inputs.IoTSiteWise.AssetModelPropertyTypeArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-unit
          */
@@ -5688,7 +5688,7 @@ export namespace IoTSiteWise {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html
      */
-    export interface AssetModelAttribute {
+    export interface AssetModelAttributeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html#cfn-iotsitewise-assetmodel-attribute-defaultvalue
          */
@@ -5698,7 +5698,7 @@ export namespace IoTSiteWise {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html
      */
-    export interface AssetModelExpressionVariable {
+    export interface AssetModelExpressionVariableArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-name
          */
@@ -5706,13 +5706,13 @@ export namespace IoTSiteWise {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-value
          */
-        value: pulumi.Input<inputs.IoTSiteWise.AssetModelVariableValue>;
+        value: pulumi.Input<inputs.IoTSiteWise.AssetModelVariableValueArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html
      */
-    export interface AssetModelMetric {
+    export interface AssetModelMetricArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-expression
          */
@@ -5720,39 +5720,39 @@ export namespace IoTSiteWise {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-variables
          */
-        variables: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetModelExpressionVariable>[]>;
+        variables: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetModelExpressionVariableArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-window
          */
-        window: pulumi.Input<inputs.IoTSiteWise.AssetModelMetricWindow>;
+        window: pulumi.Input<inputs.IoTSiteWise.AssetModelMetricWindowArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html
      */
-    export interface AssetModelMetricWindow {
+    export interface AssetModelMetricWindowArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
          */
-        tumbling?: pulumi.Input<inputs.IoTSiteWise.AssetModelTumblingWindow>;
+        tumbling?: pulumi.Input<inputs.IoTSiteWise.AssetModelTumblingWindowArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html
      */
-    export interface AssetModelPropertyType {
+    export interface AssetModelPropertyTypeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-attribute
          */
-        attribute?: pulumi.Input<inputs.IoTSiteWise.AssetModelAttribute>;
+        attribute?: pulumi.Input<inputs.IoTSiteWise.AssetModelAttributeArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-metric
          */
-        metric?: pulumi.Input<inputs.IoTSiteWise.AssetModelMetric>;
+        metric?: pulumi.Input<inputs.IoTSiteWise.AssetModelMetricArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-transform
          */
-        transform?: pulumi.Input<inputs.IoTSiteWise.AssetModelTransform>;
+        transform?: pulumi.Input<inputs.IoTSiteWise.AssetModelTransformArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-typename
          */
@@ -5762,7 +5762,7 @@ export namespace IoTSiteWise {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html
      */
-    export interface AssetModelTransform {
+    export interface AssetModelTransformArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-expression
          */
@@ -5770,13 +5770,13 @@ export namespace IoTSiteWise {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-variables
          */
-        variables: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetModelExpressionVariable>[]>;
+        variables: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetModelExpressionVariableArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html
      */
-    export interface AssetModelTumblingWindow {
+    export interface AssetModelTumblingWindowArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval
          */
@@ -5786,7 +5786,7 @@ export namespace IoTSiteWise {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html
      */
-    export interface AssetModelVariableValue {
+    export interface AssetModelVariableValueArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-hierarchylogicalid
          */
@@ -5800,7 +5800,7 @@ export namespace IoTSiteWise {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html
      */
-    export interface GatewayGatewayCapabilitySummary {
+    export interface GatewayGatewayCapabilitySummaryArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html#cfn-iotsitewise-gateway-gatewaycapabilitysummary-capabilityconfiguration
          */
@@ -5814,17 +5814,17 @@ export namespace IoTSiteWise {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html
      */
-    export interface GatewayGatewayPlatform {
+    export interface GatewayGatewayPlatformArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
          */
-        greengrass: pulumi.Input<inputs.IoTSiteWise.GatewayGreengrass>;
+        greengrass: pulumi.Input<inputs.IoTSiteWise.GatewayGreengrassArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html
      */
-    export interface GatewayGreengrass {
+    export interface GatewayGreengrassArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html#cfn-iotsitewise-gateway-greengrass-grouparn
          */
@@ -5837,7 +5837,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-accesscontrollistconfiguration.html
      */
-    export interface DataSourceAccessControlListConfiguration {
+    export interface DataSourceAccessControlListConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-accesscontrollistconfiguration.html#cfn-kendra-datasource-accesscontrollistconfiguration-keypath
          */
@@ -5847,7 +5847,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html
      */
-    export interface DataSourceAclConfiguration {
+    export interface DataSourceAclConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html#cfn-kendra-datasource-aclconfiguration-allowedgroupscolumnname
          */
@@ -5857,7 +5857,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-changedetectingcolumns.html
      */
-    export interface DataSourceChangeDetectingColumns {
+    export interface DataSourceChangeDetectingColumnsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-changedetectingcolumns.html#cfn-kendra-datasource-changedetectingcolumns-changedetectingcolumns
          */
@@ -5867,11 +5867,11 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html
      */
-    export interface DataSourceColumnConfiguration {
+    export interface DataSourceColumnConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
          */
-        changeDetectingColumns: pulumi.Input<inputs.Kendra.DataSourceChangeDetectingColumns>;
+        changeDetectingColumns: pulumi.Input<inputs.Kendra.DataSourceChangeDetectingColumnsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentdatacolumnname
          */
@@ -5887,17 +5887,17 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
          */
-        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingList>;
+        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingListArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html
      */
-    export interface DataSourceConfluenceAttachmentConfiguration {
+    export interface DataSourceConfluenceAttachmentConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings
          */
-        attachmentFieldMappings?: pulumi.Input<inputs.Kendra.DataSourceConfluenceAttachmentFieldMappingsList>;
+        attachmentFieldMappings?: pulumi.Input<inputs.Kendra.DataSourceConfluenceAttachmentFieldMappingsListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-crawlattachments
          */
@@ -5907,17 +5907,17 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html
      */
-    export interface DataSourceConfluenceAttachmentFieldMappingsList {
+    export interface DataSourceConfluenceAttachmentFieldMappingsListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html#cfn-kendra-datasource-confluenceattachmentfieldmappingslist-confluenceattachmentfieldmappingslist
          */
-        confluenceAttachmentFieldMappingsList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceConfluenceAttachmentToIndexFieldMapping>[]>;
+        confluenceAttachmentFieldMappingsList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceConfluenceAttachmentToIndexFieldMappingArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html
      */
-    export interface DataSourceConfluenceAttachmentToIndexFieldMapping {
+    export interface DataSourceConfluenceAttachmentToIndexFieldMappingArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html#cfn-kendra-datasource-confluenceattachmenttoindexfieldmapping-datasourcefieldname
          */
@@ -5935,27 +5935,27 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html
      */
-    export interface DataSourceConfluenceBlogConfiguration {
+    export interface DataSourceConfluenceBlogConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html#cfn-kendra-datasource-confluenceblogconfiguration-blogfieldmappings
          */
-        blogFieldMappings?: pulumi.Input<inputs.Kendra.DataSourceConfluenceBlogFieldMappingsList>;
+        blogFieldMappings?: pulumi.Input<inputs.Kendra.DataSourceConfluenceBlogFieldMappingsListArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html
      */
-    export interface DataSourceConfluenceBlogFieldMappingsList {
+    export interface DataSourceConfluenceBlogFieldMappingsListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html#cfn-kendra-datasource-confluenceblogfieldmappingslist-confluenceblogfieldmappingslist
          */
-        confluenceBlogFieldMappingsList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceConfluenceBlogToIndexFieldMapping>[]>;
+        confluenceBlogFieldMappingsList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceConfluenceBlogToIndexFieldMappingArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html
      */
-    export interface DataSourceConfluenceBlogToIndexFieldMapping {
+    export interface DataSourceConfluenceBlogToIndexFieldMappingArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html#cfn-kendra-datasource-confluenceblogtoindexfieldmapping-datasourcefieldname
          */
@@ -5973,27 +5973,27 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html
      */
-    export interface DataSourceConfluenceConfiguration {
+    export interface DataSourceConfluenceConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-attachmentconfiguration
          */
-        attachmentConfiguration?: pulumi.Input<inputs.Kendra.DataSourceConfluenceAttachmentConfiguration>;
+        attachmentConfiguration?: pulumi.Input<inputs.Kendra.DataSourceConfluenceAttachmentConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-blogconfiguration
          */
-        blogConfiguration?: pulumi.Input<inputs.Kendra.DataSourceConfluenceBlogConfiguration>;
+        blogConfiguration?: pulumi.Input<inputs.Kendra.DataSourceConfluenceBlogConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns
          */
-        exclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        exclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns
          */
-        inclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        inclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-pageconfiguration
          */
-        pageConfiguration?: pulumi.Input<inputs.Kendra.DataSourceConfluencePageConfiguration>;
+        pageConfiguration?: pulumi.Input<inputs.Kendra.DataSourceConfluencePageConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-secretarn
          */
@@ -6005,7 +6005,7 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-spaceconfiguration
          */
-        spaceConfiguration?: pulumi.Input<inputs.Kendra.DataSourceConfluenceSpaceConfiguration>;
+        spaceConfiguration?: pulumi.Input<inputs.Kendra.DataSourceConfluenceSpaceConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-version
          */
@@ -6013,33 +6013,33 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-vpcconfiguration
          */
-        vpcConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDataSourceVpcConfiguration>;
+        vpcConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDataSourceVpcConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html
      */
-    export interface DataSourceConfluencePageConfiguration {
+    export interface DataSourceConfluencePageConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html#cfn-kendra-datasource-confluencepageconfiguration-pagefieldmappings
          */
-        pageFieldMappings?: pulumi.Input<inputs.Kendra.DataSourceConfluencePageFieldMappingsList>;
+        pageFieldMappings?: pulumi.Input<inputs.Kendra.DataSourceConfluencePageFieldMappingsListArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html
      */
-    export interface DataSourceConfluencePageFieldMappingsList {
+    export interface DataSourceConfluencePageFieldMappingsListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html#cfn-kendra-datasource-confluencepagefieldmappingslist-confluencepagefieldmappingslist
          */
-        confluencePageFieldMappingsList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceConfluencePageToIndexFieldMapping>[]>;
+        confluencePageFieldMappingsList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceConfluencePageToIndexFieldMappingArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagetoindexfieldmapping.html
      */
-    export interface DataSourceConfluencePageToIndexFieldMapping {
+    export interface DataSourceConfluencePageToIndexFieldMappingArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagetoindexfieldmapping.html#cfn-kendra-datasource-confluencepagetoindexfieldmapping-datasourcefieldname
          */
@@ -6057,7 +6057,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html
      */
-    export interface DataSourceConfluenceSpaceConfiguration {
+    export interface DataSourceConfluenceSpaceConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlarchivedspaces
          */
@@ -6069,31 +6069,31 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
          */
-        excludeSpaces?: pulumi.Input<inputs.Kendra.DataSourceConfluenceSpaceList>;
+        excludeSpaces?: pulumi.Input<inputs.Kendra.DataSourceConfluenceSpaceListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
          */
-        includeSpaces?: pulumi.Input<inputs.Kendra.DataSourceConfluenceSpaceList>;
+        includeSpaces?: pulumi.Input<inputs.Kendra.DataSourceConfluenceSpaceListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
          */
-        spaceFieldMappings?: pulumi.Input<inputs.Kendra.DataSourceConfluenceSpaceFieldMappingsList>;
+        spaceFieldMappings?: pulumi.Input<inputs.Kendra.DataSourceConfluenceSpaceFieldMappingsListArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html
      */
-    export interface DataSourceConfluenceSpaceFieldMappingsList {
+    export interface DataSourceConfluenceSpaceFieldMappingsListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html#cfn-kendra-datasource-confluencespacefieldmappingslist-confluencespacefieldmappingslist
          */
-        confluenceSpaceFieldMappingsList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceConfluenceSpaceToIndexFieldMapping>[]>;
+        confluenceSpaceFieldMappingsList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceConfluenceSpaceToIndexFieldMappingArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacelist.html
      */
-    export interface DataSourceConfluenceSpaceList {
+    export interface DataSourceConfluenceSpaceListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacelist.html#cfn-kendra-datasource-confluencespacelist-confluencespacelist
          */
@@ -6103,7 +6103,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacetoindexfieldmapping.html
      */
-    export interface DataSourceConfluenceSpaceToIndexFieldMapping {
+    export interface DataSourceConfluenceSpaceToIndexFieldMappingArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacetoindexfieldmapping.html#cfn-kendra-datasource-confluencespacetoindexfieldmapping-datasourcefieldname
          */
@@ -6121,7 +6121,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html
      */
-    export interface DataSourceConnectionConfiguration {
+    export interface DataSourceConnectionConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html#cfn-kendra-datasource-connectionconfiguration-databasehost
          */
@@ -6147,41 +6147,41 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html
      */
-    export interface DataSourceDataSourceConfiguration {
+    export interface DataSourceDataSourceConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-confluenceconfiguration
          */
-        confluenceConfiguration?: pulumi.Input<inputs.Kendra.DataSourceConfluenceConfiguration>;
+        confluenceConfiguration?: pulumi.Input<inputs.Kendra.DataSourceConfluenceConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-databaseconfiguration
          */
-        databaseConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDatabaseConfiguration>;
+        databaseConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDatabaseConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
          */
-        oneDriveConfiguration?: pulumi.Input<inputs.Kendra.DataSourceOneDriveConfiguration>;
+        oneDriveConfiguration?: pulumi.Input<inputs.Kendra.DataSourceOneDriveConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-s3configuration
          */
-        s3Configuration?: pulumi.Input<inputs.Kendra.DataSourceS3DataSourceConfiguration>;
+        s3Configuration?: pulumi.Input<inputs.Kendra.DataSourceS3DataSourceConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-salesforceconfiguration
          */
-        salesforceConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSalesforceConfiguration>;
+        salesforceConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSalesforceConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-servicenowconfiguration
          */
-        serviceNowConfiguration?: pulumi.Input<inputs.Kendra.DataSourceServiceNowConfiguration>;
+        serviceNowConfiguration?: pulumi.Input<inputs.Kendra.DataSourceServiceNowConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-sharepointconfiguration
          */
-        sharePointConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSharePointConfiguration>;
+        sharePointConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSharePointConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceinclusionsexclusionsstrings.html
      */
-    export interface DataSourceDataSourceInclusionsExclusionsStrings {
+    export interface DataSourceDataSourceInclusionsExclusionsStringsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceinclusionsexclusionsstrings.html#cfn-kendra-datasource-datasourceinclusionsexclusionsstrings-datasourceinclusionsexclusionsstrings
          */
@@ -6191,7 +6191,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmapping.html
      */
-    export interface DataSourceDataSourceToIndexFieldMapping {
+    export interface DataSourceDataSourceToIndexFieldMappingArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmapping.html#cfn-kendra-datasource-datasourcetoindexfieldmapping-datasourcefieldname
          */
@@ -6209,17 +6209,17 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html
      */
-    export interface DataSourceDataSourceToIndexFieldMappingList {
+    export interface DataSourceDataSourceToIndexFieldMappingListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html#cfn-kendra-datasource-datasourcetoindexfieldmappinglist-datasourcetoindexfieldmappinglist
          */
-        dataSourceToIndexFieldMappingList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMapping>[]>;
+        dataSourceToIndexFieldMappingList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcevpcconfiguration.html
      */
-    export interface DataSourceDataSourceVpcConfiguration {
+    export interface DataSourceDataSourceVpcConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcevpcconfiguration.html#cfn-kendra-datasource-datasourcevpcconfiguration-securitygroupids
          */
@@ -6233,19 +6233,19 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html
      */
-    export interface DataSourceDatabaseConfiguration {
+    export interface DataSourceDatabaseConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-aclconfiguration
          */
-        aclConfiguration?: pulumi.Input<inputs.Kendra.DataSourceAclConfiguration>;
+        aclConfiguration?: pulumi.Input<inputs.Kendra.DataSourceAclConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-columnconfiguration
          */
-        columnConfiguration: pulumi.Input<inputs.Kendra.DataSourceColumnConfiguration>;
+        columnConfiguration: pulumi.Input<inputs.Kendra.DataSourceColumnConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-connectionconfiguration
          */
-        connectionConfiguration: pulumi.Input<inputs.Kendra.DataSourceConnectionConfiguration>;
+        connectionConfiguration: pulumi.Input<inputs.Kendra.DataSourceConnectionConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-databaseenginetype
          */
@@ -6253,17 +6253,17 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-sqlconfiguration
          */
-        sqlConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSqlConfiguration>;
+        sqlConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSqlConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-vpcconfiguration
          */
-        vpcConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDataSourceVpcConfiguration>;
+        vpcConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDataSourceVpcConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentsmetadataconfiguration.html
      */
-    export interface DataSourceDocumentsMetadataConfiguration {
+    export interface DataSourceDocumentsMetadataConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentsmetadataconfiguration.html#cfn-kendra-datasource-documentsmetadataconfiguration-s3prefix
          */
@@ -6273,7 +6273,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html
      */
-    export interface DataSourceOneDriveConfiguration {
+    export interface DataSourceOneDriveConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-disablelocalgroups
          */
@@ -6281,19 +6281,19 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-exclusionpatterns
          */
-        exclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        exclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-fieldmappings
          */
-        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingList>;
+        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-inclusionpatterns
          */
-        inclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        inclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-onedriveusers
          */
-        oneDriveUsers: pulumi.Input<inputs.Kendra.DataSourceOneDriveUsers>;
+        oneDriveUsers: pulumi.Input<inputs.Kendra.DataSourceOneDriveUsersArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-secretarn
          */
@@ -6307,7 +6307,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveuserlist.html
      */
-    export interface DataSourceOneDriveUserList {
+    export interface DataSourceOneDriveUserListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveuserlist.html#cfn-kendra-datasource-onedriveuserlist-onedriveuserlist
          */
@@ -6317,25 +6317,25 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html
      */
-    export interface DataSourceOneDriveUsers {
+    export interface DataSourceOneDriveUsersArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
          */
-        oneDriveUserList?: pulumi.Input<inputs.Kendra.DataSourceOneDriveUserList>;
+        oneDriveUserList?: pulumi.Input<inputs.Kendra.DataSourceOneDriveUserListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path
          */
-        oneDriveUserS3Path?: pulumi.Input<inputs.Kendra.DataSourceS3Path>;
+        oneDriveUserS3Path?: pulumi.Input<inputs.Kendra.DataSourceS3PathArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html
      */
-    export interface DataSourceS3DataSourceConfiguration {
+    export interface DataSourceS3DataSourceConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-accesscontrollistconfiguration
          */
-        accessControlListConfiguration?: pulumi.Input<inputs.Kendra.DataSourceAccessControlListConfiguration>;
+        accessControlListConfiguration?: pulumi.Input<inputs.Kendra.DataSourceAccessControlListConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-bucketname
          */
@@ -6343,25 +6343,25 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-documentsmetadataconfiguration
          */
-        documentsMetadataConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDocumentsMetadataConfiguration>;
+        documentsMetadataConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDocumentsMetadataConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
          */
-        exclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        exclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
          */
-        inclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        inclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionprefixes
          */
-        inclusionPrefixes?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        inclusionPrefixes?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html
      */
-    export interface DataSourceS3Path {
+    export interface DataSourceS3PathArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html#cfn-kendra-datasource-s3path-bucket
          */
@@ -6375,7 +6375,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html
      */
-    export interface DataSourceSalesforceChatterFeedConfiguration {
+    export interface DataSourceSalesforceChatterFeedConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documentdatafieldname
          */
@@ -6387,17 +6387,17 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings
          */
-        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingList>;
+        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-includefiltertypes
          */
-        includeFilterTypes?: pulumi.Input<inputs.Kendra.DataSourceSalesforceChatterFeedIncludeFilterTypes>;
+        includeFilterTypes?: pulumi.Input<inputs.Kendra.DataSourceSalesforceChatterFeedIncludeFilterTypesArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedincludefiltertypes.html
      */
-    export interface DataSourceSalesforceChatterFeedIncludeFilterTypes {
+    export interface DataSourceSalesforceChatterFeedIncludeFilterTypesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedincludefiltertypes.html#cfn-kendra-datasource-salesforcechatterfeedincludefiltertypes-salesforcechatterfeedincludefiltertypes
          */
@@ -6407,11 +6407,11 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html
      */
-    export interface DataSourceSalesforceConfiguration {
+    export interface DataSourceSalesforceConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-chatterfeedconfiguration
          */
-        chatterFeedConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSalesforceChatterFeedConfiguration>;
+        chatterFeedConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSalesforceChatterFeedConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-crawlattachments
          */
@@ -6419,15 +6419,15 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns
          */
-        excludeAttachmentFilePatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        excludeAttachmentFilePatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns
          */
-        includeAttachmentFilePatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        includeAttachmentFilePatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
          */
-        knowledgeArticleConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSalesforceKnowledgeArticleConfiguration>;
+        knowledgeArticleConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSalesforceKnowledgeArticleConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-secretarn
          */
@@ -6439,17 +6439,17 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectattachmentconfiguration
          */
-        standardObjectAttachmentConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSalesforceStandardObjectAttachmentConfiguration>;
+        standardObjectAttachmentConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSalesforceStandardObjectAttachmentConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
          */
-        standardObjectConfigurations?: pulumi.Input<inputs.Kendra.DataSourceSalesforceStandardObjectConfigurationList>;
+        standardObjectConfigurations?: pulumi.Input<inputs.Kendra.DataSourceSalesforceStandardObjectConfigurationListArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html
      */
-    export interface DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration {
+    export interface DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-documentdatafieldname
          */
@@ -6461,7 +6461,7 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-fieldmappings
          */
-        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingList>;
+        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-name
          */
@@ -6471,35 +6471,35 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html
      */
-    export interface DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList {
+    export interface DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist-salesforcecustomknowledgearticletypeconfigurationlist
          */
-        salesforceCustomKnowledgeArticleTypeConfigurationList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration>[]>;
+        salesforceCustomKnowledgeArticleTypeConfigurationList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html
      */
-    export interface DataSourceSalesforceKnowledgeArticleConfiguration {
+    export interface DataSourceSalesforceKnowledgeArticleConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
          */
-        customKnowledgeArticleTypeConfigurations?: pulumi.Input<inputs.Kendra.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList>;
+        customKnowledgeArticleTypeConfigurations?: pulumi.Input<inputs.Kendra.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
          */
-        includedStates: pulumi.Input<inputs.Kendra.DataSourceSalesforceKnowledgeArticleStateList>;
+        includedStates: pulumi.Input<inputs.Kendra.DataSourceSalesforceKnowledgeArticleStateListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration
          */
-        standardKnowledgeArticleTypeConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration>;
+        standardKnowledgeArticleTypeConfiguration?: pulumi.Input<inputs.Kendra.DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticlestatelist.html
      */
-    export interface DataSourceSalesforceKnowledgeArticleStateList {
+    export interface DataSourceSalesforceKnowledgeArticleStateListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticlestatelist.html#cfn-kendra-datasource-salesforceknowledgearticlestatelist-salesforceknowledgearticlestatelist
          */
@@ -6509,7 +6509,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html
      */
-    export interface DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration {
+    export interface DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-documentdatafieldname
          */
@@ -6521,13 +6521,13 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-fieldmappings
          */
-        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingList>;
+        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingListArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html
      */
-    export interface DataSourceSalesforceStandardObjectAttachmentConfiguration {
+    export interface DataSourceSalesforceStandardObjectAttachmentConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-documenttitlefieldname
          */
@@ -6535,13 +6535,13 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-fieldmappings
          */
-        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingList>;
+        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingListArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html
      */
-    export interface DataSourceSalesforceStandardObjectConfiguration {
+    export interface DataSourceSalesforceStandardObjectConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-documentdatafieldname
          */
@@ -6553,7 +6553,7 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-fieldmappings
          */
-        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingList>;
+        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-name
          */
@@ -6563,17 +6563,17 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html
      */
-    export interface DataSourceSalesforceStandardObjectConfigurationList {
+    export interface DataSourceSalesforceStandardObjectConfigurationListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html#cfn-kendra-datasource-salesforcestandardobjectconfigurationlist-salesforcestandardobjectconfigurationlist
          */
-        salesforceStandardObjectConfigurationList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceSalesforceStandardObjectConfiguration>[]>;
+        salesforceStandardObjectConfigurationList?: pulumi.Input<pulumi.Input<inputs.Kendra.DataSourceSalesforceStandardObjectConfigurationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html
      */
-    export interface DataSourceServiceNowConfiguration {
+    export interface DataSourceServiceNowConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-hosturl
          */
@@ -6581,7 +6581,7 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-knowledgearticleconfiguration
          */
-        knowledgeArticleConfiguration?: pulumi.Input<inputs.Kendra.DataSourceServiceNowKnowledgeArticleConfiguration>;
+        knowledgeArticleConfiguration?: pulumi.Input<inputs.Kendra.DataSourceServiceNowKnowledgeArticleConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-secretarn
          */
@@ -6589,7 +6589,7 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-servicecatalogconfiguration
          */
-        serviceCatalogConfiguration?: pulumi.Input<inputs.Kendra.DataSourceServiceNowServiceCatalogConfiguration>;
+        serviceCatalogConfiguration?: pulumi.Input<inputs.Kendra.DataSourceServiceNowServiceCatalogConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html#cfn-kendra-datasource-servicenowconfiguration-servicenowbuildversion
          */
@@ -6599,7 +6599,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html
      */
-    export interface DataSourceServiceNowKnowledgeArticleConfiguration {
+    export interface DataSourceServiceNowKnowledgeArticleConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-crawlattachments
          */
@@ -6615,21 +6615,21 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-excludeattachmentfilepatterns
          */
-        excludeAttachmentFilePatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        excludeAttachmentFilePatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-fieldmappings
          */
-        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingList>;
+        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-includeattachmentfilepatterns
          */
-        includeAttachmentFilePatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        includeAttachmentFilePatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html
      */
-    export interface DataSourceServiceNowServiceCatalogConfiguration {
+    export interface DataSourceServiceNowServiceCatalogConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-crawlattachments
          */
@@ -6645,21 +6645,21 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-excludeattachmentfilepatterns
          */
-        excludeAttachmentFilePatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        excludeAttachmentFilePatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-fieldmappings
          */
-        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingList>;
+        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-includeattachmentfilepatterns
          */
-        includeAttachmentFilePatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        includeAttachmentFilePatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html
      */
-    export interface DataSourceSharePointConfiguration {
+    export interface DataSourceSharePointConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-crawlattachments
          */
@@ -6675,15 +6675,15 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-exclusionpatterns
          */
-        exclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        exclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-fieldmappings
          */
-        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingList>;
+        fieldMappings?: pulumi.Input<inputs.Kendra.DataSourceDataSourceToIndexFieldMappingListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-inclusionpatterns
          */
-        inclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStrings>;
+        inclusionPatterns?: pulumi.Input<inputs.Kendra.DataSourceDataSourceInclusionsExclusionsStringsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-secretarn
          */
@@ -6703,13 +6703,13 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-vpcconfiguration
          */
-        vpcConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDataSourceVpcConfiguration>;
+        vpcConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDataSourceVpcConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sqlconfiguration.html
      */
-    export interface DataSourceSqlConfiguration {
+    export interface DataSourceSqlConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sqlconfiguration.html#cfn-kendra-datasource-sqlconfiguration-queryidentifiersenclosingoption
          */
@@ -6719,17 +6719,17 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html
      */
-    export interface DataSourceTagList {
+    export interface DataSourceTagListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html#cfn-kendra-datasource-taglist-taglist
          */
-        tagList?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+        tagList?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-s3path.html
      */
-    export interface FaqS3Path {
+    export interface FaqS3PathArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-s3path.html#cfn-kendra-faq-s3path-bucket
          */
@@ -6743,17 +6743,17 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html
      */
-    export interface FaqTagList {
+    export interface FaqTagListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html#cfn-kendra-faq-taglist-taglist
          */
-        tagList?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+        tagList?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html
      */
-    export interface IndexCapacityUnitsConfiguration {
+    export interface IndexCapacityUnitsConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-querycapacityunits
          */
@@ -6767,7 +6767,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html
      */
-    export interface IndexDocumentMetadataConfiguration {
+    export interface IndexDocumentMetadataConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-name
          */
@@ -6775,11 +6775,11 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-relevance
          */
-        relevance?: pulumi.Input<inputs.Kendra.IndexRelevance>;
+        relevance?: pulumi.Input<inputs.Kendra.IndexRelevanceArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-search
          */
-        search?: pulumi.Input<inputs.Kendra.IndexSearch>;
+        search?: pulumi.Input<inputs.Kendra.IndexSearchArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html#cfn-kendra-index-documentmetadataconfiguration-type
          */
@@ -6789,17 +6789,17 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html
      */
-    export interface IndexDocumentMetadataConfigurationList {
+    export interface IndexDocumentMetadataConfigurationListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html#cfn-kendra-index-documentmetadataconfigurationlist-documentmetadataconfigurationlist
          */
-        documentMetadataConfigurationList?: pulumi.Input<pulumi.Input<inputs.Kendra.IndexDocumentMetadataConfiguration>[]>;
+        documentMetadataConfigurationList?: pulumi.Input<pulumi.Input<inputs.Kendra.IndexDocumentMetadataConfigurationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html
      */
-    export interface IndexJsonTokenTypeConfiguration {
+    export interface IndexJsonTokenTypeConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html#cfn-kendra-index-jsontokentypeconfiguration-groupattributefield
          */
@@ -6813,7 +6813,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html
      */
-    export interface IndexJwtTokenTypeConfiguration {
+    export interface IndexJwtTokenTypeConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html#cfn-kendra-index-jwttokentypeconfiguration-claimregex
          */
@@ -6847,7 +6847,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html
      */
-    export interface IndexRelevance {
+    export interface IndexRelevanceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-duration
          */
@@ -6867,13 +6867,13 @@ export namespace Kendra {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
          */
-        valueImportanceItems?: pulumi.Input<inputs.Kendra.IndexValueImportanceItems>;
+        valueImportanceItems?: pulumi.Input<inputs.Kendra.IndexValueImportanceItemsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html
      */
-    export interface IndexSearch {
+    export interface IndexSearchArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html#cfn-kendra-index-search-displayable
          */
@@ -6895,7 +6895,7 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-serversideencryptionconfiguration.html
      */
-    export interface IndexServerSideEncryptionConfiguration {
+    export interface IndexServerSideEncryptionConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-serversideencryptionconfiguration.html#cfn-kendra-index-serversideencryptionconfiguration-kmskeyid
          */
@@ -6905,41 +6905,41 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html
      */
-    export interface IndexTagList {
+    export interface IndexTagListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html#cfn-kendra-index-taglist-taglist
          */
-        tagList?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+        tagList?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html
      */
-    export interface IndexUserTokenConfiguration {
+    export interface IndexUserTokenConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jsontokentypeconfiguration
          */
-        jsonTokenTypeConfiguration?: pulumi.Input<inputs.Kendra.IndexJsonTokenTypeConfiguration>;
+        jsonTokenTypeConfiguration?: pulumi.Input<inputs.Kendra.IndexJsonTokenTypeConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jwttokentypeconfiguration
          */
-        jwtTokenTypeConfiguration?: pulumi.Input<inputs.Kendra.IndexJwtTokenTypeConfiguration>;
+        jwtTokenTypeConfiguration?: pulumi.Input<inputs.Kendra.IndexJwtTokenTypeConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html
      */
-    export interface IndexUserTokenConfigurationList {
+    export interface IndexUserTokenConfigurationListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
          */
-        userTokenConfigurationList?: pulumi.Input<pulumi.Input<inputs.Kendra.IndexUserTokenConfiguration>[]>;
+        userTokenConfigurationList?: pulumi.Input<pulumi.Input<inputs.Kendra.IndexUserTokenConfigurationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitem.html
      */
-    export interface IndexValueImportanceItem {
+    export interface IndexValueImportanceItemArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitem.html#cfn-kendra-index-valueimportanceitem-key
          */
@@ -6953,11 +6953,11 @@ export namespace Kendra {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html
      */
-    export interface IndexValueImportanceItems {
+    export interface IndexValueImportanceItemsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems
          */
-        valueImportanceItems?: pulumi.Input<pulumi.Input<inputs.Kendra.IndexValueImportanceItem>[]>;
+        valueImportanceItems?: pulumi.Input<pulumi.Input<inputs.Kendra.IndexValueImportanceItemArgs>[]>;
     }
 }
 
@@ -6965,7 +6965,7 @@ export namespace Kinesis {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html
      */
-    export interface StreamStreamEncryption {
+    export interface StreamStreamEncryptionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-encryptiontype
          */
@@ -6981,7 +6981,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html
      */
-    export interface DeliveryStreamBufferingHints {
+    export interface DeliveryStreamBufferingHintsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html#cfn-kinesisfirehose-deliverystream-bufferinghints-intervalinseconds
          */
@@ -6995,7 +6995,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html
      */
-    export interface DeliveryStreamCloudWatchLoggingOptions {
+    export interface DeliveryStreamCloudWatchLoggingOptionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html#cfn-kinesisfirehose-deliverystream-cloudwatchloggingoptions-enabled
          */
@@ -7013,7 +7013,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html
      */
-    export interface DeliveryStreamCopyCommand {
+    export interface DeliveryStreamCopyCommandArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-copyoptions
          */
@@ -7031,7 +7031,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html
      */
-    export interface DeliveryStreamDataFormatConversionConfiguration {
+    export interface DeliveryStreamDataFormatConversionConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-enabled
          */
@@ -7039,21 +7039,21 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-inputformatconfiguration
          */
-        inputFormatConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamInputFormatConfiguration>;
+        inputFormatConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamInputFormatConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-outputformatconfiguration
          */
-        outputFormatConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamOutputFormatConfiguration>;
+        outputFormatConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamOutputFormatConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-schemaconfiguration
          */
-        schemaConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamSchemaConfiguration>;
+        schemaConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamSchemaConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html
      */
-    export interface DeliveryStreamDeliveryStreamEncryptionConfigurationInput {
+    export interface DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keyarn
          */
@@ -7067,21 +7067,21 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html
      */
-    export interface DeliveryStreamDeserializer {
+    export interface DeliveryStreamDeserializerArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-hivejsonserde
          */
-        hiveJsonSerDe?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamHiveJsonSerDe>;
+        hiveJsonSerDe?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamHiveJsonSerDeArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-openxjsonserde
          */
-        openXJsonSerDe?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamOpenXJsonSerDe>;
+        openXJsonSerDe?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamOpenXJsonSerDeArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html
      */
-    export interface DeliveryStreamElasticsearchBufferingHints {
+    export interface DeliveryStreamElasticsearchBufferingHintsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html#cfn-kinesisfirehose-deliverystream-elasticsearchbufferinghints-intervalinseconds
          */
@@ -7095,15 +7095,15 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html
      */
-    export interface DeliveryStreamElasticsearchDestinationConfiguration {
+    export interface DeliveryStreamElasticsearchDestinationConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-bufferinghints
          */
-        bufferingHints?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamElasticsearchBufferingHints>;
+        bufferingHints?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamElasticsearchBufferingHintsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-cloudwatchloggingoptions
          */
-        cloudWatchLoggingOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCloudWatchLoggingOptions>;
+        cloudWatchLoggingOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-clusterendpoint
          */
@@ -7123,11 +7123,11 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-processingconfiguration
          */
-        processingConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessingConfiguration>;
+        processingConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessingConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-retryoptions
          */
-        retryOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamElasticsearchRetryOptions>;
+        retryOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamElasticsearchRetryOptionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-rolearn
          */
@@ -7139,7 +7139,7 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-s3configuration
          */
-        s3Configuration: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamS3DestinationConfiguration>;
+        s3Configuration: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamS3DestinationConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-typename
          */
@@ -7147,13 +7147,13 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-vpcconfiguration
          */
-        vpcConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamVpcConfiguration>;
+        vpcConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamVpcConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchretryoptions.html
      */
-    export interface DeliveryStreamElasticsearchRetryOptions {
+    export interface DeliveryStreamElasticsearchRetryOptionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchretryoptions.html#cfn-kinesisfirehose-deliverystream-elasticsearchretryoptions-durationinseconds
          */
@@ -7163,11 +7163,11 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html
      */
-    export interface DeliveryStreamEncryptionConfiguration {
+    export interface DeliveryStreamEncryptionConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-kmsencryptionconfig
          */
-        kMSEncryptionConfig?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamKMSEncryptionConfig>;
+        kMSEncryptionConfig?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamKMSEncryptionConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-noencryptionconfig
          */
@@ -7177,7 +7177,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html
      */
-    export interface DeliveryStreamExtendedS3DestinationConfiguration {
+    export interface DeliveryStreamExtendedS3DestinationConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bucketarn
          */
@@ -7185,11 +7185,11 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bufferinghints
          */
-        bufferingHints?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamBufferingHints>;
+        bufferingHints?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamBufferingHintsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-cloudwatchloggingoptions
          */
-        cloudWatchLoggingOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCloudWatchLoggingOptions>;
+        cloudWatchLoggingOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-compressionformat
          */
@@ -7197,11 +7197,11 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dataformatconversionconfiguration
          */
-        dataFormatConversionConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamDataFormatConversionConfiguration>;
+        dataFormatConversionConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamDataFormatConversionConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
          */
-        encryptionConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamEncryptionConfiguration>;
+        encryptionConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamEncryptionConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-erroroutputprefix
          */
@@ -7213,7 +7213,7 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-processingconfiguration
          */
-        processingConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessingConfiguration>;
+        processingConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessingConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-rolearn
          */
@@ -7221,7 +7221,7 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupconfiguration
          */
-        s3BackupConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamS3DestinationConfiguration>;
+        s3BackupConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamS3DestinationConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupmode
          */
@@ -7231,7 +7231,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-hivejsonserde.html
      */
-    export interface DeliveryStreamHiveJsonSerDe {
+    export interface DeliveryStreamHiveJsonSerDeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-hivejsonserde.html#cfn-kinesisfirehose-deliverystream-hivejsonserde-timestampformats
          */
@@ -7241,7 +7241,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html
      */
-    export interface DeliveryStreamHttpEndpointCommonAttribute {
+    export interface DeliveryStreamHttpEndpointCommonAttributeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html#cfn-kinesisfirehose-deliverystream-httpendpointcommonattribute-attributename
          */
@@ -7255,7 +7255,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html
      */
-    export interface DeliveryStreamHttpEndpointConfiguration {
+    export interface DeliveryStreamHttpEndpointConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointconfiguration-accesskey
          */
@@ -7273,31 +7273,31 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html
      */
-    export interface DeliveryStreamHttpEndpointDestinationConfiguration {
+    export interface DeliveryStreamHttpEndpointDestinationConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-bufferinghints
          */
-        bufferingHints?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamBufferingHints>;
+        bufferingHints?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamBufferingHintsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-cloudwatchloggingoptions
          */
-        cloudWatchLoggingOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCloudWatchLoggingOptions>;
+        cloudWatchLoggingOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-endpointconfiguration
          */
-        endpointConfiguration: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamHttpEndpointConfiguration>;
+        endpointConfiguration: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamHttpEndpointConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-processingconfiguration
          */
-        processingConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessingConfiguration>;
+        processingConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessingConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-requestconfiguration
          */
-        requestConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamHttpEndpointRequestConfiguration>;
+        requestConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamHttpEndpointRequestConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-retryoptions
          */
-        retryOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamRetryOptions>;
+        retryOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamRetryOptionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-rolearn
          */
@@ -7309,17 +7309,17 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3configuration
          */
-        s3Configuration: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamS3DestinationConfiguration>;
+        s3Configuration: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamS3DestinationConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html
      */
-    export interface DeliveryStreamHttpEndpointRequestConfiguration {
+    export interface DeliveryStreamHttpEndpointRequestConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-commonattributes
          */
-        commonAttributes?: pulumi.Input<pulumi.Input<inputs.KinesisFirehose.DeliveryStreamHttpEndpointCommonAttribute>[]>;
+        commonAttributes?: pulumi.Input<pulumi.Input<inputs.KinesisFirehose.DeliveryStreamHttpEndpointCommonAttributeArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-contentencoding
          */
@@ -7329,17 +7329,17 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html
      */
-    export interface DeliveryStreamInputFormatConfiguration {
+    export interface DeliveryStreamInputFormatConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-inputformatconfiguration-deserializer
          */
-        deserializer?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamDeserializer>;
+        deserializer?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamDeserializerArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html
      */
-    export interface DeliveryStreamKMSEncryptionConfig {
+    export interface DeliveryStreamKMSEncryptionConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html#cfn-kinesisfirehose-deliverystream-kmsencryptionconfig-awskmskeyarn
          */
@@ -7349,7 +7349,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html
      */
-    export interface DeliveryStreamKinesisStreamSourceConfiguration {
+    export interface DeliveryStreamKinesisStreamSourceConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration-kinesisstreamarn
          */
@@ -7363,7 +7363,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html
      */
-    export interface DeliveryStreamOpenXJsonSerDe {
+    export interface DeliveryStreamOpenXJsonSerDeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-caseinsensitive
          */
@@ -7381,7 +7381,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html
      */
-    export interface DeliveryStreamOrcSerDe {
+    export interface DeliveryStreamOrcSerDeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html#cfn-kinesisfirehose-deliverystream-orcserde-blocksizebytes
          */
@@ -7427,17 +7427,17 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html
      */
-    export interface DeliveryStreamOutputFormatConfiguration {
+    export interface DeliveryStreamOutputFormatConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-outputformatconfiguration-serializer
          */
-        serializer?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamSerializer>;
+        serializer?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamSerializerArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html
      */
-    export interface DeliveryStreamParquetSerDe {
+    export interface DeliveryStreamParquetSerDeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html#cfn-kinesisfirehose-deliverystream-parquetserde-blocksizebytes
          */
@@ -7467,7 +7467,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html
      */
-    export interface DeliveryStreamProcessingConfiguration {
+    export interface DeliveryStreamProcessingConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-enabled
          */
@@ -7475,17 +7475,17 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-processors
          */
-        processors?: pulumi.Input<pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessor>[]>;
+        processors?: pulumi.Input<pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessorArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html
      */
-    export interface DeliveryStreamProcessor {
+    export interface DeliveryStreamProcessorArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-parameters
          */
-        parameters?: pulumi.Input<pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessorParameter>[]>;
+        parameters?: pulumi.Input<pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessorParameterArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-type
          */
@@ -7495,7 +7495,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html
      */
-    export interface DeliveryStreamProcessorParameter {
+    export interface DeliveryStreamProcessorParameterArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametername
          */
@@ -7509,11 +7509,11 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html
      */
-    export interface DeliveryStreamRedshiftDestinationConfiguration {
+    export interface DeliveryStreamRedshiftDestinationConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-cloudwatchloggingoptions
          */
-        cloudWatchLoggingOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCloudWatchLoggingOptions>;
+        cloudWatchLoggingOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-clusterjdbcurl
          */
@@ -7521,7 +7521,7 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-copycommand
          */
-        copyCommand: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCopyCommand>;
+        copyCommand: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCopyCommandArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-password
          */
@@ -7529,11 +7529,11 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-processingconfiguration
          */
-        processingConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessingConfiguration>;
+        processingConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessingConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-retryoptions
          */
-        retryOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamRedshiftRetryOptions>;
+        retryOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamRedshiftRetryOptionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-rolearn
          */
@@ -7541,7 +7541,7 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupconfiguration
          */
-        s3BackupConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamS3DestinationConfiguration>;
+        s3BackupConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamS3DestinationConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupmode
          */
@@ -7549,7 +7549,7 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3configuration
          */
-        s3Configuration: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamS3DestinationConfiguration>;
+        s3Configuration: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamS3DestinationConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-username
          */
@@ -7559,7 +7559,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html
      */
-    export interface DeliveryStreamRedshiftRetryOptions {
+    export interface DeliveryStreamRedshiftRetryOptionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html#cfn-kinesisfirehose-deliverystream-redshiftretryoptions-durationinseconds
          */
@@ -7569,7 +7569,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html
      */
-    export interface DeliveryStreamRetryOptions {
+    export interface DeliveryStreamRetryOptionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html#cfn-kinesisfirehose-deliverystream-retryoptions-durationinseconds
          */
@@ -7579,7 +7579,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html
      */
-    export interface DeliveryStreamS3DestinationConfiguration {
+    export interface DeliveryStreamS3DestinationConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-bucketarn
          */
@@ -7587,11 +7587,11 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-bufferinghints
          */
-        bufferingHints?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamBufferingHints>;
+        bufferingHints?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamBufferingHintsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-cloudwatchloggingoptions
          */
-        cloudWatchLoggingOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCloudWatchLoggingOptions>;
+        cloudWatchLoggingOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-compressionformat
          */
@@ -7599,7 +7599,7 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-encryptionconfiguration
          */
-        encryptionConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamEncryptionConfiguration>;
+        encryptionConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamEncryptionConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-erroroutputprefix
          */
@@ -7617,7 +7617,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html
      */
-    export interface DeliveryStreamSchemaConfiguration {
+    export interface DeliveryStreamSchemaConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-catalogid
          */
@@ -7647,25 +7647,25 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html
      */
-    export interface DeliveryStreamSerializer {
+    export interface DeliveryStreamSerializerArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-orcserde
          */
-        orcSerDe?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamOrcSerDe>;
+        orcSerDe?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamOrcSerDeArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-parquetserde
          */
-        parquetSerDe?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamParquetSerDe>;
+        parquetSerDe?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamParquetSerDeArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html
      */
-    export interface DeliveryStreamSplunkDestinationConfiguration {
+    export interface DeliveryStreamSplunkDestinationConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-cloudwatchloggingoptions
          */
-        cloudWatchLoggingOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCloudWatchLoggingOptions>;
+        cloudWatchLoggingOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecacknowledgmenttimeoutinseconds
          */
@@ -7685,11 +7685,11 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-processingconfiguration
          */
-        processingConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessingConfiguration>;
+        processingConfiguration?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamProcessingConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-retryoptions
          */
-        retryOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamSplunkRetryOptions>;
+        retryOptions?: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamSplunkRetryOptionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3backupmode
          */
@@ -7697,13 +7697,13 @@ export namespace KinesisFirehose {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3configuration
          */
-        s3Configuration: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamS3DestinationConfiguration>;
+        s3Configuration: pulumi.Input<inputs.KinesisFirehose.DeliveryStreamS3DestinationConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkretryoptions.html
      */
-    export interface DeliveryStreamSplunkRetryOptions {
+    export interface DeliveryStreamSplunkRetryOptionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkretryoptions.html#cfn-kinesisfirehose-deliverystream-splunkretryoptions-durationinseconds
          */
@@ -7713,7 +7713,7 @@ export namespace KinesisFirehose {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html
      */
-    export interface DeliveryStreamVpcConfiguration {
+    export interface DeliveryStreamVpcConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-rolearn
          */
@@ -7733,7 +7733,7 @@ export namespace Lambda {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html
      */
-    export interface CodeSigningConfigAllowedPublishers {
+    export interface CodeSigningConfigAllowedPublishersArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html#cfn-lambda-codesigningconfig-allowedpublishers-signingprofileversionarns
          */
@@ -7743,7 +7743,7 @@ export namespace Lambda {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html
      */
-    export interface CodeSigningConfigCodeSigningPolicies {
+    export interface CodeSigningConfigCodeSigningPoliciesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment
          */
@@ -7753,17 +7753,17 @@ export namespace Lambda {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html
      */
-    export interface EventSourceMappingDestinationConfig {
+    export interface EventSourceMappingDestinationConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
          */
-        onFailure?: pulumi.Input<inputs.Lambda.EventSourceMappingOnFailure>;
+        onFailure?: pulumi.Input<inputs.Lambda.EventSourceMappingOnFailureArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html
      */
-    export interface EventSourceMappingEndpoints {
+    export interface EventSourceMappingEndpointsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html#cfn-lambda-eventsourcemapping-endpoints-kafkabootstrapservers
          */
@@ -7773,7 +7773,7 @@ export namespace Lambda {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html
      */
-    export interface EventSourceMappingOnFailure {
+    export interface EventSourceMappingOnFailureArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination
          */
@@ -7783,17 +7783,17 @@ export namespace Lambda {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html
      */
-    export interface EventSourceMappingSelfManagedEventSource {
+    export interface EventSourceMappingSelfManagedEventSourceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
          */
-        endpoints?: pulumi.Input<inputs.Lambda.EventSourceMappingEndpoints>;
+        endpoints?: pulumi.Input<inputs.Lambda.EventSourceMappingEndpointsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
      */
-    export interface EventSourceMappingSourceAccessConfiguration {
+    export interface EventSourceMappingSourceAccessConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-type
          */
@@ -7809,7 +7809,7 @@ export namespace LicenseManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-allowedoperationlist.html
      */
-    export interface GrantAllowedOperationList {
+    export interface GrantAllowedOperationListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-allowedoperationlist.html#cfn-licensemanager-grant-allowedoperationlist-allowedoperationlist
          */
@@ -7819,7 +7819,7 @@ export namespace LicenseManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-arnlist.html
      */
-    export interface GrantArnList {
+    export interface GrantArnListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-arnlist.html#cfn-licensemanager-grant-arnlist-arnlist
          */
@@ -7829,7 +7829,7 @@ export namespace LicenseManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html
      */
-    export interface GrantFilter {
+    export interface GrantFilterArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html#cfn-licensemanager-grant-filter-name
          */
@@ -7837,23 +7837,23 @@ export namespace LicenseManager {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html#cfn-licensemanager-grant-filter-values
          */
-        values: pulumi.Input<inputs.LicenseManager.GrantStringList>;
+        values: pulumi.Input<inputs.LicenseManager.GrantStringListArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filterlist.html
      */
-    export interface GrantFilterList {
+    export interface GrantFilterListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filterlist.html#cfn-licensemanager-grant-filterlist-filterlist
          */
-        filterList?: pulumi.Input<pulumi.Input<inputs.LicenseManager.GrantFilter>[]>;
+        filterList?: pulumi.Input<pulumi.Input<inputs.LicenseManager.GrantFilterArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-stringlist.html
      */
-    export interface GrantStringList {
+    export interface GrantStringListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-stringlist.html#cfn-licensemanager-grant-stringlist-stringlist
          */
@@ -7863,17 +7863,17 @@ export namespace LicenseManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-taglist.html
      */
-    export interface GrantTagList {
+    export interface GrantTagListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-taglist.html#cfn-licensemanager-grant-taglist-taglist
          */
-        tagList?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+        tagList?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-arnlist.html
      */
-    export interface LicenseArnList {
+    export interface LicenseArnListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-arnlist.html#cfn-licensemanager-license-arnlist-arnlist
          */
@@ -7883,7 +7883,7 @@ export namespace LicenseManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html
      */
-    export interface LicenseBorrowConfiguration {
+    export interface LicenseBorrowConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-allowearlycheckin
          */
@@ -7897,15 +7897,15 @@ export namespace LicenseManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html
      */
-    export interface LicenseConsumptionConfiguration {
+    export interface LicenseConsumptionConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration
          */
-        borrowConfiguration?: pulumi.Input<inputs.LicenseManager.LicenseBorrowConfiguration>;
+        borrowConfiguration?: pulumi.Input<inputs.LicenseManager.LicenseBorrowConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-provisionalconfiguration
          */
-        provisionalConfiguration?: pulumi.Input<inputs.LicenseManager.LicenseProvisionalConfiguration>;
+        provisionalConfiguration?: pulumi.Input<inputs.LicenseManager.LicenseProvisionalConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-renewtype
          */
@@ -7915,7 +7915,7 @@ export namespace LicenseManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html
      */
-    export interface LicenseEntitlement {
+    export interface LicenseEntitlementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-allowcheckin
          */
@@ -7923,7 +7923,7 @@ export namespace LicenseManager {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-checkoutrules
          */
-        checkoutRules?: pulumi.Input<inputs.LicenseManager.LicenseRuleList>;
+        checkoutRules?: pulumi.Input<inputs.LicenseManager.LicenseRuleListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-maxcount
          */
@@ -7949,17 +7949,17 @@ export namespace LicenseManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlementlist.html
      */
-    export interface LicenseEntitlementList {
+    export interface LicenseEntitlementListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlementlist.html#cfn-licensemanager-license-entitlementlist-entitlementlist
          */
-        entitlementList?: pulumi.Input<pulumi.Input<inputs.LicenseManager.LicenseEntitlement>[]>;
+        entitlementList?: pulumi.Input<pulumi.Input<inputs.LicenseManager.LicenseEntitlementArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html
      */
-    export interface LicenseFilter {
+    export interface LicenseFilterArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html#cfn-licensemanager-license-filter-name
          */
@@ -7967,23 +7967,23 @@ export namespace LicenseManager {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html#cfn-licensemanager-license-filter-values
          */
-        values: pulumi.Input<inputs.LicenseManager.LicenseStringList>;
+        values: pulumi.Input<inputs.LicenseManager.LicenseStringListArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filterlist.html
      */
-    export interface LicenseFilterList {
+    export interface LicenseFilterListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filterlist.html#cfn-licensemanager-license-filterlist-filterlist
          */
-        filterList?: pulumi.Input<pulumi.Input<inputs.LicenseManager.LicenseFilter>[]>;
+        filterList?: pulumi.Input<pulumi.Input<inputs.LicenseManager.LicenseFilterArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html
      */
-    export interface LicenseIssuerData {
+    export interface LicenseIssuerDataArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-name
          */
@@ -7997,7 +7997,7 @@ export namespace LicenseManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html
      */
-    export interface LicenseMetadata {
+    export interface LicenseMetadataArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-name
          */
@@ -8011,17 +8011,17 @@ export namespace LicenseManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadatalist.html
      */
-    export interface LicenseMetadataList {
+    export interface LicenseMetadataListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadatalist.html#cfn-licensemanager-license-metadatalist-metadatalist
          */
-        metadataList?: pulumi.Input<pulumi.Input<inputs.LicenseManager.LicenseMetadata>[]>;
+        metadataList?: pulumi.Input<pulumi.Input<inputs.LicenseManager.LicenseMetadataArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html
      */
-    export interface LicenseProvisionalConfiguration {
+    export interface LicenseProvisionalConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html#cfn-licensemanager-license-provisionalconfiguration-maxtimetoliveinminutes
          */
@@ -8031,7 +8031,7 @@ export namespace LicenseManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rule.html
      */
-    export interface LicenseRule {
+    export interface LicenseRuleArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rule.html#cfn-licensemanager-license-rule-name
          */
@@ -8049,17 +8049,17 @@ export namespace LicenseManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rulelist.html
      */
-    export interface LicenseRuleList {
+    export interface LicenseRuleListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rulelist.html#cfn-licensemanager-license-rulelist-rulelist
          */
-        ruleList?: pulumi.Input<pulumi.Input<inputs.LicenseManager.LicenseRule>[]>;
+        ruleList?: pulumi.Input<pulumi.Input<inputs.LicenseManager.LicenseRuleArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-stringlist.html
      */
-    export interface LicenseStringList {
+    export interface LicenseStringListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-stringlist.html#cfn-licensemanager-license-stringlist-stringlist
          */
@@ -8069,17 +8069,17 @@ export namespace LicenseManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-taglist.html
      */
-    export interface LicenseTagList {
+    export interface LicenseTagListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-taglist.html#cfn-licensemanager-license-taglist-taglist
          */
-        tagList?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+        tagList?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html
      */
-    export interface LicenseValidityDateFormat {
+    export interface LicenseValidityDateFormatArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-begin
          */
@@ -8095,39 +8095,39 @@ export namespace MWAA {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-airflowconfigurationoptions.html
      */
-    export interface EnvironmentAirflowConfigurationOptions {
+    export interface EnvironmentAirflowConfigurationOptionsArgs {
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html
      */
-    export interface EnvironmentLoggingConfiguration {
+    export interface EnvironmentLoggingConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs
          */
-        dagProcessingLogs?: pulumi.Input<inputs.MWAA.EnvironmentModuleLoggingConfiguration>;
+        dagProcessingLogs?: pulumi.Input<inputs.MWAA.EnvironmentModuleLoggingConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs
          */
-        schedulerLogs?: pulumi.Input<inputs.MWAA.EnvironmentModuleLoggingConfiguration>;
+        schedulerLogs?: pulumi.Input<inputs.MWAA.EnvironmentModuleLoggingConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs
          */
-        taskLogs?: pulumi.Input<inputs.MWAA.EnvironmentModuleLoggingConfiguration>;
+        taskLogs?: pulumi.Input<inputs.MWAA.EnvironmentModuleLoggingConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs
          */
-        webserverLogs?: pulumi.Input<inputs.MWAA.EnvironmentModuleLoggingConfiguration>;
+        webserverLogs?: pulumi.Input<inputs.MWAA.EnvironmentModuleLoggingConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs
          */
-        workerLogs?: pulumi.Input<inputs.MWAA.EnvironmentModuleLoggingConfiguration>;
+        workerLogs?: pulumi.Input<inputs.MWAA.EnvironmentModuleLoggingConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html
      */
-    export interface EnvironmentModuleLoggingConfiguration {
+    export interface EnvironmentModuleLoggingConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-cloudwatchloggrouparn
          */
@@ -8145,21 +8145,21 @@ export namespace MWAA {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html
      */
-    export interface EnvironmentNetworkConfiguration {
+    export interface EnvironmentNetworkConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
          */
-        securityGroupIds?: pulumi.Input<inputs.MWAA.EnvironmentSecurityGroupList>;
+        securityGroupIds?: pulumi.Input<inputs.MWAA.EnvironmentSecurityGroupListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
          */
-        subnetIds?: pulumi.Input<inputs.MWAA.EnvironmentSubnetList>;
+        subnetIds?: pulumi.Input<inputs.MWAA.EnvironmentSubnetListArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-securitygrouplist.html
      */
-    export interface EnvironmentSecurityGroupList {
+    export interface EnvironmentSecurityGroupListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-securitygrouplist.html#cfn-mwaa-environment-securitygrouplist-securitygrouplist
          */
@@ -8169,7 +8169,7 @@ export namespace MWAA {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-subnetlist.html
      */
-    export interface EnvironmentSubnetList {
+    export interface EnvironmentSubnetListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-subnetlist.html#cfn-mwaa-environment-subnetlist-subnetlist
          */
@@ -8179,7 +8179,7 @@ export namespace MWAA {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-tagmap.html
      */
-    export interface EnvironmentTagMap {
+    export interface EnvironmentTagMapArgs {
     }
 
 }
@@ -8188,17 +8188,17 @@ export namespace Macie {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterion.html
      */
-    export interface FindingsFilterCriterion {
+    export interface FindingsFilterCriterionArgs {
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html
      */
-    export interface FindingsFilterFindingCriteria {
+    export interface FindingsFilterFindingCriteriaArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
          */
-        criterion?: pulumi.Input<inputs.Macie.FindingsFilterCriterion>;
+        criterion?: pulumi.Input<inputs.Macie.FindingsFilterCriterionArgs>;
     }
 
 }
@@ -8207,7 +8207,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html
      */
-    export interface AssetEgressEndpoint {
+    export interface AssetEgressEndpointArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-packagingconfigurationid
          */
@@ -8221,7 +8221,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html
      */
-    export interface OriginEndpointAuthorization {
+    export interface OriginEndpointAuthorizationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-cdnidentifiersecret
          */
@@ -8235,7 +8235,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html
      */
-    export interface OriginEndpointCmafEncryption {
+    export interface OriginEndpointCmafEncryptionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
          */
@@ -8243,21 +8243,21 @@ export namespace MediaPackage {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
          */
-        spekeKeyProvider: pulumi.Input<inputs.MediaPackage.OriginEndpointSpekeKeyProvider>;
+        spekeKeyProvider: pulumi.Input<inputs.MediaPackage.OriginEndpointSpekeKeyProviderArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html
      */
-    export interface OriginEndpointCmafPackage {
+    export interface OriginEndpointCmafPackageArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-encryption
          */
-        encryption?: pulumi.Input<inputs.MediaPackage.OriginEndpointCmafEncryption>;
+        encryption?: pulumi.Input<inputs.MediaPackage.OriginEndpointCmafEncryptionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests
          */
-        hlsManifests?: pulumi.Input<pulumi.Input<inputs.MediaPackage.OriginEndpointHlsManifest>[]>;
+        hlsManifests?: pulumi.Input<pulumi.Input<inputs.MediaPackage.OriginEndpointHlsManifestArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentdurationseconds
          */
@@ -8269,13 +8269,13 @@ export namespace MediaPackage {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-streamselection
          */
-        streamSelection?: pulumi.Input<inputs.MediaPackage.OriginEndpointStreamSelection>;
+        streamSelection?: pulumi.Input<inputs.MediaPackage.OriginEndpointStreamSelectionArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html
      */
-    export interface OriginEndpointDashEncryption {
+    export interface OriginEndpointDashEncryptionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-keyrotationintervalseconds
          */
@@ -8283,13 +8283,13 @@ export namespace MediaPackage {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider
          */
-        spekeKeyProvider: pulumi.Input<inputs.MediaPackage.OriginEndpointSpekeKeyProvider>;
+        spekeKeyProvider: pulumi.Input<inputs.MediaPackage.OriginEndpointSpekeKeyProviderArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html
      */
-    export interface OriginEndpointDashPackage {
+    export interface OriginEndpointDashPackageArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers
          */
@@ -8301,7 +8301,7 @@ export namespace MediaPackage {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-encryption
          */
-        encryption?: pulumi.Input<inputs.MediaPackage.OriginEndpointDashEncryption>;
+        encryption?: pulumi.Input<inputs.MediaPackage.OriginEndpointDashEncryptionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestlayout
          */
@@ -8337,7 +8337,7 @@ export namespace MediaPackage {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-streamselection
          */
-        streamSelection?: pulumi.Input<inputs.MediaPackage.OriginEndpointStreamSelection>;
+        streamSelection?: pulumi.Input<inputs.MediaPackage.OriginEndpointStreamSelectionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
          */
@@ -8347,7 +8347,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html
      */
-    export interface OriginEndpointHlsEncryption {
+    export interface OriginEndpointHlsEncryptionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-constantinitializationvector
          */
@@ -8367,13 +8367,13 @@ export namespace MediaPackage {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-spekekeyprovider
          */
-        spekeKeyProvider: pulumi.Input<inputs.MediaPackage.OriginEndpointSpekeKeyProvider>;
+        spekeKeyProvider: pulumi.Input<inputs.MediaPackage.OriginEndpointSpekeKeyProviderArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html
      */
-    export interface OriginEndpointHlsManifest {
+    export interface OriginEndpointHlsManifestArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-admarkers
          */
@@ -8419,7 +8419,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html
      */
-    export interface OriginEndpointHlsPackage {
+    export interface OriginEndpointHlsPackageArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-admarkers
          */
@@ -8435,7 +8435,7 @@ export namespace MediaPackage {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-encryption
          */
-        encryption?: pulumi.Input<inputs.MediaPackage.OriginEndpointHlsEncryption>;
+        encryption?: pulumi.Input<inputs.MediaPackage.OriginEndpointHlsEncryptionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-includeiframeonlystream
          */
@@ -8459,7 +8459,7 @@ export namespace MediaPackage {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-streamselection
          */
-        streamSelection?: pulumi.Input<inputs.MediaPackage.OriginEndpointStreamSelection>;
+        streamSelection?: pulumi.Input<inputs.MediaPackage.OriginEndpointStreamSelectionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-useaudiorenditiongroup
          */
@@ -8469,21 +8469,21 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html
      */
-    export interface OriginEndpointMssEncryption {
+    export interface OriginEndpointMssEncryptionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html#cfn-mediapackage-originendpoint-mssencryption-spekekeyprovider
          */
-        spekeKeyProvider: pulumi.Input<inputs.MediaPackage.OriginEndpointSpekeKeyProvider>;
+        spekeKeyProvider: pulumi.Input<inputs.MediaPackage.OriginEndpointSpekeKeyProviderArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html
      */
-    export interface OriginEndpointMssPackage {
+    export interface OriginEndpointMssPackageArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
          */
-        encryption?: pulumi.Input<inputs.MediaPackage.OriginEndpointMssEncryption>;
+        encryption?: pulumi.Input<inputs.MediaPackage.OriginEndpointMssEncryptionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds
          */
@@ -8495,13 +8495,13 @@ export namespace MediaPackage {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
          */
-        streamSelection?: pulumi.Input<inputs.MediaPackage.OriginEndpointStreamSelection>;
+        streamSelection?: pulumi.Input<inputs.MediaPackage.OriginEndpointStreamSelectionArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html
      */
-    export interface OriginEndpointSpekeKeyProvider {
+    export interface OriginEndpointSpekeKeyProviderArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-certificatearn
          */
@@ -8527,7 +8527,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html
      */
-    export interface OriginEndpointStreamSelection {
+    export interface OriginEndpointStreamSelectionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-maxvideobitspersecond
          */
@@ -8545,7 +8545,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html
      */
-    export interface PackagingConfigurationCmafEncryption {
+    export interface PackagingConfigurationCmafEncryptionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
          */
@@ -8555,15 +8555,15 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html
      */
-    export interface PackagingConfigurationCmafPackage {
+    export interface PackagingConfigurationCmafPackageArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption
          */
-        encryption?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationCmafEncryption>;
+        encryption?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationCmafEncryptionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
          */
-        hlsManifests: pulumi.Input<pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsManifest>[]>;
+        hlsManifests: pulumi.Input<pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsManifestArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
          */
@@ -8573,7 +8573,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html
      */
-    export interface PackagingConfigurationDashEncryption {
+    export interface PackagingConfigurationDashEncryptionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
          */
@@ -8583,7 +8583,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html
      */
-    export interface PackagingConfigurationDashManifest {
+    export interface PackagingConfigurationDashManifestArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestlayout
          */
@@ -8603,21 +8603,21 @@ export namespace MediaPackage {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-streamselection
          */
-        streamSelection?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationStreamSelection>;
+        streamSelection?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationStreamSelectionArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html
      */
-    export interface PackagingConfigurationDashPackage {
+    export interface PackagingConfigurationDashPackageArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
          */
-        dashManifests: pulumi.Input<pulumi.Input<inputs.MediaPackage.PackagingConfigurationDashManifest>[]>;
+        dashManifests: pulumi.Input<pulumi.Input<inputs.MediaPackage.PackagingConfigurationDashManifestArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
          */
-        encryption?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationDashEncryption>;
+        encryption?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationDashEncryptionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
          */
@@ -8635,7 +8635,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html
      */
-    export interface PackagingConfigurationHlsEncryption {
+    export interface PackagingConfigurationHlsEncryptionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector
          */
@@ -8653,7 +8653,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html
      */
-    export interface PackagingConfigurationHlsManifest {
+    export interface PackagingConfigurationHlsManifestArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-admarkers
          */
@@ -8677,21 +8677,21 @@ export namespace MediaPackage {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-streamselection
          */
-        streamSelection?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationStreamSelection>;
+        streamSelection?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationStreamSelectionArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html
      */
-    export interface PackagingConfigurationHlsPackage {
+    export interface PackagingConfigurationHlsPackageArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption
          */
-        encryption?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsEncryption>;
+        encryption?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsEncryptionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests
          */
-        hlsManifests: pulumi.Input<pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsManifest>[]>;
+        hlsManifests: pulumi.Input<pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsManifestArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds
          */
@@ -8705,7 +8705,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html
      */
-    export interface PackagingConfigurationMssEncryption {
+    export interface PackagingConfigurationMssEncryptionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
          */
@@ -8715,7 +8715,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html
      */
-    export interface PackagingConfigurationMssManifest {
+    export interface PackagingConfigurationMssManifestArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-manifestname
          */
@@ -8723,21 +8723,21 @@ export namespace MediaPackage {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-streamselection
          */
-        streamSelection?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationStreamSelection>;
+        streamSelection?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationStreamSelectionArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html
      */
-    export interface PackagingConfigurationMssPackage {
+    export interface PackagingConfigurationMssPackageArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
          */
-        encryption?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationMssEncryption>;
+        encryption?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationMssEncryptionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
          */
-        mssManifests: pulumi.Input<pulumi.Input<inputs.MediaPackage.PackagingConfigurationMssManifest>[]>;
+        mssManifests: pulumi.Input<pulumi.Input<inputs.MediaPackage.PackagingConfigurationMssManifestArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds
          */
@@ -8747,7 +8747,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html
      */
-    export interface PackagingConfigurationStreamSelection {
+    export interface PackagingConfigurationStreamSelectionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-maxvideobitspersecond
          */
@@ -8765,7 +8765,7 @@ export namespace MediaPackage {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html
      */
-    export interface PackagingGroupAuthorization {
+    export interface PackagingGroupAuthorizationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-cdnidentifiersecret
          */
@@ -8781,21 +8781,21 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-actiondefinition.html
      */
-    export interface FirewallPolicyActionDefinition {
+    export interface FirewallPolicyActionDefinitionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-actiondefinition.html#cfn-networkfirewall-firewallpolicy-actiondefinition-publishmetricaction
          */
-        publishMetricAction?: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyPublishMetricAction>;
+        publishMetricAction?: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyPublishMetricActionArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html
      */
-    export interface FirewallPolicyCustomAction {
+    export interface FirewallPolicyCustomActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html#cfn-networkfirewall-firewallpolicy-customaction-actiondefinition
          */
-        actionDefinition: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyActionDefinition>;
+        actionDefinition: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyActionDefinitionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html#cfn-networkfirewall-firewallpolicy-customaction-actionname
          */
@@ -8805,17 +8805,17 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html
      */
-    export interface FirewallPolicyCustomActions {
+    export interface FirewallPolicyCustomActionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html#cfn-networkfirewall-firewallpolicy-customactions-customactions
          */
-        customActions?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallPolicyCustomAction>[]>;
+        customActions?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallPolicyCustomActionArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimension.html
      */
-    export interface FirewallPolicyDimension {
+    export interface FirewallPolicyDimensionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimension.html#cfn-networkfirewall-firewallpolicy-dimension-value
          */
@@ -8825,53 +8825,53 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html
      */
-    export interface FirewallPolicyDimensions {
+    export interface FirewallPolicyDimensionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html#cfn-networkfirewall-firewallpolicy-dimensions-dimensions
          */
-        dimensions?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallPolicyDimension>[]>;
+        dimensions?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallPolicyDimensionArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html
      */
-    export interface FirewallPolicyFirewallPolicy {
+    export interface FirewallPolicyFirewallPolicyArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences
          */
-        statefulRuleGroupReferences?: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyStatefulRuleGroupReferences>;
+        statefulRuleGroupReferences?: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyStatefulRuleGroupReferencesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions
          */
-        statelessCustomActions?: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyCustomActions>;
+        statelessCustomActions?: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyCustomActionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions
          */
-        statelessDefaultActions: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyStatelessActions>;
+        statelessDefaultActions: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyStatelessActionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions
          */
-        statelessFragmentDefaultActions: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyStatelessActions>;
+        statelessFragmentDefaultActions: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyStatelessActionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
          */
-        statelessRuleGroupReferences?: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyStatelessRuleGroupReferences>;
+        statelessRuleGroupReferences?: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyStatelessRuleGroupReferencesArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html
      */
-    export interface FirewallPolicyPublishMetricAction {
+    export interface FirewallPolicyPublishMetricActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html#cfn-networkfirewall-firewallpolicy-publishmetricaction-dimensions
          */
-        dimensions: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyDimensions>;
+        dimensions: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyDimensionsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html
      */
-    export interface FirewallPolicyStatefulRuleGroupReference {
+    export interface FirewallPolicyStatefulRuleGroupReferenceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreference-resourcearn
          */
@@ -8881,17 +8881,17 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreferences.html
      */
-    export interface FirewallPolicyStatefulRuleGroupReferences {
+    export interface FirewallPolicyStatefulRuleGroupReferencesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreferences-statefulrulegroupreferences
          */
-        statefulRuleGroupReferences?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallPolicyStatefulRuleGroupReference>[]>;
+        statefulRuleGroupReferences?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallPolicyStatefulRuleGroupReferenceArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessactions.html
      */
-    export interface FirewallPolicyStatelessActions {
+    export interface FirewallPolicyStatelessActionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessactions.html#cfn-networkfirewall-firewallpolicy-statelessactions-statelessactions
          */
@@ -8901,7 +8901,7 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html
      */
-    export interface FirewallPolicyStatelessRuleGroupReference {
+    export interface FirewallPolicyStatelessRuleGroupReferenceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreference-priority
          */
@@ -8915,17 +8915,17 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html
      */
-    export interface FirewallPolicyStatelessRuleGroupReferences {
+    export interface FirewallPolicyStatelessRuleGroupReferencesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreferences-statelessrulegroupreferences
          */
-        statelessRuleGroupReferences?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallPolicyStatelessRuleGroupReference>[]>;
+        statelessRuleGroupReferences?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallPolicyStatelessRuleGroupReferenceArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html
      */
-    export interface FirewallSubnetMapping {
+    export interface FirewallSubnetMappingArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html#cfn-networkfirewall-firewall-subnetmapping-subnetid
          */
@@ -8935,7 +8935,7 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html
      */
-    export interface LoggingConfigurationLogDestinationConfig {
+    export interface LoggingConfigurationLogDestinationConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logdestination
          */
@@ -8953,37 +8953,37 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html
      */
-    export interface LoggingConfigurationLogDestinationConfigs {
+    export interface LoggingConfigurationLogDestinationConfigsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfigs-logdestinationconfigs
          */
-        logDestinationConfigs?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.LoggingConfigurationLogDestinationConfig>[]>;
+        logDestinationConfigs?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.LoggingConfigurationLogDestinationConfigArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html
      */
-    export interface LoggingConfigurationLoggingConfiguration {
+    export interface LoggingConfigurationLoggingConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs
          */
-        logDestinationConfigs: pulumi.Input<inputs.NetworkFirewall.LoggingConfigurationLogDestinationConfigs>;
+        logDestinationConfigs: pulumi.Input<inputs.NetworkFirewall.LoggingConfigurationLogDestinationConfigsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-actiondefinition.html
      */
-    export interface RuleGroupActionDefinition {
+    export interface RuleGroupActionDefinitionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-actiondefinition.html#cfn-networkfirewall-rulegroup-actiondefinition-publishmetricaction
          */
-        publishMetricAction?: pulumi.Input<inputs.NetworkFirewall.RuleGroupPublishMetricAction>;
+        publishMetricAction?: pulumi.Input<inputs.NetworkFirewall.RuleGroupPublishMetricActionArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-address.html
      */
-    export interface RuleGroupAddress {
+    export interface RuleGroupAddressArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-address.html#cfn-networkfirewall-rulegroup-address-addressdefinition
          */
@@ -8993,21 +8993,21 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html
      */
-    export interface RuleGroupAddresses {
+    export interface RuleGroupAddressesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html#cfn-networkfirewall-rulegroup-addresses-addresses
          */
-        addresses?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupAddress>[]>;
+        addresses?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupAddressArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html
      */
-    export interface RuleGroupCustomAction {
+    export interface RuleGroupCustomActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html#cfn-networkfirewall-rulegroup-customaction-actiondefinition
          */
-        actionDefinition: pulumi.Input<inputs.NetworkFirewall.RuleGroupActionDefinition>;
+        actionDefinition: pulumi.Input<inputs.NetworkFirewall.RuleGroupActionDefinitionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html#cfn-networkfirewall-rulegroup-customaction-actionname
          */
@@ -9017,17 +9017,17 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html
      */
-    export interface RuleGroupCustomActions {
+    export interface RuleGroupCustomActionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html#cfn-networkfirewall-rulegroup-customactions-customactions
          */
-        customActions?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupCustomAction>[]>;
+        customActions?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupCustomActionArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimension.html
      */
-    export interface RuleGroupDimension {
+    export interface RuleGroupDimensionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimension.html#cfn-networkfirewall-rulegroup-dimension-value
          */
@@ -9037,17 +9037,17 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html
      */
-    export interface RuleGroupDimensions {
+    export interface RuleGroupDimensionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html#cfn-networkfirewall-rulegroup-dimensions-dimensions
          */
-        dimensions?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupDimension>[]>;
+        dimensions?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupDimensionArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-flags.html
      */
-    export interface RuleGroupFlags {
+    export interface RuleGroupFlagsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-flags.html#cfn-networkfirewall-rulegroup-flags-flags
          */
@@ -9057,7 +9057,7 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html
      */
-    export interface RuleGroupHeader {
+    export interface RuleGroupHeaderArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html#cfn-networkfirewall-rulegroup-header-destination
          */
@@ -9087,47 +9087,47 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html
      */
-    export interface RuleGroupIPSet {
+    export interface RuleGroupIPSetArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html#cfn-networkfirewall-rulegroup-ipset-definition
          */
-        definition?: pulumi.Input<inputs.NetworkFirewall.RuleGroupVariableDefinitionList>;
+        definition?: pulumi.Input<inputs.NetworkFirewall.RuleGroupVariableDefinitionListArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html
      */
-    export interface RuleGroupMatchAttributes {
+    export interface RuleGroupMatchAttributesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports
          */
-        destinationPorts?: pulumi.Input<inputs.NetworkFirewall.RuleGroupPortRanges>;
+        destinationPorts?: pulumi.Input<inputs.NetworkFirewall.RuleGroupPortRangesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations
          */
-        destinations?: pulumi.Input<inputs.NetworkFirewall.RuleGroupAddresses>;
+        destinations?: pulumi.Input<inputs.NetworkFirewall.RuleGroupAddressesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-protocols
          */
-        protocols?: pulumi.Input<inputs.NetworkFirewall.RuleGroupProtocolNumbers>;
+        protocols?: pulumi.Input<inputs.NetworkFirewall.RuleGroupProtocolNumbersArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports
          */
-        sourcePorts?: pulumi.Input<inputs.NetworkFirewall.RuleGroupPortRanges>;
+        sourcePorts?: pulumi.Input<inputs.NetworkFirewall.RuleGroupPortRangesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources
          */
-        sources?: pulumi.Input<inputs.NetworkFirewall.RuleGroupAddresses>;
+        sources?: pulumi.Input<inputs.NetworkFirewall.RuleGroupAddressesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-tcpflags
          */
-        tCPFlags?: pulumi.Input<inputs.NetworkFirewall.RuleGroupTCPFlags>;
+        tCPFlags?: pulumi.Input<inputs.NetworkFirewall.RuleGroupTCPFlagsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portrange.html
      */
-    export interface RuleGroupPortRange {
+    export interface RuleGroupPortRangeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portrange.html#cfn-networkfirewall-rulegroup-portrange-fromport
          */
@@ -9141,27 +9141,27 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html
      */
-    export interface RuleGroupPortRanges {
+    export interface RuleGroupPortRangesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html#cfn-networkfirewall-rulegroup-portranges-portranges
          */
-        portRanges?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupPortRange>[]>;
+        portRanges?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupPortRangeArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html
      */
-    export interface RuleGroupPortSet {
+    export interface RuleGroupPortSetArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html#cfn-networkfirewall-rulegroup-portset-definition
          */
-        definition?: pulumi.Input<inputs.NetworkFirewall.RuleGroupVariableDefinitionList>;
+        definition?: pulumi.Input<inputs.NetworkFirewall.RuleGroupVariableDefinitionListArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-protocolnumbers.html
      */
-    export interface RuleGroupProtocolNumbers {
+    export interface RuleGroupProtocolNumbersArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-protocolnumbers.html#cfn-networkfirewall-rulegroup-protocolnumbers-protocolnumbers
          */
@@ -9171,17 +9171,17 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html
      */
-    export interface RuleGroupPublishMetricAction {
+    export interface RuleGroupPublishMetricActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html#cfn-networkfirewall-rulegroup-publishmetricaction-dimensions
          */
-        dimensions: pulumi.Input<inputs.NetworkFirewall.RuleGroupDimensions>;
+        dimensions: pulumi.Input<inputs.NetworkFirewall.RuleGroupDimensionsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html
      */
-    export interface RuleGroupRuleDefinition {
+    export interface RuleGroupRuleDefinitionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html#cfn-networkfirewall-rulegroup-ruledefinition-actions
          */
@@ -9189,27 +9189,27 @@ export namespace NetworkFirewall {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html#cfn-networkfirewall-rulegroup-ruledefinition-matchattributes
          */
-        matchAttributes: pulumi.Input<inputs.NetworkFirewall.RuleGroupMatchAttributes>;
+        matchAttributes: pulumi.Input<inputs.NetworkFirewall.RuleGroupMatchAttributesArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html
      */
-    export interface RuleGroupRuleGroup {
+    export interface RuleGroupRuleGroupArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulevariables
          */
-        ruleVariables?: pulumi.Input<inputs.NetworkFirewall.RuleGroupRuleVariables>;
+        ruleVariables?: pulumi.Input<inputs.NetworkFirewall.RuleGroupRuleVariablesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulessource
          */
-        rulesSource: pulumi.Input<inputs.NetworkFirewall.RuleGroupRulesSource>;
+        rulesSource: pulumi.Input<inputs.NetworkFirewall.RuleGroupRulesSourceArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoption.html
      */
-    export interface RuleGroupRuleOption {
+    export interface RuleGroupRuleOptionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoption.html#cfn-networkfirewall-rulegroup-ruleoption-keyword
          */
@@ -9223,35 +9223,35 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html
      */
-    export interface RuleGroupRuleOptions {
+    export interface RuleGroupRuleOptionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html#cfn-networkfirewall-rulegroup-ruleoptions-ruleoptions
          */
-        ruleOptions?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupRuleOption>[]>;
+        ruleOptions?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupRuleOptionArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html
      */
-    export interface RuleGroupRuleVariables {
+    export interface RuleGroupRuleVariablesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html#cfn-networkfirewall-rulegroup-rulevariables-ipsets
          */
-        iPSets?: pulumi.Input<{[key: string]: pulumi.Input<inputs.NetworkFirewall.RuleGroupIPSet>}>;
+        iPSets?: pulumi.Input<{[key: string]: pulumi.Input<inputs.NetworkFirewall.RuleGroupIPSetArgs>}>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html#cfn-networkfirewall-rulegroup-rulevariables-portsets
          */
-        portSets?: pulumi.Input<{[key: string]: pulumi.Input<inputs.NetworkFirewall.RuleGroupPortSet>}>;
+        portSets?: pulumi.Input<{[key: string]: pulumi.Input<inputs.NetworkFirewall.RuleGroupPortSetArgs>}>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html
      */
-    export interface RuleGroupRulesSource {
+    export interface RuleGroupRulesSourceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulessourcelist
          */
-        rulesSourceList?: pulumi.Input<inputs.NetworkFirewall.RuleGroupRulesSourceList>;
+        rulesSourceList?: pulumi.Input<inputs.NetworkFirewall.RuleGroupRulesSourceListArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulesstring
          */
@@ -9259,17 +9259,17 @@ export namespace NetworkFirewall {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules
          */
-        statefulRules?: pulumi.Input<inputs.NetworkFirewall.RuleGroupStatefulRules>;
+        statefulRules?: pulumi.Input<inputs.NetworkFirewall.RuleGroupStatefulRulesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions
          */
-        statelessRulesAndCustomActions?: pulumi.Input<inputs.NetworkFirewall.RuleGroupStatelessRulesAndCustomActions>;
+        statelessRulesAndCustomActions?: pulumi.Input<inputs.NetworkFirewall.RuleGroupStatelessRulesAndCustomActionsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html
      */
-    export interface RuleGroupRulesSourceList {
+    export interface RuleGroupRulesSourceListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-generatedrulestype
          */
@@ -9277,7 +9277,7 @@ export namespace NetworkFirewall {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
          */
-        targetTypes: pulumi.Input<inputs.NetworkFirewall.RuleGroupTargetTypes>;
+        targetTypes: pulumi.Input<inputs.NetworkFirewall.RuleGroupTargetTypesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets
          */
@@ -9287,7 +9287,7 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html
      */
-    export interface RuleGroupStatefulRule {
+    export interface RuleGroupStatefulRuleArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-action
          */
@@ -9295,27 +9295,27 @@ export namespace NetworkFirewall {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-header
          */
-        header: pulumi.Input<inputs.NetworkFirewall.RuleGroupHeader>;
+        header: pulumi.Input<inputs.NetworkFirewall.RuleGroupHeaderArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-ruleoptions
          */
-        ruleOptions: pulumi.Input<inputs.NetworkFirewall.RuleGroupRuleOptions>;
+        ruleOptions: pulumi.Input<inputs.NetworkFirewall.RuleGroupRuleOptionsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html
      */
-    export interface RuleGroupStatefulRules {
+    export interface RuleGroupStatefulRulesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html#cfn-networkfirewall-rulegroup-statefulrules-statefulrules
          */
-        statefulRules?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupStatefulRule>[]>;
+        statefulRules?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupStatefulRuleArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrule.html
      */
-    export interface RuleGroupStatelessRule {
+    export interface RuleGroupStatelessRuleArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrule.html#cfn-networkfirewall-rulegroup-statelessrule-priority
          */
@@ -9323,61 +9323,61 @@ export namespace NetworkFirewall {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrule.html#cfn-networkfirewall-rulegroup-statelessrule-ruledefinition
          */
-        ruleDefinition: pulumi.Input<inputs.NetworkFirewall.RuleGroupRuleDefinition>;
+        ruleDefinition: pulumi.Input<inputs.NetworkFirewall.RuleGroupRuleDefinitionArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html
      */
-    export interface RuleGroupStatelessRules {
+    export interface RuleGroupStatelessRulesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html#cfn-networkfirewall-rulegroup-statelessrules-statelessrules
          */
-        statelessRules?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupStatelessRule>[]>;
+        statelessRules?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupStatelessRuleArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html
      */
-    export interface RuleGroupStatelessRulesAndCustomActions {
+    export interface RuleGroupStatelessRulesAndCustomActionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
          */
-        customActions?: pulumi.Input<inputs.NetworkFirewall.RuleGroupCustomActions>;
+        customActions?: pulumi.Input<inputs.NetworkFirewall.RuleGroupCustomActionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
          */
-        statelessRules: pulumi.Input<inputs.NetworkFirewall.RuleGroupStatelessRules>;
+        statelessRules: pulumi.Input<inputs.NetworkFirewall.RuleGroupStatelessRulesArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html
      */
-    export interface RuleGroupTCPFlagField {
+    export interface RuleGroupTCPFlagFieldArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-flags
          */
-        flags: pulumi.Input<inputs.NetworkFirewall.RuleGroupFlags>;
+        flags: pulumi.Input<inputs.NetworkFirewall.RuleGroupFlagsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-masks
          */
-        masks?: pulumi.Input<inputs.NetworkFirewall.RuleGroupFlags>;
+        masks?: pulumi.Input<inputs.NetworkFirewall.RuleGroupFlagsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflags.html
      */
-    export interface RuleGroupTCPFlags {
+    export interface RuleGroupTCPFlagsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflags.html#cfn-networkfirewall-rulegroup-tcpflags-tcpflags
          */
-        tCPFlags?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupTCPFlagField>[]>;
+        tCPFlags?: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.RuleGroupTCPFlagFieldArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-targettypes.html
      */
-    export interface RuleGroupTargetTypes {
+    export interface RuleGroupTargetTypesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-targettypes.html#cfn-networkfirewall-rulegroup-targettypes-targettypes
          */
@@ -9387,7 +9387,7 @@ export namespace NetworkFirewall {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-variabledefinitionlist.html
      */
-    export interface RuleGroupVariableDefinitionList {
+    export interface RuleGroupVariableDefinitionListArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-variabledefinitionlist.html#cfn-networkfirewall-rulegroup-variabledefinitionlist-variabledefinitionlist
          */
@@ -9399,7 +9399,7 @@ export namespace NetworkManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html
      */
-    export interface DeviceLocation {
+    export interface DeviceLocationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-address
          */
@@ -9417,7 +9417,7 @@ export namespace NetworkManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html
      */
-    export interface LinkBandwidth {
+    export interface LinkBandwidthArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed
          */
@@ -9431,7 +9431,7 @@ export namespace NetworkManager {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html
      */
-    export interface SiteLocation {
+    export interface SiteLocationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-address
          */
@@ -9451,7 +9451,7 @@ export namespace OpsWorksCM {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html
      */
-    export interface ServerEngineAttribute {
+    export interface ServerEngineAttributeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-name
          */
@@ -9467,7 +9467,7 @@ export namespace QLDB {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html
      */
-    export interface StreamKinesisConfiguration {
+    export interface StreamKinesisConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-aggregationenabled
          */
@@ -9483,7 +9483,7 @@ export namespace RDS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html
      */
-    export interface DBProxyAuthFormat {
+    export interface DBProxyAuthFormatArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-authscheme
          */
@@ -9509,7 +9509,7 @@ export namespace RDS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html
      */
-    export interface DBProxyTagFormat {
+    export interface DBProxyTagFormatArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-key
          */
@@ -9523,7 +9523,7 @@ export namespace RDS {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html
      */
-    export interface DBProxyTargetGroupConnectionPoolConfigurationInfoFormat {
+    export interface DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-connectionborrowtimeout
          */
@@ -9551,7 +9551,7 @@ export namespace ResourceGroups {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
      */
-    export interface GroupQuery {
+    export interface GroupQueryArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
          */
@@ -9563,17 +9563,17 @@ export namespace ResourceGroups {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
          */
-        tagFilters?: pulumi.Input<pulumi.Input<inputs.ResourceGroups.GroupTagFilter>[]>;
+        tagFilters?: pulumi.Input<pulumi.Input<inputs.ResourceGroups.GroupTagFilterArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html
      */
-    export interface GroupResourceQuery {
+    export interface GroupResourceQueryArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
          */
-        query?: pulumi.Input<inputs.ResourceGroups.GroupQuery>;
+        query?: pulumi.Input<inputs.ResourceGroups.GroupQueryArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
          */
@@ -9583,7 +9583,7 @@ export namespace ResourceGroups {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html
      */
-    export interface GroupTagFilter {
+    export interface GroupTagFilterArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-key
          */
@@ -9599,7 +9599,7 @@ export namespace Route53 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html
      */
-    export interface HealthCheckHealthCheckTag {
+    export interface HealthCheckHealthCheckTagArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
          */
@@ -9613,7 +9613,7 @@ export namespace Route53 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html
      */
-    export interface HostedZoneHostedZoneConfig {
+    export interface HostedZoneHostedZoneConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
          */
@@ -9623,7 +9623,7 @@ export namespace Route53 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html
      */
-    export interface HostedZoneHostedZoneTag {
+    export interface HostedZoneHostedZoneTagArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-key
          */
@@ -9637,7 +9637,7 @@ export namespace Route53 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html
      */
-    export interface HostedZoneQueryLoggingConfig {
+    export interface HostedZoneQueryLoggingConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn
          */
@@ -9647,7 +9647,7 @@ export namespace Route53 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
      */
-    export interface HostedZoneVPC {
+    export interface HostedZoneVPCArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
          */
@@ -9663,7 +9663,7 @@ export namespace S3 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html
      */
-    export interface AccessPointPublicAccessBlockConfiguration {
+    export interface AccessPointPublicAccessBlockConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicacls
          */
@@ -9685,7 +9685,7 @@ export namespace S3 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html
      */
-    export interface AccessPointVpcConfiguration {
+    export interface AccessPointVpcConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html#cfn-s3-accesspoint-vpcconfiguration-vpcid
          */
@@ -9695,21 +9695,21 @@ export namespace S3 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
      */
-    export interface StorageLensAccountLevel {
+    export interface StorageLensAccountLevelArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
          */
-        activityMetrics?: pulumi.Input<inputs.S3.StorageLensActivityMetrics>;
+        activityMetrics?: pulumi.Input<inputs.S3.StorageLensActivityMetricsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
          */
-        bucketLevel: pulumi.Input<inputs.S3.StorageLensBucketLevel>;
+        bucketLevel: pulumi.Input<inputs.S3.StorageLensBucketLevelArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html
      */
-    export interface StorageLensActivityMetrics {
+    export interface StorageLensActivityMetricsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
          */
@@ -9719,7 +9719,7 @@ export namespace S3 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html
      */
-    export interface StorageLensAwsOrg {
+    export interface StorageLensAwsOrgArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
          */
@@ -9729,21 +9729,21 @@ export namespace S3 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html
      */
-    export interface StorageLensBucketLevel {
+    export interface StorageLensBucketLevelArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
          */
-        activityMetrics?: pulumi.Input<inputs.S3.StorageLensActivityMetrics>;
+        activityMetrics?: pulumi.Input<inputs.S3.StorageLensActivityMetricsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
          */
-        prefixLevel?: pulumi.Input<inputs.S3.StorageLensPrefixLevel>;
+        prefixLevel?: pulumi.Input<inputs.S3.StorageLensPrefixLevelArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html
      */
-    export interface StorageLensBucketsAndRegions {
+    export interface StorageLensBucketsAndRegionsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
          */
@@ -9757,33 +9757,33 @@ export namespace S3 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
      */
-    export interface StorageLensDataExport {
+    export interface StorageLensDataExportArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
          */
-        s3BucketDestination: pulumi.Input<inputs.S3.StorageLensS3BucketDestination>;
+        s3BucketDestination: pulumi.Input<inputs.S3.StorageLensS3BucketDestinationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html
      */
-    export interface StorageLensEncryption {
+    export interface StorageLensEncryptionArgs {
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
      */
-    export interface StorageLensPrefixLevel {
+    export interface StorageLensPrefixLevelArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
          */
-        storageMetrics: pulumi.Input<inputs.S3.StorageLensPrefixLevelStorageMetrics>;
+        storageMetrics: pulumi.Input<inputs.S3.StorageLensPrefixLevelStorageMetricsArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html
      */
-    export interface StorageLensPrefixLevelStorageMetrics {
+    export interface StorageLensPrefixLevelStorageMetricsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
          */
@@ -9791,13 +9791,13 @@ export namespace S3 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
          */
-        selectionCriteria?: pulumi.Input<inputs.S3.StorageLensSelectionCriteria>;
+        selectionCriteria?: pulumi.Input<inputs.S3.StorageLensSelectionCriteriaArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html
      */
-    export interface StorageLensS3BucketDestination {
+    export interface StorageLensS3BucketDestinationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
          */
@@ -9809,7 +9809,7 @@ export namespace S3 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
          */
-        encryption?: pulumi.Input<inputs.S3.StorageLensEncryption>;
+        encryption?: pulumi.Input<inputs.S3.StorageLensEncryptionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
          */
@@ -9827,7 +9827,7 @@ export namespace S3 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
      */
-    export interface StorageLensSelectionCriteria {
+    export interface StorageLensSelectionCriteriaArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
          */
@@ -9845,23 +9845,23 @@ export namespace S3 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html
      */
-    export interface StorageLensStorageLensConfiguration {
+    export interface StorageLensStorageLensConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
          */
-        accountLevel: pulumi.Input<inputs.S3.StorageLensAccountLevel>;
+        accountLevel: pulumi.Input<inputs.S3.StorageLensAccountLevelArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
          */
-        awsOrg?: pulumi.Input<inputs.S3.StorageLensAwsOrg>;
+        awsOrg?: pulumi.Input<inputs.S3.StorageLensAwsOrgArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
          */
-        dataExport?: pulumi.Input<inputs.S3.StorageLensDataExport>;
+        dataExport?: pulumi.Input<inputs.S3.StorageLensDataExportArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
          */
-        exclude?: pulumi.Input<inputs.S3.StorageLensBucketsAndRegions>;
+        exclude?: pulumi.Input<inputs.S3.StorageLensBucketsAndRegionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
          */
@@ -9869,7 +9869,7 @@ export namespace S3 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
          */
-        include?: pulumi.Input<inputs.S3.StorageLensBucketsAndRegions>;
+        include?: pulumi.Input<inputs.S3.StorageLensBucketsAndRegionsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
          */
@@ -9885,17 +9885,17 @@ export namespace SSM {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html
      */
-    export interface AssociationInstanceAssociationOutputLocation {
+    export interface AssociationInstanceAssociationOutputLocationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location
          */
-        s3Location?: pulumi.Input<inputs.SSM.AssociationS3OutputLocation>;
+        s3Location?: pulumi.Input<inputs.SSM.AssociationS3OutputLocationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html
      */
-    export interface AssociationParameterValues {
+    export interface AssociationParameterValuesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
          */
@@ -9905,7 +9905,7 @@ export namespace SSM {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html
      */
-    export interface AssociationS3OutputLocation {
+    export interface AssociationS3OutputLocationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname
          */
@@ -9923,7 +9923,7 @@ export namespace SSM {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html
      */
-    export interface AssociationTarget {
+    export interface AssociationTargetArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-key
          */
@@ -9939,7 +9939,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html
      */
-    export interface DataQualityJobDefinitionClusterConfig {
+    export interface DataQualityJobDefinitionClusterConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancecount
          */
@@ -9961,7 +9961,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html
      */
-    export interface DataQualityJobDefinitionConstraintsResource {
+    export interface DataQualityJobDefinitionConstraintsResourceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html#cfn-sagemaker-dataqualityjobdefinition-constraintsresource-s3uri
          */
@@ -9971,7 +9971,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html
      */
-    export interface DataQualityJobDefinitionDataQualityAppSpecification {
+    export interface DataQualityJobDefinitionDataQualityAppSpecificationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerarguments
          */
@@ -9983,7 +9983,7 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
          */
-        environment?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionEnvironment>;
+        environment?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionEnvironmentArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
          */
@@ -10001,7 +10001,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html
      */
-    export interface DataQualityJobDefinitionDataQualityBaselineConfig {
+    export interface DataQualityJobDefinitionDataQualityBaselineConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-baseliningjobname
          */
@@ -10009,27 +10009,27 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-constraintsresource
          */
-        constraintsResource?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionConstraintsResource>;
+        constraintsResource?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionConstraintsResourceArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-statisticsresource
          */
-        statisticsResource?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionStatisticsResource>;
+        statisticsResource?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionStatisticsResourceArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html
      */
-    export interface DataQualityJobDefinitionDataQualityJobInput {
+    export interface DataQualityJobDefinitionDataQualityJobInputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput
          */
-        endpointInput: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionEndpointInput>;
+        endpointInput: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionEndpointInputArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html
      */
-    export interface DataQualityJobDefinitionEndpointInput {
+    export interface DataQualityJobDefinitionEndpointInputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-endpointname
          */
@@ -10051,23 +10051,23 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-environment.html
      */
-    export interface DataQualityJobDefinitionEnvironment {
+    export interface DataQualityJobDefinitionEnvironmentArgs {
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html
      */
-    export interface DataQualityJobDefinitionMonitoringOutput {
+    export interface DataQualityJobDefinitionMonitoringOutputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
          */
-        s3Output: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionS3Output>;
+        s3Output: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionS3OutputArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html
      */
-    export interface DataQualityJobDefinitionMonitoringOutputConfig {
+    export interface DataQualityJobDefinitionMonitoringOutputConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-kmskeyid
          */
@@ -10075,23 +10075,23 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
          */
-        monitoringOutputs: pulumi.Input<pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionMonitoringOutput>[]>;
+        monitoringOutputs: pulumi.Input<pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionMonitoringOutputArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html
      */
-    export interface DataQualityJobDefinitionMonitoringResources {
+    export interface DataQualityJobDefinitionMonitoringResourcesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html#cfn-sagemaker-dataqualityjobdefinition-monitoringresources-clusterconfig
          */
-        clusterConfig: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionClusterConfig>;
+        clusterConfig: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionClusterConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html
      */
-    export interface DataQualityJobDefinitionNetworkConfig {
+    export interface DataQualityJobDefinitionNetworkConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
          */
@@ -10103,13 +10103,13 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-vpcconfig
          */
-        vpcConfig?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionVpcConfig>;
+        vpcConfig?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionVpcConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html
      */
-    export interface DataQualityJobDefinitionS3Output {
+    export interface DataQualityJobDefinitionS3OutputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-localpath
          */
@@ -10127,7 +10127,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html
      */
-    export interface DataQualityJobDefinitionStatisticsResource {
+    export interface DataQualityJobDefinitionStatisticsResourceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html#cfn-sagemaker-dataqualityjobdefinition-statisticsresource-s3uri
          */
@@ -10137,7 +10137,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html
      */
-    export interface DataQualityJobDefinitionStoppingCondition {
+    export interface DataQualityJobDefinitionStoppingConditionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition-maxruntimeinseconds
          */
@@ -10147,7 +10147,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html
      */
-    export interface DataQualityJobDefinitionVpcConfig {
+    export interface DataQualityJobDefinitionVpcConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-securitygroupids
          */
@@ -10161,7 +10161,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html
      */
-    export interface DeviceFleetEdgeOutputConfig {
+    export interface DeviceFleetEdgeOutputConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-kmskeyid
          */
@@ -10175,7 +10175,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html
      */
-    export interface ModelBiasJobDefinitionClusterConfig {
+    export interface ModelBiasJobDefinitionClusterConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancecount
          */
@@ -10197,7 +10197,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html
      */
-    export interface ModelBiasJobDefinitionConstraintsResource {
+    export interface ModelBiasJobDefinitionConstraintsResourceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html#cfn-sagemaker-modelbiasjobdefinition-constraintsresource-s3uri
          */
@@ -10207,7 +10207,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html
      */
-    export interface ModelBiasJobDefinitionEndpointInput {
+    export interface ModelBiasJobDefinitionEndpointInputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-endtimeoffset
          */
@@ -10253,13 +10253,13 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-environment.html
      */
-    export interface ModelBiasJobDefinitionEnvironment {
+    export interface ModelBiasJobDefinitionEnvironmentArgs {
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html
      */
-    export interface ModelBiasJobDefinitionModelBiasAppSpecification {
+    export interface ModelBiasJobDefinitionModelBiasAppSpecificationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-configuri
          */
@@ -10267,7 +10267,7 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
          */
-        environment?: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionEnvironment>;
+        environment?: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionEnvironmentArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
          */
@@ -10277,7 +10277,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html
      */
-    export interface ModelBiasJobDefinitionModelBiasBaselineConfig {
+    export interface ModelBiasJobDefinitionModelBiasBaselineConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-baseliningjobname
          */
@@ -10285,27 +10285,27 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-constraintsresource
          */
-        constraintsResource?: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionConstraintsResource>;
+        constraintsResource?: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionConstraintsResourceArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html
      */
-    export interface ModelBiasJobDefinitionModelBiasJobInput {
+    export interface ModelBiasJobDefinitionModelBiasJobInputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
          */
-        endpointInput: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionEndpointInput>;
+        endpointInput: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionEndpointInputArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input
          */
-        groundTruthS3Input: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionMonitoringGroundTruthS3Input>;
+        groundTruthS3Input: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html
      */
-    export interface ModelBiasJobDefinitionMonitoringGroundTruthS3Input {
+    export interface ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input-s3uri
          */
@@ -10315,17 +10315,17 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html
      */
-    export interface ModelBiasJobDefinitionMonitoringOutput {
+    export interface ModelBiasJobDefinitionMonitoringOutputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
          */
-        s3Output: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionS3Output>;
+        s3Output: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionS3OutputArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html
      */
-    export interface ModelBiasJobDefinitionMonitoringOutputConfig {
+    export interface ModelBiasJobDefinitionMonitoringOutputConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-kmskeyid
          */
@@ -10333,23 +10333,23 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-monitoringoutputs
          */
-        monitoringOutputs: pulumi.Input<pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionMonitoringOutput>[]>;
+        monitoringOutputs: pulumi.Input<pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionMonitoringOutputArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html
      */
-    export interface ModelBiasJobDefinitionMonitoringResources {
+    export interface ModelBiasJobDefinitionMonitoringResourcesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html#cfn-sagemaker-modelbiasjobdefinition-monitoringresources-clusterconfig
          */
-        clusterConfig: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionClusterConfig>;
+        clusterConfig: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionClusterConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html
      */
-    export interface ModelBiasJobDefinitionNetworkConfig {
+    export interface ModelBiasJobDefinitionNetworkConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enableintercontainertrafficencryption
          */
@@ -10361,13 +10361,13 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-vpcconfig
          */
-        vpcConfig?: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionVpcConfig>;
+        vpcConfig?: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionVpcConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html
      */
-    export interface ModelBiasJobDefinitionS3Output {
+    export interface ModelBiasJobDefinitionS3OutputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-localpath
          */
@@ -10385,7 +10385,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html
      */
-    export interface ModelBiasJobDefinitionStoppingCondition {
+    export interface ModelBiasJobDefinitionStoppingConditionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition-maxruntimeinseconds
          */
@@ -10395,7 +10395,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html
      */
-    export interface ModelBiasJobDefinitionVpcConfig {
+    export interface ModelBiasJobDefinitionVpcConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-securitygroupids
          */
@@ -10409,7 +10409,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html
      */
-    export interface ModelExplainabilityJobDefinitionClusterConfig {
+    export interface ModelExplainabilityJobDefinitionClusterConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancecount
          */
@@ -10431,7 +10431,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html
      */
-    export interface ModelExplainabilityJobDefinitionConstraintsResource {
+    export interface ModelExplainabilityJobDefinitionConstraintsResourceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html#cfn-sagemaker-modelexplainabilityjobdefinition-constraintsresource-s3uri
          */
@@ -10441,7 +10441,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html
      */
-    export interface ModelExplainabilityJobDefinitionEndpointInput {
+    export interface ModelExplainabilityJobDefinitionEndpointInputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-endpointname
          */
@@ -10475,13 +10475,13 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-environment.html
      */
-    export interface ModelExplainabilityJobDefinitionEnvironment {
+    export interface ModelExplainabilityJobDefinitionEnvironmentArgs {
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html
      */
-    export interface ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification {
+    export interface ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-configuri
          */
@@ -10489,7 +10489,7 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
          */
-        environment?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionEnvironment>;
+        environment?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionEnvironmentArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
          */
@@ -10499,7 +10499,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html
      */
-    export interface ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig {
+    export interface ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
          */
@@ -10507,33 +10507,33 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource
          */
-        constraintsResource?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionConstraintsResource>;
+        constraintsResource?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionConstraintsResourceArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html
      */
-    export interface ModelExplainabilityJobDefinitionModelExplainabilityJobInput {
+    export interface ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
          */
-        endpointInput: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionEndpointInput>;
+        endpointInput: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionEndpointInputArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html
      */
-    export interface ModelExplainabilityJobDefinitionMonitoringOutput {
+    export interface ModelExplainabilityJobDefinitionMonitoringOutputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output
          */
-        s3Output: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionS3Output>;
+        s3Output: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionS3OutputArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html
      */
-    export interface ModelExplainabilityJobDefinitionMonitoringOutputConfig {
+    export interface ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-kmskeyid
          */
@@ -10541,23 +10541,23 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-monitoringoutputs
          */
-        monitoringOutputs: pulumi.Input<pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionMonitoringOutput>[]>;
+        monitoringOutputs: pulumi.Input<pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionMonitoringOutputArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html
      */
-    export interface ModelExplainabilityJobDefinitionMonitoringResources {
+    export interface ModelExplainabilityJobDefinitionMonitoringResourcesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringresources-clusterconfig
          */
-        clusterConfig: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionClusterConfig>;
+        clusterConfig: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionClusterConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html
      */
-    export interface ModelExplainabilityJobDefinitionNetworkConfig {
+    export interface ModelExplainabilityJobDefinitionNetworkConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enableintercontainertrafficencryption
          */
@@ -10569,13 +10569,13 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-vpcconfig
          */
-        vpcConfig?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionVpcConfig>;
+        vpcConfig?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionVpcConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html
      */
-    export interface ModelExplainabilityJobDefinitionS3Output {
+    export interface ModelExplainabilityJobDefinitionS3OutputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-localpath
          */
@@ -10593,7 +10593,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html
      */
-    export interface ModelExplainabilityJobDefinitionStoppingCondition {
+    export interface ModelExplainabilityJobDefinitionStoppingConditionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition-maxruntimeinseconds
          */
@@ -10603,7 +10603,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html
      */
-    export interface ModelExplainabilityJobDefinitionVpcConfig {
+    export interface ModelExplainabilityJobDefinitionVpcConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-securitygroupids
          */
@@ -10617,7 +10617,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html
      */
-    export interface ModelQualityJobDefinitionClusterConfig {
+    export interface ModelQualityJobDefinitionClusterConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancecount
          */
@@ -10639,7 +10639,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html
      */
-    export interface ModelQualityJobDefinitionConstraintsResource {
+    export interface ModelQualityJobDefinitionConstraintsResourceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html#cfn-sagemaker-modelqualityjobdefinition-constraintsresource-s3uri
          */
@@ -10649,7 +10649,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html
      */
-    export interface ModelQualityJobDefinitionEndpointInput {
+    export interface ModelQualityJobDefinitionEndpointInputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-endtimeoffset
          */
@@ -10691,13 +10691,13 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-environment.html
      */
-    export interface ModelQualityJobDefinitionEnvironment {
+    export interface ModelQualityJobDefinitionEnvironmentArgs {
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html
      */
-    export interface ModelQualityJobDefinitionModelQualityAppSpecification {
+    export interface ModelQualityJobDefinitionModelQualityAppSpecificationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerarguments
          */
@@ -10709,7 +10709,7 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
          */
-        environment?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionEnvironment>;
+        environment?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionEnvironmentArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
          */
@@ -10731,7 +10731,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html
      */
-    export interface ModelQualityJobDefinitionModelQualityBaselineConfig {
+    export interface ModelQualityJobDefinitionModelQualityBaselineConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-baseliningjobname
          */
@@ -10739,27 +10739,27 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-constraintsresource
          */
-        constraintsResource?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionConstraintsResource>;
+        constraintsResource?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionConstraintsResourceArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html
      */
-    export interface ModelQualityJobDefinitionModelQualityJobInput {
+    export interface ModelQualityJobDefinitionModelQualityJobInputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
          */
-        endpointInput: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionEndpointInput>;
+        endpointInput: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionEndpointInputArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input
          */
-        groundTruthS3Input: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionMonitoringGroundTruthS3Input>;
+        groundTruthS3Input: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html
      */
-    export interface ModelQualityJobDefinitionMonitoringGroundTruthS3Input {
+    export interface ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input-s3uri
          */
@@ -10769,17 +10769,17 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html
      */
-    export interface ModelQualityJobDefinitionMonitoringOutput {
+    export interface ModelQualityJobDefinitionMonitoringOutputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
          */
-        s3Output: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionS3Output>;
+        s3Output: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionS3OutputArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html
      */
-    export interface ModelQualityJobDefinitionMonitoringOutputConfig {
+    export interface ModelQualityJobDefinitionMonitoringOutputConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-kmskeyid
          */
@@ -10787,23 +10787,23 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
          */
-        monitoringOutputs: pulumi.Input<pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionMonitoringOutput>[]>;
+        monitoringOutputs: pulumi.Input<pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionMonitoringOutputArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html
      */
-    export interface ModelQualityJobDefinitionMonitoringResources {
+    export interface ModelQualityJobDefinitionMonitoringResourcesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html#cfn-sagemaker-modelqualityjobdefinition-monitoringresources-clusterconfig
          */
-        clusterConfig: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionClusterConfig>;
+        clusterConfig: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionClusterConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html
      */
-    export interface ModelQualityJobDefinitionNetworkConfig {
+    export interface ModelQualityJobDefinitionNetworkConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
          */
@@ -10815,13 +10815,13 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-vpcconfig
          */
-        vpcConfig?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionVpcConfig>;
+        vpcConfig?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionVpcConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html
      */
-    export interface ModelQualityJobDefinitionS3Output {
+    export interface ModelQualityJobDefinitionS3OutputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-localpath
          */
@@ -10839,7 +10839,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html
      */
-    export interface ModelQualityJobDefinitionStoppingCondition {
+    export interface ModelQualityJobDefinitionStoppingConditionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition-maxruntimeinseconds
          */
@@ -10849,7 +10849,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html
      */
-    export interface ModelQualityJobDefinitionVpcConfig {
+    export interface ModelQualityJobDefinitionVpcConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-securitygroupids
          */
@@ -10863,21 +10863,21 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html
      */
-    export interface MonitoringScheduleBaselineConfig {
+    export interface MonitoringScheduleBaselineConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource
          */
-        constraintsResource?: pulumi.Input<inputs.SageMaker.MonitoringScheduleConstraintsResource>;
+        constraintsResource?: pulumi.Input<inputs.SageMaker.MonitoringScheduleConstraintsResourceArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-statisticsresource
          */
-        statisticsResource?: pulumi.Input<inputs.SageMaker.MonitoringScheduleStatisticsResource>;
+        statisticsResource?: pulumi.Input<inputs.SageMaker.MonitoringScheduleStatisticsResourceArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html
      */
-    export interface MonitoringScheduleClusterConfig {
+    export interface MonitoringScheduleClusterConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancecount
          */
@@ -10899,7 +10899,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html
      */
-    export interface MonitoringScheduleConstraintsResource {
+    export interface MonitoringScheduleConstraintsResourceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html#cfn-sagemaker-monitoringschedule-constraintsresource-s3uri
          */
@@ -10909,7 +10909,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html
      */
-    export interface MonitoringScheduleEndpointInput {
+    export interface MonitoringScheduleEndpointInputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-endpointname
          */
@@ -10931,13 +10931,13 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-environment.html
      */
-    export interface MonitoringScheduleEnvironment {
+    export interface MonitoringScheduleEnvironmentArgs {
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html
      */
-    export interface MonitoringScheduleMonitoringAppSpecification {
+    export interface MonitoringScheduleMonitoringAppSpecificationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerarguments
          */
@@ -10963,7 +10963,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html
      */
-    export interface MonitoringScheduleMonitoringExecutionSummary {
+    export interface MonitoringScheduleMonitoringExecutionSummaryArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-creationtime
          */
@@ -11001,55 +11001,55 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html
      */
-    export interface MonitoringScheduleMonitoringInput {
+    export interface MonitoringScheduleMonitoringInputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
          */
-        endpointInput: pulumi.Input<inputs.SageMaker.MonitoringScheduleEndpointInput>;
+        endpointInput: pulumi.Input<inputs.SageMaker.MonitoringScheduleEndpointInputArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html
      */
-    export interface MonitoringScheduleMonitoringInputs {
+    export interface MonitoringScheduleMonitoringInputsArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html#cfn-sagemaker-monitoringschedule-monitoringinputs-monitoringinputs
          */
-        monitoringInputs?: pulumi.Input<pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringInput>[]>;
+        monitoringInputs?: pulumi.Input<pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringInputArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html
      */
-    export interface MonitoringScheduleMonitoringJobDefinition {
+    export interface MonitoringScheduleMonitoringJobDefinitionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
          */
-        baselineConfig?: pulumi.Input<inputs.SageMaker.MonitoringScheduleBaselineConfig>;
+        baselineConfig?: pulumi.Input<inputs.SageMaker.MonitoringScheduleBaselineConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
          */
-        environment?: pulumi.Input<inputs.SageMaker.MonitoringScheduleEnvironment>;
+        environment?: pulumi.Input<inputs.SageMaker.MonitoringScheduleEnvironmentArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
          */
-        monitoringAppSpecification: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringAppSpecification>;
+        monitoringAppSpecification: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringAppSpecificationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
          */
-        monitoringInputs: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringInputs>;
+        monitoringInputs: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringInputsArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
          */
-        monitoringOutputConfig: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringOutputConfig>;
+        monitoringOutputConfig: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringOutputConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
          */
-        monitoringResources: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringResources>;
+        monitoringResources: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringResourcesArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig
          */
-        networkConfig?: pulumi.Input<inputs.SageMaker.MonitoringScheduleNetworkConfig>;
+        networkConfig?: pulumi.Input<inputs.SageMaker.MonitoringScheduleNetworkConfigArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
          */
@@ -11057,23 +11057,23 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition
          */
-        stoppingCondition?: pulumi.Input<inputs.SageMaker.MonitoringScheduleStoppingCondition>;
+        stoppingCondition?: pulumi.Input<inputs.SageMaker.MonitoringScheduleStoppingConditionArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html
      */
-    export interface MonitoringScheduleMonitoringOutput {
+    export interface MonitoringScheduleMonitoringOutputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html#cfn-sagemaker-monitoringschedule-monitoringoutput-s3output
          */
-        s3Output: pulumi.Input<inputs.SageMaker.MonitoringScheduleS3Output>;
+        s3Output: pulumi.Input<inputs.SageMaker.MonitoringScheduleS3OutputArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html
      */
-    export interface MonitoringScheduleMonitoringOutputConfig {
+    export interface MonitoringScheduleMonitoringOutputConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-kmskeyid
          */
@@ -11081,27 +11081,27 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-monitoringoutputs
          */
-        monitoringOutputs: pulumi.Input<pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringOutput>[]>;
+        monitoringOutputs: pulumi.Input<pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringOutputArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html
      */
-    export interface MonitoringScheduleMonitoringResources {
+    export interface MonitoringScheduleMonitoringResourcesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html#cfn-sagemaker-monitoringschedule-monitoringresources-clusterconfig
          */
-        clusterConfig: pulumi.Input<inputs.SageMaker.MonitoringScheduleClusterConfig>;
+        clusterConfig: pulumi.Input<inputs.SageMaker.MonitoringScheduleClusterConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html
      */
-    export interface MonitoringScheduleMonitoringScheduleConfig {
+    export interface MonitoringScheduleMonitoringScheduleConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinition
          */
-        monitoringJobDefinition?: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringJobDefinition>;
+        monitoringJobDefinition?: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringJobDefinitionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinitionname
          */
@@ -11113,13 +11113,13 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-scheduleconfig
          */
-        scheduleConfig?: pulumi.Input<inputs.SageMaker.MonitoringScheduleScheduleConfig>;
+        scheduleConfig?: pulumi.Input<inputs.SageMaker.MonitoringScheduleScheduleConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html
      */
-    export interface MonitoringScheduleNetworkConfig {
+    export interface MonitoringScheduleNetworkConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enableintercontainertrafficencryption
          */
@@ -11131,13 +11131,13 @@ export namespace SageMaker {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-vpcconfig
          */
-        vpcConfig?: pulumi.Input<inputs.SageMaker.MonitoringScheduleVpcConfig>;
+        vpcConfig?: pulumi.Input<inputs.SageMaker.MonitoringScheduleVpcConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html
      */
-    export interface MonitoringScheduleS3Output {
+    export interface MonitoringScheduleS3OutputArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-localpath
          */
@@ -11155,7 +11155,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html
      */
-    export interface MonitoringScheduleScheduleConfig {
+    export interface MonitoringScheduleScheduleConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-scheduleexpression
          */
@@ -11165,7 +11165,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html
      */
-    export interface MonitoringScheduleStatisticsResource {
+    export interface MonitoringScheduleStatisticsResourceArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html#cfn-sagemaker-monitoringschedule-statisticsresource-s3uri
          */
@@ -11175,7 +11175,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html
      */
-    export interface MonitoringScheduleStoppingCondition {
+    export interface MonitoringScheduleStoppingConditionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html#cfn-sagemaker-monitoringschedule-stoppingcondition-maxruntimeinseconds
          */
@@ -11185,7 +11185,7 @@ export namespace SageMaker {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html
      */
-    export interface MonitoringScheduleVpcConfig {
+    export interface MonitoringScheduleVpcConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-securitygroupids
          */
@@ -11201,7 +11201,7 @@ export namespace ServiceCatalog {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html
      */
-    export interface CloudFormationProvisionedProductProvisioningParameter {
+    export interface CloudFormationProvisionedProductProvisioningParameterArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameter-key
          */
@@ -11215,7 +11215,7 @@ export namespace ServiceCatalog {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html
      */
-    export interface CloudFormationProvisionedProductProvisioningPreferences {
+    export interface CloudFormationProvisionedProductProvisioningPreferencesArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetaccounts
          */
@@ -11251,7 +11251,7 @@ export namespace Signer {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html
      */
-    export interface SigningProfileSignatureValidityPeriod {
+    export interface SigningProfileSignatureValidityPeriodArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html#cfn-signer-signingprofile-signaturevalidityperiod-type
          */
@@ -11267,7 +11267,7 @@ export namespace StepFunctions {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html
      */
-    export interface StateMachineCloudWatchLogsLogGroup {
+    export interface StateMachineCloudWatchLogsLogGroupArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
          */
@@ -11277,27 +11277,27 @@ export namespace StepFunctions {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definitionsubstitutions.html
      */
-    export interface StateMachineDefinitionSubstitutions {
+    export interface StateMachineDefinitionSubstitutionsArgs {
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html
      */
-    export interface StateMachineLogDestination {
+    export interface StateMachineLogDestinationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup
          */
-        cloudWatchLogsLogGroup?: pulumi.Input<inputs.StepFunctions.StateMachineCloudWatchLogsLogGroup>;
+        cloudWatchLogsLogGroup?: pulumi.Input<inputs.StepFunctions.StateMachineCloudWatchLogsLogGroupArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html
      */
-    export interface StateMachineLoggingConfiguration {
+    export interface StateMachineLoggingConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-destinations
          */
-        destinations?: pulumi.Input<pulumi.Input<inputs.StepFunctions.StateMachineLogDestination>[]>;
+        destinations?: pulumi.Input<pulumi.Input<inputs.StepFunctions.StateMachineLogDestinationArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata
          */
@@ -11311,7 +11311,7 @@ export namespace StepFunctions {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html
      */
-    export interface StateMachineS3Location {
+    export interface StateMachineS3LocationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-bucket
          */
@@ -11329,7 +11329,7 @@ export namespace StepFunctions {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html
      */
-    export interface StateMachineTagsEntry {
+    export interface StateMachineTagsEntryArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-key
          */
@@ -11343,7 +11343,7 @@ export namespace StepFunctions {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html
      */
-    export interface StateMachineTracingConfiguration {
+    export interface StateMachineTracingConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html#cfn-stepfunctions-statemachine-tracingconfiguration-enabled
          */
@@ -11355,7 +11355,7 @@ export namespace Synthetics {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html
      */
-    export interface CanaryCode {
+    export interface CanaryCodeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
          */
@@ -11381,7 +11381,7 @@ export namespace Synthetics {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html
      */
-    export interface CanaryRunConfig {
+    export interface CanaryRunConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
          */
@@ -11403,7 +11403,7 @@ export namespace Synthetics {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html
      */
-    export interface CanarySchedule {
+    export interface CanaryScheduleArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
          */
@@ -11417,7 +11417,7 @@ export namespace Synthetics {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html
      */
-    export interface CanaryVPCConfig {
+    export interface CanaryVPCConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-securitygroupids
          */
@@ -11437,31 +11437,31 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html
      */
-    export interface RuleGroupAndStatementOne {
+    export interface RuleGroupAndStatementOneArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html#cfn-wafv2-rulegroup-andstatementone-statements
          */
-        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupStatementTwo>[]>;
+        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupStatementTwoArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html
      */
-    export interface RuleGroupAndStatementTwo {
+    export interface RuleGroupAndStatementTwoArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html#cfn-wafv2-rulegroup-andstatementtwo-statements
          */
-        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupStatementThree>[]>;
+        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupStatementThreeArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html
      */
-    export interface RuleGroupByteMatchStatement {
+    export interface RuleGroupByteMatchStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-fieldtomatch
          */
-        fieldToMatch: pulumi.Input<inputs.WAFv2.RuleGroupFieldToMatch>;
+        fieldToMatch: pulumi.Input<inputs.WAFv2.RuleGroupFieldToMatchArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-positionalconstraint
          */
@@ -11477,13 +11477,13 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-texttransformations
          */
-        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupTextTransformation>[]>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupTextTransformationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html
      */
-    export interface RuleGroupFieldToMatch {
+    export interface RuleGroupFieldToMatchArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
          */
@@ -11517,7 +11517,7 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html
      */
-    export interface RuleGroupForwardedIPConfiguration {
+    export interface RuleGroupForwardedIPConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-fallbackbehavior
          */
@@ -11531,7 +11531,7 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html
      */
-    export interface RuleGroupGeoMatchStatement {
+    export interface RuleGroupGeoMatchStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
          */
@@ -11539,13 +11539,13 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
          */
-        forwardedIPConfig?: pulumi.Input<inputs.WAFv2.RuleGroupForwardedIPConfiguration>;
+        forwardedIPConfig?: pulumi.Input<inputs.WAFv2.RuleGroupForwardedIPConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html
      */
-    export interface RuleGroupIPSetForwardedIPConfiguration {
+    export interface RuleGroupIPSetForwardedIPConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-fallbackbehavior
          */
@@ -11563,7 +11563,7 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html
      */
-    export interface RuleGroupIPSetReferenceStatement {
+    export interface RuleGroupIPSetReferenceStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn
          */
@@ -11571,53 +11571,53 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
          */
-        iPSetForwardedIPConfig?: pulumi.Input<inputs.WAFv2.RuleGroupIPSetForwardedIPConfiguration>;
+        iPSetForwardedIPConfig?: pulumi.Input<inputs.WAFv2.RuleGroupIPSetForwardedIPConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html
      */
-    export interface RuleGroupNotStatementOne {
+    export interface RuleGroupNotStatementOneArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html#cfn-wafv2-rulegroup-notstatementone-statement
          */
-        statement: pulumi.Input<inputs.WAFv2.RuleGroupStatementTwo>;
+        statement: pulumi.Input<inputs.WAFv2.RuleGroupStatementTwoArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html
      */
-    export interface RuleGroupNotStatementTwo {
+    export interface RuleGroupNotStatementTwoArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html#cfn-wafv2-rulegroup-notstatementtwo-statement
          */
-        statement: pulumi.Input<inputs.WAFv2.RuleGroupStatementThree>;
+        statement: pulumi.Input<inputs.WAFv2.RuleGroupStatementThreeArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html
      */
-    export interface RuleGroupOrStatementOne {
+    export interface RuleGroupOrStatementOneArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html#cfn-wafv2-rulegroup-orstatementone-statements
          */
-        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupStatementTwo>[]>;
+        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupStatementTwoArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html
      */
-    export interface RuleGroupOrStatementTwo {
+    export interface RuleGroupOrStatementTwoArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html#cfn-wafv2-rulegroup-orstatementtwo-statements
          */
-        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupStatementThree>[]>;
+        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupStatementThreeArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html
      */
-    export interface RuleGroupRateBasedStatementOne {
+    export interface RuleGroupRateBasedStatementOneArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-aggregatekeytype
          */
@@ -11625,7 +11625,7 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-forwardedipconfig
          */
-        forwardedIPConfig?: pulumi.Input<inputs.WAFv2.RuleGroupForwardedIPConfiguration>;
+        forwardedIPConfig?: pulumi.Input<inputs.WAFv2.RuleGroupForwardedIPConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-limit
          */
@@ -11633,13 +11633,13 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-scopedownstatement
          */
-        scopeDownStatement?: pulumi.Input<inputs.WAFv2.RuleGroupStatementTwo>;
+        scopeDownStatement?: pulumi.Input<inputs.WAFv2.RuleGroupStatementTwoArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html
      */
-    export interface RuleGroupRateBasedStatementTwo {
+    export interface RuleGroupRateBasedStatementTwoArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-aggregatekeytype
          */
@@ -11647,7 +11647,7 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-forwardedipconfig
          */
-        forwardedIPConfig?: pulumi.Input<inputs.WAFv2.RuleGroupForwardedIPConfiguration>;
+        forwardedIPConfig?: pulumi.Input<inputs.WAFv2.RuleGroupForwardedIPConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-limit
          */
@@ -11655,13 +11655,13 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-scopedownstatement
          */
-        scopeDownStatement?: pulumi.Input<inputs.WAFv2.RuleGroupStatementThree>;
+        scopeDownStatement?: pulumi.Input<inputs.WAFv2.RuleGroupStatementThreeArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html
      */
-    export interface RuleGroupRegexPatternSetReferenceStatement {
+    export interface RuleGroupRegexPatternSetReferenceStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-arn
          */
@@ -11669,21 +11669,21 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-fieldtomatch
          */
-        fieldToMatch: pulumi.Input<inputs.WAFv2.RuleGroupFieldToMatch>;
+        fieldToMatch: pulumi.Input<inputs.WAFv2.RuleGroupFieldToMatchArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-texttransformations
          */
-        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupTextTransformation>[]>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupTextTransformationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html
      */
-    export interface RuleGroupRule {
+    export interface RuleGroupRuleArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-action
          */
-        action?: pulumi.Input<inputs.WAFv2.RuleGroupRuleAction>;
+        action?: pulumi.Input<inputs.WAFv2.RuleGroupRuleActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-name
          */
@@ -11695,17 +11695,17 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
          */
-        statement: pulumi.Input<inputs.WAFv2.RuleGroupStatementOne>;
+        statement: pulumi.Input<inputs.WAFv2.RuleGroupStatementOneArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
          */
-        visibilityConfig: pulumi.Input<inputs.WAFv2.RuleGroupVisibilityConfig>;
+        visibilityConfig: pulumi.Input<inputs.WAFv2.RuleGroupVisibilityConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html
      */
-    export interface RuleGroupRuleAction {
+    export interface RuleGroupRuleActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
          */
@@ -11723,7 +11723,7 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html
      */
-    export interface RuleGroupSizeConstraintStatement {
+    export interface RuleGroupSizeConstraintStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-comparisonoperator
          */
@@ -11731,7 +11731,7 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-fieldtomatch
          */
-        fieldToMatch: pulumi.Input<inputs.WAFv2.RuleGroupFieldToMatch>;
+        fieldToMatch: pulumi.Input<inputs.WAFv2.RuleGroupFieldToMatchArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
          */
@@ -11739,161 +11739,161 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
          */
-        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupTextTransformation>[]>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupTextTransformationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html
      */
-    export interface RuleGroupSqliMatchStatement {
+    export interface RuleGroupSqliMatchStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch
          */
-        fieldToMatch: pulumi.Input<inputs.WAFv2.RuleGroupFieldToMatch>;
+        fieldToMatch: pulumi.Input<inputs.WAFv2.RuleGroupFieldToMatchArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-texttransformations
          */
-        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupTextTransformation>[]>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupTextTransformationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html
      */
-    export interface RuleGroupStatementOne {
+    export interface RuleGroupStatementOneArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-andstatement
          */
-        andStatement?: pulumi.Input<inputs.WAFv2.RuleGroupAndStatementOne>;
+        andStatement?: pulumi.Input<inputs.WAFv2.RuleGroupAndStatementOneArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-bytematchstatement
          */
-        byteMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupByteMatchStatement>;
+        byteMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupByteMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-geomatchstatement
          */
-        geoMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupGeoMatchStatement>;
+        geoMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupGeoMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ipsetreferencestatement
          */
-        iPSetReferenceStatement?: pulumi.Input<inputs.WAFv2.RuleGroupIPSetReferenceStatement>;
+        iPSetReferenceStatement?: pulumi.Input<inputs.WAFv2.RuleGroupIPSetReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-notstatement
          */
-        notStatement?: pulumi.Input<inputs.WAFv2.RuleGroupNotStatementOne>;
+        notStatement?: pulumi.Input<inputs.WAFv2.RuleGroupNotStatementOneArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-orstatement
          */
-        orStatement?: pulumi.Input<inputs.WAFv2.RuleGroupOrStatementOne>;
+        orStatement?: pulumi.Input<inputs.WAFv2.RuleGroupOrStatementOneArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ratebasedstatement
          */
-        rateBasedStatement?: pulumi.Input<inputs.WAFv2.RuleGroupRateBasedStatementOne>;
+        rateBasedStatement?: pulumi.Input<inputs.WAFv2.RuleGroupRateBasedStatementOneArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-regexpatternsetreferencestatement
          */
-        regexPatternSetReferenceStatement?: pulumi.Input<inputs.WAFv2.RuleGroupRegexPatternSetReferenceStatement>;
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.WAFv2.RuleGroupRegexPatternSetReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sizeconstraintstatement
          */
-        sizeConstraintStatement?: pulumi.Input<inputs.WAFv2.RuleGroupSizeConstraintStatement>;
+        sizeConstraintStatement?: pulumi.Input<inputs.WAFv2.RuleGroupSizeConstraintStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sqlimatchstatement
          */
-        sqliMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupSqliMatchStatement>;
+        sqliMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupSqliMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-xssmatchstatement
          */
-        xssMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupXssMatchStatement>;
+        xssMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupXssMatchStatementArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html
      */
-    export interface RuleGroupStatementThree {
+    export interface RuleGroupStatementThreeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-bytematchstatement
          */
-        byteMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupByteMatchStatement>;
+        byteMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupByteMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-geomatchstatement
          */
-        geoMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupGeoMatchStatement>;
+        geoMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupGeoMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-ipsetreferencestatement
          */
-        iPSetReferenceStatement?: pulumi.Input<inputs.WAFv2.RuleGroupIPSetReferenceStatement>;
+        iPSetReferenceStatement?: pulumi.Input<inputs.WAFv2.RuleGroupIPSetReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-regexpatternsetreferencestatement
          */
-        regexPatternSetReferenceStatement?: pulumi.Input<inputs.WAFv2.RuleGroupRegexPatternSetReferenceStatement>;
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.WAFv2.RuleGroupRegexPatternSetReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sizeconstraintstatement
          */
-        sizeConstraintStatement?: pulumi.Input<inputs.WAFv2.RuleGroupSizeConstraintStatement>;
+        sizeConstraintStatement?: pulumi.Input<inputs.WAFv2.RuleGroupSizeConstraintStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sqlimatchstatement
          */
-        sqliMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupSqliMatchStatement>;
+        sqliMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupSqliMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-xssmatchstatement
          */
-        xssMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupXssMatchStatement>;
+        xssMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupXssMatchStatementArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html
      */
-    export interface RuleGroupStatementTwo {
+    export interface RuleGroupStatementTwoArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-andstatement
          */
-        andStatement?: pulumi.Input<inputs.WAFv2.RuleGroupAndStatementTwo>;
+        andStatement?: pulumi.Input<inputs.WAFv2.RuleGroupAndStatementTwoArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-bytematchstatement
          */
-        byteMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupByteMatchStatement>;
+        byteMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupByteMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-geomatchstatement
          */
-        geoMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupGeoMatchStatement>;
+        geoMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupGeoMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ipsetreferencestatement
          */
-        iPSetReferenceStatement?: pulumi.Input<inputs.WAFv2.RuleGroupIPSetReferenceStatement>;
+        iPSetReferenceStatement?: pulumi.Input<inputs.WAFv2.RuleGroupIPSetReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-notstatement
          */
-        notStatement?: pulumi.Input<inputs.WAFv2.RuleGroupNotStatementTwo>;
+        notStatement?: pulumi.Input<inputs.WAFv2.RuleGroupNotStatementTwoArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-orstatement
          */
-        orStatement?: pulumi.Input<inputs.WAFv2.RuleGroupOrStatementTwo>;
+        orStatement?: pulumi.Input<inputs.WAFv2.RuleGroupOrStatementTwoArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ratebasedstatement
          */
-        rateBasedStatement?: pulumi.Input<inputs.WAFv2.RuleGroupRateBasedStatementTwo>;
+        rateBasedStatement?: pulumi.Input<inputs.WAFv2.RuleGroupRateBasedStatementTwoArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-regexpatternsetreferencestatement
          */
-        regexPatternSetReferenceStatement?: pulumi.Input<inputs.WAFv2.RuleGroupRegexPatternSetReferenceStatement>;
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.WAFv2.RuleGroupRegexPatternSetReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sizeconstraintstatement
          */
-        sizeConstraintStatement?: pulumi.Input<inputs.WAFv2.RuleGroupSizeConstraintStatement>;
+        sizeConstraintStatement?: pulumi.Input<inputs.WAFv2.RuleGroupSizeConstraintStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sqlimatchstatement
          */
-        sqliMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupSqliMatchStatement>;
+        sqliMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupSqliMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-xssmatchstatement
          */
-        xssMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupXssMatchStatement>;
+        xssMatchStatement?: pulumi.Input<inputs.WAFv2.RuleGroupXssMatchStatementArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html
      */
-    export interface RuleGroupTextTransformation {
+    export interface RuleGroupTextTransformationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-priority
          */
@@ -11907,7 +11907,7 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html
      */
-    export interface RuleGroupVisibilityConfig {
+    export interface RuleGroupVisibilityConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-cloudwatchmetricsenabled
          */
@@ -11925,45 +11925,45 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html
      */
-    export interface RuleGroupXssMatchStatement {
+    export interface RuleGroupXssMatchStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-fieldtomatch
          */
-        fieldToMatch: pulumi.Input<inputs.WAFv2.RuleGroupFieldToMatch>;
+        fieldToMatch: pulumi.Input<inputs.WAFv2.RuleGroupFieldToMatchArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-texttransformations
          */
-        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupTextTransformation>[]>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupTextTransformationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html
      */
-    export interface WebACLAndStatementOne {
+    export interface WebACLAndStatementOneArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html#cfn-wafv2-webacl-andstatementone-statements
          */
-        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLStatementTwo>[]>;
+        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLStatementTwoArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html
      */
-    export interface WebACLAndStatementTwo {
+    export interface WebACLAndStatementTwoArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html#cfn-wafv2-webacl-andstatementtwo-statements
          */
-        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLStatementThree>[]>;
+        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLStatementThreeArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html
      */
-    export interface WebACLByteMatchStatement {
+    export interface WebACLByteMatchStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-fieldtomatch
          */
-        fieldToMatch: pulumi.Input<inputs.WAFv2.WebACLFieldToMatch>;
+        fieldToMatch: pulumi.Input<inputs.WAFv2.WebACLFieldToMatchArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-positionalconstraint
          */
@@ -11979,13 +11979,13 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-texttransformations
          */
-        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLTextTransformation>[]>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLTextTransformationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html
      */
-    export interface WebACLDefaultAction {
+    export interface WebACLDefaultActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
          */
@@ -11999,7 +11999,7 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html
      */
-    export interface WebACLExcludedRule {
+    export interface WebACLExcludedRuleArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html#cfn-wafv2-webacl-excludedrule-name
          */
@@ -12009,7 +12009,7 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html
      */
-    export interface WebACLFieldToMatch {
+    export interface WebACLFieldToMatchArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-allqueryarguments
          */
@@ -12043,7 +12043,7 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html
      */
-    export interface WebACLForwardedIPConfiguration {
+    export interface WebACLForwardedIPConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-fallbackbehavior
          */
@@ -12057,7 +12057,7 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html
      */
-    export interface WebACLGeoMatchStatement {
+    export interface WebACLGeoMatchStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
          */
@@ -12065,13 +12065,13 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
          */
-        forwardedIPConfig?: pulumi.Input<inputs.WAFv2.WebACLForwardedIPConfiguration>;
+        forwardedIPConfig?: pulumi.Input<inputs.WAFv2.WebACLForwardedIPConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html
      */
-    export interface WebACLIPSetForwardedIPConfiguration {
+    export interface WebACLIPSetForwardedIPConfigurationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-fallbackbehavior
          */
@@ -12089,7 +12089,7 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html
      */
-    export interface WebACLIPSetReferenceStatement {
+    export interface WebACLIPSetReferenceStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
          */
@@ -12097,17 +12097,17 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
          */
-        iPSetForwardedIPConfig?: pulumi.Input<inputs.WAFv2.WebACLIPSetForwardedIPConfiguration>;
+        iPSetForwardedIPConfig?: pulumi.Input<inputs.WAFv2.WebACLIPSetForwardedIPConfigurationArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html
      */
-    export interface WebACLManagedRuleGroupStatement {
+    export interface WebACLManagedRuleGroupStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-excludedrules
          */
-        excludedRules?: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLExcludedRule>[]>;
+        excludedRules?: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLExcludedRuleArgs>[]>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-name
          */
@@ -12121,47 +12121,47 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html
      */
-    export interface WebACLNotStatementOne {
+    export interface WebACLNotStatementOneArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html#cfn-wafv2-webacl-notstatementone-statement
          */
-        statement: pulumi.Input<inputs.WAFv2.WebACLStatementTwo>;
+        statement: pulumi.Input<inputs.WAFv2.WebACLStatementTwoArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html
      */
-    export interface WebACLNotStatementTwo {
+    export interface WebACLNotStatementTwoArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html#cfn-wafv2-webacl-notstatementtwo-statement
          */
-        statement: pulumi.Input<inputs.WAFv2.WebACLStatementThree>;
+        statement: pulumi.Input<inputs.WAFv2.WebACLStatementThreeArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html
      */
-    export interface WebACLOrStatementOne {
+    export interface WebACLOrStatementOneArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html#cfn-wafv2-webacl-orstatementone-statements
          */
-        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLStatementTwo>[]>;
+        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLStatementTwoArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html
      */
-    export interface WebACLOrStatementTwo {
+    export interface WebACLOrStatementTwoArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html#cfn-wafv2-webacl-orstatementtwo-statements
          */
-        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLStatementThree>[]>;
+        statements: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLStatementThreeArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html
      */
-    export interface WebACLOverrideAction {
+    export interface WebACLOverrideActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count
          */
@@ -12175,7 +12175,7 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html
      */
-    export interface WebACLRateBasedStatementOne {
+    export interface WebACLRateBasedStatementOneArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-aggregatekeytype
          */
@@ -12183,7 +12183,7 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-forwardedipconfig
          */
-        forwardedIPConfig?: pulumi.Input<inputs.WAFv2.WebACLForwardedIPConfiguration>;
+        forwardedIPConfig?: pulumi.Input<inputs.WAFv2.WebACLForwardedIPConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
          */
@@ -12191,13 +12191,13 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-scopedownstatement
          */
-        scopeDownStatement?: pulumi.Input<inputs.WAFv2.WebACLStatementTwo>;
+        scopeDownStatement?: pulumi.Input<inputs.WAFv2.WebACLStatementTwoArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html
      */
-    export interface WebACLRateBasedStatementTwo {
+    export interface WebACLRateBasedStatementTwoArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-aggregatekeytype
          */
@@ -12205,7 +12205,7 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-forwardedipconfig
          */
-        forwardedIPConfig?: pulumi.Input<inputs.WAFv2.WebACLForwardedIPConfiguration>;
+        forwardedIPConfig?: pulumi.Input<inputs.WAFv2.WebACLForwardedIPConfigurationArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-limit
          */
@@ -12213,13 +12213,13 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-scopedownstatement
          */
-        scopeDownStatement?: pulumi.Input<inputs.WAFv2.WebACLStatementThree>;
+        scopeDownStatement?: pulumi.Input<inputs.WAFv2.WebACLStatementThreeArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html
      */
-    export interface WebACLRegexPatternSetReferenceStatement {
+    export interface WebACLRegexPatternSetReferenceStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-arn
          */
@@ -12227,21 +12227,21 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-fieldtomatch
          */
-        fieldToMatch: pulumi.Input<inputs.WAFv2.WebACLFieldToMatch>;
+        fieldToMatch: pulumi.Input<inputs.WAFv2.WebACLFieldToMatchArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-texttransformations
          */
-        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLTextTransformation>[]>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLTextTransformationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html
      */
-    export interface WebACLRule {
+    export interface WebACLRuleArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-action
          */
-        action?: pulumi.Input<inputs.WAFv2.WebACLRuleAction>;
+        action?: pulumi.Input<inputs.WAFv2.WebACLRuleActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-name
          */
@@ -12249,7 +12249,7 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-overrideaction
          */
-        overrideAction?: pulumi.Input<inputs.WAFv2.WebACLOverrideAction>;
+        overrideAction?: pulumi.Input<inputs.WAFv2.WebACLOverrideActionArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority
          */
@@ -12257,17 +12257,17 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
          */
-        statement: pulumi.Input<inputs.WAFv2.WebACLStatementOne>;
+        statement: pulumi.Input<inputs.WAFv2.WebACLStatementOneArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
          */
-        visibilityConfig: pulumi.Input<inputs.WAFv2.WebACLVisibilityConfig>;
+        visibilityConfig: pulumi.Input<inputs.WAFv2.WebACLVisibilityConfigArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html
      */
-    export interface WebACLRuleAction {
+    export interface WebACLRuleActionArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
          */
@@ -12285,7 +12285,7 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
      */
-    export interface WebACLRuleGroupReferenceStatement {
+    export interface WebACLRuleGroupReferenceStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
          */
@@ -12293,13 +12293,13 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
          */
-        excludedRules?: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLExcludedRule>[]>;
+        excludedRules?: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLExcludedRuleArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html
      */
-    export interface WebACLSizeConstraintStatement {
+    export interface WebACLSizeConstraintStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-comparisonoperator
          */
@@ -12307,7 +12307,7 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch
          */
-        fieldToMatch: pulumi.Input<inputs.WAFv2.WebACLFieldToMatch>;
+        fieldToMatch: pulumi.Input<inputs.WAFv2.WebACLFieldToMatchArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
          */
@@ -12315,185 +12315,185 @@ export namespace WAFv2 {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
          */
-        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLTextTransformation>[]>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLTextTransformationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html
      */
-    export interface WebACLSqliMatchStatement {
+    export interface WebACLSqliMatchStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-fieldtomatch
          */
-        fieldToMatch: pulumi.Input<inputs.WAFv2.WebACLFieldToMatch>;
+        fieldToMatch: pulumi.Input<inputs.WAFv2.WebACLFieldToMatchArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-texttransformations
          */
-        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLTextTransformation>[]>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLTextTransformationArgs>[]>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html
      */
-    export interface WebACLStatementOne {
+    export interface WebACLStatementOneArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-andstatement
          */
-        andStatement?: pulumi.Input<inputs.WAFv2.WebACLAndStatementOne>;
+        andStatement?: pulumi.Input<inputs.WAFv2.WebACLAndStatementOneArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-bytematchstatement
          */
-        byteMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLByteMatchStatement>;
+        byteMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLByteMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-geomatchstatement
          */
-        geoMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLGeoMatchStatement>;
+        geoMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLGeoMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ipsetreferencestatement
          */
-        iPSetReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLIPSetReferenceStatement>;
+        iPSetReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLIPSetReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-managedrulegroupstatement
          */
-        managedRuleGroupStatement?: pulumi.Input<inputs.WAFv2.WebACLManagedRuleGroupStatement>;
+        managedRuleGroupStatement?: pulumi.Input<inputs.WAFv2.WebACLManagedRuleGroupStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-notstatement
          */
-        notStatement?: pulumi.Input<inputs.WAFv2.WebACLNotStatementOne>;
+        notStatement?: pulumi.Input<inputs.WAFv2.WebACLNotStatementOneArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-orstatement
          */
-        orStatement?: pulumi.Input<inputs.WAFv2.WebACLOrStatementOne>;
+        orStatement?: pulumi.Input<inputs.WAFv2.WebACLOrStatementOneArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ratebasedstatement
          */
-        rateBasedStatement?: pulumi.Input<inputs.WAFv2.WebACLRateBasedStatementOne>;
+        rateBasedStatement?: pulumi.Input<inputs.WAFv2.WebACLRateBasedStatementOneArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-regexpatternsetreferencestatement
          */
-        regexPatternSetReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLRegexPatternSetReferenceStatement>;
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLRegexPatternSetReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-rulegroupreferencestatement
          */
-        ruleGroupReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLRuleGroupReferenceStatement>;
+        ruleGroupReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLRuleGroupReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sizeconstraintstatement
          */
-        sizeConstraintStatement?: pulumi.Input<inputs.WAFv2.WebACLSizeConstraintStatement>;
+        sizeConstraintStatement?: pulumi.Input<inputs.WAFv2.WebACLSizeConstraintStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sqlimatchstatement
          */
-        sqliMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLSqliMatchStatement>;
+        sqliMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLSqliMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-xssmatchstatement
          */
-        xssMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLXssMatchStatement>;
+        xssMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLXssMatchStatementArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html
      */
-    export interface WebACLStatementThree {
+    export interface WebACLStatementThreeArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-bytematchstatement
          */
-        byteMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLByteMatchStatement>;
+        byteMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLByteMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-geomatchstatement
          */
-        geoMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLGeoMatchStatement>;
+        geoMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLGeoMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-ipsetreferencestatement
          */
-        iPSetReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLIPSetReferenceStatement>;
+        iPSetReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLIPSetReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-managedrulegroupstatement
          */
-        managedRuleGroupStatement?: pulumi.Input<inputs.WAFv2.WebACLManagedRuleGroupStatement>;
+        managedRuleGroupStatement?: pulumi.Input<inputs.WAFv2.WebACLManagedRuleGroupStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-regexpatternsetreferencestatement
          */
-        regexPatternSetReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLRegexPatternSetReferenceStatement>;
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLRegexPatternSetReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-rulegroupreferencestatement
          */
-        ruleGroupReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLRuleGroupReferenceStatement>;
+        ruleGroupReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLRuleGroupReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sizeconstraintstatement
          */
-        sizeConstraintStatement?: pulumi.Input<inputs.WAFv2.WebACLSizeConstraintStatement>;
+        sizeConstraintStatement?: pulumi.Input<inputs.WAFv2.WebACLSizeConstraintStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sqlimatchstatement
          */
-        sqliMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLSqliMatchStatement>;
+        sqliMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLSqliMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-xssmatchstatement
          */
-        xssMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLXssMatchStatement>;
+        xssMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLXssMatchStatementArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html
      */
-    export interface WebACLStatementTwo {
+    export interface WebACLStatementTwoArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-andstatement
          */
-        andStatement?: pulumi.Input<inputs.WAFv2.WebACLAndStatementTwo>;
+        andStatement?: pulumi.Input<inputs.WAFv2.WebACLAndStatementTwoArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-bytematchstatement
          */
-        byteMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLByteMatchStatement>;
+        byteMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLByteMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-geomatchstatement
          */
-        geoMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLGeoMatchStatement>;
+        geoMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLGeoMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ipsetreferencestatement
          */
-        iPSetReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLIPSetReferenceStatement>;
+        iPSetReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLIPSetReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-managedrulegroupstatement
          */
-        managedRuleGroupStatement?: pulumi.Input<inputs.WAFv2.WebACLManagedRuleGroupStatement>;
+        managedRuleGroupStatement?: pulumi.Input<inputs.WAFv2.WebACLManagedRuleGroupStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-notstatement
          */
-        notStatement?: pulumi.Input<inputs.WAFv2.WebACLNotStatementTwo>;
+        notStatement?: pulumi.Input<inputs.WAFv2.WebACLNotStatementTwoArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-orstatement
          */
-        orStatement?: pulumi.Input<inputs.WAFv2.WebACLOrStatementTwo>;
+        orStatement?: pulumi.Input<inputs.WAFv2.WebACLOrStatementTwoArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ratebasedstatement
          */
-        rateBasedStatement?: pulumi.Input<inputs.WAFv2.WebACLRateBasedStatementTwo>;
+        rateBasedStatement?: pulumi.Input<inputs.WAFv2.WebACLRateBasedStatementTwoArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-regexpatternsetreferencestatement
          */
-        regexPatternSetReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLRegexPatternSetReferenceStatement>;
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLRegexPatternSetReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-rulegroupreferencestatement
          */
-        ruleGroupReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLRuleGroupReferenceStatement>;
+        ruleGroupReferenceStatement?: pulumi.Input<inputs.WAFv2.WebACLRuleGroupReferenceStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sizeconstraintstatement
          */
-        sizeConstraintStatement?: pulumi.Input<inputs.WAFv2.WebACLSizeConstraintStatement>;
+        sizeConstraintStatement?: pulumi.Input<inputs.WAFv2.WebACLSizeConstraintStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sqlimatchstatement
          */
-        sqliMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLSqliMatchStatement>;
+        sqliMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLSqliMatchStatementArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-xssmatchstatement
          */
-        xssMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLXssMatchStatement>;
+        xssMatchStatement?: pulumi.Input<inputs.WAFv2.WebACLXssMatchStatementArgs>;
     }
 
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html
      */
-    export interface WebACLTextTransformation {
+    export interface WebACLTextTransformationArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-priority
          */
@@ -12507,7 +12507,7 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html
      */
-    export interface WebACLVisibilityConfig {
+    export interface WebACLVisibilityConfigArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-cloudwatchmetricsenabled
          */
@@ -12525,15 +12525,15 @@ export namespace WAFv2 {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html
      */
-    export interface WebACLXssMatchStatement {
+    export interface WebACLXssMatchStatementArgs {
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
          */
-        fieldToMatch: pulumi.Input<inputs.WAFv2.WebACLFieldToMatch>;
+        fieldToMatch: pulumi.Input<inputs.WAFv2.WebACLFieldToMatchArgs>;
         /**
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
          */
-        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLTextTransformation>[]>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLTextTransformationArgs>[]>;
     }
 }
 

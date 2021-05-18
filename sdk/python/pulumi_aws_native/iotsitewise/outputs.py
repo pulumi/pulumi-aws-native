@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -43,7 +43,7 @@ class AccessPolicyAccessPolicyIdentity(dict):
                  user: Optional['outputs.AccessPolicyUser'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html
-        :param 'AccessPolicyUserArgs' user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
+        :param 'AccessPolicyUser' user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
         """
         if user is not None:
             pulumi.set(__self__, "user", user)
@@ -56,9 +56,6 @@ class AccessPolicyAccessPolicyIdentity(dict):
         """
         return pulumi.get(self, "user")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccessPolicyAccessPolicyResource(dict):
@@ -70,8 +67,8 @@ class AccessPolicyAccessPolicyResource(dict):
                  project: Optional['outputs.AccessPolicyProject'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html
-        :param 'AccessPolicyPortalArgs' portal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-portal
-        :param 'AccessPolicyProjectArgs' project: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-project
+        :param 'AccessPolicyPortal' portal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-portal
+        :param 'AccessPolicyProject' project: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-project
         """
         if portal is not None:
             pulumi.set(__self__, "portal", portal)
@@ -93,9 +90,6 @@ class AccessPolicyAccessPolicyResource(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-project
         """
         return pulumi.get(self, "project")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -120,9 +114,6 @@ class AccessPolicyPortal(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccessPolicyProject(dict):
@@ -145,9 +136,6 @@ class AccessPolicyProject(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html#cfn-iotsitewise-accesspolicy-project-id
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -172,15 +160,31 @@ class AccessPolicyUser(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssetAssetHierarchy(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "childAssetId":
+            suggest = "child_asset_id"
+        elif key == "logicalId":
+            suggest = "logical_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetAssetHierarchy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetAssetHierarchy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetAssetHierarchy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  child_asset_id: str,
                  logical_id: str):
@@ -208,15 +212,31 @@ class AssetAssetHierarchy(dict):
         """
         return pulumi.get(self, "logical_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssetAssetProperty(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logicalId":
+            suggest = "logical_id"
+        elif key == "notificationState":
+            suggest = "notification_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetAssetProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetAssetProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetAssetProperty.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  logical_id: str,
                  alias: Optional[str] = None,
@@ -257,15 +277,31 @@ class AssetAssetProperty(dict):
         """
         return pulumi.get(self, "notification_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssetModelAssetModelHierarchy(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "childAssetModelId":
+            suggest = "child_asset_model_id"
+        elif key == "logicalId":
+            suggest = "logical_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetModelAssetModelHierarchy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetModelAssetModelHierarchy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetModelAssetModelHierarchy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  child_asset_model_id: str,
                  logical_id: str,
@@ -304,15 +340,31 @@ class AssetModelAssetModelHierarchy(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssetModelAssetModelProperty(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+        elif key == "logicalId":
+            suggest = "logical_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetModelAssetModelProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetModelAssetModelProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetModelAssetModelProperty.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_type: str,
                  logical_id: str,
@@ -324,7 +376,7 @@ class AssetModelAssetModelProperty(dict):
         :param str data_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype
         :param str logical_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-name
-        :param 'AssetModelPropertyTypeArgs' type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-type
+        :param 'AssetModelPropertyType' type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-type
         :param str unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-unit
         """
         pulumi.set(__self__, "data_type", data_type)
@@ -374,15 +426,29 @@ class AssetModelAssetModelProperty(dict):
         """
         return pulumi.get(self, "unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssetModelAttribute(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetModelAttribute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetModelAttribute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetModelAttribute.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_value: Optional[str] = None):
         """
@@ -400,9 +466,6 @@ class AssetModelAttribute(dict):
         """
         return pulumi.get(self, "default_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssetModelExpressionVariable(dict):
@@ -415,7 +478,7 @@ class AssetModelExpressionVariable(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-name
-        :param 'AssetModelVariableValueArgs' value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-value
+        :param 'AssetModelVariableValue' value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-value
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -436,9 +499,6 @@ class AssetModelExpressionVariable(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssetModelMetric(dict):
@@ -452,8 +512,8 @@ class AssetModelMetric(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html
         :param str expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-expression
-        :param Sequence['AssetModelExpressionVariableArgs'] variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-variables
-        :param 'AssetModelMetricWindowArgs' window: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-window
+        :param Sequence['AssetModelExpressionVariable'] variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-variables
+        :param 'AssetModelMetricWindow' window: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-window
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "variables", variables)
@@ -483,9 +543,6 @@ class AssetModelMetric(dict):
         """
         return pulumi.get(self, "window")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssetModelMetricWindow(dict):
@@ -496,7 +553,7 @@ class AssetModelMetricWindow(dict):
                  tumbling: Optional['outputs.AssetModelTumblingWindow'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html
-        :param 'AssetModelTumblingWindowArgs' tumbling: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
+        :param 'AssetModelTumblingWindow' tumbling: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
         """
         if tumbling is not None:
             pulumi.set(__self__, "tumbling", tumbling)
@@ -509,15 +566,29 @@ class AssetModelMetricWindow(dict):
         """
         return pulumi.get(self, "tumbling")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssetModelPropertyType(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeName":
+            suggest = "type_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetModelPropertyType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetModelPropertyType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetModelPropertyType.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type_name: str,
                  attribute: Optional['outputs.AssetModelAttribute'] = None,
@@ -526,9 +597,9 @@ class AssetModelPropertyType(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html
         :param str type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-typename
-        :param 'AssetModelAttributeArgs' attribute: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-attribute
-        :param 'AssetModelMetricArgs' metric: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-metric
-        :param 'AssetModelTransformArgs' transform: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-transform
+        :param 'AssetModelAttribute' attribute: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-attribute
+        :param 'AssetModelMetric' metric: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-metric
+        :param 'AssetModelTransform' transform: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-transform
         """
         pulumi.set(__self__, "type_name", type_name)
         if attribute is not None:
@@ -570,9 +641,6 @@ class AssetModelPropertyType(dict):
         """
         return pulumi.get(self, "transform")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssetModelTransform(dict):
@@ -585,7 +653,7 @@ class AssetModelTransform(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html
         :param str expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-expression
-        :param Sequence['AssetModelExpressionVariableArgs'] variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-variables
+        :param Sequence['AssetModelExpressionVariable'] variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-variables
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "variables", variables)
@@ -605,9 +673,6 @@ class AssetModelTransform(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-variables
         """
         return pulumi.get(self, "variables")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -631,15 +696,31 @@ class AssetModelTumblingWindow(dict):
         """
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssetModelVariableValue(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyLogicalId":
+            suggest = "property_logical_id"
+        elif key == "hierarchyLogicalId":
+            suggest = "hierarchy_logical_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetModelVariableValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetModelVariableValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetModelVariableValue.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  property_logical_id: str,
                  hierarchy_logical_id: Optional[str] = None):
@@ -668,15 +749,31 @@ class AssetModelVariableValue(dict):
         """
         return pulumi.get(self, "hierarchy_logical_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayGatewayCapabilitySummary(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capabilityNamespace":
+            suggest = "capability_namespace"
+        elif key == "capabilityConfiguration":
+            suggest = "capability_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayGatewayCapabilitySummary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayGatewayCapabilitySummary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayGatewayCapabilitySummary.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  capability_namespace: str,
                  capability_configuration: Optional[str] = None):
@@ -705,9 +802,6 @@ class GatewayGatewayCapabilitySummary(dict):
         """
         return pulumi.get(self, "capability_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayGatewayPlatform(dict):
@@ -718,7 +812,7 @@ class GatewayGatewayPlatform(dict):
                  greengrass: 'outputs.GatewayGreengrass'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html
-        :param 'GatewayGreengrassArgs' greengrass: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
+        :param 'GatewayGreengrass' greengrass: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
         """
         pulumi.set(__self__, "greengrass", greengrass)
 
@@ -730,15 +824,29 @@ class GatewayGatewayPlatform(dict):
         """
         return pulumi.get(self, "greengrass")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayGreengrass(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupArn":
+            suggest = "group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayGreengrass. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayGreengrass.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayGreengrass.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  group_arn: str):
         """
@@ -754,9 +862,6 @@ class GatewayGreengrass(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html#cfn-iotsitewise-gateway-greengrass-grouparn
         """
         return pulumi.get(self, "group_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -793,9 +898,6 @@ class PortalMonitorErrorDetails(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PortalPortalStatus(dict):
@@ -808,7 +910,7 @@ class PortalPortalStatus(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html
         :param str state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-state
-        :param 'PortalMonitorErrorDetailsArgs' error: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-error
+        :param 'PortalMonitorErrorDetails' error: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-error
         """
         pulumi.set(__self__, "state", state)
         if error is not None:
@@ -829,8 +931,5 @@ class PortalPortalStatus(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-error
         """
         return pulumi.get(self, "error")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -60,7 +60,8 @@ export class ComponentVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ComponentVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["inlineRecipe"] = args ? args.inlineRecipe : undefined;
             inputs["lambdaFunction"] = args ? args.lambdaFunction : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -75,12 +76,8 @@ export class ComponentVersion extends pulumi.CustomResource {
             inputs["lambdaFunction"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ComponentVersion.__pulumiType, name, inputs, opts);
     }
@@ -97,7 +94,7 @@ export interface ComponentVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
      */
-    readonly lambdaFunction?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaFunctionRecipeSource>;
+    readonly lambdaFunction?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaFunctionRecipeSourceArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
      */

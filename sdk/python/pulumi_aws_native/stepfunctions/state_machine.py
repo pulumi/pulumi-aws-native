@@ -5,15 +5,166 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['StateMachine']
+__all__ = ['StateMachineArgs', 'StateMachine']
+
+@pulumi.input_type
+class StateMachineArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[str],
+                 definition_s3_location: Optional[pulumi.Input['StateMachineS3LocationArgs']] = None,
+                 definition_string: Optional[pulumi.Input[str]] = None,
+                 definition_substitutions: Optional[pulumi.Input['StateMachineDefinitionSubstitutionsArgs']] = None,
+                 logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
+                 state_machine_name: Optional[pulumi.Input[str]] = None,
+                 state_machine_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineTagsEntryArgs']]]] = None,
+                 tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None):
+        """
+        The set of arguments for constructing a StateMachine resource.
+        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
+        :param pulumi.Input['StateMachineS3LocationArgs'] definition_s3_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
+        :param pulumi.Input[str] definition_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
+        :param pulumi.Input['StateMachineDefinitionSubstitutionsArgs'] definition_substitutions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
+        :param pulumi.Input['StateMachineLoggingConfigurationArgs'] logging_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
+        :param pulumi.Input[str] state_machine_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
+        :param pulumi.Input[str] state_machine_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
+        :param pulumi.Input[Sequence[pulumi.Input['StateMachineTagsEntryArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
+        :param pulumi.Input['StateMachineTracingConfigurationArgs'] tracing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        if definition_s3_location is not None:
+            pulumi.set(__self__, "definition_s3_location", definition_s3_location)
+        if definition_string is not None:
+            pulumi.set(__self__, "definition_string", definition_string)
+        if definition_substitutions is not None:
+            pulumi.set(__self__, "definition_substitutions", definition_substitutions)
+        if logging_configuration is not None:
+            pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if state_machine_name is not None:
+            pulumi.set(__self__, "state_machine_name", state_machine_name)
+        if state_machine_type is not None:
+            pulumi.set(__self__, "state_machine_type", state_machine_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tracing_configuration is not None:
+            pulumi.set(__self__, "tracing_configuration", tracing_configuration)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="definitionS3Location")
+    def definition_s3_location(self) -> Optional[pulumi.Input['StateMachineS3LocationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
+        """
+        return pulumi.get(self, "definition_s3_location")
+
+    @definition_s3_location.setter
+    def definition_s3_location(self, value: Optional[pulumi.Input['StateMachineS3LocationArgs']]):
+        pulumi.set(self, "definition_s3_location", value)
+
+    @property
+    @pulumi.getter(name="definitionString")
+    def definition_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
+        """
+        return pulumi.get(self, "definition_string")
+
+    @definition_string.setter
+    def definition_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "definition_string", value)
+
+    @property
+    @pulumi.getter(name="definitionSubstitutions")
+    def definition_substitutions(self) -> Optional[pulumi.Input['StateMachineDefinitionSubstitutionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
+        """
+        return pulumi.get(self, "definition_substitutions")
+
+    @definition_substitutions.setter
+    def definition_substitutions(self, value: Optional[pulumi.Input['StateMachineDefinitionSubstitutionsArgs']]):
+        pulumi.set(self, "definition_substitutions", value)
+
+    @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
+        """
+        return pulumi.get(self, "logging_configuration")
+
+    @logging_configuration.setter
+    def logging_configuration(self, value: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]):
+        pulumi.set(self, "logging_configuration", value)
+
+    @property
+    @pulumi.getter(name="stateMachineName")
+    def state_machine_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
+        """
+        return pulumi.get(self, "state_machine_name")
+
+    @state_machine_name.setter
+    def state_machine_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state_machine_name", value)
+
+    @property
+    @pulumi.getter(name="stateMachineType")
+    def state_machine_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
+        """
+        return pulumi.get(self, "state_machine_type")
+
+    @state_machine_type.setter
+    def state_machine_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state_machine_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineTagsEntryArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineTagsEntryArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tracingConfiguration")
+    def tracing_configuration(self) -> Optional[pulumi.Input['StateMachineTracingConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
+        """
+        return pulumi.get(self, "tracing_configuration")
+
+    @tracing_configuration.setter
+    def tracing_configuration(self, value: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']]):
+        pulumi.set(self, "tracing_configuration", value)
 
 
 class StateMachine(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -26,9 +177,7 @@ class StateMachine(pulumi.CustomResource):
                  state_machine_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StateMachineTagsEntryArgs']]]]] = None,
                  tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
 
@@ -44,12 +193,40 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StateMachineTagsEntryArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
         :param pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']] tracing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: StateMachineArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
+
+        :param str resource_name: The name of the resource.
+        :param StateMachineArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(StateMachineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 definition_s3_location: Optional[pulumi.Input[pulumi.InputType['StateMachineS3LocationArgs']]] = None,
+                 definition_string: Optional[pulumi.Input[str]] = None,
+                 definition_substitutions: Optional[pulumi.Input[pulumi.InputType['StateMachineDefinitionSubstitutionsArgs']]] = None,
+                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 state_machine_name: Optional[pulumi.Input[str]] = None,
+                 state_machine_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StateMachineTagsEntryArgs']]]]] = None,
+                 tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -59,21 +236,21 @@ class StateMachine(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StateMachineArgs.__new__(StateMachineArgs)
 
-            __props__['definition_s3_location'] = definition_s3_location
-            __props__['definition_string'] = definition_string
-            __props__['definition_substitutions'] = definition_substitutions
-            __props__['logging_configuration'] = logging_configuration
+            __props__.__dict__["definition_s3_location"] = definition_s3_location
+            __props__.__dict__["definition_string"] = definition_string
+            __props__.__dict__["definition_substitutions"] = definition_substitutions
+            __props__.__dict__["logging_configuration"] = logging_configuration
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
-            __props__['state_machine_name'] = state_machine_name
-            __props__['state_machine_type'] = state_machine_type
-            __props__['tags'] = tags
-            __props__['tracing_configuration'] = tracing_configuration
-            __props__['arn'] = None
-            __props__['name'] = None
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["state_machine_name"] = state_machine_name
+            __props__.__dict__["state_machine_type"] = state_machine_type
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tracing_configuration"] = tracing_configuration
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["name"] = None
         super(StateMachine, __self__).__init__(
             'aws-native:StepFunctions:StateMachine',
             resource_name,
@@ -94,8 +271,19 @@ class StateMachine(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = StateMachineArgs.__new__(StateMachineArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["definition_s3_location"] = None
+        __props__.__dict__["definition_string"] = None
+        __props__.__dict__["definition_substitutions"] = None
+        __props__.__dict__["logging_configuration"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["role_arn"] = None
+        __props__.__dict__["state_machine_name"] = None
+        __props__.__dict__["state_machine_type"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["tracing_configuration"] = None
         return StateMachine(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -179,10 +367,4 @@ class StateMachine(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
         """
         return pulumi.get(self, "tracing_configuration")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

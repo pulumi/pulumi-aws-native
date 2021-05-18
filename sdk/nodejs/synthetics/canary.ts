@@ -95,26 +95,27 @@ export class Canary extends pulumi.CustomResource {
      */
     constructor(name: string, args: CanaryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.artifactS3Location === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.artifactS3Location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'artifactS3Location'");
             }
-            if ((!args || args.code === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.code === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'code'");
             }
-            if ((!args || args.executionRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.runtimeVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.runtimeVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'runtimeVersion'");
             }
-            if ((!args || args.schedule === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            if ((!args || args.startCanaryAfterCreation === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.startCanaryAfterCreation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startCanaryAfterCreation'");
             }
             inputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
@@ -147,12 +148,8 @@ export class Canary extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["vPCConfig"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Canary.__pulumiType, name, inputs, opts);
     }
@@ -169,7 +166,7 @@ export interface CanaryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
      */
-    readonly code: pulumi.Input<inputs.Synthetics.CanaryCode>;
+    readonly code: pulumi.Input<inputs.Synthetics.CanaryCodeArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
      */
@@ -185,7 +182,7 @@ export interface CanaryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
      */
-    readonly runConfig?: pulumi.Input<inputs.Synthetics.CanaryRunConfig>;
+    readonly runConfig?: pulumi.Input<inputs.Synthetics.CanaryRunConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
      */
@@ -193,7 +190,7 @@ export interface CanaryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
      */
-    readonly schedule: pulumi.Input<inputs.Synthetics.CanarySchedule>;
+    readonly schedule: pulumi.Input<inputs.Synthetics.CanaryScheduleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
      */
@@ -205,9 +202,9 @@ export interface CanaryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
      */
-    readonly vPCConfig?: pulumi.Input<inputs.Synthetics.CanaryVPCConfig>;
+    readonly vPCConfig?: pulumi.Input<inputs.Synthetics.CanaryVPCConfigArgs>;
 }

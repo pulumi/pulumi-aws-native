@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -24,6 +24,23 @@ class CodeSigningConfigAllowedPublishers(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "signingProfileVersionArns":
+            suggest = "signing_profile_version_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeSigningConfigAllowedPublishers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeSigningConfigAllowedPublishers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeSigningConfigAllowedPublishers.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  signing_profile_version_arns: Sequence[str]):
         """
@@ -40,15 +57,29 @@ class CodeSigningConfigAllowedPublishers(dict):
         """
         return pulumi.get(self, "signing_profile_version_arns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CodeSigningConfigCodeSigningPolicies(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "untrustedArtifactOnDeployment":
+            suggest = "untrusted_artifact_on_deployment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeSigningConfigCodeSigningPolicies. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeSigningConfigCodeSigningPolicies.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeSigningConfigCodeSigningPolicies.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  untrusted_artifact_on_deployment: str):
         """
@@ -65,20 +96,34 @@ class CodeSigningConfigCodeSigningPolicies(dict):
         """
         return pulumi.get(self, "untrusted_artifact_on_deployment")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSourceMappingDestinationConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onFailure":
+            suggest = "on_failure"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingDestinationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingDestinationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingDestinationConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  on_failure: Optional['outputs.EventSourceMappingOnFailure'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html
-        :param 'EventSourceMappingOnFailureArgs' on_failure: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
+        :param 'EventSourceMappingOnFailure' on_failure: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
         """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
@@ -91,15 +136,29 @@ class EventSourceMappingDestinationConfig(dict):
         """
         return pulumi.get(self, "on_failure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSourceMappingEndpoints(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kafkaBootstrapServers":
+            suggest = "kafka_bootstrap_servers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingEndpoints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingEndpoints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingEndpoints.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kafka_bootstrap_servers: Optional[Sequence[str]] = None):
         """
@@ -116,9 +175,6 @@ class EventSourceMappingEndpoints(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html#cfn-lambda-eventsourcemapping-endpoints-kafkabootstrapservers
         """
         return pulumi.get(self, "kafka_bootstrap_servers")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -143,9 +199,6 @@ class EventSourceMappingOnFailure(dict):
         """
         return pulumi.get(self, "destination")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSourceMappingSelfManagedEventSource(dict):
@@ -156,7 +209,7 @@ class EventSourceMappingSelfManagedEventSource(dict):
                  endpoints: Optional['outputs.EventSourceMappingEndpoints'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html
-        :param 'EventSourceMappingEndpointsArgs' endpoints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
+        :param 'EventSourceMappingEndpoints' endpoints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
         """
         if endpoints is not None:
             pulumi.set(__self__, "endpoints", endpoints)
@@ -169,15 +222,29 @@ class EventSourceMappingSelfManagedEventSource(dict):
         """
         return pulumi.get(self, "endpoints")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSourceMappingSourceAccessConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "uRI":
+            suggest = "u_ri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingSourceAccessConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingSourceAccessConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingSourceAccessConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  u_ri: Optional[str] = None):
@@ -206,8 +273,5 @@ class EventSourceMappingSourceAccessConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-uri
         """
         return pulumi.get(self, "u_ri")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -57,11 +57,12 @@ export class RegistryPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: RegistryPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.registryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
             inputs["policy"] = args ? args.policy : undefined;
@@ -74,12 +75,8 @@ export class RegistryPolicy extends pulumi.CustomResource {
             inputs["registryName"] = undefined /*out*/;
             inputs["revisionId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RegistryPolicy.__pulumiType, name, inputs, opts);
     }

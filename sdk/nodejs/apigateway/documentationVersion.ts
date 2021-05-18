@@ -56,11 +56,12 @@ export class DocumentationVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args: DocumentationVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.documentationVersion === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.documentationVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'documentationVersion'");
             }
-            if ((!args || args.restApiId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -71,12 +72,8 @@ export class DocumentationVersion extends pulumi.CustomResource {
             inputs["documentationVersion"] = undefined /*out*/;
             inputs["restApiId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DocumentationVersion.__pulumiType, name, inputs, opts);
     }

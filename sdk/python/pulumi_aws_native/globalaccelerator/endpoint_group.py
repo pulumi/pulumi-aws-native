@@ -5,15 +5,181 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EndpointGroup']
+__all__ = ['EndpointGroupArgs', 'EndpointGroup']
+
+@pulumi.input_type
+class EndpointGroupArgs:
+    def __init__(__self__, *,
+                 endpoint_group_region: pulumi.Input[str],
+                 listener_arn: pulumi.Input[str],
+                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]] = None,
+                 health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 health_check_port: Optional[pulumi.Input[int]] = None,
+                 health_check_protocol: Optional[pulumi.Input[str]] = None,
+                 port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]] = None,
+                 threshold_count: Optional[pulumi.Input[int]] = None,
+                 traffic_dial_percentage: Optional[pulumi.Input[float]] = None):
+        """
+        The set of arguments for constructing a EndpointGroup resource.
+        :param pulumi.Input[str] endpoint_group_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
+        :param pulumi.Input[str] listener_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]] endpoint_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
+        :param pulumi.Input[int] health_check_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
+        :param pulumi.Input[str] health_check_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
+        :param pulumi.Input[int] health_check_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
+        :param pulumi.Input[str] health_check_protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]] port_overrides: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
+        :param pulumi.Input[int] threshold_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
+        :param pulumi.Input[float] traffic_dial_percentage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
+        """
+        pulumi.set(__self__, "endpoint_group_region", endpoint_group_region)
+        pulumi.set(__self__, "listener_arn", listener_arn)
+        if endpoint_configurations is not None:
+            pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
+        if health_check_interval_seconds is not None:
+            pulumi.set(__self__, "health_check_interval_seconds", health_check_interval_seconds)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if health_check_port is not None:
+            pulumi.set(__self__, "health_check_port", health_check_port)
+        if health_check_protocol is not None:
+            pulumi.set(__self__, "health_check_protocol", health_check_protocol)
+        if port_overrides is not None:
+            pulumi.set(__self__, "port_overrides", port_overrides)
+        if threshold_count is not None:
+            pulumi.set(__self__, "threshold_count", threshold_count)
+        if traffic_dial_percentage is not None:
+            pulumi.set(__self__, "traffic_dial_percentage", traffic_dial_percentage)
+
+    @property
+    @pulumi.getter(name="endpointGroupRegion")
+    def endpoint_group_region(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
+        """
+        return pulumi.get(self, "endpoint_group_region")
+
+    @endpoint_group_region.setter
+    def endpoint_group_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_group_region", value)
+
+    @property
+    @pulumi.getter(name="listenerArn")
+    def listener_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
+        """
+        return pulumi.get(self, "listener_arn")
+
+    @listener_arn.setter
+    def listener_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "listener_arn", value)
+
+    @property
+    @pulumi.getter(name="endpointConfigurations")
+    def endpoint_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
+        """
+        return pulumi.get(self, "endpoint_configurations")
+
+    @endpoint_configurations.setter
+    def endpoint_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]]):
+        pulumi.set(self, "endpoint_configurations", value)
+
+    @property
+    @pulumi.getter(name="healthCheckIntervalSeconds")
+    def health_check_interval_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
+        """
+        return pulumi.get(self, "health_check_interval_seconds")
+
+    @health_check_interval_seconds.setter
+    def health_check_interval_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_interval_seconds", value)
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @health_check_path.setter
+    def health_check_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_path", value)
+
+    @property
+    @pulumi.getter(name="healthCheckPort")
+    def health_check_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
+        """
+        return pulumi.get(self, "health_check_port")
+
+    @health_check_port.setter
+    def health_check_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_port", value)
+
+    @property
+    @pulumi.getter(name="healthCheckProtocol")
+    def health_check_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
+        """
+        return pulumi.get(self, "health_check_protocol")
+
+    @health_check_protocol.setter
+    def health_check_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_protocol", value)
+
+    @property
+    @pulumi.getter(name="portOverrides")
+    def port_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
+        """
+        return pulumi.get(self, "port_overrides")
+
+    @port_overrides.setter
+    def port_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]]):
+        pulumi.set(self, "port_overrides", value)
+
+    @property
+    @pulumi.getter(name="thresholdCount")
+    def threshold_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
+        """
+        return pulumi.get(self, "threshold_count")
+
+    @threshold_count.setter
+    def threshold_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "threshold_count", value)
+
+    @property
+    @pulumi.getter(name="trafficDialPercentage")
+    def traffic_dial_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
+        """
+        return pulumi.get(self, "traffic_dial_percentage")
+
+    @traffic_dial_percentage.setter
+    def traffic_dial_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "traffic_dial_percentage", value)
 
 
 class EndpointGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -27,9 +193,7 @@ class EndpointGroup(pulumi.CustomResource):
                  port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]]] = None,
                  threshold_count: Optional[pulumi.Input[int]] = None,
                  traffic_dial_percentage: Optional[pulumi.Input[float]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html
 
@@ -46,12 +210,41 @@ class EndpointGroup(pulumi.CustomResource):
         :param pulumi.Input[int] threshold_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
         :param pulumi.Input[float] traffic_dial_percentage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EndpointGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html
+
+        :param str resource_name: The name of the resource.
+        :param EndpointGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EndpointGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]]] = None,
+                 endpoint_group_region: Optional[pulumi.Input[str]] = None,
+                 health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 health_check_port: Optional[pulumi.Input[int]] = None,
+                 health_check_protocol: Optional[pulumi.Input[str]] = None,
+                 listener_arn: Optional[pulumi.Input[str]] = None,
+                 port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]]] = None,
+                 threshold_count: Optional[pulumi.Input[int]] = None,
+                 traffic_dial_percentage: Optional[pulumi.Input[float]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -61,23 +254,23 @@ class EndpointGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EndpointGroupArgs.__new__(EndpointGroupArgs)
 
-            __props__['endpoint_configurations'] = endpoint_configurations
+            __props__.__dict__["endpoint_configurations"] = endpoint_configurations
             if endpoint_group_region is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_group_region'")
-            __props__['endpoint_group_region'] = endpoint_group_region
-            __props__['health_check_interval_seconds'] = health_check_interval_seconds
-            __props__['health_check_path'] = health_check_path
-            __props__['health_check_port'] = health_check_port
-            __props__['health_check_protocol'] = health_check_protocol
+            __props__.__dict__["endpoint_group_region"] = endpoint_group_region
+            __props__.__dict__["health_check_interval_seconds"] = health_check_interval_seconds
+            __props__.__dict__["health_check_path"] = health_check_path
+            __props__.__dict__["health_check_port"] = health_check_port
+            __props__.__dict__["health_check_protocol"] = health_check_protocol
             if listener_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'listener_arn'")
-            __props__['listener_arn'] = listener_arn
-            __props__['port_overrides'] = port_overrides
-            __props__['threshold_count'] = threshold_count
-            __props__['traffic_dial_percentage'] = traffic_dial_percentage
-            __props__['endpoint_group_arn'] = None
+            __props__.__dict__["listener_arn"] = listener_arn
+            __props__.__dict__["port_overrides"] = port_overrides
+            __props__.__dict__["threshold_count"] = threshold_count
+            __props__.__dict__["traffic_dial_percentage"] = traffic_dial_percentage
+            __props__.__dict__["endpoint_group_arn"] = None
         super(EndpointGroup, __self__).__init__(
             'aws-native:GlobalAccelerator:EndpointGroup',
             resource_name,
@@ -98,8 +291,19 @@ class EndpointGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = EndpointGroupArgs.__new__(EndpointGroupArgs)
 
+        __props__.__dict__["endpoint_configurations"] = None
+        __props__.__dict__["endpoint_group_arn"] = None
+        __props__.__dict__["endpoint_group_region"] = None
+        __props__.__dict__["health_check_interval_seconds"] = None
+        __props__.__dict__["health_check_path"] = None
+        __props__.__dict__["health_check_port"] = None
+        __props__.__dict__["health_check_protocol"] = None
+        __props__.__dict__["listener_arn"] = None
+        __props__.__dict__["port_overrides"] = None
+        __props__.__dict__["threshold_count"] = None
+        __props__.__dict__["traffic_dial_percentage"] = None
         return EndpointGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -186,10 +390,4 @@ class EndpointGroup(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
         """
         return pulumi.get(self, "traffic_dial_percentage")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

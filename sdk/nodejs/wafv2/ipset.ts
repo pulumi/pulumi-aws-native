@@ -71,14 +71,15 @@ export class IPSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: IPSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.addresses === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.addresses === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addresses'");
             }
-            if ((!args || args.iPAddressVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iPAddressVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iPAddressVersion'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["addresses"] = args ? args.addresses : undefined;
@@ -99,12 +100,8 @@ export class IPSet extends pulumi.CustomResource {
             inputs["scope"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IPSet.__pulumiType, name, inputs, opts);
     }
@@ -137,5 +134,5 @@ export interface IPSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

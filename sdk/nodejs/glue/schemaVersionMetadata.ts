@@ -56,14 +56,15 @@ export class SchemaVersionMetadata extends pulumi.CustomResource {
      */
     constructor(name: string, args: SchemaVersionMetadataArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.key === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.schemaVersionId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.schemaVersionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaVersionId'");
             }
-            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["key"] = args ? args.key : undefined;
@@ -74,12 +75,8 @@ export class SchemaVersionMetadata extends pulumi.CustomResource {
             inputs["schemaVersionId"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SchemaVersionMetadata.__pulumiType, name, inputs, opts);
     }

@@ -5,13 +5,111 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['Assignment']
+__all__ = ['AssignmentArgs', 'Assignment']
+
+@pulumi.input_type
+class AssignmentArgs:
+    def __init__(__self__, *,
+                 instance_arn: pulumi.Input[str],
+                 permission_set_arn: pulumi.Input[str],
+                 principal_id: pulumi.Input[str],
+                 principal_type: pulumi.Input[str],
+                 target_id: pulumi.Input[str],
+                 target_type: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a Assignment resource.
+        :param pulumi.Input[str] instance_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
+        :param pulumi.Input[str] permission_set_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
+        :param pulumi.Input[str] principal_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
+        :param pulumi.Input[str] principal_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
+        :param pulumi.Input[str] target_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
+        :param pulumi.Input[str] target_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
+        """
+        pulumi.set(__self__, "instance_arn", instance_arn)
+        pulumi.set(__self__, "permission_set_arn", permission_set_arn)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "principal_type", principal_type)
+        pulumi.set(__self__, "target_id", target_id)
+        pulumi.set(__self__, "target_type", target_type)
+
+    @property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
+        """
+        return pulumi.get(self, "instance_arn")
+
+    @instance_arn.setter
+    def instance_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_arn", value)
+
+    @property
+    @pulumi.getter(name="permissionSetArn")
+    def permission_set_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
+        """
+        return pulumi.get(self, "permission_set_arn")
+
+    @permission_set_arn.setter
+    def permission_set_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "permission_set_arn", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
+        """
+        return pulumi.get(self, "principal_type")
+
+    @principal_type.setter
+    def principal_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_type", value)
+
+    @property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
+        """
+        return pulumi.get(self, "target_id")
+
+    @target_id.setter
+    def target_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_id", value)
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_type", value)
 
 
 class Assignment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -21,9 +119,7 @@ class Assignment(pulumi.CustomResource):
                  principal_type: Optional[pulumi.Input[str]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html
 
@@ -36,12 +132,37 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] target_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
         :param pulumi.Input[str] target_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AssignmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html
+
+        :param str resource_name: The name of the resource.
+        :param AssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 instance_arn: Optional[pulumi.Input[str]] = None,
+                 permission_set_arn: Optional[pulumi.Input[str]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[str]] = None,
+                 target_id: Optional[pulumi.Input[str]] = None,
+                 target_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -51,26 +172,26 @@ class Assignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssignmentArgs.__new__(AssignmentArgs)
 
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
-            __props__['instance_arn'] = instance_arn
+            __props__.__dict__["instance_arn"] = instance_arn
             if permission_set_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'permission_set_arn'")
-            __props__['permission_set_arn'] = permission_set_arn
+            __props__.__dict__["permission_set_arn"] = permission_set_arn
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
-            __props__['principal_id'] = principal_id
+            __props__.__dict__["principal_id"] = principal_id
             if principal_type is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_type'")
-            __props__['principal_type'] = principal_type
+            __props__.__dict__["principal_type"] = principal_type
             if target_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_id'")
-            __props__['target_id'] = target_id
+            __props__.__dict__["target_id"] = target_id
             if target_type is None and not opts.urn:
                 raise TypeError("Missing required property 'target_type'")
-            __props__['target_type'] = target_type
+            __props__.__dict__["target_type"] = target_type
         super(Assignment, __self__).__init__(
             'aws-native:SSO:Assignment',
             resource_name,
@@ -91,8 +212,14 @@ class Assignment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AssignmentArgs.__new__(AssignmentArgs)
 
+        __props__.__dict__["instance_arn"] = None
+        __props__.__dict__["permission_set_arn"] = None
+        __props__.__dict__["principal_id"] = None
+        __props__.__dict__["principal_type"] = None
+        __props__.__dict__["target_id"] = None
+        __props__.__dict__["target_type"] = None
         return Assignment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -142,10 +269,4 @@ class Assignment(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
         """
         return pulumi.get(self, "target_type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

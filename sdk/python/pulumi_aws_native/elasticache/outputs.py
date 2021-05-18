@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'UserAuthentication',
@@ -22,6 +22,23 @@ class UserAuthentication(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordCount":
+            suggest = "password_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAuthentication.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  password_count: Optional[int] = None,
                  type: Optional[str] = None):
@@ -51,15 +68,29 @@ class UserAuthentication(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserGroupReplicationGroupIdList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-replicationgroupidlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicationGroupIdList":
+            suggest = "replication_group_id_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserGroupReplicationGroupIdList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserGroupReplicationGroupIdList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserGroupReplicationGroupIdList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  replication_group_id_list: Optional[Sequence[str]] = None):
         """
@@ -77,15 +108,31 @@ class UserGroupReplicationGroupIdList(dict):
         """
         return pulumi.get(self, "replication_group_id_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserGroupUserGroupPendingChanges(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userIdsToAdd":
+            suggest = "user_ids_to_add"
+        elif key == "userIdsToRemove":
+            suggest = "user_ids_to_remove"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserGroupUserGroupPendingChanges. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserGroupUserGroupPendingChanges.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserGroupUserGroupPendingChanges.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_ids_to_add: Optional[Sequence[str]] = None,
                  user_ids_to_remove: Optional[Sequence[str]] = None):
@@ -115,15 +162,29 @@ class UserGroupUserGroupPendingChanges(dict):
         """
         return pulumi.get(self, "user_ids_to_remove")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserGroupUserIdList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userIdList":
+            suggest = "user_id_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserGroupUserIdList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserGroupUserIdList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserGroupUserIdList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_id_list: Optional[Sequence[str]] = None):
         """
@@ -141,15 +202,29 @@ class UserGroupUserIdList(dict):
         """
         return pulumi.get(self, "user_id_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPasswordList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordList":
+            suggest = "password_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPasswordList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPasswordList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPasswordList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  password_list: Optional[Sequence[str]] = None):
         """
@@ -167,15 +242,29 @@ class UserPasswordList(dict):
         """
         return pulumi.get(self, "password_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserUserGroupIdList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userGroupIdList":
+            suggest = "user_group_id_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserUserGroupIdList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserUserGroupIdList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserUserGroupIdList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_group_id_list: Optional[Sequence[str]] = None):
         """
@@ -192,8 +281,5 @@ class UserUserGroupIdList(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html#cfn-elasticache-user-usergroupidlist-usergroupidlist
         """
         return pulumi.get(self, "user_group_id_list")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

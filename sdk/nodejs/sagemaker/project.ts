@@ -66,11 +66,12 @@ export class Project extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.projectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.serviceCatalogProvisioningDetails === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceCatalogProvisioningDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceCatalogProvisioningDetails'");
             }
             inputs["projectDescription"] = args ? args.projectDescription : undefined;
@@ -93,12 +94,8 @@ export class Project extends pulumi.CustomResource {
             inputs["serviceCatalogProvisioningDetails"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Project.__pulumiType, name, inputs, opts);
     }
@@ -123,5 +120,5 @@ export interface ProjectArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

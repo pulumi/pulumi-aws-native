@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'DBProxyAuthFormat',
@@ -19,6 +19,29 @@ class DBProxyAuthFormat(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authScheme":
+            suggest = "auth_scheme"
+        elif key == "iAMAuth":
+            suggest = "i_am_auth"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DBProxyAuthFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DBProxyAuthFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DBProxyAuthFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auth_scheme: Optional[str] = None,
                  description: Optional[str] = None,
@@ -84,9 +107,6 @@ class DBProxyAuthFormat(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DBProxyTagFormat(dict):
@@ -122,15 +142,37 @@ class DBProxyTagFormat(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionBorrowTimeout":
+            suggest = "connection_borrow_timeout"
+        elif key == "initQuery":
+            suggest = "init_query"
+        elif key == "maxConnectionsPercent":
+            suggest = "max_connections_percent"
+        elif key == "maxIdleConnectionsPercent":
+            suggest = "max_idle_connections_percent"
+        elif key == "sessionPinningFilters":
+            suggest = "session_pinning_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DBProxyTargetGroupConnectionPoolConfigurationInfoFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DBProxyTargetGroupConnectionPoolConfigurationInfoFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DBProxyTargetGroupConnectionPoolConfigurationInfoFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_borrow_timeout: Optional[int] = None,
                  init_query: Optional[str] = None,
@@ -195,8 +237,5 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-sessionpinningfilters
         """
         return pulumi.get(self, "session_pinning_filters")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

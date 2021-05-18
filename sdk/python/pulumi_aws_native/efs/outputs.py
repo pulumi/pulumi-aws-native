@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -53,15 +53,31 @@ class AccessPointAccessPointTag(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccessPointCreationInfo(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ownerGid":
+            suggest = "owner_gid"
+        elif key == "ownerUid":
+            suggest = "owner_uid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointCreationInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointCreationInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointCreationInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  owner_gid: str,
                  owner_uid: str,
@@ -100,15 +116,29 @@ class AccessPointCreationInfo(dict):
         """
         return pulumi.get(self, "permissions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccessPointPosixUser(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secondaryGids":
+            suggest = "secondary_gids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointPosixUser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointPosixUser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointPosixUser.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  gid: str,
                  uid: str,
@@ -148,21 +178,35 @@ class AccessPointPosixUser(dict):
         """
         return pulumi.get(self, "secondary_gids")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccessPointRootDirectory(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationInfo":
+            suggest = "creation_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointRootDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointRootDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointRootDirectory.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  creation_info: Optional['outputs.AccessPointCreationInfo'] = None,
                  path: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html
-        :param 'AccessPointCreationInfoArgs' creation_info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-creationinfo
+        :param 'AccessPointCreationInfo' creation_info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-creationinfo
         :param str path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path
         """
         if creation_info is not None:
@@ -186,9 +230,6 @@ class AccessPointRootDirectory(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FileSystemBackupPolicy(dict):
@@ -210,9 +251,6 @@ class FileSystemBackupPolicy(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
         """
         return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -247,15 +285,29 @@ class FileSystemElasticFileSystemTag(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FileSystemLifecyclePolicy(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "transitionToIA":
+            suggest = "transition_to_ia"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemLifecyclePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemLifecyclePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemLifecyclePolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  transition_to_ia: str):
         """
@@ -271,8 +323,5 @@ class FileSystemLifecyclePolicy(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
         """
         return pulumi.get(self, "transition_to_ia")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

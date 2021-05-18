@@ -51,8 +51,9 @@ export class KeyGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: KeyGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.keyGroupConfig === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.keyGroupConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyGroupConfig'");
             }
             inputs["keyGroupConfig"] = args ? args.keyGroupConfig : undefined;
@@ -63,12 +64,8 @@ export class KeyGroup extends pulumi.CustomResource {
             inputs["keyGroupConfig"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(KeyGroup.__pulumiType, name, inputs, opts);
     }
@@ -81,5 +78,5 @@ export interface KeyGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
      */
-    readonly keyGroupConfig: pulumi.Input<inputs.CloudFront.KeyGroupKeyGroupConfig>;
+    readonly keyGroupConfig: pulumi.Input<inputs.CloudFront.KeyGroupKeyGroupConfigArgs>;
 }

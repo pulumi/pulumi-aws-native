@@ -52,11 +52,12 @@ export class WebACLAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebACLAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceArn === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if ((!args || args.webACLArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.webACLArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'webACLArn'");
             }
             inputs["resourceArn"] = args ? args.resourceArn : undefined;
@@ -65,12 +66,8 @@ export class WebACLAssociation extends pulumi.CustomResource {
             inputs["resourceArn"] = undefined /*out*/;
             inputs["webACLArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(WebACLAssociation.__pulumiType, name, inputs, opts);
     }

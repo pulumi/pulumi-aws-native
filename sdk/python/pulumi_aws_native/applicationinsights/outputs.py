@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -30,6 +30,23 @@ class ApplicationAlarm(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmName":
+            suggest = "alarm_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationAlarm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationAlarm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationAlarm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alarm_name: str,
                  severity: Optional[str] = None):
@@ -58,15 +75,29 @@ class ApplicationAlarm(dict):
         """
         return pulumi.get(self, "severity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationAlarmMetric(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmMetricName":
+            suggest = "alarm_metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationAlarmMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationAlarmMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationAlarmMetric.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alarm_metric_name: str):
         """
@@ -83,22 +114,38 @@ class ApplicationAlarmMetric(dict):
         """
         return pulumi.get(self, "alarm_metric_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationComponentConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationDetails":
+            suggest = "configuration_details"
+        elif key == "subComponentTypeConfigurations":
+            suggest = "sub_component_type_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationComponentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationComponentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationComponentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  configuration_details: Optional['outputs.ApplicationConfigurationDetails'] = None,
                  sub_component_type_configurations: Optional[Sequence['outputs.ApplicationSubComponentTypeConfiguration']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html
-        :param 'ApplicationConfigurationDetailsArgs' configuration_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-configurationdetails
-        :param Sequence['ApplicationSubComponentTypeConfigurationArgs'] sub_component_type_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-subcomponenttypeconfigurations
+        :param 'ApplicationConfigurationDetails' configuration_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-configurationdetails
+        :param Sequence['ApplicationSubComponentTypeConfiguration'] sub_component_type_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-subcomponenttypeconfigurations
         """
         if configuration_details is not None:
             pulumi.set(__self__, "configuration_details", configuration_details)
@@ -121,15 +168,37 @@ class ApplicationComponentConfiguration(dict):
         """
         return pulumi.get(self, "sub_component_type_configurations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationComponentMonitoringSetting(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentARN":
+            suggest = "component_arn"
+        elif key == "componentConfigurationMode":
+            suggest = "component_configuration_mode"
+        elif key == "componentName":
+            suggest = "component_name"
+        elif key == "customComponentConfiguration":
+            suggest = "custom_component_configuration"
+        elif key == "defaultOverwriteComponentConfiguration":
+            suggest = "default_overwrite_component_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationComponentMonitoringSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationComponentMonitoringSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationComponentMonitoringSetting.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  component_arn: Optional[str] = None,
                  component_configuration_mode: Optional[str] = None,
@@ -142,8 +211,8 @@ class ApplicationComponentMonitoringSetting(dict):
         :param str component_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
         :param str component_configuration_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
         :param str component_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
-        :param 'ApplicationComponentConfigurationArgs' custom_component_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-customcomponentconfiguration
-        :param 'ApplicationComponentConfigurationArgs' default_overwrite_component_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration
+        :param 'ApplicationComponentConfiguration' custom_component_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-customcomponentconfiguration
+        :param 'ApplicationComponentConfiguration' default_overwrite_component_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration
         :param str tier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
         """
         if component_arn is not None:
@@ -207,15 +276,33 @@ class ApplicationComponentMonitoringSetting(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationConfigurationDetails(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmMetrics":
+            suggest = "alarm_metrics"
+        elif key == "jMXPrometheusExporter":
+            suggest = "j_mx_prometheus_exporter"
+        elif key == "windowsEvents":
+            suggest = "windows_events"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationConfigurationDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationConfigurationDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationConfigurationDetails.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alarm_metrics: Optional[Sequence['outputs.ApplicationAlarmMetric']] = None,
                  alarms: Optional[Sequence['outputs.ApplicationAlarm']] = None,
@@ -224,11 +311,11 @@ class ApplicationConfigurationDetails(dict):
                  windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html
-        :param Sequence['ApplicationAlarmMetricArgs'] alarm_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
-        :param Sequence['ApplicationAlarmArgs'] alarms: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
-        :param 'ApplicationJMXPrometheusExporterArgs' j_mx_prometheus_exporter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
-        :param Sequence['ApplicationLogArgs'] logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
-        :param Sequence['ApplicationWindowsEventArgs'] windows_events: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
+        :param Sequence['ApplicationAlarmMetric'] alarm_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
+        :param Sequence['ApplicationAlarm'] alarms: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
+        :param 'ApplicationJMXPrometheusExporter' j_mx_prometheus_exporter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
+        :param Sequence['ApplicationLog'] logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
+        :param Sequence['ApplicationWindowsEvent'] windows_events: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
         """
         if alarm_metrics is not None:
             pulumi.set(__self__, "alarm_metrics", alarm_metrics)
@@ -281,15 +368,31 @@ class ApplicationConfigurationDetails(dict):
         """
         return pulumi.get(self, "windows_events")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationCustomComponent(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentName":
+            suggest = "component_name"
+        elif key == "resourceList":
+            suggest = "resource_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationCustomComponent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationCustomComponent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationCustomComponent.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  component_name: str,
                  resource_list: Sequence[str]):
@@ -317,15 +420,33 @@ class ApplicationCustomComponent(dict):
         """
         return pulumi.get(self, "resource_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationJMXPrometheusExporter(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostPort":
+            suggest = "host_port"
+        elif key == "jMXURL":
+            suggest = "j_mxurl"
+        elif key == "prometheusPort":
+            suggest = "prometheus_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationJMXPrometheusExporter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationJMXPrometheusExporter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationJMXPrometheusExporter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host_port: Optional[str] = None,
                  j_mxurl: Optional[str] = None,
@@ -367,15 +488,35 @@ class ApplicationJMXPrometheusExporter(dict):
         """
         return pulumi.get(self, "prometheus_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationLog(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logType":
+            suggest = "log_type"
+        elif key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logPath":
+            suggest = "log_path"
+        elif key == "patternSet":
+            suggest = "pattern_set"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationLog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationLog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationLog.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_type: str,
                  encoding: Optional[str] = None,
@@ -440,15 +581,29 @@ class ApplicationLog(dict):
         """
         return pulumi.get(self, "pattern_set")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationLogPattern(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "patternName":
+            suggest = "pattern_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationLogPattern. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationLogPattern.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationLogPattern.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  pattern: str,
                  pattern_name: str,
@@ -487,21 +642,37 @@ class ApplicationLogPattern(dict):
         """
         return pulumi.get(self, "rank")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationLogPatternSet(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logPatterns":
+            suggest = "log_patterns"
+        elif key == "patternSetName":
+            suggest = "pattern_set_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationLogPatternSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationLogPatternSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationLogPatternSet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_patterns: Sequence['outputs.ApplicationLogPattern'],
                  pattern_set_name: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html
-        :param Sequence['ApplicationLogPatternArgs'] log_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
+        :param Sequence['ApplicationLogPattern'] log_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
         :param str pattern_set_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
         """
         pulumi.set(__self__, "log_patterns", log_patterns)
@@ -523,24 +694,40 @@ class ApplicationLogPatternSet(dict):
         """
         return pulumi.get(self, "pattern_set_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationSubComponentConfigurationDetails(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmMetrics":
+            suggest = "alarm_metrics"
+        elif key == "windowsEvents":
+            suggest = "windows_events"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSubComponentConfigurationDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSubComponentConfigurationDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSubComponentConfigurationDetails.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alarm_metrics: Optional[Sequence['outputs.ApplicationAlarmMetric']] = None,
                  logs: Optional[Sequence['outputs.ApplicationLog']] = None,
                  windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html
-        :param Sequence['ApplicationAlarmMetricArgs'] alarm_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics
-        :param Sequence['ApplicationLogArgs'] logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
-        :param Sequence['ApplicationWindowsEventArgs'] windows_events: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents
+        :param Sequence['ApplicationAlarmMetric'] alarm_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics
+        :param Sequence['ApplicationLog'] logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
+        :param Sequence['ApplicationWindowsEvent'] windows_events: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents
         """
         if alarm_metrics is not None:
             pulumi.set(__self__, "alarm_metrics", alarm_metrics)
@@ -573,21 +760,37 @@ class ApplicationSubComponentConfigurationDetails(dict):
         """
         return pulumi.get(self, "windows_events")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationSubComponentTypeConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subComponentConfigurationDetails":
+            suggest = "sub_component_configuration_details"
+        elif key == "subComponentType":
+            suggest = "sub_component_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSubComponentTypeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSubComponentTypeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSubComponentTypeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sub_component_configuration_details: 'outputs.ApplicationSubComponentConfigurationDetails',
                  sub_component_type: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html
-        :param 'ApplicationSubComponentConfigurationDetailsArgs' sub_component_configuration_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails
+        :param 'ApplicationSubComponentConfigurationDetails' sub_component_configuration_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails
         :param str sub_component_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype
         """
         pulumi.set(__self__, "sub_component_configuration_details", sub_component_configuration_details)
@@ -609,15 +812,35 @@ class ApplicationSubComponentTypeConfiguration(dict):
         """
         return pulumi.get(self, "sub_component_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationWindowsEvent(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventLevels":
+            suggest = "event_levels"
+        elif key == "eventName":
+            suggest = "event_name"
+        elif key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "patternSet":
+            suggest = "pattern_set"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationWindowsEvent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationWindowsEvent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationWindowsEvent.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_levels: Sequence[str],
                  event_name: str,
@@ -667,8 +890,5 @@ class ApplicationWindowsEvent(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-patternset
         """
         return pulumi.get(self, "pattern_set")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

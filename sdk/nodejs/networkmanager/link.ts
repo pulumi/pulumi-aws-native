@@ -75,14 +75,15 @@ export class Link extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.bandwidth === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.bandwidth === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bandwidth'");
             }
-            if ((!args || args.globalNetworkId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            if ((!args || args.siteId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.siteId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'siteId'");
             }
             inputs["bandwidth"] = args ? args.bandwidth : undefined;
@@ -105,12 +106,8 @@ export class Link extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Link.__pulumiType, name, inputs, opts);
     }
@@ -123,7 +120,7 @@ export interface LinkArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
      */
-    readonly bandwidth: pulumi.Input<inputs.NetworkManager.LinkBandwidth>;
+    readonly bandwidth: pulumi.Input<inputs.NetworkManager.LinkBandwidthArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
      */
@@ -143,7 +140,7 @@ export interface LinkArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type
      */

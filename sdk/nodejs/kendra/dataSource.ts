@@ -79,14 +79,15 @@ export class DataSource extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataSourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.indexId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.indexId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'indexId'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
@@ -111,12 +112,8 @@ export class DataSource extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DataSource.__pulumiType, name, inputs, opts);
     }
@@ -129,7 +126,7 @@ export interface DataSourceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-datasourceconfiguration
      */
-    readonly dataSourceConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDataSourceConfiguration>;
+    readonly dataSourceConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDataSourceConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-description
      */
@@ -153,7 +150,7 @@ export interface DataSourceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-tags
      */
-    readonly tags?: pulumi.Input<inputs.Kendra.DataSourceTagList>;
+    readonly tags?: pulumi.Input<inputs.Kendra.DataSourceTagListArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-type
      */

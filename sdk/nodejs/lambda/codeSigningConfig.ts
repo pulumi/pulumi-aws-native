@@ -59,8 +59,9 @@ export class CodeSigningConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: CodeSigningConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.allowedPublishers === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.allowedPublishers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'allowedPublishers'");
             }
             inputs["allowedPublishers"] = args ? args.allowedPublishers : undefined;
@@ -75,12 +76,8 @@ export class CodeSigningConfig extends pulumi.CustomResource {
             inputs["codeSigningPolicies"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CodeSigningConfig.__pulumiType, name, inputs, opts);
     }
@@ -93,11 +90,11 @@ export interface CodeSigningConfigArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
      */
-    readonly allowedPublishers: pulumi.Input<inputs.Lambda.CodeSigningConfigAllowedPublishers>;
+    readonly allowedPublishers: pulumi.Input<inputs.Lambda.CodeSigningConfigAllowedPublishersArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
      */
-    readonly codeSigningPolicies?: pulumi.Input<inputs.Lambda.CodeSigningConfigCodeSigningPolicies>;
+    readonly codeSigningPolicies?: pulumi.Input<inputs.Lambda.CodeSigningConfigCodeSigningPoliciesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
      */

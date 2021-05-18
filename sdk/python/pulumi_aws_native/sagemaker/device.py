@@ -5,23 +5,61 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 
-__all__ = ['Device']
+__all__ = ['DeviceArgs', 'Device']
+
+@pulumi.input_type
+class DeviceArgs:
+    def __init__(__self__, *,
+                 device: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 tags: Optional[pulumi.Input['_root_inputs.TagArgs']] = None):
+        """
+        The set of arguments for constructing a Device resource.
+        :param pulumi.Input[Union[Any, str]] device: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
+        :param pulumi.Input['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
+        """
+        if device is not None:
+            pulumi.set(__self__, "device", device)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def device(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
+        """
+        return pulumi.get(self, "device")
+
+    @device.setter
+    def device(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "device", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input['_root_inputs.TagArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input['_root_inputs.TagArgs']]):
+        pulumi.set(self, "tags", value)
 
 
 class Device(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html
 
@@ -30,12 +68,33 @@ class Device(pulumi.CustomResource):
         :param pulumi.Input[Union[Any, str]] device: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
         :param pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[DeviceArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html
+
+        :param str resource_name: The name of the resource.
+        :param DeviceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DeviceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 device: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -45,11 +104,11 @@ class Device(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DeviceArgs.__new__(DeviceArgs)
 
-            __props__['device'] = device
-            __props__['tags'] = tags
-            __props__['device_fleet_name'] = None
+            __props__.__dict__["device"] = device
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["device_fleet_name"] = None
         super(Device, __self__).__init__(
             'aws-native:SageMaker:Device',
             resource_name,
@@ -70,8 +129,11 @@ class Device(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DeviceArgs.__new__(DeviceArgs)
 
+        __props__.__dict__["device"] = None
+        __props__.__dict__["device_fleet_name"] = None
+        __props__.__dict__["tags"] = None
         return Device(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -94,10 +156,4 @@ class Device(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -57,7 +57,8 @@ export class LogGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args?: LogGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["logGroupName"] = args ? args.logGroupName : undefined;
             inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
@@ -68,12 +69,8 @@ export class LogGroup extends pulumi.CustomResource {
             inputs["logGroupName"] = undefined /*out*/;
             inputs["retentionInDays"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogGroup.__pulumiType, name, inputs, opts);
     }

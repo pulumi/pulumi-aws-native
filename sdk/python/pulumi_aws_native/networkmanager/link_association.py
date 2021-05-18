@@ -5,22 +5,73 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['LinkAssociation']
+__all__ = ['LinkAssociationArgs', 'LinkAssociation']
+
+@pulumi.input_type
+class LinkAssociationArgs:
+    def __init__(__self__, *,
+                 device_id: pulumi.Input[str],
+                 global_network_id: pulumi.Input[str],
+                 link_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a LinkAssociation resource.
+        :param pulumi.Input[str] device_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
+        :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
+        :param pulumi.Input[str] link_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
+        """
+        pulumi.set(__self__, "device_id", device_id)
+        pulumi.set(__self__, "global_network_id", global_network_id)
+        pulumi.set(__self__, "link_id", link_id)
+
+    @property
+    @pulumi.getter(name="deviceId")
+    def device_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
+        """
+        return pulumi.get(self, "device_id")
+
+    @device_id.setter
+    def device_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_id", value)
+
+    @property
+    @pulumi.getter(name="globalNetworkId")
+    def global_network_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
+        """
+        return pulumi.get(self, "global_network_id")
+
+    @global_network_id.setter
+    def global_network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "global_network_id", value)
+
+    @property
+    @pulumi.getter(name="linkId")
+    def link_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
+        """
+        return pulumi.get(self, "link_id")
+
+    @link_id.setter
+    def link_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link_id", value)
 
 
 class LinkAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_id: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  link_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html
 
@@ -30,12 +81,34 @@ class LinkAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
         :param pulumi.Input[str] link_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LinkAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html
+
+        :param str resource_name: The name of the resource.
+        :param LinkAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LinkAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 device_id: Optional[pulumi.Input[str]] = None,
+                 global_network_id: Optional[pulumi.Input[str]] = None,
+                 link_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -45,17 +118,17 @@ class LinkAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LinkAssociationArgs.__new__(LinkAssociationArgs)
 
             if device_id is None and not opts.urn:
                 raise TypeError("Missing required property 'device_id'")
-            __props__['device_id'] = device_id
+            __props__.__dict__["device_id"] = device_id
             if global_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'global_network_id'")
-            __props__['global_network_id'] = global_network_id
+            __props__.__dict__["global_network_id"] = global_network_id
             if link_id is None and not opts.urn:
                 raise TypeError("Missing required property 'link_id'")
-            __props__['link_id'] = link_id
+            __props__.__dict__["link_id"] = link_id
         super(LinkAssociation, __self__).__init__(
             'aws-native:NetworkManager:LinkAssociation',
             resource_name,
@@ -76,8 +149,11 @@ class LinkAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = LinkAssociationArgs.__new__(LinkAssociationArgs)
 
+        __props__.__dict__["device_id"] = None
+        __props__.__dict__["global_network_id"] = None
+        __props__.__dict__["link_id"] = None
         return LinkAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -103,10 +179,4 @@ class LinkAssociation(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
         """
         return pulumi.get(self, "link_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

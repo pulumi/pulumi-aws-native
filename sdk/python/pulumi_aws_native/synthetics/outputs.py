@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'CanaryCode',
@@ -20,6 +20,27 @@ class CanaryCode(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "s3Key":
+            suggest = "s3_key"
+        elif key == "s3ObjectVersion":
+            suggest = "s3_object_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CanaryCode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CanaryCode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CanaryCode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  handler: Optional[str] = None,
                  s3_bucket: Optional[str] = None,
@@ -85,15 +106,35 @@ class CanaryCode(dict):
         """
         return pulumi.get(self, "script")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CanaryRunConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeoutInSeconds":
+            suggest = "timeout_in_seconds"
+        elif key == "activeTracing":
+            suggest = "active_tracing"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "memoryInMB":
+            suggest = "memory_in_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CanaryRunConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CanaryRunConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CanaryRunConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  timeout_in_seconds: int,
                  active_tracing: Optional[bool] = None,
@@ -146,15 +187,29 @@ class CanaryRunConfig(dict):
         """
         return pulumi.get(self, "memory_in_mb")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CanarySchedule(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationInSeconds":
+            suggest = "duration_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CanarySchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CanarySchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CanarySchedule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expression: str,
                  duration_in_seconds: Optional[str] = None):
@@ -183,15 +238,33 @@ class CanarySchedule(dict):
         """
         return pulumi.get(self, "duration_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CanaryVPCConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CanaryVPCConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CanaryVPCConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CanaryVPCConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str],
@@ -230,8 +303,5 @@ class CanaryVPCConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-vpcid
         """
         return pulumi.get(self, "vpc_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'StreamStreamEncryption',
@@ -17,6 +17,25 @@ class StreamStreamEncryption(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionType":
+            suggest = "encryption_type"
+        elif key == "keyId":
+            suggest = "key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamStreamEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamStreamEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamStreamEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_type: str,
                  key_id: str):
@@ -43,8 +62,5 @@ class StreamStreamEncryption(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-keyid
         """
         return pulumi.get(self, "key_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

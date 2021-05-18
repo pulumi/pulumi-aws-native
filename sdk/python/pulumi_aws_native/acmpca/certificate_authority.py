@@ -5,17 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['CertificateAuthority']
+__all__ = ['CertificateAuthorityArgs', 'CertificateAuthority']
+
+@pulumi.input_type
+class CertificateAuthorityArgs:
+    def __init__(__self__, *,
+                 key_algorithm: pulumi.Input[str],
+                 signing_algorithm: pulumi.Input[str],
+                 subject: pulumi.Input['CertificateAuthoritySubjectArgs'],
+                 type: pulumi.Input[str],
+                 revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a CertificateAuthority resource.
+        :param pulumi.Input[str] key_algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
+        :param pulumi.Input[str] signing_algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
+        :param pulumi.Input['CertificateAuthoritySubjectArgs'] subject: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
+        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
+        :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
+        """
+        pulumi.set(__self__, "key_algorithm", key_algorithm)
+        pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "type", type)
+        if revocation_configuration is not None:
+            pulumi.set(__self__, "revocation_configuration", revocation_configuration)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="keyAlgorithm")
+    def key_algorithm(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
+        """
+        return pulumi.get(self, "key_algorithm")
+
+    @key_algorithm.setter
+    def key_algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_algorithm", value)
+
+    @property
+    @pulumi.getter(name="signingAlgorithm")
+    def signing_algorithm(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
+        """
+        return pulumi.get(self, "signing_algorithm")
+
+    @signing_algorithm.setter
+    def signing_algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "signing_algorithm", value)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input['CertificateAuthoritySubjectArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input['CertificateAuthoritySubjectArgs']):
+        pulumi.set(self, "subject", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="revocationConfiguration")
+    def revocation_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
+        """
+        return pulumi.get(self, "revocation_configuration")
+
+    @revocation_configuration.setter
+    def revocation_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']]):
+        pulumi.set(self, "revocation_configuration", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class CertificateAuthority(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -25,9 +125,7 @@ class CertificateAuthority(pulumi.CustomResource):
                  subject: Optional[pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html
 
@@ -40,12 +138,37 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
         :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CertificateAuthorityArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html
+
+        :param str resource_name: The name of the resource.
+        :param CertificateAuthorityArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateAuthorityArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 key_algorithm: Optional[pulumi.Input[str]] = None,
+                 revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
+                 signing_algorithm: Optional[pulumi.Input[str]] = None,
+                 subject: Optional[pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -55,24 +178,24 @@ class CertificateAuthority(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CertificateAuthorityArgs.__new__(CertificateAuthorityArgs)
 
             if key_algorithm is None and not opts.urn:
                 raise TypeError("Missing required property 'key_algorithm'")
-            __props__['key_algorithm'] = key_algorithm
-            __props__['revocation_configuration'] = revocation_configuration
+            __props__.__dict__["key_algorithm"] = key_algorithm
+            __props__.__dict__["revocation_configuration"] = revocation_configuration
             if signing_algorithm is None and not opts.urn:
                 raise TypeError("Missing required property 'signing_algorithm'")
-            __props__['signing_algorithm'] = signing_algorithm
+            __props__.__dict__["signing_algorithm"] = signing_algorithm
             if subject is None and not opts.urn:
                 raise TypeError("Missing required property 'subject'")
-            __props__['subject'] = subject
-            __props__['tags'] = tags
+            __props__.__dict__["subject"] = subject
+            __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
-            __props__['arn'] = None
-            __props__['certificate_signing_request'] = None
+            __props__.__dict__["type"] = type
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["certificate_signing_request"] = None
         super(CertificateAuthority, __self__).__init__(
             'aws-native:ACMPCA:CertificateAuthority',
             resource_name,
@@ -93,8 +216,16 @@ class CertificateAuthority(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = CertificateAuthorityArgs.__new__(CertificateAuthorityArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["certificate_signing_request"] = None
+        __props__.__dict__["key_algorithm"] = None
+        __props__.__dict__["revocation_configuration"] = None
+        __props__.__dict__["signing_algorithm"] = None
+        __props__.__dict__["subject"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return CertificateAuthority(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -154,10 +285,4 @@ class CertificateAuthority(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -87,20 +87,21 @@ export class ModelBiasJobDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: ModelBiasJobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.jobResources === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.jobResources === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobResources'");
             }
-            if ((!args || args.modelBiasAppSpecification === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.modelBiasAppSpecification === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'modelBiasAppSpecification'");
             }
-            if ((!args || args.modelBiasJobInput === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.modelBiasJobInput === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'modelBiasJobInput'");
             }
-            if ((!args || args.modelBiasJobOutputConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.modelBiasJobOutputConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'modelBiasJobOutputConfig'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
@@ -129,12 +130,8 @@ export class ModelBiasJobDefinition extends pulumi.CustomResource {
             inputs["stoppingCondition"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ModelBiasJobDefinition.__pulumiType, name, inputs, opts);
     }
@@ -151,27 +148,27 @@ export interface ModelBiasJobDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobresources
      */
-    readonly jobResources: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionMonitoringResources>;
+    readonly jobResources: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionMonitoringResourcesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification
      */
-    readonly modelBiasAppSpecification: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionModelBiasAppSpecification>;
+    readonly modelBiasAppSpecification: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionModelBiasAppSpecificationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig
      */
-    readonly modelBiasBaselineConfig?: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionModelBiasBaselineConfig>;
+    readonly modelBiasBaselineConfig?: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionModelBiasBaselineConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput
      */
-    readonly modelBiasJobInput: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionModelBiasJobInput>;
+    readonly modelBiasJobInput: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionModelBiasJobInputArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjoboutputconfig
      */
-    readonly modelBiasJobOutputConfig: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionMonitoringOutputConfig>;
+    readonly modelBiasJobOutputConfig: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionMonitoringOutputConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig
      */
-    readonly networkConfig?: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionNetworkConfig>;
+    readonly networkConfig?: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionNetworkConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-rolearn
      */
@@ -179,9 +176,9 @@ export interface ModelBiasJobDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition
      */
-    readonly stoppingCondition?: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionStoppingCondition>;
+    readonly stoppingCondition?: pulumi.Input<inputs.SageMaker.ModelBiasJobDefinitionStoppingConditionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

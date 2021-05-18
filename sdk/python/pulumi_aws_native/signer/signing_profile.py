@@ -5,26 +5,79 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['SigningProfile']
+__all__ = ['SigningProfileArgs', 'SigningProfile']
+
+@pulumi.input_type
+class SigningProfileArgs:
+    def __init__(__self__, *,
+                 platform_id: pulumi.Input[str],
+                 signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a SigningProfile resource.
+        :param pulumi.Input[str] platform_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
+        :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
+        """
+        pulumi.set(__self__, "platform_id", platform_id)
+        if signature_validity_period is not None:
+            pulumi.set(__self__, "signature_validity_period", signature_validity_period)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="platformId")
+    def platform_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
+        """
+        return pulumi.get(self, "platform_id")
+
+    @platform_id.setter
+    def platform_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "platform_id", value)
+
+    @property
+    @pulumi.getter(name="signatureValidityPeriod")
+    def signature_validity_period(self) -> Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
+        """
+        return pulumi.get(self, "signature_validity_period")
+
+    @signature_validity_period.setter
+    def signature_validity_period(self, value: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']]):
+        pulumi.set(self, "signature_validity_period", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class SigningProfile(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  platform_id: Optional[pulumi.Input[str]] = None,
                  signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html
 
@@ -34,12 +87,34 @@ class SigningProfile(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']] signature_validity_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SigningProfileArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html
+
+        :param str resource_name: The name of the resource.
+        :param SigningProfileArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SigningProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 platform_id: Optional[pulumi.Input[str]] = None,
+                 signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -49,17 +124,17 @@ class SigningProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SigningProfileArgs.__new__(SigningProfileArgs)
 
             if platform_id is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_id'")
-            __props__['platform_id'] = platform_id
-            __props__['signature_validity_period'] = signature_validity_period
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['profile_name'] = None
-            __props__['profile_version'] = None
-            __props__['profile_version_arn'] = None
+            __props__.__dict__["platform_id"] = platform_id
+            __props__.__dict__["signature_validity_period"] = signature_validity_period
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["profile_name"] = None
+            __props__.__dict__["profile_version"] = None
+            __props__.__dict__["profile_version_arn"] = None
         super(SigningProfile, __self__).__init__(
             'aws-native:Signer:SigningProfile',
             resource_name,
@@ -80,8 +155,15 @@ class SigningProfile(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SigningProfileArgs.__new__(SigningProfileArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["platform_id"] = None
+        __props__.__dict__["profile_name"] = None
+        __props__.__dict__["profile_version"] = None
+        __props__.__dict__["profile_version_arn"] = None
+        __props__.__dict__["signature_validity_period"] = None
+        __props__.__dict__["tags"] = None
         return SigningProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -127,10 +209,4 @@ class SigningProfile(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

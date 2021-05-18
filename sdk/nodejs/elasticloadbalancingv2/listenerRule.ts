@@ -61,17 +61,18 @@ export class ListenerRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: ListenerRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.actions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.conditions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.conditions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'conditions'");
             }
-            if ((!args || args.listenerArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.listenerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -84,12 +85,8 @@ export class ListenerRule extends pulumi.CustomResource {
             inputs["listenerArn"] = undefined /*out*/;
             inputs["priority"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ListenerRule.__pulumiType, name, inputs, opts);
     }
@@ -102,11 +99,11 @@ export interface ListenerRuleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
      */
-    readonly actions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleAction>[]>;
+    readonly actions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleActionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
      */
-    readonly conditions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleRuleCondition>[]>;
+    readonly conditions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleRuleConditionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
      */

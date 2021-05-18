@@ -5,15 +5,178 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DBProxy']
+__all__ = ['DBProxyArgs', 'DBProxy']
+
+@pulumi.input_type
+class DBProxyArgs:
+    def __init__(__self__, *,
+                 auth: pulumi.Input[Sequence[pulumi.Input['DBProxyAuthFormatArgs']]],
+                 d_b_proxy_name: pulumi.Input[str],
+                 engine_family: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 debug_logging: Optional[pulumi.Input[bool]] = None,
+                 idle_client_timeout: Optional[pulumi.Input[int]] = None,
+                 require_tls: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBProxyTagFormatArgs']]]] = None,
+                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a DBProxy resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DBProxyAuthFormatArgs']]] auth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
+        :param pulumi.Input[str] d_b_proxy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
+        :param pulumi.Input[str] engine_family: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
+        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+        :param pulumi.Input[bool] debug_logging: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
+        :param pulumi.Input[int] idle_client_timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
+        :param pulumi.Input[bool] require_tls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
+        :param pulumi.Input[Sequence[pulumi.Input['DBProxyTagFormatArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+        """
+        pulumi.set(__self__, "auth", auth)
+        pulumi.set(__self__, "d_b_proxy_name", d_b_proxy_name)
+        pulumi.set(__self__, "engine_family", engine_family)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
+        if debug_logging is not None:
+            pulumi.set(__self__, "debug_logging", debug_logging)
+        if idle_client_timeout is not None:
+            pulumi.set(__self__, "idle_client_timeout", idle_client_timeout)
+        if require_tls is not None:
+            pulumi.set(__self__, "require_tls", require_tls)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_security_group_ids is not None:
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> pulumi.Input[Sequence[pulumi.Input['DBProxyAuthFormatArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: pulumi.Input[Sequence[pulumi.Input['DBProxyAuthFormatArgs']]]):
+        pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter(name="dBProxyName")
+    def d_b_proxy_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
+        """
+        return pulumi.get(self, "d_b_proxy_name")
+
+    @d_b_proxy_name.setter
+    def d_b_proxy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "d_b_proxy_name", value)
+
+    @property
+    @pulumi.getter(name="engineFamily")
+    def engine_family(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
+        """
+        return pulumi.get(self, "engine_family")
+
+    @engine_family.setter
+    def engine_family(self, value: pulumi.Input[str]):
+        pulumi.set(self, "engine_family", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="vpcSubnetIds")
+    def vpc_subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+        """
+        return pulumi.get(self, "vpc_subnet_ids")
+
+    @vpc_subnet_ids.setter
+    def vpc_subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "vpc_subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="debugLogging")
+    def debug_logging(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
+        """
+        return pulumi.get(self, "debug_logging")
+
+    @debug_logging.setter
+    def debug_logging(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "debug_logging", value)
+
+    @property
+    @pulumi.getter(name="idleClientTimeout")
+    def idle_client_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
+        """
+        return pulumi.get(self, "idle_client_timeout")
+
+    @idle_client_timeout.setter
+    def idle_client_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_client_timeout", value)
+
+    @property
+    @pulumi.getter(name="requireTLS")
+    def require_tls(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
+        """
+        return pulumi.get(self, "require_tls")
+
+    @require_tls.setter
+    def require_tls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_tls", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBProxyTagFormatArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBProxyTagFormatArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vpcSecurityGroupIds")
+    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+        """
+        return pulumi.get(self, "vpc_security_group_ids")
+
+    @vpc_security_group_ids.setter
+    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vpc_security_group_ids", value)
 
 
 class DBProxy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -27,9 +190,7 @@ class DBProxy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyTagFormatArgs']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html
 
@@ -46,12 +207,41 @@ class DBProxy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DBProxyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html
+
+        :param str resource_name: The name of the resource.
+        :param DBProxyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DBProxyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auth: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]]] = None,
+                 d_b_proxy_name: Optional[pulumi.Input[str]] = None,
+                 debug_logging: Optional[pulumi.Input[bool]] = None,
+                 engine_family: Optional[pulumi.Input[str]] = None,
+                 idle_client_timeout: Optional[pulumi.Input[int]] = None,
+                 require_tls: Optional[pulumi.Input[bool]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyTagFormatArgs']]]]] = None,
+                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -61,30 +251,30 @@ class DBProxy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DBProxyArgs.__new__(DBProxyArgs)
 
             if auth is None and not opts.urn:
                 raise TypeError("Missing required property 'auth'")
-            __props__['auth'] = auth
+            __props__.__dict__["auth"] = auth
             if d_b_proxy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'd_b_proxy_name'")
-            __props__['d_b_proxy_name'] = d_b_proxy_name
-            __props__['debug_logging'] = debug_logging
+            __props__.__dict__["d_b_proxy_name"] = d_b_proxy_name
+            __props__.__dict__["debug_logging"] = debug_logging
             if engine_family is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_family'")
-            __props__['engine_family'] = engine_family
-            __props__['idle_client_timeout'] = idle_client_timeout
-            __props__['require_tls'] = require_tls
+            __props__.__dict__["engine_family"] = engine_family
+            __props__.__dict__["idle_client_timeout"] = idle_client_timeout
+            __props__.__dict__["require_tls"] = require_tls
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
-            __props__['tags'] = tags
-            __props__['vpc_security_group_ids'] = vpc_security_group_ids
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             if vpc_subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_subnet_ids'")
-            __props__['vpc_subnet_ids'] = vpc_subnet_ids
-            __props__['d_b_proxy_arn'] = None
-            __props__['endpoint'] = None
+            __props__.__dict__["vpc_subnet_ids"] = vpc_subnet_ids
+            __props__.__dict__["d_b_proxy_arn"] = None
+            __props__.__dict__["endpoint"] = None
         super(DBProxy, __self__).__init__(
             'aws-native:RDS:DBProxy',
             resource_name,
@@ -105,8 +295,20 @@ class DBProxy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DBProxyArgs.__new__(DBProxyArgs)
 
+        __props__.__dict__["auth"] = None
+        __props__.__dict__["d_b_proxy_arn"] = None
+        __props__.__dict__["d_b_proxy_name"] = None
+        __props__.__dict__["debug_logging"] = None
+        __props__.__dict__["endpoint"] = None
+        __props__.__dict__["engine_family"] = None
+        __props__.__dict__["idle_client_timeout"] = None
+        __props__.__dict__["require_tls"] = None
+        __props__.__dict__["role_arn"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["vpc_security_group_ids"] = None
+        __props__.__dict__["vpc_subnet_ids"] = None
         return DBProxy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -198,10 +400,4 @@ class DBProxy(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
         """
         return pulumi.get(self, "vpc_subnet_ids")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

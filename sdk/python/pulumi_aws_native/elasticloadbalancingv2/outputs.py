@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -42,6 +42,33 @@ class ListenerAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticateCognitoConfig":
+            suggest = "authenticate_cognito_config"
+        elif key == "authenticateOidcConfig":
+            suggest = "authenticate_oidc_config"
+        elif key == "fixedResponseConfig":
+            suggest = "fixed_response_config"
+        elif key == "forwardConfig":
+            suggest = "forward_config"
+        elif key == "redirectConfig":
+            suggest = "redirect_config"
+        elif key == "targetGroupArn":
+            suggest = "target_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  authenticate_cognito_config: Optional['outputs.ListenerAuthenticateCognitoConfig'] = None,
@@ -54,12 +81,12 @@ class ListenerAction(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html
         :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-type
-        :param 'ListenerAuthenticateCognitoConfigArgs' authenticate_cognito_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticatecognitoconfig
-        :param 'ListenerAuthenticateOidcConfigArgs' authenticate_oidc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticateoidcconfig
-        :param 'ListenerFixedResponseConfigArgs' fixed_response_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig
-        :param 'ListenerForwardConfigArgs' forward_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig
+        :param 'ListenerAuthenticateCognitoConfig' authenticate_cognito_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticatecognitoconfig
+        :param 'ListenerAuthenticateOidcConfig' authenticate_oidc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-authenticateoidcconfig
+        :param 'ListenerFixedResponseConfig' fixed_response_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig
+        :param 'ListenerForwardConfig' forward_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-forwardconfig
         :param int order: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-order
-        :param 'ListenerRedirectConfigArgs' redirect_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-redirectconfig
+        :param 'ListenerRedirectConfig' redirect_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-redirectconfig
         :param str target_group_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-targetgrouparn
         """
         pulumi.set(__self__, "type", type)
@@ -142,15 +169,41 @@ class ListenerAction(dict):
         """
         return pulumi.get(self, "target_group_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerAuthenticateCognitoConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userPoolArn":
+            suggest = "user_pool_arn"
+        elif key == "userPoolClientId":
+            suggest = "user_pool_client_id"
+        elif key == "userPoolDomain":
+            suggest = "user_pool_domain"
+        elif key == "authenticationRequestExtraParams":
+            suggest = "authentication_request_extra_params"
+        elif key == "onUnauthenticatedRequest":
+            suggest = "on_unauthenticated_request"
+        elif key == "sessionCookieName":
+            suggest = "session_cookie_name"
+        elif key == "sessionTimeout":
+            suggest = "session_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerAuthenticateCognitoConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerAuthenticateCognitoConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerAuthenticateCognitoConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_pool_arn: str,
                  user_pool_client_id: str,
@@ -249,15 +302,45 @@ class ListenerAuthenticateCognitoConfig(dict):
         """
         return pulumi.get(self, "session_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerAuthenticateOidcConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+        elif key == "userInfoEndpoint":
+            suggest = "user_info_endpoint"
+        elif key == "authenticationRequestExtraParams":
+            suggest = "authentication_request_extra_params"
+        elif key == "onUnauthenticatedRequest":
+            suggest = "on_unauthenticated_request"
+        elif key == "sessionCookieName":
+            suggest = "session_cookie_name"
+        elif key == "sessionTimeout":
+            suggest = "session_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerAuthenticateOidcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerAuthenticateOidcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerAuthenticateOidcConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorization_endpoint: str,
                  client_id: str,
@@ -389,15 +472,29 @@ class ListenerAuthenticateOidcConfig(dict):
         """
         return pulumi.get(self, "session_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerCertificate(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateArn":
+            suggest = "certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerCertificate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_arn: Optional[str] = None):
         """
@@ -415,15 +512,33 @@ class ListenerCertificate(dict):
         """
         return pulumi.get(self, "certificate_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerFixedResponseConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "messageBody":
+            suggest = "message_body"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerFixedResponseConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerFixedResponseConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerFixedResponseConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status_code: str,
                  content_type: Optional[str] = None,
@@ -464,22 +579,38 @@ class ListenerFixedResponseConfig(dict):
         """
         return pulumi.get(self, "message_body")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerForwardConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetGroupStickinessConfig":
+            suggest = "target_group_stickiness_config"
+        elif key == "targetGroups":
+            suggest = "target_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerForwardConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerForwardConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerForwardConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_group_stickiness_config: Optional['outputs.ListenerTargetGroupStickinessConfig'] = None,
                  target_groups: Optional[Sequence['outputs.ListenerTargetGroupTuple']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html
-        :param 'ListenerTargetGroupStickinessConfigArgs' target_group_stickiness_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroupstickinessconfig
-        :param Sequence['ListenerTargetGroupTupleArgs'] target_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroups
+        :param 'ListenerTargetGroupStickinessConfig' target_group_stickiness_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroupstickinessconfig
+        :param Sequence['ListenerTargetGroupTuple'] target_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroups
         """
         if target_group_stickiness_config is not None:
             pulumi.set(__self__, "target_group_stickiness_config", target_group_stickiness_config)
@@ -502,15 +633,29 @@ class ListenerForwardConfig(dict):
         """
         return pulumi.get(self, "target_groups")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRedirectConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRedirectConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRedirectConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRedirectConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status_code: str,
                  host: Optional[str] = None,
@@ -587,15 +732,39 @@ class ListenerRedirectConfig(dict):
         """
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticateCognitoConfig":
+            suggest = "authenticate_cognito_config"
+        elif key == "authenticateOidcConfig":
+            suggest = "authenticate_oidc_config"
+        elif key == "fixedResponseConfig":
+            suggest = "fixed_response_config"
+        elif key == "forwardConfig":
+            suggest = "forward_config"
+        elif key == "redirectConfig":
+            suggest = "redirect_config"
+        elif key == "targetGroupArn":
+            suggest = "target_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  authenticate_cognito_config: Optional['outputs.ListenerRuleAuthenticateCognitoConfig'] = None,
@@ -608,12 +777,12 @@ class ListenerRuleAction(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html
         :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-type
-        :param 'ListenerRuleAuthenticateCognitoConfigArgs' authenticate_cognito_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticatecognitoconfig
-        :param 'ListenerRuleAuthenticateOidcConfigArgs' authenticate_oidc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticateoidcconfig
-        :param 'ListenerRuleFixedResponseConfigArgs' fixed_response_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-fixedresponseconfig
-        :param 'ListenerRuleForwardConfigArgs' forward_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-forwardconfig
+        :param 'ListenerRuleAuthenticateCognitoConfig' authenticate_cognito_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticatecognitoconfig
+        :param 'ListenerRuleAuthenticateOidcConfig' authenticate_oidc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticateoidcconfig
+        :param 'ListenerRuleFixedResponseConfig' fixed_response_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-fixedresponseconfig
+        :param 'ListenerRuleForwardConfig' forward_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-forwardconfig
         :param int order: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-order
-        :param 'ListenerRuleRedirectConfigArgs' redirect_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-redirectconfig
+        :param 'ListenerRuleRedirectConfig' redirect_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-redirectconfig
         :param str target_group_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-targetgrouparn
         """
         pulumi.set(__self__, "type", type)
@@ -696,15 +865,41 @@ class ListenerRuleAction(dict):
         """
         return pulumi.get(self, "target_group_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleAuthenticateCognitoConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userPoolArn":
+            suggest = "user_pool_arn"
+        elif key == "userPoolClientId":
+            suggest = "user_pool_client_id"
+        elif key == "userPoolDomain":
+            suggest = "user_pool_domain"
+        elif key == "authenticationRequestExtraParams":
+            suggest = "authentication_request_extra_params"
+        elif key == "onUnauthenticatedRequest":
+            suggest = "on_unauthenticated_request"
+        elif key == "sessionCookieName":
+            suggest = "session_cookie_name"
+        elif key == "sessionTimeout":
+            suggest = "session_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleAuthenticateCognitoConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleAuthenticateCognitoConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleAuthenticateCognitoConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_pool_arn: str,
                  user_pool_client_id: str,
@@ -803,15 +998,45 @@ class ListenerRuleAuthenticateCognitoConfig(dict):
         """
         return pulumi.get(self, "session_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleAuthenticateOidcConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+        elif key == "userInfoEndpoint":
+            suggest = "user_info_endpoint"
+        elif key == "authenticationRequestExtraParams":
+            suggest = "authentication_request_extra_params"
+        elif key == "onUnauthenticatedRequest":
+            suggest = "on_unauthenticated_request"
+        elif key == "sessionCookieName":
+            suggest = "session_cookie_name"
+        elif key == "sessionTimeout":
+            suggest = "session_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleAuthenticateOidcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleAuthenticateOidcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleAuthenticateOidcConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorization_endpoint: str,
                  client_id: str,
@@ -943,15 +1168,33 @@ class ListenerRuleAuthenticateOidcConfig(dict):
         """
         return pulumi.get(self, "session_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleFixedResponseConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-fixedresponseconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "messageBody":
+            suggest = "message_body"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleFixedResponseConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleFixedResponseConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleFixedResponseConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status_code: str,
                  content_type: Optional[str] = None,
@@ -992,22 +1235,38 @@ class ListenerRuleFixedResponseConfig(dict):
         """
         return pulumi.get(self, "message_body")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleForwardConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetGroupStickinessConfig":
+            suggest = "target_group_stickiness_config"
+        elif key == "targetGroups":
+            suggest = "target_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleForwardConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleForwardConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleForwardConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_group_stickiness_config: Optional['outputs.ListenerRuleTargetGroupStickinessConfig'] = None,
                  target_groups: Optional[Sequence['outputs.ListenerRuleTargetGroupTuple']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html
-        :param 'ListenerRuleTargetGroupStickinessConfigArgs' target_group_stickiness_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroupstickinessconfig
-        :param Sequence['ListenerRuleTargetGroupTupleArgs'] target_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroups
+        :param 'ListenerRuleTargetGroupStickinessConfig' target_group_stickiness_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroupstickinessconfig
+        :param Sequence['ListenerRuleTargetGroupTuple'] target_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroups
         """
         if target_group_stickiness_config is not None:
             pulumi.set(__self__, "target_group_stickiness_config", target_group_stickiness_config)
@@ -1029,9 +1288,6 @@ class ListenerRuleForwardConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroups
         """
         return pulumi.get(self, "target_groups")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1056,15 +1312,29 @@ class ListenerRuleHostHeaderConfig(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleHttpHeaderConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpHeaderName":
+            suggest = "http_header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleHttpHeaderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleHttpHeaderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleHttpHeaderConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  http_header_name: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
@@ -1094,9 +1364,6 @@ class ListenerRuleHttpHeaderConfig(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleHttpRequestMethodConfig(dict):
@@ -1119,9 +1386,6 @@ class ListenerRuleHttpRequestMethodConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httprequestmethodconfig.html#cfn-elasticloadbalancingv2-listenerrule-httprequestmethodconfig-values
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1146,9 +1410,6 @@ class ListenerRulePathPatternConfig(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleQueryStringConfig(dict):
@@ -1159,7 +1420,7 @@ class ListenerRuleQueryStringConfig(dict):
                  values: Optional[Sequence['outputs.ListenerRuleQueryStringKeyValue']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html
-        :param Sequence['ListenerRuleQueryStringKeyValueArgs'] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html#cfn-elasticloadbalancingv2-listenerrule-querystringconfig-values
+        :param Sequence['ListenerRuleQueryStringKeyValue'] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html#cfn-elasticloadbalancingv2-listenerrule-querystringconfig-values
         """
         if values is not None:
             pulumi.set(__self__, "values", values)
@@ -1171,9 +1432,6 @@ class ListenerRuleQueryStringConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html#cfn-elasticloadbalancingv2-listenerrule-querystringconfig-values
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1210,15 +1468,29 @@ class ListenerRuleQueryStringKeyValue(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleRedirectConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleRedirectConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleRedirectConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleRedirectConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status_code: str,
                  host: Optional[str] = None,
@@ -1295,15 +1567,39 @@ class ListenerRuleRedirectConfig(dict):
         """
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleRuleCondition(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostHeaderConfig":
+            suggest = "host_header_config"
+        elif key == "httpHeaderConfig":
+            suggest = "http_header_config"
+        elif key == "httpRequestMethodConfig":
+            suggest = "http_request_method_config"
+        elif key == "pathPatternConfig":
+            suggest = "path_pattern_config"
+        elif key == "queryStringConfig":
+            suggest = "query_string_config"
+        elif key == "sourceIpConfig":
+            suggest = "source_ip_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleRuleCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleRuleCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleRuleCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field: Optional[str] = None,
                  host_header_config: Optional['outputs.ListenerRuleHostHeaderConfig'] = None,
@@ -1316,12 +1612,12 @@ class ListenerRuleRuleCondition(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html
         :param str field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-field
-        :param 'ListenerRuleHostHeaderConfigArgs' host_header_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
-        :param 'ListenerRuleHttpHeaderConfigArgs' http_header_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig
-        :param 'ListenerRuleHttpRequestMethodConfigArgs' http_request_method_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig
-        :param 'ListenerRulePathPatternConfigArgs' path_pattern_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig
-        :param 'ListenerRuleQueryStringConfigArgs' query_string_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
-        :param 'ListenerRuleSourceIpConfigArgs' source_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig
+        :param 'ListenerRuleHostHeaderConfig' host_header_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
+        :param 'ListenerRuleHttpHeaderConfig' http_header_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig
+        :param 'ListenerRuleHttpRequestMethodConfig' http_request_method_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig
+        :param 'ListenerRulePathPatternConfig' path_pattern_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig
+        :param 'ListenerRuleQueryStringConfig' query_string_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
+        :param 'ListenerRuleSourceIpConfig' source_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig
         :param Sequence[str] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-values
         """
         if field is not None:
@@ -1405,9 +1701,6 @@ class ListenerRuleRuleCondition(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleSourceIpConfig(dict):
@@ -1431,15 +1724,29 @@ class ListenerRuleSourceIpConfig(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleTargetGroupStickinessConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationSeconds":
+            suggest = "duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleTargetGroupStickinessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleTargetGroupStickinessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleTargetGroupStickinessConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration_seconds: Optional[int] = None,
                  enabled: Optional[bool] = None):
@@ -1469,15 +1776,29 @@ class ListenerRuleTargetGroupStickinessConfig(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerRuleTargetGroupTuple(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetGroupArn":
+            suggest = "target_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleTargetGroupTuple. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleTargetGroupTuple.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleTargetGroupTuple.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_group_arn: Optional[str] = None,
                  weight: Optional[int] = None):
@@ -1507,15 +1828,29 @@ class ListenerRuleTargetGroupTuple(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerTargetGroupStickinessConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationSeconds":
+            suggest = "duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerTargetGroupStickinessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerTargetGroupStickinessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerTargetGroupStickinessConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration_seconds: Optional[int] = None,
                  enabled: Optional[bool] = None):
@@ -1545,15 +1880,29 @@ class ListenerTargetGroupStickinessConfig(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerTargetGroupTuple(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgrouptuple.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetGroupArn":
+            suggest = "target_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerTargetGroupTuple. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerTargetGroupTuple.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerTargetGroupTuple.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_group_arn: Optional[str] = None,
                  weight: Optional[int] = None):
@@ -1582,8 +1931,5 @@ class ListenerTargetGroupTuple(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgrouptuple.html#cfn-elasticloadbalancingv2-listener-targetgrouptuple-weight
         """
         return pulumi.get(self, "weight")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -60,11 +60,12 @@ export class LocalGatewayRouteTableVPCAssociation extends pulumi.CustomResource 
      */
     constructor(name: string, args: LocalGatewayRouteTableVPCAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.localGatewayRouteTableId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.localGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayRouteTableId'");
             }
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
@@ -81,12 +82,8 @@ export class LocalGatewayRouteTableVPCAssociation extends pulumi.CustomResource 
             inputs["tags"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LocalGatewayRouteTableVPCAssociation.__pulumiType, name, inputs, opts);
     }
@@ -103,7 +100,7 @@ export interface LocalGatewayRouteTableVPCAssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
      */
-    readonly tags?: pulumi.Input<inputs.EC2.LocalGatewayRouteTableVPCAssociationTags>;
+    readonly tags?: pulumi.Input<inputs.EC2.LocalGatewayRouteTableVPCAssociationTagsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
      */

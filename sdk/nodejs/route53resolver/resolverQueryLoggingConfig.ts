@@ -60,7 +60,8 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ResolverQueryLoggingConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["destinationArn"] = args ? args.destinationArn : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -83,12 +84,8 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
             inputs["shareStatus"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ResolverQueryLoggingConfig.__pulumiType, name, inputs, opts);
     }

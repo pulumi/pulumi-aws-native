@@ -87,20 +87,21 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataQualityJobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.dataQualityAppSpecification === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.dataQualityAppSpecification === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataQualityAppSpecification'");
             }
-            if ((!args || args.dataQualityJobInput === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataQualityJobInput === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataQualityJobInput'");
             }
-            if ((!args || args.dataQualityJobOutputConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataQualityJobOutputConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataQualityJobOutputConfig'");
             }
-            if ((!args || args.jobResources === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.jobResources === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobResources'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["dataQualityAppSpecification"] = args ? args.dataQualityAppSpecification : undefined;
@@ -129,12 +130,8 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
             inputs["stoppingCondition"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DataQualityJobDefinition.__pulumiType, name, inputs, opts);
     }
@@ -147,19 +144,19 @@ export interface DataQualityJobDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification
      */
-    readonly dataQualityAppSpecification: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionDataQualityAppSpecification>;
+    readonly dataQualityAppSpecification: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig
      */
-    readonly dataQualityBaselineConfig?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionDataQualityBaselineConfig>;
+    readonly dataQualityBaselineConfig?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionDataQualityBaselineConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput
      */
-    readonly dataQualityJobInput: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionDataQualityJobInput>;
+    readonly dataQualityJobInput: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionDataQualityJobInputArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjoboutputconfig
      */
-    readonly dataQualityJobOutputConfig: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionMonitoringOutputConfig>;
+    readonly dataQualityJobOutputConfig: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionMonitoringOutputConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobdefinitionname
      */
@@ -167,11 +164,11 @@ export interface DataQualityJobDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobresources
      */
-    readonly jobResources: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionMonitoringResources>;
+    readonly jobResources: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionMonitoringResourcesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig
      */
-    readonly networkConfig?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionNetworkConfig>;
+    readonly networkConfig?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionNetworkConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-rolearn
      */
@@ -179,9 +176,9 @@ export interface DataQualityJobDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition
      */
-    readonly stoppingCondition?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionStoppingCondition>;
+    readonly stoppingCondition?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionStoppingConditionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

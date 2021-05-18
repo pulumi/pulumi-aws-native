@@ -63,8 +63,9 @@ export class Site extends pulumi.CustomResource {
      */
     constructor(name: string, args: SiteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.globalNetworkId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -81,12 +82,8 @@ export class Site extends pulumi.CustomResource {
             inputs["siteId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Site.__pulumiType, name, inputs, opts);
     }
@@ -107,9 +104,9 @@ export interface SiteArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
      */
-    readonly location?: pulumi.Input<inputs.NetworkManager.SiteLocation>;
+    readonly location?: pulumi.Input<inputs.NetworkManager.SiteLocationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

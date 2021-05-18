@@ -55,8 +55,9 @@ export class StreamKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.channelArn === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.channelArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'channelArn'");
             }
             inputs["channelArn"] = args ? args.channelArn : undefined;
@@ -69,12 +70,8 @@ export class StreamKey extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StreamKey.__pulumiType, name, inputs, opts);
     }
@@ -91,5 +88,5 @@ export interface StreamKeyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

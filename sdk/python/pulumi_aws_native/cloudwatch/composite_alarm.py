@@ -5,13 +5,131 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['CompositeAlarm']
+__all__ = ['CompositeAlarmArgs', 'CompositeAlarm']
+
+@pulumi.input_type
+class CompositeAlarmArgs:
+    def __init__(__self__, *,
+                 alarm_name: pulumi.Input[str],
+                 alarm_rule: pulumi.Input[str],
+                 actions_enabled: Optional[pulumi.Input[bool]] = None,
+                 alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 alarm_description: Optional[pulumi.Input[str]] = None,
+                 insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 o_k_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a CompositeAlarm resource.
+        :param pulumi.Input[str] alarm_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
+        :param pulumi.Input[str] alarm_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
+        :param pulumi.Input[bool] actions_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
+        :param pulumi.Input[str] alarm_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] o_k_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+        """
+        pulumi.set(__self__, "alarm_name", alarm_name)
+        pulumi.set(__self__, "alarm_rule", alarm_rule)
+        if actions_enabled is not None:
+            pulumi.set(__self__, "actions_enabled", actions_enabled)
+        if alarm_actions is not None:
+            pulumi.set(__self__, "alarm_actions", alarm_actions)
+        if alarm_description is not None:
+            pulumi.set(__self__, "alarm_description", alarm_description)
+        if insufficient_data_actions is not None:
+            pulumi.set(__self__, "insufficient_data_actions", insufficient_data_actions)
+        if o_k_actions is not None:
+            pulumi.set(__self__, "o_k_actions", o_k_actions)
+
+    @property
+    @pulumi.getter(name="alarmName")
+    def alarm_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
+        """
+        return pulumi.get(self, "alarm_name")
+
+    @alarm_name.setter
+    def alarm_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alarm_name", value)
+
+    @property
+    @pulumi.getter(name="alarmRule")
+    def alarm_rule(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
+        """
+        return pulumi.get(self, "alarm_rule")
+
+    @alarm_rule.setter
+    def alarm_rule(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alarm_rule", value)
+
+    @property
+    @pulumi.getter(name="actionsEnabled")
+    def actions_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
+        """
+        return pulumi.get(self, "actions_enabled")
+
+    @actions_enabled.setter
+    def actions_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "actions_enabled", value)
+
+    @property
+    @pulumi.getter(name="alarmActions")
+    def alarm_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
+        """
+        return pulumi.get(self, "alarm_actions")
+
+    @alarm_actions.setter
+    def alarm_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "alarm_actions", value)
+
+    @property
+    @pulumi.getter(name="alarmDescription")
+    def alarm_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
+        """
+        return pulumi.get(self, "alarm_description")
+
+    @alarm_description.setter
+    def alarm_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alarm_description", value)
+
+    @property
+    @pulumi.getter(name="insufficientDataActions")
+    def insufficient_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
+        """
+        return pulumi.get(self, "insufficient_data_actions")
+
+    @insufficient_data_actions.setter
+    def insufficient_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "insufficient_data_actions", value)
+
+    @property
+    @pulumi.getter(name="oKActions")
+    def o_k_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+        """
+        return pulumi.get(self, "o_k_actions")
+
+    @o_k_actions.setter
+    def o_k_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "o_k_actions", value)
 
 
 class CompositeAlarm(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -22,9 +140,7 @@ class CompositeAlarm(pulumi.CustomResource):
                  alarm_rule: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  o_k_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
 
@@ -38,12 +154,38 @@ class CompositeAlarm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
         :param pulumi.Input[Sequence[pulumi.Input[str]]] o_k_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CompositeAlarmArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
+
+        :param str resource_name: The name of the resource.
+        :param CompositeAlarmArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CompositeAlarmArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 actions_enabled: Optional[pulumi.Input[bool]] = None,
+                 alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 alarm_description: Optional[pulumi.Input[str]] = None,
+                 alarm_name: Optional[pulumi.Input[str]] = None,
+                 alarm_rule: Optional[pulumi.Input[str]] = None,
+                 insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 o_k_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -53,20 +195,20 @@ class CompositeAlarm(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CompositeAlarmArgs.__new__(CompositeAlarmArgs)
 
-            __props__['actions_enabled'] = actions_enabled
-            __props__['alarm_actions'] = alarm_actions
-            __props__['alarm_description'] = alarm_description
+            __props__.__dict__["actions_enabled"] = actions_enabled
+            __props__.__dict__["alarm_actions"] = alarm_actions
+            __props__.__dict__["alarm_description"] = alarm_description
             if alarm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'alarm_name'")
-            __props__['alarm_name'] = alarm_name
+            __props__.__dict__["alarm_name"] = alarm_name
             if alarm_rule is None and not opts.urn:
                 raise TypeError("Missing required property 'alarm_rule'")
-            __props__['alarm_rule'] = alarm_rule
-            __props__['insufficient_data_actions'] = insufficient_data_actions
-            __props__['o_k_actions'] = o_k_actions
-            __props__['arn'] = None
+            __props__.__dict__["alarm_rule"] = alarm_rule
+            __props__.__dict__["insufficient_data_actions"] = insufficient_data_actions
+            __props__.__dict__["o_k_actions"] = o_k_actions
+            __props__.__dict__["arn"] = None
         super(CompositeAlarm, __self__).__init__(
             'aws-native:CloudWatch:CompositeAlarm',
             resource_name,
@@ -87,8 +229,16 @@ class CompositeAlarm(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = CompositeAlarmArgs.__new__(CompositeAlarmArgs)
 
+        __props__.__dict__["actions_enabled"] = None
+        __props__.__dict__["alarm_actions"] = None
+        __props__.__dict__["alarm_description"] = None
+        __props__.__dict__["alarm_name"] = None
+        __props__.__dict__["alarm_rule"] = None
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["insufficient_data_actions"] = None
+        __props__.__dict__["o_k_actions"] = None
         return CompositeAlarm(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -151,10 +301,4 @@ class CompositeAlarm(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
         """
         return pulumi.get(self, "o_k_actions")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

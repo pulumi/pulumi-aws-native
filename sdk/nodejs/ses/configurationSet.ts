@@ -48,17 +48,14 @@ export class ConfigurationSet extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ConfigurationSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["name"] = args ? args.name : undefined;
         } else {
             inputs["name"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ConfigurationSet.__pulumiType, name, inputs, opts);
     }

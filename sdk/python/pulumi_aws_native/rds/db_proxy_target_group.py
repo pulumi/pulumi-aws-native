@@ -5,15 +5,101 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DBProxyTargetGroup']
+__all__ = ['DBProxyTargetGroupArgs', 'DBProxyTargetGroup']
+
+@pulumi.input_type
+class DBProxyTargetGroupArgs:
+    def __init__(__self__, *,
+                 d_b_proxy_name: pulumi.Input[str],
+                 target_group_name: pulumi.Input[str],
+                 connection_pool_configuration_info: Optional[pulumi.Input['DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']] = None,
+                 d_b_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 d_b_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a DBProxyTargetGroup resource.
+        :param pulumi.Input[str] d_b_proxy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
+        :param pulumi.Input[str] target_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+        :param pulumi.Input['DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs'] connection_pool_configuration_info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] d_b_cluster_identifiers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] d_b_instance_identifiers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
+        """
+        pulumi.set(__self__, "d_b_proxy_name", d_b_proxy_name)
+        pulumi.set(__self__, "target_group_name", target_group_name)
+        if connection_pool_configuration_info is not None:
+            pulumi.set(__self__, "connection_pool_configuration_info", connection_pool_configuration_info)
+        if d_b_cluster_identifiers is not None:
+            pulumi.set(__self__, "d_b_cluster_identifiers", d_b_cluster_identifiers)
+        if d_b_instance_identifiers is not None:
+            pulumi.set(__self__, "d_b_instance_identifiers", d_b_instance_identifiers)
+
+    @property
+    @pulumi.getter(name="dBProxyName")
+    def d_b_proxy_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
+        """
+        return pulumi.get(self, "d_b_proxy_name")
+
+    @d_b_proxy_name.setter
+    def d_b_proxy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "d_b_proxy_name", value)
+
+    @property
+    @pulumi.getter(name="targetGroupName")
+    def target_group_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+        """
+        return pulumi.get(self, "target_group_name")
+
+    @target_group_name.setter
+    def target_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_group_name", value)
+
+    @property
+    @pulumi.getter(name="connectionPoolConfigurationInfo")
+    def connection_pool_configuration_info(self) -> Optional[pulumi.Input['DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
+        """
+        return pulumi.get(self, "connection_pool_configuration_info")
+
+    @connection_pool_configuration_info.setter
+    def connection_pool_configuration_info(self, value: Optional[pulumi.Input['DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']]):
+        pulumi.set(self, "connection_pool_configuration_info", value)
+
+    @property
+    @pulumi.getter(name="dBClusterIdentifiers")
+    def d_b_cluster_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
+        """
+        return pulumi.get(self, "d_b_cluster_identifiers")
+
+    @d_b_cluster_identifiers.setter
+    def d_b_cluster_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "d_b_cluster_identifiers", value)
+
+    @property
+    @pulumi.getter(name="dBInstanceIdentifiers")
+    def d_b_instance_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
+        """
+        return pulumi.get(self, "d_b_instance_identifiers")
+
+    @d_b_instance_identifiers.setter
+    def d_b_instance_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "d_b_instance_identifiers", value)
 
 
 class DBProxyTargetGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -22,9 +108,7 @@ class DBProxyTargetGroup(pulumi.CustomResource):
                  d_b_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  d_b_proxy_name: Optional[pulumi.Input[str]] = None,
                  target_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html
 
@@ -36,12 +120,36 @@ class DBProxyTargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] d_b_proxy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
         :param pulumi.Input[str] target_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DBProxyTargetGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html
+
+        :param str resource_name: The name of the resource.
+        :param DBProxyTargetGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DBProxyTargetGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_pool_configuration_info: Optional[pulumi.Input[pulumi.InputType['DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']]] = None,
+                 d_b_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 d_b_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 d_b_proxy_name: Optional[pulumi.Input[str]] = None,
+                 target_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -51,18 +159,18 @@ class DBProxyTargetGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DBProxyTargetGroupArgs.__new__(DBProxyTargetGroupArgs)
 
-            __props__['connection_pool_configuration_info'] = connection_pool_configuration_info
-            __props__['d_b_cluster_identifiers'] = d_b_cluster_identifiers
-            __props__['d_b_instance_identifiers'] = d_b_instance_identifiers
+            __props__.__dict__["connection_pool_configuration_info"] = connection_pool_configuration_info
+            __props__.__dict__["d_b_cluster_identifiers"] = d_b_cluster_identifiers
+            __props__.__dict__["d_b_instance_identifiers"] = d_b_instance_identifiers
             if d_b_proxy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'd_b_proxy_name'")
-            __props__['d_b_proxy_name'] = d_b_proxy_name
+            __props__.__dict__["d_b_proxy_name"] = d_b_proxy_name
             if target_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group_name'")
-            __props__['target_group_name'] = target_group_name
-            __props__['target_group_arn'] = None
+            __props__.__dict__["target_group_name"] = target_group_name
+            __props__.__dict__["target_group_arn"] = None
         super(DBProxyTargetGroup, __self__).__init__(
             'aws-native:RDS:DBProxyTargetGroup',
             resource_name,
@@ -83,8 +191,14 @@ class DBProxyTargetGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DBProxyTargetGroupArgs.__new__(DBProxyTargetGroupArgs)
 
+        __props__.__dict__["connection_pool_configuration_info"] = None
+        __props__.__dict__["d_b_cluster_identifiers"] = None
+        __props__.__dict__["d_b_instance_identifiers"] = None
+        __props__.__dict__["d_b_proxy_name"] = None
+        __props__.__dict__["target_group_arn"] = None
+        __props__.__dict__["target_group_name"] = None
         return DBProxyTargetGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -131,10 +245,4 @@ class DBProxyTargetGroup(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
         """
         return pulumi.get(self, "target_group_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -24,6 +24,23 @@ class StateMachineCloudWatchLogsLogGroup(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupArn":
+            suggest = "log_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StateMachineCloudWatchLogsLogGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StateMachineCloudWatchLogsLogGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StateMachineCloudWatchLogsLogGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_group_arn: Optional[str] = None):
         """
@@ -41,9 +58,6 @@ class StateMachineCloudWatchLogsLogGroup(dict):
         """
         return pulumi.get(self, "log_group_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StateMachineDefinitionSubstitutions(dict):
@@ -56,20 +70,34 @@ class StateMachineDefinitionSubstitutions(dict):
         """
         pass
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StateMachineLogDestination(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogsLogGroup":
+            suggest = "cloud_watch_logs_log_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StateMachineLogDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StateMachineLogDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StateMachineLogDestination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloud_watch_logs_log_group: Optional['outputs.StateMachineCloudWatchLogsLogGroup'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html
-        :param 'StateMachineCloudWatchLogsLogGroupArgs' cloud_watch_logs_log_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup
+        :param 'StateMachineCloudWatchLogsLogGroup' cloud_watch_logs_log_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup
         """
         if cloud_watch_logs_log_group is not None:
             pulumi.set(__self__, "cloud_watch_logs_log_group", cloud_watch_logs_log_group)
@@ -82,22 +110,36 @@ class StateMachineLogDestination(dict):
         """
         return pulumi.get(self, "cloud_watch_logs_log_group")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StateMachineLoggingConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeExecutionData":
+            suggest = "include_execution_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StateMachineLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StateMachineLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StateMachineLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destinations: Optional[Sequence['outputs.StateMachineLogDestination']] = None,
                  include_execution_data: Optional[bool] = None,
                  level: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html
-        :param Sequence['StateMachineLogDestinationArgs'] destinations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-destinations
+        :param Sequence['StateMachineLogDestination'] destinations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-destinations
         :param bool include_execution_data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata
         :param str level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level
         """
@@ -131,9 +173,6 @@ class StateMachineLoggingConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level
         """
         return pulumi.get(self, "level")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -180,9 +219,6 @@ class StateMachineS3Location(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StateMachineTagsEntry(dict):
@@ -216,9 +252,6 @@ class StateMachineTagsEntry(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StateMachineTracingConfiguration(dict):
@@ -241,8 +274,5 @@ class StateMachineTracingConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html#cfn-stepfunctions-statemachine-tracingconfiguration-enabled
         """
         return pulumi.get(self, "enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

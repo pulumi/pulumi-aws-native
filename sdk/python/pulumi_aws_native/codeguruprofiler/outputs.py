@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ProfilingGroupChannel',
@@ -17,6 +17,25 @@ class ProfilingGroupChannel(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelUri":
+            suggest = "channel_uri"
+        elif key == "channelId":
+            suggest = "channel_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProfilingGroupChannel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProfilingGroupChannel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProfilingGroupChannel.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  channel_uri: str,
                  channel_id: Optional[str] = None):
@@ -44,8 +63,5 @@ class ProfilingGroupChannel(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
         """
         return pulumi.get(self, "channel_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

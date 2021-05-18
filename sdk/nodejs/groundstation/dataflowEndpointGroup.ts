@@ -56,8 +56,9 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataflowEndpointGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.endpointDetails === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.endpointDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointDetails'");
             }
             inputs["endpointDetails"] = args ? args.endpointDetails : undefined;
@@ -72,12 +73,8 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DataflowEndpointGroup.__pulumiType, name, inputs, opts);
     }
@@ -90,9 +87,9 @@ export interface DataflowEndpointGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
      */
-    readonly endpointDetails: pulumi.Input<pulumi.Input<inputs.GroundStation.DataflowEndpointGroupEndpointDetails>[]>;
+    readonly endpointDetails: pulumi.Input<pulumi.Input<inputs.GroundStation.DataflowEndpointGroupEndpointDetailsArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -86,14 +86,15 @@ export class TaskSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: TaskSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.cluster === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.cluster === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cluster'");
             }
-            if ((!args || args.service === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.service === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
-            if ((!args || args.taskDefinition === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.taskDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskDefinition'");
             }
             inputs["cluster"] = args ? args.cluster : undefined;
@@ -120,12 +121,8 @@ export class TaskSet extends pulumi.CustomResource {
             inputs["serviceRegistries"] = undefined /*out*/;
             inputs["taskDefinition"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TaskSet.__pulumiType, name, inputs, opts);
     }
@@ -150,11 +147,11 @@ export interface TaskSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
      */
-    readonly loadBalancers?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetLoadBalancer>[]>;
+    readonly loadBalancers?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetLoadBalancerArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
      */
-    readonly networkConfiguration?: pulumi.Input<inputs.ECS.TaskSetNetworkConfiguration>;
+    readonly networkConfiguration?: pulumi.Input<inputs.ECS.TaskSetNetworkConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
      */
@@ -162,7 +159,7 @@ export interface TaskSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
      */
-    readonly scale?: pulumi.Input<inputs.ECS.TaskSetScale>;
+    readonly scale?: pulumi.Input<inputs.ECS.TaskSetScaleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
      */
@@ -170,7 +167,7 @@ export interface TaskSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
      */
-    readonly serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetServiceRegistry>[]>;
+    readonly serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetServiceRegistryArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
      */

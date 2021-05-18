@@ -59,14 +59,15 @@ export class AccessPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accessPolicyIdentity === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accessPolicyIdentity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicyIdentity'");
             }
-            if ((!args || args.accessPolicyPermission === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accessPolicyPermission === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicyPermission'");
             }
-            if ((!args || args.accessPolicyResource === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accessPolicyResource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicyResource'");
             }
             inputs["accessPolicyIdentity"] = args ? args.accessPolicyIdentity : undefined;
@@ -81,12 +82,8 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["accessPolicyPermission"] = undefined /*out*/;
             inputs["accessPolicyResource"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AccessPolicy.__pulumiType, name, inputs, opts);
     }
@@ -99,7 +96,7 @@ export interface AccessPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
      */
-    readonly accessPolicyIdentity: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyIdentity>;
+    readonly accessPolicyIdentity: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyIdentityArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
      */
@@ -107,5 +104,5 @@ export interface AccessPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
      */
-    readonly accessPolicyResource: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyResource>;
+    readonly accessPolicyResource: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyResourceArgs>;
 }

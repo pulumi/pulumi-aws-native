@@ -77,7 +77,8 @@ export class ApiKey extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ApiKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["customerId"] = args ? args.customerId : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -96,12 +97,8 @@ export class ApiKey extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ApiKey.__pulumiType, name, inputs, opts);
     }
@@ -134,11 +131,11 @@ export interface ApiKeyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys
      */
-    readonly stageKeys?: pulumi.Input<pulumi.Input<inputs.ApiGateway.ApiKeyStageKey>[]>;
+    readonly stageKeys?: pulumi.Input<pulumi.Input<inputs.ApiGateway.ApiKeyStageKeyArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-value
      */

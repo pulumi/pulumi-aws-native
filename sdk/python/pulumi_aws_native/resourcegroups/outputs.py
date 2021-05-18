@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -20,6 +20,27 @@ class GroupQuery(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTypeFilters":
+            suggest = "resource_type_filters"
+        elif key == "stackIdentifier":
+            suggest = "stack_identifier"
+        elif key == "tagFilters":
+            suggest = "tag_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type_filters: Optional[Sequence[str]] = None,
                  stack_identifier: Optional[str] = None,
@@ -28,7 +49,7 @@ class GroupQuery(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
         :param Sequence[str] resource_type_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
         :param str stack_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
-        :param Sequence['GroupTagFilterArgs'] tag_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
+        :param Sequence['GroupTagFilter'] tag_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
         """
         if resource_type_filters is not None:
             pulumi.set(__self__, "resource_type_filters", resource_type_filters)
@@ -61,9 +82,6 @@ class GroupQuery(dict):
         """
         return pulumi.get(self, "tag_filters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupResourceQuery(dict):
@@ -75,7 +93,7 @@ class GroupResourceQuery(dict):
                  type: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html
-        :param 'GroupQueryArgs' query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
+        :param 'GroupQuery' query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
         :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
         """
         if query is not None:
@@ -98,9 +116,6 @@ class GroupResourceQuery(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -136,8 +151,5 @@ class GroupTagFilter(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-values
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

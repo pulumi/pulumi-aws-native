@@ -5,15 +5,180 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 
-__all__ = ['FlowLog']
+__all__ = ['FlowLogArgs', 'FlowLog']
+
+@pulumi.input_type
+class FlowLogArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[str],
+                 resource_type: pulumi.Input[str],
+                 traffic_type: pulumi.Input[str],
+                 deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
+                 log_destination: Optional[pulumi.Input[str]] = None,
+                 log_destination_type: Optional[pulumi.Input[str]] = None,
+                 log_format: Optional[pulumi.Input[str]] = None,
+                 log_group_name: Optional[pulumi.Input[str]] = None,
+                 max_aggregation_interval: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a FlowLog resource.
+        :param pulumi.Input[str] resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
+        :param pulumi.Input[str] resource_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
+        :param pulumi.Input[str] traffic_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
+        :param pulumi.Input[str] deliver_logs_permission_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn
+        :param pulumi.Input[str] log_destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination
+        :param pulumi.Input[str] log_destination_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype
+        :param pulumi.Input[str] log_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
+        :param pulumi.Input[str] log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
+        :param pulumi.Input[int] max_aggregation_interval: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "traffic_type", traffic_type)
+        if deliver_logs_permission_arn is not None:
+            pulumi.set(__self__, "deliver_logs_permission_arn", deliver_logs_permission_arn)
+        if log_destination is not None:
+            pulumi.set(__self__, "log_destination", log_destination)
+        if log_destination_type is not None:
+            pulumi.set(__self__, "log_destination_type", log_destination_type)
+        if log_format is not None:
+            pulumi.set(__self__, "log_format", log_format)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if max_aggregation_interval is not None:
+            pulumi.set(__self__, "max_aggregation_interval", max_aggregation_interval)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="trafficType")
+    def traffic_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
+        """
+        return pulumi.get(self, "traffic_type")
+
+    @traffic_type.setter
+    def traffic_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "traffic_type", value)
+
+    @property
+    @pulumi.getter(name="deliverLogsPermissionArn")
+    def deliver_logs_permission_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn
+        """
+        return pulumi.get(self, "deliver_logs_permission_arn")
+
+    @deliver_logs_permission_arn.setter
+    def deliver_logs_permission_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deliver_logs_permission_arn", value)
+
+    @property
+    @pulumi.getter(name="logDestination")
+    def log_destination(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination
+        """
+        return pulumi.get(self, "log_destination")
+
+    @log_destination.setter
+    def log_destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_destination", value)
+
+    @property
+    @pulumi.getter(name="logDestinationType")
+    def log_destination_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype
+        """
+        return pulumi.get(self, "log_destination_type")
+
+    @log_destination_type.setter
+    def log_destination_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_destination_type", value)
+
+    @property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat
+        """
+        return pulumi.get(self, "log_format")
+
+    @log_format.setter
+    def log_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_format", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="maxAggregationInterval")
+    def max_aggregation_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
+        """
+        return pulumi.get(self, "max_aggregation_interval")
+
+    @max_aggregation_interval.setter
+    def max_aggregation_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_aggregation_interval", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class FlowLog(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -27,9 +192,7 @@ class FlowLog(pulumi.CustomResource):
                  resource_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  traffic_type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html
 
@@ -46,12 +209,41 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
         :param pulumi.Input[str] traffic_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FlowLogArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html
+
+        :param str resource_name: The name of the resource.
+        :param FlowLogArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FlowLogArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
+                 log_destination: Optional[pulumi.Input[str]] = None,
+                 log_destination_type: Optional[pulumi.Input[str]] = None,
+                 log_format: Optional[pulumi.Input[str]] = None,
+                 log_group_name: Optional[pulumi.Input[str]] = None,
+                 max_aggregation_interval: Optional[pulumi.Input[int]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 traffic_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -61,25 +253,25 @@ class FlowLog(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
-            __props__['deliver_logs_permission_arn'] = deliver_logs_permission_arn
-            __props__['log_destination'] = log_destination
-            __props__['log_destination_type'] = log_destination_type
-            __props__['log_format'] = log_format
-            __props__['log_group_name'] = log_group_name
-            __props__['max_aggregation_interval'] = max_aggregation_interval
+            __props__.__dict__["deliver_logs_permission_arn"] = deliver_logs_permission_arn
+            __props__.__dict__["log_destination"] = log_destination
+            __props__.__dict__["log_destination_type"] = log_destination_type
+            __props__.__dict__["log_format"] = log_format
+            __props__.__dict__["log_group_name"] = log_group_name
+            __props__.__dict__["max_aggregation_interval"] = max_aggregation_interval
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
-            __props__['resource_id'] = resource_id
+            __props__.__dict__["resource_id"] = resource_id
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
-            __props__['resource_type'] = resource_type
-            __props__['tags'] = tags
+            __props__.__dict__["resource_type"] = resource_type
+            __props__.__dict__["tags"] = tags
             if traffic_type is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_type'")
-            __props__['traffic_type'] = traffic_type
-            __props__['id'] = None
+            __props__.__dict__["traffic_type"] = traffic_type
+            __props__.__dict__["id"] = None
         super(FlowLog, __self__).__init__(
             'aws-native:EC2:FlowLog',
             resource_name,
@@ -100,8 +292,19 @@ class FlowLog(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
+        __props__.__dict__["deliver_logs_permission_arn"] = None
+        __props__.__dict__["id"] = None
+        __props__.__dict__["log_destination"] = None
+        __props__.__dict__["log_destination_type"] = None
+        __props__.__dict__["log_format"] = None
+        __props__.__dict__["log_group_name"] = None
+        __props__.__dict__["max_aggregation_interval"] = None
+        __props__.__dict__["resource_id"] = None
+        __props__.__dict__["resource_type"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["traffic_type"] = None
         return FlowLog(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -188,10 +391,4 @@ class FlowLog(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
         """
         return pulumi.get(self, "traffic_type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

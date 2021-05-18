@@ -5,17 +5,137 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['DomainName']
+__all__ = ['DomainNameArgs', 'DomainName']
+
+@pulumi.input_type
+class DomainNameArgs:
+    def __init__(__self__, *,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 endpoint_configuration: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']] = None,
+                 mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
+                 regional_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 security_policy: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a DomainName resource.
+        :param pulumi.Input[str] certificate_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
+        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
+        :param pulumi.Input['DomainNameEndpointConfigurationArgs'] endpoint_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
+        :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
+        :param pulumi.Input[str] regional_certificate_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
+        :param pulumi.Input[str] security_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if endpoint_configuration is not None:
+            pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
+        if mutual_tls_authentication is not None:
+            pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
+        if regional_certificate_arn is not None:
+            pulumi.set(__self__, "regional_certificate_arn", regional_certificate_arn)
+        if security_policy is not None:
+            pulumi.set(__self__, "security_policy", security_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="endpointConfiguration")
+    def endpoint_configuration(self) -> Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
+        """
+        return pulumi.get(self, "endpoint_configuration")
+
+    @endpoint_configuration.setter
+    def endpoint_configuration(self, value: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']]):
+        pulumi.set(self, "endpoint_configuration", value)
+
+    @property
+    @pulumi.getter(name="mutualTlsAuthentication")
+    def mutual_tls_authentication(self) -> Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
+        """
+        return pulumi.get(self, "mutual_tls_authentication")
+
+    @mutual_tls_authentication.setter
+    def mutual_tls_authentication(self, value: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']]):
+        pulumi.set(self, "mutual_tls_authentication", value)
+
+    @property
+    @pulumi.getter(name="regionalCertificateArn")
+    def regional_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
+        """
+        return pulumi.get(self, "regional_certificate_arn")
+
+    @regional_certificate_arn.setter
+    def regional_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "regional_certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="securityPolicy")
+    def security_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
+        """
+        return pulumi.get(self, "security_policy")
+
+    @security_policy.setter
+    def security_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_policy", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class DomainName(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -26,9 +146,7 @@ class DomainName(pulumi.CustomResource):
                  regional_certificate_arn: Optional[pulumi.Input[str]] = None,
                  security_policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
 
@@ -42,12 +160,38 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[str] security_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[DomainNameArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
+
+        :param str resource_name: The name of the resource.
+        :param DomainNameArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DomainNameArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameEndpointConfigurationArgs']]] = None,
+                 mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
+                 regional_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 security_policy: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -57,19 +201,19 @@ class DomainName(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DomainNameArgs.__new__(DomainNameArgs)
 
-            __props__['certificate_arn'] = certificate_arn
-            __props__['domain_name'] = domain_name
-            __props__['endpoint_configuration'] = endpoint_configuration
-            __props__['mutual_tls_authentication'] = mutual_tls_authentication
-            __props__['regional_certificate_arn'] = regional_certificate_arn
-            __props__['security_policy'] = security_policy
-            __props__['tags'] = tags
-            __props__['distribution_domain_name'] = None
-            __props__['distribution_hosted_zone_id'] = None
-            __props__['regional_domain_name'] = None
-            __props__['regional_hosted_zone_id'] = None
+            __props__.__dict__["certificate_arn"] = certificate_arn
+            __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["endpoint_configuration"] = endpoint_configuration
+            __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
+            __props__.__dict__["regional_certificate_arn"] = regional_certificate_arn
+            __props__.__dict__["security_policy"] = security_policy
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["distribution_domain_name"] = None
+            __props__.__dict__["distribution_hosted_zone_id"] = None
+            __props__.__dict__["regional_domain_name"] = None
+            __props__.__dict__["regional_hosted_zone_id"] = None
         super(DomainName, __self__).__init__(
             'aws-native:ApiGateway:DomainName',
             resource_name,
@@ -90,8 +234,19 @@ class DomainName(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DomainNameArgs.__new__(DomainNameArgs)
 
+        __props__.__dict__["certificate_arn"] = None
+        __props__.__dict__["distribution_domain_name"] = None
+        __props__.__dict__["distribution_hosted_zone_id"] = None
+        __props__.__dict__["domain_name"] = None
+        __props__.__dict__["endpoint_configuration"] = None
+        __props__.__dict__["mutual_tls_authentication"] = None
+        __props__.__dict__["regional_certificate_arn"] = None
+        __props__.__dict__["regional_domain_name"] = None
+        __props__.__dict__["regional_hosted_zone_id"] = None
+        __props__.__dict__["security_policy"] = None
+        __props__.__dict__["tags"] = None
         return DomainName(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -169,10 +324,4 @@ class DomainName(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

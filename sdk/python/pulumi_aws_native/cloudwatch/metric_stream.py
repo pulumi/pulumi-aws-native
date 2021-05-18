@@ -5,17 +5,119 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['MetricStream']
+__all__ = ['MetricStreamArgs', 'MetricStream']
+
+@pulumi.input_type
+class MetricStreamArgs:
+    def __init__(__self__, *,
+                 firehose_arn: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]] = None,
+                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a MetricStream resource.
+        :param pulumi.Input[str] firehose_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]] exclude_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]] include_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+        """
+        pulumi.set(__self__, "firehose_arn", firehose_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if exclude_filters is not None:
+            pulumi.set(__self__, "exclude_filters", exclude_filters)
+        if include_filters is not None:
+            pulumi.set(__self__, "include_filters", include_filters)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="firehoseArn")
+    def firehose_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+        """
+        return pulumi.get(self, "firehose_arn")
+
+    @firehose_arn.setter
+    def firehose_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "firehose_arn", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="excludeFilters")
+    def exclude_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+        """
+        return pulumi.get(self, "exclude_filters")
+
+    @exclude_filters.setter
+    def exclude_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]]):
+        pulumi.set(self, "exclude_filters", value)
+
+    @property
+    @pulumi.getter(name="includeFilters")
+    def include_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+        """
+        return pulumi.get(self, "include_filters")
+
+    @include_filters.setter
+    def include_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]]):
+        pulumi.set(self, "include_filters", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class MetricStream(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -25,9 +127,7 @@ class MetricStream(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
 
@@ -40,12 +140,37 @@ class MetricStream(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MetricStreamArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
+
+        :param str resource_name: The name of the resource.
+        :param MetricStreamArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MetricStreamArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamMetricStreamFilterArgs']]]]] = None,
+                 firehose_arn: Optional[pulumi.Input[str]] = None,
+                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamMetricStreamFilterArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -55,22 +180,22 @@ class MetricStream(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MetricStreamArgs.__new__(MetricStreamArgs)
 
-            __props__['exclude_filters'] = exclude_filters
+            __props__.__dict__["exclude_filters"] = exclude_filters
             if firehose_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'firehose_arn'")
-            __props__['firehose_arn'] = firehose_arn
-            __props__['include_filters'] = include_filters
-            __props__['name'] = name
+            __props__.__dict__["firehose_arn"] = firehose_arn
+            __props__.__dict__["include_filters"] = include_filters
+            __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['creation_date'] = None
-            __props__['last_update_date'] = None
-            __props__['state'] = None
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["creation_date"] = None
+            __props__.__dict__["last_update_date"] = None
+            __props__.__dict__["state"] = None
         super(MetricStream, __self__).__init__(
             'aws-native:CloudWatch:MetricStream',
             resource_name,
@@ -91,8 +216,18 @@ class MetricStream(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = MetricStreamArgs.__new__(MetricStreamArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["creation_date"] = None
+        __props__.__dict__["exclude_filters"] = None
+        __props__.__dict__["firehose_arn"] = None
+        __props__.__dict__["include_filters"] = None
+        __props__.__dict__["last_update_date"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["role_arn"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["tags"] = None
         return MetricStream(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -162,10 +297,4 @@ class MetricStream(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

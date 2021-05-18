@@ -5,15 +5,133 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ProvisioningTemplate']
+__all__ = ['ProvisioningTemplateArgs', 'ProvisioningTemplate']
+
+@pulumi.input_type
+class ProvisioningTemplateArgs:
+    def __init__(__self__, *,
+                 provisioning_role_arn: pulumi.Input[str],
+                 template_body: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 pre_provisioning_hook: Optional[pulumi.Input['ProvisioningTemplateProvisioningHookArgs']] = None,
+                 tags: Optional[pulumi.Input['ProvisioningTemplateTagsArgs']] = None,
+                 template_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ProvisioningTemplate resource.
+        :param pulumi.Input[str] provisioning_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
+        :param pulumi.Input[str] template_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
+        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
+        :param pulumi.Input['ProvisioningTemplateProvisioningHookArgs'] pre_provisioning_hook: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
+        :param pulumi.Input['ProvisioningTemplateTagsArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
+        :param pulumi.Input[str] template_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
+        """
+        pulumi.set(__self__, "provisioning_role_arn", provisioning_role_arn)
+        pulumi.set(__self__, "template_body", template_body)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if pre_provisioning_hook is not None:
+            pulumi.set(__self__, "pre_provisioning_hook", pre_provisioning_hook)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if template_name is not None:
+            pulumi.set(__self__, "template_name", template_name)
+
+    @property
+    @pulumi.getter(name="provisioningRoleArn")
+    def provisioning_role_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
+        """
+        return pulumi.get(self, "provisioning_role_arn")
+
+    @provisioning_role_arn.setter
+    def provisioning_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provisioning_role_arn", value)
+
+    @property
+    @pulumi.getter(name="templateBody")
+    def template_body(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
+        """
+        return pulumi.get(self, "template_body")
+
+    @template_body.setter
+    def template_body(self, value: pulumi.Input[str]):
+        pulumi.set(self, "template_body", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="preProvisioningHook")
+    def pre_provisioning_hook(self) -> Optional[pulumi.Input['ProvisioningTemplateProvisioningHookArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
+        """
+        return pulumi.get(self, "pre_provisioning_hook")
+
+    @pre_provisioning_hook.setter
+    def pre_provisioning_hook(self, value: Optional[pulumi.Input['ProvisioningTemplateProvisioningHookArgs']]):
+        pulumi.set(self, "pre_provisioning_hook", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input['ProvisioningTemplateTagsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input['ProvisioningTemplateTagsArgs']]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="templateName")
+    def template_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
+        """
+        return pulumi.get(self, "template_name")
+
+    @template_name.setter
+    def template_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_name", value)
 
 
 class ProvisioningTemplate(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -24,9 +142,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[pulumi.InputType['ProvisioningTemplateTagsArgs']]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html
 
@@ -40,12 +156,38 @@ class ProvisioningTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] template_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
         :param pulumi.Input[str] template_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProvisioningTemplateArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html
+
+        :param str resource_name: The name of the resource.
+        :param ProvisioningTemplateArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProvisioningTemplateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 pre_provisioning_hook: Optional[pulumi.Input[pulumi.InputType['ProvisioningTemplateProvisioningHookArgs']]] = None,
+                 provisioning_role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['ProvisioningTemplateTagsArgs']]] = None,
+                 template_body: Optional[pulumi.Input[str]] = None,
+                 template_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -55,20 +197,20 @@ class ProvisioningTemplate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProvisioningTemplateArgs.__new__(ProvisioningTemplateArgs)
 
-            __props__['description'] = description
-            __props__['enabled'] = enabled
-            __props__['pre_provisioning_hook'] = pre_provisioning_hook
+            __props__.__dict__["description"] = description
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["pre_provisioning_hook"] = pre_provisioning_hook
             if provisioning_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioning_role_arn'")
-            __props__['provisioning_role_arn'] = provisioning_role_arn
-            __props__['tags'] = tags
+            __props__.__dict__["provisioning_role_arn"] = provisioning_role_arn
+            __props__.__dict__["tags"] = tags
             if template_body is None and not opts.urn:
                 raise TypeError("Missing required property 'template_body'")
-            __props__['template_body'] = template_body
-            __props__['template_name'] = template_name
-            __props__['template_arn'] = None
+            __props__.__dict__["template_body"] = template_body
+            __props__.__dict__["template_name"] = template_name
+            __props__.__dict__["template_arn"] = None
         super(ProvisioningTemplate, __self__).__init__(
             'aws-native:IoT:ProvisioningTemplate',
             resource_name,
@@ -89,8 +231,16 @@ class ProvisioningTemplate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ProvisioningTemplateArgs.__new__(ProvisioningTemplateArgs)
 
+        __props__.__dict__["description"] = None
+        __props__.__dict__["enabled"] = None
+        __props__.__dict__["pre_provisioning_hook"] = None
+        __props__.__dict__["provisioning_role_arn"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["template_arn"] = None
+        __props__.__dict__["template_body"] = None
+        __props__.__dict__["template_name"] = None
         return ProvisioningTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -153,10 +303,4 @@ class ProvisioningTemplate(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
         """
         return pulumi.get(self, "template_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -5,22 +5,43 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ResourceCollection']
+__all__ = ['ResourceCollectionArgs', 'ResourceCollection']
+
+@pulumi.input_type
+class ResourceCollectionArgs:
+    def __init__(__self__, *,
+                 resource_collection_filter: pulumi.Input['ResourceCollectionResourceCollectionFilterArgs']):
+        """
+        The set of arguments for constructing a ResourceCollection resource.
+        :param pulumi.Input['ResourceCollectionResourceCollectionFilterArgs'] resource_collection_filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
+        """
+        pulumi.set(__self__, "resource_collection_filter", resource_collection_filter)
+
+    @property
+    @pulumi.getter(name="resourceCollectionFilter")
+    def resource_collection_filter(self) -> pulumi.Input['ResourceCollectionResourceCollectionFilterArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
+        """
+        return pulumi.get(self, "resource_collection_filter")
+
+    @resource_collection_filter.setter
+    def resource_collection_filter(self, value: pulumi.Input['ResourceCollectionResourceCollectionFilterArgs']):
+        pulumi.set(self, "resource_collection_filter", value)
 
 
 class ResourceCollection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_collection_filter: Optional[pulumi.Input[pulumi.InputType['ResourceCollectionResourceCollectionFilterArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
 
@@ -28,12 +49,32 @@ class ResourceCollection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceCollectionResourceCollectionFilterArgs']] resource_collection_filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ResourceCollectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
+
+        :param str resource_name: The name of the resource.
+        :param ResourceCollectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceCollectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 resource_collection_filter: Optional[pulumi.Input[pulumi.InputType['ResourceCollectionResourceCollectionFilterArgs']]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -43,12 +84,12 @@ class ResourceCollection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ResourceCollectionArgs.__new__(ResourceCollectionArgs)
 
             if resource_collection_filter is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_collection_filter'")
-            __props__['resource_collection_filter'] = resource_collection_filter
-            __props__['resource_collection_type'] = None
+            __props__.__dict__["resource_collection_filter"] = resource_collection_filter
+            __props__.__dict__["resource_collection_type"] = None
         super(ResourceCollection, __self__).__init__(
             'aws-native:DevOpsGuru:ResourceCollection',
             resource_name,
@@ -69,8 +110,10 @@ class ResourceCollection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ResourceCollectionArgs.__new__(ResourceCollectionArgs)
 
+        __props__.__dict__["resource_collection_filter"] = None
+        __props__.__dict__["resource_collection_type"] = None
         return ResourceCollection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -85,10 +128,4 @@ class ResourceCollection(pulumi.CustomResource):
     @pulumi.getter(name="resourceCollectionType")
     def resource_collection_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "resource_collection_type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

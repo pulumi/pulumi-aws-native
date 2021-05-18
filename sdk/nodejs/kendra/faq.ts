@@ -75,17 +75,18 @@ export class Faq extends pulumi.CustomResource {
      */
     constructor(name: string, args: FaqArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.indexId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.indexId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'indexId'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.s3Path === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.s3Path === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Path'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -108,12 +109,8 @@ export class Faq extends pulumi.CustomResource {
             inputs["s3Path"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Faq.__pulumiType, name, inputs, opts);
     }
@@ -146,9 +143,9 @@ export interface FaqArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
      */
-    readonly s3Path: pulumi.Input<inputs.Kendra.FaqS3Path>;
+    readonly s3Path: pulumi.Input<inputs.Kendra.FaqS3PathArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
      */
-    readonly tags?: pulumi.Input<inputs.Kendra.FaqTagList>;
+    readonly tags?: pulumi.Input<inputs.Kendra.FaqTagListArgs>;
 }

@@ -7,7 +7,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/ssm"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
 func (p *cfnProvider) getSSMParameter(ctx context.Context, inputs resource.PropertyMap) (*ssm.Parameter, error) {

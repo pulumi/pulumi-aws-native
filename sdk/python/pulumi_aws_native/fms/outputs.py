@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'PolicyIEMap',
@@ -19,6 +19,25 @@ class PolicyIEMap(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aCCOUNT":
+            suggest = "a_ccount"
+        elif key == "oRGUNIT":
+            suggest = "o_rgunit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyIEMap. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyIEMap.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyIEMap.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  a_ccount: Optional[Sequence[str]] = None,
                  o_rgunit: Optional[Sequence[str]] = None):
@@ -47,9 +66,6 @@ class PolicyIEMap(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
         """
         return pulumi.get(self, "o_rgunit")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -84,9 +100,6 @@ class PolicyPolicyTag(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyResourceTag(dict):
@@ -120,8 +133,5 @@ class PolicyResourceTag(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-value
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

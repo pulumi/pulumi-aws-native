@@ -5,16 +5,87 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 
-__all__ = ['NetworkInsightsAnalysis']
+__all__ = ['NetworkInsightsAnalysisArgs', 'NetworkInsightsAnalysis']
+
+@pulumi.input_type
+class NetworkInsightsAnalysisArgs:
+    def __init__(__self__, *,
+                 network_insights_path_id: pulumi.Input[str],
+                 filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 status_message: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a NetworkInsightsAnalysis resource.
+        :param pulumi.Input[str] network_insights_path_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_in_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
+        :param pulumi.Input[str] status_message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
+        """
+        pulumi.set(__self__, "network_insights_path_id", network_insights_path_id)
+        if filter_in_arns is not None:
+            pulumi.set(__self__, "filter_in_arns", filter_in_arns)
+        if status_message is not None:
+            pulumi.set(__self__, "status_message", status_message)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="networkInsightsPathId")
+    def network_insights_path_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
+        """
+        return pulumi.get(self, "network_insights_path_id")
+
+    @network_insights_path_id.setter
+    def network_insights_path_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_insights_path_id", value)
+
+    @property
+    @pulumi.getter(name="filterInArns")
+    def filter_in_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
+        """
+        return pulumi.get(self, "filter_in_arns")
+
+    @filter_in_arns.setter
+    def filter_in_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "filter_in_arns", value)
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
+        """
+        return pulumi.get(self, "status_message")
+
+    @status_message.setter
+    def status_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status_message", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class NetworkInsightsAnalysis(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -22,9 +93,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                  network_insights_path_id: Optional[pulumi.Input[str]] = None,
                  status_message: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html
 
@@ -35,12 +104,35 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         :param pulumi.Input[str] status_message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NetworkInsightsAnalysisArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html
+
+        :param str resource_name: The name of the resource.
+        :param NetworkInsightsAnalysisArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkInsightsAnalysisArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 network_insights_path_id: Optional[pulumi.Input[str]] = None,
+                 status_message: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -50,23 +142,23 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NetworkInsightsAnalysisArgs.__new__(NetworkInsightsAnalysisArgs)
 
-            __props__['filter_in_arns'] = filter_in_arns
+            __props__.__dict__["filter_in_arns"] = filter_in_arns
             if network_insights_path_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_insights_path_id'")
-            __props__['network_insights_path_id'] = network_insights_path_id
-            __props__['status_message'] = status_message
-            __props__['tags'] = tags
-            __props__['alternate_path_hints'] = None
-            __props__['explanations'] = None
-            __props__['forward_path_components'] = None
-            __props__['network_insights_analysis_arn'] = None
-            __props__['network_insights_analysis_id'] = None
-            __props__['network_path_found'] = None
-            __props__['return_path_components'] = None
-            __props__['start_date'] = None
-            __props__['status'] = None
+            __props__.__dict__["network_insights_path_id"] = network_insights_path_id
+            __props__.__dict__["status_message"] = status_message
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["alternate_path_hints"] = None
+            __props__.__dict__["explanations"] = None
+            __props__.__dict__["forward_path_components"] = None
+            __props__.__dict__["network_insights_analysis_arn"] = None
+            __props__.__dict__["network_insights_analysis_id"] = None
+            __props__.__dict__["network_path_found"] = None
+            __props__.__dict__["return_path_components"] = None
+            __props__.__dict__["start_date"] = None
+            __props__.__dict__["status"] = None
         super(NetworkInsightsAnalysis, __self__).__init__(
             'aws-native:EC2:NetworkInsightsAnalysis',
             resource_name,
@@ -87,8 +179,21 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = NetworkInsightsAnalysisArgs.__new__(NetworkInsightsAnalysisArgs)
 
+        __props__.__dict__["alternate_path_hints"] = None
+        __props__.__dict__["explanations"] = None
+        __props__.__dict__["filter_in_arns"] = None
+        __props__.__dict__["forward_path_components"] = None
+        __props__.__dict__["network_insights_analysis_arn"] = None
+        __props__.__dict__["network_insights_analysis_id"] = None
+        __props__.__dict__["network_insights_path_id"] = None
+        __props__.__dict__["network_path_found"] = None
+        __props__.__dict__["return_path_components"] = None
+        __props__.__dict__["start_date"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["status_message"] = None
+        __props__.__dict__["tags"] = None
         return NetworkInsightsAnalysis(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -167,10 +272,4 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

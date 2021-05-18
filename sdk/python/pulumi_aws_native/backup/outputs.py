@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -23,6 +23,25 @@ class BackupPlanAdvancedBackupSettingResourceType(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupOptions":
+            suggest = "backup_options"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPlanAdvancedBackupSettingResourceType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPlanAdvancedBackupSettingResourceType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPlanAdvancedBackupSettingResourceType.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_options: str,
                  resource_type: str):
@@ -50,15 +69,33 @@ class BackupPlanAdvancedBackupSettingResourceType(dict):
         """
         return pulumi.get(self, "resource_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BackupPlanBackupPlanResourceType(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupPlanName":
+            suggest = "backup_plan_name"
+        elif key == "backupPlanRule":
+            suggest = "backup_plan_rule"
+        elif key == "advancedBackupSettings":
+            suggest = "advanced_backup_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPlanBackupPlanResourceType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPlanBackupPlanResourceType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPlanBackupPlanResourceType.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_plan_name: str,
                  backup_plan_rule: Sequence['outputs.BackupPlanBackupRuleResourceType'],
@@ -66,8 +103,8 @@ class BackupPlanBackupPlanResourceType(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html
         :param str backup_plan_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
-        :param Sequence['BackupPlanBackupRuleResourceTypeArgs'] backup_plan_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
-        :param Sequence['BackupPlanAdvancedBackupSettingResourceTypeArgs'] advanced_backup_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
+        :param Sequence['BackupPlanBackupRuleResourceType'] backup_plan_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
+        :param Sequence['BackupPlanAdvancedBackupSettingResourceType'] advanced_backup_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
         """
         pulumi.set(__self__, "backup_plan_name", backup_plan_name)
         pulumi.set(__self__, "backup_plan_rule", backup_plan_rule)
@@ -98,15 +135,41 @@ class BackupPlanBackupPlanResourceType(dict):
         """
         return pulumi.get(self, "advanced_backup_settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BackupPlanBackupRuleResourceType(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleName":
+            suggest = "rule_name"
+        elif key == "targetBackupVault":
+            suggest = "target_backup_vault"
+        elif key == "completionWindowMinutes":
+            suggest = "completion_window_minutes"
+        elif key == "copyActions":
+            suggest = "copy_actions"
+        elif key == "recoveryPointTags":
+            suggest = "recovery_point_tags"
+        elif key == "scheduleExpression":
+            suggest = "schedule_expression"
+        elif key == "startWindowMinutes":
+            suggest = "start_window_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPlanBackupRuleResourceType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPlanBackupRuleResourceType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPlanBackupRuleResourceType.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_name: str,
                  target_backup_vault: str,
@@ -121,8 +184,8 @@ class BackupPlanBackupRuleResourceType(dict):
         :param str rule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename
         :param str target_backup_vault: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault
         :param float completion_window_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-completionwindowminutes
-        :param Sequence['BackupPlanCopyActionResourceTypeArgs'] copy_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
-        :param 'BackupPlanLifecycleResourceTypeArgs' lifecycle: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
+        :param Sequence['BackupPlanCopyActionResourceType'] copy_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
+        :param 'BackupPlanLifecycleResourceType' lifecycle: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
         :param Union[Any, str] recovery_point_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
         :param str schedule_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
         :param float start_window_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-startwindowminutes
@@ -206,22 +269,36 @@ class BackupPlanBackupRuleResourceType(dict):
         """
         return pulumi.get(self, "start_window_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BackupPlanCopyActionResourceType(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationBackupVaultArn":
+            suggest = "destination_backup_vault_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPlanCopyActionResourceType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPlanCopyActionResourceType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPlanCopyActionResourceType.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_backup_vault_arn: str,
                  lifecycle: Optional['outputs.BackupPlanLifecycleResourceType'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html
         :param str destination_backup_vault_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-destinationbackupvaultarn
-        :param 'BackupPlanLifecycleResourceTypeArgs' lifecycle: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-lifecycle
+        :param 'BackupPlanLifecycleResourceType' lifecycle: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-lifecycle
         """
         pulumi.set(__self__, "destination_backup_vault_arn", destination_backup_vault_arn)
         if lifecycle is not None:
@@ -243,15 +320,31 @@ class BackupPlanCopyActionResourceType(dict):
         """
         return pulumi.get(self, "lifecycle")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BackupPlanLifecycleResourceType(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteAfterDays":
+            suggest = "delete_after_days"
+        elif key == "moveToColdStorageAfterDays":
+            suggest = "move_to_cold_storage_after_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPlanLifecycleResourceType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPlanLifecycleResourceType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPlanLifecycleResourceType.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete_after_days: Optional[float] = None,
                  move_to_cold_storage_after_days: Optional[float] = None):
@@ -281,15 +374,31 @@ class BackupPlanLifecycleResourceType(dict):
         """
         return pulumi.get(self, "move_to_cold_storage_after_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BackupVaultNotificationObjectType(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupVaultEvents":
+            suggest = "backup_vault_events"
+        elif key == "sNSTopicArn":
+            suggest = "s_ns_topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupVaultNotificationObjectType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupVaultNotificationObjectType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupVaultNotificationObjectType.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_vault_events: Sequence[str],
                  s_ns_topic_arn: str):
@@ -316,8 +425,5 @@ class BackupVaultNotificationObjectType(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
         """
         return pulumi.get(self, "s_ns_topic_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

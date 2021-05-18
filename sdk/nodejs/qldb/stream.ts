@@ -75,20 +75,21 @@ export class Stream extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.inclusiveStartTime === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.inclusiveStartTime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'inclusiveStartTime'");
             }
-            if ((!args || args.kinesisConfiguration === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kinesisConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kinesisConfiguration'");
             }
-            if ((!args || args.ledgerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ledgerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ledgerName'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.streamName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.streamName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamName'");
             }
             inputs["exclusiveEndTime"] = args ? args.exclusiveEndTime : undefined;
@@ -111,12 +112,8 @@ export class Stream extends pulumi.CustomResource {
             inputs["streamName"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Stream.__pulumiType, name, inputs, opts);
     }
@@ -137,7 +134,7 @@ export interface StreamArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
      */
-    readonly kinesisConfiguration: pulumi.Input<inputs.QLDB.StreamKinesisConfiguration>;
+    readonly kinesisConfiguration: pulumi.Input<inputs.QLDB.StreamKinesisConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
      */
@@ -153,5 +150,5 @@ export interface StreamArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

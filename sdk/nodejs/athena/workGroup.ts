@@ -74,8 +74,9 @@ export class WorkGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -96,12 +97,8 @@ export class WorkGroup extends pulumi.CustomResource {
             inputs["workGroupConfiguration"] = undefined /*out*/;
             inputs["workGroupConfigurationUpdates"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(WorkGroup.__pulumiType, name, inputs, opts);
     }
@@ -130,13 +127,13 @@ export interface WorkGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
      */
-    readonly tags?: pulumi.Input<inputs.Athena.WorkGroupTags>;
+    readonly tags?: pulumi.Input<inputs.Athena.WorkGroupTagsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
      */
-    readonly workGroupConfiguration?: pulumi.Input<inputs.Athena.WorkGroupWorkGroupConfiguration>;
+    readonly workGroupConfiguration?: pulumi.Input<inputs.Athena.WorkGroupWorkGroupConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
      */
-    readonly workGroupConfigurationUpdates?: pulumi.Input<inputs.Athena.WorkGroupWorkGroupConfigurationUpdates>;
+    readonly workGroupConfigurationUpdates?: pulumi.Input<inputs.Athena.WorkGroupWorkGroupConfigurationUpdatesArgs>;
 }

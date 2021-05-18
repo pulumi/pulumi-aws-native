@@ -98,11 +98,12 @@ export class StackSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: StackSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.permissionModel === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.permissionModel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionModel'");
             }
-            if ((!args || args.stackSetName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.stackSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackSetName'");
             }
             inputs["administrationRoleARN"] = args ? args.administrationRoleARN : undefined;
@@ -135,12 +136,8 @@ export class StackSet extends pulumi.CustomResource {
             inputs["templateBody"] = undefined /*out*/;
             inputs["templateURL"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StackSet.__pulumiType, name, inputs, opts);
     }
@@ -157,7 +154,7 @@ export interface StackSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
      */
-    readonly autoDeployment?: pulumi.Input<inputs.CloudFormation.StackSetAutoDeployment>;
+    readonly autoDeployment?: pulumi.Input<inputs.CloudFormation.StackSetAutoDeploymentArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
      */
@@ -173,11 +170,11 @@ export interface StackSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
      */
-    readonly operationPreferences?: pulumi.Input<inputs.CloudFormation.StackSetOperationPreferences>;
+    readonly operationPreferences?: pulumi.Input<inputs.CloudFormation.StackSetOperationPreferencesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetParameter>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetParameterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
      */
@@ -185,7 +182,7 @@ export interface StackSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
      */
-    readonly stackInstancesGroup?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetStackInstances>[]>;
+    readonly stackInstancesGroup?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetStackInstancesArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
      */
@@ -193,7 +190,7 @@ export interface StackSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
      */

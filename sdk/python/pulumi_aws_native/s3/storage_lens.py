@@ -5,25 +5,62 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['StorageLens']
+__all__ = ['StorageLensArgs', 'StorageLens']
+
+@pulumi.input_type
+class StorageLensArgs:
+    def __init__(__self__, *,
+                 storage_lens_configuration: pulumi.Input['StorageLensStorageLensConfigurationArgs'],
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a StorageLens resource.
+        :param pulumi.Input['StorageLensStorageLensConfigurationArgs'] storage_lens_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
+        """
+        pulumi.set(__self__, "storage_lens_configuration", storage_lens_configuration)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="storageLensConfiguration")
+    def storage_lens_configuration(self) -> pulumi.Input['StorageLensStorageLensConfigurationArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
+        """
+        return pulumi.get(self, "storage_lens_configuration")
+
+    @storage_lens_configuration.setter
+    def storage_lens_configuration(self, value: pulumi.Input['StorageLensStorageLensConfigurationArgs']):
+        pulumi.set(self, "storage_lens_configuration", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class StorageLens(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  storage_lens_configuration: Optional[pulumi.Input[pulumi.InputType['StorageLensStorageLensConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
 
@@ -32,12 +69,33 @@ class StorageLens(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StorageLensStorageLensConfigurationArgs']] storage_lens_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: StorageLensArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
+
+        :param str resource_name: The name of the resource.
+        :param StorageLensArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(StorageLensArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 storage_lens_configuration: Optional[pulumi.Input[pulumi.InputType['StorageLensStorageLensConfigurationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -47,13 +105,13 @@ class StorageLens(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StorageLensArgs.__new__(StorageLensArgs)
 
             if storage_lens_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_lens_configuration'")
-            __props__['storage_lens_configuration'] = storage_lens_configuration
-            __props__['tags'] = tags
-            __props__['storage_lens_arn'] = None
+            __props__.__dict__["storage_lens_configuration"] = storage_lens_configuration
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["storage_lens_arn"] = None
         super(StorageLens, __self__).__init__(
             'aws-native:S3:StorageLens',
             resource_name,
@@ -74,8 +132,11 @@ class StorageLens(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = StorageLensArgs.__new__(StorageLensArgs)
 
+        __props__.__dict__["storage_lens_arn"] = None
+        __props__.__dict__["storage_lens_configuration"] = None
+        __props__.__dict__["tags"] = None
         return StorageLens(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -98,10 +159,4 @@ class StorageLens(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

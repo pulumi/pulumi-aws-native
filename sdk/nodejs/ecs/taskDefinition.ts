@@ -106,7 +106,8 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args?: TaskDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["containerDefinitions"] = args ? args.containerDefinitions : undefined;
             inputs["cpu"] = args ? args.cpu : undefined;
             inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
@@ -141,12 +142,8 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["taskRoleArn"] = undefined /*out*/;
             inputs["volumes"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TaskDefinition.__pulumiType, name, inputs, opts);
     }
@@ -159,7 +156,7 @@ export interface TaskDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
      */
-    readonly containerDefinitions?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionContainerDefinition>[]>;
+    readonly containerDefinitions?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionContainerDefinitionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
      */
@@ -175,7 +172,7 @@ export interface TaskDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
      */
-    readonly inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionInferenceAccelerator>[]>;
+    readonly inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionInferenceAcceleratorArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
      */
@@ -195,11 +192,11 @@ export interface TaskDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
      */
-    readonly placementConstraints?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionTaskDefinitionPlacementConstraint>[]>;
+    readonly placementConstraints?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionTaskDefinitionPlacementConstraintArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
      */
-    readonly proxyConfiguration?: pulumi.Input<inputs.ECS.TaskDefinitionProxyConfiguration>;
+    readonly proxyConfiguration?: pulumi.Input<inputs.ECS.TaskDefinitionProxyConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
      */
@@ -207,7 +204,7 @@ export interface TaskDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
      */
@@ -215,5 +212,5 @@ export interface TaskDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
      */
-    readonly volumes?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionVolume>[]>;
+    readonly volumes?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionVolumeArgs>[]>;
 }

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -67,9 +67,6 @@ class AuthorizerTags(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AuthorizerTokenSigningPublicKeys(dict):
@@ -82,15 +79,31 @@ class AuthorizerTokenSigningPublicKeys(dict):
         """
         pass
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProvisioningTemplateProvisioningHook(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "payloadVersion":
+            suggest = "payload_version"
+        elif key == "targetArn":
+            suggest = "target_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProvisioningTemplateProvisioningHook. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProvisioningTemplateProvisioningHook.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProvisioningTemplateProvisioningHook.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  payload_version: Optional[str] = None,
                  target_arn: Optional[str] = None):
@@ -120,9 +133,6 @@ class ProvisioningTemplateProvisioningHook(dict):
         """
         return pulumi.get(self, "target_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProvisioningTemplateTags(dict):
@@ -146,15 +156,45 @@ class ProvisioningTemplateTags(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchAlarm":
+            suggest = "cloudwatch_alarm"
+        elif key == "cloudwatchMetric":
+            suggest = "cloudwatch_metric"
+        elif key == "dynamoDB":
+            suggest = "dynamo_db"
+        elif key == "dynamoDBv2":
+            suggest = "dynamo_d_bv2"
+        elif key == "iotAnalytics":
+            suggest = "iot_analytics"
+        elif key == "iotEvents":
+            suggest = "iot_events"
+        elif key == "iotSiteWise":
+            suggest = "iot_site_wise"
+        elif key == "lambda":
+            suggest = "lambda_"
+        elif key == "stepFunctions":
+            suggest = "step_functions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloudwatch_alarm: Optional['outputs.TopicRuleCloudwatchAlarmAction'] = None,
                  cloudwatch_metric: Optional['outputs.TopicRuleCloudwatchMetricAction'] = None,
@@ -175,23 +215,23 @@ class TopicRuleAction(dict):
                  step_functions: Optional['outputs.TopicRuleStepFunctionsAction'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html
-        :param 'TopicRuleCloudwatchAlarmActionArgs' cloudwatch_alarm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm
-        :param 'TopicRuleCloudwatchMetricActionArgs' cloudwatch_metric: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchmetric
-        :param 'TopicRuleDynamoDBActionArgs' dynamo_db: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodb
-        :param 'TopicRuleDynamoDBv2ActionArgs' dynamo_d_bv2: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodbv2
-        :param 'TopicRuleElasticsearchActionArgs' elasticsearch: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-elasticsearch
-        :param 'TopicRuleFirehoseActionArgs' firehose: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose
-        :param 'TopicRuleHttpActionArgs' http: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http
-        :param 'TopicRuleIotAnalyticsActionArgs' iot_analytics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
-        :param 'TopicRuleIotEventsActionArgs' iot_events: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents
-        :param 'TopicRuleIotSiteWiseActionArgs' iot_site_wise: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise
-        :param 'TopicRuleKinesisActionArgs' kinesis: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
-        :param 'TopicRuleLambdaActionArgs' lambda_: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-lambda
-        :param 'TopicRuleRepublishActionArgs' republish: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-republish
-        :param 'TopicRuleS3ActionArgs' s3: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-s3
-        :param 'TopicRuleSnsActionArgs' sns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sns
-        :param 'TopicRuleSqsActionArgs' sqs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs
-        :param 'TopicRuleStepFunctionsActionArgs' step_functions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
+        :param 'TopicRuleCloudwatchAlarmAction' cloudwatch_alarm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm
+        :param 'TopicRuleCloudwatchMetricAction' cloudwatch_metric: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchmetric
+        :param 'TopicRuleDynamoDBAction' dynamo_db: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodb
+        :param 'TopicRuleDynamoDBv2Action' dynamo_d_bv2: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodbv2
+        :param 'TopicRuleElasticsearchAction' elasticsearch: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-elasticsearch
+        :param 'TopicRuleFirehoseAction' firehose: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose
+        :param 'TopicRuleHttpAction' http: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http
+        :param 'TopicRuleIotAnalyticsAction' iot_analytics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
+        :param 'TopicRuleIotEventsAction' iot_events: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents
+        :param 'TopicRuleIotSiteWiseAction' iot_site_wise: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise
+        :param 'TopicRuleKinesisAction' kinesis: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
+        :param 'TopicRuleLambdaAction' lambda_: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-lambda
+        :param 'TopicRuleRepublishAction' republish: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-republish
+        :param 'TopicRuleS3Action' s3: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-s3
+        :param 'TopicRuleSnsAction' sns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sns
+        :param 'TopicRuleSqsAction' sqs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs
+        :param 'TopicRuleStepFunctionsAction' step_functions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
         """
         if cloudwatch_alarm is not None:
             pulumi.set(__self__, "cloudwatch_alarm", cloudwatch_alarm)
@@ -364,15 +404,31 @@ class TopicRuleAction(dict):
         """
         return pulumi.get(self, "step_functions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleAssetPropertyTimestamp(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeInSeconds":
+            suggest = "time_in_seconds"
+        elif key == "offsetInNanos":
+            suggest = "offset_in_nanos"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleAssetPropertyTimestamp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleAssetPropertyTimestamp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleAssetPropertyTimestamp.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  time_in_seconds: str,
                  offset_in_nanos: Optional[str] = None):
@@ -401,9 +457,6 @@ class TopicRuleAssetPropertyTimestamp(dict):
         """
         return pulumi.get(self, "offset_in_nanos")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleAssetPropertyValue(dict):
@@ -416,8 +469,8 @@ class TopicRuleAssetPropertyValue(dict):
                  quality: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html
-        :param 'TopicRuleAssetPropertyTimestampArgs' timestamp: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp
-        :param 'TopicRuleAssetPropertyVariantArgs' value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value
+        :param 'TopicRuleAssetPropertyTimestamp' timestamp: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp
+        :param 'TopicRuleAssetPropertyVariant' value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value
         :param str quality: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality
         """
         pulumi.set(__self__, "timestamp", timestamp)
@@ -449,15 +502,35 @@ class TopicRuleAssetPropertyValue(dict):
         """
         return pulumi.get(self, "quality")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleAssetPropertyVariant(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "booleanValue":
+            suggest = "boolean_value"
+        elif key == "doubleValue":
+            suggest = "double_value"
+        elif key == "integerValue":
+            suggest = "integer_value"
+        elif key == "stringValue":
+            suggest = "string_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleAssetPropertyVariant. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleAssetPropertyVariant.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleAssetPropertyVariant.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  boolean_value: Optional[str] = None,
                  double_value: Optional[str] = None,
@@ -511,15 +584,35 @@ class TopicRuleAssetPropertyVariant(dict):
         """
         return pulumi.get(self, "string_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleCloudwatchAlarmAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmName":
+            suggest = "alarm_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "stateReason":
+            suggest = "state_reason"
+        elif key == "stateValue":
+            suggest = "state_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleCloudwatchAlarmAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleCloudwatchAlarmAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleCloudwatchAlarmAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alarm_name: str,
                  role_arn: str,
@@ -569,15 +662,39 @@ class TopicRuleCloudwatchAlarmAction(dict):
         """
         return pulumi.get(self, "state_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleCloudwatchMetricAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricNamespace":
+            suggest = "metric_namespace"
+        elif key == "metricUnit":
+            suggest = "metric_unit"
+        elif key == "metricValue":
+            suggest = "metric_value"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "metricTimestamp":
+            suggest = "metric_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleCloudwatchMetricAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleCloudwatchMetricAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleCloudwatchMetricAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric_name: str,
                  metric_namespace: str,
@@ -650,15 +767,29 @@ class TopicRuleCloudwatchMetricAction(dict):
         """
         return pulumi.get(self, "metric_timestamp")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleDestinationHttpUrlDestinationSummary(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confirmationUrl":
+            suggest = "confirmation_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleDestinationHttpUrlDestinationSummary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleDestinationHttpUrlDestinationSummary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleDestinationHttpUrlDestinationSummary.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  confirmation_url: Optional[str] = None):
         """
@@ -676,15 +807,35 @@ class TopicRuleDestinationHttpUrlDestinationSummary(dict):
         """
         return pulumi.get(self, "confirmation_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleDestinationVpcDestinationProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleDestinationVpcDestinationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleDestinationVpcDestinationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleDestinationVpcDestinationProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: Optional[str] = None,
                  security_groups: Optional[Sequence[str]] = None,
@@ -738,15 +889,45 @@ class TopicRuleDestinationVpcDestinationProperties(dict):
         """
         return pulumi.get(self, "vpc_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleDynamoDBAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hashKeyField":
+            suggest = "hash_key_field"
+        elif key == "hashKeyValue":
+            suggest = "hash_key_value"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "hashKeyType":
+            suggest = "hash_key_type"
+        elif key == "payloadField":
+            suggest = "payload_field"
+        elif key == "rangeKeyField":
+            suggest = "range_key_field"
+        elif key == "rangeKeyType":
+            suggest = "range_key_type"
+        elif key == "rangeKeyValue":
+            suggest = "range_key_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleDynamoDBAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleDynamoDBAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleDynamoDBAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hash_key_field: str,
                  hash_key_value: str,
@@ -856,21 +1037,37 @@ class TopicRuleDynamoDBAction(dict):
         """
         return pulumi.get(self, "range_key_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleDynamoDBv2Action(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "putItem":
+            suggest = "put_item"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleDynamoDBv2Action. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleDynamoDBv2Action.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleDynamoDBv2Action.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  put_item: Optional['outputs.TopicRulePutItemInput'] = None,
                  role_arn: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html
-        :param 'TopicRulePutItemInputArgs' put_item: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem
+        :param 'TopicRulePutItemInput' put_item: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem
         :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn
         """
         if put_item is not None:
@@ -894,15 +1091,29 @@ class TopicRuleDynamoDBv2Action(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleElasticsearchAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleElasticsearchAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleElasticsearchAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleElasticsearchAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint: str,
                  id: str,
@@ -963,15 +1174,31 @@ class TopicRuleElasticsearchAction(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleFirehoseAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryStreamName":
+            suggest = "delivery_stream_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleFirehoseAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleFirehoseAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleFirehoseAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delivery_stream_name: str,
                  role_arn: str,
@@ -1011,15 +1238,29 @@ class TopicRuleFirehoseAction(dict):
         """
         return pulumi.get(self, "separator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleHttpAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confirmationUrl":
+            suggest = "confirmation_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleHttpAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleHttpAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleHttpAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  url: str,
                  auth: Optional['outputs.TopicRuleHttpAuthorization'] = None,
@@ -1028,9 +1269,9 @@ class TopicRuleHttpAction(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html
         :param str url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-url
-        :param 'TopicRuleHttpAuthorizationArgs' auth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-auth
+        :param 'TopicRuleHttpAuthorization' auth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-auth
         :param str confirmation_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-confirmationurl
-        :param Sequence['TopicRuleHttpActionHeaderArgs'] headers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers
+        :param Sequence['TopicRuleHttpActionHeader'] headers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers
         """
         pulumi.set(__self__, "url", url)
         if auth is not None:
@@ -1072,9 +1313,6 @@ class TopicRuleHttpAction(dict):
         """
         return pulumi.get(self, "headers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleHttpActionHeader(dict):
@@ -1108,9 +1346,6 @@ class TopicRuleHttpActionHeader(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleHttpAuthorization(dict):
@@ -1121,7 +1356,7 @@ class TopicRuleHttpAuthorization(dict):
                  sigv4: Optional['outputs.TopicRuleSigV4Authorization'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html
-        :param 'TopicRuleSigV4AuthorizationArgs' sigv4: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4
+        :param 'TopicRuleSigV4Authorization' sigv4: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4
         """
         if sigv4 is not None:
             pulumi.set(__self__, "sigv4", sigv4)
@@ -1134,15 +1369,31 @@ class TopicRuleHttpAuthorization(dict):
         """
         return pulumi.get(self, "sigv4")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleIotAnalyticsAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelName":
+            suggest = "channel_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleIotAnalyticsAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleIotAnalyticsAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleIotAnalyticsAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  channel_name: str,
                  role_arn: str):
@@ -1170,15 +1421,33 @@ class TopicRuleIotAnalyticsAction(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleIotEventsAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputName":
+            suggest = "input_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "messageId":
+            suggest = "message_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleIotEventsAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleIotEventsAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleIotEventsAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  input_name: str,
                  role_arn: str,
@@ -1218,21 +1487,37 @@ class TopicRuleIotEventsAction(dict):
         """
         return pulumi.get(self, "message_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleIotSiteWiseAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "putAssetPropertyValueEntries":
+            suggest = "put_asset_property_value_entries"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleIotSiteWiseAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleIotSiteWiseAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleIotSiteWiseAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  put_asset_property_value_entries: Sequence['outputs.TopicRulePutAssetPropertyValueEntry'],
                  role_arn: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html
-        :param Sequence['TopicRulePutAssetPropertyValueEntryArgs'] put_asset_property_value_entries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-putassetpropertyvalueentries
+        :param Sequence['TopicRulePutAssetPropertyValueEntry'] put_asset_property_value_entries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-putassetpropertyvalueentries
         :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-rolearn
         """
         pulumi.set(__self__, "put_asset_property_value_entries", put_asset_property_value_entries)
@@ -1254,15 +1539,33 @@ class TopicRuleIotSiteWiseAction(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleKinesisAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "streamName":
+            suggest = "stream_name"
+        elif key == "partitionKey":
+            suggest = "partition_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleKinesisAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleKinesisAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleKinesisAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  stream_name: str,
@@ -1302,15 +1605,29 @@ class TopicRuleKinesisAction(dict):
         """
         return pulumi.get(self, "partition_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleLambdaAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionArn":
+            suggest = "function_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleLambdaAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleLambdaAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleLambdaAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  function_arn: Optional[str] = None):
         """
@@ -1328,15 +1645,37 @@ class TopicRuleLambdaAction(dict):
         """
         return pulumi.get(self, "function_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRulePutAssetPropertyValueEntry(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyValues":
+            suggest = "property_values"
+        elif key == "assetId":
+            suggest = "asset_id"
+        elif key == "entryId":
+            suggest = "entry_id"
+        elif key == "propertyAlias":
+            suggest = "property_alias"
+        elif key == "propertyId":
+            suggest = "property_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRulePutAssetPropertyValueEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRulePutAssetPropertyValueEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRulePutAssetPropertyValueEntry.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  property_values: Sequence['outputs.TopicRuleAssetPropertyValue'],
                  asset_id: Optional[str] = None,
@@ -1345,7 +1684,7 @@ class TopicRulePutAssetPropertyValueEntry(dict):
                  property_id: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html
-        :param Sequence['TopicRuleAssetPropertyValueArgs'] property_values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyvalues
+        :param Sequence['TopicRuleAssetPropertyValue'] property_values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyvalues
         :param str asset_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-assetid
         :param str entry_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-entryid
         :param str property_alias: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyalias
@@ -1401,15 +1740,29 @@ class TopicRulePutAssetPropertyValueEntry(dict):
         """
         return pulumi.get(self, "property_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRulePutItemInput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRulePutItemInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRulePutItemInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRulePutItemInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  table_name: str):
         """
@@ -1426,15 +1779,29 @@ class TopicRulePutItemInput(dict):
         """
         return pulumi.get(self, "table_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleRepublishAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleRepublishAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleRepublishAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleRepublishAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  topic: str,
@@ -1474,15 +1841,31 @@ class TopicRuleRepublishAction(dict):
         """
         return pulumi.get(self, "qos")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleS3Action(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleS3Action. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleS3Action.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleS3Action.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: str,
                  key: str,
@@ -1521,15 +1904,33 @@ class TopicRuleS3Action(dict):
         """
         return pulumi.get(self, "role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleSigV4Authorization(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "serviceName":
+            suggest = "service_name"
+        elif key == "signingRegion":
+            suggest = "signing_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleSigV4Authorization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleSigV4Authorization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleSigV4Authorization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  service_name: str,
@@ -1568,15 +1969,33 @@ class TopicRuleSigV4Authorization(dict):
         """
         return pulumi.get(self, "signing_region")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleSnsAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "targetArn":
+            suggest = "target_arn"
+        elif key == "messageFormat":
+            suggest = "message_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleSnsAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleSnsAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleSnsAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  target_arn: str,
@@ -1616,15 +2035,33 @@ class TopicRuleSnsAction(dict):
         """
         return pulumi.get(self, "message_format")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleSqsAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueUrl":
+            suggest = "queue_url"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "useBase64":
+            suggest = "use_base64"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleSqsAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleSqsAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleSqsAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  queue_url: str,
                  role_arn: str,
@@ -1664,15 +2101,33 @@ class TopicRuleSqsAction(dict):
         """
         return pulumi.get(self, "use_base64")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleStepFunctionsAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "stateMachineName":
+            suggest = "state_machine_name"
+        elif key == "executionNamePrefix":
+            suggest = "execution_name_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleStepFunctionsAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleStepFunctionsAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleStepFunctionsAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  state_machine_name: str,
@@ -1712,15 +2167,33 @@ class TopicRuleStepFunctionsAction(dict):
         """
         return pulumi.get(self, "execution_name_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicRuleTopicRulePayload(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleDisabled":
+            suggest = "rule_disabled"
+        elif key == "awsIotSqlVersion":
+            suggest = "aws_iot_sql_version"
+        elif key == "errorAction":
+            suggest = "error_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleTopicRulePayload. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleTopicRulePayload.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleTopicRulePayload.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions: Sequence['outputs.TopicRuleAction'],
                  rule_disabled: bool,
@@ -1730,12 +2203,12 @@ class TopicRuleTopicRulePayload(dict):
                  error_action: Optional['outputs.TopicRuleAction'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html
-        :param Sequence['TopicRuleActionArgs'] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
+        :param Sequence['TopicRuleAction'] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
         :param bool rule_disabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
         :param str sql: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql
         :param str aws_iot_sql_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion
         :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description
-        :param 'TopicRuleActionArgs' error_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
+        :param 'TopicRuleAction' error_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "rule_disabled", rule_disabled)
@@ -1794,8 +2267,5 @@ class TopicRuleTopicRulePayload(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
         """
         return pulumi.get(self, "error_action")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -67,8 +67,9 @@ export class HostedZone extends pulumi.CustomResource {
      */
     constructor(name: string, args: HostedZoneArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["hostedZoneConfig"] = args ? args.hostedZoneConfig : undefined;
@@ -87,12 +88,8 @@ export class HostedZone extends pulumi.CustomResource {
             inputs["queryLoggingConfig"] = undefined /*out*/;
             inputs["vPCs"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(HostedZone.__pulumiType, name, inputs, opts);
     }
@@ -105,11 +102,11 @@ export interface HostedZoneArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
      */
-    readonly hostedZoneConfig?: pulumi.Input<inputs.Route53.HostedZoneHostedZoneConfig>;
+    readonly hostedZoneConfig?: pulumi.Input<inputs.Route53.HostedZoneHostedZoneConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
      */
-    readonly hostedZoneTags?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneHostedZoneTag>[]>;
+    readonly hostedZoneTags?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneHostedZoneTagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
      */
@@ -117,9 +114,9 @@ export interface HostedZoneArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
      */
-    readonly queryLoggingConfig?: pulumi.Input<inputs.Route53.HostedZoneQueryLoggingConfig>;
+    readonly queryLoggingConfig?: pulumi.Input<inputs.Route53.HostedZoneQueryLoggingConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
      */
-    readonly vPCs?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneVPC>[]>;
+    readonly vPCs?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneVPCArgs>[]>;
 }

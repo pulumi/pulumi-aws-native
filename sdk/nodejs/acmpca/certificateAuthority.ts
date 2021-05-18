@@ -71,17 +71,18 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateAuthorityArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.keyAlgorithm === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.keyAlgorithm === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyAlgorithm'");
             }
-            if ((!args || args.signingAlgorithm === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.signingAlgorithm === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'signingAlgorithm'");
             }
-            if ((!args || args.subject === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subject === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subject'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["keyAlgorithm"] = args ? args.keyAlgorithm : undefined;
@@ -102,12 +103,8 @@ export class CertificateAuthority extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CertificateAuthority.__pulumiType, name, inputs, opts);
     }
@@ -124,7 +121,7 @@ export interface CertificateAuthorityArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
      */
-    readonly revocationConfiguration?: pulumi.Input<inputs.ACMPCA.CertificateAuthorityRevocationConfiguration>;
+    readonly revocationConfiguration?: pulumi.Input<inputs.ACMPCA.CertificateAuthorityRevocationConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
      */
@@ -132,11 +129,11 @@ export interface CertificateAuthorityArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
      */
-    readonly subject: pulumi.Input<inputs.ACMPCA.CertificateAuthoritySubject>;
+    readonly subject: pulumi.Input<inputs.ACMPCA.CertificateAuthoritySubjectArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
      */
