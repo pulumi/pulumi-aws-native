@@ -49,7 +49,7 @@ const taskDefinition = new aws_native.ecs.TaskDefinition("app-task", {
 const service = new aws_native.ecs.Service("app-svc", {
     serviceName: "app-svc-cloud-api",
     cluster: cluster.arn,
-    desiredCount: 3,
+    desiredCount: 1,
     launchType: "FARGATE",
     taskDefinition: taskDefinition.taskDefinitionArn,
     networkConfiguration: {

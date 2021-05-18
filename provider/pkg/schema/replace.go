@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
 func getItemTypeReplaces(schema CloudFormationSchema, itemType, resourceType, path string, diff resource.ValueDiff) ([]string, error) {
