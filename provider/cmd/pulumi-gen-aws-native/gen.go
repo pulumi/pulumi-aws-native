@@ -2,14 +2,15 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"sort"
 	"strings"
 
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
-	"github.com/pulumi/pulumi/pkg/v2/codegen"
-	dotnetgen "github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
-	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // TODO: convert docs. Currently all docs are just links. The linked pages should all have a meta tag somewhere in them
@@ -270,7 +271,7 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 	}
 	p.Language["csharp"] = rawMessage(map[string]interface{}{
 		"packageReferences": map[string]string{
-			"Pulumi":                       "2.*",
+			"Pulumi":                       "3.*",
 			"System.Collections.Immutable": "1.6.0",
 		},
 		"namespaces": csharpNamespaces,
@@ -283,7 +284,7 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 	})
 	p.Language["nodejs"] = rawMessage(map[string]interface{}{
 		"dependencies": map[string]string{
-			"@pulumi/pulumi":    "^2.0.0",
+			"@pulumi/pulumi":    "^3.0.0",
 			"shell-quote":       "^1.6.1",
 			"tmp":               "^0.0.33",
 			"@types/tmp":        "^0.0.33",
@@ -300,7 +301,7 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 	})
 	p.Language["python"] = rawMessage(map[string]interface{}{
 		"requires": map[string]string{
-			"pulumi":   ">=2.0.0,<3.0.0",
+			"pulumi":   ">=3.0.0,<4.0.0",
 			"requests": ">=2.21.0,<2.22.0",
 			"pyyaml":   ">=5.1,<5.2",
 		},
@@ -338,11 +339,14 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 	}
 
 	// Gather resource types.
+	var resourceCount int
 	for name, spec := range schema.ResourceTypes {
+		resourceCount += 1
 		if supportedResources.Has(name) {
 			ctx.gatherResourceType(&p, name, spec)
 		}
 	}
+	fmt.Printf("%v\n", resourceCount)
 
 	// Add getters for CFN pseudo parameters.
 	for name, property := range pseudoParameters {

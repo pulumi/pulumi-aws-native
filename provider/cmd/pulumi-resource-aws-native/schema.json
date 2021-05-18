@@ -1,6 +1,6 @@
 {
     "name": "aws-native",
-    "version": "0.0.1-alpha.1615978709+ca2c53b9.dirty",
+    "version": "0.0.1-alpha.1616008275+889a8fd9.dirty",
     "description": "A Pulumi package for creating and managing Amazon Web Services (AWS) resources via CloudFormation.",
     "keywords": [
         "pulumi",
@@ -16273,10 +16273,10 @@
                 }
             },
             "requiredInputs": [
-                "certificateSigningRequest",
-                "signingAlgorithm",
                 "validity",
-                "certificateAuthorityArn"
+                "certificateAuthorityArn",
+                "certificateSigningRequest",
+                "signingAlgorithm"
             ]
         },
         "aws-native:ACMPCA:CertificateAuthority": {
@@ -16635,8 +16635,8 @@
                 }
             },
             "requiredInputs": [
-                "documentationVersion",
-                "restApiId"
+                "restApiId",
+                "documentationVersion"
             ]
         },
         "aws-native:ApiGateway:DomainName": {
@@ -16904,11 +16904,11 @@
                 }
             },
             "requiredInputs": [
+                "tasks",
                 "flowName",
                 "triggerConfig",
                 "sourceFlowConfig",
-                "destinationFlowConfigList",
-                "tasks"
+                "destinationFlowConfigList"
             ]
         },
         "aws-native:ApplicationInsights:Application": {
@@ -17083,8 +17083,8 @@
                 }
             },
             "requiredInputs": [
-                "name",
-                "type"
+                "type",
+                "name"
             ]
         },
         "aws-native:Athena:NamedQuery": {
@@ -17571,8 +17571,8 @@
                 }
             },
             "requiredInputs": [
-                "partitionKeyColumns",
-                "keyspaceName"
+                "keyspaceName",
+                "partitionKeyColumns"
             ]
         },
         "aws-native:Chatbot:SlackChannelConfiguration": {
@@ -17891,8 +17891,8 @@
                 }
             },
             "requiredInputs": [
-                "permissionModel",
-                "stackSetName"
+                "stackSetName",
+                "permissionModel"
             ]
         },
         "aws-native:CloudFront:CachePolicy": {
@@ -19132,9 +19132,9 @@
                 }
             },
             "requiredInputs": [
-                "type",
+                "name",
                 "roleArn",
-                "name"
+                "type"
             ]
         },
         "aws-native:DataBrew:Project": {
@@ -19221,10 +19221,10 @@
                 }
             },
             "requiredInputs": [
+                "roleArn",
                 "datasetName",
                 "name",
-                "recipeName",
-                "roleArn"
+                "recipeName"
             ]
         },
         "aws-native:DataBrew:Recipe": {
@@ -19404,9 +19404,9 @@
                 }
             },
             "requiredInputs": [
-                "memberEmailAddress",
                 "graphArn",
-                "memberId"
+                "memberId",
+                "memberEmailAddress"
             ]
         },
         "aws-native:DevOpsGuru:NotificationChannel": {
@@ -19692,9 +19692,9 @@
                 }
             },
             "requiredInputs": [
-                "localGatewayVirtualInterfaceGroupId",
                 "destinationCidrBlock",
-                "localGatewayRouteTableId"
+                "localGatewayRouteTableId",
+                "localGatewayVirtualInterfaceGroupId"
             ]
         },
         "aws-native:EC2:LocalGatewayRouteTableVPCAssociation": {
@@ -19745,8 +19745,8 @@
                 }
             },
             "requiredInputs": [
-                "vpcId",
-                "localGatewayRouteTableId"
+                "localGatewayRouteTableId",
+                "vpcId"
             ]
         },
         "aws-native:EC2:NetworkInsightsAnalysis": {
@@ -20778,9 +20778,9 @@
                 }
             },
             "requiredInputs": [
+                "service",
                 "taskDefinition",
-                "cluster",
-                "service"
+                "cluster"
             ]
         },
         "aws-native:EFS:AccessPoint": {
@@ -21052,9 +21052,9 @@
                 }
             },
             "requiredInputs": [
+                "clusterName",
                 "podExecutionRoleArn",
-                "selectors",
-                "clusterName"
+                "selectors"
             ]
         },
         "aws-native:ElastiCache:User": {
@@ -21285,8 +21285,8 @@
                 }
             },
             "requiredInputs": [
-                "loadBalancerArn",
-                "defaultActions"
+                "defaultActions",
+                "loadBalancerArn"
             ]
         },
         "aws-native:ElasticLoadBalancingV2:ListenerRule": {
@@ -21409,8 +21409,8 @@
                 }
             },
             "requiredInputs": [
-                "registryName",
-                "policy"
+                "policy",
+                "registryName"
             ]
         },
         "aws-native:Events:Archive": {
@@ -21665,8 +21665,8 @@
             },
             "requiredInputs": [
                 "policyName",
-                "excludeResourceTags",
                 "remediationEnabled",
+                "excludeResourceTags",
                 "resourceType",
                 "securityServicePolicyData"
             ]
@@ -21833,10 +21833,10 @@
                 }
             },
             "requiredInputs": [
-                "roleArn",
                 "instanceDefinitions",
                 "launchTemplate",
-                "gameServerGroupName"
+                "gameServerGroupName",
+                "roleArn"
             ]
         },
         "aws-native:GlobalAccelerator:Accelerator": {
@@ -22225,10 +22225,10 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "dataFormat",
                 "compatibility",
-                "schemaDefinition"
+                "schemaDefinition",
+                "name"
             ]
         },
         "aws-native:Glue:SchemaVersion": {
@@ -22263,8 +22263,8 @@
                 }
             },
             "requiredInputs": [
-                "schemaDefinition",
-                "schema"
+                "schema",
+                "schemaDefinition"
             ]
         },
         "aws-native:Glue:SchemaVersionMetadata": {
@@ -22304,9 +22304,9 @@
                 }
             },
             "requiredInputs": [
+                "schemaVersionId",
                 "key",
-                "value",
-                "schemaVersionId"
+                "value"
             ]
         },
         "aws-native:GreengrassV2:ComponentVersion": {
@@ -22436,8 +22436,8 @@
                 }
             },
             "requiredInputs": [
-                "configData",
-                "name"
+                "name",
+                "configData"
             ]
         },
         "aws-native:GroundStation:DataflowEndpointGroup": {
@@ -22875,9 +22875,9 @@
                 }
             },
             "requiredInputs": [
+                "name",
                 "version",
-                "platform",
-                "name"
+                "platform"
             ]
         },
         "aws-native:ImageBuilder:DistributionConfiguration": {
@@ -23234,10 +23234,10 @@
                 }
             },
             "requiredInputs": [
-                "version",
-                "components",
                 "parentImage",
-                "name"
+                "name",
+                "version",
+                "components"
             ]
         },
         "aws-native:ImageBuilder:InfrastructureConfiguration": {
@@ -23729,9 +23729,9 @@
                 }
             },
             "requiredInputs": [
+                "accessPolicyIdentity",
                 "accessPolicyPermission",
-                "accessPolicyResource",
-                "accessPolicyIdentity"
+                "accessPolicyResource"
             ]
         },
         "aws-native:IoTSiteWise:Asset": {
@@ -23812,8 +23812,8 @@
                 }
             },
             "requiredInputs": [
-                "assetName",
-                "assetModelId"
+                "assetModelId",
+                "assetName"
             ]
         },
         "aws-native:IoTSiteWise:AssetModel": {
@@ -24111,9 +24111,9 @@
                 }
             },
             "requiredInputs": [
+                "roleArn",
                 "portalContactEmail",
-                "portalName",
-                "roleArn"
+                "portalName"
             ]
         },
         "aws-native:IoTSiteWise:Project": {
@@ -24174,8 +24174,8 @@
                 }
             },
             "requiredInputs": [
-                "projectName",
-                "portalId"
+                "portalId",
+                "projectName"
             ]
         },
         "aws-native:KMS:Alias": {
@@ -24470,10 +24470,10 @@
                 }
             },
             "requiredInputs": [
+                "s3Path",
                 "roleArn",
                 "indexId",
-                "name",
-                "s3Path"
+                "name"
             ]
         },
         "aws-native:Kendra:Index": {
@@ -24577,9 +24577,9 @@
                 }
             },
             "requiredInputs": [
-                "edition",
                 "name",
-                "roleArn"
+                "roleArn",
+                "edition"
             ]
         },
         "aws-native:Kinesis:Stream": {
@@ -25323,11 +25323,11 @@
                 }
             },
             "requiredInputs": [
-                "issuer",
-                "consumptionConfiguration",
                 "homeRegion",
+                "issuer",
                 "validity",
-                "entitlements"
+                "entitlements",
+                "consumptionConfiguration"
             ]
         },
         "aws-native:Logs:LogGroup": {
@@ -25634,8 +25634,8 @@
                 }
             },
             "requiredInputs": [
-                "regex",
-                "name"
+                "name",
+                "regex"
             ]
         },
         "aws-native:Macie:FindingsFilter": {
@@ -26035,8 +26035,8 @@
                 }
             },
             "requiredInputs": [
-                "id",
-                "channelId"
+                "channelId",
+                "id"
             ]
         },
         "aws-native:MediaPackage:PackagingConfiguration": {
@@ -26117,8 +26117,8 @@
                 }
             },
             "requiredInputs": [
-                "packagingGroupId",
-                "id"
+                "id",
+                "packagingGroupId"
             ]
         },
         "aws-native:MediaPackage:PackagingGroup": {
@@ -26286,10 +26286,10 @@
                 }
             },
             "requiredInputs": [
-                "vpcId",
                 "firewallName",
-                "firewallPolicyArn",
-                "subnetMappings"
+                "vpcId",
+                "subnetMappings",
+                "firewallPolicyArn"
             ]
         },
         "aws-native:NetworkFirewall:FirewallPolicy": {
@@ -26819,9 +26819,9 @@
                 }
             },
             "requiredInputs": [
+                "linkId",
                 "globalNetworkId",
-                "deviceId",
-                "linkId"
+                "deviceId"
             ]
         },
         "aws-native:NetworkManager:Site": {
@@ -26912,8 +26912,8 @@
                 }
             },
             "requiredInputs": [
-                "transitGatewayArn",
-                "globalNetworkId"
+                "globalNetworkId",
+                "transitGatewayArn"
             ]
         },
         "aws-native:OpsWorksCM:Server": {
@@ -27133,8 +27133,8 @@
                 }
             },
             "requiredInputs": [
-                "instanceProfileArn",
                 "serviceRoleArn",
+                "instanceProfileArn",
                 "instanceType"
             ]
         },
@@ -27223,11 +27223,11 @@
                 }
             },
             "requiredInputs": [
-                "roleArn",
                 "inclusiveStartTime",
                 "kinesisConfiguration",
                 "ledgerName",
-                "streamName"
+                "streamName",
+                "roleArn"
             ]
         },
         "aws-native:RDS:DBProxy": {
@@ -27357,11 +27357,11 @@
                 }
             },
             "requiredInputs": [
-                "dBProxyName",
                 "roleArn",
                 "vpcSubnetIds",
                 "auth",
-                "engineFamily"
+                "engineFamily",
+                "dBProxyName"
             ]
         },
         "aws-native:RDS:DBProxyTargetGroup": {
@@ -27432,8 +27432,8 @@
                 }
             },
             "requiredInputs": [
-                "dBProxyName",
-                "targetGroupName"
+                "targetGroupName",
+                "dBProxyName"
             ]
         },
         "aws-native:RDS:GlobalCluster": {
@@ -28165,12 +28165,12 @@
                 }
             },
             "requiredInputs": [
+                "instanceArn",
                 "targetId",
                 "targetType",
                 "permissionSetArn",
                 "principalType",
-                "principalId",
-                "instanceArn"
+                "principalId"
             ]
         },
         "aws-native:SSO:InstanceAccessControlAttributeConfiguration": {
@@ -28436,11 +28436,11 @@
                 }
             },
             "requiredInputs": [
-                "jobResources",
-                "roleArn",
                 "dataQualityAppSpecification",
+                "roleArn",
                 "dataQualityJobInput",
-                "dataQualityJobOutputConfig"
+                "dataQualityJobOutputConfig",
+                "jobResources"
             ]
         },
         "aws-native:SageMaker:Device": {
@@ -28547,8 +28547,8 @@
                 }
             },
             "requiredInputs": [
-                "roleArn",
-                "outputConfig"
+                "outputConfig",
+                "roleArn"
             ]
         },
         "aws-native:SageMaker:ModelBiasJobDefinition": {
@@ -28660,11 +28660,11 @@
                 }
             },
             "requiredInputs": [
-                "modelBiasJobInput",
                 "modelBiasJobOutputConfig",
-                "modelBiasAppSpecification",
                 "jobResources",
-                "roleArn"
+                "roleArn",
+                "modelBiasAppSpecification",
+                "modelBiasJobInput"
             ]
         },
         "aws-native:SageMaker:ModelExplainabilityJobDefinition": {
@@ -28776,11 +28776,11 @@
                 }
             },
             "requiredInputs": [
-                "jobResources",
                 "modelExplainabilityAppSpecification",
+                "roleArn",
                 "modelExplainabilityJobInput",
                 "modelExplainabilityJobOutputConfig",
-                "roleArn"
+                "jobResources"
             ]
         },
         "aws-native:SageMaker:ModelPackageGroup": {
@@ -28956,10 +28956,10 @@
                 }
             },
             "requiredInputs": [
-                "roleArn",
-                "jobResources",
                 "modelQualityAppSpecification",
                 "modelQualityJobInput",
+                "jobResources",
+                "roleArn",
                 "modelQualityJobOutputConfig"
             ]
         },
@@ -29136,9 +29136,9 @@
                 }
             },
             "requiredInputs": [
+                "roleArn",
                 "pipelineName",
-                "pipelineDefinition",
-                "roleArn"
+                "pipelineDefinition"
             ]
         },
         "aws-native:SageMaker:Project": {
@@ -29436,10 +29436,10 @@
                 }
             },
             "requiredInputs": [
-                "action",
                 "principal",
                 "statementId",
-                "profileName"
+                "profileName",
+                "action"
             ]
         },
         "aws-native:Signer:SigningProfile": {
@@ -29729,12 +29729,12 @@
                 }
             },
             "requiredInputs": [
-                "code",
-                "artifactS3Location",
                 "runtimeVersion",
                 "startCanaryAfterCreation",
                 "name",
+                "code",
                 "schedule",
+                "artifactS3Location",
                 "executionRoleArn"
             ]
         },
@@ -29935,9 +29935,9 @@
                 }
             },
             "requiredInputs": [
-                "addresses",
                 "scope",
-                "iPAddressVersion"
+                "iPAddressVersion",
+                "addresses"
             ]
         },
         "aws-native:WAFv2:RegexPatternSet": {
@@ -30012,8 +30012,8 @@
                 }
             },
             "requiredInputs": [
-                "scope",
-                "regularExpressionList"
+                "regularExpressionList",
+                "scope"
             ]
         },
         "aws-native:WAFv2:RuleGroup": {
@@ -30105,9 +30105,9 @@
                 }
             },
             "requiredInputs": [
-                "scope",
                 "visibilityConfig",
-                "capacity"
+                "capacity",
+                "scope"
             ]
         },
         "aws-native:WAFv2:WebACL": {
@@ -30203,9 +30203,9 @@
                 }
             },
             "requiredInputs": [
-                "scope",
                 "visibilityConfig",
-                "defaultAction"
+                "defaultAction",
+                "scope"
             ]
         },
         "aws-native:WAFv2:WebACLAssociation": {
@@ -30469,7 +30469,7 @@
                 "aws-native": "AwsNative"
             },
             "packageReferences": {
-                "Pulumi": "2.*",
+                "Pulumi": "3.*",
                 "System.Collections.Immutable": "1.6.0"
             }
         },
@@ -30481,7 +30481,7 @@
         },
         "nodejs": {
             "dependencies": {
-                "@pulumi/pulumi": "^2.0.0",
+                "@pulumi/pulumi": "^3.0.0",
                 "@types/glob": "^5.0.35",
                 "@types/node-fetch": "^2.1.4",
                 "@types/tmp": "^0.0.33",
@@ -30498,7 +30498,7 @@
         },
         "python": {
             "requires": {
-                "pulumi": "\u003e=2.0.0,\u003c3.0.0",
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0",
                 "pyyaml": "\u003e=5.1,\u003c5.2",
                 "requests": "\u003e=2.21.0,\u003c2.22.0"
             }
