@@ -12,6 +12,11 @@ from .. import outputs as _root_outputs
 
 __all__ = [
     'AliasRoutingStrategy',
+    'FleetCertificateConfiguration',
+    'FleetIpPermission',
+    'FleetResourceCreationLimitPolicy',
+    'FleetRuntimeConfiguration',
+    'FleetServerProcess',
     'GameServerGroupAutoScalingPolicy',
     'GameServerGroupInstanceDefinition',
     'GameServerGroupInstanceDefinitions',
@@ -83,6 +88,307 @@ class AliasRoutingStrategy(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FleetCertificateConfiguration(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateType":
+            suggest = "certificate_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetCertificateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetCertificateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetCertificateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_type: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html
+        :param str certificate_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype
+        """
+        pulumi.set(__self__, "certificate_type", certificate_type)
+
+    @property
+    @pulumi.getter(name="certificateType")
+    def certificate_type(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype
+        """
+        return pulumi.get(self, "certificate_type")
+
+
+@pulumi.output_type
+class FleetIpPermission(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "ipRange":
+            suggest = "ip_range"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetIpPermission. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetIpPermission.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetIpPermission.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: int,
+                 ip_range: str,
+                 protocol: str,
+                 to_port: int):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html
+        :param int from_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-fromport
+        :param str ip_range: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-iprange
+        :param str protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-protocol
+        :param int to_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-toport
+        """
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "ip_range", ip_range)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> int:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-fromport
+        """
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="ipRange")
+    def ip_range(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-iprange
+        """
+        return pulumi.get(self, "ip_range")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-protocol
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> int:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-toport
+        """
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class FleetResourceCreationLimitPolicy(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "newGameSessionsPerCreator":
+            suggest = "new_game_sessions_per_creator"
+        elif key == "policyPeriodInMinutes":
+            suggest = "policy_period_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetResourceCreationLimitPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetResourceCreationLimitPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetResourceCreationLimitPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 new_game_sessions_per_creator: Optional[int] = None,
+                 policy_period_in_minutes: Optional[int] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html
+        :param int new_game_sessions_per_creator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-newgamesessionspercreator
+        :param int policy_period_in_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-policyperiodinminutes
+        """
+        if new_game_sessions_per_creator is not None:
+            pulumi.set(__self__, "new_game_sessions_per_creator", new_game_sessions_per_creator)
+        if policy_period_in_minutes is not None:
+            pulumi.set(__self__, "policy_period_in_minutes", policy_period_in_minutes)
+
+    @property
+    @pulumi.getter(name="newGameSessionsPerCreator")
+    def new_game_sessions_per_creator(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-newgamesessionspercreator
+        """
+        return pulumi.get(self, "new_game_sessions_per_creator")
+
+    @property
+    @pulumi.getter(name="policyPeriodInMinutes")
+    def policy_period_in_minutes(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-policyperiodinminutes
+        """
+        return pulumi.get(self, "policy_period_in_minutes")
+
+
+@pulumi.output_type
+class FleetRuntimeConfiguration(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gameSessionActivationTimeoutSeconds":
+            suggest = "game_session_activation_timeout_seconds"
+        elif key == "maxConcurrentGameSessionActivations":
+            suggest = "max_concurrent_game_session_activations"
+        elif key == "serverProcesses":
+            suggest = "server_processes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetRuntimeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetRuntimeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetRuntimeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 game_session_activation_timeout_seconds: Optional[int] = None,
+                 max_concurrent_game_session_activations: Optional[int] = None,
+                 server_processes: Optional[Sequence['outputs.FleetServerProcess']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html
+        :param int game_session_activation_timeout_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-gamesessionactivationtimeoutseconds
+        :param int max_concurrent_game_session_activations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-maxconcurrentgamesessionactivations
+        :param Sequence['FleetServerProcess'] server_processes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses
+        """
+        if game_session_activation_timeout_seconds is not None:
+            pulumi.set(__self__, "game_session_activation_timeout_seconds", game_session_activation_timeout_seconds)
+        if max_concurrent_game_session_activations is not None:
+            pulumi.set(__self__, "max_concurrent_game_session_activations", max_concurrent_game_session_activations)
+        if server_processes is not None:
+            pulumi.set(__self__, "server_processes", server_processes)
+
+    @property
+    @pulumi.getter(name="gameSessionActivationTimeoutSeconds")
+    def game_session_activation_timeout_seconds(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-gamesessionactivationtimeoutseconds
+        """
+        return pulumi.get(self, "game_session_activation_timeout_seconds")
+
+    @property
+    @pulumi.getter(name="maxConcurrentGameSessionActivations")
+    def max_concurrent_game_session_activations(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-maxconcurrentgamesessionactivations
+        """
+        return pulumi.get(self, "max_concurrent_game_session_activations")
+
+    @property
+    @pulumi.getter(name="serverProcesses")
+    def server_processes(self) -> Optional[Sequence['outputs.FleetServerProcess']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses
+        """
+        return pulumi.get(self, "server_processes")
+
+
+@pulumi.output_type
+class FleetServerProcess(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "concurrentExecutions":
+            suggest = "concurrent_executions"
+        elif key == "launchPath":
+            suggest = "launch_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetServerProcess. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetServerProcess.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetServerProcess.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 concurrent_executions: int,
+                 launch_path: str,
+                 parameters: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html
+        :param int concurrent_executions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-concurrentexecutions
+        :param str launch_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-launchpath
+        :param str parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-parameters
+        """
+        pulumi.set(__self__, "concurrent_executions", concurrent_executions)
+        pulumi.set(__self__, "launch_path", launch_path)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="concurrentExecutions")
+    def concurrent_executions(self) -> int:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-concurrentexecutions
+        """
+        return pulumi.get(self, "concurrent_executions")
+
+    @property
+    @pulumi.getter(name="launchPath")
+    def launch_path(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-launchpath
+        """
+        return pulumi.get(self, "launch_path")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-parameters
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type

@@ -6,9 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./association";
+export * from "./document";
+export * from "./resourceDataSync";
 
 // Import resources to register:
 import { Association } from "./association";
+import { Document } from "./document";
+import { ResourceDataSync } from "./resourceDataSync";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,6 +20,10 @@ const _module = {
         switch (type) {
             case "aws-native:SSM:Association":
                 return new Association(name, <any>undefined, { urn })
+            case "aws-native:SSM:Document":
+                return new Document(name, <any>undefined, { urn })
+            case "aws-native:SSM:ResourceDataSync":
+                return new ResourceDataSync(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

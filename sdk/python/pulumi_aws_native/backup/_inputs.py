@@ -14,6 +14,8 @@ __all__ = [
     'BackupPlanBackupRuleResourceTypeArgs',
     'BackupPlanCopyActionResourceTypeArgs',
     'BackupPlanLifecycleResourceTypeArgs',
+    'BackupSelectionBackupSelectionResourceTypeArgs',
+    'BackupSelectionConditionResourceTypeArgs',
     'BackupVaultNotificationObjectTypeArgs',
 ]
 
@@ -320,6 +322,129 @@ class BackupPlanLifecycleResourceTypeArgs:
     @move_to_cold_storage_after_days.setter
     def move_to_cold_storage_after_days(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "move_to_cold_storage_after_days", value)
+
+
+@pulumi.input_type
+class BackupSelectionBackupSelectionResourceTypeArgs:
+    def __init__(__self__, *,
+                 iam_role_arn: pulumi.Input[str],
+                 selection_name: pulumi.Input[str],
+                 list_of_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionResourceTypeArgs']]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html
+        :param pulumi.Input[str] iam_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-iamrolearn
+        :param pulumi.Input[str] selection_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-selectionname
+        :param pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionResourceTypeArgs']]] list_of_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-listoftags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-resources
+        """
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        pulumi.set(__self__, "selection_name", selection_name)
+        if list_of_tags is not None:
+            pulumi.set(__self__, "list_of_tags", list_of_tags)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-iamrolearn
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @iam_role_arn.setter
+    def iam_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "iam_role_arn", value)
+
+    @property
+    @pulumi.getter(name="selectionName")
+    def selection_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-selectionname
+        """
+        return pulumi.get(self, "selection_name")
+
+    @selection_name.setter
+    def selection_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "selection_name", value)
+
+    @property
+    @pulumi.getter(name="listOfTags")
+    def list_of_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionResourceTypeArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-listoftags
+        """
+        return pulumi.get(self, "list_of_tags")
+
+    @list_of_tags.setter
+    def list_of_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionResourceTypeArgs']]]]):
+        pulumi.set(self, "list_of_tags", value)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-resources
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resources", value)
+
+
+@pulumi.input_type
+class BackupSelectionConditionResourceTypeArgs:
+    def __init__(__self__, *,
+                 condition_key: pulumi.Input[str],
+                 condition_type: pulumi.Input[str],
+                 condition_value: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html
+        :param pulumi.Input[str] condition_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey
+        :param pulumi.Input[str] condition_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditiontype
+        :param pulumi.Input[str] condition_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionvalue
+        """
+        pulumi.set(__self__, "condition_key", condition_key)
+        pulumi.set(__self__, "condition_type", condition_type)
+        pulumi.set(__self__, "condition_value", condition_value)
+
+    @property
+    @pulumi.getter(name="conditionKey")
+    def condition_key(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey
+        """
+        return pulumi.get(self, "condition_key")
+
+    @condition_key.setter
+    def condition_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition_key", value)
+
+    @property
+    @pulumi.getter(name="conditionType")
+    def condition_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditiontype
+        """
+        return pulumi.get(self, "condition_type")
+
+    @condition_type.setter
+    def condition_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition_type", value)
+
+    @property
+    @pulumi.getter(name="conditionValue")
+    def condition_value(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionvalue
+        """
+        return pulumi.get(self, "condition_value")
+
+    @condition_value.setter
+    def condition_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition_value", value)
 
 
 @pulumi.input_type

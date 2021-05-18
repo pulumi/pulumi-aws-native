@@ -6,10 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./alias";
+export * from "./fleet";
 export * from "./gameServerGroup";
 
 // Import resources to register:
 import { Alias } from "./alias";
+import { Fleet } from "./fleet";
 import { GameServerGroup } from "./gameServerGroup";
 
 const _module = {
@@ -18,6 +20,8 @@ const _module = {
         switch (type) {
             case "aws-native:GameLift:Alias":
                 return new Alias(name, <any>undefined, { urn })
+            case "aws-native:GameLift:Fleet":
+                return new Fleet(name, <any>undefined, { urn })
             case "aws-native:GameLift:GameServerGroup":
                 return new GameServerGroup(name, <any>undefined, { urn })
             default:

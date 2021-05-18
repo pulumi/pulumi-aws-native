@@ -1,6 +1,6 @@
 {
     "name": "aws-native",
-    "version": "0.0.1-alpha.1616008275+889a8fd9.dirty",
+    "version": "0.0.1-alpha.1621332778+4badc239.dirty",
     "description": "A Pulumi package for creating and managing Amazon Web Services (AWS) resources via CloudFormation.",
     "keywords": [
         "pulumi",
@@ -2346,6 +2346,61 @@
                 }
             },
             "type": "object"
+        },
+        "aws-native:Backup:BackupSelectionBackupSelectionResourceType": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html",
+            "properties": {
+                "iamRoleArn": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-iamrolearn"
+                },
+                "listOfTags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:Backup:BackupSelectionConditionResourceType"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-listoftags"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-resources"
+                },
+                "selectionName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-selectionname"
+                }
+            },
+            "type": "object",
+            "required": [
+                "iamRoleArn",
+                "selectionName"
+            ]
+        },
+        "aws-native:Backup:BackupSelectionConditionResourceType": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html",
+            "properties": {
+                "conditionKey": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey"
+                },
+                "conditionType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditiontype"
+                },
+                "conditionValue": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionvalue"
+                }
+            },
+            "type": "object",
+            "required": [
+                "conditionKey",
+                "conditionType",
+                "conditionValue"
+            ]
         },
         "aws-native:Backup:BackupVaultNotificationObjectType": {
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html",
@@ -6159,6 +6214,104 @@
             },
             "type": "object"
         },
+        "aws-native:GameLift:FleetCertificateConfiguration": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html",
+            "properties": {
+                "certificateType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype"
+                }
+            },
+            "type": "object",
+            "required": [
+                "certificateType"
+            ]
+        },
+        "aws-native:GameLift:FleetIpPermission": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html",
+            "properties": {
+                "fromPort": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-fromport"
+                },
+                "ipRange": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-iprange"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-protocol"
+                },
+                "toPort": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-toport"
+                }
+            },
+            "type": "object",
+            "required": [
+                "fromPort",
+                "ipRange",
+                "protocol",
+                "toPort"
+            ]
+        },
+        "aws-native:GameLift:FleetResourceCreationLimitPolicy": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html",
+            "properties": {
+                "newGameSessionsPerCreator": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-newgamesessionspercreator"
+                },
+                "policyPeriodInMinutes": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-policyperiodinminutes"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:GameLift:FleetRuntimeConfiguration": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html",
+            "properties": {
+                "gameSessionActivationTimeoutSeconds": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-gamesessionactivationtimeoutseconds"
+                },
+                "maxConcurrentGameSessionActivations": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-maxconcurrentgamesessionactivations"
+                },
+                "serverProcesses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:GameLift:FleetServerProcess"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:GameLift:FleetServerProcess": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html",
+            "properties": {
+                "concurrentExecutions": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-concurrentexecutions"
+                },
+                "launchPath": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-launchpath"
+                },
+                "parameters": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-parameters"
+                }
+            },
+            "type": "object",
+            "required": [
+                "concurrentExecutions",
+                "launchPath"
+            ]
+        },
         "aws-native:GameLift:GameServerGroupAutoScalingPolicy": {
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html",
             "properties": {
@@ -7604,6 +7757,516 @@
                 "ruleDisabled",
                 "sql"
             ]
+        },
+        "aws-native:IoTEvents:DetectorModelAction": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html",
+            "properties": {
+                "clearTimer": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelClearTimer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-cleartimer"
+                },
+                "dynamoDB": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelDynamoDB",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodb"
+                },
+                "dynamoDBv2": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelDynamoDBv2",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodbv2"
+                },
+                "firehose": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelFirehose",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-firehose"
+                },
+                "iotEvents": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelIotEvents",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotevents"
+                },
+                "iotSiteWise": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelIotSiteWise",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotsitewise"
+                },
+                "iotTopicPublish": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelIotTopicPublish",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iottopicpublish"
+                },
+                "lambda": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelLambda",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-lambda"
+                },
+                "resetTimer": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelResetTimer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-resettimer"
+                },
+                "setTimer": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelSetTimer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-settimer"
+                },
+                "setVariable": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelSetVariable",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-setvariable"
+                },
+                "sns": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelSns",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-sns"
+                },
+                "sqs": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelSqs",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-sqs"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelAssetPropertyTimestamp": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html",
+            "properties": {
+                "offsetInNanos": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-offsetinnanos"
+                },
+                "timeInSeconds": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-timeinseconds"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelAssetPropertyValue": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html",
+            "properties": {
+                "quality": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-quality"
+                },
+                "timestamp": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelAssetPropertyTimestamp",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-timestamp"
+                },
+                "value": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelAssetPropertyVariant",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelAssetPropertyVariant": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html",
+            "properties": {
+                "booleanValue": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-booleanvalue"
+                },
+                "doubleValue": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-doublevalue"
+                },
+                "integerValue": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-integervalue"
+                },
+                "stringValue": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-stringvalue"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelClearTimer": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html",
+            "properties": {
+                "timerName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html#cfn-iotevents-detectormodel-cleartimer-timername"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelDetectorModelDefinition": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html",
+            "properties": {
+                "initialStateName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename"
+                },
+                "states": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:IoTEvents:DetectorModelState"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelDynamoDB": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html",
+            "properties": {
+                "hashKeyField": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyfield"
+                },
+                "hashKeyType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeytype"
+                },
+                "hashKeyValue": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyvalue"
+                },
+                "operation": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-operation"
+                },
+                "payload": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelPayload",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payload"
+                },
+                "payloadField": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payloadfield"
+                },
+                "rangeKeyField": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyfield"
+                },
+                "rangeKeyType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeytype"
+                },
+                "rangeKeyValue": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyvalue"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelDynamoDBv2": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html",
+            "properties": {
+                "payload": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelPayload",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-payload"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelEvent": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html",
+            "properties": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:IoTEvents:DetectorModelAction"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-actions"
+                },
+                "condition": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-condition"
+                },
+                "eventName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-eventname"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelFirehose": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html",
+            "properties": {
+                "deliveryStreamName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-deliverystreamname"
+                },
+                "payload": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelPayload",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-payload"
+                },
+                "separator": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-separator"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelIotEvents": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html",
+            "properties": {
+                "inputName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname"
+                },
+                "payload": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelPayload",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-payload"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelIotSiteWise": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html",
+            "properties": {
+                "assetId": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-assetid"
+                },
+                "entryId": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-entryid"
+                },
+                "propertyAlias": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyalias"
+                },
+                "propertyId": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyid"
+                },
+                "propertyValue": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelAssetPropertyValue",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelIotTopicPublish": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html",
+            "properties": {
+                "mqttTopic": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic"
+                },
+                "payload": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelPayload",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-payload"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelLambda": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html",
+            "properties": {
+                "functionArn": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn"
+                },
+                "payload": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelPayload",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-payload"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelOnEnter": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html",
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:IoTEvents:DetectorModelEvent"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html#cfn-iotevents-detectormodel-onenter-events"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelOnExit": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html",
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:IoTEvents:DetectorModelEvent"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html#cfn-iotevents-detectormodel-onexit-events"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelOnInput": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html",
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:IoTEvents:DetectorModelEvent"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events"
+                },
+                "transitionEvents": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:IoTEvents:DetectorModelTransitionEvent"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelPayload": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html",
+            "properties": {
+                "contentExpression": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-contentexpression"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-type"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelResetTimer": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html",
+            "properties": {
+                "timerName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html#cfn-iotevents-detectormodel-resettimer-timername"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelSetTimer": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html",
+            "properties": {
+                "durationExpression": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-durationexpression"
+                },
+                "seconds": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-seconds"
+                },
+                "timerName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelSetVariable": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-value"
+                },
+                "variableName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelSns": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html",
+            "properties": {
+                "payload": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelPayload",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload"
+                },
+                "targetArn": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelSqs": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html",
+            "properties": {
+                "payload": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelPayload",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-payload"
+                },
+                "queueUrl": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl"
+                },
+                "useBase64": {
+                    "type": "boolean",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-usebase64"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelState": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html",
+            "properties": {
+                "onEnter": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelOnEnter",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onenter"
+                },
+                "onExit": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelOnExit",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onexit"
+                },
+                "onInput": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelOnInput",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-oninput"
+                },
+                "stateName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:DetectorModelTransitionEvent": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html",
+            "properties": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:IoTEvents:DetectorModelAction"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-actions"
+                },
+                "condition": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition"
+                },
+                "eventName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname"
+                },
+                "nextState": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:InputAttribute": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html",
+            "properties": {
+                "jsonPath": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html#cfn-iotevents-input-attribute-jsonpath"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:IoTEvents:InputInputDefinition": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:IoTEvents:InputAttribute"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html#cfn-iotevents-input-inputdefinition-attributes"
+                }
+            },
+            "type": "object"
         },
         "aws-native:IoTSiteWise:AccessPolicyAccessPolicyIdentity": {
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html",
@@ -12810,6 +13473,86 @@
                 "values"
             ]
         },
+        "aws-native:SSM:ResourceDataSyncAwsOrganizationsSource": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html",
+            "properties": {
+                "organizationSourceType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype"
+                },
+                "organizationalUnits": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationalunits"
+                }
+            },
+            "type": "object",
+            "required": [
+                "organizationSourceType"
+            ]
+        },
+        "aws-native:SSM:ResourceDataSyncS3Destination": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html",
+            "properties": {
+                "bucketName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketname"
+                },
+                "bucketPrefix": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketprefix"
+                },
+                "bucketRegion": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketregion"
+                },
+                "kMSKeyArn": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-kmskeyarn"
+                },
+                "syncFormat": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-syncformat"
+                }
+            },
+            "type": "object",
+            "required": [
+                "bucketName",
+                "bucketRegion",
+                "syncFormat"
+            ]
+        },
+        "aws-native:SSM:ResourceDataSyncSyncSource": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html",
+            "properties": {
+                "awsOrganizationsSource": {
+                    "$ref": "#/types/aws-native:SSM:ResourceDataSyncAwsOrganizationsSource",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-awsorganizationssource"
+                },
+                "includeFutureRegions": {
+                    "type": "boolean",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-includefutureregions"
+                },
+                "sourceRegions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourceregions"
+                },
+                "sourceType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourcetype"
+                }
+            },
+            "type": "object",
+            "required": [
+                "sourceRegions",
+                "sourceType"
+            ]
+        },
         "aws-native:SageMaker:DataQualityJobDefinitionClusterConfig": {
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html",
             "properties": {
@@ -16273,10 +17016,10 @@
                 }
             },
             "requiredInputs": [
-                "validity",
                 "certificateAuthorityArn",
                 "certificateSigningRequest",
-                "signingAlgorithm"
+                "signingAlgorithm",
+                "validity"
             ]
         },
         "aws-native:ACMPCA:CertificateAuthority": {
@@ -16635,8 +17378,8 @@
                 }
             },
             "requiredInputs": [
-                "restApiId",
-                "documentationVersion"
+                "documentationVersion",
+                "restApiId"
             ]
         },
         "aws-native:ApiGateway:DomainName": {
@@ -16904,11 +17647,11 @@
                 }
             },
             "requiredInputs": [
-                "tasks",
-                "flowName",
                 "triggerConfig",
                 "sourceFlowConfig",
-                "destinationFlowConfigList"
+                "destinationFlowConfigList",
+                "tasks",
+                "flowName"
             ]
         },
         "aws-native:ApplicationInsights:Application": {
@@ -17385,6 +18128,52 @@
             },
             "requiredInputs": [
                 "backupPlan"
+            ]
+        },
+        "aws-native:Backup:BackupSelection": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html",
+            "properties": {
+                "backupPlanId": {
+                    "type": "string"
+                },
+                "backupSelection": {
+                    "$ref": "#/types/aws-native:Backup:BackupSelectionBackupSelectionResourceType",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection",
+                    "language": {
+                        "csharp": {
+                            "name": "BackupSelectionValue"
+                        }
+                    }
+                },
+                "selectionId": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "backupPlanId",
+                "backupPlanId",
+                "backupSelection",
+                "selectionId"
+            ],
+            "inputProperties": {
+                "backupPlanId": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid"
+                },
+                "backupSelection": {
+                    "$ref": "#/types/aws-native:Backup:BackupSelectionBackupSelectionResourceType",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection",
+                    "language": {
+                        "csharp": {
+                            "name": "BackupSelectionValue"
+                        }
+                    }
+                }
+            },
+            "requiredInputs": [
+                "backupSelection",
+                "backupPlanId"
             ]
         },
         "aws-native:Backup:BackupVault": {
@@ -17891,8 +18680,8 @@
                 }
             },
             "requiredInputs": [
-                "stackSetName",
-                "permissionModel"
+                "permissionModel",
+                "stackSetName"
             ]
         },
         "aws-native:CloudFront:CachePolicy": {
@@ -18103,10 +18892,10 @@
                 }
             },
             "requiredInputs": [
+                "samplingRate",
                 "endPoints",
                 "fields",
-                "name",
-                "samplingRate"
+                "name"
             ]
         },
         "aws-native:CloudWatch:CompositeAlarm": {
@@ -19133,8 +19922,8 @@
             },
             "requiredInputs": [
                 "name",
-                "roleArn",
-                "type"
+                "type",
+                "roleArn"
             ]
         },
         "aws-native:DataBrew:Project": {
@@ -19221,10 +20010,10 @@
                 }
             },
             "requiredInputs": [
-                "roleArn",
                 "datasetName",
                 "name",
-                "recipeName"
+                "recipeName",
+                "roleArn"
             ]
         },
         "aws-native:DataBrew:Recipe": {
@@ -19404,9 +20193,9 @@
                 }
             },
             "requiredInputs": [
-                "graphArn",
                 "memberId",
-                "memberEmailAddress"
+                "memberEmailAddress",
+                "graphArn"
             ]
         },
         "aws-native:DevOpsGuru:NotificationChannel": {
@@ -19606,9 +20395,9 @@
                 }
             },
             "requiredInputs": [
-                "resourceId",
                 "resourceType",
-                "trafficType"
+                "trafficType",
+                "resourceId"
             ]
         },
         "aws-native:EC2:GatewayRouteTableAssociation": {
@@ -20778,9 +21567,9 @@
                 }
             },
             "requiredInputs": [
-                "service",
                 "taskDefinition",
-                "cluster"
+                "cluster",
+                "service"
             ]
         },
         "aws-native:EFS:AccessPoint": {
@@ -21052,9 +21841,9 @@
                 }
             },
             "requiredInputs": [
-                "clusterName",
                 "podExecutionRoleArn",
-                "selectors"
+                "selectors",
+                "clusterName"
             ]
         },
         "aws-native:ElastiCache:User": {
@@ -21134,9 +21923,9 @@
                 }
             },
             "requiredInputs": [
+                "userId",
                 "userName",
-                "engine",
-                "userId"
+                "engine"
             ]
         },
         "aws-native:ElastiCache:UserGroup": {
@@ -21285,8 +22074,8 @@
                 }
             },
             "requiredInputs": [
-                "defaultActions",
-                "loadBalancerArn"
+                "loadBalancerArn",
+                "defaultActions"
             ]
         },
         "aws-native:ElasticLoadBalancingV2:ListenerRule": {
@@ -21664,10 +22453,10 @@
                 }
             },
             "requiredInputs": [
-                "policyName",
                 "remediationEnabled",
-                "excludeResourceTags",
                 "resourceType",
+                "excludeResourceTags",
+                "policyName",
                 "securityServicePolicyData"
             ]
         },
@@ -21713,6 +22502,208 @@
             "requiredInputs": [
                 "name",
                 "routingStrategy"
+            ]
+        },
+        "aws-native:GameLift:Fleet": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html",
+            "properties": {
+                "buildId": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid"
+                },
+                "certificateConfiguration": {
+                    "$ref": "#/types/aws-native:GameLift:FleetCertificateConfiguration",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-certificateconfiguration"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description"
+                },
+                "desiredEC2Instances": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances"
+                },
+                "eC2InboundPermissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:GameLift:FleetIpPermission"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions"
+                },
+                "eC2InstanceType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype"
+                },
+                "fleetType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype"
+                },
+                "instanceRoleARN": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolearn"
+                },
+                "logPaths": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths"
+                },
+                "maxSize": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize"
+                },
+                "metricGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-metricgroups"
+                },
+                "minSize": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name"
+                },
+                "newGameSessionProtectionPolicy": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy"
+                },
+                "peerVpcAwsAccountId": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcawsaccountid"
+                },
+                "peerVpcId": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcid"
+                },
+                "resourceCreationLimitPolicy": {
+                    "$ref": "#/types/aws-native:GameLift:FleetResourceCreationLimitPolicy",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-resourcecreationlimitpolicy"
+                },
+                "runtimeConfiguration": {
+                    "$ref": "#/types/aws-native:GameLift:FleetRuntimeConfiguration",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-runtimeconfiguration"
+                },
+                "scriptId": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid"
+                },
+                "serverLaunchParameters": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters"
+                },
+                "serverLaunchPath": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath"
+                }
+            },
+            "type": "object",
+            "required": [
+                "eC2InstanceType",
+                "name"
+            ],
+            "inputProperties": {
+                "buildId": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid"
+                },
+                "certificateConfiguration": {
+                    "$ref": "#/types/aws-native:GameLift:FleetCertificateConfiguration",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-certificateconfiguration"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description"
+                },
+                "desiredEC2Instances": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances"
+                },
+                "eC2InboundPermissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:GameLift:FleetIpPermission"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions"
+                },
+                "eC2InstanceType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype"
+                },
+                "fleetType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype"
+                },
+                "instanceRoleARN": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolearn"
+                },
+                "logPaths": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths"
+                },
+                "maxSize": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize"
+                },
+                "metricGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-metricgroups"
+                },
+                "minSize": {
+                    "type": "integer",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name"
+                },
+                "newGameSessionProtectionPolicy": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy"
+                },
+                "peerVpcAwsAccountId": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcawsaccountid"
+                },
+                "peerVpcId": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcid"
+                },
+                "resourceCreationLimitPolicy": {
+                    "$ref": "#/types/aws-native:GameLift:FleetResourceCreationLimitPolicy",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-resourcecreationlimitpolicy"
+                },
+                "runtimeConfiguration": {
+                    "$ref": "#/types/aws-native:GameLift:FleetRuntimeConfiguration",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-runtimeconfiguration"
+                },
+                "scriptId": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid"
+                },
+                "serverLaunchParameters": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters"
+                },
+                "serverLaunchPath": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath"
+                }
+            },
+            "requiredInputs": [
+                "eC2InstanceType",
+                "name"
             ]
         },
         "aws-native:GameLift:GameServerGroup": {
@@ -21833,9 +22824,9 @@
                 }
             },
             "requiredInputs": [
+                "gameServerGroupName",
                 "instanceDefinitions",
                 "launchTemplate",
-                "gameServerGroupName",
                 "roleArn"
             ]
         },
@@ -22225,10 +23216,10 @@
                 }
             },
             "requiredInputs": [
+                "name",
                 "dataFormat",
                 "compatibility",
-                "schemaDefinition",
-                "name"
+                "schemaDefinition"
             ]
         },
         "aws-native:Glue:SchemaVersion": {
@@ -22588,10 +23579,10 @@
                 }
             },
             "requiredInputs": [
-                "minimumViableContactDurationSeconds",
                 "dataflowEdges",
                 "trackingConfigArn",
-                "name"
+                "name",
+                "minimumViableContactDurationSeconds"
             ]
         },
         "aws-native:IVS:Channel": {
@@ -22875,9 +23866,9 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "version",
-                "platform"
+                "platform",
+                "name"
             ]
         },
         "aws-native:ImageBuilder:DistributionConfiguration": {
@@ -23129,9 +24120,9 @@
                 }
             },
             "requiredInputs": [
+                "name",
                 "imageRecipeArn",
-                "infrastructureConfigurationArn",
-                "name"
+                "infrastructureConfigurationArn"
             ]
         },
         "aws-native:ImageBuilder:ImageRecipe": {
@@ -23234,10 +24225,10 @@
                 }
             },
             "requiredInputs": [
-                "parentImage",
-                "name",
                 "version",
-                "components"
+                "components",
+                "parentImage",
+                "name"
             ]
         },
         "aws-native:ImageBuilder:InfrastructureConfiguration": {
@@ -23684,6 +24675,122 @@
                 }
             }
         },
+        "aws-native:IoTEvents:DetectorModel": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html",
+            "properties": {
+                "detectorModelDefinition": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelDetectorModelDefinition",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition"
+                },
+                "detectorModelDescription": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription"
+                },
+                "detectorModelName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodelname"
+                },
+                "evaluationMethod": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-evaluationmethod"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-key"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-tags"
+                }
+            },
+            "type": "object",
+            "inputProperties": {
+                "detectorModelDefinition": {
+                    "$ref": "#/types/aws-native:IoTEvents:DetectorModelDetectorModelDefinition",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition"
+                },
+                "detectorModelDescription": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription"
+                },
+                "detectorModelName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodelname"
+                },
+                "evaluationMethod": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-evaluationmethod"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-key"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-tags"
+                }
+            }
+        },
+        "aws-native:IoTEvents:Input": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html",
+            "properties": {
+                "inputDefinition": {
+                    "$ref": "#/types/aws-native:IoTEvents:InputInputDefinition",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition"
+                },
+                "inputDescription": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription"
+                },
+                "inputName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputname"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-tags"
+                }
+            },
+            "type": "object",
+            "inputProperties": {
+                "inputDefinition": {
+                    "$ref": "#/types/aws-native:IoTEvents:InputInputDefinition",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition"
+                },
+                "inputDescription": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription"
+                },
+                "inputName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputname"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-tags"
+                }
+            }
+        },
         "aws-native:IoTSiteWise:AccessPolicy": {
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html",
             "properties": {
@@ -23963,9 +25070,9 @@
                 }
             },
             "requiredInputs": [
-                "dashboardName",
                 "dashboardDescription",
-                "dashboardDefinition"
+                "dashboardDefinition",
+                "dashboardName"
             ]
         },
         "aws-native:IoTSiteWise:Gateway": {
@@ -24111,9 +25218,9 @@
                 }
             },
             "requiredInputs": [
-                "roleArn",
                 "portalContactEmail",
-                "portalName"
+                "portalName",
+                "roleArn"
             ]
         },
         "aws-native:IoTSiteWise:Project": {
@@ -24174,8 +25281,8 @@
                 }
             },
             "requiredInputs": [
-                "portalId",
-                "projectName"
+                "projectName",
+                "portalId"
             ]
         },
         "aws-native:KMS:Alias": {
@@ -25323,11 +26430,11 @@
                 }
             },
             "requiredInputs": [
-                "homeRegion",
-                "issuer",
+                "consumptionConfiguration",
                 "validity",
                 "entitlements",
-                "consumptionConfiguration"
+                "issuer",
+                "homeRegion"
             ]
         },
         "aws-native:Logs:LogGroup": {
@@ -25705,8 +26812,8 @@
                 }
             },
             "requiredInputs": [
-                "name",
-                "findingCriteria"
+                "findingCriteria",
+                "name"
             ]
         },
         "aws-native:Macie:Session": {
@@ -25833,10 +26940,10 @@
                 }
             },
             "requiredInputs": [
-                "id",
                 "packagingGroupId",
                 "sourceArn",
-                "sourceRoleArn"
+                "sourceRoleArn",
+                "id"
             ]
         },
         "aws-native:MediaPackage:Channel": {
@@ -26286,10 +27393,10 @@
                 }
             },
             "requiredInputs": [
-                "firewallName",
-                "vpcId",
+                "firewallPolicyArn",
                 "subnetMappings",
-                "firewallPolicyArn"
+                "firewallName",
+                "vpcId"
             ]
         },
         "aws-native:NetworkFirewall:FirewallPolicy": {
@@ -26499,9 +27606,9 @@
                 }
             },
             "requiredInputs": [
-                "ruleGroupName",
                 "type",
-                "capacity"
+                "capacity",
+                "ruleGroupName"
             ]
         },
         "aws-native:NetworkManager:CustomerGatewayAssociation": {
@@ -26549,9 +27656,9 @@
                 }
             },
             "requiredInputs": [
-                "globalNetworkId",
                 "customerGatewayArn",
-                "deviceId"
+                "deviceId",
+                "globalNetworkId"
             ]
         },
         "aws-native:NetworkManager:Device": {
@@ -26819,9 +27926,9 @@
                 }
             },
             "requiredInputs": [
-                "linkId",
                 "globalNetworkId",
-                "deviceId"
+                "deviceId",
+                "linkId"
             ]
         },
         "aws-native:NetworkManager:Site": {
@@ -27133,9 +28240,9 @@
                 }
             },
             "requiredInputs": [
-                "serviceRoleArn",
                 "instanceProfileArn",
-                "instanceType"
+                "instanceType",
+                "serviceRoleArn"
             ]
         },
         "aws-native:QLDB:Stream": {
@@ -27223,11 +28330,11 @@
                 }
             },
             "requiredInputs": [
-                "inclusiveStartTime",
-                "kinesisConfiguration",
                 "ledgerName",
                 "streamName",
-                "roleArn"
+                "roleArn",
+                "inclusiveStartTime",
+                "kinesisConfiguration"
             ]
         },
         "aws-native:RDS:DBProxy": {
@@ -27357,11 +28464,11 @@
                 }
             },
             "requiredInputs": [
-                "roleArn",
-                "vpcSubnetIds",
                 "auth",
                 "engineFamily",
-                "dBProxyName"
+                "roleArn",
+                "dBProxyName",
+                "vpcSubnetIds"
             ]
         },
         "aws-native:RDS:DBProxyTargetGroup": {
@@ -27432,8 +28539,8 @@
                 }
             },
             "requiredInputs": [
-                "targetGroupName",
-                "dBProxyName"
+                "dBProxyName",
+                "targetGroupName"
             ]
         },
         "aws-native:RDS:GlobalCluster": {
@@ -28101,6 +29208,160 @@
                 "name"
             ]
         },
+        "aws-native:SSM:Document": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html",
+            "properties": {
+                "content": {
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "$ref": "pulumi.json#/Json"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content"
+                },
+                "documentType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags"
+                }
+            },
+            "type": "object",
+            "required": [
+                "content"
+            ],
+            "inputProperties": {
+                "content": {
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "$ref": "pulumi.json#/Json"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content"
+                },
+                "documentType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags"
+                }
+            },
+            "requiredInputs": [
+                "content"
+            ]
+        },
+        "aws-native:SSM:ResourceDataSync": {
+            "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html",
+            "properties": {
+                "bucketName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname"
+                },
+                "bucketPrefix": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix"
+                },
+                "bucketRegion": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion"
+                },
+                "kMSKeyArn": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn"
+                },
+                "s3Destination": {
+                    "$ref": "#/types/aws-native:SSM:ResourceDataSyncS3Destination",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination"
+                },
+                "syncFormat": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat"
+                },
+                "syncName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname"
+                },
+                "syncSource": {
+                    "$ref": "#/types/aws-native:SSM:ResourceDataSyncSyncSource",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource"
+                },
+                "syncType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype"
+                }
+            },
+            "type": "object",
+            "required": [
+                "syncName"
+            ],
+            "inputProperties": {
+                "bucketName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname"
+                },
+                "bucketPrefix": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix"
+                },
+                "bucketRegion": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion"
+                },
+                "kMSKeyArn": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn"
+                },
+                "s3Destination": {
+                    "$ref": "#/types/aws-native:SSM:ResourceDataSyncS3Destination",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination"
+                },
+                "syncFormat": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat"
+                },
+                "syncName": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname"
+                },
+                "syncSource": {
+                    "$ref": "#/types/aws-native:SSM:ResourceDataSyncSyncSource",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource"
+                },
+                "syncType": {
+                    "type": "string",
+                    "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype"
+                }
+            },
+            "requiredInputs": [
+                "syncName"
+            ]
+        },
         "aws-native:SSO:Assignment": {
             "description": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html",
             "properties": {
@@ -28436,11 +29697,11 @@
                 }
             },
             "requiredInputs": [
-                "dataQualityAppSpecification",
-                "roleArn",
                 "dataQualityJobInput",
                 "dataQualityJobOutputConfig",
-                "jobResources"
+                "jobResources",
+                "dataQualityAppSpecification",
+                "roleArn"
             ]
         },
         "aws-native:SageMaker:Device": {
@@ -28660,11 +29921,11 @@
                 }
             },
             "requiredInputs": [
-                "modelBiasJobOutputConfig",
-                "jobResources",
                 "roleArn",
                 "modelBiasAppSpecification",
-                "modelBiasJobInput"
+                "modelBiasJobInput",
+                "jobResources",
+                "modelBiasJobOutputConfig"
             ]
         },
         "aws-native:SageMaker:ModelExplainabilityJobDefinition": {
@@ -28776,11 +30037,11 @@
                 }
             },
             "requiredInputs": [
-                "modelExplainabilityAppSpecification",
-                "roleArn",
                 "modelExplainabilityJobInput",
                 "modelExplainabilityJobOutputConfig",
-                "jobResources"
+                "jobResources",
+                "roleArn",
+                "modelExplainabilityAppSpecification"
             ]
         },
         "aws-native:SageMaker:ModelPackageGroup": {
@@ -28957,10 +30218,10 @@
             },
             "requiredInputs": [
                 "modelQualityAppSpecification",
-                "modelQualityJobInput",
+                "modelQualityJobOutputConfig",
                 "jobResources",
                 "roleArn",
-                "modelQualityJobOutputConfig"
+                "modelQualityJobInput"
             ]
         },
         "aws-native:SageMaker:MonitoringSchedule": {
@@ -29136,9 +30397,9 @@
                 }
             },
             "requiredInputs": [
+                "pipelineDefinition",
                 "roleArn",
-                "pipelineName",
-                "pipelineDefinition"
+                "pipelineName"
             ]
         },
         "aws-native:SageMaker:Project": {
@@ -29436,10 +30697,10 @@
                 }
             },
             "requiredInputs": [
-                "principal",
-                "statementId",
                 "profileName",
-                "action"
+                "action",
+                "principal",
+                "statementId"
             ]
         },
         "aws-native:Signer:SigningProfile": {
@@ -29729,13 +30990,13 @@
                 }
             },
             "requiredInputs": [
-                "runtimeVersion",
-                "startCanaryAfterCreation",
                 "name",
                 "code",
-                "schedule",
+                "executionRoleArn",
+                "startCanaryAfterCreation",
                 "artifactS3Location",
-                "executionRoleArn"
+                "schedule",
+                "runtimeVersion"
             ]
         },
         "aws-native:Timestream:Database": {
@@ -29935,9 +31196,9 @@
                 }
             },
             "requiredInputs": [
+                "addresses",
                 "scope",
-                "iPAddressVersion",
-                "addresses"
+                "iPAddressVersion"
             ]
         },
         "aws-native:WAFv2:RegexPatternSet": {
@@ -30012,8 +31273,8 @@
                 }
             },
             "requiredInputs": [
-                "regularExpressionList",
-                "scope"
+                "scope",
+                "regularExpressionList"
             ]
         },
         "aws-native:WAFv2:RuleGroup": {
@@ -30105,9 +31366,9 @@
                 }
             },
             "requiredInputs": [
-                "visibilityConfig",
                 "capacity",
-                "scope"
+                "scope",
+                "visibilityConfig"
             ]
         },
         "aws-native:WAFv2:WebACL": {
@@ -30203,9 +31464,9 @@
                 }
             },
             "requiredInputs": [
+                "scope",
                 "visibilityConfig",
-                "defaultAction",
-                "scope"
+                "defaultAction"
             ]
         },
         "aws-native:WAFv2:WebACLAssociation": {

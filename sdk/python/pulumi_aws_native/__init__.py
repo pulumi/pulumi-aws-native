@@ -59,6 +59,7 @@ if typing.TYPE_CHECKING:
     import pulumi_aws_native.groundstation as groundstation
     import pulumi_aws_native.imagebuilder as imagebuilder
     import pulumi_aws_native.iot as iot
+    import pulumi_aws_native.iotevents as iotevents
     import pulumi_aws_native.iotsitewise as iotsitewise
     import pulumi_aws_native.ivs as ivs
     import pulumi_aws_native.kendra as kendra
@@ -131,6 +132,7 @@ else:
     groundstation = _utilities.lazy_import('pulumi_aws_native.groundstation')
     imagebuilder = _utilities.lazy_import('pulumi_aws_native.imagebuilder')
     iot = _utilities.lazy_import('pulumi_aws_native.iot')
+    iotevents = _utilities.lazy_import('pulumi_aws_native.iotevents')
     iotsitewise = _utilities.lazy_import('pulumi_aws_native.iotsitewise')
     ivs = _utilities.lazy_import('pulumi_aws_native.ivs')
     kendra = _utilities.lazy_import('pulumi_aws_native.kendra')
@@ -237,6 +239,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.backup",
   "classes": {
    "aws-native:Backup:BackupPlan": "BackupPlan",
+   "aws-native:Backup:BackupSelection": "BackupSelection",
    "aws-native:Backup:BackupVault": "BackupVault"
   }
  },
@@ -463,6 +466,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.gamelift",
   "classes": {
    "aws-native:GameLift:Alias": "Alias",
+   "aws-native:GameLift:Fleet": "Fleet",
    "aws-native:GameLift:GameServerGroup": "GameServerGroup"
   }
  },
@@ -538,6 +542,15 @@ _utilities.register(
    "aws-native:IoT:ProvisioningTemplate": "ProvisioningTemplate",
    "aws-native:IoT:TopicRule": "TopicRule",
    "aws-native:IoT:TopicRuleDestination": "TopicRuleDestination"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "IoTEvents",
+  "fqn": "pulumi_aws_native.iotevents",
+  "classes": {
+   "aws-native:IoTEvents:DetectorModel": "DetectorModel",
+   "aws-native:IoTEvents:Input": "Input"
   }
  },
  {
@@ -744,7 +757,9 @@ _utilities.register(
   "mod": "SSM",
   "fqn": "pulumi_aws_native.ssm",
   "classes": {
-   "aws-native:SSM:Association": "Association"
+   "aws-native:SSM:Association": "Association",
+   "aws-native:SSM:Document": "Document",
+   "aws-native:SSM:ResourceDataSync": "ResourceDataSync"
   }
  },
  {
