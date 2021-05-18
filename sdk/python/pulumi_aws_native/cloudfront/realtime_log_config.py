@@ -5,15 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RealtimeLogConfig']
+__all__ = ['RealtimeLogConfigArgs', 'RealtimeLogConfig']
+
+@pulumi.input_type
+class RealtimeLogConfigArgs:
+    def __init__(__self__, *,
+                 end_points: pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]],
+                 fields: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: pulumi.Input[str],
+                 sampling_rate: pulumi.Input[float]):
+        """
+        The set of arguments for constructing a RealtimeLogConfig resource.
+        :param pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]] end_points: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
+        :param pulumi.Input[float] sampling_rate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
+        """
+        pulumi.set(__self__, "end_points", end_points)
+        pulumi.set(__self__, "fields", fields)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sampling_rate", sampling_rate)
+
+    @property
+    @pulumi.getter(name="endPoints")
+    def end_points(self) -> pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
+        """
+        return pulumi.get(self, "end_points")
+
+    @end_points.setter
+    def end_points(self, value: pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]]):
+        pulumi.set(self, "end_points", value)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
+        """
+        return pulumi.get(self, "fields")
+
+    @fields.setter
+    def fields(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "fields", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="samplingRate")
+    def sampling_rate(self) -> pulumi.Input[float]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
+        """
+        return pulumi.get(self, "sampling_rate")
+
+    @sampling_rate.setter
+    def sampling_rate(self, value: pulumi.Input[float]):
+        pulumi.set(self, "sampling_rate", value)
 
 
 class RealtimeLogConfig(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -21,9 +89,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sampling_rate: Optional[pulumi.Input[float]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
 
@@ -34,12 +100,35 @@ class RealtimeLogConfig(pulumi.CustomResource):
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
         :param pulumi.Input[float] sampling_rate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RealtimeLogConfigArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
+
+        :param str resource_name: The name of the resource.
+        :param RealtimeLogConfigArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RealtimeLogConfigArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 end_points: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RealtimeLogConfigEndPointArgs']]]]] = None,
+                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 sampling_rate: Optional[pulumi.Input[float]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -49,21 +138,21 @@ class RealtimeLogConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RealtimeLogConfigArgs.__new__(RealtimeLogConfigArgs)
 
             if end_points is None and not opts.urn:
                 raise TypeError("Missing required property 'end_points'")
-            __props__['end_points'] = end_points
+            __props__.__dict__["end_points"] = end_points
             if fields is None and not opts.urn:
                 raise TypeError("Missing required property 'fields'")
-            __props__['fields'] = fields
+            __props__.__dict__["fields"] = fields
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if sampling_rate is None and not opts.urn:
                 raise TypeError("Missing required property 'sampling_rate'")
-            __props__['sampling_rate'] = sampling_rate
-            __props__['arn'] = None
+            __props__.__dict__["sampling_rate"] = sampling_rate
+            __props__.__dict__["arn"] = None
         super(RealtimeLogConfig, __self__).__init__(
             'aws-native:CloudFront:RealtimeLogConfig',
             resource_name,
@@ -84,8 +173,13 @@ class RealtimeLogConfig(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = RealtimeLogConfigArgs.__new__(RealtimeLogConfigArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["end_points"] = None
+        __props__.__dict__["fields"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["sampling_rate"] = None
         return RealtimeLogConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -124,10 +218,4 @@ class RealtimeLogConfig(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
         """
         return pulumi.get(self, "sampling_rate")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

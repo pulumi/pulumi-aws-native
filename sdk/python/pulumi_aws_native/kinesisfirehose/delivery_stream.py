@@ -5,17 +5,201 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['DeliveryStream']
+__all__ = ['DeliveryStreamArgs', 'DeliveryStream']
+
+@pulumi.input_type
+class DeliveryStreamArgs:
+    def __init__(__self__, *,
+                 delivery_stream_encryption_configuration_input: Optional[pulumi.Input['DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs']] = None,
+                 delivery_stream_name: Optional[pulumi.Input[str]] = None,
+                 delivery_stream_type: Optional[pulumi.Input[str]] = None,
+                 elasticsearch_destination_configuration: Optional[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationArgs']] = None,
+                 extended_s3_destination_configuration: Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationArgs']] = None,
+                 http_endpoint_destination_configuration: Optional[pulumi.Input['DeliveryStreamHttpEndpointDestinationConfigurationArgs']] = None,
+                 kinesis_stream_source_configuration: Optional[pulumi.Input['DeliveryStreamKinesisStreamSourceConfigurationArgs']] = None,
+                 redshift_destination_configuration: Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationArgs']] = None,
+                 s3_destination_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
+                 splunk_destination_configuration: Optional[pulumi.Input['DeliveryStreamSplunkDestinationConfigurationArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a DeliveryStream resource.
+        :param pulumi.Input['DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs'] delivery_stream_encryption_configuration_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
+        :param pulumi.Input[str] delivery_stream_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
+        :param pulumi.Input[str] delivery_stream_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
+        :param pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationArgs'] elasticsearch_destination_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
+        :param pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationArgs'] extended_s3_destination_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
+        :param pulumi.Input['DeliveryStreamHttpEndpointDestinationConfigurationArgs'] http_endpoint_destination_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
+        :param pulumi.Input['DeliveryStreamKinesisStreamSourceConfigurationArgs'] kinesis_stream_source_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
+        :param pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationArgs'] redshift_destination_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
+        :param pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'] s3_destination_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
+        :param pulumi.Input['DeliveryStreamSplunkDestinationConfigurationArgs'] splunk_destination_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
+        """
+        if delivery_stream_encryption_configuration_input is not None:
+            pulumi.set(__self__, "delivery_stream_encryption_configuration_input", delivery_stream_encryption_configuration_input)
+        if delivery_stream_name is not None:
+            pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
+        if delivery_stream_type is not None:
+            pulumi.set(__self__, "delivery_stream_type", delivery_stream_type)
+        if elasticsearch_destination_configuration is not None:
+            pulumi.set(__self__, "elasticsearch_destination_configuration", elasticsearch_destination_configuration)
+        if extended_s3_destination_configuration is not None:
+            pulumi.set(__self__, "extended_s3_destination_configuration", extended_s3_destination_configuration)
+        if http_endpoint_destination_configuration is not None:
+            pulumi.set(__self__, "http_endpoint_destination_configuration", http_endpoint_destination_configuration)
+        if kinesis_stream_source_configuration is not None:
+            pulumi.set(__self__, "kinesis_stream_source_configuration", kinesis_stream_source_configuration)
+        if redshift_destination_configuration is not None:
+            pulumi.set(__self__, "redshift_destination_configuration", redshift_destination_configuration)
+        if s3_destination_configuration is not None:
+            pulumi.set(__self__, "s3_destination_configuration", s3_destination_configuration)
+        if splunk_destination_configuration is not None:
+            pulumi.set(__self__, "splunk_destination_configuration", splunk_destination_configuration)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="deliveryStreamEncryptionConfigurationInput")
+    def delivery_stream_encryption_configuration_input(self) -> Optional[pulumi.Input['DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
+        """
+        return pulumi.get(self, "delivery_stream_encryption_configuration_input")
+
+    @delivery_stream_encryption_configuration_input.setter
+    def delivery_stream_encryption_configuration_input(self, value: Optional[pulumi.Input['DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs']]):
+        pulumi.set(self, "delivery_stream_encryption_configuration_input", value)
+
+    @property
+    @pulumi.getter(name="deliveryStreamName")
+    def delivery_stream_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
+        """
+        return pulumi.get(self, "delivery_stream_name")
+
+    @delivery_stream_name.setter
+    def delivery_stream_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delivery_stream_name", value)
+
+    @property
+    @pulumi.getter(name="deliveryStreamType")
+    def delivery_stream_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
+        """
+        return pulumi.get(self, "delivery_stream_type")
+
+    @delivery_stream_type.setter
+    def delivery_stream_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delivery_stream_type", value)
+
+    @property
+    @pulumi.getter(name="elasticsearchDestinationConfiguration")
+    def elasticsearch_destination_configuration(self) -> Optional[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
+        """
+        return pulumi.get(self, "elasticsearch_destination_configuration")
+
+    @elasticsearch_destination_configuration.setter
+    def elasticsearch_destination_configuration(self, value: Optional[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationArgs']]):
+        pulumi.set(self, "elasticsearch_destination_configuration", value)
+
+    @property
+    @pulumi.getter(name="extendedS3DestinationConfiguration")
+    def extended_s3_destination_configuration(self) -> Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
+        """
+        return pulumi.get(self, "extended_s3_destination_configuration")
+
+    @extended_s3_destination_configuration.setter
+    def extended_s3_destination_configuration(self, value: Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationArgs']]):
+        pulumi.set(self, "extended_s3_destination_configuration", value)
+
+    @property
+    @pulumi.getter(name="httpEndpointDestinationConfiguration")
+    def http_endpoint_destination_configuration(self) -> Optional[pulumi.Input['DeliveryStreamHttpEndpointDestinationConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
+        """
+        return pulumi.get(self, "http_endpoint_destination_configuration")
+
+    @http_endpoint_destination_configuration.setter
+    def http_endpoint_destination_configuration(self, value: Optional[pulumi.Input['DeliveryStreamHttpEndpointDestinationConfigurationArgs']]):
+        pulumi.set(self, "http_endpoint_destination_configuration", value)
+
+    @property
+    @pulumi.getter(name="kinesisStreamSourceConfiguration")
+    def kinesis_stream_source_configuration(self) -> Optional[pulumi.Input['DeliveryStreamKinesisStreamSourceConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
+        """
+        return pulumi.get(self, "kinesis_stream_source_configuration")
+
+    @kinesis_stream_source_configuration.setter
+    def kinesis_stream_source_configuration(self, value: Optional[pulumi.Input['DeliveryStreamKinesisStreamSourceConfigurationArgs']]):
+        pulumi.set(self, "kinesis_stream_source_configuration", value)
+
+    @property
+    @pulumi.getter(name="redshiftDestinationConfiguration")
+    def redshift_destination_configuration(self) -> Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
+        """
+        return pulumi.get(self, "redshift_destination_configuration")
+
+    @redshift_destination_configuration.setter
+    def redshift_destination_configuration(self, value: Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationArgs']]):
+        pulumi.set(self, "redshift_destination_configuration", value)
+
+    @property
+    @pulumi.getter(name="s3DestinationConfiguration")
+    def s3_destination_configuration(self) -> Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
+        """
+        return pulumi.get(self, "s3_destination_configuration")
+
+    @s3_destination_configuration.setter
+    def s3_destination_configuration(self, value: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']]):
+        pulumi.set(self, "s3_destination_configuration", value)
+
+    @property
+    @pulumi.getter(name="splunkDestinationConfiguration")
+    def splunk_destination_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSplunkDestinationConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
+        """
+        return pulumi.get(self, "splunk_destination_configuration")
+
+    @splunk_destination_configuration.setter
+    def splunk_destination_configuration(self, value: Optional[pulumi.Input['DeliveryStreamSplunkDestinationConfigurationArgs']]):
+        pulumi.set(self, "splunk_destination_configuration", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class DeliveryStream(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -30,9 +214,7 @@ class DeliveryStream(pulumi.CustomResource):
                  s3_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamS3DestinationConfigurationArgs']]] = None,
                  splunk_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamSplunkDestinationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
 
@@ -50,12 +232,42 @@ class DeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DeliveryStreamSplunkDestinationConfigurationArgs']] splunk_destination_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[DeliveryStreamArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
+
+        :param str resource_name: The name of the resource.
+        :param DeliveryStreamArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DeliveryStreamArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 delivery_stream_encryption_configuration_input: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs']]] = None,
+                 delivery_stream_name: Optional[pulumi.Input[str]] = None,
+                 delivery_stream_type: Optional[pulumi.Input[str]] = None,
+                 elasticsearch_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamElasticsearchDestinationConfigurationArgs']]] = None,
+                 extended_s3_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamExtendedS3DestinationConfigurationArgs']]] = None,
+                 http_endpoint_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamHttpEndpointDestinationConfigurationArgs']]] = None,
+                 kinesis_stream_source_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamKinesisStreamSourceConfigurationArgs']]] = None,
+                 redshift_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamRedshiftDestinationConfigurationArgs']]] = None,
+                 s3_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamS3DestinationConfigurationArgs']]] = None,
+                 splunk_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamSplunkDestinationConfigurationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -65,20 +277,20 @@ class DeliveryStream(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DeliveryStreamArgs.__new__(DeliveryStreamArgs)
 
-            __props__['delivery_stream_encryption_configuration_input'] = delivery_stream_encryption_configuration_input
-            __props__['delivery_stream_name'] = delivery_stream_name
-            __props__['delivery_stream_type'] = delivery_stream_type
-            __props__['elasticsearch_destination_configuration'] = elasticsearch_destination_configuration
-            __props__['extended_s3_destination_configuration'] = extended_s3_destination_configuration
-            __props__['http_endpoint_destination_configuration'] = http_endpoint_destination_configuration
-            __props__['kinesis_stream_source_configuration'] = kinesis_stream_source_configuration
-            __props__['redshift_destination_configuration'] = redshift_destination_configuration
-            __props__['s3_destination_configuration'] = s3_destination_configuration
-            __props__['splunk_destination_configuration'] = splunk_destination_configuration
-            __props__['tags'] = tags
-            __props__['arn'] = None
+            __props__.__dict__["delivery_stream_encryption_configuration_input"] = delivery_stream_encryption_configuration_input
+            __props__.__dict__["delivery_stream_name"] = delivery_stream_name
+            __props__.__dict__["delivery_stream_type"] = delivery_stream_type
+            __props__.__dict__["elasticsearch_destination_configuration"] = elasticsearch_destination_configuration
+            __props__.__dict__["extended_s3_destination_configuration"] = extended_s3_destination_configuration
+            __props__.__dict__["http_endpoint_destination_configuration"] = http_endpoint_destination_configuration
+            __props__.__dict__["kinesis_stream_source_configuration"] = kinesis_stream_source_configuration
+            __props__.__dict__["redshift_destination_configuration"] = redshift_destination_configuration
+            __props__.__dict__["s3_destination_configuration"] = s3_destination_configuration
+            __props__.__dict__["splunk_destination_configuration"] = splunk_destination_configuration
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(DeliveryStream, __self__).__init__(
             'aws-native:KinesisFirehose:DeliveryStream',
             resource_name,
@@ -99,8 +311,20 @@ class DeliveryStream(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DeliveryStreamArgs.__new__(DeliveryStreamArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["delivery_stream_encryption_configuration_input"] = None
+        __props__.__dict__["delivery_stream_name"] = None
+        __props__.__dict__["delivery_stream_type"] = None
+        __props__.__dict__["elasticsearch_destination_configuration"] = None
+        __props__.__dict__["extended_s3_destination_configuration"] = None
+        __props__.__dict__["http_endpoint_destination_configuration"] = None
+        __props__.__dict__["kinesis_stream_source_configuration"] = None
+        __props__.__dict__["redshift_destination_configuration"] = None
+        __props__.__dict__["s3_destination_configuration"] = None
+        __props__.__dict__["splunk_destination_configuration"] = None
+        __props__.__dict__["tags"] = None
         return DeliveryStream(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -195,10 +419,4 @@ class DeliveryStream(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -29,7 +29,7 @@ class DataflowEndpointGroupDataflowEndpoint(dict):
                  status: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html
-        :param 'DataflowEndpointGroupSocketAddressArgs' address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-address
+        :param 'DataflowEndpointGroupSocketAddress' address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-address
         :param int mtu: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-mtu
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
         :param str status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
@@ -75,22 +75,36 @@ class DataflowEndpointGroupDataflowEndpoint(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataflowEndpointGroupEndpointDetails(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityDetails":
+            suggest = "security_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupEndpointDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupEndpointDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupEndpointDetails.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint: Optional['outputs.DataflowEndpointGroupDataflowEndpoint'] = None,
                  security_details: Optional['outputs.DataflowEndpointGroupSecurityDetails'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html
-        :param 'DataflowEndpointGroupDataflowEndpointArgs' endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-endpoint
-        :param 'DataflowEndpointGroupSecurityDetailsArgs' security_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-securitydetails
+        :param 'DataflowEndpointGroupDataflowEndpoint' endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-endpoint
+        :param 'DataflowEndpointGroupSecurityDetails' security_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-securitydetails
         """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
@@ -113,15 +127,33 @@ class DataflowEndpointGroupEndpointDetails(dict):
         """
         return pulumi.get(self, "security_details")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataflowEndpointGroupSecurityDetails(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupSecurityDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupSecurityDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupSecurityDetails.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: Optional[str] = None,
                  security_group_ids: Optional[Sequence[str]] = None,
@@ -163,9 +195,6 @@ class DataflowEndpointGroupSecurityDetails(dict):
         """
         return pulumi.get(self, "subnet_ids")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataflowEndpointGroupSocketAddress(dict):
@@ -201,9 +230,6 @@ class DataflowEndpointGroupSocketAddress(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MissionProfileDataflowEdge(dict):
@@ -238,8 +264,5 @@ class MissionProfileDataflowEdge(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-source
         """
         return pulumi.get(self, "source")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

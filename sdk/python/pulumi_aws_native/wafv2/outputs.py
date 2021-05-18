@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -76,7 +76,7 @@ class RuleGroupAndStatementOne(dict):
                  statements: Sequence['outputs.RuleGroupStatementTwo']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html
-        :param Sequence['RuleGroupStatementTwoArgs'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html#cfn-wafv2-rulegroup-andstatementone-statements
+        :param Sequence['RuleGroupStatementTwo'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html#cfn-wafv2-rulegroup-andstatementone-statements
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -88,9 +88,6 @@ class RuleGroupAndStatementOne(dict):
         """
         return pulumi.get(self, "statements")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupAndStatementTwo(dict):
@@ -101,7 +98,7 @@ class RuleGroupAndStatementTwo(dict):
                  statements: Sequence['outputs.RuleGroupStatementThree']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html
-        :param Sequence['RuleGroupStatementThreeArgs'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html#cfn-wafv2-rulegroup-andstatementtwo-statements
+        :param Sequence['RuleGroupStatementThree'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html#cfn-wafv2-rulegroup-andstatementtwo-statements
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -113,15 +110,37 @@ class RuleGroupAndStatementTwo(dict):
         """
         return pulumi.get(self, "statements")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupByteMatchStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "positionalConstraint":
+            suggest = "positional_constraint"
+        elif key == "textTransformations":
+            suggest = "text_transformations"
+        elif key == "searchString":
+            suggest = "search_string"
+        elif key == "searchStringBase64":
+            suggest = "search_string_base64"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupByteMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupByteMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupByteMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
                  positional_constraint: str,
@@ -130,9 +149,9 @@ class RuleGroupByteMatchStatement(dict):
                  search_string_base64: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html
-        :param 'RuleGroupFieldToMatchArgs' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-fieldtomatch
+        :param 'RuleGroupFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-fieldtomatch
         :param str positional_constraint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-positionalconstraint
-        :param Sequence['RuleGroupTextTransformationArgs'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-texttransformations
+        :param Sequence['RuleGroupTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-texttransformations
         :param str search_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstring
         :param str search_string_base64: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstringbase64
         """
@@ -184,15 +203,37 @@ class RuleGroupByteMatchStatement(dict):
         """
         return pulumi.get(self, "search_string_base64")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupFieldToMatch(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allQueryArguments":
+            suggest = "all_query_arguments"
+        elif key == "queryString":
+            suggest = "query_string"
+        elif key == "singleHeader":
+            suggest = "single_header"
+        elif key == "singleQueryArgument":
+            suggest = "single_query_argument"
+        elif key == "uriPath":
+            suggest = "uri_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupFieldToMatch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupFieldToMatch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupFieldToMatch.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  all_query_arguments: Optional[str] = None,
                  body: Optional[str] = None,
@@ -282,15 +323,31 @@ class RuleGroupFieldToMatch(dict):
         """
         return pulumi.get(self, "uri_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupForwardedIPConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupForwardedIPConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupForwardedIPConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupForwardedIPConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fallback_behavior: str,
                  header_name: str):
@@ -318,22 +375,38 @@ class RuleGroupForwardedIPConfiguration(dict):
         """
         return pulumi.get(self, "header_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupGeoMatchStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countryCodes":
+            suggest = "country_codes"
+        elif key == "forwardedIPConfig":
+            suggest = "forwarded_ip_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupGeoMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupGeoMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupGeoMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  country_codes: Optional[Sequence[str]] = None,
                  forwarded_ip_config: Optional['outputs.RuleGroupForwardedIPConfiguration'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html
         :param Sequence[str] country_codes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
-        :param 'RuleGroupForwardedIPConfigurationArgs' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
+        :param 'RuleGroupForwardedIPConfiguration' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
         """
         if country_codes is not None:
             pulumi.set(__self__, "country_codes", country_codes)
@@ -356,15 +429,31 @@ class RuleGroupGeoMatchStatement(dict):
         """
         return pulumi.get(self, "forwarded_ip_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupIPSetForwardedIPConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupIPSetForwardedIPConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupIPSetForwardedIPConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupIPSetForwardedIPConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fallback_behavior: str,
                  header_name: str,
@@ -403,22 +492,36 @@ class RuleGroupIPSetForwardedIPConfiguration(dict):
         """
         return pulumi.get(self, "position")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupIPSetReferenceStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iPSetForwardedIPConfig":
+            suggest = "i_p_set_forwarded_ip_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupIPSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupIPSetReferenceStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupIPSetReferenceStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arn: str,
                  i_p_set_forwarded_ip_config: Optional['outputs.RuleGroupIPSetForwardedIPConfiguration'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html
         :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn
-        :param 'RuleGroupIPSetForwardedIPConfigurationArgs' i_p_set_forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
+        :param 'RuleGroupIPSetForwardedIPConfiguration' i_p_set_forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
         """
         pulumi.set(__self__, "arn", arn)
         if i_p_set_forwarded_ip_config is not None:
@@ -440,9 +543,6 @@ class RuleGroupIPSetReferenceStatement(dict):
         """
         return pulumi.get(self, "i_p_set_forwarded_ip_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupNotStatementOne(dict):
@@ -453,7 +553,7 @@ class RuleGroupNotStatementOne(dict):
                  statement: 'outputs.RuleGroupStatementTwo'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html
-        :param 'RuleGroupStatementTwoArgs' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html#cfn-wafv2-rulegroup-notstatementone-statement
+        :param 'RuleGroupStatementTwo' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html#cfn-wafv2-rulegroup-notstatementone-statement
         """
         pulumi.set(__self__, "statement", statement)
 
@@ -465,9 +565,6 @@ class RuleGroupNotStatementOne(dict):
         """
         return pulumi.get(self, "statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupNotStatementTwo(dict):
@@ -478,7 +575,7 @@ class RuleGroupNotStatementTwo(dict):
                  statement: 'outputs.RuleGroupStatementThree'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html
-        :param 'RuleGroupStatementThreeArgs' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html#cfn-wafv2-rulegroup-notstatementtwo-statement
+        :param 'RuleGroupStatementThree' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html#cfn-wafv2-rulegroup-notstatementtwo-statement
         """
         pulumi.set(__self__, "statement", statement)
 
@@ -490,9 +587,6 @@ class RuleGroupNotStatementTwo(dict):
         """
         return pulumi.get(self, "statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupOrStatementOne(dict):
@@ -503,7 +597,7 @@ class RuleGroupOrStatementOne(dict):
                  statements: Sequence['outputs.RuleGroupStatementTwo']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html
-        :param Sequence['RuleGroupStatementTwoArgs'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html#cfn-wafv2-rulegroup-orstatementone-statements
+        :param Sequence['RuleGroupStatementTwo'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html#cfn-wafv2-rulegroup-orstatementone-statements
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -515,9 +609,6 @@ class RuleGroupOrStatementOne(dict):
         """
         return pulumi.get(self, "statements")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupOrStatementTwo(dict):
@@ -528,7 +619,7 @@ class RuleGroupOrStatementTwo(dict):
                  statements: Sequence['outputs.RuleGroupStatementThree']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html
-        :param Sequence['RuleGroupStatementThreeArgs'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html#cfn-wafv2-rulegroup-orstatementtwo-statements
+        :param Sequence['RuleGroupStatementThree'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html#cfn-wafv2-rulegroup-orstatementtwo-statements
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -540,15 +631,33 @@ class RuleGroupOrStatementTwo(dict):
         """
         return pulumi.get(self, "statements")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRateBasedStatementOne(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregateKeyType":
+            suggest = "aggregate_key_type"
+        elif key == "forwardedIPConfig":
+            suggest = "forwarded_ip_config"
+        elif key == "scopeDownStatement":
+            suggest = "scope_down_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRateBasedStatementOne. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRateBasedStatementOne.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRateBasedStatementOne.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregate_key_type: str,
                  limit: int,
@@ -558,8 +667,8 @@ class RuleGroupRateBasedStatementOne(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html
         :param str aggregate_key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-aggregatekeytype
         :param int limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-limit
-        :param 'RuleGroupForwardedIPConfigurationArgs' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-forwardedipconfig
-        :param 'RuleGroupStatementTwoArgs' scope_down_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-scopedownstatement
+        :param 'RuleGroupForwardedIPConfiguration' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-forwardedipconfig
+        :param 'RuleGroupStatementTwo' scope_down_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-scopedownstatement
         """
         pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
         pulumi.set(__self__, "limit", limit)
@@ -600,15 +709,33 @@ class RuleGroupRateBasedStatementOne(dict):
         """
         return pulumi.get(self, "scope_down_statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRateBasedStatementTwo(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregateKeyType":
+            suggest = "aggregate_key_type"
+        elif key == "forwardedIPConfig":
+            suggest = "forwarded_ip_config"
+        elif key == "scopeDownStatement":
+            suggest = "scope_down_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRateBasedStatementTwo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRateBasedStatementTwo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRateBasedStatementTwo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregate_key_type: str,
                  limit: int,
@@ -618,8 +745,8 @@ class RuleGroupRateBasedStatementTwo(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html
         :param str aggregate_key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-aggregatekeytype
         :param int limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-limit
-        :param 'RuleGroupForwardedIPConfigurationArgs' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-forwardedipconfig
-        :param 'RuleGroupStatementThreeArgs' scope_down_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-scopedownstatement
+        :param 'RuleGroupForwardedIPConfiguration' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-forwardedipconfig
+        :param 'RuleGroupStatementThree' scope_down_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-scopedownstatement
         """
         pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
         pulumi.set(__self__, "limit", limit)
@@ -660,15 +787,31 @@ class RuleGroupRateBasedStatementTwo(dict):
         """
         return pulumi.get(self, "scope_down_statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRegexPatternSetReferenceStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRegexPatternSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRegexPatternSetReferenceStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRegexPatternSetReferenceStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arn: str,
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
@@ -676,8 +819,8 @@ class RuleGroupRegexPatternSetReferenceStatement(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html
         :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-arn
-        :param 'RuleGroupFieldToMatchArgs' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-fieldtomatch
-        :param Sequence['RuleGroupTextTransformationArgs'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-texttransformations
+        :param 'RuleGroupFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-fieldtomatch
+        :param Sequence['RuleGroupTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-texttransformations
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "field_to_match", field_to_match)
@@ -707,15 +850,29 @@ class RuleGroupRegexPatternSetReferenceStatement(dict):
         """
         return pulumi.get(self, "text_transformations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRule(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "visibilityConfig":
+            suggest = "visibility_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  priority: int,
@@ -726,9 +883,9 @@ class RuleGroupRule(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-name
         :param int priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-priority
-        :param 'RuleGroupStatementOneArgs' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
-        :param 'RuleGroupVisibilityConfigArgs' visibility_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
-        :param 'RuleGroupRuleActionArgs' action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-action
+        :param 'RuleGroupStatementOne' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
+        :param 'RuleGroupVisibilityConfig' visibility_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
+        :param 'RuleGroupRuleAction' action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-action
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -777,9 +934,6 @@ class RuleGroupRule(dict):
         """
         return pulumi.get(self, "action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleAction(dict):
@@ -827,15 +981,33 @@ class RuleGroupRuleAction(dict):
         """
         return pulumi.get(self, "count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupSizeConstraintStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "comparisonOperator":
+            suggest = "comparison_operator"
+        elif key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupSizeConstraintStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupSizeConstraintStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupSizeConstraintStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  comparison_operator: str,
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
@@ -844,9 +1016,9 @@ class RuleGroupSizeConstraintStatement(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html
         :param str comparison_operator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-comparisonoperator
-        :param 'RuleGroupFieldToMatchArgs' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-fieldtomatch
+        :param 'RuleGroupFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-fieldtomatch
         :param int size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
-        :param Sequence['RuleGroupTextTransformationArgs'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
+        :param Sequence['RuleGroupTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "field_to_match", field_to_match)
@@ -885,22 +1057,38 @@ class RuleGroupSizeConstraintStatement(dict):
         """
         return pulumi.get(self, "text_transformations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupSqliMatchStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupSqliMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupSqliMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupSqliMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html
-        :param 'RuleGroupFieldToMatchArgs' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch
-        :param Sequence['RuleGroupTextTransformationArgs'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-texttransformations
+        :param 'RuleGroupFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch
+        :param Sequence['RuleGroupTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-texttransformations
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -921,15 +1109,49 @@ class RuleGroupSqliMatchStatement(dict):
         """
         return pulumi.get(self, "text_transformations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupStatementOne(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "andStatement":
+            suggest = "and_statement"
+        elif key == "byteMatchStatement":
+            suggest = "byte_match_statement"
+        elif key == "geoMatchStatement":
+            suggest = "geo_match_statement"
+        elif key == "iPSetReferenceStatement":
+            suggest = "i_p_set_reference_statement"
+        elif key == "notStatement":
+            suggest = "not_statement"
+        elif key == "orStatement":
+            suggest = "or_statement"
+        elif key == "rateBasedStatement":
+            suggest = "rate_based_statement"
+        elif key == "regexPatternSetReferenceStatement":
+            suggest = "regex_pattern_set_reference_statement"
+        elif key == "sizeConstraintStatement":
+            suggest = "size_constraint_statement"
+        elif key == "sqliMatchStatement":
+            suggest = "sqli_match_statement"
+        elif key == "xssMatchStatement":
+            suggest = "xss_match_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupStatementOne. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupStatementOne.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupStatementOne.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  and_statement: Optional['outputs.RuleGroupAndStatementOne'] = None,
                  byte_match_statement: Optional['outputs.RuleGroupByteMatchStatement'] = None,
@@ -944,17 +1166,17 @@ class RuleGroupStatementOne(dict):
                  xss_match_statement: Optional['outputs.RuleGroupXssMatchStatement'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html
-        :param 'RuleGroupAndStatementOneArgs' and_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-andstatement
-        :param 'RuleGroupByteMatchStatementArgs' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-bytematchstatement
-        :param 'RuleGroupGeoMatchStatementArgs' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-geomatchstatement
-        :param 'RuleGroupIPSetReferenceStatementArgs' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ipsetreferencestatement
-        :param 'RuleGroupNotStatementOneArgs' not_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-notstatement
-        :param 'RuleGroupOrStatementOneArgs' or_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-orstatement
-        :param 'RuleGroupRateBasedStatementOneArgs' rate_based_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ratebasedstatement
-        :param 'RuleGroupRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-regexpatternsetreferencestatement
-        :param 'RuleGroupSizeConstraintStatementArgs' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sizeconstraintstatement
-        :param 'RuleGroupSqliMatchStatementArgs' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sqlimatchstatement
-        :param 'RuleGroupXssMatchStatementArgs' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-xssmatchstatement
+        :param 'RuleGroupAndStatementOne' and_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-andstatement
+        :param 'RuleGroupByteMatchStatement' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-bytematchstatement
+        :param 'RuleGroupGeoMatchStatement' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-geomatchstatement
+        :param 'RuleGroupIPSetReferenceStatement' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ipsetreferencestatement
+        :param 'RuleGroupNotStatementOne' not_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-notstatement
+        :param 'RuleGroupOrStatementOne' or_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-orstatement
+        :param 'RuleGroupRateBasedStatementOne' rate_based_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ratebasedstatement
+        :param 'RuleGroupRegexPatternSetReferenceStatement' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-regexpatternsetreferencestatement
+        :param 'RuleGroupSizeConstraintStatement' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sizeconstraintstatement
+        :param 'RuleGroupSqliMatchStatement' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sqlimatchstatement
+        :param 'RuleGroupXssMatchStatement' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-xssmatchstatement
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -1067,15 +1289,41 @@ class RuleGroupStatementOne(dict):
         """
         return pulumi.get(self, "xss_match_statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupStatementThree(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "byteMatchStatement":
+            suggest = "byte_match_statement"
+        elif key == "geoMatchStatement":
+            suggest = "geo_match_statement"
+        elif key == "iPSetReferenceStatement":
+            suggest = "i_p_set_reference_statement"
+        elif key == "regexPatternSetReferenceStatement":
+            suggest = "regex_pattern_set_reference_statement"
+        elif key == "sizeConstraintStatement":
+            suggest = "size_constraint_statement"
+        elif key == "sqliMatchStatement":
+            suggest = "sqli_match_statement"
+        elif key == "xssMatchStatement":
+            suggest = "xss_match_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupStatementThree. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupStatementThree.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupStatementThree.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  byte_match_statement: Optional['outputs.RuleGroupByteMatchStatement'] = None,
                  geo_match_statement: Optional['outputs.RuleGroupGeoMatchStatement'] = None,
@@ -1086,13 +1334,13 @@ class RuleGroupStatementThree(dict):
                  xss_match_statement: Optional['outputs.RuleGroupXssMatchStatement'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html
-        :param 'RuleGroupByteMatchStatementArgs' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-bytematchstatement
-        :param 'RuleGroupGeoMatchStatementArgs' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-geomatchstatement
-        :param 'RuleGroupIPSetReferenceStatementArgs' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-ipsetreferencestatement
-        :param 'RuleGroupRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-regexpatternsetreferencestatement
-        :param 'RuleGroupSizeConstraintStatementArgs' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sizeconstraintstatement
-        :param 'RuleGroupSqliMatchStatementArgs' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sqlimatchstatement
-        :param 'RuleGroupXssMatchStatementArgs' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-xssmatchstatement
+        :param 'RuleGroupByteMatchStatement' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-bytematchstatement
+        :param 'RuleGroupGeoMatchStatement' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-geomatchstatement
+        :param 'RuleGroupIPSetReferenceStatement' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-ipsetreferencestatement
+        :param 'RuleGroupRegexPatternSetReferenceStatement' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-regexpatternsetreferencestatement
+        :param 'RuleGroupSizeConstraintStatement' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sizeconstraintstatement
+        :param 'RuleGroupSqliMatchStatement' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sqlimatchstatement
+        :param 'RuleGroupXssMatchStatement' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-xssmatchstatement
         """
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
@@ -1165,15 +1413,49 @@ class RuleGroupStatementThree(dict):
         """
         return pulumi.get(self, "xss_match_statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupStatementTwo(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "andStatement":
+            suggest = "and_statement"
+        elif key == "byteMatchStatement":
+            suggest = "byte_match_statement"
+        elif key == "geoMatchStatement":
+            suggest = "geo_match_statement"
+        elif key == "iPSetReferenceStatement":
+            suggest = "i_p_set_reference_statement"
+        elif key == "notStatement":
+            suggest = "not_statement"
+        elif key == "orStatement":
+            suggest = "or_statement"
+        elif key == "rateBasedStatement":
+            suggest = "rate_based_statement"
+        elif key == "regexPatternSetReferenceStatement":
+            suggest = "regex_pattern_set_reference_statement"
+        elif key == "sizeConstraintStatement":
+            suggest = "size_constraint_statement"
+        elif key == "sqliMatchStatement":
+            suggest = "sqli_match_statement"
+        elif key == "xssMatchStatement":
+            suggest = "xss_match_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupStatementTwo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupStatementTwo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupStatementTwo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  and_statement: Optional['outputs.RuleGroupAndStatementTwo'] = None,
                  byte_match_statement: Optional['outputs.RuleGroupByteMatchStatement'] = None,
@@ -1188,17 +1470,17 @@ class RuleGroupStatementTwo(dict):
                  xss_match_statement: Optional['outputs.RuleGroupXssMatchStatement'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html
-        :param 'RuleGroupAndStatementTwoArgs' and_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-andstatement
-        :param 'RuleGroupByteMatchStatementArgs' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-bytematchstatement
-        :param 'RuleGroupGeoMatchStatementArgs' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-geomatchstatement
-        :param 'RuleGroupIPSetReferenceStatementArgs' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ipsetreferencestatement
-        :param 'RuleGroupNotStatementTwoArgs' not_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-notstatement
-        :param 'RuleGroupOrStatementTwoArgs' or_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-orstatement
-        :param 'RuleGroupRateBasedStatementTwoArgs' rate_based_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ratebasedstatement
-        :param 'RuleGroupRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-regexpatternsetreferencestatement
-        :param 'RuleGroupSizeConstraintStatementArgs' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sizeconstraintstatement
-        :param 'RuleGroupSqliMatchStatementArgs' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sqlimatchstatement
-        :param 'RuleGroupXssMatchStatementArgs' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-xssmatchstatement
+        :param 'RuleGroupAndStatementTwo' and_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-andstatement
+        :param 'RuleGroupByteMatchStatement' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-bytematchstatement
+        :param 'RuleGroupGeoMatchStatement' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-geomatchstatement
+        :param 'RuleGroupIPSetReferenceStatement' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ipsetreferencestatement
+        :param 'RuleGroupNotStatementTwo' not_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-notstatement
+        :param 'RuleGroupOrStatementTwo' or_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-orstatement
+        :param 'RuleGroupRateBasedStatementTwo' rate_based_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ratebasedstatement
+        :param 'RuleGroupRegexPatternSetReferenceStatement' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-regexpatternsetreferencestatement
+        :param 'RuleGroupSizeConstraintStatement' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sizeconstraintstatement
+        :param 'RuleGroupSqliMatchStatement' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sqlimatchstatement
+        :param 'RuleGroupXssMatchStatement' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-xssmatchstatement
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -1311,9 +1593,6 @@ class RuleGroupStatementTwo(dict):
         """
         return pulumi.get(self, "xss_match_statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupTextTransformation(dict):
@@ -1347,15 +1626,33 @@ class RuleGroupTextTransformation(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupVisibilityConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchMetricsEnabled":
+            suggest = "cloud_watch_metrics_enabled"
+        elif key == "metricName":
+            suggest = "metric_name"
+        elif key == "sampledRequestsEnabled":
+            suggest = "sampled_requests_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupVisibilityConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupVisibilityConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupVisibilityConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloud_watch_metrics_enabled: bool,
                  metric_name: str,
@@ -1394,22 +1691,38 @@ class RuleGroupVisibilityConfig(dict):
         """
         return pulumi.get(self, "sampled_requests_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupXssMatchStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupXssMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupXssMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupXssMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html
-        :param 'RuleGroupFieldToMatchArgs' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-fieldtomatch
-        :param Sequence['RuleGroupTextTransformationArgs'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-texttransformations
+        :param 'RuleGroupFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-fieldtomatch
+        :param Sequence['RuleGroupTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-texttransformations
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -1430,9 +1743,6 @@ class RuleGroupXssMatchStatement(dict):
         """
         return pulumi.get(self, "text_transformations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLAndStatementOne(dict):
@@ -1443,7 +1753,7 @@ class WebACLAndStatementOne(dict):
                  statements: Sequence['outputs.WebACLStatementTwo']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html
-        :param Sequence['WebACLStatementTwoArgs'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html#cfn-wafv2-webacl-andstatementone-statements
+        :param Sequence['WebACLStatementTwo'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html#cfn-wafv2-webacl-andstatementone-statements
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -1455,9 +1765,6 @@ class WebACLAndStatementOne(dict):
         """
         return pulumi.get(self, "statements")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLAndStatementTwo(dict):
@@ -1468,7 +1775,7 @@ class WebACLAndStatementTwo(dict):
                  statements: Sequence['outputs.WebACLStatementThree']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html
-        :param Sequence['WebACLStatementThreeArgs'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html#cfn-wafv2-webacl-andstatementtwo-statements
+        :param Sequence['WebACLStatementThree'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html#cfn-wafv2-webacl-andstatementtwo-statements
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -1480,15 +1787,37 @@ class WebACLAndStatementTwo(dict):
         """
         return pulumi.get(self, "statements")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLByteMatchStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "positionalConstraint":
+            suggest = "positional_constraint"
+        elif key == "textTransformations":
+            suggest = "text_transformations"
+        elif key == "searchString":
+            suggest = "search_string"
+        elif key == "searchStringBase64":
+            suggest = "search_string_base64"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLByteMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLByteMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLByteMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field_to_match: 'outputs.WebACLFieldToMatch',
                  positional_constraint: str,
@@ -1497,9 +1826,9 @@ class WebACLByteMatchStatement(dict):
                  search_string_base64: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html
-        :param 'WebACLFieldToMatchArgs' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-fieldtomatch
+        :param 'WebACLFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-fieldtomatch
         :param str positional_constraint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-positionalconstraint
-        :param Sequence['WebACLTextTransformationArgs'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-texttransformations
+        :param Sequence['WebACLTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-texttransformations
         :param str search_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstring
         :param str search_string_base64: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstringbase64
         """
@@ -1551,9 +1880,6 @@ class WebACLByteMatchStatement(dict):
         """
         return pulumi.get(self, "search_string_base64")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLDefaultAction(dict):
@@ -1589,9 +1915,6 @@ class WebACLDefaultAction(dict):
         """
         return pulumi.get(self, "block")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLExcludedRule(dict):
@@ -1614,15 +1937,37 @@ class WebACLExcludedRule(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLFieldToMatch(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allQueryArguments":
+            suggest = "all_query_arguments"
+        elif key == "queryString":
+            suggest = "query_string"
+        elif key == "singleHeader":
+            suggest = "single_header"
+        elif key == "singleQueryArgument":
+            suggest = "single_query_argument"
+        elif key == "uriPath":
+            suggest = "uri_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLFieldToMatch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLFieldToMatch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLFieldToMatch.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  all_query_arguments: Optional[str] = None,
                  body: Optional[str] = None,
@@ -1712,15 +2057,31 @@ class WebACLFieldToMatch(dict):
         """
         return pulumi.get(self, "uri_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLForwardedIPConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLForwardedIPConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLForwardedIPConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLForwardedIPConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fallback_behavior: str,
                  header_name: str):
@@ -1748,22 +2109,38 @@ class WebACLForwardedIPConfiguration(dict):
         """
         return pulumi.get(self, "header_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLGeoMatchStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countryCodes":
+            suggest = "country_codes"
+        elif key == "forwardedIPConfig":
+            suggest = "forwarded_ip_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLGeoMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLGeoMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLGeoMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  country_codes: Optional[Sequence[str]] = None,
                  forwarded_ip_config: Optional['outputs.WebACLForwardedIPConfiguration'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html
         :param Sequence[str] country_codes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
-        :param 'WebACLForwardedIPConfigurationArgs' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
+        :param 'WebACLForwardedIPConfiguration' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
         """
         if country_codes is not None:
             pulumi.set(__self__, "country_codes", country_codes)
@@ -1786,15 +2163,31 @@ class WebACLGeoMatchStatement(dict):
         """
         return pulumi.get(self, "forwarded_ip_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLIPSetForwardedIPConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLIPSetForwardedIPConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLIPSetForwardedIPConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLIPSetForwardedIPConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fallback_behavior: str,
                  header_name: str,
@@ -1833,22 +2226,36 @@ class WebACLIPSetForwardedIPConfiguration(dict):
         """
         return pulumi.get(self, "position")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLIPSetReferenceStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iPSetForwardedIPConfig":
+            suggest = "i_p_set_forwarded_ip_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLIPSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLIPSetReferenceStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLIPSetReferenceStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arn: str,
                  i_p_set_forwarded_ip_config: Optional['outputs.WebACLIPSetForwardedIPConfiguration'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html
         :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
-        :param 'WebACLIPSetForwardedIPConfigurationArgs' i_p_set_forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
+        :param 'WebACLIPSetForwardedIPConfiguration' i_p_set_forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
         """
         pulumi.set(__self__, "arn", arn)
         if i_p_set_forwarded_ip_config is not None:
@@ -1870,15 +2277,31 @@ class WebACLIPSetReferenceStatement(dict):
         """
         return pulumi.get(self, "i_p_set_forwarded_ip_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLManagedRuleGroupStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vendorName":
+            suggest = "vendor_name"
+        elif key == "excludedRules":
+            suggest = "excluded_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLManagedRuleGroupStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLManagedRuleGroupStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLManagedRuleGroupStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  vendor_name: str,
@@ -1887,7 +2310,7 @@ class WebACLManagedRuleGroupStatement(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-name
         :param str vendor_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
-        :param Sequence['WebACLExcludedRuleArgs'] excluded_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-excludedrules
+        :param Sequence['WebACLExcludedRule'] excluded_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-excludedrules
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vendor_name", vendor_name)
@@ -1918,9 +2341,6 @@ class WebACLManagedRuleGroupStatement(dict):
         """
         return pulumi.get(self, "excluded_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLNotStatementOne(dict):
@@ -1931,7 +2351,7 @@ class WebACLNotStatementOne(dict):
                  statement: 'outputs.WebACLStatementTwo'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html
-        :param 'WebACLStatementTwoArgs' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html#cfn-wafv2-webacl-notstatementone-statement
+        :param 'WebACLStatementTwo' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html#cfn-wafv2-webacl-notstatementone-statement
         """
         pulumi.set(__self__, "statement", statement)
 
@@ -1943,9 +2363,6 @@ class WebACLNotStatementOne(dict):
         """
         return pulumi.get(self, "statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLNotStatementTwo(dict):
@@ -1956,7 +2373,7 @@ class WebACLNotStatementTwo(dict):
                  statement: 'outputs.WebACLStatementThree'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html
-        :param 'WebACLStatementThreeArgs' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html#cfn-wafv2-webacl-notstatementtwo-statement
+        :param 'WebACLStatementThree' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html#cfn-wafv2-webacl-notstatementtwo-statement
         """
         pulumi.set(__self__, "statement", statement)
 
@@ -1968,9 +2385,6 @@ class WebACLNotStatementTwo(dict):
         """
         return pulumi.get(self, "statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLOrStatementOne(dict):
@@ -1981,7 +2395,7 @@ class WebACLOrStatementOne(dict):
                  statements: Sequence['outputs.WebACLStatementTwo']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html
-        :param Sequence['WebACLStatementTwoArgs'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html#cfn-wafv2-webacl-orstatementone-statements
+        :param Sequence['WebACLStatementTwo'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html#cfn-wafv2-webacl-orstatementone-statements
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -1993,9 +2407,6 @@ class WebACLOrStatementOne(dict):
         """
         return pulumi.get(self, "statements")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLOrStatementTwo(dict):
@@ -2006,7 +2417,7 @@ class WebACLOrStatementTwo(dict):
                  statements: Sequence['outputs.WebACLStatementThree']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html
-        :param Sequence['WebACLStatementThreeArgs'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html#cfn-wafv2-webacl-orstatementtwo-statements
+        :param Sequence['WebACLStatementThree'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html#cfn-wafv2-webacl-orstatementtwo-statements
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -2017,9 +2428,6 @@ class WebACLOrStatementTwo(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html#cfn-wafv2-webacl-orstatementtwo-statements
         """
         return pulumi.get(self, "statements")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2056,15 +2464,33 @@ class WebACLOverrideAction(dict):
         """
         return pulumi.get(self, "none")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLRateBasedStatementOne(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregateKeyType":
+            suggest = "aggregate_key_type"
+        elif key == "forwardedIPConfig":
+            suggest = "forwarded_ip_config"
+        elif key == "scopeDownStatement":
+            suggest = "scope_down_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRateBasedStatementOne. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRateBasedStatementOne.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRateBasedStatementOne.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregate_key_type: str,
                  limit: int,
@@ -2074,8 +2500,8 @@ class WebACLRateBasedStatementOne(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html
         :param str aggregate_key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-aggregatekeytype
         :param int limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
-        :param 'WebACLForwardedIPConfigurationArgs' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-forwardedipconfig
-        :param 'WebACLStatementTwoArgs' scope_down_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-scopedownstatement
+        :param 'WebACLForwardedIPConfiguration' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-forwardedipconfig
+        :param 'WebACLStatementTwo' scope_down_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-scopedownstatement
         """
         pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
         pulumi.set(__self__, "limit", limit)
@@ -2116,15 +2542,33 @@ class WebACLRateBasedStatementOne(dict):
         """
         return pulumi.get(self, "scope_down_statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLRateBasedStatementTwo(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregateKeyType":
+            suggest = "aggregate_key_type"
+        elif key == "forwardedIPConfig":
+            suggest = "forwarded_ip_config"
+        elif key == "scopeDownStatement":
+            suggest = "scope_down_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRateBasedStatementTwo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRateBasedStatementTwo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRateBasedStatementTwo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregate_key_type: str,
                  limit: int,
@@ -2134,8 +2578,8 @@ class WebACLRateBasedStatementTwo(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html
         :param str aggregate_key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-aggregatekeytype
         :param int limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-limit
-        :param 'WebACLForwardedIPConfigurationArgs' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-forwardedipconfig
-        :param 'WebACLStatementThreeArgs' scope_down_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-scopedownstatement
+        :param 'WebACLForwardedIPConfiguration' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-forwardedipconfig
+        :param 'WebACLStatementThree' scope_down_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-scopedownstatement
         """
         pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
         pulumi.set(__self__, "limit", limit)
@@ -2176,15 +2620,31 @@ class WebACLRateBasedStatementTwo(dict):
         """
         return pulumi.get(self, "scope_down_statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLRegexPatternSetReferenceStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRegexPatternSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRegexPatternSetReferenceStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRegexPatternSetReferenceStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arn: str,
                  field_to_match: 'outputs.WebACLFieldToMatch',
@@ -2192,8 +2652,8 @@ class WebACLRegexPatternSetReferenceStatement(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html
         :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-arn
-        :param 'WebACLFieldToMatchArgs' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-fieldtomatch
-        :param Sequence['WebACLTextTransformationArgs'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-texttransformations
+        :param 'WebACLFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-fieldtomatch
+        :param Sequence['WebACLTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-texttransformations
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "field_to_match", field_to_match)
@@ -2223,15 +2683,31 @@ class WebACLRegexPatternSetReferenceStatement(dict):
         """
         return pulumi.get(self, "text_transformations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLRule(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "visibilityConfig":
+            suggest = "visibility_config"
+        elif key == "overrideAction":
+            suggest = "override_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  priority: int,
@@ -2243,10 +2719,10 @@ class WebACLRule(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-name
         :param int priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority
-        :param 'WebACLStatementOneArgs' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
-        :param 'WebACLVisibilityConfigArgs' visibility_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
-        :param 'WebACLRuleActionArgs' action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-action
-        :param 'WebACLOverrideActionArgs' override_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-overrideaction
+        :param 'WebACLStatementOne' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
+        :param 'WebACLVisibilityConfig' visibility_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
+        :param 'WebACLRuleAction' action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-action
+        :param 'WebACLOverrideAction' override_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-overrideaction
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -2305,9 +2781,6 @@ class WebACLRule(dict):
         """
         return pulumi.get(self, "override_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLRuleAction(dict):
@@ -2355,22 +2828,36 @@ class WebACLRuleAction(dict):
         """
         return pulumi.get(self, "count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLRuleGroupReferenceStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedRules":
+            suggest = "excluded_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRuleGroupReferenceStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRuleGroupReferenceStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRuleGroupReferenceStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arn: str,
                  excluded_rules: Optional[Sequence['outputs.WebACLExcludedRule']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
         :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
-        :param Sequence['WebACLExcludedRuleArgs'] excluded_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
+        :param Sequence['WebACLExcludedRule'] excluded_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
         """
         pulumi.set(__self__, "arn", arn)
         if excluded_rules is not None:
@@ -2392,15 +2879,33 @@ class WebACLRuleGroupReferenceStatement(dict):
         """
         return pulumi.get(self, "excluded_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLSizeConstraintStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "comparisonOperator":
+            suggest = "comparison_operator"
+        elif key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLSizeConstraintStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLSizeConstraintStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLSizeConstraintStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  comparison_operator: str,
                  field_to_match: 'outputs.WebACLFieldToMatch',
@@ -2409,9 +2914,9 @@ class WebACLSizeConstraintStatement(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html
         :param str comparison_operator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-comparisonoperator
-        :param 'WebACLFieldToMatchArgs' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch
+        :param 'WebACLFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch
         :param int size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
-        :param Sequence['WebACLTextTransformationArgs'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
+        :param Sequence['WebACLTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "field_to_match", field_to_match)
@@ -2450,22 +2955,38 @@ class WebACLSizeConstraintStatement(dict):
         """
         return pulumi.get(self, "text_transformations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLSqliMatchStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLSqliMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLSqliMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLSqliMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field_to_match: 'outputs.WebACLFieldToMatch',
                  text_transformations: Sequence['outputs.WebACLTextTransformation']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html
-        :param 'WebACLFieldToMatchArgs' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-fieldtomatch
-        :param Sequence['WebACLTextTransformationArgs'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-texttransformations
+        :param 'WebACLFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-fieldtomatch
+        :param Sequence['WebACLTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-texttransformations
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -2486,15 +3007,53 @@ class WebACLSqliMatchStatement(dict):
         """
         return pulumi.get(self, "text_transformations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLStatementOne(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "andStatement":
+            suggest = "and_statement"
+        elif key == "byteMatchStatement":
+            suggest = "byte_match_statement"
+        elif key == "geoMatchStatement":
+            suggest = "geo_match_statement"
+        elif key == "iPSetReferenceStatement":
+            suggest = "i_p_set_reference_statement"
+        elif key == "managedRuleGroupStatement":
+            suggest = "managed_rule_group_statement"
+        elif key == "notStatement":
+            suggest = "not_statement"
+        elif key == "orStatement":
+            suggest = "or_statement"
+        elif key == "rateBasedStatement":
+            suggest = "rate_based_statement"
+        elif key == "regexPatternSetReferenceStatement":
+            suggest = "regex_pattern_set_reference_statement"
+        elif key == "ruleGroupReferenceStatement":
+            suggest = "rule_group_reference_statement"
+        elif key == "sizeConstraintStatement":
+            suggest = "size_constraint_statement"
+        elif key == "sqliMatchStatement":
+            suggest = "sqli_match_statement"
+        elif key == "xssMatchStatement":
+            suggest = "xss_match_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLStatementOne. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLStatementOne.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLStatementOne.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  and_statement: Optional['outputs.WebACLAndStatementOne'] = None,
                  byte_match_statement: Optional['outputs.WebACLByteMatchStatement'] = None,
@@ -2511,19 +3070,19 @@ class WebACLStatementOne(dict):
                  xss_match_statement: Optional['outputs.WebACLXssMatchStatement'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html
-        :param 'WebACLAndStatementOneArgs' and_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-andstatement
-        :param 'WebACLByteMatchStatementArgs' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-bytematchstatement
-        :param 'WebACLGeoMatchStatementArgs' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-geomatchstatement
-        :param 'WebACLIPSetReferenceStatementArgs' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ipsetreferencestatement
-        :param 'WebACLManagedRuleGroupStatementArgs' managed_rule_group_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-managedrulegroupstatement
-        :param 'WebACLNotStatementOneArgs' not_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-notstatement
-        :param 'WebACLOrStatementOneArgs' or_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-orstatement
-        :param 'WebACLRateBasedStatementOneArgs' rate_based_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ratebasedstatement
-        :param 'WebACLRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-regexpatternsetreferencestatement
-        :param 'WebACLRuleGroupReferenceStatementArgs' rule_group_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-rulegroupreferencestatement
-        :param 'WebACLSizeConstraintStatementArgs' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sizeconstraintstatement
-        :param 'WebACLSqliMatchStatementArgs' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sqlimatchstatement
-        :param 'WebACLXssMatchStatementArgs' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-xssmatchstatement
+        :param 'WebACLAndStatementOne' and_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-andstatement
+        :param 'WebACLByteMatchStatement' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-bytematchstatement
+        :param 'WebACLGeoMatchStatement' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-geomatchstatement
+        :param 'WebACLIPSetReferenceStatement' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ipsetreferencestatement
+        :param 'WebACLManagedRuleGroupStatement' managed_rule_group_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-managedrulegroupstatement
+        :param 'WebACLNotStatementOne' not_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-notstatement
+        :param 'WebACLOrStatementOne' or_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-orstatement
+        :param 'WebACLRateBasedStatementOne' rate_based_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ratebasedstatement
+        :param 'WebACLRegexPatternSetReferenceStatement' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-regexpatternsetreferencestatement
+        :param 'WebACLRuleGroupReferenceStatement' rule_group_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-rulegroupreferencestatement
+        :param 'WebACLSizeConstraintStatement' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sizeconstraintstatement
+        :param 'WebACLSqliMatchStatement' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sqlimatchstatement
+        :param 'WebACLXssMatchStatement' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-xssmatchstatement
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -2656,15 +3215,45 @@ class WebACLStatementOne(dict):
         """
         return pulumi.get(self, "xss_match_statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLStatementThree(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "byteMatchStatement":
+            suggest = "byte_match_statement"
+        elif key == "geoMatchStatement":
+            suggest = "geo_match_statement"
+        elif key == "iPSetReferenceStatement":
+            suggest = "i_p_set_reference_statement"
+        elif key == "managedRuleGroupStatement":
+            suggest = "managed_rule_group_statement"
+        elif key == "regexPatternSetReferenceStatement":
+            suggest = "regex_pattern_set_reference_statement"
+        elif key == "ruleGroupReferenceStatement":
+            suggest = "rule_group_reference_statement"
+        elif key == "sizeConstraintStatement":
+            suggest = "size_constraint_statement"
+        elif key == "sqliMatchStatement":
+            suggest = "sqli_match_statement"
+        elif key == "xssMatchStatement":
+            suggest = "xss_match_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLStatementThree. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLStatementThree.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLStatementThree.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  byte_match_statement: Optional['outputs.WebACLByteMatchStatement'] = None,
                  geo_match_statement: Optional['outputs.WebACLGeoMatchStatement'] = None,
@@ -2677,15 +3266,15 @@ class WebACLStatementThree(dict):
                  xss_match_statement: Optional['outputs.WebACLXssMatchStatement'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html
-        :param 'WebACLByteMatchStatementArgs' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-bytematchstatement
-        :param 'WebACLGeoMatchStatementArgs' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-geomatchstatement
-        :param 'WebACLIPSetReferenceStatementArgs' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-ipsetreferencestatement
-        :param 'WebACLManagedRuleGroupStatementArgs' managed_rule_group_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-managedrulegroupstatement
-        :param 'WebACLRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-regexpatternsetreferencestatement
-        :param 'WebACLRuleGroupReferenceStatementArgs' rule_group_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-rulegroupreferencestatement
-        :param 'WebACLSizeConstraintStatementArgs' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sizeconstraintstatement
-        :param 'WebACLSqliMatchStatementArgs' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sqlimatchstatement
-        :param 'WebACLXssMatchStatementArgs' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-xssmatchstatement
+        :param 'WebACLByteMatchStatement' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-bytematchstatement
+        :param 'WebACLGeoMatchStatement' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-geomatchstatement
+        :param 'WebACLIPSetReferenceStatement' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-ipsetreferencestatement
+        :param 'WebACLManagedRuleGroupStatement' managed_rule_group_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-managedrulegroupstatement
+        :param 'WebACLRegexPatternSetReferenceStatement' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-regexpatternsetreferencestatement
+        :param 'WebACLRuleGroupReferenceStatement' rule_group_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-rulegroupreferencestatement
+        :param 'WebACLSizeConstraintStatement' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sizeconstraintstatement
+        :param 'WebACLSqliMatchStatement' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sqlimatchstatement
+        :param 'WebACLXssMatchStatement' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-xssmatchstatement
         """
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
@@ -2778,15 +3367,53 @@ class WebACLStatementThree(dict):
         """
         return pulumi.get(self, "xss_match_statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLStatementTwo(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "andStatement":
+            suggest = "and_statement"
+        elif key == "byteMatchStatement":
+            suggest = "byte_match_statement"
+        elif key == "geoMatchStatement":
+            suggest = "geo_match_statement"
+        elif key == "iPSetReferenceStatement":
+            suggest = "i_p_set_reference_statement"
+        elif key == "managedRuleGroupStatement":
+            suggest = "managed_rule_group_statement"
+        elif key == "notStatement":
+            suggest = "not_statement"
+        elif key == "orStatement":
+            suggest = "or_statement"
+        elif key == "rateBasedStatement":
+            suggest = "rate_based_statement"
+        elif key == "regexPatternSetReferenceStatement":
+            suggest = "regex_pattern_set_reference_statement"
+        elif key == "ruleGroupReferenceStatement":
+            suggest = "rule_group_reference_statement"
+        elif key == "sizeConstraintStatement":
+            suggest = "size_constraint_statement"
+        elif key == "sqliMatchStatement":
+            suggest = "sqli_match_statement"
+        elif key == "xssMatchStatement":
+            suggest = "xss_match_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLStatementTwo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLStatementTwo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLStatementTwo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  and_statement: Optional['outputs.WebACLAndStatementTwo'] = None,
                  byte_match_statement: Optional['outputs.WebACLByteMatchStatement'] = None,
@@ -2803,19 +3430,19 @@ class WebACLStatementTwo(dict):
                  xss_match_statement: Optional['outputs.WebACLXssMatchStatement'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html
-        :param 'WebACLAndStatementTwoArgs' and_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-andstatement
-        :param 'WebACLByteMatchStatementArgs' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-bytematchstatement
-        :param 'WebACLGeoMatchStatementArgs' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-geomatchstatement
-        :param 'WebACLIPSetReferenceStatementArgs' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ipsetreferencestatement
-        :param 'WebACLManagedRuleGroupStatementArgs' managed_rule_group_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-managedrulegroupstatement
-        :param 'WebACLNotStatementTwoArgs' not_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-notstatement
-        :param 'WebACLOrStatementTwoArgs' or_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-orstatement
-        :param 'WebACLRateBasedStatementTwoArgs' rate_based_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ratebasedstatement
-        :param 'WebACLRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-regexpatternsetreferencestatement
-        :param 'WebACLRuleGroupReferenceStatementArgs' rule_group_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-rulegroupreferencestatement
-        :param 'WebACLSizeConstraintStatementArgs' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sizeconstraintstatement
-        :param 'WebACLSqliMatchStatementArgs' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sqlimatchstatement
-        :param 'WebACLXssMatchStatementArgs' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-xssmatchstatement
+        :param 'WebACLAndStatementTwo' and_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-andstatement
+        :param 'WebACLByteMatchStatement' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-bytematchstatement
+        :param 'WebACLGeoMatchStatement' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-geomatchstatement
+        :param 'WebACLIPSetReferenceStatement' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ipsetreferencestatement
+        :param 'WebACLManagedRuleGroupStatement' managed_rule_group_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-managedrulegroupstatement
+        :param 'WebACLNotStatementTwo' not_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-notstatement
+        :param 'WebACLOrStatementTwo' or_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-orstatement
+        :param 'WebACLRateBasedStatementTwo' rate_based_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ratebasedstatement
+        :param 'WebACLRegexPatternSetReferenceStatement' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-regexpatternsetreferencestatement
+        :param 'WebACLRuleGroupReferenceStatement' rule_group_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-rulegroupreferencestatement
+        :param 'WebACLSizeConstraintStatement' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sizeconstraintstatement
+        :param 'WebACLSqliMatchStatement' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sqlimatchstatement
+        :param 'WebACLXssMatchStatement' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-xssmatchstatement
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -2948,9 +3575,6 @@ class WebACLStatementTwo(dict):
         """
         return pulumi.get(self, "xss_match_statement")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLTextTransformation(dict):
@@ -2984,15 +3608,33 @@ class WebACLTextTransformation(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLVisibilityConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchMetricsEnabled":
+            suggest = "cloud_watch_metrics_enabled"
+        elif key == "metricName":
+            suggest = "metric_name"
+        elif key == "sampledRequestsEnabled":
+            suggest = "sampled_requests_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLVisibilityConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLVisibilityConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLVisibilityConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloud_watch_metrics_enabled: bool,
                  metric_name: str,
@@ -3031,22 +3673,38 @@ class WebACLVisibilityConfig(dict):
         """
         return pulumi.get(self, "sampled_requests_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebACLXssMatchStatement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldToMatch":
+            suggest = "field_to_match"
+        elif key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLXssMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLXssMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLXssMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field_to_match: 'outputs.WebACLFieldToMatch',
                  text_transformations: Sequence['outputs.WebACLTextTransformation']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html
-        :param 'WebACLFieldToMatchArgs' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
-        :param Sequence['WebACLTextTransformationArgs'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
+        :param 'WebACLFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
+        :param Sequence['WebACLTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -3066,8 +3724,5 @@ class WebACLXssMatchStatement(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
         """
         return pulumi.get(self, "text_transformations")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -5,15 +5,84 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Listener']
+__all__ = ['ListenerArgs', 'Listener']
+
+@pulumi.input_type
+class ListenerArgs:
+    def __init__(__self__, *,
+                 accelerator_arn: pulumi.Input[str],
+                 port_ranges: pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]],
+                 protocol: pulumi.Input[str],
+                 client_affinity: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Listener resource.
+        :param pulumi.Input[str] accelerator_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]] port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
+        :param pulumi.Input[str] protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
+        :param pulumi.Input[str] client_affinity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
+        """
+        pulumi.set(__self__, "accelerator_arn", accelerator_arn)
+        pulumi.set(__self__, "port_ranges", port_ranges)
+        pulumi.set(__self__, "protocol", protocol)
+        if client_affinity is not None:
+            pulumi.set(__self__, "client_affinity", client_affinity)
+
+    @property
+    @pulumi.getter(name="acceleratorArn")
+    def accelerator_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
+        """
+        return pulumi.get(self, "accelerator_arn")
+
+    @accelerator_arn.setter
+    def accelerator_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "accelerator_arn", value)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
+        """
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="clientAffinity")
+    def client_affinity(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
+        """
+        return pulumi.get(self, "client_affinity")
+
+    @client_affinity.setter
+    def client_affinity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_affinity", value)
 
 
 class Listener(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -21,9 +90,7 @@ class Listener(pulumi.CustomResource):
                  client_affinity: Optional[pulumi.Input[str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerPortRangeArgs']]]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html
 
@@ -34,12 +101,35 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerPortRangeArgs']]]] port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
         :param pulumi.Input[str] protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ListenerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html
+
+        :param str resource_name: The name of the resource.
+        :param ListenerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ListenerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 accelerator_arn: Optional[pulumi.Input[str]] = None,
+                 client_affinity: Optional[pulumi.Input[str]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerPortRangeArgs']]]]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -49,19 +139,19 @@ class Listener(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ListenerArgs.__new__(ListenerArgs)
 
             if accelerator_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'accelerator_arn'")
-            __props__['accelerator_arn'] = accelerator_arn
-            __props__['client_affinity'] = client_affinity
+            __props__.__dict__["accelerator_arn"] = accelerator_arn
+            __props__.__dict__["client_affinity"] = client_affinity
             if port_ranges is None and not opts.urn:
                 raise TypeError("Missing required property 'port_ranges'")
-            __props__['port_ranges'] = port_ranges
+            __props__.__dict__["port_ranges"] = port_ranges
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
-            __props__['protocol'] = protocol
-            __props__['listener_arn'] = None
+            __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["listener_arn"] = None
         super(Listener, __self__).__init__(
             'aws-native:GlobalAccelerator:Listener',
             resource_name,
@@ -82,8 +172,13 @@ class Listener(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ListenerArgs.__new__(ListenerArgs)
 
+        __props__.__dict__["accelerator_arn"] = None
+        __props__.__dict__["client_affinity"] = None
+        __props__.__dict__["listener_arn"] = None
+        __props__.__dict__["port_ranges"] = None
+        __props__.__dict__["protocol"] = None
         return Listener(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -122,10 +217,4 @@ class Listener(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
         """
         return pulumi.get(self, "protocol")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

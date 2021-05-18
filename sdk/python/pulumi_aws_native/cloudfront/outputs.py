@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -31,6 +31,29 @@ class CachePolicyCachePolicyConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultTTL":
+            suggest = "default_ttl"
+        elif key == "maxTTL":
+            suggest = "max_ttl"
+        elif key == "minTTL":
+            suggest = "min_ttl"
+        elif key == "parametersInCacheKeyAndForwardedToOrigin":
+            suggest = "parameters_in_cache_key_and_forwarded_to_origin"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CachePolicyCachePolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CachePolicyCachePolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CachePolicyCachePolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_ttl: float,
                  max_ttl: float,
@@ -44,7 +67,7 @@ class CachePolicyCachePolicyConfig(dict):
         :param float max_ttl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-maxttl
         :param float min_ttl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-minttl
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-name
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginArgs' parameters_in_cache_key_and_forwarded_to_origin: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOrigin' parameters_in_cache_key_and_forwarded_to_origin: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
         :param str comment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment
         """
         pulumi.set(__self__, "default_ttl", default_ttl)
@@ -103,15 +126,29 @@ class CachePolicyCachePolicyConfig(dict):
         """
         return pulumi.get(self, "comment")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CachePolicyCookiesConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cookieBehavior":
+            suggest = "cookie_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CachePolicyCookiesConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CachePolicyCookiesConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CachePolicyCookiesConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cookie_behavior: str,
                  cookies: Optional[Sequence[str]] = None):
@@ -140,15 +177,29 @@ class CachePolicyCookiesConfig(dict):
         """
         return pulumi.get(self, "cookies")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CachePolicyHeadersConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerBehavior":
+            suggest = "header_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CachePolicyHeadersConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CachePolicyHeadersConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CachePolicyHeadersConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  header_behavior: str,
                  headers: Optional[Sequence[str]] = None):
@@ -177,15 +228,37 @@ class CachePolicyHeadersConfig(dict):
         """
         return pulumi.get(self, "headers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cookiesConfig":
+            suggest = "cookies_config"
+        elif key == "enableAcceptEncodingGzip":
+            suggest = "enable_accept_encoding_gzip"
+        elif key == "headersConfig":
+            suggest = "headers_config"
+        elif key == "queryStringsConfig":
+            suggest = "query_strings_config"
+        elif key == "enableAcceptEncodingBrotli":
+            suggest = "enable_accept_encoding_brotli"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CachePolicyParametersInCacheKeyAndForwardedToOrigin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CachePolicyParametersInCacheKeyAndForwardedToOrigin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CachePolicyParametersInCacheKeyAndForwardedToOrigin.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cookies_config: 'outputs.CachePolicyCookiesConfig',
                  enable_accept_encoding_gzip: bool,
@@ -194,10 +267,10 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
                  enable_accept_encoding_brotli: Optional[bool] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html
-        :param 'CachePolicyCookiesConfigArgs' cookies_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
+        :param 'CachePolicyCookiesConfig' cookies_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
         :param bool enable_accept_encoding_gzip: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodinggzip
-        :param 'CachePolicyHeadersConfigArgs' headers_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
-        :param 'CachePolicyQueryStringsConfigArgs' query_strings_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
+        :param 'CachePolicyHeadersConfig' headers_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
+        :param 'CachePolicyQueryStringsConfig' query_strings_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
         :param bool enable_accept_encoding_brotli: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli
         """
         pulumi.set(__self__, "cookies_config", cookies_config)
@@ -247,15 +320,31 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
         """
         return pulumi.get(self, "enable_accept_encoding_brotli")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CachePolicyQueryStringsConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryStringBehavior":
+            suggest = "query_string_behavior"
+        elif key == "queryStrings":
+            suggest = "query_strings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CachePolicyQueryStringsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CachePolicyQueryStringsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CachePolicyQueryStringsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query_string_behavior: str,
                  query_strings: Optional[Sequence[str]] = None):
@@ -284,9 +373,6 @@ class CachePolicyQueryStringsConfig(dict):
         """
         return pulumi.get(self, "query_strings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig(dict):
@@ -308,9 +394,6 @@ class CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
         """
         return pulumi.get(self, "comment")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -357,15 +440,29 @@ class KeyGroupKeyGroupConfig(dict):
         """
         return pulumi.get(self, "comment")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginRequestPolicyCookiesConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cookieBehavior":
+            suggest = "cookie_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginRequestPolicyCookiesConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginRequestPolicyCookiesConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginRequestPolicyCookiesConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cookie_behavior: str,
                  cookies: Optional[Sequence[str]] = None):
@@ -394,15 +491,29 @@ class OriginRequestPolicyCookiesConfig(dict):
         """
         return pulumi.get(self, "cookies")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginRequestPolicyHeadersConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerBehavior":
+            suggest = "header_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginRequestPolicyHeadersConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginRequestPolicyHeadersConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginRequestPolicyHeadersConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  header_behavior: str,
                  headers: Optional[Sequence[str]] = None):
@@ -431,15 +542,33 @@ class OriginRequestPolicyHeadersConfig(dict):
         """
         return pulumi.get(self, "headers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginRequestPolicyOriginRequestPolicyConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cookiesConfig":
+            suggest = "cookies_config"
+        elif key == "headersConfig":
+            suggest = "headers_config"
+        elif key == "queryStringsConfig":
+            suggest = "query_strings_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginRequestPolicyOriginRequestPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginRequestPolicyOriginRequestPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginRequestPolicyOriginRequestPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cookies_config: 'outputs.OriginRequestPolicyCookiesConfig',
                  headers_config: 'outputs.OriginRequestPolicyHeadersConfig',
@@ -448,10 +577,10 @@ class OriginRequestPolicyOriginRequestPolicyConfig(dict):
                  comment: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html
-        :param 'OriginRequestPolicyCookiesConfigArgs' cookies_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
-        :param 'OriginRequestPolicyHeadersConfigArgs' headers_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
+        :param 'OriginRequestPolicyCookiesConfig' cookies_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
+        :param 'OriginRequestPolicyHeadersConfig' headers_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
-        :param 'OriginRequestPolicyQueryStringsConfigArgs' query_strings_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
+        :param 'OriginRequestPolicyQueryStringsConfig' query_strings_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
         :param str comment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
         """
         pulumi.set(__self__, "cookies_config", cookies_config)
@@ -501,15 +630,31 @@ class OriginRequestPolicyOriginRequestPolicyConfig(dict):
         """
         return pulumi.get(self, "comment")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginRequestPolicyQueryStringsConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryStringBehavior":
+            suggest = "query_string_behavior"
+        elif key == "queryStrings":
+            suggest = "query_strings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginRequestPolicyQueryStringsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginRequestPolicyQueryStringsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginRequestPolicyQueryStringsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query_string_behavior: str,
                  query_strings: Optional[Sequence[str]] = None):
@@ -538,15 +683,31 @@ class OriginRequestPolicyQueryStringsConfig(dict):
         """
         return pulumi.get(self, "query_strings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PublicKeyPublicKeyConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "callerReference":
+            suggest = "caller_reference"
+        elif key == "encodedKey":
+            suggest = "encoded_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicKeyPublicKeyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicKeyPublicKeyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicKeyPublicKeyConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  caller_reference: str,
                  encoded_key: str,
@@ -597,21 +758,37 @@ class PublicKeyPublicKeyConfig(dict):
         """
         return pulumi.get(self, "comment")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RealtimeLogConfigEndPoint(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kinesisStreamConfig":
+            suggest = "kinesis_stream_config"
+        elif key == "streamType":
+            suggest = "stream_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RealtimeLogConfigEndPoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RealtimeLogConfigEndPoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RealtimeLogConfigEndPoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kinesis_stream_config: 'outputs.RealtimeLogConfigKinesisStreamConfig',
                  stream_type: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html
-        :param 'RealtimeLogConfigKinesisStreamConfigArgs' kinesis_stream_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
+        :param 'RealtimeLogConfigKinesisStreamConfig' kinesis_stream_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
         :param str stream_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype
         """
         pulumi.set(__self__, "kinesis_stream_config", kinesis_stream_config)
@@ -633,15 +810,31 @@ class RealtimeLogConfigEndPoint(dict):
         """
         return pulumi.get(self, "stream_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RealtimeLogConfigKinesisStreamConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "streamArn":
+            suggest = "stream_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RealtimeLogConfigKinesisStreamConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RealtimeLogConfigKinesisStreamConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RealtimeLogConfigKinesisStreamConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: str,
                  stream_arn: str):
@@ -668,8 +861,5 @@ class RealtimeLogConfigKinesisStreamConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-streamarn
         """
         return pulumi.get(self, "stream_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

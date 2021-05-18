@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'CloudFormationProvisionedProductProvisioningParameter',
@@ -45,15 +45,41 @@ class CloudFormationProvisionedProductProvisioningParameter(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudFormationProvisionedProductProvisioningPreferences(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stackSetAccounts":
+            suggest = "stack_set_accounts"
+        elif key == "stackSetFailureToleranceCount":
+            suggest = "stack_set_failure_tolerance_count"
+        elif key == "stackSetFailureTolerancePercentage":
+            suggest = "stack_set_failure_tolerance_percentage"
+        elif key == "stackSetMaxConcurrencyCount":
+            suggest = "stack_set_max_concurrency_count"
+        elif key == "stackSetMaxConcurrencyPercentage":
+            suggest = "stack_set_max_concurrency_percentage"
+        elif key == "stackSetOperationType":
+            suggest = "stack_set_operation_type"
+        elif key == "stackSetRegions":
+            suggest = "stack_set_regions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudFormationProvisionedProductProvisioningPreferences. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudFormationProvisionedProductProvisioningPreferences.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudFormationProvisionedProductProvisioningPreferences.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  stack_set_accounts: Optional[Sequence[str]] = None,
                  stack_set_failure_tolerance_count: Optional[int] = None,
@@ -142,8 +168,5 @@ class CloudFormationProvisionedProductProvisioningPreferences(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetregions
         """
         return pulumi.get(self, "stack_set_regions")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

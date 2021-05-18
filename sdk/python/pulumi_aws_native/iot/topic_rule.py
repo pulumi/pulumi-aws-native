@@ -5,23 +5,60 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TopicRule']
+__all__ = ['TopicRuleArgs', 'TopicRule']
+
+@pulumi.input_type
+class TopicRuleArgs:
+    def __init__(__self__, *,
+                 topic_rule_payload: pulumi.Input['TopicRuleTopicRulePayloadArgs'],
+                 rule_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a TopicRule resource.
+        :param pulumi.Input['TopicRuleTopicRulePayloadArgs'] topic_rule_payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
+        :param pulumi.Input[str] rule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
+        """
+        pulumi.set(__self__, "topic_rule_payload", topic_rule_payload)
+        if rule_name is not None:
+            pulumi.set(__self__, "rule_name", rule_name)
+
+    @property
+    @pulumi.getter(name="topicRulePayload")
+    def topic_rule_payload(self) -> pulumi.Input['TopicRuleTopicRulePayloadArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
+        """
+        return pulumi.get(self, "topic_rule_payload")
+
+    @topic_rule_payload.setter
+    def topic_rule_payload(self, value: pulumi.Input['TopicRuleTopicRulePayloadArgs']):
+        pulumi.set(self, "topic_rule_payload", value)
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_name", value)
 
 
 class TopicRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  topic_rule_payload: Optional[pulumi.Input[pulumi.InputType['TopicRuleTopicRulePayloadArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
 
@@ -30,12 +67,33 @@ class TopicRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
         :param pulumi.Input[pulumi.InputType['TopicRuleTopicRulePayloadArgs']] topic_rule_payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TopicRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
+
+        :param str resource_name: The name of the resource.
+        :param TopicRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TopicRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None,
+                 topic_rule_payload: Optional[pulumi.Input[pulumi.InputType['TopicRuleTopicRulePayloadArgs']]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -45,13 +103,13 @@ class TopicRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TopicRuleArgs.__new__(TopicRuleArgs)
 
-            __props__['rule_name'] = rule_name
+            __props__.__dict__["rule_name"] = rule_name
             if topic_rule_payload is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_rule_payload'")
-            __props__['topic_rule_payload'] = topic_rule_payload
-            __props__['arn'] = None
+            __props__.__dict__["topic_rule_payload"] = topic_rule_payload
+            __props__.__dict__["arn"] = None
         super(TopicRule, __self__).__init__(
             'aws-native:IoT:TopicRule',
             resource_name,
@@ -72,8 +130,11 @@ class TopicRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = TopicRuleArgs.__new__(TopicRuleArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["rule_name"] = None
+        __props__.__dict__["topic_rule_payload"] = None
         return TopicRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -96,10 +157,4 @@ class TopicRule(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
         """
         return pulumi.get(self, "topic_rule_payload")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

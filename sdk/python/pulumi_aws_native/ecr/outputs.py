@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'RepositoryLifecyclePolicy',
@@ -17,6 +17,25 @@ class RepositoryLifecyclePolicy(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lifecyclePolicyText":
+            suggest = "lifecycle_policy_text"
+        elif key == "registryId":
+            suggest = "registry_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryLifecyclePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryLifecyclePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryLifecyclePolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lifecycle_policy_text: Optional[str] = None,
                  registry_id: Optional[str] = None):
@@ -45,8 +64,5 @@ class RepositoryLifecyclePolicy(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid
         """
         return pulumi.get(self, "registry_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

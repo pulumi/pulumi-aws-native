@@ -5,21 +5,57 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['GatewayRouteTableAssociation']
+__all__ = ['GatewayRouteTableAssociationArgs', 'GatewayRouteTableAssociation']
+
+@pulumi.input_type
+class GatewayRouteTableAssociationArgs:
+    def __init__(__self__, *,
+                 gateway_id: pulumi.Input[str],
+                 route_table_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a GatewayRouteTableAssociation resource.
+        :param pulumi.Input[str] gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
+        :param pulumi.Input[str] route_table_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
+        """
+        pulumi.set(__self__, "gateway_id", gateway_id)
+        pulumi.set(__self__, "route_table_id", route_table_id)
+
+    @property
+    @pulumi.getter(name="gatewayId")
+    def gateway_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
+        """
+        return pulumi.get(self, "gateway_id")
+
+    @gateway_id.setter
+    def gateway_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "gateway_id", value)
+
+    @property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
+        """
+        return pulumi.get(self, "route_table_id")
+
+    @route_table_id.setter
+    def route_table_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "route_table_id", value)
 
 
 class GatewayRouteTableAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
                  route_table_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html
 
@@ -28,12 +64,33 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
         :param pulumi.Input[str] route_table_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GatewayRouteTableAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html
+
+        :param str resource_name: The name of the resource.
+        :param GatewayRouteTableAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GatewayRouteTableAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 gateway_id: Optional[pulumi.Input[str]] = None,
+                 route_table_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -43,15 +100,15 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GatewayRouteTableAssociationArgs.__new__(GatewayRouteTableAssociationArgs)
 
             if gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_id'")
-            __props__['gateway_id'] = gateway_id
+            __props__.__dict__["gateway_id"] = gateway_id
             if route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_id'")
-            __props__['route_table_id'] = route_table_id
-            __props__['association_id'] = None
+            __props__.__dict__["route_table_id"] = route_table_id
+            __props__.__dict__["association_id"] = None
         super(GatewayRouteTableAssociation, __self__).__init__(
             'aws-native:EC2:GatewayRouteTableAssociation',
             resource_name,
@@ -72,8 +129,11 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = GatewayRouteTableAssociationArgs.__new__(GatewayRouteTableAssociationArgs)
 
+        __props__.__dict__["association_id"] = None
+        __props__.__dict__["gateway_id"] = None
+        __props__.__dict__["route_table_id"] = None
         return GatewayRouteTableAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -96,10 +156,4 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
         """
         return pulumi.get(self, "route_table_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

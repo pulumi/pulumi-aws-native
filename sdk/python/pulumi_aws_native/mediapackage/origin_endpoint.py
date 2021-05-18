@@ -5,17 +5,247 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['OriginEndpoint']
+__all__ = ['OriginEndpointArgs', 'OriginEndpoint']
+
+@pulumi.input_type
+class OriginEndpointArgs:
+    def __init__(__self__, *,
+                 channel_id: pulumi.Input[str],
+                 id: pulumi.Input[str],
+                 authorization: Optional[pulumi.Input['OriginEndpointAuthorizationArgs']] = None,
+                 cmaf_package: Optional[pulumi.Input['OriginEndpointCmafPackageArgs']] = None,
+                 dash_package: Optional[pulumi.Input['OriginEndpointDashPackageArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 hls_package: Optional[pulumi.Input['OriginEndpointHlsPackageArgs']] = None,
+                 manifest_name: Optional[pulumi.Input[str]] = None,
+                 mss_package: Optional[pulumi.Input['OriginEndpointMssPackageArgs']] = None,
+                 origination: Optional[pulumi.Input[str]] = None,
+                 startover_window_seconds: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 time_delay_seconds: Optional[pulumi.Input[int]] = None,
+                 whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a OriginEndpoint resource.
+        :param pulumi.Input[str] channel_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
+        :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
+        :param pulumi.Input['OriginEndpointAuthorizationArgs'] authorization: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
+        :param pulumi.Input['OriginEndpointCmafPackageArgs'] cmaf_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
+        :param pulumi.Input['OriginEndpointDashPackageArgs'] dash_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
+        :param pulumi.Input['OriginEndpointHlsPackageArgs'] hls_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
+        :param pulumi.Input[str] manifest_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
+        :param pulumi.Input['OriginEndpointMssPackageArgs'] mss_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
+        :param pulumi.Input[str] origination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
+        :param pulumi.Input[int] startover_window_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
+        :param pulumi.Input[int] time_delay_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] whitelist: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
+        """
+        pulumi.set(__self__, "channel_id", channel_id)
+        pulumi.set(__self__, "id", id)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if cmaf_package is not None:
+            pulumi.set(__self__, "cmaf_package", cmaf_package)
+        if dash_package is not None:
+            pulumi.set(__self__, "dash_package", dash_package)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if hls_package is not None:
+            pulumi.set(__self__, "hls_package", hls_package)
+        if manifest_name is not None:
+            pulumi.set(__self__, "manifest_name", manifest_name)
+        if mss_package is not None:
+            pulumi.set(__self__, "mss_package", mss_package)
+        if origination is not None:
+            pulumi.set(__self__, "origination", origination)
+        if startover_window_seconds is not None:
+            pulumi.set(__self__, "startover_window_seconds", startover_window_seconds)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if time_delay_seconds is not None:
+            pulumi.set(__self__, "time_delay_seconds", time_delay_seconds)
+        if whitelist is not None:
+            pulumi.set(__self__, "whitelist", whitelist)
+
+    @property
+    @pulumi.getter(name="channelId")
+    def channel_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
+        """
+        return pulumi.get(self, "channel_id")
+
+    @channel_id.setter
+    def channel_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "channel_id", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input['OriginEndpointAuthorizationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
+        """
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input['OriginEndpointAuthorizationArgs']]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter(name="cmafPackage")
+    def cmaf_package(self) -> Optional[pulumi.Input['OriginEndpointCmafPackageArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
+        """
+        return pulumi.get(self, "cmaf_package")
+
+    @cmaf_package.setter
+    def cmaf_package(self, value: Optional[pulumi.Input['OriginEndpointCmafPackageArgs']]):
+        pulumi.set(self, "cmaf_package", value)
+
+    @property
+    @pulumi.getter(name="dashPackage")
+    def dash_package(self) -> Optional[pulumi.Input['OriginEndpointDashPackageArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
+        """
+        return pulumi.get(self, "dash_package")
+
+    @dash_package.setter
+    def dash_package(self, value: Optional[pulumi.Input['OriginEndpointDashPackageArgs']]):
+        pulumi.set(self, "dash_package", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="hlsPackage")
+    def hls_package(self) -> Optional[pulumi.Input['OriginEndpointHlsPackageArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
+        """
+        return pulumi.get(self, "hls_package")
+
+    @hls_package.setter
+    def hls_package(self, value: Optional[pulumi.Input['OriginEndpointHlsPackageArgs']]):
+        pulumi.set(self, "hls_package", value)
+
+    @property
+    @pulumi.getter(name="manifestName")
+    def manifest_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
+        """
+        return pulumi.get(self, "manifest_name")
+
+    @manifest_name.setter
+    def manifest_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "manifest_name", value)
+
+    @property
+    @pulumi.getter(name="mssPackage")
+    def mss_package(self) -> Optional[pulumi.Input['OriginEndpointMssPackageArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
+        """
+        return pulumi.get(self, "mss_package")
+
+    @mss_package.setter
+    def mss_package(self, value: Optional[pulumi.Input['OriginEndpointMssPackageArgs']]):
+        pulumi.set(self, "mss_package", value)
+
+    @property
+    @pulumi.getter
+    def origination(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
+        """
+        return pulumi.get(self, "origination")
+
+    @origination.setter
+    def origination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origination", value)
+
+    @property
+    @pulumi.getter(name="startoverWindowSeconds")
+    def startover_window_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
+        """
+        return pulumi.get(self, "startover_window_seconds")
+
+    @startover_window_seconds.setter
+    def startover_window_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "startover_window_seconds", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="timeDelaySeconds")
+    def time_delay_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
+        """
+        return pulumi.get(self, "time_delay_seconds")
+
+    @time_delay_seconds.setter
+    def time_delay_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "time_delay_seconds", value)
+
+    @property
+    @pulumi.getter
+    def whitelist(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
+        """
+        return pulumi.get(self, "whitelist")
+
+    @whitelist.setter
+    def whitelist(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "whitelist", value)
 
 
 class OriginEndpoint(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,9 +263,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  time_delay_seconds: Optional[pulumi.Input[int]] = None,
                  whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html
 
@@ -56,12 +284,45 @@ class OriginEndpoint(pulumi.CustomResource):
         :param pulumi.Input[int] time_delay_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] whitelist: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OriginEndpointArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html
+
+        :param str resource_name: The name of the resource.
+        :param OriginEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OriginEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization: Optional[pulumi.Input[pulumi.InputType['OriginEndpointAuthorizationArgs']]] = None,
+                 channel_id: Optional[pulumi.Input[str]] = None,
+                 cmaf_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointCmafPackageArgs']]] = None,
+                 dash_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointDashPackageArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 hls_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointHlsPackageArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 manifest_name: Optional[pulumi.Input[str]] = None,
+                 mss_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointMssPackageArgs']]] = None,
+                 origination: Optional[pulumi.Input[str]] = None,
+                 startover_window_seconds: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 time_delay_seconds: Optional[pulumi.Input[int]] = None,
+                 whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -71,28 +332,28 @@ class OriginEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OriginEndpointArgs.__new__(OriginEndpointArgs)
 
-            __props__['authorization'] = authorization
+            __props__.__dict__["authorization"] = authorization
             if channel_id is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_id'")
-            __props__['channel_id'] = channel_id
-            __props__['cmaf_package'] = cmaf_package
-            __props__['dash_package'] = dash_package
-            __props__['description'] = description
-            __props__['hls_package'] = hls_package
+            __props__.__dict__["channel_id"] = channel_id
+            __props__.__dict__["cmaf_package"] = cmaf_package
+            __props__.__dict__["dash_package"] = dash_package
+            __props__.__dict__["description"] = description
+            __props__.__dict__["hls_package"] = hls_package
             if id is None and not opts.urn:
                 raise TypeError("Missing required property 'id'")
-            __props__['id'] = id
-            __props__['manifest_name'] = manifest_name
-            __props__['mss_package'] = mss_package
-            __props__['origination'] = origination
-            __props__['startover_window_seconds'] = startover_window_seconds
-            __props__['tags'] = tags
-            __props__['time_delay_seconds'] = time_delay_seconds
-            __props__['whitelist'] = whitelist
-            __props__['arn'] = None
-            __props__['url'] = None
+            __props__.__dict__["id"] = id
+            __props__.__dict__["manifest_name"] = manifest_name
+            __props__.__dict__["mss_package"] = mss_package
+            __props__.__dict__["origination"] = origination
+            __props__.__dict__["startover_window_seconds"] = startover_window_seconds
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["time_delay_seconds"] = time_delay_seconds
+            __props__.__dict__["whitelist"] = whitelist
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["url"] = None
         super(OriginEndpoint, __self__).__init__(
             'aws-native:MediaPackage:OriginEndpoint',
             resource_name,
@@ -113,8 +374,24 @@ class OriginEndpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = OriginEndpointArgs.__new__(OriginEndpointArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["authorization"] = None
+        __props__.__dict__["channel_id"] = None
+        __props__.__dict__["cmaf_package"] = None
+        __props__.__dict__["dash_package"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["hls_package"] = None
+        __props__.__dict__["id"] = None
+        __props__.__dict__["manifest_name"] = None
+        __props__.__dict__["mss_package"] = None
+        __props__.__dict__["origination"] = None
+        __props__.__dict__["startover_window_seconds"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["time_delay_seconds"] = None
+        __props__.__dict__["url"] = None
+        __props__.__dict__["whitelist"] = None
         return OriginEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -238,10 +515,4 @@ class OriginEndpoint(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
         """
         return pulumi.get(self, "whitelist")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

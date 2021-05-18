@@ -5,16 +5,101 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 
-__all__ = ['Portal']
+__all__ = ['PortalArgs', 'Portal']
+
+@pulumi.input_type
+class PortalArgs:
+    def __init__(__self__, *,
+                 portal_contact_email: pulumi.Input[str],
+                 portal_name: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 portal_description: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a Portal resource.
+        :param pulumi.Input[str] portal_contact_email: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
+        :param pulumi.Input[str] portal_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
+        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
+        :param pulumi.Input[str] portal_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
+        """
+        pulumi.set(__self__, "portal_contact_email", portal_contact_email)
+        pulumi.set(__self__, "portal_name", portal_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if portal_description is not None:
+            pulumi.set(__self__, "portal_description", portal_description)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="portalContactEmail")
+    def portal_contact_email(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
+        """
+        return pulumi.get(self, "portal_contact_email")
+
+    @portal_contact_email.setter
+    def portal_contact_email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "portal_contact_email", value)
+
+    @property
+    @pulumi.getter(name="portalName")
+    def portal_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
+        """
+        return pulumi.get(self, "portal_name")
+
+    @portal_name.setter
+    def portal_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "portal_name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="portalDescription")
+    def portal_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
+        """
+        return pulumi.get(self, "portal_description")
+
+    @portal_description.setter
+    def portal_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "portal_description", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Portal(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -23,9 +108,7 @@ class Portal(pulumi.CustomResource):
                  portal_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html
 
@@ -37,12 +120,36 @@ class Portal(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PortalArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html
+
+        :param str resource_name: The name of the resource.
+        :param PortalArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PortalArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 portal_contact_email: Optional[pulumi.Input[str]] = None,
+                 portal_description: Optional[pulumi.Input[str]] = None,
+                 portal_name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -52,24 +159,24 @@ class Portal(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PortalArgs.__new__(PortalArgs)
 
             if portal_contact_email is None and not opts.urn:
                 raise TypeError("Missing required property 'portal_contact_email'")
-            __props__['portal_contact_email'] = portal_contact_email
-            __props__['portal_description'] = portal_description
+            __props__.__dict__["portal_contact_email"] = portal_contact_email
+            __props__.__dict__["portal_description"] = portal_description
             if portal_name is None and not opts.urn:
                 raise TypeError("Missing required property 'portal_name'")
-            __props__['portal_name'] = portal_name
+            __props__.__dict__["portal_name"] = portal_name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
-            __props__['tags'] = tags
-            __props__['portal_arn'] = None
-            __props__['portal_client_id'] = None
-            __props__['portal_id'] = None
-            __props__['portal_start_url'] = None
-            __props__['portal_status'] = None
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["portal_arn"] = None
+            __props__.__dict__["portal_client_id"] = None
+            __props__.__dict__["portal_id"] = None
+            __props__.__dict__["portal_start_url"] = None
+            __props__.__dict__["portal_status"] = None
         super(Portal, __self__).__init__(
             'aws-native:IoTSiteWise:Portal',
             resource_name,
@@ -90,8 +197,18 @@ class Portal(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PortalArgs.__new__(PortalArgs)
 
+        __props__.__dict__["portal_arn"] = None
+        __props__.__dict__["portal_client_id"] = None
+        __props__.__dict__["portal_contact_email"] = None
+        __props__.__dict__["portal_description"] = None
+        __props__.__dict__["portal_id"] = None
+        __props__.__dict__["portal_name"] = None
+        __props__.__dict__["portal_start_url"] = None
+        __props__.__dict__["portal_status"] = None
+        __props__.__dict__["role_arn"] = None
+        __props__.__dict__["tags"] = None
         return Portal(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -158,10 +275,4 @@ class Portal(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

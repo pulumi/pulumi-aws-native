@@ -5,13 +5,97 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['ProfilePermission']
+__all__ = ['ProfilePermissionArgs', 'ProfilePermission']
+
+@pulumi.input_type
+class ProfilePermissionArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 principal: pulumi.Input[str],
+                 profile_name: pulumi.Input[str],
+                 statement_id: pulumi.Input[str],
+                 profile_version: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ProfilePermission resource.
+        :param pulumi.Input[str] action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
+        :param pulumi.Input[str] principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
+        :param pulumi.Input[str] profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
+        :param pulumi.Input[str] statement_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
+        :param pulumi.Input[str] profile_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "principal", principal)
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "statement_id", statement_id)
+        if profile_version is not None:
+            pulumi.set(__self__, "profile_version", profile_version)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal", value)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "profile_name", value)
+
+    @property
+    @pulumi.getter(name="statementId")
+    def statement_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
+        """
+        return pulumi.get(self, "statement_id")
+
+    @statement_id.setter
+    def statement_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "statement_id", value)
+
+    @property
+    @pulumi.getter(name="profileVersion")
+    def profile_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
+        """
+        return pulumi.get(self, "profile_version")
+
+    @profile_version.setter
+    def profile_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile_version", value)
 
 
 class ProfilePermission(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -20,9 +104,7 @@ class ProfilePermission(pulumi.CustomResource):
                  profile_name: Optional[pulumi.Input[str]] = None,
                  profile_version: Optional[pulumi.Input[str]] = None,
                  statement_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html
 
@@ -34,12 +116,36 @@ class ProfilePermission(pulumi.CustomResource):
         :param pulumi.Input[str] profile_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
         :param pulumi.Input[str] statement_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProfilePermissionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html
+
+        :param str resource_name: The name of the resource.
+        :param ProfilePermissionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProfilePermissionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 action: Optional[pulumi.Input[str]] = None,
+                 principal: Optional[pulumi.Input[str]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 profile_version: Optional[pulumi.Input[str]] = None,
+                 statement_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -49,21 +155,21 @@ class ProfilePermission(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProfilePermissionArgs.__new__(ProfilePermissionArgs)
 
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
-            __props__['action'] = action
+            __props__.__dict__["action"] = action
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
-            __props__['principal'] = principal
+            __props__.__dict__["principal"] = principal
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
-            __props__['profile_name'] = profile_name
-            __props__['profile_version'] = profile_version
+            __props__.__dict__["profile_name"] = profile_name
+            __props__.__dict__["profile_version"] = profile_version
             if statement_id is None and not opts.urn:
                 raise TypeError("Missing required property 'statement_id'")
-            __props__['statement_id'] = statement_id
+            __props__.__dict__["statement_id"] = statement_id
         super(ProfilePermission, __self__).__init__(
             'aws-native:Signer:ProfilePermission',
             resource_name,
@@ -84,8 +190,13 @@ class ProfilePermission(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ProfilePermissionArgs.__new__(ProfilePermissionArgs)
 
+        __props__.__dict__["action"] = None
+        __props__.__dict__["principal"] = None
+        __props__.__dict__["profile_name"] = None
+        __props__.__dict__["profile_version"] = None
+        __props__.__dict__["statement_id"] = None
         return ProfilePermission(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -127,10 +238,4 @@ class ProfilePermission(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
         """
         return pulumi.get(self, "statement_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

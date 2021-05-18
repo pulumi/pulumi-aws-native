@@ -5,21 +5,58 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['ModuleVersion']
+__all__ = ['ModuleVersionArgs', 'ModuleVersion']
+
+@pulumi.input_type
+class ModuleVersionArgs:
+    def __init__(__self__, *,
+                 module_name: pulumi.Input[str],
+                 module_package: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ModuleVersion resource.
+        :param pulumi.Input[str] module_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
+        :param pulumi.Input[str] module_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
+        """
+        pulumi.set(__self__, "module_name", module_name)
+        if module_package is not None:
+            pulumi.set(__self__, "module_package", module_package)
+
+    @property
+    @pulumi.getter(name="moduleName")
+    def module_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
+        """
+        return pulumi.get(self, "module_name")
+
+    @module_name.setter
+    def module_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "module_name", value)
+
+    @property
+    @pulumi.getter(name="modulePackage")
+    def module_package(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
+        """
+        return pulumi.get(self, "module_package")
+
+    @module_package.setter
+    def module_package(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "module_package", value)
 
 
 class ModuleVersion(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  module_name: Optional[pulumi.Input[str]] = None,
                  module_package: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html
 
@@ -28,12 +65,33 @@ class ModuleVersion(pulumi.CustomResource):
         :param pulumi.Input[str] module_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
         :param pulumi.Input[str] module_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ModuleVersionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html
+
+        :param str resource_name: The name of the resource.
+        :param ModuleVersionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ModuleVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 module_name: Optional[pulumi.Input[str]] = None,
+                 module_package: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -43,20 +101,20 @@ class ModuleVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ModuleVersionArgs.__new__(ModuleVersionArgs)
 
             if module_name is None and not opts.urn:
                 raise TypeError("Missing required property 'module_name'")
-            __props__['module_name'] = module_name
-            __props__['module_package'] = module_package
-            __props__['arn'] = None
-            __props__['description'] = None
-            __props__['documentation_url'] = None
-            __props__['is_default_version'] = None
-            __props__['schema'] = None
-            __props__['time_created'] = None
-            __props__['version_id'] = None
-            __props__['visibility'] = None
+            __props__.__dict__["module_name"] = module_name
+            __props__.__dict__["module_package"] = module_package
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["description"] = None
+            __props__.__dict__["documentation_url"] = None
+            __props__.__dict__["is_default_version"] = None
+            __props__.__dict__["schema"] = None
+            __props__.__dict__["time_created"] = None
+            __props__.__dict__["version_id"] = None
+            __props__.__dict__["visibility"] = None
         super(ModuleVersion, __self__).__init__(
             'aws-native:CloudFormation:ModuleVersion',
             resource_name,
@@ -77,8 +135,18 @@ class ModuleVersion(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ModuleVersionArgs.__new__(ModuleVersionArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["documentation_url"] = None
+        __props__.__dict__["is_default_version"] = None
+        __props__.__dict__["module_name"] = None
+        __props__.__dict__["module_package"] = None
+        __props__.__dict__["schema"] = None
+        __props__.__dict__["time_created"] = None
+        __props__.__dict__["version_id"] = None
+        __props__.__dict__["visibility"] = None
         return ModuleVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -136,10 +204,4 @@ class ModuleVersion(pulumi.CustomResource):
     @pulumi.getter
     def visibility(self) -> pulumi.Output[str]:
         return pulumi.get(self, "visibility")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -5,15 +5,101 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FindingsFilter']
+__all__ = ['FindingsFilterArgs', 'FindingsFilter']
+
+@pulumi.input_type
+class FindingsFilterArgs:
+    def __init__(__self__, *,
+                 finding_criteria: pulumi.Input['FindingsFilterFindingCriteriaArgs'],
+                 name: pulumi.Input[str],
+                 action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 position: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a FindingsFilter resource.
+        :param pulumi.Input['FindingsFilterFindingCriteriaArgs'] finding_criteria: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
+        :param pulumi.Input[str] action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
+        :param pulumi.Input[int] position: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
+        """
+        pulumi.set(__self__, "finding_criteria", finding_criteria)
+        pulumi.set(__self__, "name", name)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if position is not None:
+            pulumi.set(__self__, "position", position)
+
+    @property
+    @pulumi.getter(name="findingCriteria")
+    def finding_criteria(self) -> pulumi.Input['FindingsFilterFindingCriteriaArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
+        """
+        return pulumi.get(self, "finding_criteria")
+
+    @finding_criteria.setter
+    def finding_criteria(self, value: pulumi.Input['FindingsFilterFindingCriteriaArgs']):
+        pulumi.set(self, "finding_criteria", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def position(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
+        """
+        return pulumi.get(self, "position")
+
+    @position.setter
+    def position(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "position", value)
 
 
 class FindingsFilter(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -22,9 +108,7 @@ class FindingsFilter(pulumi.CustomResource):
                  finding_criteria: Optional[pulumi.Input[pulumi.InputType['FindingsFilterFindingCriteriaArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html
 
@@ -36,12 +120,36 @@ class FindingsFilter(pulumi.CustomResource):
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
         :param pulumi.Input[int] position: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FindingsFilterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html
+
+        :param str resource_name: The name of the resource.
+        :param FindingsFilterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FindingsFilterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 finding_criteria: Optional[pulumi.Input[pulumi.InputType['FindingsFilterFindingCriteriaArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 position: Optional[pulumi.Input[int]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -51,20 +159,20 @@ class FindingsFilter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FindingsFilterArgs.__new__(FindingsFilterArgs)
 
-            __props__['action'] = action
-            __props__['description'] = description
+            __props__.__dict__["action"] = action
+            __props__.__dict__["description"] = description
             if finding_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'finding_criteria'")
-            __props__['finding_criteria'] = finding_criteria
+            __props__.__dict__["finding_criteria"] = finding_criteria
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['position'] = position
-            __props__['arn'] = None
-            __props__['findings_filter_list_items'] = None
-            __props__['id'] = None
+            __props__.__dict__["name"] = name
+            __props__.__dict__["position"] = position
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["findings_filter_list_items"] = None
+            __props__.__dict__["id"] = None
         super(FindingsFilter, __self__).__init__(
             'aws-native:Macie:FindingsFilter',
             resource_name,
@@ -85,8 +193,16 @@ class FindingsFilter(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FindingsFilterArgs.__new__(FindingsFilterArgs)
 
+        __props__.__dict__["action"] = None
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["finding_criteria"] = None
+        __props__.__dict__["findings_filter_list_items"] = None
+        __props__.__dict__["id"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["position"] = None
         return FindingsFilter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -143,10 +259,4 @@ class FindingsFilter(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
         """
         return pulumi.get(self, "position")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

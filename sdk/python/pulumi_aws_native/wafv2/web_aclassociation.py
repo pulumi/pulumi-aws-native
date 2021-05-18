@@ -5,21 +5,57 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['WebACLAssociation']
+__all__ = ['WebACLAssociationArgs', 'WebACLAssociation']
+
+@pulumi.input_type
+class WebACLAssociationArgs:
+    def __init__(__self__, *,
+                 resource_arn: pulumi.Input[str],
+                 web_acl_arn: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a WebACLAssociation resource.
+        :param pulumi.Input[str] resource_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
+        :param pulumi.Input[str] web_acl_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
+        """
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "web_acl_arn", web_acl_arn)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_arn", value)
+
+    @property
+    @pulumi.getter(name="webACLArn")
+    def web_acl_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
+        """
+        return pulumi.get(self, "web_acl_arn")
+
+    @web_acl_arn.setter
+    def web_acl_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "web_acl_arn", value)
 
 
 class WebACLAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  web_acl_arn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html
 
@@ -28,12 +64,33 @@ class WebACLAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] resource_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
         :param pulumi.Input[str] web_acl_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WebACLAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html
+
+        :param str resource_name: The name of the resource.
+        :param WebACLAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WebACLAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 resource_arn: Optional[pulumi.Input[str]] = None,
+                 web_acl_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -43,14 +100,14 @@ class WebACLAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebACLAssociationArgs.__new__(WebACLAssociationArgs)
 
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
-            __props__['resource_arn'] = resource_arn
+            __props__.__dict__["resource_arn"] = resource_arn
             if web_acl_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'web_acl_arn'")
-            __props__['web_acl_arn'] = web_acl_arn
+            __props__.__dict__["web_acl_arn"] = web_acl_arn
         super(WebACLAssociation, __self__).__init__(
             'aws-native:WAFv2:WebACLAssociation',
             resource_name,
@@ -71,8 +128,10 @@ class WebACLAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebACLAssociationArgs.__new__(WebACLAssociationArgs)
 
+        __props__.__dict__["resource_arn"] = None
+        __props__.__dict__["web_acl_arn"] = None
         return WebACLAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -90,10 +149,4 @@ class WebACLAssociation(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
         """
         return pulumi.get(self, "web_acl_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

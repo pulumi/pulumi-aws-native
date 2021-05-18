@@ -5,24 +5,76 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['UserGroup']
+__all__ = ['UserGroupArgs', 'UserGroup']
+
+@pulumi.input_type
+class UserGroupArgs:
+    def __init__(__self__, *,
+                 engine: pulumi.Input[str],
+                 user_group_id: pulumi.Input[str],
+                 user_ids: Optional[pulumi.Input['UserGroupUserIdListArgs']] = None):
+        """
+        The set of arguments for constructing a UserGroup resource.
+        :param pulumi.Input[str] engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
+        :param pulumi.Input[str] user_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
+        :param pulumi.Input['UserGroupUserIdListArgs'] user_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+        """
+        pulumi.set(__self__, "engine", engine)
+        pulumi.set(__self__, "user_group_id", user_group_id)
+        if user_ids is not None:
+            pulumi.set(__self__, "user_ids", user_ids)
+
+    @property
+    @pulumi.getter
+    def engine(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
+        """
+        return pulumi.get(self, "engine")
+
+    @engine.setter
+    def engine(self, value: pulumi.Input[str]):
+        pulumi.set(self, "engine", value)
+
+    @property
+    @pulumi.getter(name="userGroupId")
+    def user_group_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
+        """
+        return pulumi.get(self, "user_group_id")
+
+    @user_group_id.setter
+    def user_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_group_id", value)
+
+    @property
+    @pulumi.getter(name="userIds")
+    def user_ids(self) -> Optional[pulumi.Input['UserGroupUserIdListArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+        """
+        return pulumi.get(self, "user_ids")
+
+    @user_ids.setter
+    def user_ids(self, value: Optional[pulumi.Input['UserGroupUserIdListArgs']]):
+        pulumi.set(self, "user_ids", value)
 
 
 class UserGroup(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  user_group_id: Optional[pulumi.Input[str]] = None,
                  user_ids: Optional[pulumi.Input[pulumi.InputType['UserGroupUserIdListArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
 
@@ -32,12 +84,34 @@ class UserGroup(pulumi.CustomResource):
         :param pulumi.Input[str] user_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
         :param pulumi.Input[pulumi.InputType['UserGroupUserIdListArgs']] user_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: UserGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
+
+        :param str resource_name: The name of the resource.
+        :param UserGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
+                 user_group_id: Optional[pulumi.Input[str]] = None,
+                 user_ids: Optional[pulumi.Input[pulumi.InputType['UserGroupUserIdListArgs']]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -47,19 +121,19 @@ class UserGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserGroupArgs.__new__(UserGroupArgs)
 
             if engine is None and not opts.urn:
                 raise TypeError("Missing required property 'engine'")
-            __props__['engine'] = engine
+            __props__.__dict__["engine"] = engine
             if user_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_group_id'")
-            __props__['user_group_id'] = user_group_id
-            __props__['user_ids'] = user_ids
-            __props__['arn'] = None
-            __props__['pending_changes'] = None
-            __props__['replication_group_ids'] = None
-            __props__['status'] = None
+            __props__.__dict__["user_group_id"] = user_group_id
+            __props__.__dict__["user_ids"] = user_ids
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["pending_changes"] = None
+            __props__.__dict__["replication_group_ids"] = None
+            __props__.__dict__["status"] = None
         super(UserGroup, __self__).__init__(
             'aws-native:ElastiCache:UserGroup',
             resource_name,
@@ -80,8 +154,15 @@ class UserGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = UserGroupArgs.__new__(UserGroupArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["engine"] = None
+        __props__.__dict__["pending_changes"] = None
+        __props__.__dict__["replication_group_ids"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["user_group_id"] = None
+        __props__.__dict__["user_ids"] = None
         return UserGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -127,10 +208,4 @@ class UserGroup(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
         """
         return pulumi.get(self, "user_ids")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

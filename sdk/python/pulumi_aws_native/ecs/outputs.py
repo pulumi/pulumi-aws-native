@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -63,6 +63,27 @@ class CapacityProviderAutoScalingGroupProvider(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoScalingGroupArn":
+            suggest = "auto_scaling_group_arn"
+        elif key == "managedScaling":
+            suggest = "managed_scaling"
+        elif key == "managedTerminationProtection":
+            suggest = "managed_termination_protection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderAutoScalingGroupProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderAutoScalingGroupProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderAutoScalingGroupProvider.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auto_scaling_group_arn: str,
                  managed_scaling: Optional['outputs.CapacityProviderManagedScaling'] = None,
@@ -70,7 +91,7 @@ class CapacityProviderAutoScalingGroupProvider(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html
         :param str auto_scaling_group_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-autoscalinggrouparn
-        :param 'CapacityProviderManagedScalingArgs' managed_scaling: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedscaling
+        :param 'CapacityProviderManagedScaling' managed_scaling: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedscaling
         :param str managed_termination_protection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedterminationprotection
         """
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
@@ -103,15 +124,33 @@ class CapacityProviderAutoScalingGroupProvider(dict):
         """
         return pulumi.get(self, "managed_termination_protection")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CapacityProviderManagedScaling(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumScalingStepSize":
+            suggest = "maximum_scaling_step_size"
+        elif key == "minimumScalingStepSize":
+            suggest = "minimum_scaling_step_size"
+        elif key == "targetCapacity":
+            suggest = "target_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderManagedScaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderManagedScaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderManagedScaling.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  maximum_scaling_step_size: Optional[int] = None,
                  minimum_scaling_step_size: Optional[int] = None,
@@ -165,15 +204,29 @@ class CapacityProviderManagedScaling(dict):
         """
         return pulumi.get(self, "target_capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCapacityProviderStrategyItem(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityProvider":
+            suggest = "capacity_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCapacityProviderStrategyItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCapacityProviderStrategyItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCapacityProviderStrategyItem.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base: Optional[int] = None,
                  capacity_provider: Optional[str] = None,
@@ -215,9 +268,6 @@ class ClusterCapacityProviderStrategyItem(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterClusterSettings(dict):
@@ -253,15 +303,31 @@ class ClusterClusterSettings(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceAwsVpcConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignPublicIp":
+            suggest = "assign_public_ip"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceAwsVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceAwsVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceAwsVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  assign_public_ip: Optional[str] = None,
                  security_groups: Optional[Sequence[str]] = None,
@@ -303,15 +369,29 @@ class ServiceAwsVpcConfiguration(dict):
         """
         return pulumi.get(self, "subnets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceCapacityProviderStrategyItem(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityProvider":
+            suggest = "capacity_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceCapacityProviderStrategyItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceCapacityProviderStrategyItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceCapacityProviderStrategyItem.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base: Optional[int] = None,
                  capacity_provider: Optional[str] = None,
@@ -353,9 +433,6 @@ class ServiceCapacityProviderStrategyItem(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceDeploymentCircuitBreaker(dict):
@@ -389,22 +466,40 @@ class ServiceDeploymentCircuitBreaker(dict):
         """
         return pulumi.get(self, "rollback")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceDeploymentConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentCircuitBreaker":
+            suggest = "deployment_circuit_breaker"
+        elif key == "maximumPercent":
+            suggest = "maximum_percent"
+        elif key == "minimumHealthyPercent":
+            suggest = "minimum_healthy_percent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDeploymentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDeploymentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDeploymentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  deployment_circuit_breaker: Optional['outputs.ServiceDeploymentCircuitBreaker'] = None,
                  maximum_percent: Optional[int] = None,
                  minimum_healthy_percent: Optional[int] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html
-        :param 'ServiceDeploymentCircuitBreakerArgs' deployment_circuit_breaker: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker
+        :param 'ServiceDeploymentCircuitBreaker' deployment_circuit_breaker: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker
         :param int maximum_percent: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent
         :param int minimum_healthy_percent: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent
         """
@@ -439,9 +534,6 @@ class ServiceDeploymentConfiguration(dict):
         """
         return pulumi.get(self, "minimum_healthy_percent")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceDeploymentController(dict):
@@ -465,15 +557,35 @@ class ServiceDeploymentController(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceLoadBalancer(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "containerPort":
+            suggest = "container_port"
+        elif key == "loadBalancerName":
+            suggest = "load_balancer_name"
+        elif key == "targetGroupArn":
+            suggest = "target_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLoadBalancer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLoadBalancer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLoadBalancer.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container_name: Optional[str] = None,
                  container_port: Optional[int] = None,
@@ -527,20 +639,34 @@ class ServiceLoadBalancer(dict):
         """
         return pulumi.get(self, "target_group_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceNetworkConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsvpcConfiguration":
+            suggest = "awsvpc_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  awsvpc_configuration: Optional['outputs.ServiceAwsVpcConfiguration'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html
-        :param 'ServiceAwsVpcConfigurationArgs' awsvpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
+        :param 'ServiceAwsVpcConfiguration' awsvpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
         """
         if awsvpc_configuration is not None:
             pulumi.set(__self__, "awsvpc_configuration", awsvpc_configuration)
@@ -552,9 +678,6 @@ class ServiceNetworkConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
         """
         return pulumi.get(self, "awsvpc_configuration")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -590,9 +713,6 @@ class ServicePlacementConstraint(dict):
         """
         return pulumi.get(self, "expression")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServicePlacementStrategy(dict):
@@ -627,15 +747,33 @@ class ServicePlacementStrategy(dict):
         """
         return pulumi.get(self, "field")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceServiceRegistry(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "containerPort":
+            suggest = "container_port"
+        elif key == "registryArn":
+            suggest = "registry_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceServiceRegistry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceServiceRegistry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceServiceRegistry.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container_name: Optional[str] = None,
                  container_port: Optional[int] = None,
@@ -689,15 +827,77 @@ class ServiceServiceRegistry(dict):
         """
         return pulumi.get(self, "registry_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionContainerDefinition(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "disableNetworking":
+            suggest = "disable_networking"
+        elif key == "dnsSearchDomains":
+            suggest = "dns_search_domains"
+        elif key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "dockerLabels":
+            suggest = "docker_labels"
+        elif key == "dockerSecurityOptions":
+            suggest = "docker_security_options"
+        elif key == "entryPoint":
+            suggest = "entry_point"
+        elif key == "environmentFiles":
+            suggest = "environment_files"
+        elif key == "extraHosts":
+            suggest = "extra_hosts"
+        elif key == "firelensConfiguration":
+            suggest = "firelens_configuration"
+        elif key == "healthCheck":
+            suggest = "health_check"
+        elif key == "linuxParameters":
+            suggest = "linux_parameters"
+        elif key == "logConfiguration":
+            suggest = "log_configuration"
+        elif key == "memoryReservation":
+            suggest = "memory_reservation"
+        elif key == "mountPoints":
+            suggest = "mount_points"
+        elif key == "portMappings":
+            suggest = "port_mappings"
+        elif key == "pseudoTerminal":
+            suggest = "pseudo_terminal"
+        elif key == "readonlyRootFilesystem":
+            suggest = "readonly_root_filesystem"
+        elif key == "repositoryCredentials":
+            suggest = "repository_credentials"
+        elif key == "resourceRequirements":
+            suggest = "resource_requirements"
+        elif key == "startTimeout":
+            suggest = "start_timeout"
+        elif key == "stopTimeout":
+            suggest = "stop_timeout"
+        elif key == "systemControls":
+            suggest = "system_controls"
+        elif key == "volumesFrom":
+            suggest = "volumes_from"
+        elif key == "workingDirectory":
+            suggest = "working_directory"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionContainerDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionContainerDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionContainerDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  command: Optional[Sequence[str]] = None,
                  cpu: Optional[int] = None,
@@ -742,42 +942,42 @@ class TaskDefinitionContainerDefinition(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html
         :param Sequence[str] command: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-command
         :param int cpu: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-cpu
-        :param Sequence['TaskDefinitionContainerDependencyArgs'] depends_on: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dependson
+        :param Sequence['TaskDefinitionContainerDependency'] depends_on: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dependson
         :param bool disable_networking: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-disablenetworking
         :param Sequence[str] dns_search_domains: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains
         :param Sequence[str] dns_servers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnsservers
         :param Mapping[str, str] docker_labels: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockerlabels
         :param Sequence[str] docker_security_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockersecurityoptions
         :param Sequence[str] entry_point: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-entrypoint
-        :param Sequence['TaskDefinitionKeyValuePairArgs'] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environment
-        :param Sequence['TaskDefinitionEnvironmentFileArgs'] environment_files: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles
+        :param Sequence['TaskDefinitionKeyValuePair'] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environment
+        :param Sequence['TaskDefinitionEnvironmentFile'] environment_files: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles
         :param bool essential: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential
-        :param Sequence['TaskDefinitionHostEntryArgs'] extra_hosts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts
-        :param 'TaskDefinitionFirelensConfigurationArgs' firelens_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration
-        :param 'TaskDefinitionHealthCheckArgs' health_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-healthcheck
+        :param Sequence['TaskDefinitionHostEntry'] extra_hosts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts
+        :param 'TaskDefinitionFirelensConfiguration' firelens_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration
+        :param 'TaskDefinitionHealthCheck' health_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-healthcheck
         :param str hostname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-hostname
         :param str image: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-image
         :param bool interactive: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-interactive
         :param Sequence[str] links: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links
-        :param 'TaskDefinitionLinuxParametersArgs' linux_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-linuxparameters
-        :param 'TaskDefinitionLogConfigurationArgs' log_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration
+        :param 'TaskDefinitionLinuxParameters' linux_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-linuxparameters
+        :param 'TaskDefinitionLogConfiguration' log_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration
         :param int memory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memory
         :param int memory_reservation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memoryreservation
-        :param Sequence['TaskDefinitionMountPointArgs'] mount_points: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints
+        :param Sequence['TaskDefinitionMountPoint'] mount_points: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-name
-        :param Sequence['TaskDefinitionPortMappingArgs'] port_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-portmappings
+        :param Sequence['TaskDefinitionPortMapping'] port_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-portmappings
         :param bool privileged: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-privileged
         :param bool pseudo_terminal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-pseudoterminal
         :param bool readonly_root_filesystem: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem
-        :param 'TaskDefinitionRepositoryCredentialsArgs' repository_credentials: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
-        :param Sequence['TaskDefinitionResourceRequirementArgs'] resource_requirements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements
-        :param Sequence['TaskDefinitionSecretArgs'] secrets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets
+        :param 'TaskDefinitionRepositoryCredentials' repository_credentials: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
+        :param Sequence['TaskDefinitionResourceRequirement'] resource_requirements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements
+        :param Sequence['TaskDefinitionSecret'] secrets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets
         :param int start_timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-starttimeout
         :param int stop_timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-stoptimeout
-        :param Sequence['TaskDefinitionSystemControlArgs'] system_controls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols
-        :param Sequence['TaskDefinitionUlimitArgs'] ulimits: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
+        :param Sequence['TaskDefinitionSystemControl'] system_controls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols
+        :param Sequence['TaskDefinitionUlimit'] ulimits: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
         :param str user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-user
-        :param Sequence['TaskDefinitionVolumeFromArgs'] volumes_from: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom
+        :param Sequence['TaskDefinitionVolumeFrom'] volumes_from: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom
         :param str working_directory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-workingdirectory
         """
         if command is not None:
@@ -1171,15 +1371,29 @@ class TaskDefinitionContainerDefinition(dict):
         """
         return pulumi.get(self, "working_directory")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionContainerDependency(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionContainerDependency. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionContainerDependency.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionContainerDependency.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  condition: Optional[str] = None,
                  container_name: Optional[str] = None):
@@ -1209,15 +1423,31 @@ class TaskDefinitionContainerDependency(dict):
         """
         return pulumi.get(self, "container_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionDevice(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerPath":
+            suggest = "container_path"
+        elif key == "hostPath":
+            suggest = "host_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionDevice. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionDevice.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionDevice.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container_path: Optional[str] = None,
                  host_path: Optional[str] = None,
@@ -1259,15 +1489,29 @@ class TaskDefinitionDevice(dict):
         """
         return pulumi.get(self, "permissions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionDockerVolumeConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "driverOpts":
+            suggest = "driver_opts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionDockerVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionDockerVolumeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionDockerVolumeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  autoprovision: Optional[bool] = None,
                  driver: Optional[str] = None,
@@ -1333,15 +1577,37 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
         """
         return pulumi.get(self, "scope")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionEFSVolumeConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filesystemId":
+            suggest = "filesystem_id"
+        elif key == "authorizationConfig":
+            suggest = "authorization_config"
+        elif key == "rootDirectory":
+            suggest = "root_directory"
+        elif key == "transitEncryption":
+            suggest = "transit_encryption"
+        elif key == "transitEncryptionPort":
+            suggest = "transit_encryption_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionEFSVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionEFSVolumeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionEFSVolumeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filesystem_id: str,
                  authorization_config: Optional[str] = None,
@@ -1406,9 +1672,6 @@ class TaskDefinitionEFSVolumeConfiguration(dict):
         """
         return pulumi.get(self, "transit_encryption_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionEnvironmentFile(dict):
@@ -1443,9 +1706,6 @@ class TaskDefinitionEnvironmentFile(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-value
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1482,15 +1742,29 @@ class TaskDefinitionFirelensConfiguration(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionHealthCheck(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startPeriod":
+            suggest = "start_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionHealthCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionHealthCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionHealthCheck.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  command: Optional[Sequence[str]] = None,
                  interval: Optional[int] = None,
@@ -1556,15 +1830,29 @@ class TaskDefinitionHealthCheck(dict):
         """
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionHostEntry(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionHostEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionHostEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionHostEntry.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hostname: Optional[str] = None,
                  ip_address: Optional[str] = None):
@@ -1594,15 +1882,29 @@ class TaskDefinitionHostEntry(dict):
         """
         return pulumi.get(self, "ip_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionHostVolumeProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourcePath":
+            suggest = "source_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionHostVolumeProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionHostVolumeProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionHostVolumeProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_path: Optional[str] = None):
         """
@@ -1620,15 +1922,31 @@ class TaskDefinitionHostVolumeProperties(dict):
         """
         return pulumi.get(self, "source_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionInferenceAccelerator(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceName":
+            suggest = "device_name"
+        elif key == "deviceType":
+            suggest = "device_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionInferenceAccelerator. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionInferenceAccelerator.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionInferenceAccelerator.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  device_name: Optional[str] = None,
                  device_type: Optional[str] = None):
@@ -1657,9 +1975,6 @@ class TaskDefinitionInferenceAccelerator(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicetype
         """
         return pulumi.get(self, "device_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1696,9 +2011,6 @@ class TaskDefinitionKernelCapabilities(dict):
         """
         return pulumi.get(self, "drop")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionKeyValuePair(dict):
@@ -1734,15 +2046,33 @@ class TaskDefinitionKeyValuePair(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionLinuxParameters(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initProcessEnabled":
+            suggest = "init_process_enabled"
+        elif key == "maxSwap":
+            suggest = "max_swap"
+        elif key == "sharedMemorySize":
+            suggest = "shared_memory_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionLinuxParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionLinuxParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionLinuxParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  capabilities: Optional['outputs.TaskDefinitionKernelCapabilities'] = None,
                  devices: Optional[Sequence['outputs.TaskDefinitionDevice']] = None,
@@ -1753,13 +2083,13 @@ class TaskDefinitionLinuxParameters(dict):
                  tmpfs: Optional[Sequence['outputs.TaskDefinitionTmpfs']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html
-        :param 'TaskDefinitionKernelCapabilitiesArgs' capabilities: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-capabilities
-        :param Sequence['TaskDefinitionDeviceArgs'] devices: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices
+        :param 'TaskDefinitionKernelCapabilities' capabilities: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-capabilities
+        :param Sequence['TaskDefinitionDevice'] devices: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices
         :param bool init_process_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-initprocessenabled
         :param int max_swap: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-maxswap
         :param int shared_memory_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-sharedmemorysize
         :param int swappiness: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-swappiness
-        :param Sequence['TaskDefinitionTmpfsArgs'] tmpfs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
+        :param Sequence['TaskDefinitionTmpfs'] tmpfs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
         """
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
@@ -1832,15 +2162,31 @@ class TaskDefinitionLinuxParameters(dict):
         """
         return pulumi.get(self, "tmpfs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionLogConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDriver":
+            suggest = "log_driver"
+        elif key == "secretOptions":
+            suggest = "secret_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_driver: str,
                  options: Optional[Mapping[str, str]] = None,
@@ -1849,7 +2195,7 @@ class TaskDefinitionLogConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html
         :param str log_driver: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver
         :param Mapping[str, str] options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options
-        :param Sequence['TaskDefinitionSecretArgs'] secret_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
+        :param Sequence['TaskDefinitionSecret'] secret_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
         """
         pulumi.set(__self__, "log_driver", log_driver)
         if options is not None:
@@ -1881,15 +2227,33 @@ class TaskDefinitionLogConfiguration(dict):
         """
         return pulumi.get(self, "secret_options")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionMountPoint(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerPath":
+            suggest = "container_path"
+        elif key == "readOnly":
+            suggest = "read_only"
+        elif key == "sourceVolume":
+            suggest = "source_volume"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionMountPoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionMountPoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionMountPoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container_path: Optional[str] = None,
                  read_only: Optional[bool] = None,
@@ -1931,15 +2295,31 @@ class TaskDefinitionMountPoint(dict):
         """
         return pulumi.get(self, "source_volume")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionPortMapping(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerPort":
+            suggest = "container_port"
+        elif key == "hostPort":
+            suggest = "host_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionPortMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionPortMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionPortMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container_port: Optional[int] = None,
                  host_port: Optional[int] = None,
@@ -1981,15 +2361,31 @@ class TaskDefinitionPortMapping(dict):
         """
         return pulumi.get(self, "protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionProxyConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "proxyConfigurationProperties":
+            suggest = "proxy_configuration_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionProxyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionProxyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionProxyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container_name: str,
                  proxy_configuration_properties: Optional[Sequence['outputs.TaskDefinitionKeyValuePair']] = None,
@@ -1997,7 +2393,7 @@ class TaskDefinitionProxyConfiguration(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html
         :param str container_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-containername
-        :param Sequence['TaskDefinitionKeyValuePairArgs'] proxy_configuration_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties
+        :param Sequence['TaskDefinitionKeyValuePair'] proxy_configuration_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties
         :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-type
         """
         pulumi.set(__self__, "container_name", container_name)
@@ -2030,15 +2426,29 @@ class TaskDefinitionProxyConfiguration(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionRepositoryCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "credentialsParameter":
+            suggest = "credentials_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionRepositoryCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionRepositoryCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionRepositoryCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  credentials_parameter: Optional[str] = None):
         """
@@ -2055,9 +2465,6 @@ class TaskDefinitionRepositoryCredentials(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html#cfn-ecs-taskdefinition-repositorycredentials-credentialsparameter
         """
         return pulumi.get(self, "credentials_parameter")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2092,15 +2499,29 @@ class TaskDefinitionResourceRequirement(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionSecret(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueFrom":
+            suggest = "value_from"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionSecret.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  value_from: str):
@@ -2127,9 +2548,6 @@ class TaskDefinitionSecret(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html#cfn-ecs-taskdefinition-secret-valuefrom
         """
         return pulumi.get(self, "value_from")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2166,9 +2584,6 @@ class TaskDefinitionSystemControl(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionTaskDefinitionPlacementConstraint(dict):
@@ -2203,15 +2618,31 @@ class TaskDefinitionTaskDefinitionPlacementConstraint(dict):
         """
         return pulumi.get(self, "expression")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionTmpfs(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerPath":
+            suggest = "container_path"
+        elif key == "mountOptions":
+            suggest = "mount_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionTmpfs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionTmpfs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionTmpfs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  size: int,
                  container_path: Optional[str] = None,
@@ -2252,15 +2683,31 @@ class TaskDefinitionTmpfs(dict):
         """
         return pulumi.get(self, "mount_options")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionUlimit(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hardLimit":
+            suggest = "hard_limit"
+        elif key == "softLimit":
+            suggest = "soft_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionUlimit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionUlimit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionUlimit.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hard_limit: int,
                  name: str,
@@ -2299,15 +2746,31 @@ class TaskDefinitionUlimit(dict):
         """
         return pulumi.get(self, "soft_limit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionVolume(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dockerVolumeConfiguration":
+            suggest = "docker_volume_configuration"
+        elif key == "eFSVolumeConfiguration":
+            suggest = "e_fs_volume_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionVolume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  docker_volume_configuration: Optional['outputs.TaskDefinitionDockerVolumeConfiguration'] = None,
                  e_fs_volume_configuration: Optional['outputs.TaskDefinitionEFSVolumeConfiguration'] = None,
@@ -2315,9 +2778,9 @@ class TaskDefinitionVolume(dict):
                  name: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html
-        :param 'TaskDefinitionDockerVolumeConfigurationArgs' docker_volume_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration
-        :param 'TaskDefinitionEFSVolumeConfigurationArgs' e_fs_volume_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
-        :param 'TaskDefinitionHostVolumePropertiesArgs' host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-host
+        :param 'TaskDefinitionDockerVolumeConfiguration' docker_volume_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration
+        :param 'TaskDefinitionEFSVolumeConfiguration' e_fs_volume_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
+        :param 'TaskDefinitionHostVolumeProperties' host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-host
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-name
         """
         if docker_volume_configuration is not None:
@@ -2361,15 +2824,31 @@ class TaskDefinitionVolume(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskDefinitionVolumeFrom(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readOnly":
+            suggest = "read_only"
+        elif key == "sourceContainer":
+            suggest = "source_container"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionVolumeFrom. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionVolumeFrom.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionVolumeFrom.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  read_only: Optional[bool] = None,
                  source_container: Optional[str] = None):
@@ -2399,15 +2878,31 @@ class TaskDefinitionVolumeFrom(dict):
         """
         return pulumi.get(self, "source_container")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskSetAwsVpcConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignPublicIp":
+            suggest = "assign_public_ip"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskSetAwsVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskSetAwsVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskSetAwsVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnets: Sequence[str],
                  assign_public_ip: Optional[str] = None,
@@ -2448,15 +2943,35 @@ class TaskSetAwsVpcConfiguration(dict):
         """
         return pulumi.get(self, "security_groups")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskSetLoadBalancer(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "containerPort":
+            suggest = "container_port"
+        elif key == "loadBalancerName":
+            suggest = "load_balancer_name"
+        elif key == "targetGroupArn":
+            suggest = "target_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskSetLoadBalancer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskSetLoadBalancer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskSetLoadBalancer.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container_name: Optional[str] = None,
                  container_port: Optional[int] = None,
@@ -2510,20 +3025,34 @@ class TaskSetLoadBalancer(dict):
         """
         return pulumi.get(self, "target_group_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskSetNetworkConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsVpcConfiguration":
+            suggest = "aws_vpc_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskSetNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskSetNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskSetNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aws_vpc_configuration: Optional['outputs.TaskSetAwsVpcConfiguration'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html
-        :param 'TaskSetAwsVpcConfigurationArgs' aws_vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration
+        :param 'TaskSetAwsVpcConfiguration' aws_vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration
         """
         if aws_vpc_configuration is not None:
             pulumi.set(__self__, "aws_vpc_configuration", aws_vpc_configuration)
@@ -2535,9 +3064,6 @@ class TaskSetNetworkConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration
         """
         return pulumi.get(self, "aws_vpc_configuration")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2574,15 +3100,33 @@ class TaskSetScale(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskSetServiceRegistry(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "containerPort":
+            suggest = "container_port"
+        elif key == "registryArn":
+            suggest = "registry_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskSetServiceRegistry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskSetServiceRegistry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskSetServiceRegistry.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container_name: Optional[str] = None,
                  container_port: Optional[int] = None,
@@ -2635,8 +3179,5 @@ class TaskSetServiceRegistry(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-registryarn
         """
         return pulumi.get(self, "registry_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

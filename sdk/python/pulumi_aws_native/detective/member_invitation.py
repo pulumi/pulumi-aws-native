@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['MemberInvitation']
+__all__ = ['MemberInvitationArgs', 'MemberInvitation']
+
+@pulumi.input_type
+class MemberInvitationArgs:
+    def __init__(__self__, *,
+                 graph_arn: pulumi.Input[str],
+                 member_email_address: pulumi.Input[str],
+                 member_id: pulumi.Input[str],
+                 message: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a MemberInvitation resource.
+        :param pulumi.Input[str] graph_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
+        :param pulumi.Input[str] member_email_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
+        :param pulumi.Input[str] member_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
+        :param pulumi.Input[str] message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
+        """
+        pulumi.set(__self__, "graph_arn", graph_arn)
+        pulumi.set(__self__, "member_email_address", member_email_address)
+        pulumi.set(__self__, "member_id", member_id)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter(name="graphArn")
+    def graph_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
+        """
+        return pulumi.get(self, "graph_arn")
+
+    @graph_arn.setter
+    def graph_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "graph_arn", value)
+
+    @property
+    @pulumi.getter(name="memberEmailAddress")
+    def member_email_address(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
+        """
+        return pulumi.get(self, "member_email_address")
+
+    @member_email_address.setter
+    def member_email_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "member_email_address", value)
+
+    @property
+    @pulumi.getter(name="memberId")
+    def member_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
+        """
+        return pulumi.get(self, "member_id")
+
+    @member_id.setter
+    def member_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "member_id", value)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
 
 
 class MemberInvitation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -19,9 +88,7 @@ class MemberInvitation(pulumi.CustomResource):
                  member_email_address: Optional[pulumi.Input[str]] = None,
                  member_id: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html
 
@@ -32,12 +99,35 @@ class MemberInvitation(pulumi.CustomResource):
         :param pulumi.Input[str] member_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
         :param pulumi.Input[str] message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MemberInvitationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html
+
+        :param str resource_name: The name of the resource.
+        :param MemberInvitationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MemberInvitationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 graph_arn: Optional[pulumi.Input[str]] = None,
+                 member_email_address: Optional[pulumi.Input[str]] = None,
+                 member_id: Optional[pulumi.Input[str]] = None,
+                 message: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -47,18 +137,18 @@ class MemberInvitation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MemberInvitationArgs.__new__(MemberInvitationArgs)
 
             if graph_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'graph_arn'")
-            __props__['graph_arn'] = graph_arn
+            __props__.__dict__["graph_arn"] = graph_arn
             if member_email_address is None and not opts.urn:
                 raise TypeError("Missing required property 'member_email_address'")
-            __props__['member_email_address'] = member_email_address
+            __props__.__dict__["member_email_address"] = member_email_address
             if member_id is None and not opts.urn:
                 raise TypeError("Missing required property 'member_id'")
-            __props__['member_id'] = member_id
-            __props__['message'] = message
+            __props__.__dict__["member_id"] = member_id
+            __props__.__dict__["message"] = message
         super(MemberInvitation, __self__).__init__(
             'aws-native:Detective:MemberInvitation',
             resource_name,
@@ -79,8 +169,12 @@ class MemberInvitation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = MemberInvitationArgs.__new__(MemberInvitationArgs)
 
+        __props__.__dict__["graph_arn"] = None
+        __props__.__dict__["member_email_address"] = None
+        __props__.__dict__["member_id"] = None
+        __props__.__dict__["message"] = None
         return MemberInvitation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -114,10 +208,4 @@ class MemberInvitation(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
         """
         return pulumi.get(self, "message")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

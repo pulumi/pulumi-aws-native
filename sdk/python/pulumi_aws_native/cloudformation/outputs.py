@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -22,6 +22,23 @@ class StackSetAutoDeployment(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retainStacksOnAccountRemoval":
+            suggest = "retain_stacks_on_account_removal"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackSetAutoDeployment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackSetAutoDeployment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackSetAutoDeployment.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  retain_stacks_on_account_removal: Optional[bool] = None):
@@ -51,15 +68,29 @@ class StackSetAutoDeployment(dict):
         """
         return pulumi.get(self, "retain_stacks_on_account_removal")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StackSetDeploymentTargets(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "organizationalUnitIds":
+            suggest = "organizational_unit_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackSetDeploymentTargets. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackSetDeploymentTargets.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackSetDeploymentTargets.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  accounts: Optional[Sequence[str]] = None,
                  organizational_unit_ids: Optional[Sequence[str]] = None):
@@ -89,15 +120,37 @@ class StackSetDeploymentTargets(dict):
         """
         return pulumi.get(self, "organizational_unit_ids")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StackSetOperationPreferences(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureToleranceCount":
+            suggest = "failure_tolerance_count"
+        elif key == "failureTolerancePercentage":
+            suggest = "failure_tolerance_percentage"
+        elif key == "maxConcurrentCount":
+            suggest = "max_concurrent_count"
+        elif key == "maxConcurrentPercentage":
+            suggest = "max_concurrent_percentage"
+        elif key == "regionOrder":
+            suggest = "region_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackSetOperationPreferences. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackSetOperationPreferences.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackSetOperationPreferences.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  failure_tolerance_count: Optional[int] = None,
                  failure_tolerance_percentage: Optional[int] = None,
@@ -163,15 +216,31 @@ class StackSetOperationPreferences(dict):
         """
         return pulumi.get(self, "region_order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StackSetParameter(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterKey":
+            suggest = "parameter_key"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackSetParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackSetParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackSetParameter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parameter_key: str,
                  parameter_value: str):
@@ -199,24 +268,40 @@ class StackSetParameter(dict):
         """
         return pulumi.get(self, "parameter_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StackSetStackInstances(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentTargets":
+            suggest = "deployment_targets"
+        elif key == "parameterOverrides":
+            suggest = "parameter_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackSetStackInstances. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackSetStackInstances.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackSetStackInstances.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  deployment_targets: 'outputs.StackSetDeploymentTargets',
                  regions: Sequence[str],
                  parameter_overrides: Optional[Sequence['outputs.StackSetParameter']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
-        :param 'StackSetDeploymentTargetsArgs' deployment_targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
+        :param 'StackSetDeploymentTargets' deployment_targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
         :param Sequence[str] regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
-        :param Sequence['StackSetParameterArgs'] parameter_overrides: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
+        :param Sequence['StackSetParameter'] parameter_overrides: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
         """
         pulumi.set(__self__, "deployment_targets", deployment_targets)
         pulumi.set(__self__, "regions", regions)
@@ -246,8 +331,5 @@ class StackSetStackInstances(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
         """
         return pulumi.get(self, "parameter_overrides")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
 
@@ -40,6 +40,23 @@ class GrantAllowedOperationList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-allowedoperationlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedOperationList":
+            suggest = "allowed_operation_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantAllowedOperationList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantAllowedOperationList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantAllowedOperationList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_operation_list: Optional[Sequence[str]] = None):
         """
@@ -57,15 +74,29 @@ class GrantAllowedOperationList(dict):
         """
         return pulumi.get(self, "allowed_operation_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GrantArnList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-arnlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arnList":
+            suggest = "arn_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantArnList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantArnList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantArnList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arn_list: Optional[Sequence[str]] = None):
         """
@@ -83,9 +114,6 @@ class GrantArnList(dict):
         """
         return pulumi.get(self, "arn_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GrantFilter(dict):
@@ -98,7 +126,7 @@ class GrantFilter(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html#cfn-licensemanager-grant-filter-name
-        :param 'GrantStringListArgs' values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html#cfn-licensemanager-grant-filter-values
+        :param 'GrantStringList' values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html#cfn-licensemanager-grant-filter-values
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -119,20 +147,34 @@ class GrantFilter(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GrantFilterList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filterlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterList":
+            suggest = "filter_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantFilterList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantFilterList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantFilterList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filter_list: Optional[Sequence['outputs.GrantFilter']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filterlist.html
-        :param Sequence['GrantFilterArgs'] filter_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filterlist.html#cfn-licensemanager-grant-filterlist-filterlist
+        :param Sequence['GrantFilter'] filter_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filterlist.html#cfn-licensemanager-grant-filterlist-filterlist
         """
         if filter_list is not None:
             pulumi.set(__self__, "filter_list", filter_list)
@@ -145,15 +187,29 @@ class GrantFilterList(dict):
         """
         return pulumi.get(self, "filter_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GrantStringList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-stringlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringList":
+            suggest = "string_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantStringList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantStringList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantStringList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  string_list: Optional[Sequence[str]] = None):
         """
@@ -171,20 +227,34 @@ class GrantStringList(dict):
         """
         return pulumi.get(self, "string_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GrantTagList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-taglist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagList":
+            suggest = "tag_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantTagList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantTagList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantTagList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  tag_list: Optional[Sequence['_root_outputs.Tag']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-taglist.html
-        :param Sequence['_root_inputs.TagArgs'] tag_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-taglist.html#cfn-licensemanager-grant-taglist-taglist
+        :param Sequence['_root_inputs.Tag'] tag_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-taglist.html#cfn-licensemanager-grant-taglist-taglist
         """
         if tag_list is not None:
             pulumi.set(__self__, "tag_list", tag_list)
@@ -197,15 +267,29 @@ class GrantTagList(dict):
         """
         return pulumi.get(self, "tag_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LicenseArnList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-arnlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arnList":
+            suggest = "arn_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseArnList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseArnList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseArnList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arn_list: Optional[Sequence[str]] = None):
         """
@@ -223,15 +307,31 @@ class LicenseArnList(dict):
         """
         return pulumi.get(self, "arn_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LicenseBorrowConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowEarlyCheckIn":
+            suggest = "allow_early_check_in"
+        elif key == "maxTimeToLiveInMinutes":
+            suggest = "max_time_to_live_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseBorrowConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseBorrowConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseBorrowConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_early_check_in: bool,
                  max_time_to_live_in_minutes: int):
@@ -259,23 +359,41 @@ class LicenseBorrowConfiguration(dict):
         """
         return pulumi.get(self, "max_time_to_live_in_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LicenseConsumptionConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "borrowConfiguration":
+            suggest = "borrow_configuration"
+        elif key == "provisionalConfiguration":
+            suggest = "provisional_configuration"
+        elif key == "renewType":
+            suggest = "renew_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseConsumptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseConsumptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseConsumptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  borrow_configuration: Optional['outputs.LicenseBorrowConfiguration'] = None,
                  provisional_configuration: Optional['outputs.LicenseProvisionalConfiguration'] = None,
                  renew_type: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html
-        :param 'LicenseBorrowConfigurationArgs' borrow_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration
-        :param 'LicenseProvisionalConfigurationArgs' provisional_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-provisionalconfiguration
+        :param 'LicenseBorrowConfiguration' borrow_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration
+        :param 'LicenseProvisionalConfiguration' provisional_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-provisionalconfiguration
         :param str renew_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-renewtype
         """
         if borrow_configuration is not None:
@@ -309,15 +427,33 @@ class LicenseConsumptionConfiguration(dict):
         """
         return pulumi.get(self, "renew_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LicenseEntitlement(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowCheckIn":
+            suggest = "allow_check_in"
+        elif key == "checkoutRules":
+            suggest = "checkout_rules"
+        elif key == "maxCount":
+            suggest = "max_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseEntitlement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseEntitlement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseEntitlement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  unit: str,
@@ -331,7 +467,7 @@ class LicenseEntitlement(dict):
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-name
         :param str unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-unit
         :param bool allow_check_in: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-allowcheckin
-        :param 'LicenseRuleListArgs' checkout_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-checkoutrules
+        :param 'LicenseRuleList' checkout_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-checkoutrules
         :param int max_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-maxcount
         :param bool overage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-overage
         :param str value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-value
@@ -405,20 +541,34 @@ class LicenseEntitlement(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LicenseEntitlementList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlementlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entitlementList":
+            suggest = "entitlement_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseEntitlementList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseEntitlementList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseEntitlementList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  entitlement_list: Optional[Sequence['outputs.LicenseEntitlement']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlementlist.html
-        :param Sequence['LicenseEntitlementArgs'] entitlement_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlementlist.html#cfn-licensemanager-license-entitlementlist-entitlementlist
+        :param Sequence['LicenseEntitlement'] entitlement_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlementlist.html#cfn-licensemanager-license-entitlementlist-entitlementlist
         """
         if entitlement_list is not None:
             pulumi.set(__self__, "entitlement_list", entitlement_list)
@@ -430,9 +580,6 @@ class LicenseEntitlementList(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlementlist.html#cfn-licensemanager-license-entitlementlist-entitlementlist
         """
         return pulumi.get(self, "entitlement_list")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -446,7 +593,7 @@ class LicenseFilter(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html#cfn-licensemanager-license-filter-name
-        :param 'LicenseStringListArgs' values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html#cfn-licensemanager-license-filter-values
+        :param 'LicenseStringList' values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html#cfn-licensemanager-license-filter-values
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -467,20 +614,34 @@ class LicenseFilter(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LicenseFilterList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filterlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterList":
+            suggest = "filter_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseFilterList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseFilterList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseFilterList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filter_list: Optional[Sequence['outputs.LicenseFilter']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filterlist.html
-        :param Sequence['LicenseFilterArgs'] filter_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filterlist.html#cfn-licensemanager-license-filterlist-filterlist
+        :param Sequence['LicenseFilter'] filter_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filterlist.html#cfn-licensemanager-license-filterlist-filterlist
         """
         if filter_list is not None:
             pulumi.set(__self__, "filter_list", filter_list)
@@ -493,15 +654,29 @@ class LicenseFilterList(dict):
         """
         return pulumi.get(self, "filter_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LicenseIssuerData(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "signKey":
+            suggest = "sign_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseIssuerData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseIssuerData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseIssuerData.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  sign_key: Optional[str] = None):
@@ -529,9 +704,6 @@ class LicenseIssuerData(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-signkey
         """
         return pulumi.get(self, "sign_key")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -566,20 +738,34 @@ class LicenseMetadata(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LicenseMetadataList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadatalist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metadataList":
+            suggest = "metadata_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseMetadataList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseMetadataList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseMetadataList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metadata_list: Optional[Sequence['outputs.LicenseMetadata']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadatalist.html
-        :param Sequence['LicenseMetadataArgs'] metadata_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadatalist.html#cfn-licensemanager-license-metadatalist-metadatalist
+        :param Sequence['LicenseMetadata'] metadata_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadatalist.html#cfn-licensemanager-license-metadatalist-metadatalist
         """
         if metadata_list is not None:
             pulumi.set(__self__, "metadata_list", metadata_list)
@@ -592,15 +778,29 @@ class LicenseMetadataList(dict):
         """
         return pulumi.get(self, "metadata_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LicenseProvisionalConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxTimeToLiveInMinutes":
+            suggest = "max_time_to_live_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseProvisionalConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseProvisionalConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseProvisionalConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_time_to_live_in_minutes: int):
         """
@@ -616,9 +816,6 @@ class LicenseProvisionalConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html#cfn-licensemanager-license-provisionalconfiguration-maxtimetoliveinminutes
         """
         return pulumi.get(self, "max_time_to_live_in_minutes")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -664,20 +861,34 @@ class LicenseRule(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LicenseRuleList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rulelist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleList":
+            suggest = "rule_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseRuleList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseRuleList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseRuleList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_list: Optional[Sequence['outputs.LicenseRule']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rulelist.html
-        :param Sequence['LicenseRuleArgs'] rule_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rulelist.html#cfn-licensemanager-license-rulelist-rulelist
+        :param Sequence['LicenseRule'] rule_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rulelist.html#cfn-licensemanager-license-rulelist-rulelist
         """
         if rule_list is not None:
             pulumi.set(__self__, "rule_list", rule_list)
@@ -690,15 +901,29 @@ class LicenseRuleList(dict):
         """
         return pulumi.get(self, "rule_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LicenseStringList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-stringlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringList":
+            suggest = "string_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseStringList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseStringList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseStringList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  string_list: Optional[Sequence[str]] = None):
         """
@@ -716,20 +941,34 @@ class LicenseStringList(dict):
         """
         return pulumi.get(self, "string_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LicenseTagList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-taglist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagList":
+            suggest = "tag_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseTagList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseTagList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseTagList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  tag_list: Optional[Sequence['_root_outputs.Tag']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-taglist.html
-        :param Sequence['_root_inputs.TagArgs'] tag_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-taglist.html#cfn-licensemanager-license-taglist-taglist
+        :param Sequence['_root_inputs.Tag'] tag_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-taglist.html#cfn-licensemanager-license-taglist-taglist
         """
         if tag_list is not None:
             pulumi.set(__self__, "tag_list", tag_list)
@@ -741,9 +980,6 @@ class LicenseTagList(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-taglist.html#cfn-licensemanager-license-taglist-taglist
         """
         return pulumi.get(self, "tag_list")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -777,8 +1013,5 @@ class LicenseValidityDateFormat(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-end
         """
         return pulumi.get(self, "end")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

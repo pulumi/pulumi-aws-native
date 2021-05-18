@@ -5,15 +5,194 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Policy']
+__all__ = ['PolicyArgs', 'Policy']
+
+@pulumi.input_type
+class PolicyArgs:
+    def __init__(__self__, *,
+                 exclude_resource_tags: pulumi.Input[bool],
+                 policy_name: pulumi.Input[str],
+                 remediation_enabled: pulumi.Input[bool],
+                 resource_type: pulumi.Input[str],
+                 security_service_policy_data: pulumi.Input[Union[Any, str]],
+                 delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
+                 exclude_map: Optional[pulumi.Input['PolicyIEMapArgs']] = None,
+                 include_map: Optional[pulumi.Input['PolicyIEMapArgs']] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyResourceTagArgs']]]] = None,
+                 resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPolicyTagArgs']]]] = None):
+        """
+        The set of arguments for constructing a Policy resource.
+        :param pulumi.Input[bool] exclude_resource_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
+        :param pulumi.Input[str] policy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
+        :param pulumi.Input[bool] remediation_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
+        :param pulumi.Input[str] resource_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
+        :param pulumi.Input[Union[Any, str]] security_service_policy_data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
+        :param pulumi.Input[bool] delete_all_policy_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
+        :param pulumi.Input['PolicyIEMapArgs'] exclude_map: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
+        :param pulumi.Input['PolicyIEMapArgs'] include_map: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyResourceTagArgs']]] resource_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyPolicyTagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
+        """
+        pulumi.set(__self__, "exclude_resource_tags", exclude_resource_tags)
+        pulumi.set(__self__, "policy_name", policy_name)
+        pulumi.set(__self__, "remediation_enabled", remediation_enabled)
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "security_service_policy_data", security_service_policy_data)
+        if delete_all_policy_resources is not None:
+            pulumi.set(__self__, "delete_all_policy_resources", delete_all_policy_resources)
+        if exclude_map is not None:
+            pulumi.set(__self__, "exclude_map", exclude_map)
+        if include_map is not None:
+            pulumi.set(__self__, "include_map", include_map)
+        if resource_tags is not None:
+            pulumi.set(__self__, "resource_tags", resource_tags)
+        if resource_type_list is not None:
+            pulumi.set(__self__, "resource_type_list", resource_type_list)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="excludeResourceTags")
+    def exclude_resource_tags(self) -> pulumi.Input[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
+        """
+        return pulumi.get(self, "exclude_resource_tags")
+
+    @exclude_resource_tags.setter
+    def exclude_resource_tags(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "exclude_resource_tags", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_name", value)
+
+    @property
+    @pulumi.getter(name="remediationEnabled")
+    def remediation_enabled(self) -> pulumi.Input[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
+        """
+        return pulumi.get(self, "remediation_enabled")
+
+    @remediation_enabled.setter
+    def remediation_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "remediation_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="securityServicePolicyData")
+    def security_service_policy_data(self) -> pulumi.Input[Union[Any, str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
+        """
+        return pulumi.get(self, "security_service_policy_data")
+
+    @security_service_policy_data.setter
+    def security_service_policy_data(self, value: pulumi.Input[Union[Any, str]]):
+        pulumi.set(self, "security_service_policy_data", value)
+
+    @property
+    @pulumi.getter(name="deleteAllPolicyResources")
+    def delete_all_policy_resources(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
+        """
+        return pulumi.get(self, "delete_all_policy_resources")
+
+    @delete_all_policy_resources.setter
+    def delete_all_policy_resources(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_all_policy_resources", value)
+
+    @property
+    @pulumi.getter(name="excludeMap")
+    def exclude_map(self) -> Optional[pulumi.Input['PolicyIEMapArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
+        """
+        return pulumi.get(self, "exclude_map")
+
+    @exclude_map.setter
+    def exclude_map(self, value: Optional[pulumi.Input['PolicyIEMapArgs']]):
+        pulumi.set(self, "exclude_map", value)
+
+    @property
+    @pulumi.getter(name="includeMap")
+    def include_map(self) -> Optional[pulumi.Input['PolicyIEMapArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
+        """
+        return pulumi.get(self, "include_map")
+
+    @include_map.setter
+    def include_map(self, value: Optional[pulumi.Input['PolicyIEMapArgs']]):
+        pulumi.set(self, "include_map", value)
+
+    @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyResourceTagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
+        """
+        return pulumi.get(self, "resource_tags")
+
+    @resource_tags.setter
+    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyResourceTagArgs']]]]):
+        pulumi.set(self, "resource_tags", value)
+
+    @property
+    @pulumi.getter(name="resourceTypeList")
+    def resource_type_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
+        """
+        return pulumi.get(self, "resource_type_list")
+
+    @resource_type_list.setter
+    def resource_type_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_type_list", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPolicyTagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPolicyTagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Policy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -28,9 +207,7 @@ class Policy(pulumi.CustomResource):
                  resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_service_policy_data: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyPolicyTagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html
 
@@ -48,12 +225,42 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[Union[Any, str]] security_service_policy_data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyPolicyTagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html
+
+        :param str resource_name: The name of the resource.
+        :param PolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
+                 exclude_map: Optional[pulumi.Input[pulumi.InputType['PolicyIEMapArgs']]] = None,
+                 exclude_resource_tags: Optional[pulumi.Input[bool]] = None,
+                 include_map: Optional[pulumi.Input[pulumi.InputType['PolicyIEMapArgs']]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
+                 remediation_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyResourceTagArgs']]]]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_service_policy_data: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyPolicyTagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -63,31 +270,31 @@ class Policy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PolicyArgs.__new__(PolicyArgs)
 
-            __props__['delete_all_policy_resources'] = delete_all_policy_resources
-            __props__['exclude_map'] = exclude_map
+            __props__.__dict__["delete_all_policy_resources"] = delete_all_policy_resources
+            __props__.__dict__["exclude_map"] = exclude_map
             if exclude_resource_tags is None and not opts.urn:
                 raise TypeError("Missing required property 'exclude_resource_tags'")
-            __props__['exclude_resource_tags'] = exclude_resource_tags
-            __props__['include_map'] = include_map
+            __props__.__dict__["exclude_resource_tags"] = exclude_resource_tags
+            __props__.__dict__["include_map"] = include_map
             if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
-            __props__['policy_name'] = policy_name
+            __props__.__dict__["policy_name"] = policy_name
             if remediation_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'remediation_enabled'")
-            __props__['remediation_enabled'] = remediation_enabled
-            __props__['resource_tags'] = resource_tags
+            __props__.__dict__["remediation_enabled"] = remediation_enabled
+            __props__.__dict__["resource_tags"] = resource_tags
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
-            __props__['resource_type'] = resource_type
-            __props__['resource_type_list'] = resource_type_list
+            __props__.__dict__["resource_type"] = resource_type
+            __props__.__dict__["resource_type_list"] = resource_type_list
             if security_service_policy_data is None and not opts.urn:
                 raise TypeError("Missing required property 'security_service_policy_data'")
-            __props__['security_service_policy_data'] = security_service_policy_data
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['id'] = None
+            __props__.__dict__["security_service_policy_data"] = security_service_policy_data
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["id"] = None
         super(Policy, __self__).__init__(
             'aws-native:FMS:Policy',
             resource_name,
@@ -108,8 +315,21 @@ class Policy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PolicyArgs.__new__(PolicyArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["delete_all_policy_resources"] = None
+        __props__.__dict__["exclude_map"] = None
+        __props__.__dict__["exclude_resource_tags"] = None
+        __props__.__dict__["id"] = None
+        __props__.__dict__["include_map"] = None
+        __props__.__dict__["policy_name"] = None
+        __props__.__dict__["remediation_enabled"] = None
+        __props__.__dict__["resource_tags"] = None
+        __props__.__dict__["resource_type"] = None
+        __props__.__dict__["resource_type_list"] = None
+        __props__.__dict__["security_service_policy_data"] = None
+        __props__.__dict__["tags"] = None
         return Policy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -209,10 +429,4 @@ class Policy(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

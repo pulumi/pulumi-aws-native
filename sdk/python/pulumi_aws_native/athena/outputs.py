@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
 
@@ -29,7 +29,7 @@ class DataCatalogTags(dict):
                  tags: Optional[Sequence['_root_outputs.Tag']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
+        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -42,15 +42,31 @@ class DataCatalogTags(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkGroupEncryptionConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionOption":
+            suggest = "encryption_option"
+        elif key == "kmsKey":
+            suggest = "kms_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkGroupEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkGroupEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkGroupEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_option: str,
                  kms_key: Optional[str] = None):
@@ -79,21 +95,37 @@ class WorkGroupEncryptionConfiguration(dict):
         """
         return pulumi.get(self, "kms_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkGroupResultConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionConfiguration":
+            suggest = "encryption_configuration"
+        elif key == "outputLocation":
+            suggest = "output_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkGroupResultConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkGroupResultConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkGroupResultConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_configuration: Optional['outputs.WorkGroupEncryptionConfiguration'] = None,
                  output_location: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html
-        :param 'WorkGroupEncryptionConfigurationArgs' encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-encryptionconfiguration
+        :param 'WorkGroupEncryptionConfiguration' encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-encryptionconfiguration
         :param str output_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-outputlocation
         """
         if encryption_configuration is not None:
@@ -117,15 +149,35 @@ class WorkGroupResultConfiguration(dict):
         """
         return pulumi.get(self, "output_location")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkGroupResultConfigurationUpdates(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionConfiguration":
+            suggest = "encryption_configuration"
+        elif key == "outputLocation":
+            suggest = "output_location"
+        elif key == "removeEncryptionConfiguration":
+            suggest = "remove_encryption_configuration"
+        elif key == "removeOutputLocation":
+            suggest = "remove_output_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkGroupResultConfigurationUpdates. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkGroupResultConfigurationUpdates.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkGroupResultConfigurationUpdates.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_configuration: Optional['outputs.WorkGroupEncryptionConfiguration'] = None,
                  output_location: Optional[str] = None,
@@ -133,7 +185,7 @@ class WorkGroupResultConfigurationUpdates(dict):
                  remove_output_location: Optional[bool] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html
-        :param 'WorkGroupEncryptionConfigurationArgs' encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-encryptionconfiguration
+        :param 'WorkGroupEncryptionConfiguration' encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-encryptionconfiguration
         :param str output_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-outputlocation
         :param bool remove_encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeencryptionconfiguration
         :param bool remove_output_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeoutputlocation
@@ -179,9 +231,6 @@ class WorkGroupResultConfigurationUpdates(dict):
         """
         return pulumi.get(self, "remove_output_location")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkGroupTags(dict):
@@ -192,7 +241,7 @@ class WorkGroupTags(dict):
                  tags: Optional[Sequence['_root_outputs.Tag']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html#cfn-athena-workgroup-tags-tags
+        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html#cfn-athena-workgroup-tags-tags
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -205,15 +254,37 @@ class WorkGroupTags(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkGroupWorkGroupConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bytesScannedCutoffPerQuery":
+            suggest = "bytes_scanned_cutoff_per_query"
+        elif key == "enforceWorkGroupConfiguration":
+            suggest = "enforce_work_group_configuration"
+        elif key == "publishCloudWatchMetricsEnabled":
+            suggest = "publish_cloud_watch_metrics_enabled"
+        elif key == "requesterPaysEnabled":
+            suggest = "requester_pays_enabled"
+        elif key == "resultConfiguration":
+            suggest = "result_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkGroupWorkGroupConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkGroupWorkGroupConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkGroupWorkGroupConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bytes_scanned_cutoff_per_query: Optional[int] = None,
                  enforce_work_group_configuration: Optional[bool] = None,
@@ -226,7 +297,7 @@ class WorkGroupWorkGroupConfiguration(dict):
         :param bool enforce_work_group_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
         :param bool publish_cloud_watch_metrics_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
         :param bool requester_pays_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
-        :param 'WorkGroupResultConfigurationArgs' result_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration
+        :param 'WorkGroupResultConfiguration' result_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration
         """
         if bytes_scanned_cutoff_per_query is not None:
             pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
@@ -279,15 +350,39 @@ class WorkGroupWorkGroupConfiguration(dict):
         """
         return pulumi.get(self, "result_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkGroupWorkGroupConfigurationUpdates(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bytesScannedCutoffPerQuery":
+            suggest = "bytes_scanned_cutoff_per_query"
+        elif key == "enforceWorkGroupConfiguration":
+            suggest = "enforce_work_group_configuration"
+        elif key == "publishCloudWatchMetricsEnabled":
+            suggest = "publish_cloud_watch_metrics_enabled"
+        elif key == "removeBytesScannedCutoffPerQuery":
+            suggest = "remove_bytes_scanned_cutoff_per_query"
+        elif key == "requesterPaysEnabled":
+            suggest = "requester_pays_enabled"
+        elif key == "resultConfigurationUpdates":
+            suggest = "result_configuration_updates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkGroupWorkGroupConfigurationUpdates. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkGroupWorkGroupConfigurationUpdates.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkGroupWorkGroupConfigurationUpdates.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bytes_scanned_cutoff_per_query: Optional[int] = None,
                  enforce_work_group_configuration: Optional[bool] = None,
@@ -302,7 +397,7 @@ class WorkGroupWorkGroupConfigurationUpdates(dict):
         :param bool publish_cloud_watch_metrics_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
         :param bool remove_bytes_scanned_cutoff_per_query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-removebytesscannedcutoffperquery
         :param bool requester_pays_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-requesterpaysenabled
-        :param 'WorkGroupResultConfigurationUpdatesArgs' result_configuration_updates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-resultconfigurationupdates
+        :param 'WorkGroupResultConfigurationUpdates' result_configuration_updates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-resultconfigurationupdates
         """
         if bytes_scanned_cutoff_per_query is not None:
             pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
@@ -364,8 +459,5 @@ class WorkGroupWorkGroupConfigurationUpdates(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-resultconfigurationupdates
         """
         return pulumi.get(self, "result_configuration_updates")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

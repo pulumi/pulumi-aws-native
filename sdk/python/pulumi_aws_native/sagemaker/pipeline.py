@@ -5,15 +5,116 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 
-__all__ = ['Pipeline']
+__all__ = ['PipelineArgs', 'Pipeline']
+
+@pulumi.input_type
+class PipelineArgs:
+    def __init__(__self__, *,
+                 pipeline_definition: pulumi.Input[Union[Any, str]],
+                 pipeline_name: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 pipeline_description: Optional[pulumi.Input[str]] = None,
+                 pipeline_display_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a Pipeline resource.
+        :param pulumi.Input[Union[Any, str]] pipeline_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition
+        :param pulumi.Input[str] pipeline_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinename
+        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn
+        :param pulumi.Input[str] pipeline_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedescription
+        :param pulumi.Input[str] pipeline_display_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedisplayname
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
+        """
+        pulumi.set(__self__, "pipeline_definition", pipeline_definition)
+        pulumi.set(__self__, "pipeline_name", pipeline_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if pipeline_description is not None:
+            pulumi.set(__self__, "pipeline_description", pipeline_description)
+        if pipeline_display_name is not None:
+            pulumi.set(__self__, "pipeline_display_name", pipeline_display_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="pipelineDefinition")
+    def pipeline_definition(self) -> pulumi.Input[Union[Any, str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition
+        """
+        return pulumi.get(self, "pipeline_definition")
+
+    @pipeline_definition.setter
+    def pipeline_definition(self, value: pulumi.Input[Union[Any, str]]):
+        pulumi.set(self, "pipeline_definition", value)
+
+    @property
+    @pulumi.getter(name="pipelineName")
+    def pipeline_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinename
+        """
+        return pulumi.get(self, "pipeline_name")
+
+    @pipeline_name.setter
+    def pipeline_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pipeline_name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="pipelineDescription")
+    def pipeline_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedescription
+        """
+        return pulumi.get(self, "pipeline_description")
+
+    @pipeline_description.setter
+    def pipeline_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipeline_description", value)
+
+    @property
+    @pulumi.getter(name="pipelineDisplayName")
+    def pipeline_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedisplayname
+        """
+        return pulumi.get(self, "pipeline_display_name")
+
+    @pipeline_display_name.setter
+    def pipeline_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipeline_display_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Pipeline(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -23,9 +124,7 @@ class Pipeline(pulumi.CustomResource):
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html
 
@@ -38,12 +137,37 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PipelineArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html
+
+        :param str resource_name: The name of the resource.
+        :param PipelineArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PipelineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 pipeline_definition: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 pipeline_description: Optional[pulumi.Input[str]] = None,
+                 pipeline_display_name: Optional[pulumi.Input[str]] = None,
+                 pipeline_name: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -53,20 +177,20 @@ class Pipeline(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PipelineArgs.__new__(PipelineArgs)
 
             if pipeline_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline_definition'")
-            __props__['pipeline_definition'] = pipeline_definition
-            __props__['pipeline_description'] = pipeline_description
-            __props__['pipeline_display_name'] = pipeline_display_name
+            __props__.__dict__["pipeline_definition"] = pipeline_definition
+            __props__.__dict__["pipeline_description"] = pipeline_description
+            __props__.__dict__["pipeline_display_name"] = pipeline_display_name
             if pipeline_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline_name'")
-            __props__['pipeline_name'] = pipeline_name
+            __props__.__dict__["pipeline_name"] = pipeline_name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
-            __props__['role_arn'] = role_arn
-            __props__['tags'] = tags
+            __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["tags"] = tags
         super(Pipeline, __self__).__init__(
             'aws-native:SageMaker:Pipeline',
             resource_name,
@@ -87,8 +211,14 @@ class Pipeline(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PipelineArgs.__new__(PipelineArgs)
 
+        __props__.__dict__["pipeline_definition"] = None
+        __props__.__dict__["pipeline_description"] = None
+        __props__.__dict__["pipeline_display_name"] = None
+        __props__.__dict__["pipeline_name"] = None
+        __props__.__dict__["role_arn"] = None
+        __props__.__dict__["tags"] = None
         return Pipeline(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -138,10 +268,4 @@ class Pipeline(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

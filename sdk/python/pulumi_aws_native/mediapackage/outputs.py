@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -45,6 +45,23 @@ class AssetEgressEndpoint(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "packagingConfigurationId":
+            suggest = "packaging_configuration_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetEgressEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetEgressEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetEgressEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  packaging_configuration_id: str,
                  url: str):
@@ -72,20 +89,34 @@ class AssetEgressEndpoint(dict):
         """
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ChannelHlsIngest(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ingestEndpoints":
+            suggest = "ingest_endpoints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelHlsIngest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelHlsIngest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelHlsIngest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ingest_endpoints: Optional[Sequence['outputs.ChannelIngestEndpoint']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html
-        :param Sequence['ChannelIngestEndpointArgs'] ingest_endpoints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html#cfn-mediapackage-channel-hlsingest-ingestendpoints
+        :param Sequence['ChannelIngestEndpoint'] ingest_endpoints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html#cfn-mediapackage-channel-hlsingest-ingestendpoints
         """
         if ingest_endpoints is not None:
             pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
@@ -97,9 +128,6 @@ class ChannelHlsIngest(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html#cfn-mediapackage-channel-hlsingest-ingestendpoints
         """
         return pulumi.get(self, "ingest_endpoints")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -160,15 +188,31 @@ class ChannelIngestEndpoint(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginEndpointAuthorization(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cdnIdentifierSecret":
+            suggest = "cdn_identifier_secret"
+        elif key == "secretsRoleArn":
+            suggest = "secrets_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointAuthorization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointAuthorization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointAuthorization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cdn_identifier_secret: str,
                  secrets_role_arn: str):
@@ -196,21 +240,37 @@ class OriginEndpointAuthorization(dict):
         """
         return pulumi.get(self, "secrets_role_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginEndpointCmafEncryption(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "spekeKeyProvider":
+            suggest = "speke_key_provider"
+        elif key == "keyRotationIntervalSeconds":
+            suggest = "key_rotation_interval_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointCmafEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointCmafEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointCmafEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider',
                  key_rotation_interval_seconds: Optional[int] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html
-        :param 'OriginEndpointSpekeKeyProviderArgs' speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
+        :param 'OriginEndpointSpekeKeyProvider' speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
         :param int key_rotation_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
@@ -233,15 +293,35 @@ class OriginEndpointCmafEncryption(dict):
         """
         return pulumi.get(self, "key_rotation_interval_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginEndpointCmafPackage(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hlsManifests":
+            suggest = "hls_manifests"
+        elif key == "segmentDurationSeconds":
+            suggest = "segment_duration_seconds"
+        elif key == "segmentPrefix":
+            suggest = "segment_prefix"
+        elif key == "streamSelection":
+            suggest = "stream_selection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointCmafPackage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointCmafPackage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointCmafPackage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption: Optional['outputs.OriginEndpointCmafEncryption'] = None,
                  hls_manifests: Optional[Sequence['outputs.OriginEndpointHlsManifest']] = None,
@@ -250,11 +330,11 @@ class OriginEndpointCmafPackage(dict):
                  stream_selection: Optional['outputs.OriginEndpointStreamSelection'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html
-        :param 'OriginEndpointCmafEncryptionArgs' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-encryption
-        :param Sequence['OriginEndpointHlsManifestArgs'] hls_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests
+        :param 'OriginEndpointCmafEncryption' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-encryption
+        :param Sequence['OriginEndpointHlsManifest'] hls_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests
         :param int segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentdurationseconds
         :param str segment_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentprefix
-        :param 'OriginEndpointStreamSelectionArgs' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-streamselection
+        :param 'OriginEndpointStreamSelection' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-streamselection
         """
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
@@ -307,21 +387,37 @@ class OriginEndpointCmafPackage(dict):
         """
         return pulumi.get(self, "stream_selection")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginEndpointDashEncryption(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "spekeKeyProvider":
+            suggest = "speke_key_provider"
+        elif key == "keyRotationIntervalSeconds":
+            suggest = "key_rotation_interval_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointDashEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointDashEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointDashEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider',
                  key_rotation_interval_seconds: Optional[int] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html
-        :param 'OriginEndpointSpekeKeyProviderArgs' speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider
+        :param 'OriginEndpointSpekeKeyProvider' speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider
         :param int key_rotation_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-keyrotationintervalseconds
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
@@ -344,15 +440,49 @@ class OriginEndpointDashEncryption(dict):
         """
         return pulumi.get(self, "key_rotation_interval_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginEndpointDashPackage(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adTriggers":
+            suggest = "ad_triggers"
+        elif key == "adsOnDeliveryRestrictions":
+            suggest = "ads_on_delivery_restrictions"
+        elif key == "manifestLayout":
+            suggest = "manifest_layout"
+        elif key == "manifestWindowSeconds":
+            suggest = "manifest_window_seconds"
+        elif key == "minBufferTimeSeconds":
+            suggest = "min_buffer_time_seconds"
+        elif key == "minUpdatePeriodSeconds":
+            suggest = "min_update_period_seconds"
+        elif key == "periodTriggers":
+            suggest = "period_triggers"
+        elif key == "segmentDurationSeconds":
+            suggest = "segment_duration_seconds"
+        elif key == "segmentTemplateFormat":
+            suggest = "segment_template_format"
+        elif key == "streamSelection":
+            suggest = "stream_selection"
+        elif key == "suggestedPresentationDelaySeconds":
+            suggest = "suggested_presentation_delay_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointDashPackage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointDashPackage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointDashPackage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ad_triggers: Optional[Sequence[str]] = None,
                  ads_on_delivery_restrictions: Optional[str] = None,
@@ -371,7 +501,7 @@ class OriginEndpointDashPackage(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html
         :param Sequence[str] ad_triggers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers
         :param str ads_on_delivery_restrictions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adsondeliveryrestrictions
-        :param 'OriginEndpointDashEncryptionArgs' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-encryption
+        :param 'OriginEndpointDashEncryption' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-encryption
         :param str manifest_layout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestlayout
         :param int manifest_window_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestwindowseconds
         :param int min_buffer_time_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minbuffertimeseconds
@@ -380,7 +510,7 @@ class OriginEndpointDashPackage(dict):
         :param str profile: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-profile
         :param int segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmentdurationseconds
         :param str segment_template_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmenttemplateformat
-        :param 'OriginEndpointStreamSelectionArgs' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-streamselection
+        :param 'OriginEndpointStreamSelection' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-streamselection
         :param int suggested_presentation_delay_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
         """
         if ad_triggers is not None:
@@ -514,15 +644,37 @@ class OriginEndpointDashPackage(dict):
         """
         return pulumi.get(self, "suggested_presentation_delay_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginEndpointHlsEncryption(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "spekeKeyProvider":
+            suggest = "speke_key_provider"
+        elif key == "constantInitializationVector":
+            suggest = "constant_initialization_vector"
+        elif key == "encryptionMethod":
+            suggest = "encryption_method"
+        elif key == "keyRotationIntervalSeconds":
+            suggest = "key_rotation_interval_seconds"
+        elif key == "repeatExtXKey":
+            suggest = "repeat_ext_x_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointHlsEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointHlsEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointHlsEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider',
                  constant_initialization_vector: Optional[str] = None,
@@ -531,7 +683,7 @@ class OriginEndpointHlsEncryption(dict):
                  repeat_ext_x_key: Optional[bool] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html
-        :param 'OriginEndpointSpekeKeyProviderArgs' speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-spekekeyprovider
+        :param 'OriginEndpointSpekeKeyProvider' speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-spekekeyprovider
         :param str constant_initialization_vector: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-constantinitializationvector
         :param str encryption_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-encryptionmethod
         :param int key_rotation_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-keyrotationintervalseconds
@@ -587,15 +739,43 @@ class OriginEndpointHlsEncryption(dict):
         """
         return pulumi.get(self, "repeat_ext_x_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginEndpointHlsManifest(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adMarkers":
+            suggest = "ad_markers"
+        elif key == "adTriggers":
+            suggest = "ad_triggers"
+        elif key == "adsOnDeliveryRestrictions":
+            suggest = "ads_on_delivery_restrictions"
+        elif key == "includeIframeOnlyStream":
+            suggest = "include_iframe_only_stream"
+        elif key == "manifestName":
+            suggest = "manifest_name"
+        elif key == "playlistType":
+            suggest = "playlist_type"
+        elif key == "playlistWindowSeconds":
+            suggest = "playlist_window_seconds"
+        elif key == "programDateTimeIntervalSeconds":
+            suggest = "program_date_time_interval_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointHlsManifest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointHlsManifest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointHlsManifest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  ad_markers: Optional[str] = None,
@@ -720,15 +900,47 @@ class OriginEndpointHlsManifest(dict):
         """
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginEndpointHlsPackage(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adMarkers":
+            suggest = "ad_markers"
+        elif key == "adTriggers":
+            suggest = "ad_triggers"
+        elif key == "adsOnDeliveryRestrictions":
+            suggest = "ads_on_delivery_restrictions"
+        elif key == "includeIframeOnlyStream":
+            suggest = "include_iframe_only_stream"
+        elif key == "playlistType":
+            suggest = "playlist_type"
+        elif key == "playlistWindowSeconds":
+            suggest = "playlist_window_seconds"
+        elif key == "programDateTimeIntervalSeconds":
+            suggest = "program_date_time_interval_seconds"
+        elif key == "segmentDurationSeconds":
+            suggest = "segment_duration_seconds"
+        elif key == "streamSelection":
+            suggest = "stream_selection"
+        elif key == "useAudioRenditionGroup":
+            suggest = "use_audio_rendition_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointHlsPackage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointHlsPackage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointHlsPackage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ad_markers: Optional[str] = None,
                  ad_triggers: Optional[Sequence[str]] = None,
@@ -746,13 +958,13 @@ class OriginEndpointHlsPackage(dict):
         :param str ad_markers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-admarkers
         :param Sequence[str] ad_triggers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adtriggers
         :param str ads_on_delivery_restrictions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adsondeliveryrestrictions
-        :param 'OriginEndpointHlsEncryptionArgs' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-encryption
+        :param 'OriginEndpointHlsEncryption' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-encryption
         :param bool include_iframe_only_stream: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-includeiframeonlystream
         :param str playlist_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlisttype
         :param int playlist_window_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlistwindowseconds
         :param int program_date_time_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-programdatetimeintervalseconds
         :param int segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-segmentdurationseconds
-        :param 'OriginEndpointStreamSelectionArgs' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-streamselection
+        :param 'OriginEndpointStreamSelection' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-streamselection
         :param bool use_audio_rendition_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-useaudiorenditiongroup
         """
         if ad_markers is not None:
@@ -866,20 +1078,34 @@ class OriginEndpointHlsPackage(dict):
         """
         return pulumi.get(self, "use_audio_rendition_group")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginEndpointMssEncryption(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "spekeKeyProvider":
+            suggest = "speke_key_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointMssEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointMssEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointMssEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html
-        :param 'OriginEndpointSpekeKeyProviderArgs' speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html#cfn-mediapackage-originendpoint-mssencryption-spekekeyprovider
+        :param 'OriginEndpointSpekeKeyProvider' speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html#cfn-mediapackage-originendpoint-mssencryption-spekekeyprovider
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
@@ -891,15 +1117,33 @@ class OriginEndpointMssEncryption(dict):
         """
         return pulumi.get(self, "speke_key_provider")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginEndpointMssPackage(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "manifestWindowSeconds":
+            suggest = "manifest_window_seconds"
+        elif key == "segmentDurationSeconds":
+            suggest = "segment_duration_seconds"
+        elif key == "streamSelection":
+            suggest = "stream_selection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointMssPackage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointMssPackage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointMssPackage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption: Optional['outputs.OriginEndpointMssEncryption'] = None,
                  manifest_window_seconds: Optional[int] = None,
@@ -907,10 +1151,10 @@ class OriginEndpointMssPackage(dict):
                  stream_selection: Optional['outputs.OriginEndpointStreamSelection'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html
-        :param 'OriginEndpointMssEncryptionArgs' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
+        :param 'OriginEndpointMssEncryption' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
         :param int manifest_window_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds
         :param int segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-segmentdurationseconds
-        :param 'OriginEndpointStreamSelectionArgs' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
+        :param 'OriginEndpointStreamSelection' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
         """
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
@@ -953,15 +1197,35 @@ class OriginEndpointMssPackage(dict):
         """
         return pulumi.get(self, "stream_selection")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginEndpointSpekeKeyProvider(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "systemIds":
+            suggest = "system_ids"
+        elif key == "certificateArn":
+            suggest = "certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointSpekeKeyProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointSpekeKeyProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointSpekeKeyProvider.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: str,
                  role_arn: str,
@@ -1023,15 +1287,33 @@ class OriginEndpointSpekeKeyProvider(dict):
         """
         return pulumi.get(self, "certificate_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OriginEndpointStreamSelection(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxVideoBitsPerSecond":
+            suggest = "max_video_bits_per_second"
+        elif key == "minVideoBitsPerSecond":
+            suggest = "min_video_bits_per_second"
+        elif key == "streamOrder":
+            suggest = "stream_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointStreamSelection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointStreamSelection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointStreamSelection.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_video_bits_per_second: Optional[int] = None,
                  min_video_bits_per_second: Optional[int] = None,
@@ -1073,15 +1355,29 @@ class OriginEndpointStreamSelection(dict):
         """
         return pulumi.get(self, "stream_order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackagingConfigurationCmafEncryption(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "spekeKeyProvider":
+            suggest = "speke_key_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingConfigurationCmafEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingConfigurationCmafEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingConfigurationCmafEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  speke_key_provider: Any):
         """
@@ -1098,23 +1394,39 @@ class PackagingConfigurationCmafEncryption(dict):
         """
         return pulumi.get(self, "speke_key_provider")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackagingConfigurationCmafPackage(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hlsManifests":
+            suggest = "hls_manifests"
+        elif key == "segmentDurationSeconds":
+            suggest = "segment_duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingConfigurationCmafPackage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingConfigurationCmafPackage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingConfigurationCmafPackage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hls_manifests: Sequence['outputs.PackagingConfigurationHlsManifest'],
                  encryption: Optional['outputs.PackagingConfigurationCmafEncryption'] = None,
                  segment_duration_seconds: Optional[int] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html
-        :param Sequence['PackagingConfigurationHlsManifestArgs'] hls_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
-        :param 'PackagingConfigurationCmafEncryptionArgs' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption
+        :param Sequence['PackagingConfigurationHlsManifest'] hls_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
+        :param 'PackagingConfigurationCmafEncryption' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption
         :param int segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
         """
         pulumi.set(__self__, "hls_manifests", hls_manifests)
@@ -1147,15 +1459,29 @@ class PackagingConfigurationCmafPackage(dict):
         """
         return pulumi.get(self, "segment_duration_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackagingConfigurationDashEncryption(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "spekeKeyProvider":
+            suggest = "speke_key_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingConfigurationDashEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingConfigurationDashEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingConfigurationDashEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  speke_key_provider: Any):
         """
@@ -1172,15 +1498,35 @@ class PackagingConfigurationDashEncryption(dict):
         """
         return pulumi.get(self, "speke_key_provider")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackagingConfigurationDashManifest(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "manifestLayout":
+            suggest = "manifest_layout"
+        elif key == "manifestName":
+            suggest = "manifest_name"
+        elif key == "minBufferTimeSeconds":
+            suggest = "min_buffer_time_seconds"
+        elif key == "streamSelection":
+            suggest = "stream_selection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingConfigurationDashManifest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingConfigurationDashManifest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingConfigurationDashManifest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  manifest_layout: Optional[str] = None,
                  manifest_name: Optional[str] = None,
@@ -1193,7 +1539,7 @@ class PackagingConfigurationDashManifest(dict):
         :param str manifest_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestname
         :param int min_buffer_time_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-minbuffertimeseconds
         :param str profile: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-profile
-        :param 'PackagingConfigurationStreamSelectionArgs' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-streamselection
+        :param 'PackagingConfigurationStreamSelection' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-streamselection
         """
         if manifest_layout is not None:
             pulumi.set(__self__, "manifest_layout", manifest_layout)
@@ -1246,15 +1592,35 @@ class PackagingConfigurationDashManifest(dict):
         """
         return pulumi.get(self, "stream_selection")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackagingConfigurationDashPackage(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dashManifests":
+            suggest = "dash_manifests"
+        elif key == "periodTriggers":
+            suggest = "period_triggers"
+        elif key == "segmentDurationSeconds":
+            suggest = "segment_duration_seconds"
+        elif key == "segmentTemplateFormat":
+            suggest = "segment_template_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingConfigurationDashPackage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingConfigurationDashPackage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingConfigurationDashPackage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dash_manifests: Sequence['outputs.PackagingConfigurationDashManifest'],
                  encryption: Optional['outputs.PackagingConfigurationDashEncryption'] = None,
@@ -1263,8 +1629,8 @@ class PackagingConfigurationDashPackage(dict):
                  segment_template_format: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html
-        :param Sequence['PackagingConfigurationDashManifestArgs'] dash_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
-        :param 'PackagingConfigurationDashEncryptionArgs' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
+        :param Sequence['PackagingConfigurationDashManifest'] dash_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
+        :param 'PackagingConfigurationDashEncryption' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
         :param Sequence[str] period_triggers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
         :param int segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
         :param str segment_template_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmenttemplateformat
@@ -1319,15 +1685,33 @@ class PackagingConfigurationDashPackage(dict):
         """
         return pulumi.get(self, "segment_template_format")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackagingConfigurationHlsEncryption(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "spekeKeyProvider":
+            suggest = "speke_key_provider"
+        elif key == "constantInitializationVector":
+            suggest = "constant_initialization_vector"
+        elif key == "encryptionMethod":
+            suggest = "encryption_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingConfigurationHlsEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingConfigurationHlsEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingConfigurationHlsEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  speke_key_provider: Any,
                  constant_initialization_vector: Optional[str] = None,
@@ -1368,15 +1752,39 @@ class PackagingConfigurationHlsEncryption(dict):
         """
         return pulumi.get(self, "encryption_method")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackagingConfigurationHlsManifest(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adMarkers":
+            suggest = "ad_markers"
+        elif key == "includeIframeOnlyStream":
+            suggest = "include_iframe_only_stream"
+        elif key == "manifestName":
+            suggest = "manifest_name"
+        elif key == "programDateTimeIntervalSeconds":
+            suggest = "program_date_time_interval_seconds"
+        elif key == "repeatExtXKey":
+            suggest = "repeat_ext_x_key"
+        elif key == "streamSelection":
+            suggest = "stream_selection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingConfigurationHlsManifest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingConfigurationHlsManifest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingConfigurationHlsManifest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ad_markers: Optional[str] = None,
                  include_iframe_only_stream: Optional[bool] = None,
@@ -1391,7 +1799,7 @@ class PackagingConfigurationHlsManifest(dict):
         :param str manifest_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-manifestname
         :param int program_date_time_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-programdatetimeintervalseconds
         :param bool repeat_ext_x_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-repeatextxkey
-        :param 'PackagingConfigurationStreamSelectionArgs' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-streamselection
+        :param 'PackagingConfigurationStreamSelection' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-streamselection
         """
         if ad_markers is not None:
             pulumi.set(__self__, "ad_markers", ad_markers)
@@ -1454,15 +1862,33 @@ class PackagingConfigurationHlsManifest(dict):
         """
         return pulumi.get(self, "stream_selection")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackagingConfigurationHlsPackage(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hlsManifests":
+            suggest = "hls_manifests"
+        elif key == "segmentDurationSeconds":
+            suggest = "segment_duration_seconds"
+        elif key == "useAudioRenditionGroup":
+            suggest = "use_audio_rendition_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingConfigurationHlsPackage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingConfigurationHlsPackage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingConfigurationHlsPackage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hls_manifests: Sequence['outputs.PackagingConfigurationHlsManifest'],
                  encryption: Optional['outputs.PackagingConfigurationHlsEncryption'] = None,
@@ -1470,8 +1896,8 @@ class PackagingConfigurationHlsPackage(dict):
                  use_audio_rendition_group: Optional[bool] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html
-        :param Sequence['PackagingConfigurationHlsManifestArgs'] hls_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests
-        :param 'PackagingConfigurationHlsEncryptionArgs' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption
+        :param Sequence['PackagingConfigurationHlsManifest'] hls_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests
+        :param 'PackagingConfigurationHlsEncryption' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption
         :param int segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds
         :param bool use_audio_rendition_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-useaudiorenditiongroup
         """
@@ -1515,15 +1941,29 @@ class PackagingConfigurationHlsPackage(dict):
         """
         return pulumi.get(self, "use_audio_rendition_group")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackagingConfigurationMssEncryption(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "spekeKeyProvider":
+            suggest = "speke_key_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingConfigurationMssEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingConfigurationMssEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingConfigurationMssEncryption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  speke_key_provider: Any):
         """
@@ -1540,22 +1980,38 @@ class PackagingConfigurationMssEncryption(dict):
         """
         return pulumi.get(self, "speke_key_provider")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackagingConfigurationMssManifest(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "manifestName":
+            suggest = "manifest_name"
+        elif key == "streamSelection":
+            suggest = "stream_selection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingConfigurationMssManifest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingConfigurationMssManifest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingConfigurationMssManifest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  manifest_name: Optional[str] = None,
                  stream_selection: Optional['outputs.PackagingConfigurationStreamSelection'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html
         :param str manifest_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-manifestname
-        :param 'PackagingConfigurationStreamSelectionArgs' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-streamselection
+        :param 'PackagingConfigurationStreamSelection' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-streamselection
         """
         if manifest_name is not None:
             pulumi.set(__self__, "manifest_name", manifest_name)
@@ -1578,23 +2034,39 @@ class PackagingConfigurationMssManifest(dict):
         """
         return pulumi.get(self, "stream_selection")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackagingConfigurationMssPackage(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mssManifests":
+            suggest = "mss_manifests"
+        elif key == "segmentDurationSeconds":
+            suggest = "segment_duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingConfigurationMssPackage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingConfigurationMssPackage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingConfigurationMssPackage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mss_manifests: Sequence['outputs.PackagingConfigurationMssManifest'],
                  encryption: Optional['outputs.PackagingConfigurationMssEncryption'] = None,
                  segment_duration_seconds: Optional[int] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html
-        :param Sequence['PackagingConfigurationMssManifestArgs'] mss_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
-        :param 'PackagingConfigurationMssEncryptionArgs' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
+        :param Sequence['PackagingConfigurationMssManifest'] mss_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
+        :param 'PackagingConfigurationMssEncryption' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
         :param int segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds
         """
         pulumi.set(__self__, "mss_manifests", mss_manifests)
@@ -1627,15 +2099,33 @@ class PackagingConfigurationMssPackage(dict):
         """
         return pulumi.get(self, "segment_duration_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackagingConfigurationStreamSelection(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxVideoBitsPerSecond":
+            suggest = "max_video_bits_per_second"
+        elif key == "minVideoBitsPerSecond":
+            suggest = "min_video_bits_per_second"
+        elif key == "streamOrder":
+            suggest = "stream_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingConfigurationStreamSelection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingConfigurationStreamSelection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingConfigurationStreamSelection.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_video_bits_per_second: Optional[int] = None,
                  min_video_bits_per_second: Optional[int] = None,
@@ -1677,15 +2167,31 @@ class PackagingConfigurationStreamSelection(dict):
         """
         return pulumi.get(self, "stream_order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackagingGroupAuthorization(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cdnIdentifierSecret":
+            suggest = "cdn_identifier_secret"
+        elif key == "secretsRoleArn":
+            suggest = "secrets_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingGroupAuthorization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingGroupAuthorization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingGroupAuthorization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cdn_identifier_secret: str,
                  secrets_role_arn: str):
@@ -1712,8 +2218,5 @@ class PackagingGroupAuthorization(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-secretsrolearn
         """
         return pulumi.get(self, "secrets_role_arn")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

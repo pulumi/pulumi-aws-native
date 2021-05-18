@@ -5,21 +5,59 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['ResolverQueryLoggingConfigAssociation']
+__all__ = ['ResolverQueryLoggingConfigAssociationArgs', 'ResolverQueryLoggingConfigAssociation']
+
+@pulumi.input_type
+class ResolverQueryLoggingConfigAssociationArgs:
+    def __init__(__self__, *,
+                 resolver_query_log_config_id: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ResolverQueryLoggingConfigAssociation resource.
+        :param pulumi.Input[str] resolver_query_log_config_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+        :param pulumi.Input[str] resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+        """
+        if resolver_query_log_config_id is not None:
+            pulumi.set(__self__, "resolver_query_log_config_id", resolver_query_log_config_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resolverQueryLogConfigId")
+    def resolver_query_log_config_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+        """
+        return pulumi.get(self, "resolver_query_log_config_id")
+
+    @resolver_query_log_config_id.setter
+    def resolver_query_log_config_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resolver_query_log_config_id", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resolver_query_log_config_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
 
@@ -28,12 +66,33 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] resolver_query_log_config_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
         :param pulumi.Input[str] resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[ResolverQueryLoggingConfigAssociationArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
+
+        :param str resource_name: The name of the resource.
+        :param ResolverQueryLoggingConfigAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverQueryLoggingConfigAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 resolver_query_log_config_id: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -43,15 +102,15 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ResolverQueryLoggingConfigAssociationArgs.__new__(ResolverQueryLoggingConfigAssociationArgs)
 
-            __props__['resolver_query_log_config_id'] = resolver_query_log_config_id
-            __props__['resource_id'] = resource_id
-            __props__['creation_time'] = None
-            __props__['error'] = None
-            __props__['error_message'] = None
-            __props__['id'] = None
-            __props__['status'] = None
+            __props__.__dict__["resolver_query_log_config_id"] = resolver_query_log_config_id
+            __props__.__dict__["resource_id"] = resource_id
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["error"] = None
+            __props__.__dict__["error_message"] = None
+            __props__.__dict__["id"] = None
+            __props__.__dict__["status"] = None
         super(ResolverQueryLoggingConfigAssociation, __self__).__init__(
             'aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation',
             resource_name,
@@ -72,8 +131,15 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ResolverQueryLoggingConfigAssociationArgs.__new__(ResolverQueryLoggingConfigAssociationArgs)
 
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["error"] = None
+        __props__.__dict__["error_message"] = None
+        __props__.__dict__["id"] = None
+        __props__.__dict__["resolver_query_log_config_id"] = None
+        __props__.__dict__["resource_id"] = None
+        __props__.__dict__["status"] = None
         return ResolverQueryLoggingConfigAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -116,10 +182,4 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

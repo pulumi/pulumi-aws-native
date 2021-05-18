@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -22,6 +22,25 @@ class JobOutput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compressionFormat":
+            suggest = "compression_format"
+        elif key == "partitionColumns":
+            suggest = "partition_columns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  location: 'outputs.JobS3Location',
                  compression_format: Optional[str] = None,
@@ -30,7 +49,7 @@ class JobOutput(dict):
                  partition_columns: Optional[Sequence[str]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html
-        :param 'JobS3LocationArgs' location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
+        :param 'JobS3Location' location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
         :param str compression_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-compressionformat
         :param str format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-format
         :param bool overwrite: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-overwrite
@@ -86,9 +105,6 @@ class JobOutput(dict):
         """
         return pulumi.get(self, "partition_columns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobS3Location(dict):
@@ -122,9 +138,6 @@ class JobS3Location(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-key
         """
         return pulumi.get(self, "key")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -160,15 +173,29 @@ class RecipeAction(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RecipeConditionExpression(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetColumn":
+            suggest = "target_column"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecipeConditionExpression. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecipeConditionExpression.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecipeConditionExpression.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  condition: str,
                  target_column: str,
@@ -208,22 +235,36 @@ class RecipeConditionExpression(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RecipeRecipeStep(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionExpressions":
+            suggest = "condition_expressions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecipeRecipeStep. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecipeRecipeStep.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecipeRecipeStep.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: 'outputs.RecipeAction',
                  condition_expressions: Optional[Sequence['outputs.RecipeConditionExpression']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html
-        :param 'RecipeActionArgs' action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-action
-        :param Sequence['RecipeConditionExpressionArgs'] condition_expressions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions
+        :param 'RecipeAction' action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-action
+        :param Sequence['RecipeConditionExpression'] condition_expressions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions
         """
         pulumi.set(__self__, "action", action)
         if condition_expressions is not None:
@@ -244,8 +285,5 @@ class RecipeRecipeStep(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions
         """
         return pulumi.get(self, "condition_expressions")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -32,15 +32,29 @@ class EnvironmentAirflowConfigurationOptions(dict):
         """
         pass
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentLastUpdate(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentLastUpdate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentLastUpdate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentLastUpdate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  error: Optional['outputs.EnvironmentUpdateError'] = None,
@@ -48,7 +62,7 @@ class EnvironmentLastUpdate(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html
         :param str created_at: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html#cfn-mwaa-environment-lastupdate-createdat
-        :param 'EnvironmentUpdateErrorArgs' error: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html#cfn-mwaa-environment-lastupdate-error
+        :param 'EnvironmentUpdateError' error: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html#cfn-mwaa-environment-lastupdate-error
         :param str status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html#cfn-mwaa-environment-lastupdate-status
         """
         if created_at is not None:
@@ -82,15 +96,37 @@ class EnvironmentLastUpdate(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentLoggingConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dagProcessingLogs":
+            suggest = "dag_processing_logs"
+        elif key == "schedulerLogs":
+            suggest = "scheduler_logs"
+        elif key == "taskLogs":
+            suggest = "task_logs"
+        elif key == "webserverLogs":
+            suggest = "webserver_logs"
+        elif key == "workerLogs":
+            suggest = "worker_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dag_processing_logs: Optional['outputs.EnvironmentModuleLoggingConfiguration'] = None,
                  scheduler_logs: Optional['outputs.EnvironmentModuleLoggingConfiguration'] = None,
@@ -99,11 +135,11 @@ class EnvironmentLoggingConfiguration(dict):
                  worker_logs: Optional['outputs.EnvironmentModuleLoggingConfiguration'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html
-        :param 'EnvironmentModuleLoggingConfigurationArgs' dag_processing_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs
-        :param 'EnvironmentModuleLoggingConfigurationArgs' scheduler_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs
-        :param 'EnvironmentModuleLoggingConfigurationArgs' task_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs
-        :param 'EnvironmentModuleLoggingConfigurationArgs' webserver_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs
-        :param 'EnvironmentModuleLoggingConfigurationArgs' worker_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs
+        :param 'EnvironmentModuleLoggingConfiguration' dag_processing_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs
+        :param 'EnvironmentModuleLoggingConfiguration' scheduler_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs
+        :param 'EnvironmentModuleLoggingConfiguration' task_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs
+        :param 'EnvironmentModuleLoggingConfiguration' webserver_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs
+        :param 'EnvironmentModuleLoggingConfiguration' worker_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs
         """
         if dag_processing_logs is not None:
             pulumi.set(__self__, "dag_processing_logs", dag_processing_logs)
@@ -156,15 +192,31 @@ class EnvironmentLoggingConfiguration(dict):
         """
         return pulumi.get(self, "worker_logs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentModuleLoggingConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogGroupArn":
+            suggest = "cloud_watch_log_group_arn"
+        elif key == "logLevel":
+            suggest = "log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentModuleLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentModuleLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentModuleLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cloud_watch_log_group_arn: Optional[str] = None,
                  enabled: Optional[bool] = None,
@@ -206,22 +258,38 @@ class EnvironmentModuleLoggingConfiguration(dict):
         """
         return pulumi.get(self, "log_level")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentNetworkConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Optional['outputs.EnvironmentSecurityGroupList'] = None,
                  subnet_ids: Optional['outputs.EnvironmentSubnetList'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html
-        :param 'EnvironmentSecurityGroupListArgs' security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
-        :param 'EnvironmentSubnetListArgs' subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
+        :param 'EnvironmentSecurityGroupList' security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
+        :param 'EnvironmentSubnetList' subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
         """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -244,15 +312,29 @@ class EnvironmentNetworkConfiguration(dict):
         """
         return pulumi.get(self, "subnet_ids")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentSecurityGroupList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-securitygrouplist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupList":
+            suggest = "security_group_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentSecurityGroupList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentSecurityGroupList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentSecurityGroupList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_list: Optional[Sequence[str]] = None):
         """
@@ -270,15 +352,29 @@ class EnvironmentSecurityGroupList(dict):
         """
         return pulumi.get(self, "security_group_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentSubnetList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-subnetlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetList":
+            suggest = "subnet_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentSubnetList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentSubnetList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentSubnetList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_list: Optional[Sequence[str]] = None):
         """
@@ -296,9 +392,6 @@ class EnvironmentSubnetList(dict):
         """
         return pulumi.get(self, "subnet_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentTagMap(dict):
@@ -311,15 +404,31 @@ class EnvironmentTagMap(dict):
         """
         pass
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentUpdateError(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-updateerror.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentUpdateError. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentUpdateError.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentUpdateError.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_code: Optional[str] = None,
                  error_message: Optional[str] = None):
@@ -348,8 +457,5 @@ class EnvironmentUpdateError(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-updateerror.html#cfn-mwaa-environment-updateerror-errormessage
         """
         return pulumi.get(self, "error_message")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

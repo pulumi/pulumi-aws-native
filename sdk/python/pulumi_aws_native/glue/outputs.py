@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'SchemaRegistry',
@@ -48,15 +48,31 @@ class SchemaRegistry(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SchemaSchemaVersion(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isLatest":
+            suggest = "is_latest"
+        elif key == "versionNumber":
+            suggest = "version_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchemaSchemaVersion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchemaSchemaVersion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchemaSchemaVersion.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_latest: Optional[bool] = None,
                  version_number: Optional[int] = None):
@@ -86,15 +102,33 @@ class SchemaSchemaVersion(dict):
         """
         return pulumi.get(self, "version_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SchemaVersionSchema(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registryName":
+            suggest = "registry_name"
+        elif key == "schemaArn":
+            suggest = "schema_arn"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchemaVersionSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchemaVersionSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchemaVersionSchema.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  registry_name: Optional[str] = None,
                  schema_arn: Optional[str] = None,
@@ -135,8 +169,5 @@ class SchemaVersionSchema(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaname
         """
         return pulumi.get(self, "schema_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

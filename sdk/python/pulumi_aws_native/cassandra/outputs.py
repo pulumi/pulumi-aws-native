@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -21,13 +21,30 @@ class TableBillingMode(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisionedThroughput":
+            suggest = "provisioned_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableBillingMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableBillingMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableBillingMode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mode: str,
                  provisioned_throughput: Optional['outputs.TableProvisionedThroughput'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html
         :param str mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-mode
-        :param 'TableProvisionedThroughputArgs' provisioned_throughput: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-provisionedthroughput
+        :param 'TableProvisionedThroughput' provisioned_throughput: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html#cfn-cassandra-table-billingmode-provisionedthroughput
         """
         pulumi.set(__self__, "mode", mode)
         if provisioned_throughput is not None:
@@ -49,21 +66,35 @@ class TableBillingMode(dict):
         """
         return pulumi.get(self, "provisioned_throughput")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TableClusteringKeyColumn(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "orderBy":
+            suggest = "order_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableClusteringKeyColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableClusteringKeyColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableClusteringKeyColumn.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: 'outputs.TableColumn',
                  order_by: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html
-        :param 'TableColumnArgs' column: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-column
+        :param 'TableColumn' column: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-column
         :param str order_by: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html#cfn-cassandra-table-clusteringkeycolumn-orderby
         """
         pulumi.set(__self__, "column", column)
@@ -86,15 +117,31 @@ class TableClusteringKeyColumn(dict):
         """
         return pulumi.get(self, "order_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TableColumn(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "columnType":
+            suggest = "column_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableColumn.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column_name: str,
                  column_type: str):
@@ -122,15 +169,31 @@ class TableColumn(dict):
         """
         return pulumi.get(self, "column_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TableProvisionedThroughput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readCapacityUnits":
+            suggest = "read_capacity_units"
+        elif key == "writeCapacityUnits":
+            suggest = "write_capacity_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableProvisionedThroughput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableProvisionedThroughput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableProvisionedThroughput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  read_capacity_units: int,
                  write_capacity_units: int):
@@ -157,8 +220,5 @@ class TableProvisionedThroughput(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-writecapacityunits
         """
         return pulumi.get(self, "write_capacity_units")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

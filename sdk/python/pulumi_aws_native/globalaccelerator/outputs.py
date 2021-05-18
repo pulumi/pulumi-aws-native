@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'EndpointGroupEndpointConfiguration',
@@ -19,6 +19,25 @@ class EndpointGroupEndpointConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointId":
+            suggest = "endpoint_id"
+        elif key == "clientIPPreservationEnabled":
+            suggest = "client_ip_preservation_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointGroupEndpointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointGroupEndpointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointGroupEndpointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_id: str,
                  client_ip_preservation_enabled: Optional[bool] = None,
@@ -59,15 +78,31 @@ class EndpointGroupEndpointConfiguration(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointGroupPortOverride(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointPort":
+            suggest = "endpoint_port"
+        elif key == "listenerPort":
+            suggest = "listener_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointGroupPortOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointGroupPortOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointGroupPortOverride.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_port: int,
                  listener_port: int):
@@ -95,15 +130,31 @@ class EndpointGroupPortOverride(dict):
         """
         return pulumi.get(self, "listener_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ListenerPortRange(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerPortRange.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  from_port: int,
                  to_port: int):
@@ -130,8 +181,5 @@ class ListenerPortRange(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-toport
         """
         return pulumi.get(self, "to_port")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

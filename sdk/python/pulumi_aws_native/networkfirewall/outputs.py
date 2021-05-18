@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -65,11 +65,28 @@ class FirewallPolicyActionDefinition(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-actiondefinition.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publishMetricAction":
+            suggest = "publish_metric_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyActionDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyActionDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyActionDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  publish_metric_action: Optional['outputs.FirewallPolicyPublishMetricAction'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-actiondefinition.html
-        :param 'FirewallPolicyPublishMetricActionArgs' publish_metric_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-actiondefinition.html#cfn-networkfirewall-firewallpolicy-actiondefinition-publishmetricaction
+        :param 'FirewallPolicyPublishMetricAction' publish_metric_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-actiondefinition.html#cfn-networkfirewall-firewallpolicy-actiondefinition-publishmetricaction
         """
         if publish_metric_action is not None:
             pulumi.set(__self__, "publish_metric_action", publish_metric_action)
@@ -82,21 +99,37 @@ class FirewallPolicyActionDefinition(dict):
         """
         return pulumi.get(self, "publish_metric_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyCustomAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionDefinition":
+            suggest = "action_definition"
+        elif key == "actionName":
+            suggest = "action_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyCustomAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyCustomAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyCustomAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_definition: 'outputs.FirewallPolicyActionDefinition',
                  action_name: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html
-        :param 'FirewallPolicyActionDefinitionArgs' action_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html#cfn-networkfirewall-firewallpolicy-customaction-actiondefinition
+        :param 'FirewallPolicyActionDefinition' action_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html#cfn-networkfirewall-firewallpolicy-customaction-actiondefinition
         :param str action_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customaction.html#cfn-networkfirewall-firewallpolicy-customaction-actionname
         """
         pulumi.set(__self__, "action_definition", action_definition)
@@ -118,20 +151,34 @@ class FirewallPolicyCustomAction(dict):
         """
         return pulumi.get(self, "action_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyCustomActions(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customActions":
+            suggest = "custom_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyCustomActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyCustomActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyCustomActions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_actions: Optional[Sequence['outputs.FirewallPolicyCustomAction']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html
-        :param Sequence['FirewallPolicyCustomActionArgs'] custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html#cfn-networkfirewall-firewallpolicy-customactions-customactions
+        :param Sequence['FirewallPolicyCustomAction'] custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html#cfn-networkfirewall-firewallpolicy-customactions-customactions
         """
         if custom_actions is not None:
             pulumi.set(__self__, "custom_actions", custom_actions)
@@ -143,9 +190,6 @@ class FirewallPolicyCustomActions(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html#cfn-networkfirewall-firewallpolicy-customactions-customactions
         """
         return pulumi.get(self, "custom_actions")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -169,9 +213,6 @@ class FirewallPolicyDimension(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyDimensions(dict):
@@ -182,7 +223,7 @@ class FirewallPolicyDimensions(dict):
                  dimensions: Optional[Sequence['outputs.FirewallPolicyDimension']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html
-        :param Sequence['FirewallPolicyDimensionArgs'] dimensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html#cfn-networkfirewall-firewallpolicy-dimensions-dimensions
+        :param Sequence['FirewallPolicyDimension'] dimensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html#cfn-networkfirewall-firewallpolicy-dimensions-dimensions
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
@@ -195,15 +236,37 @@ class FirewallPolicyDimensions(dict):
         """
         return pulumi.get(self, "dimensions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyFirewallPolicy(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statelessDefaultActions":
+            suggest = "stateless_default_actions"
+        elif key == "statelessFragmentDefaultActions":
+            suggest = "stateless_fragment_default_actions"
+        elif key == "statefulRuleGroupReferences":
+            suggest = "stateful_rule_group_references"
+        elif key == "statelessCustomActions":
+            suggest = "stateless_custom_actions"
+        elif key == "statelessRuleGroupReferences":
+            suggest = "stateless_rule_group_references"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyFirewallPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyFirewallPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyFirewallPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  stateless_default_actions: 'outputs.FirewallPolicyStatelessActions',
                  stateless_fragment_default_actions: 'outputs.FirewallPolicyStatelessActions',
@@ -212,11 +275,11 @@ class FirewallPolicyFirewallPolicy(dict):
                  stateless_rule_group_references: Optional['outputs.FirewallPolicyStatelessRuleGroupReferences'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html
-        :param 'FirewallPolicyStatelessActionsArgs' stateless_default_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions
-        :param 'FirewallPolicyStatelessActionsArgs' stateless_fragment_default_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions
-        :param 'FirewallPolicyStatefulRuleGroupReferencesArgs' stateful_rule_group_references: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences
-        :param 'FirewallPolicyCustomActionsArgs' stateless_custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions
-        :param 'FirewallPolicyStatelessRuleGroupReferencesArgs' stateless_rule_group_references: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
+        :param 'FirewallPolicyStatelessActions' stateless_default_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions
+        :param 'FirewallPolicyStatelessActions' stateless_fragment_default_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions
+        :param 'FirewallPolicyStatefulRuleGroupReferences' stateful_rule_group_references: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences
+        :param 'FirewallPolicyCustomActions' stateless_custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions
+        :param 'FirewallPolicyStatelessRuleGroupReferences' stateless_rule_group_references: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
         """
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
@@ -267,9 +330,6 @@ class FirewallPolicyFirewallPolicy(dict):
         """
         return pulumi.get(self, "stateless_rule_group_references")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyPublishMetricAction(dict):
@@ -280,7 +340,7 @@ class FirewallPolicyPublishMetricAction(dict):
                  dimensions: 'outputs.FirewallPolicyDimensions'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html
-        :param 'FirewallPolicyDimensionsArgs' dimensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html#cfn-networkfirewall-firewallpolicy-publishmetricaction-dimensions
+        :param 'FirewallPolicyDimensions' dimensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html#cfn-networkfirewall-firewallpolicy-publishmetricaction-dimensions
         """
         pulumi.set(__self__, "dimensions", dimensions)
 
@@ -292,15 +352,29 @@ class FirewallPolicyPublishMetricAction(dict):
         """
         return pulumi.get(self, "dimensions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyStatefulRuleGroupReference(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyStatefulRuleGroupReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyStatefulRuleGroupReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyStatefulRuleGroupReference.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_arn: str):
         """
@@ -317,20 +391,34 @@ class FirewallPolicyStatefulRuleGroupReference(dict):
         """
         return pulumi.get(self, "resource_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyStatefulRuleGroupReferences(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreferences.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statefulRuleGroupReferences":
+            suggest = "stateful_rule_group_references"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyStatefulRuleGroupReferences. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyStatefulRuleGroupReferences.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyStatefulRuleGroupReferences.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  stateful_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatefulRuleGroupReference']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreferences.html
-        :param Sequence['FirewallPolicyStatefulRuleGroupReferenceArgs'] stateful_rule_group_references: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreferences-statefulrulegroupreferences
+        :param Sequence['FirewallPolicyStatefulRuleGroupReference'] stateful_rule_group_references: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreferences-statefulrulegroupreferences
         """
         if stateful_rule_group_references is not None:
             pulumi.set(__self__, "stateful_rule_group_references", stateful_rule_group_references)
@@ -343,15 +431,29 @@ class FirewallPolicyStatefulRuleGroupReferences(dict):
         """
         return pulumi.get(self, "stateful_rule_group_references")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyStatelessActions(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessactions.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statelessActions":
+            suggest = "stateless_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyStatelessActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyStatelessActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyStatelessActions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  stateless_actions: Optional[Sequence[str]] = None):
         """
@@ -369,15 +471,29 @@ class FirewallPolicyStatelessActions(dict):
         """
         return pulumi.get(self, "stateless_actions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyStatelessRuleGroupReference(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyStatelessRuleGroupReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyStatelessRuleGroupReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyStatelessRuleGroupReference.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  priority: int,
                  resource_arn: str):
@@ -405,20 +521,34 @@ class FirewallPolicyStatelessRuleGroupReference(dict):
         """
         return pulumi.get(self, "resource_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyStatelessRuleGroupReferences(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statelessRuleGroupReferences":
+            suggest = "stateless_rule_group_references"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyStatelessRuleGroupReferences. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyStatelessRuleGroupReferences.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyStatelessRuleGroupReferences.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  stateless_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatelessRuleGroupReference']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html
-        :param Sequence['FirewallPolicyStatelessRuleGroupReferenceArgs'] stateless_rule_group_references: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreferences-statelessrulegroupreferences
+        :param Sequence['FirewallPolicyStatelessRuleGroupReference'] stateless_rule_group_references: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreferences-statelessrulegroupreferences
         """
         if stateless_rule_group_references is not None:
             pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
@@ -431,15 +561,29 @@ class FirewallPolicyStatelessRuleGroupReferences(dict):
         """
         return pulumi.get(self, "stateless_rule_group_references")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallSubnetMapping(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallSubnetMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallSubnetMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallSubnetMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_id: str):
         """
@@ -456,15 +600,33 @@ class FirewallSubnetMapping(dict):
         """
         return pulumi.get(self, "subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoggingConfigurationLogDestinationConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDestination":
+            suggest = "log_destination"
+        elif key == "logDestinationType":
+            suggest = "log_destination_type"
+        elif key == "logType":
+            suggest = "log_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigurationLogDestinationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingConfigurationLogDestinationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingConfigurationLogDestinationConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_destination: Mapping[str, str],
                  log_destination_type: str,
@@ -503,20 +665,34 @@ class LoggingConfigurationLogDestinationConfig(dict):
         """
         return pulumi.get(self, "log_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoggingConfigurationLogDestinationConfigs(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDestinationConfigs":
+            suggest = "log_destination_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigurationLogDestinationConfigs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingConfigurationLogDestinationConfigs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingConfigurationLogDestinationConfigs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_destination_configs: Optional[Sequence['outputs.LoggingConfigurationLogDestinationConfig']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html
-        :param Sequence['LoggingConfigurationLogDestinationConfigArgs'] log_destination_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfigs-logdestinationconfigs
+        :param Sequence['LoggingConfigurationLogDestinationConfig'] log_destination_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfigs-logdestinationconfigs
         """
         if log_destination_configs is not None:
             pulumi.set(__self__, "log_destination_configs", log_destination_configs)
@@ -529,20 +705,34 @@ class LoggingConfigurationLogDestinationConfigs(dict):
         """
         return pulumi.get(self, "log_destination_configs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoggingConfigurationLoggingConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDestinationConfigs":
+            suggest = "log_destination_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigurationLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingConfigurationLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingConfigurationLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_destination_configs: 'outputs.LoggingConfigurationLogDestinationConfigs'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html
-        :param 'LoggingConfigurationLogDestinationConfigsArgs' log_destination_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs
+        :param 'LoggingConfigurationLogDestinationConfigs' log_destination_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs
         """
         pulumi.set(__self__, "log_destination_configs", log_destination_configs)
 
@@ -554,20 +744,34 @@ class LoggingConfigurationLoggingConfiguration(dict):
         """
         return pulumi.get(self, "log_destination_configs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupActionDefinition(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-actiondefinition.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publishMetricAction":
+            suggest = "publish_metric_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupActionDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupActionDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupActionDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  publish_metric_action: Optional['outputs.RuleGroupPublishMetricAction'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-actiondefinition.html
-        :param 'RuleGroupPublishMetricActionArgs' publish_metric_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-actiondefinition.html#cfn-networkfirewall-rulegroup-actiondefinition-publishmetricaction
+        :param 'RuleGroupPublishMetricAction' publish_metric_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-actiondefinition.html#cfn-networkfirewall-rulegroup-actiondefinition-publishmetricaction
         """
         if publish_metric_action is not None:
             pulumi.set(__self__, "publish_metric_action", publish_metric_action)
@@ -580,15 +784,29 @@ class RuleGroupActionDefinition(dict):
         """
         return pulumi.get(self, "publish_metric_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupAddress(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-address.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressDefinition":
+            suggest = "address_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupAddress.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address_definition: str):
         """
@@ -605,9 +823,6 @@ class RuleGroupAddress(dict):
         """
         return pulumi.get(self, "address_definition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupAddresses(dict):
@@ -618,7 +833,7 @@ class RuleGroupAddresses(dict):
                  addresses: Optional[Sequence['outputs.RuleGroupAddress']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html
-        :param Sequence['RuleGroupAddressArgs'] addresses: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html#cfn-networkfirewall-rulegroup-addresses-addresses
+        :param Sequence['RuleGroupAddress'] addresses: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html#cfn-networkfirewall-rulegroup-addresses-addresses
         """
         if addresses is not None:
             pulumi.set(__self__, "addresses", addresses)
@@ -631,21 +846,37 @@ class RuleGroupAddresses(dict):
         """
         return pulumi.get(self, "addresses")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupCustomAction(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionDefinition":
+            suggest = "action_definition"
+        elif key == "actionName":
+            suggest = "action_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupCustomAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupCustomAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupCustomAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_definition: 'outputs.RuleGroupActionDefinition',
                  action_name: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html
-        :param 'RuleGroupActionDefinitionArgs' action_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html#cfn-networkfirewall-rulegroup-customaction-actiondefinition
+        :param 'RuleGroupActionDefinition' action_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html#cfn-networkfirewall-rulegroup-customaction-actiondefinition
         :param str action_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html#cfn-networkfirewall-rulegroup-customaction-actionname
         """
         pulumi.set(__self__, "action_definition", action_definition)
@@ -667,20 +898,34 @@ class RuleGroupCustomAction(dict):
         """
         return pulumi.get(self, "action_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupCustomActions(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customActions":
+            suggest = "custom_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupCustomActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupCustomActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupCustomActions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_actions: Optional[Sequence['outputs.RuleGroupCustomAction']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html
-        :param Sequence['RuleGroupCustomActionArgs'] custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html#cfn-networkfirewall-rulegroup-customactions-customactions
+        :param Sequence['RuleGroupCustomAction'] custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html#cfn-networkfirewall-rulegroup-customactions-customactions
         """
         if custom_actions is not None:
             pulumi.set(__self__, "custom_actions", custom_actions)
@@ -692,9 +937,6 @@ class RuleGroupCustomActions(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html#cfn-networkfirewall-rulegroup-customactions-customactions
         """
         return pulumi.get(self, "custom_actions")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -718,9 +960,6 @@ class RuleGroupDimension(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupDimensions(dict):
@@ -731,7 +970,7 @@ class RuleGroupDimensions(dict):
                  dimensions: Optional[Sequence['outputs.RuleGroupDimension']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html
-        :param Sequence['RuleGroupDimensionArgs'] dimensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html#cfn-networkfirewall-rulegroup-dimensions-dimensions
+        :param Sequence['RuleGroupDimension'] dimensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html#cfn-networkfirewall-rulegroup-dimensions-dimensions
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
@@ -743,9 +982,6 @@ class RuleGroupDimensions(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html#cfn-networkfirewall-rulegroup-dimensions-dimensions
         """
         return pulumi.get(self, "dimensions")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -770,15 +1006,31 @@ class RuleGroupFlags(dict):
         """
         return pulumi.get(self, "flags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupHeader(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationPort":
+            suggest = "destination_port"
+        elif key == "sourcePort":
+            suggest = "source_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupHeader.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination: str,
                  destination_port: str,
@@ -850,9 +1102,6 @@ class RuleGroupHeader(dict):
         """
         return pulumi.get(self, "source_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupIPSet(dict):
@@ -863,7 +1112,7 @@ class RuleGroupIPSet(dict):
                  definition: Optional['outputs.RuleGroupVariableDefinitionList'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html
-        :param 'RuleGroupVariableDefinitionListArgs' definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html#cfn-networkfirewall-rulegroup-ipset-definition
+        :param 'RuleGroupVariableDefinitionList' definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html#cfn-networkfirewall-rulegroup-ipset-definition
         """
         if definition is not None:
             pulumi.set(__self__, "definition", definition)
@@ -876,15 +1125,33 @@ class RuleGroupIPSet(dict):
         """
         return pulumi.get(self, "definition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupMatchAttributes(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "sourcePorts":
+            suggest = "source_ports"
+        elif key == "tCPFlags":
+            suggest = "t_cp_flags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupMatchAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupMatchAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupMatchAttributes.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_ports: Optional['outputs.RuleGroupPortRanges'] = None,
                  destinations: Optional['outputs.RuleGroupAddresses'] = None,
@@ -894,12 +1161,12 @@ class RuleGroupMatchAttributes(dict):
                  t_cp_flags: Optional['outputs.RuleGroupTCPFlags'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html
-        :param 'RuleGroupPortRangesArgs' destination_ports: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports
-        :param 'RuleGroupAddressesArgs' destinations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations
-        :param 'RuleGroupProtocolNumbersArgs' protocols: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-protocols
-        :param 'RuleGroupPortRangesArgs' source_ports: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports
-        :param 'RuleGroupAddressesArgs' sources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources
-        :param 'RuleGroupTCPFlagsArgs' t_cp_flags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-tcpflags
+        :param 'RuleGroupPortRanges' destination_ports: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports
+        :param 'RuleGroupAddresses' destinations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations
+        :param 'RuleGroupProtocolNumbers' protocols: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-protocols
+        :param 'RuleGroupPortRanges' source_ports: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports
+        :param 'RuleGroupAddresses' sources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources
+        :param 'RuleGroupTCPFlags' t_cp_flags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-tcpflags
         """
         if destination_ports is not None:
             pulumi.set(__self__, "destination_ports", destination_ports)
@@ -962,15 +1229,31 @@ class RuleGroupMatchAttributes(dict):
         """
         return pulumi.get(self, "t_cp_flags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupPortRange(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portrange.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupPortRange.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  from_port: int,
                  to_port: int):
@@ -998,20 +1281,34 @@ class RuleGroupPortRange(dict):
         """
         return pulumi.get(self, "to_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupPortRanges(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portRanges":
+            suggest = "port_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupPortRanges. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupPortRanges.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupPortRanges.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  port_ranges: Optional[Sequence['outputs.RuleGroupPortRange']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html
-        :param Sequence['RuleGroupPortRangeArgs'] port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html#cfn-networkfirewall-rulegroup-portranges-portranges
+        :param Sequence['RuleGroupPortRange'] port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html#cfn-networkfirewall-rulegroup-portranges-portranges
         """
         if port_ranges is not None:
             pulumi.set(__self__, "port_ranges", port_ranges)
@@ -1024,9 +1321,6 @@ class RuleGroupPortRanges(dict):
         """
         return pulumi.get(self, "port_ranges")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupPortSet(dict):
@@ -1037,7 +1331,7 @@ class RuleGroupPortSet(dict):
                  definition: Optional['outputs.RuleGroupVariableDefinitionList'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html
-        :param 'RuleGroupVariableDefinitionListArgs' definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html#cfn-networkfirewall-rulegroup-portset-definition
+        :param 'RuleGroupVariableDefinitionList' definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html#cfn-networkfirewall-rulegroup-portset-definition
         """
         if definition is not None:
             pulumi.set(__self__, "definition", definition)
@@ -1050,15 +1344,29 @@ class RuleGroupPortSet(dict):
         """
         return pulumi.get(self, "definition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupProtocolNumbers(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-protocolnumbers.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protocolNumbers":
+            suggest = "protocol_numbers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupProtocolNumbers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupProtocolNumbers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupProtocolNumbers.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protocol_numbers: Optional[Sequence[int]] = None):
         """
@@ -1076,9 +1384,6 @@ class RuleGroupProtocolNumbers(dict):
         """
         return pulumi.get(self, "protocol_numbers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupPublishMetricAction(dict):
@@ -1089,7 +1394,7 @@ class RuleGroupPublishMetricAction(dict):
                  dimensions: 'outputs.RuleGroupDimensions'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html
-        :param 'RuleGroupDimensionsArgs' dimensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html#cfn-networkfirewall-rulegroup-publishmetricaction-dimensions
+        :param 'RuleGroupDimensions' dimensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html#cfn-networkfirewall-rulegroup-publishmetricaction-dimensions
         """
         pulumi.set(__self__, "dimensions", dimensions)
 
@@ -1101,22 +1406,36 @@ class RuleGroupPublishMetricAction(dict):
         """
         return pulumi.get(self, "dimensions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleDefinition(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchAttributes":
+            suggest = "match_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions: Sequence[str],
                  match_attributes: 'outputs.RuleGroupMatchAttributes'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html
         :param Sequence[str] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html#cfn-networkfirewall-rulegroup-ruledefinition-actions
-        :param 'RuleGroupMatchAttributesArgs' match_attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html#cfn-networkfirewall-rulegroup-ruledefinition-matchattributes
+        :param 'RuleGroupMatchAttributes' match_attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html#cfn-networkfirewall-rulegroup-ruledefinition-matchattributes
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "match_attributes", match_attributes)
@@ -1137,22 +1456,38 @@ class RuleGroupRuleDefinition(dict):
         """
         return pulumi.get(self, "match_attributes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleGroup(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rulesSource":
+            suggest = "rules_source"
+        elif key == "ruleVariables":
+            suggest = "rule_variables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rules_source: 'outputs.RuleGroupRulesSource',
                  rule_variables: Optional['outputs.RuleGroupRuleVariables'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html
-        :param 'RuleGroupRulesSourceArgs' rules_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulessource
-        :param 'RuleGroupRuleVariablesArgs' rule_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulevariables
+        :param 'RuleGroupRulesSource' rules_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulessource
+        :param 'RuleGroupRuleVariables' rule_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulevariables
         """
         pulumi.set(__self__, "rules_source", rules_source)
         if rule_variables is not None:
@@ -1173,9 +1508,6 @@ class RuleGroupRuleGroup(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-rulevariables
         """
         return pulumi.get(self, "rule_variables")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1211,20 +1543,34 @@ class RuleGroupRuleOption(dict):
         """
         return pulumi.get(self, "settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleOptions(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleOptions":
+            suggest = "rule_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_options: Optional[Sequence['outputs.RuleGroupRuleOption']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html
-        :param Sequence['RuleGroupRuleOptionArgs'] rule_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html#cfn-networkfirewall-rulegroup-ruleoptions-ruleoptions
+        :param Sequence['RuleGroupRuleOption'] rule_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html#cfn-networkfirewall-rulegroup-ruleoptions-ruleoptions
         """
         if rule_options is not None:
             pulumi.set(__self__, "rule_options", rule_options)
@@ -1237,22 +1583,38 @@ class RuleGroupRuleOptions(dict):
         """
         return pulumi.get(self, "rule_options")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRuleVariables(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iPSets":
+            suggest = "i_p_sets"
+        elif key == "portSets":
+            suggest = "port_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleVariables. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleVariables.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleVariables.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  i_p_sets: Optional[Mapping[str, 'outputs.RuleGroupIPSet']] = None,
                  port_sets: Optional[Mapping[str, 'outputs.RuleGroupPortSet']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html
-        :param Mapping[str, 'RuleGroupIPSetArgs'] i_p_sets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html#cfn-networkfirewall-rulegroup-rulevariables-ipsets
-        :param Mapping[str, 'RuleGroupPortSetArgs'] port_sets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html#cfn-networkfirewall-rulegroup-rulevariables-portsets
+        :param Mapping[str, 'RuleGroupIPSet'] i_p_sets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html#cfn-networkfirewall-rulegroup-rulevariables-ipsets
+        :param Mapping[str, 'RuleGroupPortSet'] port_sets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html#cfn-networkfirewall-rulegroup-rulevariables-portsets
         """
         if i_p_sets is not None:
             pulumi.set(__self__, "i_p_sets", i_p_sets)
@@ -1275,15 +1637,35 @@ class RuleGroupRuleVariables(dict):
         """
         return pulumi.get(self, "port_sets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRulesSource(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rulesSourceList":
+            suggest = "rules_source_list"
+        elif key == "rulesString":
+            suggest = "rules_string"
+        elif key == "statefulRules":
+            suggest = "stateful_rules"
+        elif key == "statelessRulesAndCustomActions":
+            suggest = "stateless_rules_and_custom_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRulesSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRulesSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRulesSource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rules_source_list: Optional['outputs.RuleGroupRulesSourceList'] = None,
                  rules_string: Optional[str] = None,
@@ -1291,10 +1673,10 @@ class RuleGroupRulesSource(dict):
                  stateless_rules_and_custom_actions: Optional['outputs.RuleGroupStatelessRulesAndCustomActions'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html
-        :param 'RuleGroupRulesSourceListArgs' rules_source_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulessourcelist
+        :param 'RuleGroupRulesSourceList' rules_source_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulessourcelist
         :param str rules_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulesstring
-        :param 'RuleGroupStatefulRulesArgs' stateful_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules
-        :param 'RuleGroupStatelessRulesAndCustomActionsArgs' stateless_rules_and_custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions
+        :param 'RuleGroupStatefulRules' stateful_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules
+        :param 'RuleGroupStatelessRulesAndCustomActions' stateless_rules_and_custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions
         """
         if rules_source_list is not None:
             pulumi.set(__self__, "rules_source_list", rules_source_list)
@@ -1337,15 +1719,31 @@ class RuleGroupRulesSource(dict):
         """
         return pulumi.get(self, "stateless_rules_and_custom_actions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupRulesSourceList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "generatedRulesType":
+            suggest = "generated_rules_type"
+        elif key == "targetTypes":
+            suggest = "target_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRulesSourceList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRulesSourceList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRulesSourceList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  generated_rules_type: str,
                  target_types: 'outputs.RuleGroupTargetTypes',
@@ -1353,7 +1751,7 @@ class RuleGroupRulesSourceList(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html
         :param str generated_rules_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-generatedrulestype
-        :param 'RuleGroupTargetTypesArgs' target_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
+        :param 'RuleGroupTargetTypes' target_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
         :param Sequence[str] targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets
         """
         pulumi.set(__self__, "generated_rules_type", generated_rules_type)
@@ -1384,15 +1782,29 @@ class RuleGroupRulesSourceList(dict):
         """
         return pulumi.get(self, "targets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupStatefulRule(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleOptions":
+            suggest = "rule_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupStatefulRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupStatefulRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupStatefulRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  header: 'outputs.RuleGroupHeader',
@@ -1400,8 +1812,8 @@ class RuleGroupStatefulRule(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html
         :param str action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-action
-        :param 'RuleGroupHeaderArgs' header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-header
-        :param 'RuleGroupRuleOptionsArgs' rule_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-ruleoptions
+        :param 'RuleGroupHeader' header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-header
+        :param 'RuleGroupRuleOptions' rule_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-ruleoptions
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "header", header)
@@ -1431,20 +1843,34 @@ class RuleGroupStatefulRule(dict):
         """
         return pulumi.get(self, "rule_options")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupStatefulRules(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statefulRules":
+            suggest = "stateful_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupStatefulRules. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupStatefulRules.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupStatefulRules.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  stateful_rules: Optional[Sequence['outputs.RuleGroupStatefulRule']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html
-        :param Sequence['RuleGroupStatefulRuleArgs'] stateful_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html#cfn-networkfirewall-rulegroup-statefulrules-statefulrules
+        :param Sequence['RuleGroupStatefulRule'] stateful_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html#cfn-networkfirewall-rulegroup-statefulrules-statefulrules
         """
         if stateful_rules is not None:
             pulumi.set(__self__, "stateful_rules", stateful_rules)
@@ -1457,22 +1883,36 @@ class RuleGroupStatefulRules(dict):
         """
         return pulumi.get(self, "stateful_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupStatelessRule(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrule.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleDefinition":
+            suggest = "rule_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupStatelessRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupStatelessRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupStatelessRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  priority: int,
                  rule_definition: 'outputs.RuleGroupRuleDefinition'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrule.html
         :param int priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrule.html#cfn-networkfirewall-rulegroup-statelessrule-priority
-        :param 'RuleGroupRuleDefinitionArgs' rule_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrule.html#cfn-networkfirewall-rulegroup-statelessrule-ruledefinition
+        :param 'RuleGroupRuleDefinition' rule_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrule.html#cfn-networkfirewall-rulegroup-statelessrule-ruledefinition
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_definition", rule_definition)
@@ -1493,20 +1933,34 @@ class RuleGroupStatelessRule(dict):
         """
         return pulumi.get(self, "rule_definition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupStatelessRules(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statelessRules":
+            suggest = "stateless_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupStatelessRules. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupStatelessRules.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupStatelessRules.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  stateless_rules: Optional[Sequence['outputs.RuleGroupStatelessRule']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html
-        :param Sequence['RuleGroupStatelessRuleArgs'] stateless_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html#cfn-networkfirewall-rulegroup-statelessrules-statelessrules
+        :param Sequence['RuleGroupStatelessRule'] stateless_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html#cfn-networkfirewall-rulegroup-statelessrules-statelessrules
         """
         if stateless_rules is not None:
             pulumi.set(__self__, "stateless_rules", stateless_rules)
@@ -1519,22 +1973,38 @@ class RuleGroupStatelessRules(dict):
         """
         return pulumi.get(self, "stateless_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupStatelessRulesAndCustomActions(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statelessRules":
+            suggest = "stateless_rules"
+        elif key == "customActions":
+            suggest = "custom_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupStatelessRulesAndCustomActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupStatelessRulesAndCustomActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupStatelessRulesAndCustomActions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  stateless_rules: 'outputs.RuleGroupStatelessRules',
                  custom_actions: Optional['outputs.RuleGroupCustomActions'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html
-        :param 'RuleGroupStatelessRulesArgs' stateless_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
-        :param 'RuleGroupCustomActionsArgs' custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
+        :param 'RuleGroupStatelessRules' stateless_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
+        :param 'RuleGroupCustomActions' custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
         """
         pulumi.set(__self__, "stateless_rules", stateless_rules)
         if custom_actions is not None:
@@ -1556,9 +2026,6 @@ class RuleGroupStatelessRulesAndCustomActions(dict):
         """
         return pulumi.get(self, "custom_actions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupTCPFlagField(dict):
@@ -1570,8 +2037,8 @@ class RuleGroupTCPFlagField(dict):
                  masks: Optional['outputs.RuleGroupFlags'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html
-        :param 'RuleGroupFlagsArgs' flags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-flags
-        :param 'RuleGroupFlagsArgs' masks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-masks
+        :param 'RuleGroupFlags' flags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-flags
+        :param 'RuleGroupFlags' masks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-masks
         """
         pulumi.set(__self__, "flags", flags)
         if masks is not None:
@@ -1593,20 +2060,34 @@ class RuleGroupTCPFlagField(dict):
         """
         return pulumi.get(self, "masks")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupTCPFlags(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflags.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tCPFlags":
+            suggest = "t_cp_flags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupTCPFlags. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupTCPFlags.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupTCPFlags.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  t_cp_flags: Optional[Sequence['outputs.RuleGroupTCPFlagField']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflags.html
-        :param Sequence['RuleGroupTCPFlagFieldArgs'] t_cp_flags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflags.html#cfn-networkfirewall-rulegroup-tcpflags-tcpflags
+        :param Sequence['RuleGroupTCPFlagField'] t_cp_flags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflags.html#cfn-networkfirewall-rulegroup-tcpflags-tcpflags
         """
         if t_cp_flags is not None:
             pulumi.set(__self__, "t_cp_flags", t_cp_flags)
@@ -1619,15 +2100,29 @@ class RuleGroupTCPFlags(dict):
         """
         return pulumi.get(self, "t_cp_flags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupTargetTypes(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-targettypes.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetTypes":
+            suggest = "target_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupTargetTypes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupTargetTypes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupTargetTypes.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_types: Optional[Sequence[str]] = None):
         """
@@ -1645,15 +2140,29 @@ class RuleGroupTargetTypes(dict):
         """
         return pulumi.get(self, "target_types")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleGroupVariableDefinitionList(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-variabledefinitionlist.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "variableDefinitionList":
+            suggest = "variable_definition_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupVariableDefinitionList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupVariableDefinitionList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupVariableDefinitionList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  variable_definition_list: Optional[Sequence[str]] = None):
         """
@@ -1670,8 +2179,5 @@ class RuleGroupVariableDefinitionList(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-variabledefinitionlist.html#cfn-networkfirewall-rulegroup-variabledefinitionlist-variabledefinitionlist
         """
         return pulumi.get(self, "variable_definition_list")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

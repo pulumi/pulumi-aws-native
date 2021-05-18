@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -97,6 +97,29 @@ class DataQualityJobDefinitionClusterConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "volumeSizeInGB":
+            suggest = "volume_size_in_gb"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionClusterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionClusterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionClusterConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_count: int,
                  instance_type: str,
@@ -147,15 +170,29 @@ class DataQualityJobDefinitionClusterConfig(dict):
         """
         return pulumi.get(self, "volume_kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionConstraintsResource(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionConstraintsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionConstraintsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionConstraintsResource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
@@ -173,15 +210,37 @@ class DataQualityJobDefinitionConstraintsResource(dict):
         """
         return pulumi.get(self, "s3_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionDataQualityAppSpecification(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUri":
+            suggest = "image_uri"
+        elif key == "containerArguments":
+            suggest = "container_arguments"
+        elif key == "containerEntrypoint":
+            suggest = "container_entrypoint"
+        elif key == "postAnalyticsProcessorSourceUri":
+            suggest = "post_analytics_processor_source_uri"
+        elif key == "recordPreprocessorSourceUri":
+            suggest = "record_preprocessor_source_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionDataQualityAppSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionDataQualityAppSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionDataQualityAppSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  image_uri: str,
                  container_arguments: Optional[Sequence[str]] = None,
@@ -194,7 +253,7 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
         :param str image_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
         :param Sequence[str] container_arguments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerarguments
         :param Sequence[str] container_entrypoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerentrypoint
-        :param 'DataQualityJobDefinitionEnvironmentArgs' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
+        :param 'DataQualityJobDefinitionEnvironment' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
         :param str post_analytics_processor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-postanalyticsprocessorsourceuri
         :param str record_preprocessor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-recordpreprocessorsourceuri
         """
@@ -258,15 +317,33 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
         """
         return pulumi.get(self, "record_preprocessor_source_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionDataQualityBaselineConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseliningJobName":
+            suggest = "baselining_job_name"
+        elif key == "constraintsResource":
+            suggest = "constraints_resource"
+        elif key == "statisticsResource":
+            suggest = "statistics_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionDataQualityBaselineConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionDataQualityBaselineConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionDataQualityBaselineConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  baselining_job_name: Optional[str] = None,
                  constraints_resource: Optional['outputs.DataQualityJobDefinitionConstraintsResource'] = None,
@@ -274,8 +351,8 @@ class DataQualityJobDefinitionDataQualityBaselineConfig(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html
         :param str baselining_job_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-baseliningjobname
-        :param 'DataQualityJobDefinitionConstraintsResourceArgs' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-constraintsresource
-        :param 'DataQualityJobDefinitionStatisticsResourceArgs' statistics_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-statisticsresource
+        :param 'DataQualityJobDefinitionConstraintsResource' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-constraintsresource
+        :param 'DataQualityJobDefinitionStatisticsResource' statistics_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-statisticsresource
         """
         if baselining_job_name is not None:
             pulumi.set(__self__, "baselining_job_name", baselining_job_name)
@@ -308,20 +385,34 @@ class DataQualityJobDefinitionDataQualityBaselineConfig(dict):
         """
         return pulumi.get(self, "statistics_resource")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionDataQualityJobInput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointInput":
+            suggest = "endpoint_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionDataQualityJobInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionDataQualityJobInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionDataQualityJobInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_input: 'outputs.DataQualityJobDefinitionEndpointInput'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html
-        :param 'DataQualityJobDefinitionEndpointInputArgs' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput
+        :param 'DataQualityJobDefinitionEndpointInput' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput
         """
         pulumi.set(__self__, "endpoint_input", endpoint_input)
 
@@ -333,15 +424,35 @@ class DataQualityJobDefinitionDataQualityJobInput(dict):
         """
         return pulumi.get(self, "endpoint_input")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionEndpointInput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointName":
+            suggest = "endpoint_name"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionEndpointInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionEndpointInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionEndpointInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_name: str,
                  local_path: str,
@@ -393,9 +504,6 @@ class DataQualityJobDefinitionEndpointInput(dict):
         """
         return pulumi.get(self, "s3_input_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionEnvironment(dict):
@@ -408,20 +516,34 @@ class DataQualityJobDefinitionEnvironment(dict):
         """
         pass
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionMonitoringOutput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Output":
+            suggest = "s3_output"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionMonitoringOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionMonitoringOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionMonitoringOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_output: 'outputs.DataQualityJobDefinitionS3Output'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html
-        :param 'DataQualityJobDefinitionS3OutputArgs' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
+        :param 'DataQualityJobDefinitionS3Output' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
@@ -433,21 +555,37 @@ class DataQualityJobDefinitionMonitoringOutput(dict):
         """
         return pulumi.get(self, "s3_output")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionMonitoringOutputConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringOutputs":
+            suggest = "monitoring_outputs"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionMonitoringOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionMonitoringOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionMonitoringOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  monitoring_outputs: Sequence['outputs.DataQualityJobDefinitionMonitoringOutput'],
                  kms_key_id: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html
-        :param Sequence['DataQualityJobDefinitionMonitoringOutputArgs'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
+        :param Sequence['DataQualityJobDefinitionMonitoringOutput'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
         :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-kmskeyid
         """
         pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
@@ -470,20 +608,34 @@ class DataQualityJobDefinitionMonitoringOutputConfig(dict):
         """
         return pulumi.get(self, "kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionMonitoringResources(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterConfig":
+            suggest = "cluster_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionMonitoringResources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionMonitoringResources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionMonitoringResources.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_config: 'outputs.DataQualityJobDefinitionClusterConfig'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html
-        :param 'DataQualityJobDefinitionClusterConfigArgs' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html#cfn-sagemaker-dataqualityjobdefinition-monitoringresources-clusterconfig
+        :param 'DataQualityJobDefinitionClusterConfig' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html#cfn-sagemaker-dataqualityjobdefinition-monitoringresources-clusterconfig
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
@@ -495,15 +647,33 @@ class DataQualityJobDefinitionMonitoringResources(dict):
         """
         return pulumi.get(self, "cluster_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionNetworkConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableInterContainerTrafficEncryption":
+            suggest = "enable_inter_container_traffic_encryption"
+        elif key == "enableNetworkIsolation":
+            suggest = "enable_network_isolation"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionNetworkConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionNetworkConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionNetworkConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable_inter_container_traffic_encryption: Optional[bool] = None,
                  enable_network_isolation: Optional[bool] = None,
@@ -512,7 +682,7 @@ class DataQualityJobDefinitionNetworkConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html
         :param bool enable_inter_container_traffic_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
         :param bool enable_network_isolation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enablenetworkisolation
-        :param 'DataQualityJobDefinitionVpcConfigArgs' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-vpcconfig
+        :param 'DataQualityJobDefinitionVpcConfig' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-vpcconfig
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -545,15 +715,33 @@ class DataQualityJobDefinitionNetworkConfig(dict):
         """
         return pulumi.get(self, "vpc_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionS3Output(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "localPath":
+            suggest = "local_path"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "s3UploadMode":
+            suggest = "s3_upload_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionS3Output. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionS3Output.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionS3Output.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  local_path: str,
                  s3_uri: str,
@@ -593,15 +781,29 @@ class DataQualityJobDefinitionS3Output(dict):
         """
         return pulumi.get(self, "s3_upload_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionStatisticsResource(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionStatisticsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionStatisticsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionStatisticsResource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
@@ -619,15 +821,29 @@ class DataQualityJobDefinitionStatisticsResource(dict):
         """
         return pulumi.get(self, "s3_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionStoppingCondition(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRuntimeInSeconds":
+            suggest = "max_runtime_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionStoppingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionStoppingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionStoppingCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_runtime_in_seconds: int):
         """
@@ -644,15 +860,29 @@ class DataQualityJobDefinitionStoppingCondition(dict):
         """
         return pulumi.get(self, "max_runtime_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataQualityJobDefinitionVpcConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str]):
@@ -680,15 +910,31 @@ class DataQualityJobDefinitionVpcConfig(dict):
         """
         return pulumi.get(self, "subnets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeviceFleetEdgeOutputConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputLocation":
+            suggest = "s3_output_location"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeviceFleetEdgeOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeviceFleetEdgeOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeviceFleetEdgeOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_output_location: str,
                  kms_key_id: Optional[str] = None):
@@ -717,15 +963,35 @@ class DeviceFleetEdgeOutputConfig(dict):
         """
         return pulumi.get(self, "kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionClusterConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "volumeSizeInGB":
+            suggest = "volume_size_in_gb"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionClusterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionClusterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionClusterConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_count: int,
                  instance_type: str,
@@ -776,15 +1042,29 @@ class ModelBiasJobDefinitionClusterConfig(dict):
         """
         return pulumi.get(self, "volume_kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionConstraintsResource(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionConstraintsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionConstraintsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionConstraintsResource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
@@ -802,15 +1082,47 @@ class ModelBiasJobDefinitionConstraintsResource(dict):
         """
         return pulumi.get(self, "s3_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionEndpointInput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointName":
+            suggest = "endpoint_name"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "endTimeOffset":
+            suggest = "end_time_offset"
+        elif key == "featuresAttribute":
+            suggest = "features_attribute"
+        elif key == "inferenceAttribute":
+            suggest = "inference_attribute"
+        elif key == "probabilityAttribute":
+            suggest = "probability_attribute"
+        elif key == "probabilityThresholdAttribute":
+            suggest = "probability_threshold_attribute"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+        elif key == "startTimeOffset":
+            suggest = "start_time_offset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionEndpointInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionEndpointInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionEndpointInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_name: str,
                  local_path: str,
@@ -934,9 +1246,6 @@ class ModelBiasJobDefinitionEndpointInput(dict):
         """
         return pulumi.get(self, "start_time_offset")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionEnvironment(dict):
@@ -949,15 +1258,31 @@ class ModelBiasJobDefinitionEnvironment(dict):
         """
         pass
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configUri":
+            suggest = "config_uri"
+        elif key == "imageUri":
+            suggest = "image_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionModelBiasAppSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionModelBiasAppSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionModelBiasAppSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  config_uri: str,
                  image_uri: str,
@@ -966,7 +1291,7 @@ class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html
         :param str config_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-configuri
         :param str image_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
-        :param 'ModelBiasJobDefinitionEnvironmentArgs' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
+        :param 'ModelBiasJobDefinitionEnvironment' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
         """
         pulumi.set(__self__, "config_uri", config_uri)
         pulumi.set(__self__, "image_uri", image_uri)
@@ -997,22 +1322,38 @@ class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
         """
         return pulumi.get(self, "environment")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionModelBiasBaselineConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseliningJobName":
+            suggest = "baselining_job_name"
+        elif key == "constraintsResource":
+            suggest = "constraints_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionModelBiasBaselineConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionModelBiasBaselineConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionModelBiasBaselineConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  baselining_job_name: Optional[str] = None,
                  constraints_resource: Optional['outputs.ModelBiasJobDefinitionConstraintsResource'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html
         :param str baselining_job_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-baseliningjobname
-        :param 'ModelBiasJobDefinitionConstraintsResourceArgs' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-constraintsresource
+        :param 'ModelBiasJobDefinitionConstraintsResource' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-constraintsresource
         """
         if baselining_job_name is not None:
             pulumi.set(__self__, "baselining_job_name", baselining_job_name)
@@ -1035,22 +1376,38 @@ class ModelBiasJobDefinitionModelBiasBaselineConfig(dict):
         """
         return pulumi.get(self, "constraints_resource")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionModelBiasJobInput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointInput":
+            suggest = "endpoint_input"
+        elif key == "groundTruthS3Input":
+            suggest = "ground_truth_s3_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionModelBiasJobInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionModelBiasJobInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionModelBiasJobInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_input: 'outputs.ModelBiasJobDefinitionEndpointInput',
                  ground_truth_s3_input: 'outputs.ModelBiasJobDefinitionMonitoringGroundTruthS3Input'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html
-        :param 'ModelBiasJobDefinitionEndpointInputArgs' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
-        :param 'ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs' ground_truth_s3_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input
+        :param 'ModelBiasJobDefinitionEndpointInput' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
+        :param 'ModelBiasJobDefinitionMonitoringGroundTruthS3Input' ground_truth_s3_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input
         """
         pulumi.set(__self__, "endpoint_input", endpoint_input)
         pulumi.set(__self__, "ground_truth_s3_input", ground_truth_s3_input)
@@ -1071,15 +1428,29 @@ class ModelBiasJobDefinitionModelBiasJobInput(dict):
         """
         return pulumi.get(self, "ground_truth_s3_input")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionMonitoringGroundTruthS3Input(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionMonitoringGroundTruthS3Input. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionMonitoringGroundTruthS3Input.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionMonitoringGroundTruthS3Input.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_uri: str):
         """
@@ -1096,20 +1467,34 @@ class ModelBiasJobDefinitionMonitoringGroundTruthS3Input(dict):
         """
         return pulumi.get(self, "s3_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionMonitoringOutput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Output":
+            suggest = "s3_output"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionMonitoringOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionMonitoringOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionMonitoringOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_output: 'outputs.ModelBiasJobDefinitionS3Output'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html
-        :param 'ModelBiasJobDefinitionS3OutputArgs' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
+        :param 'ModelBiasJobDefinitionS3Output' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
@@ -1121,21 +1506,37 @@ class ModelBiasJobDefinitionMonitoringOutput(dict):
         """
         return pulumi.get(self, "s3_output")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionMonitoringOutputConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringOutputs":
+            suggest = "monitoring_outputs"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionMonitoringOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionMonitoringOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionMonitoringOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  monitoring_outputs: Sequence['outputs.ModelBiasJobDefinitionMonitoringOutput'],
                  kms_key_id: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html
-        :param Sequence['ModelBiasJobDefinitionMonitoringOutputArgs'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-monitoringoutputs
+        :param Sequence['ModelBiasJobDefinitionMonitoringOutput'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-monitoringoutputs
         :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-kmskeyid
         """
         pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
@@ -1158,20 +1559,34 @@ class ModelBiasJobDefinitionMonitoringOutputConfig(dict):
         """
         return pulumi.get(self, "kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionMonitoringResources(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterConfig":
+            suggest = "cluster_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionMonitoringResources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionMonitoringResources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionMonitoringResources.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_config: 'outputs.ModelBiasJobDefinitionClusterConfig'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html
-        :param 'ModelBiasJobDefinitionClusterConfigArgs' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html#cfn-sagemaker-modelbiasjobdefinition-monitoringresources-clusterconfig
+        :param 'ModelBiasJobDefinitionClusterConfig' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html#cfn-sagemaker-modelbiasjobdefinition-monitoringresources-clusterconfig
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
@@ -1183,15 +1598,33 @@ class ModelBiasJobDefinitionMonitoringResources(dict):
         """
         return pulumi.get(self, "cluster_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionNetworkConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableInterContainerTrafficEncryption":
+            suggest = "enable_inter_container_traffic_encryption"
+        elif key == "enableNetworkIsolation":
+            suggest = "enable_network_isolation"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionNetworkConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionNetworkConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionNetworkConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable_inter_container_traffic_encryption: Optional[bool] = None,
                  enable_network_isolation: Optional[bool] = None,
@@ -1200,7 +1633,7 @@ class ModelBiasJobDefinitionNetworkConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html
         :param bool enable_inter_container_traffic_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enableintercontainertrafficencryption
         :param bool enable_network_isolation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enablenetworkisolation
-        :param 'ModelBiasJobDefinitionVpcConfigArgs' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-vpcconfig
+        :param 'ModelBiasJobDefinitionVpcConfig' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-vpcconfig
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -1233,15 +1666,33 @@ class ModelBiasJobDefinitionNetworkConfig(dict):
         """
         return pulumi.get(self, "vpc_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionS3Output(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "localPath":
+            suggest = "local_path"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "s3UploadMode":
+            suggest = "s3_upload_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionS3Output. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionS3Output.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionS3Output.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  local_path: str,
                  s3_uri: str,
@@ -1281,15 +1732,29 @@ class ModelBiasJobDefinitionS3Output(dict):
         """
         return pulumi.get(self, "s3_upload_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionStoppingCondition(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRuntimeInSeconds":
+            suggest = "max_runtime_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionStoppingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionStoppingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionStoppingCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_runtime_in_seconds: int):
         """
@@ -1306,15 +1771,29 @@ class ModelBiasJobDefinitionStoppingCondition(dict):
         """
         return pulumi.get(self, "max_runtime_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelBiasJobDefinitionVpcConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str]):
@@ -1342,15 +1821,35 @@ class ModelBiasJobDefinitionVpcConfig(dict):
         """
         return pulumi.get(self, "subnets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionClusterConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "volumeSizeInGB":
+            suggest = "volume_size_in_gb"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionClusterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionClusterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionClusterConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_count: int,
                  instance_type: str,
@@ -1401,15 +1900,29 @@ class ModelExplainabilityJobDefinitionClusterConfig(dict):
         """
         return pulumi.get(self, "volume_kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionConstraintsResource(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionConstraintsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionConstraintsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionConstraintsResource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
@@ -1427,15 +1940,41 @@ class ModelExplainabilityJobDefinitionConstraintsResource(dict):
         """
         return pulumi.get(self, "s3_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionEndpointInput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointName":
+            suggest = "endpoint_name"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "featuresAttribute":
+            suggest = "features_attribute"
+        elif key == "inferenceAttribute":
+            suggest = "inference_attribute"
+        elif key == "probabilityAttribute":
+            suggest = "probability_attribute"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionEndpointInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionEndpointInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionEndpointInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_name: str,
                  local_path: str,
@@ -1523,9 +2062,6 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
         """
         return pulumi.get(self, "s3_input_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionEnvironment(dict):
@@ -1538,15 +2074,31 @@ class ModelExplainabilityJobDefinitionEnvironment(dict):
         """
         pass
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configUri":
+            suggest = "config_uri"
+        elif key == "imageUri":
+            suggest = "image_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  config_uri: str,
                  image_uri: str,
@@ -1555,7 +2107,7 @@ class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html
         :param str config_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-configuri
         :param str image_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
-        :param 'ModelExplainabilityJobDefinitionEnvironmentArgs' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
+        :param 'ModelExplainabilityJobDefinitionEnvironment' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
         """
         pulumi.set(__self__, "config_uri", config_uri)
         pulumi.set(__self__, "image_uri", image_uri)
@@ -1586,22 +2138,38 @@ class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
         """
         return pulumi.get(self, "environment")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseliningJobName":
+            suggest = "baselining_job_name"
+        elif key == "constraintsResource":
+            suggest = "constraints_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  baselining_job_name: Optional[str] = None,
                  constraints_resource: Optional['outputs.ModelExplainabilityJobDefinitionConstraintsResource'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html
         :param str baselining_job_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
-        :param 'ModelExplainabilityJobDefinitionConstraintsResourceArgs' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource
+        :param 'ModelExplainabilityJobDefinitionConstraintsResource' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource
         """
         if baselining_job_name is not None:
             pulumi.set(__self__, "baselining_job_name", baselining_job_name)
@@ -1624,20 +2192,34 @@ class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig(dict):
         """
         return pulumi.get(self, "constraints_resource")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionModelExplainabilityJobInput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointInput":
+            suggest = "endpoint_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionModelExplainabilityJobInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionModelExplainabilityJobInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionModelExplainabilityJobInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_input: 'outputs.ModelExplainabilityJobDefinitionEndpointInput'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html
-        :param 'ModelExplainabilityJobDefinitionEndpointInputArgs' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
+        :param 'ModelExplainabilityJobDefinitionEndpointInput' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
         """
         pulumi.set(__self__, "endpoint_input", endpoint_input)
 
@@ -1649,20 +2231,34 @@ class ModelExplainabilityJobDefinitionModelExplainabilityJobInput(dict):
         """
         return pulumi.get(self, "endpoint_input")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionMonitoringOutput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Output":
+            suggest = "s3_output"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionMonitoringOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionMonitoringOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionMonitoringOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_output: 'outputs.ModelExplainabilityJobDefinitionS3Output'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html
-        :param 'ModelExplainabilityJobDefinitionS3OutputArgs' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output
+        :param 'ModelExplainabilityJobDefinitionS3Output' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
@@ -1674,21 +2270,37 @@ class ModelExplainabilityJobDefinitionMonitoringOutput(dict):
         """
         return pulumi.get(self, "s3_output")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionMonitoringOutputConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringOutputs":
+            suggest = "monitoring_outputs"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionMonitoringOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionMonitoringOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionMonitoringOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  monitoring_outputs: Sequence['outputs.ModelExplainabilityJobDefinitionMonitoringOutput'],
                  kms_key_id: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html
-        :param Sequence['ModelExplainabilityJobDefinitionMonitoringOutputArgs'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-monitoringoutputs
+        :param Sequence['ModelExplainabilityJobDefinitionMonitoringOutput'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-monitoringoutputs
         :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-kmskeyid
         """
         pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
@@ -1711,20 +2323,34 @@ class ModelExplainabilityJobDefinitionMonitoringOutputConfig(dict):
         """
         return pulumi.get(self, "kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionMonitoringResources(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterConfig":
+            suggest = "cluster_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionMonitoringResources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionMonitoringResources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionMonitoringResources.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_config: 'outputs.ModelExplainabilityJobDefinitionClusterConfig'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html
-        :param 'ModelExplainabilityJobDefinitionClusterConfigArgs' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringresources-clusterconfig
+        :param 'ModelExplainabilityJobDefinitionClusterConfig' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringresources-clusterconfig
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
@@ -1736,15 +2362,33 @@ class ModelExplainabilityJobDefinitionMonitoringResources(dict):
         """
         return pulumi.get(self, "cluster_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionNetworkConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableInterContainerTrafficEncryption":
+            suggest = "enable_inter_container_traffic_encryption"
+        elif key == "enableNetworkIsolation":
+            suggest = "enable_network_isolation"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionNetworkConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionNetworkConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionNetworkConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable_inter_container_traffic_encryption: Optional[bool] = None,
                  enable_network_isolation: Optional[bool] = None,
@@ -1753,7 +2397,7 @@ class ModelExplainabilityJobDefinitionNetworkConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html
         :param bool enable_inter_container_traffic_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enableintercontainertrafficencryption
         :param bool enable_network_isolation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enablenetworkisolation
-        :param 'ModelExplainabilityJobDefinitionVpcConfigArgs' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-vpcconfig
+        :param 'ModelExplainabilityJobDefinitionVpcConfig' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-vpcconfig
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -1786,15 +2430,33 @@ class ModelExplainabilityJobDefinitionNetworkConfig(dict):
         """
         return pulumi.get(self, "vpc_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionS3Output(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "localPath":
+            suggest = "local_path"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "s3UploadMode":
+            suggest = "s3_upload_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionS3Output. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionS3Output.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionS3Output.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  local_path: str,
                  s3_uri: str,
@@ -1834,15 +2496,29 @@ class ModelExplainabilityJobDefinitionS3Output(dict):
         """
         return pulumi.get(self, "s3_upload_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionStoppingCondition(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRuntimeInSeconds":
+            suggest = "max_runtime_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionStoppingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionStoppingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionStoppingCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_runtime_in_seconds: int):
         """
@@ -1859,15 +2535,29 @@ class ModelExplainabilityJobDefinitionStoppingCondition(dict):
         """
         return pulumi.get(self, "max_runtime_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionVpcConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str]):
@@ -1895,15 +2585,35 @@ class ModelExplainabilityJobDefinitionVpcConfig(dict):
         """
         return pulumi.get(self, "subnets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionClusterConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "volumeSizeInGB":
+            suggest = "volume_size_in_gb"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionClusterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionClusterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionClusterConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_count: int,
                  instance_type: str,
@@ -1954,15 +2664,29 @@ class ModelQualityJobDefinitionClusterConfig(dict):
         """
         return pulumi.get(self, "volume_kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionConstraintsResource(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionConstraintsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionConstraintsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionConstraintsResource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
@@ -1980,15 +2704,45 @@ class ModelQualityJobDefinitionConstraintsResource(dict):
         """
         return pulumi.get(self, "s3_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionEndpointInput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointName":
+            suggest = "endpoint_name"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "endTimeOffset":
+            suggest = "end_time_offset"
+        elif key == "inferenceAttribute":
+            suggest = "inference_attribute"
+        elif key == "probabilityAttribute":
+            suggest = "probability_attribute"
+        elif key == "probabilityThresholdAttribute":
+            suggest = "probability_threshold_attribute"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+        elif key == "startTimeOffset":
+            suggest = "start_time_offset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionEndpointInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionEndpointInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionEndpointInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_name: str,
                  local_path: str,
@@ -2100,9 +2854,6 @@ class ModelQualityJobDefinitionEndpointInput(dict):
         """
         return pulumi.get(self, "start_time_offset")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionEnvironment(dict):
@@ -2115,15 +2866,39 @@ class ModelQualityJobDefinitionEnvironment(dict):
         """
         pass
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUri":
+            suggest = "image_uri"
+        elif key == "problemType":
+            suggest = "problem_type"
+        elif key == "containerArguments":
+            suggest = "container_arguments"
+        elif key == "containerEntrypoint":
+            suggest = "container_entrypoint"
+        elif key == "postAnalyticsProcessorSourceUri":
+            suggest = "post_analytics_processor_source_uri"
+        elif key == "recordPreprocessorSourceUri":
+            suggest = "record_preprocessor_source_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionModelQualityAppSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionModelQualityAppSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionModelQualityAppSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  image_uri: str,
                  problem_type: str,
@@ -2138,7 +2913,7 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
         :param str problem_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-problemtype
         :param Sequence[str] container_arguments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerarguments
         :param Sequence[str] container_entrypoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerentrypoint
-        :param 'ModelQualityJobDefinitionEnvironmentArgs' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
+        :param 'ModelQualityJobDefinitionEnvironment' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
         :param str post_analytics_processor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-postanalyticsprocessorsourceuri
         :param str record_preprocessor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-recordpreprocessorsourceuri
         """
@@ -2211,22 +2986,38 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
         """
         return pulumi.get(self, "record_preprocessor_source_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionModelQualityBaselineConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseliningJobName":
+            suggest = "baselining_job_name"
+        elif key == "constraintsResource":
+            suggest = "constraints_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionModelQualityBaselineConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionModelQualityBaselineConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionModelQualityBaselineConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  baselining_job_name: Optional[str] = None,
                  constraints_resource: Optional['outputs.ModelQualityJobDefinitionConstraintsResource'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html
         :param str baselining_job_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-baseliningjobname
-        :param 'ModelQualityJobDefinitionConstraintsResourceArgs' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-constraintsresource
+        :param 'ModelQualityJobDefinitionConstraintsResource' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-constraintsresource
         """
         if baselining_job_name is not None:
             pulumi.set(__self__, "baselining_job_name", baselining_job_name)
@@ -2249,22 +3040,38 @@ class ModelQualityJobDefinitionModelQualityBaselineConfig(dict):
         """
         return pulumi.get(self, "constraints_resource")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionModelQualityJobInput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointInput":
+            suggest = "endpoint_input"
+        elif key == "groundTruthS3Input":
+            suggest = "ground_truth_s3_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionModelQualityJobInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionModelQualityJobInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionModelQualityJobInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_input: 'outputs.ModelQualityJobDefinitionEndpointInput',
                  ground_truth_s3_input: 'outputs.ModelQualityJobDefinitionMonitoringGroundTruthS3Input'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html
-        :param 'ModelQualityJobDefinitionEndpointInputArgs' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
-        :param 'ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs' ground_truth_s3_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input
+        :param 'ModelQualityJobDefinitionEndpointInput' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
+        :param 'ModelQualityJobDefinitionMonitoringGroundTruthS3Input' ground_truth_s3_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input
         """
         pulumi.set(__self__, "endpoint_input", endpoint_input)
         pulumi.set(__self__, "ground_truth_s3_input", ground_truth_s3_input)
@@ -2285,15 +3092,29 @@ class ModelQualityJobDefinitionModelQualityJobInput(dict):
         """
         return pulumi.get(self, "ground_truth_s3_input")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionMonitoringGroundTruthS3Input(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionMonitoringGroundTruthS3Input. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionMonitoringGroundTruthS3Input.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionMonitoringGroundTruthS3Input.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_uri: str):
         """
@@ -2310,20 +3131,34 @@ class ModelQualityJobDefinitionMonitoringGroundTruthS3Input(dict):
         """
         return pulumi.get(self, "s3_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionMonitoringOutput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Output":
+            suggest = "s3_output"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionMonitoringOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionMonitoringOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionMonitoringOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_output: 'outputs.ModelQualityJobDefinitionS3Output'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html
-        :param 'ModelQualityJobDefinitionS3OutputArgs' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
+        :param 'ModelQualityJobDefinitionS3Output' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
@@ -2335,21 +3170,37 @@ class ModelQualityJobDefinitionMonitoringOutput(dict):
         """
         return pulumi.get(self, "s3_output")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionMonitoringOutputConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringOutputs":
+            suggest = "monitoring_outputs"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionMonitoringOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionMonitoringOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionMonitoringOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  monitoring_outputs: Sequence['outputs.ModelQualityJobDefinitionMonitoringOutput'],
                  kms_key_id: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html
-        :param Sequence['ModelQualityJobDefinitionMonitoringOutputArgs'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
+        :param Sequence['ModelQualityJobDefinitionMonitoringOutput'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
         :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-kmskeyid
         """
         pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
@@ -2372,20 +3223,34 @@ class ModelQualityJobDefinitionMonitoringOutputConfig(dict):
         """
         return pulumi.get(self, "kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionMonitoringResources(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterConfig":
+            suggest = "cluster_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionMonitoringResources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionMonitoringResources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionMonitoringResources.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_config: 'outputs.ModelQualityJobDefinitionClusterConfig'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html
-        :param 'ModelQualityJobDefinitionClusterConfigArgs' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html#cfn-sagemaker-modelqualityjobdefinition-monitoringresources-clusterconfig
+        :param 'ModelQualityJobDefinitionClusterConfig' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html#cfn-sagemaker-modelqualityjobdefinition-monitoringresources-clusterconfig
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
@@ -2397,15 +3262,33 @@ class ModelQualityJobDefinitionMonitoringResources(dict):
         """
         return pulumi.get(self, "cluster_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionNetworkConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableInterContainerTrafficEncryption":
+            suggest = "enable_inter_container_traffic_encryption"
+        elif key == "enableNetworkIsolation":
+            suggest = "enable_network_isolation"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionNetworkConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionNetworkConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionNetworkConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable_inter_container_traffic_encryption: Optional[bool] = None,
                  enable_network_isolation: Optional[bool] = None,
@@ -2414,7 +3297,7 @@ class ModelQualityJobDefinitionNetworkConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html
         :param bool enable_inter_container_traffic_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
         :param bool enable_network_isolation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enablenetworkisolation
-        :param 'ModelQualityJobDefinitionVpcConfigArgs' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-vpcconfig
+        :param 'ModelQualityJobDefinitionVpcConfig' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-vpcconfig
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -2447,15 +3330,33 @@ class ModelQualityJobDefinitionNetworkConfig(dict):
         """
         return pulumi.get(self, "vpc_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionS3Output(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "localPath":
+            suggest = "local_path"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "s3UploadMode":
+            suggest = "s3_upload_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionS3Output. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionS3Output.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionS3Output.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  local_path: str,
                  s3_uri: str,
@@ -2495,15 +3396,29 @@ class ModelQualityJobDefinitionS3Output(dict):
         """
         return pulumi.get(self, "s3_upload_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionStoppingCondition(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRuntimeInSeconds":
+            suggest = "max_runtime_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionStoppingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionStoppingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionStoppingCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_runtime_in_seconds: int):
         """
@@ -2520,15 +3435,29 @@ class ModelQualityJobDefinitionStoppingCondition(dict):
         """
         return pulumi.get(self, "max_runtime_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelQualityJobDefinitionVpcConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str]):
@@ -2556,22 +3485,38 @@ class ModelQualityJobDefinitionVpcConfig(dict):
         """
         return pulumi.get(self, "subnets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleBaselineConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "constraintsResource":
+            suggest = "constraints_resource"
+        elif key == "statisticsResource":
+            suggest = "statistics_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleBaselineConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleBaselineConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleBaselineConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  constraints_resource: Optional['outputs.MonitoringScheduleConstraintsResource'] = None,
                  statistics_resource: Optional['outputs.MonitoringScheduleStatisticsResource'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html
-        :param 'MonitoringScheduleConstraintsResourceArgs' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource
-        :param 'MonitoringScheduleStatisticsResourceArgs' statistics_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-statisticsresource
+        :param 'MonitoringScheduleConstraintsResource' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource
+        :param 'MonitoringScheduleStatisticsResource' statistics_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-statisticsresource
         """
         if constraints_resource is not None:
             pulumi.set(__self__, "constraints_resource", constraints_resource)
@@ -2594,15 +3539,35 @@ class MonitoringScheduleBaselineConfig(dict):
         """
         return pulumi.get(self, "statistics_resource")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleClusterConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "volumeSizeInGB":
+            suggest = "volume_size_in_gb"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleClusterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleClusterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleClusterConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_count: int,
                  instance_type: str,
@@ -2653,15 +3618,29 @@ class MonitoringScheduleClusterConfig(dict):
         """
         return pulumi.get(self, "volume_kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleConstraintsResource(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleConstraintsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleConstraintsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleConstraintsResource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
@@ -2679,15 +3658,35 @@ class MonitoringScheduleConstraintsResource(dict):
         """
         return pulumi.get(self, "s3_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleEndpointInput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointName":
+            suggest = "endpoint_name"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleEndpointInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleEndpointInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleEndpointInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_name: str,
                  local_path: str,
@@ -2739,9 +3738,6 @@ class MonitoringScheduleEndpointInput(dict):
         """
         return pulumi.get(self, "s3_input_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleEnvironment(dict):
@@ -2754,15 +3750,37 @@ class MonitoringScheduleEnvironment(dict):
         """
         pass
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleMonitoringAppSpecification(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUri":
+            suggest = "image_uri"
+        elif key == "containerArguments":
+            suggest = "container_arguments"
+        elif key == "containerEntrypoint":
+            suggest = "container_entrypoint"
+        elif key == "postAnalyticsProcessorSourceUri":
+            suggest = "post_analytics_processor_source_uri"
+        elif key == "recordPreprocessorSourceUri":
+            suggest = "record_preprocessor_source_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringAppSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringAppSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringAppSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  image_uri: str,
                  container_arguments: Optional[Sequence[str]] = None,
@@ -2827,15 +3845,43 @@ class MonitoringScheduleMonitoringAppSpecification(dict):
         """
         return pulumi.get(self, "record_preprocessor_source_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleMonitoringExecutionSummary(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationTime":
+            suggest = "creation_time"
+        elif key == "lastModifiedTime":
+            suggest = "last_modified_time"
+        elif key == "monitoringExecutionStatus":
+            suggest = "monitoring_execution_status"
+        elif key == "monitoringScheduleName":
+            suggest = "monitoring_schedule_name"
+        elif key == "scheduledTime":
+            suggest = "scheduled_time"
+        elif key == "endpointName":
+            suggest = "endpoint_name"
+        elif key == "failureReason":
+            suggest = "failure_reason"
+        elif key == "processingJobArn":
+            suggest = "processing_job_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringExecutionSummary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringExecutionSummary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringExecutionSummary.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  creation_time: str,
                  last_modified_time: str,
@@ -2932,20 +3978,34 @@ class MonitoringScheduleMonitoringExecutionSummary(dict):
         """
         return pulumi.get(self, "processing_job_arn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleMonitoringInput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointInput":
+            suggest = "endpoint_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_input: 'outputs.MonitoringScheduleEndpointInput'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html
-        :param 'MonitoringScheduleEndpointInputArgs' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
+        :param 'MonitoringScheduleEndpointInput' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
         """
         pulumi.set(__self__, "endpoint_input", endpoint_input)
 
@@ -2957,20 +4017,34 @@ class MonitoringScheduleMonitoringInput(dict):
         """
         return pulumi.get(self, "endpoint_input")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleMonitoringInputs(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringInputs":
+            suggest = "monitoring_inputs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringInputs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringInputs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringInputs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  monitoring_inputs: Optional[Sequence['outputs.MonitoringScheduleMonitoringInput']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html
-        :param Sequence['MonitoringScheduleMonitoringInputArgs'] monitoring_inputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html#cfn-sagemaker-monitoringschedule-monitoringinputs-monitoringinputs
+        :param Sequence['MonitoringScheduleMonitoringInput'] monitoring_inputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html#cfn-sagemaker-monitoringschedule-monitoringinputs-monitoringinputs
         """
         if monitoring_inputs is not None:
             pulumi.set(__self__, "monitoring_inputs", monitoring_inputs)
@@ -2983,15 +4057,43 @@ class MonitoringScheduleMonitoringInputs(dict):
         """
         return pulumi.get(self, "monitoring_inputs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleMonitoringJobDefinition(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringAppSpecification":
+            suggest = "monitoring_app_specification"
+        elif key == "monitoringInputs":
+            suggest = "monitoring_inputs"
+        elif key == "monitoringOutputConfig":
+            suggest = "monitoring_output_config"
+        elif key == "monitoringResources":
+            suggest = "monitoring_resources"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "baselineConfig":
+            suggest = "baseline_config"
+        elif key == "networkConfig":
+            suggest = "network_config"
+        elif key == "stoppingCondition":
+            suggest = "stopping_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringJobDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringJobDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringJobDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  monitoring_app_specification: 'outputs.MonitoringScheduleMonitoringAppSpecification',
                  monitoring_inputs: 'outputs.MonitoringScheduleMonitoringInputs',
@@ -3004,15 +4106,15 @@ class MonitoringScheduleMonitoringJobDefinition(dict):
                  stopping_condition: Optional['outputs.MonitoringScheduleStoppingCondition'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html
-        :param 'MonitoringScheduleMonitoringAppSpecificationArgs' monitoring_app_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
-        :param 'MonitoringScheduleMonitoringInputsArgs' monitoring_inputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
-        :param 'MonitoringScheduleMonitoringOutputConfigArgs' monitoring_output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
-        :param 'MonitoringScheduleMonitoringResourcesArgs' monitoring_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
+        :param 'MonitoringScheduleMonitoringAppSpecification' monitoring_app_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
+        :param 'MonitoringScheduleMonitoringInputs' monitoring_inputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
+        :param 'MonitoringScheduleMonitoringOutputConfig' monitoring_output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
+        :param 'MonitoringScheduleMonitoringResources' monitoring_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
         :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
-        :param 'MonitoringScheduleBaselineConfigArgs' baseline_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
-        :param 'MonitoringScheduleEnvironmentArgs' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
-        :param 'MonitoringScheduleNetworkConfigArgs' network_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig
-        :param 'MonitoringScheduleStoppingConditionArgs' stopping_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition
+        :param 'MonitoringScheduleBaselineConfig' baseline_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
+        :param 'MonitoringScheduleEnvironment' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
+        :param 'MonitoringScheduleNetworkConfig' network_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig
+        :param 'MonitoringScheduleStoppingCondition' stopping_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition
         """
         pulumi.set(__self__, "monitoring_app_specification", monitoring_app_specification)
         pulumi.set(__self__, "monitoring_inputs", monitoring_inputs)
@@ -3100,20 +4202,34 @@ class MonitoringScheduleMonitoringJobDefinition(dict):
         """
         return pulumi.get(self, "stopping_condition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleMonitoringOutput(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Output":
+            suggest = "s3_output"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_output: 'outputs.MonitoringScheduleS3Output'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html
-        :param 'MonitoringScheduleS3OutputArgs' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html#cfn-sagemaker-monitoringschedule-monitoringoutput-s3output
+        :param 'MonitoringScheduleS3Output' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html#cfn-sagemaker-monitoringschedule-monitoringoutput-s3output
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
@@ -3125,21 +4241,37 @@ class MonitoringScheduleMonitoringOutput(dict):
         """
         return pulumi.get(self, "s3_output")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleMonitoringOutputConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringOutputs":
+            suggest = "monitoring_outputs"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  monitoring_outputs: Sequence['outputs.MonitoringScheduleMonitoringOutput'],
                  kms_key_id: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html
-        :param Sequence['MonitoringScheduleMonitoringOutputArgs'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-monitoringoutputs
+        :param Sequence['MonitoringScheduleMonitoringOutput'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-monitoringoutputs
         :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-kmskeyid
         """
         pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
@@ -3162,20 +4294,34 @@ class MonitoringScheduleMonitoringOutputConfig(dict):
         """
         return pulumi.get(self, "kms_key_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleMonitoringResources(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterConfig":
+            suggest = "cluster_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringResources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringResources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringResources.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_config: 'outputs.MonitoringScheduleClusterConfig'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html
-        :param 'MonitoringScheduleClusterConfigArgs' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html#cfn-sagemaker-monitoringschedule-monitoringresources-clusterconfig
+        :param 'MonitoringScheduleClusterConfig' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html#cfn-sagemaker-monitoringschedule-monitoringresources-clusterconfig
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
@@ -3187,15 +4333,35 @@ class MonitoringScheduleMonitoringResources(dict):
         """
         return pulumi.get(self, "cluster_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleMonitoringScheduleConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringJobDefinition":
+            suggest = "monitoring_job_definition"
+        elif key == "monitoringJobDefinitionName":
+            suggest = "monitoring_job_definition_name"
+        elif key == "monitoringType":
+            suggest = "monitoring_type"
+        elif key == "scheduleConfig":
+            suggest = "schedule_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  monitoring_job_definition: Optional['outputs.MonitoringScheduleMonitoringJobDefinition'] = None,
                  monitoring_job_definition_name: Optional[str] = None,
@@ -3203,10 +4369,10 @@ class MonitoringScheduleMonitoringScheduleConfig(dict):
                  schedule_config: Optional['outputs.MonitoringScheduleScheduleConfig'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html
-        :param 'MonitoringScheduleMonitoringJobDefinitionArgs' monitoring_job_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinition
+        :param 'MonitoringScheduleMonitoringJobDefinition' monitoring_job_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinition
         :param str monitoring_job_definition_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinitionname
         :param str monitoring_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringtype
-        :param 'MonitoringScheduleScheduleConfigArgs' schedule_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-scheduleconfig
+        :param 'MonitoringScheduleScheduleConfig' schedule_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-scheduleconfig
         """
         if monitoring_job_definition is not None:
             pulumi.set(__self__, "monitoring_job_definition", monitoring_job_definition)
@@ -3249,15 +4415,33 @@ class MonitoringScheduleMonitoringScheduleConfig(dict):
         """
         return pulumi.get(self, "schedule_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleNetworkConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableInterContainerTrafficEncryption":
+            suggest = "enable_inter_container_traffic_encryption"
+        elif key == "enableNetworkIsolation":
+            suggest = "enable_network_isolation"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleNetworkConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleNetworkConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleNetworkConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable_inter_container_traffic_encryption: Optional[bool] = None,
                  enable_network_isolation: Optional[bool] = None,
@@ -3266,7 +4450,7 @@ class MonitoringScheduleNetworkConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html
         :param bool enable_inter_container_traffic_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enableintercontainertrafficencryption
         :param bool enable_network_isolation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enablenetworkisolation
-        :param 'MonitoringScheduleVpcConfigArgs' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-vpcconfig
+        :param 'MonitoringScheduleVpcConfig' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-vpcconfig
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -3299,15 +4483,33 @@ class MonitoringScheduleNetworkConfig(dict):
         """
         return pulumi.get(self, "vpc_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleS3Output(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "localPath":
+            suggest = "local_path"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "s3UploadMode":
+            suggest = "s3_upload_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleS3Output. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleS3Output.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleS3Output.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  local_path: str,
                  s3_uri: str,
@@ -3347,15 +4549,29 @@ class MonitoringScheduleS3Output(dict):
         """
         return pulumi.get(self, "s3_upload_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleScheduleConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleExpression":
+            suggest = "schedule_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleScheduleConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleScheduleConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleScheduleConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  schedule_expression: str):
         """
@@ -3372,15 +4588,29 @@ class MonitoringScheduleScheduleConfig(dict):
         """
         return pulumi.get(self, "schedule_expression")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleStatisticsResource(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleStatisticsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleStatisticsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleStatisticsResource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
@@ -3398,15 +4628,29 @@ class MonitoringScheduleStatisticsResource(dict):
         """
         return pulumi.get(self, "s3_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleStoppingCondition(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRuntimeInSeconds":
+            suggest = "max_runtime_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleStoppingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleStoppingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleStoppingCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_runtime_in_seconds: int):
         """
@@ -3423,15 +4667,29 @@ class MonitoringScheduleStoppingCondition(dict):
         """
         return pulumi.get(self, "max_runtime_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitoringScheduleVpcConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str]):
@@ -3458,8 +4716,5 @@ class MonitoringScheduleVpcConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-subnets
         """
         return pulumi.get(self, "subnets")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

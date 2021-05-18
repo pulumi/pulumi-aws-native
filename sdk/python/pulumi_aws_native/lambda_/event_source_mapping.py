@@ -5,15 +5,310 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EventSourceMapping']
+__all__ = ['EventSourceMappingArgs', 'EventSourceMapping']
+
+@pulumi.input_type
+class EventSourceMappingArgs:
+    def __init__(__self__, *,
+                 function_name: pulumi.Input[str],
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
+                 destination_config: Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 event_source_arn: Optional[pulumi.Input[str]] = None,
+                 function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+                 parallelization_factor: Optional[pulumi.Input[int]] = None,
+                 partial_batch_response: Optional[pulumi.Input[bool]] = None,
+                 queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 self_managed_event_source: Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']] = None,
+                 source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]]] = None,
+                 starting_position: Optional[pulumi.Input[str]] = None,
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a EventSourceMapping resource.
+        :param pulumi.Input[str] function_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
+        :param pulumi.Input[int] batch_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
+        :param pulumi.Input[bool] bisect_batch_on_function_error: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror
+        :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
+        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
+        :param pulumi.Input[str] event_source_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+        :param pulumi.Input[int] maximum_batching_window_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
+        :param pulumi.Input[int] maximum_record_age_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
+        :param pulumi.Input[int] maximum_retry_attempts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
+        :param pulumi.Input[int] parallelization_factor: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
+        :param pulumi.Input[bool] partial_batch_response: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+        :param pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs'] self_managed_event_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]] source_access_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+        :param pulumi.Input[str] starting_position: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+        :param pulumi.Input[int] tumbling_window_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+        """
+        pulumi.set(__self__, "function_name", function_name)
+        if batch_size is not None:
+            pulumi.set(__self__, "batch_size", batch_size)
+        if bisect_batch_on_function_error is not None:
+            pulumi.set(__self__, "bisect_batch_on_function_error", bisect_batch_on_function_error)
+        if destination_config is not None:
+            pulumi.set(__self__, "destination_config", destination_config)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if event_source_arn is not None:
+            pulumi.set(__self__, "event_source_arn", event_source_arn)
+        if function_response_types is not None:
+            pulumi.set(__self__, "function_response_types", function_response_types)
+        if maximum_batching_window_in_seconds is not None:
+            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+        if maximum_record_age_in_seconds is not None:
+            pulumi.set(__self__, "maximum_record_age_in_seconds", maximum_record_age_in_seconds)
+        if maximum_retry_attempts is not None:
+            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+        if parallelization_factor is not None:
+            pulumi.set(__self__, "parallelization_factor", parallelization_factor)
+        if partial_batch_response is not None:
+            pulumi.set(__self__, "partial_batch_response", partial_batch_response)
+        if queues is not None:
+            pulumi.set(__self__, "queues", queues)
+        if self_managed_event_source is not None:
+            pulumi.set(__self__, "self_managed_event_source", self_managed_event_source)
+        if source_access_configurations is not None:
+            pulumi.set(__self__, "source_access_configurations", source_access_configurations)
+        if starting_position is not None:
+            pulumi.set(__self__, "starting_position", starting_position)
+        if topics is not None:
+            pulumi.set(__self__, "topics", topics)
+        if tumbling_window_in_seconds is not None:
+            pulumi.set(__self__, "tumbling_window_in_seconds", tumbling_window_in_seconds)
+
+    @property
+    @pulumi.getter(name="functionName")
+    def function_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
+        """
+        return pulumi.get(self, "function_name")
+
+    @function_name.setter
+    def function_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "function_name", value)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
+        """
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="bisectBatchOnFunctionError")
+    def bisect_batch_on_function_error(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror
+        """
+        return pulumi.get(self, "bisect_batch_on_function_error")
+
+    @bisect_batch_on_function_error.setter
+    def bisect_batch_on_function_error(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bisect_batch_on_function_error", value)
+
+    @property
+    @pulumi.getter(name="destinationConfig")
+    def destination_config(self) -> Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
+        """
+        return pulumi.get(self, "destination_config")
+
+    @destination_config.setter
+    def destination_config(self, value: Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']]):
+        pulumi.set(self, "destination_config", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="eventSourceArn")
+    def event_source_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
+        """
+        return pulumi.get(self, "event_source_arn")
+
+    @event_source_arn.setter
+    def event_source_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_source_arn", value)
+
+    @property
+    @pulumi.getter(name="functionResponseTypes")
+    def function_response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+        """
+        return pulumi.get(self, "function_response_types")
+
+    @function_response_types.setter
+    def function_response_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "function_response_types", value)
+
+    @property
+    @pulumi.getter(name="maximumBatchingWindowInSeconds")
+    def maximum_batching_window_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
+        """
+        return pulumi.get(self, "maximum_batching_window_in_seconds")
+
+    @maximum_batching_window_in_seconds.setter
+    def maximum_batching_window_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_batching_window_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="maximumRecordAgeInSeconds")
+    def maximum_record_age_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
+        """
+        return pulumi.get(self, "maximum_record_age_in_seconds")
+
+    @maximum_record_age_in_seconds.setter
+    def maximum_record_age_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_record_age_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="maximumRetryAttempts")
+    def maximum_retry_attempts(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
+        """
+        return pulumi.get(self, "maximum_retry_attempts")
+
+    @maximum_retry_attempts.setter
+    def maximum_retry_attempts(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_retry_attempts", value)
+
+    @property
+    @pulumi.getter(name="parallelizationFactor")
+    def parallelization_factor(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
+        """
+        return pulumi.get(self, "parallelization_factor")
+
+    @parallelization_factor.setter
+    def parallelization_factor(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "parallelization_factor", value)
+
+    @property
+    @pulumi.getter(name="partialBatchResponse")
+    def partial_batch_response(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
+        """
+        return pulumi.get(self, "partial_batch_response")
+
+    @partial_batch_response.setter
+    def partial_batch_response(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "partial_batch_response", value)
+
+    @property
+    @pulumi.getter
+    def queues(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+        """
+        return pulumi.get(self, "queues")
+
+    @queues.setter
+    def queues(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "queues", value)
+
+    @property
+    @pulumi.getter(name="selfManagedEventSource")
+    def self_managed_event_source(self) -> Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+        """
+        return pulumi.get(self, "self_managed_event_source")
+
+    @self_managed_event_source.setter
+    def self_managed_event_source(self, value: Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']]):
+        pulumi.set(self, "self_managed_event_source", value)
+
+    @property
+    @pulumi.getter(name="sourceAccessConfigurations")
+    def source_access_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+        """
+        return pulumi.get(self, "source_access_configurations")
+
+    @source_access_configurations.setter
+    def source_access_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]]]):
+        pulumi.set(self, "source_access_configurations", value)
+
+    @property
+    @pulumi.getter(name="startingPosition")
+    def starting_position(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
+        """
+        return pulumi.get(self, "starting_position")
+
+    @starting_position.setter
+    def starting_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "starting_position", value)
+
+    @property
+    @pulumi.getter
+    def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+        """
+        return pulumi.get(self, "topics")
+
+    @topics.setter
+    def topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "topics", value)
+
+    @property
+    @pulumi.getter(name="tumblingWindowInSeconds")
+    def tumbling_window_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+        """
+        return pulumi.get(self, "tumbling_window_in_seconds")
+
+    @tumbling_window_in_seconds.setter
+    def tumbling_window_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "tumbling_window_in_seconds", value)
 
 
 class EventSourceMapping(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,9 +330,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  starting_position: Optional[pulumi.Input[str]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
 
@@ -62,12 +355,49 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
         :param pulumi.Input[int] tumbling_window_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventSourceMappingArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
+
+        :param str resource_name: The name of the resource.
+        :param EventSourceMappingArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventSourceMappingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
+                 bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
+                 destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 event_source_arn: Optional[pulumi.Input[str]] = None,
+                 function_name: Optional[pulumi.Input[str]] = None,
+                 function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+                 parallelization_factor: Optional[pulumi.Input[int]] = None,
+                 partial_batch_response: Optional[pulumi.Input[bool]] = None,
+                 queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 self_managed_event_source: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']]] = None,
+                 source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]]] = None,
+                 starting_position: Optional[pulumi.Input[str]] = None,
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -77,29 +407,29 @@ class EventSourceMapping(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EventSourceMappingArgs.__new__(EventSourceMappingArgs)
 
-            __props__['batch_size'] = batch_size
-            __props__['bisect_batch_on_function_error'] = bisect_batch_on_function_error
-            __props__['destination_config'] = destination_config
-            __props__['enabled'] = enabled
-            __props__['event_source_arn'] = event_source_arn
+            __props__.__dict__["batch_size"] = batch_size
+            __props__.__dict__["bisect_batch_on_function_error"] = bisect_batch_on_function_error
+            __props__.__dict__["destination_config"] = destination_config
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["event_source_arn"] = event_source_arn
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
-            __props__['function_name'] = function_name
-            __props__['function_response_types'] = function_response_types
-            __props__['maximum_batching_window_in_seconds'] = maximum_batching_window_in_seconds
-            __props__['maximum_record_age_in_seconds'] = maximum_record_age_in_seconds
-            __props__['maximum_retry_attempts'] = maximum_retry_attempts
-            __props__['parallelization_factor'] = parallelization_factor
-            __props__['partial_batch_response'] = partial_batch_response
-            __props__['queues'] = queues
-            __props__['self_managed_event_source'] = self_managed_event_source
-            __props__['source_access_configurations'] = source_access_configurations
-            __props__['starting_position'] = starting_position
-            __props__['topics'] = topics
-            __props__['tumbling_window_in_seconds'] = tumbling_window_in_seconds
-            __props__['id'] = None
+            __props__.__dict__["function_name"] = function_name
+            __props__.__dict__["function_response_types"] = function_response_types
+            __props__.__dict__["maximum_batching_window_in_seconds"] = maximum_batching_window_in_seconds
+            __props__.__dict__["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
+            __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
+            __props__.__dict__["parallelization_factor"] = parallelization_factor
+            __props__.__dict__["partial_batch_response"] = partial_batch_response
+            __props__.__dict__["queues"] = queues
+            __props__.__dict__["self_managed_event_source"] = self_managed_event_source
+            __props__.__dict__["source_access_configurations"] = source_access_configurations
+            __props__.__dict__["starting_position"] = starting_position
+            __props__.__dict__["topics"] = topics
+            __props__.__dict__["tumbling_window_in_seconds"] = tumbling_window_in_seconds
+            __props__.__dict__["id"] = None
         super(EventSourceMapping, __self__).__init__(
             'aws-native:Lambda:EventSourceMapping',
             resource_name,
@@ -120,8 +450,27 @@ class EventSourceMapping(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = EventSourceMappingArgs.__new__(EventSourceMappingArgs)
 
+        __props__.__dict__["batch_size"] = None
+        __props__.__dict__["bisect_batch_on_function_error"] = None
+        __props__.__dict__["destination_config"] = None
+        __props__.__dict__["enabled"] = None
+        __props__.__dict__["event_source_arn"] = None
+        __props__.__dict__["function_name"] = None
+        __props__.__dict__["function_response_types"] = None
+        __props__.__dict__["id"] = None
+        __props__.__dict__["maximum_batching_window_in_seconds"] = None
+        __props__.__dict__["maximum_record_age_in_seconds"] = None
+        __props__.__dict__["maximum_retry_attempts"] = None
+        __props__.__dict__["parallelization_factor"] = None
+        __props__.__dict__["partial_batch_response"] = None
+        __props__.__dict__["queues"] = None
+        __props__.__dict__["self_managed_event_source"] = None
+        __props__.__dict__["source_access_configurations"] = None
+        __props__.__dict__["starting_position"] = None
+        __props__.__dict__["topics"] = None
+        __props__.__dict__["tumbling_window_in_seconds"] = None
         return EventSourceMapping(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -272,10 +621,4 @@ class EventSourceMapping(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
         """
         return pulumi.get(self, "tumbling_window_in_seconds")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

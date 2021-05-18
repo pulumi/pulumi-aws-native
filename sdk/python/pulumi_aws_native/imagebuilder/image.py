@@ -5,15 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Image']
+__all__ = ['ImageArgs', 'Image']
+
+@pulumi.input_type
+class ImageArgs:
+    def __init__(__self__, *,
+                 image_recipe_arn: pulumi.Input[str],
+                 infrastructure_configuration_arn: pulumi.Input[str],
+                 distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
+                 enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+                 image_tests_configuration: Optional[pulumi.Input['ImageImageTestsConfigurationArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Image resource.
+        :param pulumi.Input[str] image_recipe_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
+        :param pulumi.Input[str] infrastructure_configuration_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
+        :param pulumi.Input[str] distribution_configuration_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
+        :param pulumi.Input[bool] enhanced_image_metadata_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+        :param pulumi.Input['ImageImageTestsConfigurationArgs'] image_tests_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
+        """
+        pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
+        pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
+        if distribution_configuration_arn is not None:
+            pulumi.set(__self__, "distribution_configuration_arn", distribution_configuration_arn)
+        if enhanced_image_metadata_enabled is not None:
+            pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
+        if image_tests_configuration is not None:
+            pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="imageRecipeArn")
+    def image_recipe_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
+        """
+        return pulumi.get(self, "image_recipe_arn")
+
+    @image_recipe_arn.setter
+    def image_recipe_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_recipe_arn", value)
+
+    @property
+    @pulumi.getter(name="infrastructureConfigurationArn")
+    def infrastructure_configuration_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
+        """
+        return pulumi.get(self, "infrastructure_configuration_arn")
+
+    @infrastructure_configuration_arn.setter
+    def infrastructure_configuration_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "infrastructure_configuration_arn", value)
+
+    @property
+    @pulumi.getter(name="distributionConfigurationArn")
+    def distribution_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
+        """
+        return pulumi.get(self, "distribution_configuration_arn")
+
+    @distribution_configuration_arn.setter
+    def distribution_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "distribution_configuration_arn", value)
+
+    @property
+    @pulumi.getter(name="enhancedImageMetadataEnabled")
+    def enhanced_image_metadata_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+        """
+        return pulumi.get(self, "enhanced_image_metadata_enabled")
+
+    @enhanced_image_metadata_enabled.setter
+    def enhanced_image_metadata_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enhanced_image_metadata_enabled", value)
+
+    @property
+    @pulumi.getter(name="imageTestsConfiguration")
+    def image_tests_configuration(self) -> Optional[pulumi.Input['ImageImageTestsConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
+        """
+        return pulumi.get(self, "image_tests_configuration")
+
+    @image_tests_configuration.setter
+    def image_tests_configuration(self, value: Optional[pulumi.Input['ImageImageTestsConfigurationArgs']]):
+        pulumi.set(self, "image_tests_configuration", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Image(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -23,9 +125,7 @@ class Image(pulumi.CustomResource):
                  image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArgs']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html
 
@@ -38,12 +138,37 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] infrastructure_configuration_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ImageArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html
+
+        :param str resource_name: The name of the resource.
+        :param ImageArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ImageArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
+                 enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+                 image_recipe_arn: Optional[pulumi.Input[str]] = None,
+                 image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArgs']]] = None,
+                 infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -53,21 +178,21 @@ class Image(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ImageArgs.__new__(ImageArgs)
 
-            __props__['distribution_configuration_arn'] = distribution_configuration_arn
-            __props__['enhanced_image_metadata_enabled'] = enhanced_image_metadata_enabled
+            __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
+            __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
             if image_recipe_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'image_recipe_arn'")
-            __props__['image_recipe_arn'] = image_recipe_arn
-            __props__['image_tests_configuration'] = image_tests_configuration
+            __props__.__dict__["image_recipe_arn"] = image_recipe_arn
+            __props__.__dict__["image_tests_configuration"] = image_tests_configuration
             if infrastructure_configuration_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'infrastructure_configuration_arn'")
-            __props__['infrastructure_configuration_arn'] = infrastructure_configuration_arn
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['image_id'] = None
-            __props__['name'] = None
+            __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["image_id"] = None
+            __props__.__dict__["name"] = None
         super(Image, __self__).__init__(
             'aws-native:ImageBuilder:Image',
             resource_name,
@@ -88,8 +213,17 @@ class Image(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ImageArgs.__new__(ImageArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["distribution_configuration_arn"] = None
+        __props__.__dict__["enhanced_image_metadata_enabled"] = None
+        __props__.__dict__["image_id"] = None
+        __props__.__dict__["image_recipe_arn"] = None
+        __props__.__dict__["image_tests_configuration"] = None
+        __props__.__dict__["infrastructure_configuration_arn"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["tags"] = None
         return Image(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -154,10 +288,4 @@ class Image(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

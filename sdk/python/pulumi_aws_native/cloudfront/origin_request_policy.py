@@ -5,22 +5,43 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OriginRequestPolicy']
+__all__ = ['OriginRequestPolicyArgs', 'OriginRequestPolicy']
+
+@pulumi.input_type
+class OriginRequestPolicyArgs:
+    def __init__(__self__, *,
+                 origin_request_policy_config: pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs']):
+        """
+        The set of arguments for constructing a OriginRequestPolicy resource.
+        :param pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs'] origin_request_policy_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
+        """
+        pulumi.set(__self__, "origin_request_policy_config", origin_request_policy_config)
+
+    @property
+    @pulumi.getter(name="originRequestPolicyConfig")
+    def origin_request_policy_config(self) -> pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
+        """
+        return pulumi.get(self, "origin_request_policy_config")
+
+    @origin_request_policy_config.setter
+    def origin_request_policy_config(self, value: pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs']):
+        pulumi.set(self, "origin_request_policy_config", value)
 
 
 class OriginRequestPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  origin_request_policy_config: Optional[pulumi.Input[pulumi.InputType['OriginRequestPolicyOriginRequestPolicyConfigArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
 
@@ -28,12 +49,32 @@ class OriginRequestPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['OriginRequestPolicyOriginRequestPolicyConfigArgs']] origin_request_policy_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OriginRequestPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
+
+        :param str resource_name: The name of the resource.
+        :param OriginRequestPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OriginRequestPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 origin_request_policy_config: Optional[pulumi.Input[pulumi.InputType['OriginRequestPolicyOriginRequestPolicyConfigArgs']]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -43,13 +84,13 @@ class OriginRequestPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OriginRequestPolicyArgs.__new__(OriginRequestPolicyArgs)
 
             if origin_request_policy_config is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_request_policy_config'")
-            __props__['origin_request_policy_config'] = origin_request_policy_config
-            __props__['id'] = None
-            __props__['last_modified_time'] = None
+            __props__.__dict__["origin_request_policy_config"] = origin_request_policy_config
+            __props__.__dict__["id"] = None
+            __props__.__dict__["last_modified_time"] = None
         super(OriginRequestPolicy, __self__).__init__(
             'aws-native:CloudFront:OriginRequestPolicy',
             resource_name,
@@ -70,8 +111,11 @@ class OriginRequestPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = OriginRequestPolicyArgs.__new__(OriginRequestPolicyArgs)
 
+        __props__.__dict__["id"] = None
+        __props__.__dict__["last_modified_time"] = None
+        __props__.__dict__["origin_request_policy_config"] = None
         return OriginRequestPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -91,10 +135,4 @@ class OriginRequestPolicy(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
         """
         return pulumi.get(self, "origin_request_policy_config")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

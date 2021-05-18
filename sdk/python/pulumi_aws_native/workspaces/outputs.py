@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ConnectionAliasConnectionAliasAssociation',
@@ -17,6 +17,29 @@ class ConnectionAliasConnectionAliasAssociation(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associatedAccountId":
+            suggest = "associated_account_id"
+        elif key == "associationStatus":
+            suggest = "association_status"
+        elif key == "connectionIdentifier":
+            suggest = "connection_identifier"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionAliasConnectionAliasAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionAliasConnectionAliasAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionAliasConnectionAliasAssociation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  associated_account_id: Optional[str] = None,
                  association_status: Optional[str] = None,
@@ -69,8 +92,5 @@ class ConnectionAliasConnectionAliasAssociation(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-resourceid
         """
         return pulumi.get(self, "resource_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

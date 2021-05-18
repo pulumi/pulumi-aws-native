@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
 
@@ -36,7 +36,7 @@ class CarrierGatewayTags(dict):
                  tags: Optional[Sequence['_root_outputs.Tag']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html#cfn-ec2-carriergateway-tags-tags
+        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html#cfn-ec2-carriergateway-tags-tags
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -49,9 +49,6 @@ class CarrierGatewayTags(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LocalGatewayRouteTableVPCAssociationTags(dict):
@@ -62,7 +59,7 @@ class LocalGatewayRouteTableVPCAssociationTags(dict):
                  tags: Optional[Sequence['_root_outputs.Tag']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html#cfn-ec2-localgatewayroutetablevpcassociation-tags-tags
+        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html#cfn-ec2-localgatewayroutetablevpcassociation-tags-tags
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -75,15 +72,31 @@ class LocalGatewayRouteTableVPCAssociationTags(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInsightsAnalysisAlternatePathHint(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentArn":
+            suggest = "component_arn"
+        elif key == "componentId":
+            suggest = "component_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisAlternatePathHint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAnalysisAlternatePathHint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAnalysisAlternatePathHint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  component_arn: Optional[str] = None,
                  component_id: Optional[str] = None):
@@ -113,15 +126,33 @@ class NetworkInsightsAnalysisAlternatePathHint(dict):
         """
         return pulumi.get(self, "component_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInsightsAnalysisAnalysisAclRule(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portRange":
+            suggest = "port_range"
+        elif key == "ruleAction":
+            suggest = "rule_action"
+        elif key == "ruleNumber":
+            suggest = "rule_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisAnalysisAclRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAnalysisAnalysisAclRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAnalysisAnalysisAclRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cidr: Optional[str] = None,
                  egress: Optional[bool] = None,
@@ -133,7 +164,7 @@ class NetworkInsightsAnalysisAnalysisAclRule(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html
         :param str cidr: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-cidr
         :param bool egress: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-egress
-        :param 'NetworkInsightsAnalysisPortRangeArgs' port_range: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-portrange
+        :param 'NetworkInsightsAnalysisPortRange' port_range: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-portrange
         :param str protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-protocol
         :param str rule_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-ruleaction
         :param int rule_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisaclrule.html#cfn-ec2-networkinsightsanalysis-analysisaclrule-rulenumber
@@ -199,9 +230,6 @@ class NetworkInsightsAnalysisAnalysisAclRule(dict):
         """
         return pulumi.get(self, "rule_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInsightsAnalysisAnalysisComponent(dict):
@@ -237,15 +265,31 @@ class NetworkInsightsAnalysisAnalysisComponent(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInsightsAnalysisAnalysisLoadBalancerListener(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancerlistener.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instancePort":
+            suggest = "instance_port"
+        elif key == "loadBalancerPort":
+            suggest = "load_balancer_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisAnalysisLoadBalancerListener. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAnalysisAnalysisLoadBalancerListener.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAnalysisAnalysisLoadBalancerListener.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_port: Optional[int] = None,
                  load_balancer_port: Optional[int] = None):
@@ -275,15 +319,29 @@ class NetworkInsightsAnalysisAnalysisLoadBalancerListener(dict):
         """
         return pulumi.get(self, "load_balancer_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInsightsAnalysisAnalysisLoadBalancerTarget(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisAnalysisLoadBalancerTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAnalysisAnalysisLoadBalancerTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAnalysisAnalysisLoadBalancerTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  availability_zone: Optional[str] = None,
@@ -293,7 +351,7 @@ class NetworkInsightsAnalysisAnalysisLoadBalancerTarget(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html
         :param str address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-address
         :param str availability_zone: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-availabilityzone
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' instance: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-instance
+        :param 'NetworkInsightsAnalysisAnalysisComponent' instance: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-instance
         :param int port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisloadbalancertarget.html#cfn-ec2-networkinsightsanalysis-analysisloadbalancertarget-port
         """
         if address is not None:
@@ -337,15 +395,35 @@ class NetworkInsightsAnalysisAnalysisLoadBalancerTarget(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInsightsAnalysisAnalysisPacketHeader(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddresses":
+            suggest = "destination_addresses"
+        elif key == "destinationPortRanges":
+            suggest = "destination_port_ranges"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourcePortRanges":
+            suggest = "source_port_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisAnalysisPacketHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAnalysisAnalysisPacketHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAnalysisAnalysisPacketHeader.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_addresses: Optional[Sequence[str]] = None,
                  destination_port_ranges: Optional[Sequence['outputs.NetworkInsightsAnalysisPortRange']] = None,
@@ -355,10 +433,10 @@ class NetworkInsightsAnalysisAnalysisPacketHeader(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html
         :param Sequence[str] destination_addresses: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationaddresses
-        :param Sequence['NetworkInsightsAnalysisPortRangeArgs'] destination_port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationportranges
+        :param Sequence['NetworkInsightsAnalysisPortRange'] destination_port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-destinationportranges
         :param str protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-protocol
         :param Sequence[str] source_addresses: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceaddresses
-        :param Sequence['NetworkInsightsAnalysisPortRangeArgs'] source_port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceportranges
+        :param Sequence['NetworkInsightsAnalysisPortRange'] source_port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysispacketheader.html#cfn-ec2-networkinsightsanalysis-analysispacketheader-sourceportranges
         """
         if destination_addresses is not None:
             pulumi.set(__self__, "destination_addresses", destination_addresses)
@@ -411,15 +489,45 @@ class NetworkInsightsAnalysisAnalysisPacketHeader(dict):
         """
         return pulumi.get(self, "source_port_ranges")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInsightsAnalysisAnalysisRouteTableRoute(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationCidr":
+            suggest = "destination_cidr"
+        elif key == "destinationPrefixListId":
+            suggest = "destination_prefix_list_id"
+        elif key == "egressOnlyInternetGatewayId":
+            suggest = "egress_only_internet_gateway_id"
+        elif key == "gatewayId":
+            suggest = "gateway_id"
+        elif key == "instanceId":
+            suggest = "instance_id"
+        elif key == "natGatewayId":
+            suggest = "nat_gateway_id"
+        elif key == "networkInterfaceId":
+            suggest = "network_interface_id"
+        elif key == "transitGatewayId":
+            suggest = "transit_gateway_id"
+        elif key == "vpcPeeringConnectionId":
+            suggest = "vpc_peering_connection_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisAnalysisRouteTableRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAnalysisAnalysisRouteTableRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAnalysisAnalysisRouteTableRoute.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_cidr: Optional[str] = None,
                  destination_prefix_list_id: Optional[str] = None,
@@ -545,15 +653,33 @@ class NetworkInsightsAnalysisAnalysisRouteTableRoute(dict):
         """
         return pulumi.get(self, "vpc_peering_connection_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInsightsAnalysisAnalysisSecurityGroupRule(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portRange":
+            suggest = "port_range"
+        elif key == "prefixListId":
+            suggest = "prefix_list_id"
+        elif key == "securityGroupId":
+            suggest = "security_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisAnalysisSecurityGroupRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAnalysisAnalysisSecurityGroupRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAnalysisAnalysisSecurityGroupRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cidr: Optional[str] = None,
                  direction: Optional[str] = None,
@@ -565,7 +691,7 @@ class NetworkInsightsAnalysisAnalysisSecurityGroupRule(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html
         :param str cidr: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-cidr
         :param str direction: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-direction
-        :param 'NetworkInsightsAnalysisPortRangeArgs' port_range: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-portrange
+        :param 'NetworkInsightsAnalysisPortRange' port_range: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-portrange
         :param str prefix_list_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-prefixlistid
         :param str protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-protocol
         :param str security_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysissecuritygrouprule.html#cfn-ec2-networkinsightsanalysis-analysissecuritygrouprule-securitygroupid
@@ -631,15 +757,93 @@ class NetworkInsightsAnalysisAnalysisSecurityGroupRule(dict):
         """
         return pulumi.get(self, "security_group_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInsightsAnalysisExplanation(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aclRule":
+            suggest = "acl_rule"
+        elif key == "attachedTo":
+            suggest = "attached_to"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
+        elif key == "classicLoadBalancerListener":
+            suggest = "classic_load_balancer_listener"
+        elif key == "customerGateway":
+            suggest = "customer_gateway"
+        elif key == "destinationVpc":
+            suggest = "destination_vpc"
+        elif key == "elasticLoadBalancerListener":
+            suggest = "elastic_load_balancer_listener"
+        elif key == "explanationCode":
+            suggest = "explanation_code"
+        elif key == "ingressRouteTable":
+            suggest = "ingress_route_table"
+        elif key == "internetGateway":
+            suggest = "internet_gateway"
+        elif key == "loadBalancerArn":
+            suggest = "load_balancer_arn"
+        elif key == "loadBalancerListenerPort":
+            suggest = "load_balancer_listener_port"
+        elif key == "loadBalancerTarget":
+            suggest = "load_balancer_target"
+        elif key == "loadBalancerTargetGroup":
+            suggest = "load_balancer_target_group"
+        elif key == "loadBalancerTargetGroups":
+            suggest = "load_balancer_target_groups"
+        elif key == "loadBalancerTargetPort":
+            suggest = "load_balancer_target_port"
+        elif key == "missingComponent":
+            suggest = "missing_component"
+        elif key == "natGateway":
+            suggest = "nat_gateway"
+        elif key == "networkInterface":
+            suggest = "network_interface"
+        elif key == "packetField":
+            suggest = "packet_field"
+        elif key == "portRanges":
+            suggest = "port_ranges"
+        elif key == "prefixList":
+            suggest = "prefix_list"
+        elif key == "routeTable":
+            suggest = "route_table"
+        elif key == "routeTableRoute":
+            suggest = "route_table_route"
+        elif key == "securityGroup":
+            suggest = "security_group"
+        elif key == "securityGroupRule":
+            suggest = "security_group_rule"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+        elif key == "sourceVpc":
+            suggest = "source_vpc"
+        elif key == "subnetRouteTable":
+            suggest = "subnet_route_table"
+        elif key == "vpcEndpoint":
+            suggest = "vpc_endpoint"
+        elif key == "vpcPeeringConnection":
+            suggest = "vpc_peering_connection"
+        elif key == "vpnConnection":
+            suggest = "vpn_connection"
+        elif key == "vpnGateway":
+            suggest = "vpn_gateway"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisExplanation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAnalysisExplanation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAnalysisExplanation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  acl: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  acl_rule: Optional['outputs.NetworkInsightsAnalysisAnalysisAclRule'] = None,
@@ -688,51 +892,51 @@ class NetworkInsightsAnalysisExplanation(dict):
                  vpn_gateway: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' acl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-acl
-        :param 'NetworkInsightsAnalysisAnalysisAclRuleArgs' acl_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-aclrule
+        :param 'NetworkInsightsAnalysisAnalysisComponent' acl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-acl
+        :param 'NetworkInsightsAnalysisAnalysisAclRule' acl_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-aclrule
         :param str address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-address
         :param Sequence[str] addresses: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-addresses
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' attached_to: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-attachedto
+        :param 'NetworkInsightsAnalysisAnalysisComponent' attached_to: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-attachedto
         :param Sequence[str] availability_zones: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-availabilityzones
         :param Sequence[str] cidrs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-cidrs
-        :param 'NetworkInsightsAnalysisAnalysisLoadBalancerListenerArgs' classic_load_balancer_listener: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-classicloadbalancerlistener
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' component: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-component
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' customer_gateway: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-customergateway
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-destination
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' destination_vpc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-destinationvpc
+        :param 'NetworkInsightsAnalysisAnalysisLoadBalancerListener' classic_load_balancer_listener: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-classicloadbalancerlistener
+        :param 'NetworkInsightsAnalysisAnalysisComponent' component: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-component
+        :param 'NetworkInsightsAnalysisAnalysisComponent' customer_gateway: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-customergateway
+        :param 'NetworkInsightsAnalysisAnalysisComponent' destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-destination
+        :param 'NetworkInsightsAnalysisAnalysisComponent' destination_vpc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-destinationvpc
         :param str direction: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-direction
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' elastic_load_balancer_listener: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-elasticloadbalancerlistener
+        :param 'NetworkInsightsAnalysisAnalysisComponent' elastic_load_balancer_listener: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-elasticloadbalancerlistener
         :param str explanation_code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-explanationcode
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' ingress_route_table: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-ingressroutetable
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' internet_gateway: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-internetgateway
+        :param 'NetworkInsightsAnalysisAnalysisComponent' ingress_route_table: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-ingressroutetable
+        :param 'NetworkInsightsAnalysisAnalysisComponent' internet_gateway: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-internetgateway
         :param str load_balancer_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancerarn
         :param int load_balancer_listener_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancerlistenerport
-        :param 'NetworkInsightsAnalysisAnalysisLoadBalancerTargetArgs' load_balancer_target: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertarget
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' load_balancer_target_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetgroup
-        :param Sequence['NetworkInsightsAnalysisAnalysisComponentArgs'] load_balancer_target_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetgroups
+        :param 'NetworkInsightsAnalysisAnalysisLoadBalancerTarget' load_balancer_target: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertarget
+        :param 'NetworkInsightsAnalysisAnalysisComponent' load_balancer_target_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetgroup
+        :param Sequence['NetworkInsightsAnalysisAnalysisComponent'] load_balancer_target_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetgroups
         :param int load_balancer_target_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-loadbalancertargetport
         :param str missing_component: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-missingcomponent
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' nat_gateway: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-natgateway
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' network_interface: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-networkinterface
+        :param 'NetworkInsightsAnalysisAnalysisComponent' nat_gateway: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-natgateway
+        :param 'NetworkInsightsAnalysisAnalysisComponent' network_interface: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-networkinterface
         :param str packet_field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-packetfield
         :param int port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-port
-        :param Sequence['NetworkInsightsAnalysisPortRangeArgs'] port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-portranges
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' prefix_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-prefixlist
+        :param Sequence['NetworkInsightsAnalysisPortRange'] port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-portranges
+        :param 'NetworkInsightsAnalysisAnalysisComponent' prefix_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-prefixlist
         :param Sequence[str] protocols: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-protocols
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' route_table: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-routetable
-        :param 'NetworkInsightsAnalysisAnalysisRouteTableRouteArgs' route_table_route: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-routetableroute
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' security_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygroup
-        :param 'NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs' security_group_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygrouprule
-        :param Sequence['NetworkInsightsAnalysisAnalysisComponentArgs'] security_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygroups
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' source_vpc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-sourcevpc
+        :param 'NetworkInsightsAnalysisAnalysisComponent' route_table: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-routetable
+        :param 'NetworkInsightsAnalysisAnalysisRouteTableRoute' route_table_route: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-routetableroute
+        :param 'NetworkInsightsAnalysisAnalysisComponent' security_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygroup
+        :param 'NetworkInsightsAnalysisAnalysisSecurityGroupRule' security_group_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygrouprule
+        :param Sequence['NetworkInsightsAnalysisAnalysisComponent'] security_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-securitygroups
+        :param 'NetworkInsightsAnalysisAnalysisComponent' source_vpc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-sourcevpc
         :param str state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-state
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' subnet: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnet
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' subnet_route_table: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnetroutetable
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' vpc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpc
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' vpc_endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcendpoint
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' vpc_peering_connection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcpeeringconnection
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' vpn_connection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpnconnection
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' vpn_gateway: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpngateway
+        :param 'NetworkInsightsAnalysisAnalysisComponent' subnet: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnet
+        :param 'NetworkInsightsAnalysisAnalysisComponent' subnet_route_table: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-subnetroutetable
+        :param 'NetworkInsightsAnalysisAnalysisComponent' vpc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpc
+        :param 'NetworkInsightsAnalysisAnalysisComponent' vpc_endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcendpoint
+        :param 'NetworkInsightsAnalysisAnalysisComponent' vpc_peering_connection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpcpeeringconnection
+        :param 'NetworkInsightsAnalysisAnalysisComponent' vpn_connection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpnconnection
+        :param 'NetworkInsightsAnalysisAnalysisComponent' vpn_gateway: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-vpngateway
         """
         if acl is not None:
             pulumi.set(__self__, "acl", acl)
@@ -1185,15 +1389,43 @@ class NetworkInsightsAnalysisExplanation(dict):
         """
         return pulumi.get(self, "vpn_gateway")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInsightsAnalysisPathComponent(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aclRule":
+            suggest = "acl_rule"
+        elif key == "destinationVpc":
+            suggest = "destination_vpc"
+        elif key == "inboundHeader":
+            suggest = "inbound_header"
+        elif key == "outboundHeader":
+            suggest = "outbound_header"
+        elif key == "routeTableRoute":
+            suggest = "route_table_route"
+        elif key == "securityGroupRule":
+            suggest = "security_group_rule"
+        elif key == "sequenceNumber":
+            suggest = "sequence_number"
+        elif key == "sourceVpc":
+            suggest = "source_vpc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisPathComponent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAnalysisPathComponent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAnalysisPathComponent.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  acl_rule: Optional['outputs.NetworkInsightsAnalysisAnalysisAclRule'] = None,
                  component: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
@@ -1208,17 +1440,17 @@ class NetworkInsightsAnalysisPathComponent(dict):
                  vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html
-        :param 'NetworkInsightsAnalysisAnalysisAclRuleArgs' acl_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-aclrule
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' component: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-component
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' destination_vpc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-destinationvpc
-        :param 'NetworkInsightsAnalysisAnalysisPacketHeaderArgs' inbound_header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-inboundheader
-        :param 'NetworkInsightsAnalysisAnalysisPacketHeaderArgs' outbound_header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-outboundheader
-        :param 'NetworkInsightsAnalysisAnalysisRouteTableRouteArgs' route_table_route: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-routetableroute
-        :param 'NetworkInsightsAnalysisAnalysisSecurityGroupRuleArgs' security_group_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-securitygrouprule
+        :param 'NetworkInsightsAnalysisAnalysisAclRule' acl_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-aclrule
+        :param 'NetworkInsightsAnalysisAnalysisComponent' component: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-component
+        :param 'NetworkInsightsAnalysisAnalysisComponent' destination_vpc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-destinationvpc
+        :param 'NetworkInsightsAnalysisAnalysisPacketHeader' inbound_header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-inboundheader
+        :param 'NetworkInsightsAnalysisAnalysisPacketHeader' outbound_header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-outboundheader
+        :param 'NetworkInsightsAnalysisAnalysisRouteTableRoute' route_table_route: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-routetableroute
+        :param 'NetworkInsightsAnalysisAnalysisSecurityGroupRule' security_group_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-securitygrouprule
         :param int sequence_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sequencenumber
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' source_vpc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sourcevpc
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' subnet: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-subnet
-        :param 'NetworkInsightsAnalysisAnalysisComponentArgs' vpc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-vpc
+        :param 'NetworkInsightsAnalysisAnalysisComponent' source_vpc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-sourcevpc
+        :param 'NetworkInsightsAnalysisAnalysisComponent' subnet: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-subnet
+        :param 'NetworkInsightsAnalysisAnalysisComponent' vpc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-vpc
         """
         if acl_rule is not None:
             pulumi.set(__self__, "acl_rule", acl_rule)
@@ -1331,15 +1563,29 @@ class NetworkInsightsAnalysisPathComponent(dict):
         """
         return pulumi.get(self, "vpc")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInsightsAnalysisPortRange(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAnalysisPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAnalysisPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAnalysisPortRange.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  from_: Optional[int] = None,
                  to: Optional[int] = None):
@@ -1368,9 +1614,6 @@ class NetworkInsightsAnalysisPortRange(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-portrange.html#cfn-ec2-networkinsightsanalysis-portrange-to
         """
         return pulumi.get(self, "to")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1405,8 +1648,5 @@ class PrefixListEntry(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-description
         """
         return pulumi.get(self, "description")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

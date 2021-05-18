@@ -5,17 +5,149 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['Schema']
+__all__ = ['SchemaArgs', 'Schema']
+
+@pulumi.input_type
+class SchemaArgs:
+    def __init__(__self__, *,
+                 compatibility: pulumi.Input[str],
+                 data_format: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 schema_definition: pulumi.Input[str],
+                 checkpoint_version: Optional[pulumi.Input['SchemaSchemaVersionArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 registry: Optional[pulumi.Input['SchemaRegistryArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+        """
+        The set of arguments for constructing a Schema resource.
+        :param pulumi.Input[str] compatibility: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+        :param pulumi.Input[str] data_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+        :param pulumi.Input[str] schema_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+        :param pulumi.Input['SchemaSchemaVersionArgs'] checkpoint_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
+        :param pulumi.Input['SchemaRegistryArgs'] registry: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
+        """
+        pulumi.set(__self__, "compatibility", compatibility)
+        pulumi.set(__self__, "data_format", data_format)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema_definition", schema_definition)
+        if checkpoint_version is not None:
+            pulumi.set(__self__, "checkpoint_version", checkpoint_version)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if registry is not None:
+            pulumi.set(__self__, "registry", registry)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def compatibility(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+        """
+        return pulumi.get(self, "compatibility")
+
+    @compatibility.setter
+    def compatibility(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compatibility", value)
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+        """
+        return pulumi.get(self, "data_format")
+
+    @data_format.setter
+    def data_format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_format", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="schemaDefinition")
+    def schema_definition(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+        """
+        return pulumi.get(self, "schema_definition")
+
+    @schema_definition.setter
+    def schema_definition(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schema_definition", value)
+
+    @property
+    @pulumi.getter(name="checkpointVersion")
+    def checkpoint_version(self) -> Optional[pulumi.Input['SchemaSchemaVersionArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
+        """
+        return pulumi.get(self, "checkpoint_version")
+
+    @checkpoint_version.setter
+    def checkpoint_version(self, value: Optional[pulumi.Input['SchemaSchemaVersionArgs']]):
+        pulumi.set(self, "checkpoint_version", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def registry(self) -> Optional[pulumi.Input['SchemaRegistryArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
+        """
+        return pulumi.get(self, "registry")
+
+    @registry.setter
+    def registry(self, value: Optional[pulumi.Input['SchemaRegistryArgs']]):
+        pulumi.set(self, "registry", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Schema(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -27,9 +159,7 @@ class Schema(pulumi.CustomResource):
                  registry: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryArgs']]] = None,
                  schema_definition: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html
 
@@ -44,12 +174,39 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] schema_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SchemaArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html
+
+        :param str resource_name: The name of the resource.
+        :param SchemaArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SchemaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 checkpoint_version: Optional[pulumi.Input[pulumi.InputType['SchemaSchemaVersionArgs']]] = None,
+                 compatibility: Optional[pulumi.Input[str]] = None,
+                 data_format: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 registry: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryArgs']]] = None,
+                 schema_definition: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -59,26 +216,26 @@ class Schema(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SchemaArgs.__new__(SchemaArgs)
 
-            __props__['checkpoint_version'] = checkpoint_version
+            __props__.__dict__["checkpoint_version"] = checkpoint_version
             if compatibility is None and not opts.urn:
                 raise TypeError("Missing required property 'compatibility'")
-            __props__['compatibility'] = compatibility
+            __props__.__dict__["compatibility"] = compatibility
             if data_format is None and not opts.urn:
                 raise TypeError("Missing required property 'data_format'")
-            __props__['data_format'] = data_format
-            __props__['description'] = description
+            __props__.__dict__["data_format"] = data_format
+            __props__.__dict__["description"] = description
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['registry'] = registry
+            __props__.__dict__["name"] = name
+            __props__.__dict__["registry"] = registry
             if schema_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_definition'")
-            __props__['schema_definition'] = schema_definition
-            __props__['tags'] = tags
-            __props__['arn'] = None
-            __props__['initial_schema_version_id'] = None
+            __props__.__dict__["schema_definition"] = schema_definition
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["initial_schema_version_id"] = None
         super(Schema, __self__).__init__(
             'aws-native:Glue:Schema',
             resource_name,
@@ -99,8 +256,18 @@ class Schema(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SchemaArgs.__new__(SchemaArgs)
 
+        __props__.__dict__["arn"] = None
+        __props__.__dict__["checkpoint_version"] = None
+        __props__.__dict__["compatibility"] = None
+        __props__.__dict__["data_format"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["initial_schema_version_id"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["registry"] = None
+        __props__.__dict__["schema_definition"] = None
+        __props__.__dict__["tags"] = None
         return Schema(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -176,10 +343,4 @@ class Schema(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

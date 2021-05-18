@@ -53,7 +53,7 @@ setup(name='pulumi_aws_native',
       },
       install_requires=[
           'parver>=0.2.1',
-          'pulumi>=2.0.0,<3.0.0',
+          'pulumi>=3.0.0,<4.0.0',
           'pyyaml>=5.1,<5.2',
           'requests>=2.21.0,<2.22.0',
           'semver>=2.8.1'

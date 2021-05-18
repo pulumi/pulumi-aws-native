@@ -5,17 +5,361 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._inputs import *
 
-__all__ = ['Service']
+__all__ = ['ServiceArgs', 'Service']
+
+@pulumi.input_type
+class ServiceArgs:
+    def __init__(__self__, *,
+                 capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]]] = None,
+                 cluster: Optional[pulumi.Input[str]] = None,
+                 deployment_configuration: Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']] = None,
+                 deployment_controller: Optional[pulumi.Input['ServiceDeploymentControllerArgs']] = None,
+                 desired_count: Optional[pulumi.Input[int]] = None,
+                 enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
+                 health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
+                 launch_type: Optional[pulumi.Input[str]] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
+                 network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
+                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]] = None,
+                 placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]]] = None,
+                 platform_version: Optional[pulumi.Input[str]] = None,
+                 propagate_tags: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 scheduling_strategy: Optional[pulumi.Input[str]] = None,
+                 service_arn: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceRegistryArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 task_definition: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Service resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]] capacity_provider_strategy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
+        :param pulumi.Input[str] cluster: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
+        :param pulumi.Input['ServiceDeploymentConfigurationArgs'] deployment_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
+        :param pulumi.Input['ServiceDeploymentControllerArgs'] deployment_controller: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
+        :param pulumi.Input[int] desired_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
+        :param pulumi.Input[bool] enable_ecs_managed_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
+        :param pulumi.Input[int] health_check_grace_period_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
+        :param pulumi.Input[str] launch_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]] load_balancers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
+        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
+        :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]] placement_constraints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
+        :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]] placement_strategies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
+        :param pulumi.Input[str] platform_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
+        :param pulumi.Input[str] propagate_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
+        :param pulumi.Input[str] role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
+        :param pulumi.Input[str] scheduling_strategy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
+        :param pulumi.Input[str] service_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
+        :param pulumi.Input[str] service_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceRegistryArgs']]] service_registries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
+        :param pulumi.Input[str] task_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
+        """
+        if capacity_provider_strategy is not None:
+            pulumi.set(__self__, "capacity_provider_strategy", capacity_provider_strategy)
+        if cluster is not None:
+            pulumi.set(__self__, "cluster", cluster)
+        if deployment_configuration is not None:
+            pulumi.set(__self__, "deployment_configuration", deployment_configuration)
+        if deployment_controller is not None:
+            pulumi.set(__self__, "deployment_controller", deployment_controller)
+        if desired_count is not None:
+            pulumi.set(__self__, "desired_count", desired_count)
+        if enable_ecs_managed_tags is not None:
+            pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
+        if health_check_grace_period_seconds is not None:
+            pulumi.set(__self__, "health_check_grace_period_seconds", health_check_grace_period_seconds)
+        if launch_type is not None:
+            pulumi.set(__self__, "launch_type", launch_type)
+        if load_balancers is not None:
+            pulumi.set(__self__, "load_balancers", load_balancers)
+        if network_configuration is not None:
+            pulumi.set(__self__, "network_configuration", network_configuration)
+        if placement_constraints is not None:
+            pulumi.set(__self__, "placement_constraints", placement_constraints)
+        if placement_strategies is not None:
+            pulumi.set(__self__, "placement_strategies", placement_strategies)
+        if platform_version is not None:
+            pulumi.set(__self__, "platform_version", platform_version)
+        if propagate_tags is not None:
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if scheduling_strategy is not None:
+            pulumi.set(__self__, "scheduling_strategy", scheduling_strategy)
+        if service_arn is not None:
+            pulumi.set(__self__, "service_arn", service_arn)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if service_registries is not None:
+            pulumi.set(__self__, "service_registries", service_registries)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if task_definition is not None:
+            pulumi.set(__self__, "task_definition", task_definition)
+
+    @property
+    @pulumi.getter(name="capacityProviderStrategy")
+    def capacity_provider_strategy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
+        """
+        return pulumi.get(self, "capacity_provider_strategy")
+
+    @capacity_provider_strategy.setter
+    def capacity_provider_strategy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]]]):
+        pulumi.set(self, "capacity_provider_strategy", value)
+
+    @property
+    @pulumi.getter
+    def cluster(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
+        """
+        return pulumi.get(self, "cluster")
+
+    @cluster.setter
+    def cluster(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster", value)
+
+    @property
+    @pulumi.getter(name="deploymentConfiguration")
+    def deployment_configuration(self) -> Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
+        """
+        return pulumi.get(self, "deployment_configuration")
+
+    @deployment_configuration.setter
+    def deployment_configuration(self, value: Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']]):
+        pulumi.set(self, "deployment_configuration", value)
+
+    @property
+    @pulumi.getter(name="deploymentController")
+    def deployment_controller(self) -> Optional[pulumi.Input['ServiceDeploymentControllerArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
+        """
+        return pulumi.get(self, "deployment_controller")
+
+    @deployment_controller.setter
+    def deployment_controller(self, value: Optional[pulumi.Input['ServiceDeploymentControllerArgs']]):
+        pulumi.set(self, "deployment_controller", value)
+
+    @property
+    @pulumi.getter(name="desiredCount")
+    def desired_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
+        """
+        return pulumi.get(self, "desired_count")
+
+    @desired_count.setter
+    def desired_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "desired_count", value)
+
+    @property
+    @pulumi.getter(name="enableECSManagedTags")
+    def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
+        """
+        return pulumi.get(self, "enable_ecs_managed_tags")
+
+    @enable_ecs_managed_tags.setter
+    def enable_ecs_managed_tags(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_ecs_managed_tags", value)
+
+    @property
+    @pulumi.getter(name="healthCheckGracePeriodSeconds")
+    def health_check_grace_period_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
+        """
+        return pulumi.get(self, "health_check_grace_period_seconds")
+
+    @health_check_grace_period_seconds.setter
+    def health_check_grace_period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_grace_period_seconds", value)
+
+    @property
+    @pulumi.getter(name="launchType")
+    def launch_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
+        """
+        return pulumi.get(self, "launch_type")
+
+    @launch_type.setter
+    def launch_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launch_type", value)
+
+    @property
+    @pulumi.getter(name="loadBalancers")
+    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
+        """
+        return pulumi.get(self, "load_balancers")
+
+    @load_balancers.setter
+    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]):
+        pulumi.set(self, "load_balancers", value)
+
+    @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
+        """
+        return pulumi.get(self, "network_configuration")
+
+    @network_configuration.setter
+    def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]):
+        pulumi.set(self, "network_configuration", value)
+
+    @property
+    @pulumi.getter(name="placementConstraints")
+    def placement_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
+        """
+        return pulumi.get(self, "placement_constraints")
+
+    @placement_constraints.setter
+    def placement_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]]):
+        pulumi.set(self, "placement_constraints", value)
+
+    @property
+    @pulumi.getter(name="placementStrategies")
+    def placement_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
+        """
+        return pulumi.get(self, "placement_strategies")
+
+    @placement_strategies.setter
+    def placement_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]]]):
+        pulumi.set(self, "placement_strategies", value)
+
+    @property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
+        """
+        return pulumi.get(self, "platform_version")
+
+    @platform_version.setter
+    def platform_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_version", value)
+
+    @property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
+        """
+        return pulumi.get(self, "propagate_tags")
+
+    @propagate_tags.setter
+    def propagate_tags(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "propagate_tags", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter(name="schedulingStrategy")
+    def scheduling_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
+        """
+        return pulumi.get(self, "scheduling_strategy")
+
+    @scheduling_strategy.setter
+    def scheduling_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scheduling_strategy", value)
+
+    @property
+    @pulumi.getter(name="serviceArn")
+    def service_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
+        """
+        return pulumi.get(self, "service_arn")
+
+    @service_arn.setter
+    def service_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_arn", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="serviceRegistries")
+    def service_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceRegistryArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
+        """
+        return pulumi.get(self, "service_registries")
+
+    @service_registries.setter
+    def service_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceRegistryArgs']]]]):
+        pulumi.set(self, "service_registries", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="taskDefinition")
+    def task_definition(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
+        """
+        return pulumi.get(self, "task_definition")
+
+    @task_definition.setter
+    def task_definition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "task_definition", value)
 
 
 class Service(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,9 +384,7 @@ class Service(pulumi.CustomResource):
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceServiceRegistryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
 
@@ -70,12 +412,52 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
         :param pulumi.Input[str] task_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[ServiceArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
+
+        :param str resource_name: The name of the resource.
+        :param ServiceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyItemArgs']]]]] = None,
+                 cluster: Optional[pulumi.Input[str]] = None,
+                 deployment_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentConfigurationArgs']]] = None,
+                 deployment_controller: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArgs']]] = None,
+                 desired_count: Optional[pulumi.Input[int]] = None,
+                 enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
+                 health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
+                 launch_type: Optional[pulumi.Input[str]] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArgs']]]]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
+                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArgs']]]]] = None,
+                 placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementStrategyArgs']]]]] = None,
+                 platform_version: Optional[pulumi.Input[str]] = None,
+                 propagate_tags: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 scheduling_strategy: Optional[pulumi.Input[str]] = None,
+                 service_arn: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceServiceRegistryArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 task_definition: Optional[pulumi.Input[str]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -85,30 +467,30 @@ class Service(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServiceArgs.__new__(ServiceArgs)
 
-            __props__['capacity_provider_strategy'] = capacity_provider_strategy
-            __props__['cluster'] = cluster
-            __props__['deployment_configuration'] = deployment_configuration
-            __props__['deployment_controller'] = deployment_controller
-            __props__['desired_count'] = desired_count
-            __props__['enable_ecs_managed_tags'] = enable_ecs_managed_tags
-            __props__['health_check_grace_period_seconds'] = health_check_grace_period_seconds
-            __props__['launch_type'] = launch_type
-            __props__['load_balancers'] = load_balancers
-            __props__['network_configuration'] = network_configuration
-            __props__['placement_constraints'] = placement_constraints
-            __props__['placement_strategies'] = placement_strategies
-            __props__['platform_version'] = platform_version
-            __props__['propagate_tags'] = propagate_tags
-            __props__['role'] = role
-            __props__['scheduling_strategy'] = scheduling_strategy
-            __props__['service_arn'] = service_arn
-            __props__['service_name'] = service_name
-            __props__['service_registries'] = service_registries
-            __props__['tags'] = tags
-            __props__['task_definition'] = task_definition
-            __props__['name'] = None
+            __props__.__dict__["capacity_provider_strategy"] = capacity_provider_strategy
+            __props__.__dict__["cluster"] = cluster
+            __props__.__dict__["deployment_configuration"] = deployment_configuration
+            __props__.__dict__["deployment_controller"] = deployment_controller
+            __props__.__dict__["desired_count"] = desired_count
+            __props__.__dict__["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            __props__.__dict__["health_check_grace_period_seconds"] = health_check_grace_period_seconds
+            __props__.__dict__["launch_type"] = launch_type
+            __props__.__dict__["load_balancers"] = load_balancers
+            __props__.__dict__["network_configuration"] = network_configuration
+            __props__.__dict__["placement_constraints"] = placement_constraints
+            __props__.__dict__["placement_strategies"] = placement_strategies
+            __props__.__dict__["platform_version"] = platform_version
+            __props__.__dict__["propagate_tags"] = propagate_tags
+            __props__.__dict__["role"] = role
+            __props__.__dict__["scheduling_strategy"] = scheduling_strategy
+            __props__.__dict__["service_arn"] = service_arn
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["service_registries"] = service_registries
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["task_definition"] = task_definition
+            __props__.__dict__["name"] = None
         super(Service, __self__).__init__(
             'aws-native:ECS:Service',
             resource_name,
@@ -129,8 +511,30 @@ class Service(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ServiceArgs.__new__(ServiceArgs)
 
+        __props__.__dict__["capacity_provider_strategy"] = None
+        __props__.__dict__["cluster"] = None
+        __props__.__dict__["deployment_configuration"] = None
+        __props__.__dict__["deployment_controller"] = None
+        __props__.__dict__["desired_count"] = None
+        __props__.__dict__["enable_ecs_managed_tags"] = None
+        __props__.__dict__["health_check_grace_period_seconds"] = None
+        __props__.__dict__["launch_type"] = None
+        __props__.__dict__["load_balancers"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_configuration"] = None
+        __props__.__dict__["placement_constraints"] = None
+        __props__.__dict__["placement_strategies"] = None
+        __props__.__dict__["platform_version"] = None
+        __props__.__dict__["propagate_tags"] = None
+        __props__.__dict__["role"] = None
+        __props__.__dict__["scheduling_strategy"] = None
+        __props__.__dict__["service_arn"] = None
+        __props__.__dict__["service_name"] = None
+        __props__.__dict__["service_registries"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["task_definition"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -305,10 +709,4 @@ class Service(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
         """
         return pulumi.get(self, "task_definition")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

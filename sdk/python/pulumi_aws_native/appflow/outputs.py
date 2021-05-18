@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -82,6 +82,25 @@ class ConnectorProfileAmplitudeConnectorProfileCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+        elif key == "secretKey":
+            suggest = "secret_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileAmplitudeConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileAmplitudeConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileAmplitudeConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  api_key: str,
                  secret_key: str):
@@ -109,15 +128,31 @@ class ConnectorProfileAmplitudeConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "secret_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileConnectorOAuthRequest(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authCode":
+            suggest = "auth_code"
+        elif key == "redirectUri":
+            suggest = "redirect_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileConnectorOAuthRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileConnectorOAuthRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileConnectorOAuthRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auth_code: Optional[str] = None,
                  redirect_uri: Optional[str] = None):
@@ -147,22 +182,38 @@ class ConnectorProfileConnectorOAuthRequest(dict):
         """
         return pulumi.get(self, "redirect_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileConnectorProfileConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorProfileCredentials":
+            suggest = "connector_profile_credentials"
+        elif key == "connectorProfileProperties":
+            suggest = "connector_profile_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileConnectorProfileConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileConnectorProfileConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileConnectorProfileConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connector_profile_credentials: 'outputs.ConnectorProfileConnectorProfileCredentials',
                  connector_profile_properties: Optional['outputs.ConnectorProfileConnectorProfileProperties'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html
-        :param 'ConnectorProfileConnectorProfileCredentialsArgs' connector_profile_credentials: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
-        :param 'ConnectorProfileConnectorProfilePropertiesArgs' connector_profile_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
+        :param 'ConnectorProfileConnectorProfileCredentials' connector_profile_credentials: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
+        :param 'ConnectorProfileConnectorProfileProperties' connector_profile_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
         """
         pulumi.set(__self__, "connector_profile_credentials", connector_profile_credentials)
         if connector_profile_properties is not None:
@@ -184,15 +235,33 @@ class ConnectorProfileConnectorProfileConfig(dict):
         """
         return pulumi.get(self, "connector_profile_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileConnectorProfileCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "googleAnalytics":
+            suggest = "google_analytics"
+        elif key == "inforNexus":
+            suggest = "infor_nexus"
+        elif key == "serviceNow":
+            suggest = "service_now"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  amplitude: Optional['outputs.ConnectorProfileAmplitudeConnectorProfileCredentials'] = None,
                  datadog: Optional['outputs.ConnectorProfileDatadogConnectorProfileCredentials'] = None,
@@ -211,21 +280,21 @@ class ConnectorProfileConnectorProfileCredentials(dict):
                  zendesk: Optional['outputs.ConnectorProfileZendeskConnectorProfileCredentials'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html
-        :param 'ConnectorProfileAmplitudeConnectorProfileCredentialsArgs' amplitude: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-amplitude
-        :param 'ConnectorProfileDatadogConnectorProfileCredentialsArgs' datadog: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-datadog
-        :param 'ConnectorProfileDynatraceConnectorProfileCredentialsArgs' dynatrace: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-dynatrace
-        :param 'ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs' google_analytics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-googleanalytics
-        :param 'ConnectorProfileInforNexusConnectorProfileCredentialsArgs' infor_nexus: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-infornexus
-        :param 'ConnectorProfileMarketoConnectorProfileCredentialsArgs' marketo: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-marketo
-        :param 'ConnectorProfileRedshiftConnectorProfileCredentialsArgs' redshift: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-redshift
-        :param 'ConnectorProfileSalesforceConnectorProfileCredentialsArgs' salesforce: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-salesforce
-        :param 'ConnectorProfileServiceNowConnectorProfileCredentialsArgs' service_now: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-servicenow
-        :param 'ConnectorProfileSingularConnectorProfileCredentialsArgs' singular: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-singular
-        :param 'ConnectorProfileSlackConnectorProfileCredentialsArgs' slack: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-slack
-        :param 'ConnectorProfileSnowflakeConnectorProfileCredentialsArgs' snowflake: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-snowflake
-        :param 'ConnectorProfileTrendmicroConnectorProfileCredentialsArgs' trendmicro: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-trendmicro
-        :param 'ConnectorProfileVeevaConnectorProfileCredentialsArgs' veeva: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-veeva
-        :param 'ConnectorProfileZendeskConnectorProfileCredentialsArgs' zendesk: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-zendesk
+        :param 'ConnectorProfileAmplitudeConnectorProfileCredentials' amplitude: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-amplitude
+        :param 'ConnectorProfileDatadogConnectorProfileCredentials' datadog: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-datadog
+        :param 'ConnectorProfileDynatraceConnectorProfileCredentials' dynatrace: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-dynatrace
+        :param 'ConnectorProfileGoogleAnalyticsConnectorProfileCredentials' google_analytics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-googleanalytics
+        :param 'ConnectorProfileInforNexusConnectorProfileCredentials' infor_nexus: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-infornexus
+        :param 'ConnectorProfileMarketoConnectorProfileCredentials' marketo: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-marketo
+        :param 'ConnectorProfileRedshiftConnectorProfileCredentials' redshift: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-redshift
+        :param 'ConnectorProfileSalesforceConnectorProfileCredentials' salesforce: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-salesforce
+        :param 'ConnectorProfileServiceNowConnectorProfileCredentials' service_now: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-servicenow
+        :param 'ConnectorProfileSingularConnectorProfileCredentials' singular: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-singular
+        :param 'ConnectorProfileSlackConnectorProfileCredentials' slack: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-slack
+        :param 'ConnectorProfileSnowflakeConnectorProfileCredentials' snowflake: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-snowflake
+        :param 'ConnectorProfileTrendmicroConnectorProfileCredentials' trendmicro: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-trendmicro
+        :param 'ConnectorProfileVeevaConnectorProfileCredentials' veeva: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-veeva
+        :param 'ConnectorProfileZendeskConnectorProfileCredentials' zendesk: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-zendesk
         """
         if amplitude is not None:
             pulumi.set(__self__, "amplitude", amplitude)
@@ -378,15 +447,31 @@ class ConnectorProfileConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "zendesk")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileConnectorProfileProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inforNexus":
+            suggest = "infor_nexus"
+        elif key == "serviceNow":
+            suggest = "service_now"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  datadog: Optional['outputs.ConnectorProfileDatadogConnectorProfileProperties'] = None,
                  dynatrace: Optional['outputs.ConnectorProfileDynatraceConnectorProfileProperties'] = None,
@@ -401,17 +486,17 @@ class ConnectorProfileConnectorProfileProperties(dict):
                  zendesk: Optional['outputs.ConnectorProfileZendeskConnectorProfileProperties'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html
-        :param 'ConnectorProfileDatadogConnectorProfilePropertiesArgs' datadog: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-datadog
-        :param 'ConnectorProfileDynatraceConnectorProfilePropertiesArgs' dynatrace: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-dynatrace
-        :param 'ConnectorProfileInforNexusConnectorProfilePropertiesArgs' infor_nexus: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-infornexus
-        :param 'ConnectorProfileMarketoConnectorProfilePropertiesArgs' marketo: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-marketo
-        :param 'ConnectorProfileRedshiftConnectorProfilePropertiesArgs' redshift: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-redshift
-        :param 'ConnectorProfileSalesforceConnectorProfilePropertiesArgs' salesforce: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-salesforce
-        :param 'ConnectorProfileServiceNowConnectorProfilePropertiesArgs' service_now: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-servicenow
-        :param 'ConnectorProfileSlackConnectorProfilePropertiesArgs' slack: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-slack
-        :param 'ConnectorProfileSnowflakeConnectorProfilePropertiesArgs' snowflake: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-snowflake
-        :param 'ConnectorProfileVeevaConnectorProfilePropertiesArgs' veeva: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-veeva
-        :param 'ConnectorProfileZendeskConnectorProfilePropertiesArgs' zendesk: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-zendesk
+        :param 'ConnectorProfileDatadogConnectorProfileProperties' datadog: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-datadog
+        :param 'ConnectorProfileDynatraceConnectorProfileProperties' dynatrace: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-dynatrace
+        :param 'ConnectorProfileInforNexusConnectorProfileProperties' infor_nexus: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-infornexus
+        :param 'ConnectorProfileMarketoConnectorProfileProperties' marketo: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-marketo
+        :param 'ConnectorProfileRedshiftConnectorProfileProperties' redshift: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-redshift
+        :param 'ConnectorProfileSalesforceConnectorProfileProperties' salesforce: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-salesforce
+        :param 'ConnectorProfileServiceNowConnectorProfileProperties' service_now: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-servicenow
+        :param 'ConnectorProfileSlackConnectorProfileProperties' slack: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-slack
+        :param 'ConnectorProfileSnowflakeConnectorProfileProperties' snowflake: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-snowflake
+        :param 'ConnectorProfileVeevaConnectorProfileProperties' veeva: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-veeva
+        :param 'ConnectorProfileZendeskConnectorProfileProperties' zendesk: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-zendesk
         """
         if datadog is not None:
             pulumi.set(__self__, "datadog", datadog)
@@ -524,15 +609,31 @@ class ConnectorProfileConnectorProfileProperties(dict):
         """
         return pulumi.get(self, "zendesk")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileDatadogConnectorProfileCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+        elif key == "applicationKey":
+            suggest = "application_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileDatadogConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileDatadogConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileDatadogConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  api_key: str,
                  application_key: str):
@@ -560,15 +661,29 @@ class ConnectorProfileDatadogConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "application_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileDatadogConnectorProfileProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceUrl":
+            suggest = "instance_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileDatadogConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileDatadogConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileDatadogConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_url: str):
         """
@@ -585,15 +700,29 @@ class ConnectorProfileDatadogConnectorProfileProperties(dict):
         """
         return pulumi.get(self, "instance_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileDynatraceConnectorProfileCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileDynatraceConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileDynatraceConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileDynatraceConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  api_token: str):
         """
@@ -610,15 +739,29 @@ class ConnectorProfileDynatraceConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "api_token")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileDynatraceConnectorProfileProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceUrl":
+            suggest = "instance_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileDynatraceConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileDynatraceConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileDynatraceConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_url: str):
         """
@@ -635,15 +778,37 @@ class ConnectorProfileDynatraceConnectorProfileProperties(dict):
         """
         return pulumi.get(self, "instance_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileGoogleAnalyticsConnectorProfileCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "accessToken":
+            suggest = "access_token"
+        elif key == "connectorOAuthRequest":
+            suggest = "connector_o_auth_request"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileGoogleAnalyticsConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileGoogleAnalyticsConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileGoogleAnalyticsConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -655,7 +820,7 @@ class ConnectorProfileGoogleAnalyticsConnectorProfileCredentials(dict):
         :param str client_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-clientid
         :param str client_secret: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-clientsecret
         :param str access_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-accesstoken
-        :param 'ConnectorProfileConnectorOAuthRequestArgs' connector_o_auth_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-connectoroauthrequest
+        :param 'ConnectorProfileConnectorOAuthRequest' connector_o_auth_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-connectoroauthrequest
         :param str refresh_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-refreshtoken
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -707,15 +872,33 @@ class ConnectorProfileGoogleAnalyticsConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "refresh_token")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileInforNexusConnectorProfileCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKeyId":
+            suggest = "access_key_id"
+        elif key == "secretAccessKey":
+            suggest = "secret_access_key"
+        elif key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileInforNexusConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileInforNexusConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileInforNexusConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_key_id: str,
                  datakey: str,
@@ -765,15 +948,29 @@ class ConnectorProfileInforNexusConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "user_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileInforNexusConnectorProfileProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceUrl":
+            suggest = "instance_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileInforNexusConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileInforNexusConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileInforNexusConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_url: str):
         """
@@ -790,15 +987,35 @@ class ConnectorProfileInforNexusConnectorProfileProperties(dict):
         """
         return pulumi.get(self, "instance_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileMarketoConnectorProfileCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "accessToken":
+            suggest = "access_token"
+        elif key == "connectorOAuthRequest":
+            suggest = "connector_o_auth_request"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileMarketoConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileMarketoConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileMarketoConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -809,7 +1026,7 @@ class ConnectorProfileMarketoConnectorProfileCredentials(dict):
         :param str client_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientid
         :param str client_secret: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientsecret
         :param str access_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-accesstoken
-        :param 'ConnectorProfileConnectorOAuthRequestArgs' connector_o_auth_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-connectoroauthrequest
+        :param 'ConnectorProfileConnectorOAuthRequest' connector_o_auth_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-connectoroauthrequest
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -850,15 +1067,29 @@ class ConnectorProfileMarketoConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "connector_o_auth_request")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileMarketoConnectorProfileProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceUrl":
+            suggest = "instance_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileMarketoConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileMarketoConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileMarketoConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_url: str):
         """
@@ -874,9 +1105,6 @@ class ConnectorProfileMarketoConnectorProfileProperties(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html#cfn-appflow-connectorprofile-marketoconnectorprofileproperties-instanceurl
         """
         return pulumi.get(self, "instance_url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -911,15 +1139,35 @@ class ConnectorProfileRedshiftConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileRedshiftConnectorProfileProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "databaseUrl":
+            suggest = "database_url"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "bucketPrefix":
+            suggest = "bucket_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileRedshiftConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileRedshiftConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileRedshiftConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: str,
                  database_url: str,
@@ -970,15 +1218,35 @@ class ConnectorProfileRedshiftConnectorProfileProperties(dict):
         """
         return pulumi.get(self, "bucket_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileSalesforceConnectorProfileCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "clientCredentialsArn":
+            suggest = "client_credentials_arn"
+        elif key == "connectorOAuthRequest":
+            suggest = "connector_o_auth_request"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSalesforceConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileSalesforceConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileSalesforceConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_token: Optional[str] = None,
                  client_credentials_arn: Optional[str] = None,
@@ -988,7 +1256,7 @@ class ConnectorProfileSalesforceConnectorProfileCredentials(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html
         :param str access_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-accesstoken
         :param str client_credentials_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-clientcredentialsarn
-        :param 'ConnectorProfileConnectorOAuthRequestArgs' connector_o_auth_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-connectoroauthrequest
+        :param 'ConnectorProfileConnectorOAuthRequest' connector_o_auth_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-connectoroauthrequest
         :param str refresh_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-refreshtoken
         """
         if access_token is not None:
@@ -1032,15 +1300,31 @@ class ConnectorProfileSalesforceConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "refresh_token")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileSalesforceConnectorProfileProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceUrl":
+            suggest = "instance_url"
+        elif key == "isSandboxEnvironment":
+            suggest = "is_sandbox_environment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSalesforceConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileSalesforceConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileSalesforceConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_url: Optional[str] = None,
                  is_sandbox_environment: Optional[bool] = None):
@@ -1069,9 +1353,6 @@ class ConnectorProfileSalesforceConnectorProfileProperties(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-issandboxenvironment
         """
         return pulumi.get(self, "is_sandbox_environment")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1106,15 +1387,29 @@ class ConnectorProfileServiceNowConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileServiceNowConnectorProfileProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceUrl":
+            suggest = "instance_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileServiceNowConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileServiceNowConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileServiceNowConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_url: str):
         """
@@ -1131,15 +1426,29 @@ class ConnectorProfileServiceNowConnectorProfileProperties(dict):
         """
         return pulumi.get(self, "instance_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileSingularConnectorProfileCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSingularConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileSingularConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileSingularConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  api_key: str):
         """
@@ -1156,15 +1465,35 @@ class ConnectorProfileSingularConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "api_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileSlackConnectorProfileCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "accessToken":
+            suggest = "access_token"
+        elif key == "connectorOAuthRequest":
+            suggest = "connector_o_auth_request"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSlackConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileSlackConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileSlackConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -1175,7 +1504,7 @@ class ConnectorProfileSlackConnectorProfileCredentials(dict):
         :param str client_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientid
         :param str client_secret: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientsecret
         :param str access_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-accesstoken
-        :param 'ConnectorProfileConnectorOAuthRequestArgs' connector_o_auth_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-connectoroauthrequest
+        :param 'ConnectorProfileConnectorOAuthRequest' connector_o_auth_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-connectoroauthrequest
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -1216,15 +1545,29 @@ class ConnectorProfileSlackConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "connector_o_auth_request")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileSlackConnectorProfileProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceUrl":
+            suggest = "instance_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSlackConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileSlackConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileSlackConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_url: str):
         """
@@ -1240,9 +1583,6 @@ class ConnectorProfileSlackConnectorProfileProperties(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html#cfn-appflow-connectorprofile-slackconnectorprofileproperties-instanceurl
         """
         return pulumi.get(self, "instance_url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1277,15 +1617,35 @@ class ConnectorProfileSnowflakeConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileSnowflakeConnectorProfileProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "accountName":
+            suggest = "account_name"
+        elif key == "bucketPrefix":
+            suggest = "bucket_prefix"
+        elif key == "privateLinkServiceName":
+            suggest = "private_link_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSnowflakeConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileSnowflakeConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileSnowflakeConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: str,
                  stage: str,
@@ -1372,15 +1732,29 @@ class ConnectorProfileSnowflakeConnectorProfileProperties(dict):
         """
         return pulumi.get(self, "region")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileTrendmicroConnectorProfileCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiSecretKey":
+            suggest = "api_secret_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileTrendmicroConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileTrendmicroConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileTrendmicroConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  api_secret_key: str):
         """
@@ -1396,9 +1770,6 @@ class ConnectorProfileTrendmicroConnectorProfileCredentials(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html#cfn-appflow-connectorprofile-trendmicroconnectorprofilecredentials-apisecretkey
         """
         return pulumi.get(self, "api_secret_key")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1433,15 +1804,29 @@ class ConnectorProfileVeevaConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileVeevaConnectorProfileProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceUrl":
+            suggest = "instance_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileVeevaConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileVeevaConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileVeevaConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_url: str):
         """
@@ -1458,15 +1843,35 @@ class ConnectorProfileVeevaConnectorProfileProperties(dict):
         """
         return pulumi.get(self, "instance_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileZendeskConnectorProfileCredentials(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "accessToken":
+            suggest = "access_token"
+        elif key == "connectorOAuthRequest":
+            suggest = "connector_o_auth_request"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileZendeskConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileZendeskConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileZendeskConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -1477,7 +1882,7 @@ class ConnectorProfileZendeskConnectorProfileCredentials(dict):
         :param str client_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientid
         :param str client_secret: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientsecret
         :param str access_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-accesstoken
-        :param 'ConnectorProfileConnectorOAuthRequestArgs' connector_o_auth_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-connectoroauthrequest
+        :param 'ConnectorProfileConnectorOAuthRequest' connector_o_auth_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-connectoroauthrequest
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -1518,15 +1923,29 @@ class ConnectorProfileZendeskConnectorProfileCredentials(dict):
         """
         return pulumi.get(self, "connector_o_auth_request")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorProfileZendeskConnectorProfileProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceUrl":
+            suggest = "instance_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileZendeskConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileZendeskConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileZendeskConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_url: str):
         """
@@ -1543,15 +1962,29 @@ class ConnectorProfileZendeskConnectorProfileProperties(dict):
         """
         return pulumi.get(self, "instance_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowAggregationConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregationType":
+            suggest = "aggregation_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowAggregationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowAggregationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowAggregationConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregation_type: Optional[str] = None):
         """
@@ -1568,9 +2001,6 @@ class FlowAggregationConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-aggregationtype
         """
         return pulumi.get(self, "aggregation_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1594,15 +2024,33 @@ class FlowAmplitudeSourceProperties(dict):
         """
         return pulumi.get(self, "object")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowConnectorOperator(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "googleAnalytics":
+            suggest = "google_analytics"
+        elif key == "inforNexus":
+            suggest = "infor_nexus"
+        elif key == "serviceNow":
+            suggest = "service_now"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowConnectorOperator. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowConnectorOperator.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowConnectorOperator.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  amplitude: Optional[str] = None,
                  datadog: Optional[str] = None,
@@ -1776,9 +2224,6 @@ class FlowConnectorOperator(dict):
         """
         return pulumi.get(self, "zendesk")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowDatadogSourceProperties(dict):
@@ -1801,15 +2246,29 @@ class FlowDatadogSourceProperties(dict):
         """
         return pulumi.get(self, "object")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowDestinationConnectorProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventBridge":
+            suggest = "event_bridge"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowDestinationConnectorProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowDestinationConnectorProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowDestinationConnectorProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_bridge: Optional['outputs.FlowEventBridgeDestinationProperties'] = None,
                  redshift: Optional['outputs.FlowRedshiftDestinationProperties'] = None,
@@ -1819,12 +2278,12 @@ class FlowDestinationConnectorProperties(dict):
                  upsolver: Optional['outputs.FlowUpsolverDestinationProperties'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html
-        :param 'FlowEventBridgeDestinationPropertiesArgs' event_bridge: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
-        :param 'FlowRedshiftDestinationPropertiesArgs' redshift: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
-        :param 'FlowS3DestinationPropertiesArgs' s3: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
-        :param 'FlowSalesforceDestinationPropertiesArgs' salesforce: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce
-        :param 'FlowSnowflakeDestinationPropertiesArgs' snowflake: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake
-        :param 'FlowUpsolverDestinationPropertiesArgs' upsolver: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
+        :param 'FlowEventBridgeDestinationProperties' event_bridge: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
+        :param 'FlowRedshiftDestinationProperties' redshift: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
+        :param 'FlowS3DestinationProperties' s3: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
+        :param 'FlowSalesforceDestinationProperties' salesforce: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce
+        :param 'FlowSnowflakeDestinationProperties' snowflake: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake
+        :param 'FlowUpsolverDestinationProperties' upsolver: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
         """
         if event_bridge is not None:
             pulumi.set(__self__, "event_bridge", event_bridge)
@@ -1887,15 +2346,33 @@ class FlowDestinationConnectorProperties(dict):
         """
         return pulumi.get(self, "upsolver")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowDestinationFlowConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorType":
+            suggest = "connector_type"
+        elif key == "destinationConnectorProperties":
+            suggest = "destination_connector_properties"
+        elif key == "connectorProfileName":
+            suggest = "connector_profile_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowDestinationFlowConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowDestinationFlowConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowDestinationFlowConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connector_type: str,
                  destination_connector_properties: 'outputs.FlowDestinationConnectorProperties',
@@ -1903,7 +2380,7 @@ class FlowDestinationFlowConfig(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html
         :param str connector_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectortype
-        :param 'FlowDestinationConnectorPropertiesArgs' destination_connector_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-destinationconnectorproperties
+        :param 'FlowDestinationConnectorProperties' destination_connector_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-destinationconnectorproperties
         :param str connector_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectorprofilename
         """
         pulumi.set(__self__, "connector_type", connector_type)
@@ -1935,9 +2412,6 @@ class FlowDestinationFlowConfig(dict):
         """
         return pulumi.get(self, "connector_profile_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowDynatraceSourceProperties(dict):
@@ -1960,15 +2434,33 @@ class FlowDynatraceSourceProperties(dict):
         """
         return pulumi.get(self, "object")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowErrorHandlingConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "bucketPrefix":
+            suggest = "bucket_prefix"
+        elif key == "failOnFirstError":
+            suggest = "fail_on_first_error"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowErrorHandlingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowErrorHandlingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowErrorHandlingConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: Optional[str] = None,
                  bucket_prefix: Optional[str] = None,
@@ -2010,22 +2502,36 @@ class FlowErrorHandlingConfig(dict):
         """
         return pulumi.get(self, "fail_on_first_error")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowEventBridgeDestinationProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorHandlingConfig":
+            suggest = "error_handling_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowEventBridgeDestinationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowEventBridgeDestinationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowEventBridgeDestinationProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  object: str,
                  error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html
         :param str object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-object
-        :param 'FlowErrorHandlingConfigArgs' error_handling_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-errorhandlingconfig
+        :param 'FlowErrorHandlingConfig' error_handling_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-errorhandlingconfig
         """
         pulumi.set(__self__, "object", object)
         if error_handling_config is not None:
@@ -2046,9 +2552,6 @@ class FlowEventBridgeDestinationProperties(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-errorhandlingconfig
         """
         return pulumi.get(self, "error_handling_config")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2072,15 +2575,29 @@ class FlowGoogleAnalyticsSourceProperties(dict):
         """
         return pulumi.get(self, "object")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowIncrementalPullConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datetimeTypeFieldName":
+            suggest = "datetime_type_field_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowIncrementalPullConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowIncrementalPullConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowIncrementalPullConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  datetime_type_field_name: Optional[str] = None):
         """
@@ -2097,9 +2614,6 @@ class FlowIncrementalPullConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html#cfn-appflow-flow-incrementalpullconfig-datetimetypefieldname
         """
         return pulumi.get(self, "datetime_type_field_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2123,9 +2637,6 @@ class FlowInforNexusSourceProperties(dict):
         """
         return pulumi.get(self, "object")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowMarketoSourceProperties(dict):
@@ -2148,15 +2659,31 @@ class FlowMarketoSourceProperties(dict):
         """
         return pulumi.get(self, "object")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowPrefixConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "prefixFormat":
+            suggest = "prefix_format"
+        elif key == "prefixType":
+            suggest = "prefix_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowPrefixConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowPrefixConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowPrefixConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  prefix_format: Optional[str] = None,
                  prefix_type: Optional[str] = None):
@@ -2186,15 +2713,33 @@ class FlowPrefixConfig(dict):
         """
         return pulumi.get(self, "prefix_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowRedshiftDestinationProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intermediateBucketName":
+            suggest = "intermediate_bucket_name"
+        elif key == "bucketPrefix":
+            suggest = "bucket_prefix"
+        elif key == "errorHandlingConfig":
+            suggest = "error_handling_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowRedshiftDestinationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowRedshiftDestinationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowRedshiftDestinationProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  intermediate_bucket_name: str,
                  object: str,
@@ -2205,7 +2750,7 @@ class FlowRedshiftDestinationProperties(dict):
         :param str intermediate_bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-intermediatebucketname
         :param str object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-object
         :param str bucket_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-bucketprefix
-        :param 'FlowErrorHandlingConfigArgs' error_handling_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-errorhandlingconfig
+        :param 'FlowErrorHandlingConfig' error_handling_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-errorhandlingconfig
         """
         pulumi.set(__self__, "intermediate_bucket_name", intermediate_bucket_name)
         pulumi.set(__self__, "object", object)
@@ -2246,15 +2791,33 @@ class FlowRedshiftDestinationProperties(dict):
         """
         return pulumi.get(self, "error_handling_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowS3DestinationProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "bucketPrefix":
+            suggest = "bucket_prefix"
+        elif key == "s3OutputFormatConfig":
+            suggest = "s3_output_format_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowS3DestinationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowS3DestinationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowS3DestinationProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: str,
                  bucket_prefix: Optional[str] = None,
@@ -2263,7 +2826,7 @@ class FlowS3DestinationProperties(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html
         :param str bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketname
         :param str bucket_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketprefix
-        :param 'FlowS3OutputFormatConfigArgs' s3_output_format_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-s3outputformatconfig
+        :param 'FlowS3OutputFormatConfig' s3_output_format_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-s3outputformatconfig
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if bucket_prefix is not None:
@@ -2295,24 +2858,42 @@ class FlowS3DestinationProperties(dict):
         """
         return pulumi.get(self, "s3_output_format_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowS3OutputFormatConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregationConfig":
+            suggest = "aggregation_config"
+        elif key == "fileType":
+            suggest = "file_type"
+        elif key == "prefixConfig":
+            suggest = "prefix_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowS3OutputFormatConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowS3OutputFormatConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowS3OutputFormatConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregation_config: Optional['outputs.FlowAggregationConfig'] = None,
                  file_type: Optional[str] = None,
                  prefix_config: Optional['outputs.FlowPrefixConfig'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html
-        :param 'FlowAggregationConfigArgs' aggregation_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-aggregationconfig
+        :param 'FlowAggregationConfig' aggregation_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-aggregationconfig
         :param str file_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-filetype
-        :param 'FlowPrefixConfigArgs' prefix_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-prefixconfig
+        :param 'FlowPrefixConfig' prefix_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-prefixconfig
         """
         if aggregation_config is not None:
             pulumi.set(__self__, "aggregation_config", aggregation_config)
@@ -2345,15 +2926,31 @@ class FlowS3OutputFormatConfig(dict):
         """
         return pulumi.get(self, "prefix_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowS3SourceProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "bucketPrefix":
+            suggest = "bucket_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowS3SourceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowS3SourceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowS3SourceProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: str,
                  bucket_prefix: str):
@@ -2381,22 +2978,36 @@ class FlowS3SourceProperties(dict):
         """
         return pulumi.get(self, "bucket_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowSalesforceDestinationProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorHandlingConfig":
+            suggest = "error_handling_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSalesforceDestinationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSalesforceDestinationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSalesforceDestinationProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  object: str,
                  error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html
         :param str object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
-        :param 'FlowErrorHandlingConfigArgs' error_handling_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-errorhandlingconfig
+        :param 'FlowErrorHandlingConfig' error_handling_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-errorhandlingconfig
         """
         pulumi.set(__self__, "object", object)
         if error_handling_config is not None:
@@ -2418,15 +3029,31 @@ class FlowSalesforceDestinationProperties(dict):
         """
         return pulumi.get(self, "error_handling_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowSalesforceSourceProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableDynamicFieldUpdate":
+            suggest = "enable_dynamic_field_update"
+        elif key == "includeDeletedRecords":
+            suggest = "include_deleted_records"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSalesforceSourceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSalesforceSourceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSalesforceSourceProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  object: str,
                  enable_dynamic_field_update: Optional[bool] = None,
@@ -2467,15 +3094,37 @@ class FlowSalesforceSourceProperties(dict):
         """
         return pulumi.get(self, "include_deleted_records")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowScheduledTriggerProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleExpression":
+            suggest = "schedule_expression"
+        elif key == "dataPullMode":
+            suggest = "data_pull_mode"
+        elif key == "scheduleEndTime":
+            suggest = "schedule_end_time"
+        elif key == "scheduleStartTime":
+            suggest = "schedule_start_time"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowScheduledTriggerProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowScheduledTriggerProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowScheduledTriggerProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  schedule_expression: str,
                  data_pull_mode: Optional[str] = None,
@@ -2540,9 +3189,6 @@ class FlowScheduledTriggerProperties(dict):
         """
         return pulumi.get(self, "time_zone")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowServiceNowSourceProperties(dict):
@@ -2564,9 +3210,6 @@ class FlowServiceNowSourceProperties(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html#cfn-appflow-flow-servicenowsourceproperties-object
         """
         return pulumi.get(self, "object")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2590,9 +3233,6 @@ class FlowSingularSourceProperties(dict):
         """
         return pulumi.get(self, "object")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowSlackSourceProperties(dict):
@@ -2615,15 +3255,33 @@ class FlowSlackSourceProperties(dict):
         """
         return pulumi.get(self, "object")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowSnowflakeDestinationProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intermediateBucketName":
+            suggest = "intermediate_bucket_name"
+        elif key == "bucketPrefix":
+            suggest = "bucket_prefix"
+        elif key == "errorHandlingConfig":
+            suggest = "error_handling_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSnowflakeDestinationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSnowflakeDestinationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSnowflakeDestinationProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  intermediate_bucket_name: str,
                  object: str,
@@ -2634,7 +3292,7 @@ class FlowSnowflakeDestinationProperties(dict):
         :param str intermediate_bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-intermediatebucketname
         :param str object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-object
         :param str bucket_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-bucketprefix
-        :param 'FlowErrorHandlingConfigArgs' error_handling_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-errorhandlingconfig
+        :param 'FlowErrorHandlingConfig' error_handling_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-errorhandlingconfig
         """
         pulumi.set(__self__, "intermediate_bucket_name", intermediate_bucket_name)
         pulumi.set(__self__, "object", object)
@@ -2675,15 +3333,33 @@ class FlowSnowflakeDestinationProperties(dict):
         """
         return pulumi.get(self, "error_handling_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowSourceConnectorProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "googleAnalytics":
+            suggest = "google_analytics"
+        elif key == "inforNexus":
+            suggest = "infor_nexus"
+        elif key == "serviceNow":
+            suggest = "service_now"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSourceConnectorProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSourceConnectorProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSourceConnectorProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  amplitude: Optional['outputs.FlowAmplitudeSourceProperties'] = None,
                  datadog: Optional['outputs.FlowDatadogSourceProperties'] = None,
@@ -2701,20 +3377,20 @@ class FlowSourceConnectorProperties(dict):
                  zendesk: Optional['outputs.FlowZendeskSourceProperties'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html
-        :param 'FlowAmplitudeSourcePropertiesArgs' amplitude: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-amplitude
-        :param 'FlowDatadogSourcePropertiesArgs' datadog: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-datadog
-        :param 'FlowDynatraceSourcePropertiesArgs' dynatrace: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-dynatrace
-        :param 'FlowGoogleAnalyticsSourcePropertiesArgs' google_analytics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-googleanalytics
-        :param 'FlowInforNexusSourcePropertiesArgs' infor_nexus: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-infornexus
-        :param 'FlowMarketoSourcePropertiesArgs' marketo: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-marketo
-        :param 'FlowS3SourcePropertiesArgs' s3: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-s3
-        :param 'FlowSalesforceSourcePropertiesArgs' salesforce: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-salesforce
-        :param 'FlowServiceNowSourcePropertiesArgs' service_now: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-servicenow
-        :param 'FlowSingularSourcePropertiesArgs' singular: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-singular
-        :param 'FlowSlackSourcePropertiesArgs' slack: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-slack
-        :param 'FlowTrendmicroSourcePropertiesArgs' trendmicro: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-trendmicro
-        :param 'FlowVeevaSourcePropertiesArgs' veeva: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-veeva
-        :param 'FlowZendeskSourcePropertiesArgs' zendesk: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-zendesk
+        :param 'FlowAmplitudeSourceProperties' amplitude: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-amplitude
+        :param 'FlowDatadogSourceProperties' datadog: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-datadog
+        :param 'FlowDynatraceSourceProperties' dynatrace: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-dynatrace
+        :param 'FlowGoogleAnalyticsSourceProperties' google_analytics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-googleanalytics
+        :param 'FlowInforNexusSourceProperties' infor_nexus: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-infornexus
+        :param 'FlowMarketoSourceProperties' marketo: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-marketo
+        :param 'FlowS3SourceProperties' s3: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-s3
+        :param 'FlowSalesforceSourceProperties' salesforce: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-salesforce
+        :param 'FlowServiceNowSourceProperties' service_now: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-servicenow
+        :param 'FlowSingularSourceProperties' singular: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-singular
+        :param 'FlowSlackSourceProperties' slack: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-slack
+        :param 'FlowTrendmicroSourceProperties' trendmicro: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-trendmicro
+        :param 'FlowVeevaSourceProperties' veeva: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-veeva
+        :param 'FlowZendeskSourceProperties' zendesk: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-zendesk
         """
         if amplitude is not None:
             pulumi.set(__self__, "amplitude", amplitude)
@@ -2857,15 +3533,35 @@ class FlowSourceConnectorProperties(dict):
         """
         return pulumi.get(self, "zendesk")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowSourceFlowConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorType":
+            suggest = "connector_type"
+        elif key == "sourceConnectorProperties":
+            suggest = "source_connector_properties"
+        elif key == "connectorProfileName":
+            suggest = "connector_profile_name"
+        elif key == "incrementalPullConfig":
+            suggest = "incremental_pull_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSourceFlowConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSourceFlowConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSourceFlowConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connector_type: str,
                  source_connector_properties: 'outputs.FlowSourceConnectorProperties',
@@ -2874,9 +3570,9 @@ class FlowSourceFlowConfig(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html
         :param str connector_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectortype
-        :param 'FlowSourceConnectorPropertiesArgs' source_connector_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-sourceconnectorproperties
+        :param 'FlowSourceConnectorProperties' source_connector_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-sourceconnectorproperties
         :param str connector_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectorprofilename
-        :param 'FlowIncrementalPullConfigArgs' incremental_pull_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-incrementalpullconfig
+        :param 'FlowIncrementalPullConfig' incremental_pull_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-incrementalpullconfig
         """
         pulumi.set(__self__, "connector_type", connector_type)
         pulumi.set(__self__, "source_connector_properties", source_connector_properties)
@@ -2917,15 +3613,37 @@ class FlowSourceFlowConfig(dict):
         """
         return pulumi.get(self, "incremental_pull_config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowTask(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceFields":
+            suggest = "source_fields"
+        elif key == "taskType":
+            suggest = "task_type"
+        elif key == "connectorOperator":
+            suggest = "connector_operator"
+        elif key == "destinationField":
+            suggest = "destination_field"
+        elif key == "taskProperties":
+            suggest = "task_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowTask. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowTask.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowTask.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_fields: Sequence[str],
                  task_type: str,
@@ -2936,9 +3654,9 @@ class FlowTask(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html
         :param Sequence[str] source_fields: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-sourcefields
         :param str task_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-tasktype
-        :param 'FlowConnectorOperatorArgs' connector_operator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator
+        :param 'FlowConnectorOperator' connector_operator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator
         :param str destination_field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-destinationfield
-        :param Sequence['FlowTaskPropertiesObjectArgs'] task_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
+        :param Sequence['FlowTaskPropertiesObject'] task_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
         """
         pulumi.set(__self__, "source_fields", source_fields)
         pulumi.set(__self__, "task_type", task_type)
@@ -2989,9 +3707,6 @@ class FlowTask(dict):
         """
         return pulumi.get(self, "task_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowTaskPropertiesObject(dict):
@@ -3025,9 +3740,6 @@ class FlowTaskPropertiesObject(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowTrendmicroSourceProperties(dict):
@@ -3050,22 +3762,38 @@ class FlowTrendmicroSourceProperties(dict):
         """
         return pulumi.get(self, "object")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowTriggerConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "triggerType":
+            suggest = "trigger_type"
+        elif key == "triggerProperties":
+            suggest = "trigger_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowTriggerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowTriggerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowTriggerConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  trigger_type: str,
                  trigger_properties: Optional['outputs.FlowScheduledTriggerProperties'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html
         :param str trigger_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggertype
-        :param 'FlowScheduledTriggerPropertiesArgs' trigger_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggerproperties
+        :param 'FlowScheduledTriggerProperties' trigger_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggerproperties
         """
         pulumi.set(__self__, "trigger_type", trigger_type)
         if trigger_properties is not None:
@@ -3087,15 +3815,33 @@ class FlowTriggerConfig(dict):
         """
         return pulumi.get(self, "trigger_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowUpsolverDestinationProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "s3OutputFormatConfig":
+            suggest = "s3_output_format_config"
+        elif key == "bucketPrefix":
+            suggest = "bucket_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowUpsolverDestinationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowUpsolverDestinationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowUpsolverDestinationProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: str,
                  s3_output_format_config: 'outputs.FlowUpsolverS3OutputFormatConfig',
@@ -3103,7 +3849,7 @@ class FlowUpsolverDestinationProperties(dict):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html
         :param str bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketname
-        :param 'FlowUpsolverS3OutputFormatConfigArgs' s3_output_format_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-s3outputformatconfig
+        :param 'FlowUpsolverS3OutputFormatConfig' s3_output_format_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-s3outputformatconfig
         :param str bucket_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketprefix
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -3135,23 +3881,41 @@ class FlowUpsolverDestinationProperties(dict):
         """
         return pulumi.get(self, "bucket_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowUpsolverS3OutputFormatConfig(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "prefixConfig":
+            suggest = "prefix_config"
+        elif key == "aggregationConfig":
+            suggest = "aggregation_config"
+        elif key == "fileType":
+            suggest = "file_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowUpsolverS3OutputFormatConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowUpsolverS3OutputFormatConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowUpsolverS3OutputFormatConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  prefix_config: 'outputs.FlowPrefixConfig',
                  aggregation_config: Optional['outputs.FlowAggregationConfig'] = None,
                  file_type: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html
-        :param 'FlowPrefixConfigArgs' prefix_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-prefixconfig
-        :param 'FlowAggregationConfigArgs' aggregation_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-aggregationconfig
+        :param 'FlowPrefixConfig' prefix_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-prefixconfig
+        :param 'FlowAggregationConfig' aggregation_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-aggregationconfig
         :param str file_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-filetype
         """
         pulumi.set(__self__, "prefix_config", prefix_config)
@@ -3184,9 +3948,6 @@ class FlowUpsolverS3OutputFormatConfig(dict):
         """
         return pulumi.get(self, "file_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowVeevaSourceProperties(dict):
@@ -3209,9 +3970,6 @@ class FlowVeevaSourceProperties(dict):
         """
         return pulumi.get(self, "object")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowZendeskSourceProperties(dict):
@@ -3233,8 +3991,5 @@ class FlowZendeskSourceProperties(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html#cfn-appflow-flow-zendesksourceproperties-object
         """
         return pulumi.get(self, "object")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

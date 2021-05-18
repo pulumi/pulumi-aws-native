@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
 
@@ -29,6 +29,23 @@ class AssessmentAWSAccount(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentAWSAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentAWSAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentAWSAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_address: Optional[str] = None,
                  id: Optional[str] = None,
@@ -70,20 +87,34 @@ class AssessmentAWSAccount(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssessmentAWSAccounts(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aWSAccounts":
+            suggest = "a_ws_accounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentAWSAccounts. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentAWSAccounts.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentAWSAccounts.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  a_ws_accounts: Optional[Sequence['outputs.AssessmentAWSAccount']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html
-        :param Sequence['AssessmentAWSAccountArgs'] a_ws_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
+        :param Sequence['AssessmentAWSAccount'] a_ws_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
         """
         if a_ws_accounts is not None:
             pulumi.set(__self__, "a_ws_accounts", a_ws_accounts)
@@ -96,15 +127,29 @@ class AssessmentAWSAccounts(dict):
         """
         return pulumi.get(self, "a_ws_accounts")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssessmentAWSService(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceName":
+            suggest = "service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentAWSService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentAWSService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentAWSService.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  service_name: Optional[str] = None):
         """
@@ -122,20 +167,34 @@ class AssessmentAWSService(dict):
         """
         return pulumi.get(self, "service_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssessmentAWSServices(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aWSServices":
+            suggest = "a_ws_services"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentAWSServices. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentAWSServices.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentAWSServices.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  a_ws_services: Optional[Sequence['outputs.AssessmentAWSService']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html
-        :param Sequence['AssessmentAWSServiceArgs'] a_ws_services: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
+        :param Sequence['AssessmentAWSService'] a_ws_services: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
         """
         if a_ws_services is not None:
             pulumi.set(__self__, "a_ws_services", a_ws_services)
@@ -148,15 +207,29 @@ class AssessmentAWSServices(dict):
         """
         return pulumi.get(self, "a_ws_services")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssessmentAssessmentReportsDestination(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationType":
+            suggest = "destination_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentAssessmentReportsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentAssessmentReportsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentAssessmentReportsDestination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination: Optional[str] = None,
                  destination_type: Optional[str] = None):
@@ -186,15 +259,43 @@ class AssessmentAssessmentReportsDestination(dict):
         """
         return pulumi.get(self, "destination_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssessmentDelegation(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assessmentId":
+            suggest = "assessment_id"
+        elif key == "assessmentName":
+            suggest = "assessment_name"
+        elif key == "controlSetId":
+            suggest = "control_set_id"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "creationTime":
+            suggest = "creation_time"
+        elif key == "lastUpdated":
+            suggest = "last_updated"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "roleType":
+            suggest = "role_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentDelegation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentDelegation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentDelegation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  assessment_id: Optional[str] = None,
                  assessment_name: Optional[str] = None,
@@ -332,9 +433,6 @@ class AssessmentDelegation(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssessmentDelegations(dict):
@@ -345,7 +443,7 @@ class AssessmentDelegations(dict):
                  delegations: Optional[Sequence['outputs.AssessmentDelegation']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html
-        :param Sequence['AssessmentDelegationArgs'] delegations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html#cfn-auditmanager-assessment-delegations-delegations
+        :param Sequence['AssessmentDelegation'] delegations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html#cfn-auditmanager-assessment-delegations-delegations
         """
         if delegations is not None:
             pulumi.set(__self__, "delegations", delegations)
@@ -358,15 +456,31 @@ class AssessmentDelegations(dict):
         """
         return pulumi.get(self, "delegations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssessmentRole(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "roleType":
+            suggest = "role_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentRole.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_arn: Optional[str] = None,
                  role_type: Optional[str] = None):
@@ -396,9 +510,6 @@ class AssessmentRole(dict):
         """
         return pulumi.get(self, "role_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssessmentRoles(dict):
@@ -409,7 +520,7 @@ class AssessmentRoles(dict):
                  roles: Optional[Sequence['outputs.AssessmentRole']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html
-        :param Sequence['AssessmentRoleArgs'] roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html#cfn-auditmanager-assessment-roles-roles
+        :param Sequence['AssessmentRole'] roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html#cfn-auditmanager-assessment-roles-roles
         """
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
@@ -422,22 +533,38 @@ class AssessmentRoles(dict):
         """
         return pulumi.get(self, "roles")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssessmentScope(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsAccounts":
+            suggest = "aws_accounts"
+        elif key == "awsServices":
+            suggest = "aws_services"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aws_accounts: Optional['outputs.AssessmentAWSAccounts'] = None,
                  aws_services: Optional['outputs.AssessmentAWSServices'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
-        :param 'AssessmentAWSAccountsArgs' aws_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
-        :param 'AssessmentAWSServicesArgs' aws_services: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
+        :param 'AssessmentAWSAccounts' aws_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
+        :param 'AssessmentAWSServices' aws_services: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
         """
         if aws_accounts is not None:
             pulumi.set(__self__, "aws_accounts", aws_accounts)
@@ -460,9 +587,6 @@ class AssessmentScope(dict):
         """
         return pulumi.get(self, "aws_services")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssessmentTags(dict):
@@ -473,7 +597,7 @@ class AssessmentTags(dict):
                  tags: Optional[Sequence['_root_outputs.Tag']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html
-        :param Sequence['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html#cfn-auditmanager-assessment-tags-tags
+        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html#cfn-auditmanager-assessment-tags-tags
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -485,8 +609,5 @@ class AssessmentTags(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html#cfn-auditmanager-assessment-tags-tags
         """
         return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
