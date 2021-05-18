@@ -83,7 +83,8 @@ export class FileSystem extends pulumi.CustomResource {
      */
     constructor(name: string, args?: FileSystemArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["backupPolicy"] = args ? args.backupPolicy : undefined;
             inputs["encrypted"] = args ? args.encrypted : undefined;
             inputs["fileSystemPolicy"] = args ? args.fileSystemPolicy : undefined;
@@ -108,12 +109,8 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["provisionedThroughputInMibps"] = undefined /*out*/;
             inputs["throughputMode"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FileSystem.__pulumiType, name, inputs, opts);
     }
@@ -126,7 +123,7 @@ export interface FileSystemArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
      */
-    readonly backupPolicy?: pulumi.Input<inputs.EFS.FileSystemBackupPolicy>;
+    readonly backupPolicy?: pulumi.Input<inputs.EFS.FileSystemBackupPolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
      */
@@ -138,7 +135,7 @@ export interface FileSystemArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
      */
-    readonly fileSystemTags?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemElasticFileSystemTag>[]>;
+    readonly fileSystemTags?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemElasticFileSystemTagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
      */
@@ -146,7 +143,7 @@ export interface FileSystemArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
      */
-    readonly lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemLifecyclePolicy>[]>;
+    readonly lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemLifecyclePolicyArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
      */

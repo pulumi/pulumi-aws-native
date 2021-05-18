@@ -68,7 +68,8 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     constructor(name: string, args?: GlobalClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
@@ -83,12 +84,8 @@ export class GlobalCluster extends pulumi.CustomResource {
             inputs["sourceDBClusterIdentifier"] = undefined /*out*/;
             inputs["storageEncrypted"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GlobalCluster.__pulumiType, name, inputs, opts);
     }

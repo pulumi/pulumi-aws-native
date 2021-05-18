@@ -51,8 +51,9 @@ export class PublicKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: PublicKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.publicKeyConfig === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.publicKeyConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publicKeyConfig'");
             }
             inputs["publicKeyConfig"] = args ? args.publicKeyConfig : undefined;
@@ -63,12 +64,8 @@ export class PublicKey extends pulumi.CustomResource {
             inputs["id"] = undefined /*out*/;
             inputs["publicKeyConfig"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PublicKey.__pulumiType, name, inputs, opts);
     }
@@ -81,5 +78,5 @@ export interface PublicKeyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
      */
-    readonly publicKeyConfig: pulumi.Input<inputs.CloudFront.PublicKeyPublicKeyConfig>;
+    readonly publicKeyConfig: pulumi.Input<inputs.CloudFront.PublicKeyPublicKeyConfigArgs>;
 }

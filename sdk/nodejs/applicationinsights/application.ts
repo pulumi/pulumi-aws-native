@@ -82,8 +82,9 @@ export class Application extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoConfigurationEnabled"] = args ? args.autoConfigurationEnabled : undefined;
@@ -108,12 +109,8 @@ export class Application extends pulumi.CustomResource {
             inputs["resourceGroupName"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Application.__pulumiType, name, inputs, opts);
     }
@@ -134,15 +131,15 @@ export interface ApplicationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
      */
-    readonly componentMonitoringSettings?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationComponentMonitoringSetting>[]>;
+    readonly componentMonitoringSettings?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationComponentMonitoringSettingArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
      */
-    readonly customComponents?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationCustomComponent>[]>;
+    readonly customComponents?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationCustomComponentArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
      */
-    readonly logPatternSets?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationLogPatternSet>[]>;
+    readonly logPatternSets?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationLogPatternSetArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
      */
@@ -158,5 +155,5 @@ export interface ApplicationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

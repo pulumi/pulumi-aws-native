@@ -74,11 +74,12 @@ export class Listener extends pulumi.CustomResource {
      */
     constructor(name: string, args: ListenerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.defaultActions === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.defaultActions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultActions'");
             }
-            if ((!args || args.loadBalancerArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerArn'");
             }
             inputs["alpnPolicy"] = args ? args.alpnPolicy : undefined;
@@ -99,12 +100,8 @@ export class Listener extends pulumi.CustomResource {
             inputs["protocol"] = undefined /*out*/;
             inputs["sslPolicy"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Listener.__pulumiType, name, inputs, opts);
     }
@@ -121,11 +118,11 @@ export interface ListenerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerCertificate>[]>;
+    readonly certificates?: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerCertificateArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
      */
-    readonly defaultActions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerAction>[]>;
+    readonly defaultActions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerActionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
      */

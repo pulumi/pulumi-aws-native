@@ -75,14 +75,15 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: RuleGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.capacity === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.capacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.visibilityConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
             inputs["capacity"] = args ? args.capacity : undefined;
@@ -105,12 +106,8 @@ export class RuleGroup extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["visibilityConfig"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RuleGroup.__pulumiType, name, inputs, opts);
     }
@@ -135,7 +132,7 @@ export interface RuleGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupRule>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupRuleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
      */
@@ -143,9 +140,9 @@ export interface RuleGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
      */
-    readonly visibilityConfig: pulumi.Input<inputs.WAFv2.RuleGroupVisibilityConfig>;
+    readonly visibilityConfig: pulumi.Input<inputs.WAFv2.RuleGroupVisibilityConfigArgs>;
 }

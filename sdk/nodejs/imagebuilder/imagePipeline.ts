@@ -86,14 +86,15 @@ export class ImagePipeline extends pulumi.CustomResource {
      */
     constructor(name: string, args: ImagePipelineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.imageRecipeArn === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.imageRecipeArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageRecipeArn'");
             }
-            if ((!args || args.infrastructureConfigurationArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.infrastructureConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'infrastructureConfigurationArn'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -120,12 +121,8 @@ export class ImagePipeline extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ImagePipeline.__pulumiType, name, inputs, opts);
     }
@@ -154,7 +151,7 @@ export interface ImagePipelineArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
      */
-    readonly imageTestsConfiguration?: pulumi.Input<inputs.ImageBuilder.ImagePipelineImageTestsConfiguration>;
+    readonly imageTestsConfiguration?: pulumi.Input<inputs.ImageBuilder.ImagePipelineImageTestsConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
      */
@@ -166,7 +163,7 @@ export interface ImagePipelineArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
      */
-    readonly schedule?: pulumi.Input<inputs.ImageBuilder.ImagePipelineSchedule>;
+    readonly schedule?: pulumi.Input<inputs.ImageBuilder.ImagePipelineScheduleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
      */

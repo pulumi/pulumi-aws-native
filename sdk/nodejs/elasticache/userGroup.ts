@@ -61,11 +61,12 @@ export class UserGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.engine === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.engine === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            if ((!args || args.userGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userGroupId'");
             }
             inputs["engine"] = args ? args.engine : undefined;
@@ -84,12 +85,8 @@ export class UserGroup extends pulumi.CustomResource {
             inputs["userGroupId"] = undefined /*out*/;
             inputs["userIds"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(UserGroup.__pulumiType, name, inputs, opts);
     }
@@ -110,5 +107,5 @@ export interface UserGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
      */
-    readonly userIds?: pulumi.Input<inputs.ElastiCache.UserGroupUserIdList>;
+    readonly userIds?: pulumi.Input<inputs.ElastiCache.UserGroupUserIdListArgs>;
 }

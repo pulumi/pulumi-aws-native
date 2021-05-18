@@ -70,7 +70,8 @@ export class Repository extends pulumi.CustomResource {
      */
     constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
             inputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
             inputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
@@ -87,12 +88,8 @@ export class Repository extends pulumi.CustomResource {
             inputs["repositoryPolicyText"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Repository.__pulumiType, name, inputs, opts);
     }
@@ -113,7 +110,7 @@ export interface RepositoryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
      */
-    readonly lifecyclePolicy?: pulumi.Input<inputs.ECR.RepositoryLifecyclePolicy>;
+    readonly lifecyclePolicy?: pulumi.Input<inputs.ECR.RepositoryLifecyclePolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
      */
@@ -125,5 +122,5 @@ export interface RepositoryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -76,17 +76,18 @@ export class MissionProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args: MissionProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.dataflowEdges === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.dataflowEdges === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataflowEdges'");
             }
-            if ((!args || args.minimumViableContactDurationSeconds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.minimumViableContactDurationSeconds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minimumViableContactDurationSeconds'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.trackingConfigArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.trackingConfigArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trackingConfigArn'");
             }
             inputs["contactPostPassDurationSeconds"] = args ? args.contactPostPassDurationSeconds : undefined;
@@ -111,12 +112,8 @@ export class MissionProfile extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["trackingConfigArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MissionProfile.__pulumiType, name, inputs, opts);
     }
@@ -137,7 +134,7 @@ export interface MissionProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
      */
-    readonly dataflowEdges: pulumi.Input<pulumi.Input<inputs.GroundStation.MissionProfileDataflowEdge>[]>;
+    readonly dataflowEdges: pulumi.Input<pulumi.Input<inputs.GroundStation.MissionProfileDataflowEdgeArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
      */
@@ -149,7 +146,7 @@ export interface MissionProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
      */

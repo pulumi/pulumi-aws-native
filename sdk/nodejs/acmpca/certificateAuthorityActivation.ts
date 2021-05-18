@@ -61,11 +61,12 @@ export class CertificateAuthorityActivation extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateAuthorityActivationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.certificate === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.certificate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificate'");
             }
-            if ((!args || args.certificateAuthorityArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
             inputs["certificate"] = args ? args.certificate : undefined;
@@ -80,12 +81,8 @@ export class CertificateAuthorityActivation extends pulumi.CustomResource {
             inputs["completeCertificateChain"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CertificateAuthorityActivation.__pulumiType, name, inputs, opts);
     }

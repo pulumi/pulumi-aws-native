@@ -79,8 +79,9 @@ export class Key extends pulumi.CustomResource {
      */
     constructor(name: string, args: KeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.keyPolicy === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.keyPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyPolicy'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -105,12 +106,8 @@ export class Key extends pulumi.CustomResource {
             inputs["pendingWindowInDays"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Key.__pulumiType, name, inputs, opts);
     }
@@ -151,5 +148,5 @@ export interface KeyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

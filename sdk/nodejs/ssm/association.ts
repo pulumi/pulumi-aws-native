@@ -106,8 +106,9 @@ export class Association extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["applyOnlyAtCronInterval"] = args ? args.applyOnlyAtCronInterval : undefined;
@@ -144,12 +145,8 @@ export class Association extends pulumi.CustomResource {
             inputs["targets"] = undefined /*out*/;
             inputs["waitForSuccessTimeoutSeconds"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Association.__pulumiType, name, inputs, opts);
     }
@@ -198,11 +195,11 @@ export interface AssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
      */
-    readonly outputLocation?: pulumi.Input<inputs.SSM.AssociationInstanceAssociationOutputLocation>;
+    readonly outputLocation?: pulumi.Input<inputs.SSM.AssociationInstanceAssociationOutputLocationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.SSM.AssociationParameterValues>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.SSM.AssociationParameterValuesArgs>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
      */
@@ -214,7 +211,7 @@ export interface AssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
      */
-    readonly targets?: pulumi.Input<pulumi.Input<inputs.SSM.AssociationTarget>[]>;
+    readonly targets?: pulumi.Input<pulumi.Input<inputs.SSM.AssociationTargetArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
      */

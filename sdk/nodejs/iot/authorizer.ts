@@ -74,8 +74,9 @@ export class Authorizer extends pulumi.CustomResource {
      */
     constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.authorizerFunctionArn === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.authorizerFunctionArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizerFunctionArn'");
             }
             inputs["authorizerFunctionArn"] = args ? args.authorizerFunctionArn : undefined;
@@ -96,12 +97,8 @@ export class Authorizer extends pulumi.CustomResource {
             inputs["tokenKeyName"] = undefined /*out*/;
             inputs["tokenSigningPublicKeys"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Authorizer.__pulumiType, name, inputs, opts);
     }
@@ -130,7 +127,7 @@ export interface AuthorizerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
      */
-    readonly tags?: pulumi.Input<inputs.IoT.AuthorizerTags>;
+    readonly tags?: pulumi.Input<inputs.IoT.AuthorizerTagsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
      */
@@ -138,5 +135,5 @@ export interface AuthorizerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
      */
-    readonly tokenSigningPublicKeys?: pulumi.Input<inputs.IoT.AuthorizerTokenSigningPublicKeys>;
+    readonly tokenSigningPublicKeys?: pulumi.Input<inputs.IoT.AuthorizerTokenSigningPublicKeysArgs>;
 }

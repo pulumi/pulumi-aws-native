@@ -79,17 +79,18 @@ export class Schema extends pulumi.CustomResource {
      */
     constructor(name: string, args: SchemaArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.compatibility === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.compatibility === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'compatibility'");
             }
-            if ((!args || args.dataFormat === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataFormat === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFormat'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.schemaDefinition === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.schemaDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaDefinition'");
             }
             inputs["checkpointVersion"] = args ? args.checkpointVersion : undefined;
@@ -114,12 +115,8 @@ export class Schema extends pulumi.CustomResource {
             inputs["schemaDefinition"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Schema.__pulumiType, name, inputs, opts);
     }
@@ -132,7 +129,7 @@ export interface SchemaArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
      */
-    readonly checkpointVersion?: pulumi.Input<inputs.Glue.SchemaSchemaVersion>;
+    readonly checkpointVersion?: pulumi.Input<inputs.Glue.SchemaSchemaVersionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
      */
@@ -152,7 +149,7 @@ export interface SchemaArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
      */
-    readonly registry?: pulumi.Input<inputs.Glue.SchemaRegistry>;
+    readonly registry?: pulumi.Input<inputs.Glue.SchemaRegistryArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
      */
@@ -160,5 +157,5 @@ export interface SchemaArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

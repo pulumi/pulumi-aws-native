@@ -122,7 +122,8 @@ export class Grant extends pulumi.CustomResource {
      */
     constructor(name: string, args?: GrantArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["allowedOperations"] = args ? args.allowedOperations : undefined;
             inputs["clientToken"] = args ? args.clientToken : undefined;
             inputs["filters"] = args ? args.filters : undefined;
@@ -165,12 +166,8 @@ export class Grant extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Grant.__pulumiType, name, inputs, opts);
     }
@@ -183,7 +180,7 @@ export interface GrantArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
      */
-    readonly allowedOperations?: pulumi.Input<inputs.LicenseManager.GrantAllowedOperationList>;
+    readonly allowedOperations?: pulumi.Input<inputs.LicenseManager.GrantAllowedOperationListArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-clienttoken
      */
@@ -191,11 +188,11 @@ export interface GrantArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-filters
      */
-    readonly filters?: pulumi.Input<inputs.LicenseManager.GrantFilterList>;
+    readonly filters?: pulumi.Input<inputs.LicenseManager.GrantFilterListArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantarns
      */
-    readonly grantArns?: pulumi.Input<inputs.LicenseManager.GrantArnList>;
+    readonly grantArns?: pulumi.Input<inputs.LicenseManager.GrantArnListArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
      */
@@ -207,7 +204,7 @@ export interface GrantArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantedoperations
      */
-    readonly grantedOperations?: pulumi.Input<inputs.LicenseManager.GrantAllowedOperationList>;
+    readonly grantedOperations?: pulumi.Input<inputs.LicenseManager.GrantAllowedOperationListArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-granteeprincipalarn
      */
@@ -235,7 +232,7 @@ export interface GrantArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
      */
-    readonly principals?: pulumi.Input<inputs.LicenseManager.GrantArnList>;
+    readonly principals?: pulumi.Input<inputs.LicenseManager.GrantArnListArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-sourceversion
      */
@@ -251,7 +248,7 @@ export interface GrantArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-tags
      */
-    readonly tags?: pulumi.Input<inputs.LicenseManager.GrantTagList>;
+    readonly tags?: pulumi.Input<inputs.LicenseManager.GrantTagListArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-version
      */

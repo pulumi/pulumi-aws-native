@@ -95,17 +95,18 @@ export class GameServerGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: GameServerGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.gameServerGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.gameServerGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gameServerGroupName'");
             }
-            if ((!args || args.instanceDefinitions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceDefinitions'");
             }
-            if ((!args || args.launchTemplate === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.launchTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'launchTemplate'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["autoScalingPolicy"] = args ? args.autoScalingPolicy : undefined;
@@ -138,12 +139,8 @@ export class GameServerGroup extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["vpcSubnets"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GameServerGroup.__pulumiType, name, inputs, opts);
     }
@@ -156,7 +153,7 @@ export interface GameServerGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
      */
-    readonly autoScalingPolicy?: pulumi.Input<inputs.GameLift.GameServerGroupAutoScalingPolicy>;
+    readonly autoScalingPolicy?: pulumi.Input<inputs.GameLift.GameServerGroupAutoScalingPolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
      */
@@ -176,11 +173,11 @@ export interface GameServerGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
      */
-    readonly instanceDefinitions: pulumi.Input<inputs.GameLift.GameServerGroupInstanceDefinitions>;
+    readonly instanceDefinitions: pulumi.Input<inputs.GameLift.GameServerGroupInstanceDefinitionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
      */
-    readonly launchTemplate: pulumi.Input<inputs.GameLift.GameServerGroupLaunchTemplate>;
+    readonly launchTemplate: pulumi.Input<inputs.GameLift.GameServerGroupLaunchTemplateArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
      */
@@ -196,9 +193,9 @@ export interface GameServerGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
      */
-    readonly tags?: pulumi.Input<inputs.GameLift.GameServerGroupTags>;
+    readonly tags?: pulumi.Input<inputs.GameLift.GameServerGroupTagsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
      */
-    readonly vpcSubnets?: pulumi.Input<inputs.GameLift.GameServerGroupVpcSubnets>;
+    readonly vpcSubnets?: pulumi.Input<inputs.GameLift.GameServerGroupVpcSubnetsArgs>;
 }

@@ -63,8 +63,9 @@ export class BackupVault extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackupVaultArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.backupVaultName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.backupVaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupVaultName'");
             }
             inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
@@ -81,12 +82,8 @@ export class BackupVault extends pulumi.CustomResource {
             inputs["encryptionKeyArn"] = undefined /*out*/;
             inputs["notifications"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BackupVault.__pulumiType, name, inputs, opts);
     }
@@ -115,5 +112,5 @@ export interface BackupVaultArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
      */
-    readonly notifications?: pulumi.Input<inputs.Backup.BackupVaultNotificationObjectType>;
+    readonly notifications?: pulumi.Input<inputs.Backup.BackupVaultNotificationObjectTypeArgs>;
 }

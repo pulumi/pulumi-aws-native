@@ -62,11 +62,12 @@ export class Gateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.gatewayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.gatewayPlatform === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.gatewayPlatform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayPlatform'");
             }
             inputs["gatewayCapabilitySummaries"] = args ? args.gatewayCapabilitySummaries : undefined;
@@ -81,12 +82,8 @@ export class Gateway extends pulumi.CustomResource {
             inputs["gatewayPlatform"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Gateway.__pulumiType, name, inputs, opts);
     }
@@ -99,7 +96,7 @@ export interface GatewayArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
      */
-    readonly gatewayCapabilitySummaries?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.GatewayGatewayCapabilitySummary>[]>;
+    readonly gatewayCapabilitySummaries?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.GatewayGatewayCapabilitySummaryArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
      */
@@ -107,9 +104,9 @@ export interface GatewayArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
      */
-    readonly gatewayPlatform: pulumi.Input<inputs.IoTSiteWise.GatewayGatewayPlatform>;
+    readonly gatewayPlatform: pulumi.Input<inputs.IoTSiteWise.GatewayGatewayPlatformArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

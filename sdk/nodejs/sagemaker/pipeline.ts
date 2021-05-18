@@ -69,14 +69,15 @@ export class Pipeline extends pulumi.CustomResource {
      */
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.pipelineDefinition === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.pipelineDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pipelineDefinition'");
             }
-            if ((!args || args.pipelineName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.pipelineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pipelineName'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["pipelineDefinition"] = args ? args.pipelineDefinition : undefined;
@@ -93,12 +94,8 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["roleArn"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Pipeline.__pulumiType, name, inputs, opts);
     }
@@ -131,5 +128,5 @@ export interface PipelineArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

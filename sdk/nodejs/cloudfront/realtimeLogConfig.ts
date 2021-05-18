@@ -62,17 +62,18 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: RealtimeLogConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.endPoints === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.endPoints === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endPoints'");
             }
-            if ((!args || args.fields === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fields === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fields'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.samplingRate === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.samplingRate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'samplingRate'");
             }
             inputs["endPoints"] = args ? args.endPoints : undefined;
@@ -87,12 +88,8 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["samplingRate"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RealtimeLogConfig.__pulumiType, name, inputs, opts);
     }
@@ -105,7 +102,7 @@ export interface RealtimeLogConfigArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
      */
-    readonly endPoints: pulumi.Input<pulumi.Input<inputs.CloudFront.RealtimeLogConfigEndPoint>[]>;
+    readonly endPoints: pulumi.Input<pulumi.Input<inputs.CloudFront.RealtimeLogConfigEndPointArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
      */

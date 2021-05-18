@@ -84,17 +84,18 @@ export class Firewall extends pulumi.CustomResource {
      */
     constructor(name: string, args: FirewallArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.firewallName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.firewallName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallName'");
             }
-            if ((!args || args.firewallPolicyArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.firewallPolicyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicyArn'");
             }
-            if ((!args || args.subnetMappings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetMappings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetMappings'");
             }
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
@@ -123,12 +124,8 @@ export class Firewall extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Firewall.__pulumiType, name, inputs, opts);
     }
@@ -165,11 +162,11 @@ export interface FirewallArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
      */
-    readonly subnetMappings: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallSubnetMapping>[]>;
+    readonly subnetMappings: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallSubnetMappingArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
      */

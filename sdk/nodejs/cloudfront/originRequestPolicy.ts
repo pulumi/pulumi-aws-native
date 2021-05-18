@@ -51,8 +51,9 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: OriginRequestPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.originRequestPolicyConfig === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.originRequestPolicyConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'originRequestPolicyConfig'");
             }
             inputs["originRequestPolicyConfig"] = args ? args.originRequestPolicyConfig : undefined;
@@ -63,12 +64,8 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["originRequestPolicyConfig"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OriginRequestPolicy.__pulumiType, name, inputs, opts);
     }
@@ -81,5 +78,5 @@ export interface OriginRequestPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
      */
-    readonly originRequestPolicyConfig: pulumi.Input<inputs.CloudFront.OriginRequestPolicyOriginRequestPolicyConfig>;
+    readonly originRequestPolicyConfig: pulumi.Input<inputs.CloudFront.OriginRequestPolicyOriginRequestPolicyConfigArgs>;
 }

@@ -91,20 +91,21 @@ export class Policy extends pulumi.CustomResource {
      */
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.excludeResourceTags === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.excludeResourceTags === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'excludeResourceTags'");
             }
-            if ((!args || args.policyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyName'");
             }
-            if ((!args || args.remediationEnabled === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.remediationEnabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'remediationEnabled'");
             }
-            if ((!args || args.resourceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.securityServicePolicyData === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.securityServicePolicyData === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityServicePolicyData'");
             }
             inputs["deleteAllPolicyResources"] = args ? args.deleteAllPolicyResources : undefined;
@@ -135,12 +136,8 @@ export class Policy extends pulumi.CustomResource {
             inputs["securityServicePolicyData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Policy.__pulumiType, name, inputs, opts);
     }
@@ -157,7 +154,7 @@ export interface PolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
      */
-    readonly excludeMap?: pulumi.Input<inputs.FMS.PolicyIEMap>;
+    readonly excludeMap?: pulumi.Input<inputs.FMS.PolicyIEMapArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
      */
@@ -165,7 +162,7 @@ export interface PolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
      */
-    readonly includeMap?: pulumi.Input<inputs.FMS.PolicyIEMap>;
+    readonly includeMap?: pulumi.Input<inputs.FMS.PolicyIEMapArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
      */
@@ -177,7 +174,7 @@ export interface PolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
      */
-    readonly resourceTags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyResourceTag>[]>;
+    readonly resourceTags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyResourceTagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
      */
@@ -193,5 +190,5 @@ export interface PolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyPolicyTag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyPolicyTagArgs>[]>;
 }

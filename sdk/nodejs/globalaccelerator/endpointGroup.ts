@@ -86,11 +86,12 @@ export class EndpointGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.endpointGroupRegion === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.endpointGroupRegion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointGroupRegion'");
             }
-            if ((!args || args.listenerArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.listenerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
             inputs["endpointConfigurations"] = args ? args.endpointConfigurations : undefined;
@@ -117,12 +118,8 @@ export class EndpointGroup extends pulumi.CustomResource {
             inputs["thresholdCount"] = undefined /*out*/;
             inputs["trafficDialPercentage"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EndpointGroup.__pulumiType, name, inputs, opts);
     }
@@ -135,7 +132,7 @@ export interface EndpointGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
      */
-    readonly endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.EndpointGroupEndpointConfiguration>[]>;
+    readonly endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.EndpointGroupEndpointConfigurationArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
      */
@@ -163,7 +160,7 @@ export interface EndpointGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
      */
-    readonly portOverrides?: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.EndpointGroupPortOverride>[]>;
+    readonly portOverrides?: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.EndpointGroupPortOverrideArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
      */

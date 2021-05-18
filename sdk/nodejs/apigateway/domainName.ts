@@ -77,7 +77,8 @@ export class DomainName extends pulumi.CustomResource {
      */
     constructor(name: string, args?: DomainNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
@@ -102,12 +103,8 @@ export class DomainName extends pulumi.CustomResource {
             inputs["securityPolicy"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DomainName.__pulumiType, name, inputs, opts);
     }
@@ -128,11 +125,11 @@ export interface DomainNameArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
      */
-    readonly endpointConfiguration?: pulumi.Input<inputs.ApiGateway.DomainNameEndpointConfiguration>;
+    readonly endpointConfiguration?: pulumi.Input<inputs.ApiGateway.DomainNameEndpointConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
      */
-    readonly mutualTlsAuthentication?: pulumi.Input<inputs.ApiGateway.DomainNameMutualTlsAuthentication>;
+    readonly mutualTlsAuthentication?: pulumi.Input<inputs.ApiGateway.DomainNameMutualTlsAuthenticationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
      */
@@ -144,5 +141,5 @@ export interface DomainNameArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -70,14 +70,15 @@ export class FargateProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args: FargateProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.podExecutionRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.podExecutionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'podExecutionRoleArn'");
             }
-            if ((!args || args.selectors === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.selectors === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'selectors'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -96,12 +97,8 @@ export class FargateProfile extends pulumi.CustomResource {
             inputs["subnets"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FargateProfile.__pulumiType, name, inputs, opts);
     }
@@ -126,7 +123,7 @@ export interface FargateProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
      */
-    readonly selectors: pulumi.Input<pulumi.Input<inputs.EKS.FargateProfileSelector>[]>;
+    readonly selectors: pulumi.Input<pulumi.Input<inputs.EKS.FargateProfileSelectorArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
      */
@@ -134,5 +131,5 @@ export interface FargateProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

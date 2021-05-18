@@ -93,11 +93,12 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: InfrastructureConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.instanceProfileName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.instanceProfileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceProfileName'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -128,12 +129,8 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["terminateInstanceOnFailure"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(InfrastructureConfiguration.__pulumiType, name, inputs, opts);
     }

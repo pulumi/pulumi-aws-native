@@ -62,14 +62,15 @@ export class Listener extends pulumi.CustomResource {
      */
     constructor(name: string, args: ListenerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.acceleratorArn === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.acceleratorArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'acceleratorArn'");
             }
-            if ((!args || args.portRanges === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.portRanges === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portRanges'");
             }
-            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
             inputs["acceleratorArn"] = args ? args.acceleratorArn : undefined;
@@ -84,12 +85,8 @@ export class Listener extends pulumi.CustomResource {
             inputs["portRanges"] = undefined /*out*/;
             inputs["protocol"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Listener.__pulumiType, name, inputs, opts);
     }
@@ -110,7 +107,7 @@ export interface ListenerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
      */
-    readonly portRanges: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.ListenerPortRange>[]>;
+    readonly portRanges: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.ListenerPortRangeArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
      */

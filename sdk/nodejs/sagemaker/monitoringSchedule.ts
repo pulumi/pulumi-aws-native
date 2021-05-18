@@ -76,11 +76,12 @@ export class MonitoringSchedule extends pulumi.CustomResource {
      */
     constructor(name: string, args: MonitoringScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.monitoringScheduleConfig === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.monitoringScheduleConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitoringScheduleConfig'");
             }
-            if ((!args || args.monitoringScheduleName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.monitoringScheduleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitoringScheduleName'");
             }
             inputs["endpointName"] = args ? args.endpointName : undefined;
@@ -105,12 +106,8 @@ export class MonitoringSchedule extends pulumi.CustomResource {
             inputs["monitoringScheduleStatus"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MonitoringSchedule.__pulumiType, name, inputs, opts);
     }
@@ -131,11 +128,11 @@ export interface MonitoringScheduleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
      */
-    readonly lastMonitoringExecutionSummary?: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringExecutionSummary>;
+    readonly lastMonitoringExecutionSummary?: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringExecutionSummaryArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
      */
-    readonly monitoringScheduleConfig: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringScheduleConfig>;
+    readonly monitoringScheduleConfig: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringScheduleConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
      */
@@ -147,5 +144,5 @@ export interface MonitoringScheduleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

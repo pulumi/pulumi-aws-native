@@ -66,8 +66,9 @@ export class ProfilingGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProfilingGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.profilingGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.profilingGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profilingGroupName'");
             }
             inputs["agentPermissions"] = args ? args.agentPermissions : undefined;
@@ -84,12 +85,8 @@ export class ProfilingGroup extends pulumi.CustomResource {
             inputs["profilingGroupName"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProfilingGroup.__pulumiType, name, inputs, opts);
     }
@@ -106,7 +103,7 @@ export interface ProfilingGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
      */
-    readonly anomalyDetectionNotificationConfiguration?: pulumi.Input<pulumi.Input<inputs.CodeGuruProfiler.ProfilingGroupChannel>[]>;
+    readonly anomalyDetectionNotificationConfiguration?: pulumi.Input<pulumi.Input<inputs.CodeGuruProfiler.ProfilingGroupChannelArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
      */
@@ -118,5 +115,5 @@ export interface ProfilingGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -58,11 +58,12 @@ export class Alias extends pulumi.CustomResource {
      */
     constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.routingStrategy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.routingStrategy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routingStrategy'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -75,12 +76,8 @@ export class Alias extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["routingStrategy"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Alias.__pulumiType, name, inputs, opts);
     }
@@ -101,5 +98,5 @@ export interface AliasArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
      */
-    readonly routingStrategy: pulumi.Input<inputs.GameLift.AliasRoutingStrategy>;
+    readonly routingStrategy: pulumi.Input<inputs.GameLift.AliasRoutingStrategyArgs>;
 }

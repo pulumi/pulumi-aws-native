@@ -70,8 +70,9 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkInsightsAnalysisArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.networkInsightsPathId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.networkInsightsPathId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInsightsPathId'");
             }
             inputs["filterInArns"] = args ? args.filterInArns : undefined;
@@ -102,12 +103,8 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             inputs["statusMessage"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NetworkInsightsAnalysis.__pulumiType, name, inputs, opts);
     }
@@ -132,5 +129,5 @@ export interface NetworkInsightsAnalysisArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

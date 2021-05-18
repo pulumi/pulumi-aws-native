@@ -54,8 +54,9 @@ export class HealthCheck extends pulumi.CustomResource {
      */
     constructor(name: string, args: HealthCheckArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.healthCheckConfig === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.healthCheckConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'healthCheckConfig'");
             }
             inputs["healthCheckConfig"] = args ? args.healthCheckConfig : undefined;
@@ -66,12 +67,8 @@ export class HealthCheck extends pulumi.CustomResource {
             inputs["healthCheckId"] = undefined /*out*/;
             inputs["healthCheckTags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(HealthCheck.__pulumiType, name, inputs, opts);
     }
@@ -88,5 +85,5 @@ export interface HealthCheckArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
      */
-    readonly healthCheckTags?: pulumi.Input<pulumi.Input<inputs.Route53.HealthCheckHealthCheckTag>[]>;
+    readonly healthCheckTags?: pulumi.Input<pulumi.Input<inputs.Route53.HealthCheckHealthCheckTagArgs>[]>;
 }

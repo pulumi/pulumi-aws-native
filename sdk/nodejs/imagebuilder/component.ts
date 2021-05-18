@@ -87,14 +87,15 @@ export class Component extends pulumi.CustomResource {
      */
     constructor(name: string, args: ComponentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.platform === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.platform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platform'");
             }
-            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["changeDescription"] = args ? args.changeDescription : undefined;
@@ -125,12 +126,8 @@ export class Component extends pulumi.CustomResource {
             inputs["uri"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Component.__pulumiType, name, inputs, opts);
     }

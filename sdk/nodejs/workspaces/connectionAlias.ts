@@ -56,8 +56,9 @@ export class ConnectionAlias extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConnectionAliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.connectionString === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.connectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
             inputs["connectionString"] = args ? args.connectionString : undefined;
@@ -72,12 +73,8 @@ export class ConnectionAlias extends pulumi.CustomResource {
             inputs["connectionString"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ConnectionAlias.__pulumiType, name, inputs, opts);
     }
@@ -94,5 +91,5 @@ export interface ConnectionAliasArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

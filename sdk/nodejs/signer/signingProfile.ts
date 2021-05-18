@@ -61,8 +61,9 @@ export class SigningProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args: SigningProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.platformId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.platformId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platformId'");
             }
             inputs["platformId"] = args ? args.platformId : undefined;
@@ -81,12 +82,8 @@ export class SigningProfile extends pulumi.CustomResource {
             inputs["signatureValidityPeriod"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SigningProfile.__pulumiType, name, inputs, opts);
     }
@@ -103,9 +100,9 @@ export interface SigningProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
      */
-    readonly signatureValidityPeriod?: pulumi.Input<inputs.Signer.SigningProfileSignatureValidityPeriod>;
+    readonly signatureValidityPeriod?: pulumi.Input<inputs.Signer.SigningProfileSignatureValidityPeriodArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

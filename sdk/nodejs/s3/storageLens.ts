@@ -54,8 +54,9 @@ export class StorageLens extends pulumi.CustomResource {
      */
     constructor(name: string, args: StorageLensArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.storageLensConfiguration === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.storageLensConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageLensConfiguration'");
             }
             inputs["storageLensConfiguration"] = args ? args.storageLensConfiguration : undefined;
@@ -66,12 +67,8 @@ export class StorageLens extends pulumi.CustomResource {
             inputs["storageLensConfiguration"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StorageLens.__pulumiType, name, inputs, opts);
     }
@@ -84,9 +81,9 @@ export interface StorageLensArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
      */
-    readonly storageLensConfiguration: pulumi.Input<inputs.S3.StorageLensStorageLensConfiguration>;
+    readonly storageLensConfiguration: pulumi.Input<inputs.S3.StorageLensStorageLensConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

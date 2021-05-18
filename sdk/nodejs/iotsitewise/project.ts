@@ -63,11 +63,12 @@ export class Project extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.portalId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.portalId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portalId'");
             }
-            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
             inputs["portalId"] = args ? args.portalId : undefined;
@@ -84,12 +85,8 @@ export class Project extends pulumi.CustomResource {
             inputs["projectName"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Project.__pulumiType, name, inputs, opts);
     }
@@ -114,5 +111,5 @@ export interface ProjectArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

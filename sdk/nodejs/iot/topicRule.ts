@@ -54,8 +54,9 @@ export class TopicRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: TopicRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.topicRulePayload === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.topicRulePayload === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicRulePayload'");
             }
             inputs["ruleName"] = args ? args.ruleName : undefined;
@@ -66,12 +67,8 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["ruleName"] = undefined /*out*/;
             inputs["topicRulePayload"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TopicRule.__pulumiType, name, inputs, opts);
     }
@@ -88,5 +85,5 @@ export interface TopicRuleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
      */
-    readonly topicRulePayload: pulumi.Input<inputs.IoT.TopicRuleTopicRulePayload>;
+    readonly topicRulePayload: pulumi.Input<inputs.IoT.TopicRuleTopicRulePayloadArgs>;
 }

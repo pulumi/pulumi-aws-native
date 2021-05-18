@@ -67,14 +67,15 @@ export class ConnectorProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConnectorProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.connectionMode === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.connectionMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionMode'");
             }
-            if ((!args || args.connectorProfileName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.connectorProfileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectorProfileName'");
             }
-            if ((!args || args.connectorType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.connectorType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectorType'");
             }
             inputs["connectionMode"] = args ? args.connectionMode : undefined;
@@ -93,12 +94,8 @@ export class ConnectorProfile extends pulumi.CustomResource {
             inputs["credentialsArn"] = undefined /*out*/;
             inputs["kMSArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ConnectorProfile.__pulumiType, name, inputs, opts);
     }
@@ -115,7 +112,7 @@ export interface ConnectorProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
      */
-    readonly connectorProfileConfig?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorProfileConfig>;
+    readonly connectorProfileConfig?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorProfileConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
      */

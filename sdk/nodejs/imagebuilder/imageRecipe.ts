@@ -78,17 +78,18 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     constructor(name: string, args: ImageRecipeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.components === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.components === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'components'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.parentImage === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.parentImage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parentImage'");
             }
-            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
@@ -111,12 +112,8 @@ export class ImageRecipe extends pulumi.CustomResource {
             inputs["version"] = undefined /*out*/;
             inputs["workingDirectory"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ImageRecipe.__pulumiType, name, inputs, opts);
     }
@@ -129,11 +126,11 @@ export interface ImageRecipeArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
      */
-    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ImageBuilder.ImageRecipeInstanceBlockDeviceMapping>[]>;
+    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ImageBuilder.ImageRecipeInstanceBlockDeviceMappingArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
      */
-    readonly components: pulumi.Input<pulumi.Input<inputs.ImageBuilder.ImageRecipeComponentConfiguration>[]>;
+    readonly components: pulumi.Input<pulumi.Input<inputs.ImageBuilder.ImageRecipeComponentConfigurationArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
      */

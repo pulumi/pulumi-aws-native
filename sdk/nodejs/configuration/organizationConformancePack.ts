@@ -73,8 +73,9 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrganizationConformancePackArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.organizationConformancePackName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.organizationConformancePackName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'organizationConformancePackName'");
             }
             inputs["conformancePackInputParameters"] = args ? args.conformancePackInputParameters : undefined;
@@ -93,12 +94,8 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
             inputs["templateBody"] = undefined /*out*/;
             inputs["templateS3Uri"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OrganizationConformancePack.__pulumiType, name, inputs, opts);
     }
@@ -111,7 +108,7 @@ export interface OrganizationConformancePackArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
      */
-    readonly conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.Configuration.OrganizationConformancePackConformancePackInputParameter>[]>;
+    readonly conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.Configuration.OrganizationConformancePackConformancePackInputParameterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
      */

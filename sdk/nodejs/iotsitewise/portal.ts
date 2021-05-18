@@ -70,14 +70,15 @@ export class Portal extends pulumi.CustomResource {
      */
     constructor(name: string, args: PortalArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.portalContactEmail === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.portalContactEmail === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portalContactEmail'");
             }
-            if ((!args || args.portalName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.portalName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portalName'");
             }
-            if ((!args || args.roleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             inputs["portalContactEmail"] = args ? args.portalContactEmail : undefined;
@@ -102,12 +103,8 @@ export class Portal extends pulumi.CustomResource {
             inputs["roleArn"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Portal.__pulumiType, name, inputs, opts);
     }
@@ -136,5 +133,5 @@ export interface PortalArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

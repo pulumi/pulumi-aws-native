@@ -61,8 +61,9 @@ export class Domain extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
             inputs["domainName"] = args ? args.domainName : undefined;
@@ -81,12 +82,8 @@ export class Domain extends pulumi.CustomResource {
             inputs["permissionsPolicyDocument"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Domain.__pulumiType, name, inputs, opts);
     }
@@ -111,5 +108,5 @@ export interface DomainArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

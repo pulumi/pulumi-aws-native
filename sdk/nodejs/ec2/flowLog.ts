@@ -86,14 +86,15 @@ export class FlowLog extends pulumi.CustomResource {
      */
     constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.resourceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.trafficType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.trafficType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trafficType'");
             }
             inputs["deliverLogsPermissionArn"] = args ? args.deliverLogsPermissionArn : undefined;
@@ -120,12 +121,8 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["trafficType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FlowLog.__pulumiType, name, inputs, opts);
     }
@@ -170,7 +167,7 @@ export interface FlowLogArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype
      */

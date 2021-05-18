@@ -57,8 +57,9 @@ export class CapacityProvider extends pulumi.CustomResource {
      */
     constructor(name: string, args: CapacityProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.autoScalingGroupProvider === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.autoScalingGroupProvider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingGroupProvider'");
             }
             inputs["autoScalingGroupProvider"] = args ? args.autoScalingGroupProvider : undefined;
@@ -69,12 +70,8 @@ export class CapacityProvider extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CapacityProvider.__pulumiType, name, inputs, opts);
     }
@@ -87,7 +84,7 @@ export interface CapacityProviderArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider
      */
-    readonly autoScalingGroupProvider: pulumi.Input<inputs.ECS.CapacityProviderAutoScalingGroupProvider>;
+    readonly autoScalingGroupProvider: pulumi.Input<inputs.ECS.CapacityProviderAutoScalingGroupProviderArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-name
      */
@@ -95,5 +92,5 @@ export interface CapacityProviderArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

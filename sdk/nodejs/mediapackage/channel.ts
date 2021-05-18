@@ -59,8 +59,9 @@ export class Channel extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.id === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'id'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -75,12 +76,8 @@ export class Channel extends pulumi.CustomResource {
             inputs["id"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Channel.__pulumiType, name, inputs, opts);
     }
@@ -101,5 +98,5 @@ export interface ChannelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

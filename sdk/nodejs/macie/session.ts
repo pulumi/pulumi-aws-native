@@ -54,7 +54,8 @@ export class Session extends pulumi.CustomResource {
      */
     constructor(name: string, args?: SessionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["awsAccountId"] = undefined /*out*/;
@@ -65,12 +66,8 @@ export class Session extends pulumi.CustomResource {
             inputs["serviceRole"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Session.__pulumiType, name, inputs, opts);
     }

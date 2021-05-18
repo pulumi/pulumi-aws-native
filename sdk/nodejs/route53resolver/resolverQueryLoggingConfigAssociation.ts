@@ -57,7 +57,8 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
      */
     constructor(name: string, args?: ResolverQueryLoggingConfigAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["resolverQueryLogConfigId"] = args ? args.resolverQueryLogConfigId : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["creationTime"] = undefined /*out*/;
@@ -74,12 +75,8 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
             inputs["resourceId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ResolverQueryLoggingConfigAssociation.__pulumiType, name, inputs, opts);
     }

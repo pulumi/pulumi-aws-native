@@ -60,8 +60,9 @@ export class ModuleVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args: ModuleVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.moduleName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.moduleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'moduleName'");
             }
             inputs["moduleName"] = args ? args.moduleName : undefined;
@@ -86,12 +87,8 @@ export class ModuleVersion extends pulumi.CustomResource {
             inputs["versionId"] = undefined /*out*/;
             inputs["visibility"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ModuleVersion.__pulumiType, name, inputs, opts);
     }

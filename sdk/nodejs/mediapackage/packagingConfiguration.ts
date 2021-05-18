@@ -74,11 +74,12 @@ export class PackagingConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: PackagingConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.id === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'id'");
             }
-            if ((!args || args.packagingGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.packagingGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packagingGroupId'");
             }
             inputs["cmafPackage"] = args ? args.cmafPackage : undefined;
@@ -99,12 +100,8 @@ export class PackagingConfiguration extends pulumi.CustomResource {
             inputs["packagingGroupId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PackagingConfiguration.__pulumiType, name, inputs, opts);
     }
@@ -117,15 +114,15 @@ export interface PackagingConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
      */
-    readonly cmafPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationCmafPackage>;
+    readonly cmafPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationCmafPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
      */
-    readonly dashPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationDashPackage>;
+    readonly dashPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationDashPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
      */
-    readonly hlsPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsPackage>;
+    readonly hlsPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
      */
@@ -133,7 +130,7 @@ export interface PackagingConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
      */
-    readonly mssPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationMssPackage>;
+    readonly mssPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationMssPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
      */
@@ -141,5 +138,5 @@ export interface PackagingConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

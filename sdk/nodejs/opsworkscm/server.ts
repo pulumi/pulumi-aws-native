@@ -132,14 +132,15 @@ export class Server extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.instanceProfileArn === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.instanceProfileArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceProfileArn'");
             }
-            if ((!args || args.instanceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            if ((!args || args.serviceRoleArn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
             inputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
@@ -192,12 +193,8 @@ export class Server extends pulumi.CustomResource {
             inputs["subnetIds"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Server.__pulumiType, name, inputs, opts);
     }
@@ -242,7 +239,7 @@ export interface ServerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
      */
-    readonly engineAttributes?: pulumi.Input<pulumi.Input<inputs.OpsWorksCM.ServerEngineAttribute>[]>;
+    readonly engineAttributes?: pulumi.Input<pulumi.Input<inputs.OpsWorksCM.ServerEngineAttributeArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
      */
@@ -290,5 +287,5 @@ export interface ServerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

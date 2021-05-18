@@ -56,14 +56,15 @@ export class LinkAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.deviceId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.deviceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceId'");
             }
-            if ((!args || args.globalNetworkId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            if ((!args || args.linkId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.linkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkId'");
             }
             inputs["deviceId"] = args ? args.deviceId : undefined;
@@ -74,12 +75,8 @@ export class LinkAssociation extends pulumi.CustomResource {
             inputs["globalNetworkId"] = undefined /*out*/;
             inputs["linkId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LinkAssociation.__pulumiType, name, inputs, opts);
     }

@@ -82,7 +82,8 @@ export class Assessment extends pulumi.CustomResource {
      */
     constructor(name: string, args?: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["assessmentReportsDestination"] = args ? args.assessmentReportsDestination : undefined;
             inputs["awsAccount"] = args ? args.awsAccount : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -111,12 +112,8 @@ export class Assessment extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Assessment.__pulumiType, name, inputs, opts);
     }
@@ -129,11 +126,11 @@ export interface AssessmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
      */
-    readonly assessmentReportsDestination?: pulumi.Input<inputs.AuditManager.AssessmentAssessmentReportsDestination>;
+    readonly assessmentReportsDestination?: pulumi.Input<inputs.AuditManager.AssessmentAssessmentReportsDestinationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
      */
-    readonly awsAccount?: pulumi.Input<inputs.AuditManager.AssessmentAWSAccount>;
+    readonly awsAccount?: pulumi.Input<inputs.AuditManager.AssessmentAWSAccountArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
      */
@@ -149,11 +146,11 @@ export interface AssessmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
      */
-    readonly roles?: pulumi.Input<inputs.AuditManager.AssessmentRoles>;
+    readonly roles?: pulumi.Input<inputs.AuditManager.AssessmentRolesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
      */
-    readonly scope?: pulumi.Input<inputs.AuditManager.AssessmentScope>;
+    readonly scope?: pulumi.Input<inputs.AuditManager.AssessmentScopeArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
      */
@@ -161,5 +158,5 @@ export interface AssessmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
      */
-    readonly tags?: pulumi.Input<inputs.AuditManager.AssessmentTags>;
+    readonly tags?: pulumi.Input<inputs.AuditManager.AssessmentTagsArgs>;
 }

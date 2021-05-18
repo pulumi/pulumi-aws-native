@@ -78,20 +78,21 @@ export class Flow extends pulumi.CustomResource {
      */
     constructor(name: string, args: FlowArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.destinationFlowConfigList === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.destinationFlowConfigList === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationFlowConfigList'");
             }
-            if ((!args || args.flowName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.flowName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'flowName'");
             }
-            if ((!args || args.sourceFlowConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceFlowConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceFlowConfig'");
             }
-            if ((!args || args.tasks === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tasks === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tasks'");
             }
-            if ((!args || args.triggerConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.triggerConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'triggerConfig'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -114,12 +115,8 @@ export class Flow extends pulumi.CustomResource {
             inputs["tasks"] = undefined /*out*/;
             inputs["triggerConfig"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Flow.__pulumiType, name, inputs, opts);
     }
@@ -136,7 +133,7 @@ export interface FlowArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
      */
-    readonly destinationFlowConfigList: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowDestinationFlowConfig>[]>;
+    readonly destinationFlowConfigList: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowDestinationFlowConfigArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
      */
@@ -148,17 +145,17 @@ export interface FlowArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
      */
-    readonly sourceFlowConfig: pulumi.Input<inputs.AppFlow.FlowSourceFlowConfig>;
+    readonly sourceFlowConfig: pulumi.Input<inputs.AppFlow.FlowSourceFlowConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
      */
-    readonly tasks: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowTask>[]>;
+    readonly tasks: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowTaskArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
      */
-    readonly triggerConfig: pulumi.Input<inputs.AppFlow.FlowTriggerConfig>;
+    readonly triggerConfig: pulumi.Input<inputs.AppFlow.FlowTriggerConfigArgs>;
 }

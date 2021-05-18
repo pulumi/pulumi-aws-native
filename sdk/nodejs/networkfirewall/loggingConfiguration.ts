@@ -57,11 +57,12 @@ export class LoggingConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: LoggingConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.firewallArn === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.firewallArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallArn'");
             }
-            if ((!args || args.loggingConfiguration === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loggingConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loggingConfiguration'");
             }
             inputs["firewallArn"] = args ? args.firewallArn : undefined;
@@ -72,12 +73,8 @@ export class LoggingConfiguration extends pulumi.CustomResource {
             inputs["firewallName"] = undefined /*out*/;
             inputs["loggingConfiguration"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LoggingConfiguration.__pulumiType, name, inputs, opts);
     }
@@ -98,5 +95,5 @@ export interface LoggingConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
      */
-    readonly loggingConfiguration: pulumi.Input<inputs.NetworkFirewall.LoggingConfigurationLoggingConfiguration>;
+    readonly loggingConfiguration: pulumi.Input<inputs.NetworkFirewall.LoggingConfigurationLoggingConfigurationArgs>;
 }

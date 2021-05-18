@@ -76,14 +76,15 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkInsightsPathArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.destination === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.destination === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.source === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
             inputs["destination"] = args ? args.destination : undefined;
@@ -108,12 +109,8 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
             inputs["sourceIp"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NetworkInsightsPath.__pulumiType, name, inputs, opts);
     }
@@ -150,5 +147,5 @@ export interface NetworkInsightsPathArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

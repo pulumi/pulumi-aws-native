@@ -56,14 +56,15 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: PrimaryTaskSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.cluster === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.cluster === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cluster'");
             }
-            if ((!args || args.service === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.service === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
-            if ((!args || args.taskSetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.taskSetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskSetId'");
             }
             inputs["cluster"] = args ? args.cluster : undefined;
@@ -74,12 +75,8 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
             inputs["service"] = undefined /*out*/;
             inputs["taskSetId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PrimaryTaskSet.__pulumiType, name, inputs, opts);
     }

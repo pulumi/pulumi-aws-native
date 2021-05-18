@@ -56,8 +56,9 @@ export class CarrierGateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: CarrierGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.vpcId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["tags"] = args ? args.tags : undefined;
@@ -72,12 +73,8 @@ export class CarrierGateway extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CarrierGateway.__pulumiType, name, inputs, opts);
     }
@@ -90,7 +87,7 @@ export interface CarrierGatewayArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
      */
-    readonly tags?: pulumi.Input<inputs.EC2.CarrierGatewayTags>;
+    readonly tags?: pulumi.Input<inputs.EC2.CarrierGatewayTagsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
      */

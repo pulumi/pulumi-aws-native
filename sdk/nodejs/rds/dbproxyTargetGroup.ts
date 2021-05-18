@@ -66,11 +66,12 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: DBProxyTargetGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.dBProxyName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.dBProxyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dBProxyName'");
             }
-            if ((!args || args.targetGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetGroupName'");
             }
             inputs["connectionPoolConfigurationInfo"] = args ? args.connectionPoolConfigurationInfo : undefined;
@@ -87,12 +88,8 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
             inputs["targetGroupArn"] = undefined /*out*/;
             inputs["targetGroupName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DBProxyTargetGroup.__pulumiType, name, inputs, opts);
     }
@@ -105,7 +102,7 @@ export interface DBProxyTargetGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
      */
-    readonly connectionPoolConfigurationInfo?: pulumi.Input<inputs.RDS.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat>;
+    readonly connectionPoolConfigurationInfo?: pulumi.Input<inputs.RDS.DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
      */

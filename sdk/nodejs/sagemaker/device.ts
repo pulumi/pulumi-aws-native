@@ -54,7 +54,8 @@ export class Device extends pulumi.CustomResource {
      */
     constructor(name: string, args?: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["device"] = args ? args.device : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["deviceFleetName"] = undefined /*out*/;
@@ -63,12 +64,8 @@ export class Device extends pulumi.CustomResource {
             inputs["deviceFleetName"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Device.__pulumiType, name, inputs, opts);
     }
@@ -85,5 +82,5 @@ export interface DeviceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
      */
-    readonly tags?: pulumi.Input<inputs.Tag>;
+    readonly tags?: pulumi.Input<inputs.TagArgs>;
 }

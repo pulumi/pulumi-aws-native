@@ -66,7 +66,8 @@ export class Cluster extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["capacityProviders"] = args ? args.capacityProviders : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["clusterSettings"] = args ? args.clusterSettings : undefined;
@@ -81,12 +82,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["defaultCapacityProviderStrategy"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Cluster.__pulumiType, name, inputs, opts);
     }
@@ -107,13 +104,13 @@ export interface ClusterArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
      */
-    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.ECS.ClusterClusterSettings>[]>;
+    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.ECS.ClusterClusterSettingsArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
      */
-    readonly defaultCapacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ECS.ClusterCapacityProviderStrategyItem>[]>;
+    readonly defaultCapacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ECS.ClusterCapacityProviderStrategyItemArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.Tag>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

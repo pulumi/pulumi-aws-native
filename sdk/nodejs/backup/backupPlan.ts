@@ -56,8 +56,9 @@ export class BackupPlan extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackupPlanArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.backupPlan === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.backupPlan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupPlan'");
             }
             inputs["backupPlan"] = args ? args.backupPlan : undefined;
@@ -72,12 +73,8 @@ export class BackupPlan extends pulumi.CustomResource {
             inputs["backupPlanTags"] = undefined /*out*/;
             inputs["versionId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BackupPlan.__pulumiType, name, inputs, opts);
     }
@@ -90,7 +87,7 @@ export interface BackupPlanArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
      */
-    readonly backupPlan: pulumi.Input<inputs.Backup.BackupPlanBackupPlanResourceType>;
+    readonly backupPlan: pulumi.Input<inputs.Backup.BackupPlanBackupPlanResourceTypeArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
      */
