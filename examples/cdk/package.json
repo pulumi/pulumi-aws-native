@@ -1,0 +1,15 @@
+{
+    "name": "pulumi-aws-cdk",
+    "devDependencies": {
+        "@types/node": "^10.0.0"
+    },
+    "dependencies": {
+        "@aws-cdk/aws-cassandra": "^1.107.0",
+        "@aws-cdk/aws-ecs": "^1.107.0",
+        "@aws-cdk/aws-elasticloadbalancingv2": "^1.107.0",
+        "@aws-cdk/aws-s3": "^1.107.0",
+        "@aws-cdk/core": "1.107.0",
+        "@pulumi/aws": "^4.6.0",
+        "@pulumi/pulumi": "^3.0.0"
+    }
+}
