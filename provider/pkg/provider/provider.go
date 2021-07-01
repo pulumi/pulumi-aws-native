@@ -653,6 +653,11 @@ func (p *cfnProvider) Construct(_ context.Context, _ *pulumirpc.ConstructRequest
 	panic("Construct not implemented")
 }
 
+// Call dynamically executes a method in the provider associated with a component resource.
+func (p *cfnProvider) Call(_ context.Context, _ *pulumirpc.CallRequest) (*pulumirpc.CallResponse, error) {
+	panic("Call not implemented")
+}
+
 // GetPluginInfo returns generic information about this plugin, like its version.
 func (p *cfnProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*pulumirpc.PluginInfo, error) {
 	return &pulumirpc.PluginInfo{
