@@ -1,0 +1,34 @@
+archives:
+  - id: archive
+    name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'
+before:
+  hooks:
+    - make codegen
+    - make generate_schema
+artifactories:
+  - name: pulumipreview
+    mode: archive
+    target: "https://pulumipreview.jfrog.io/artifactory/pulumi-packages/{{ .ProjectName }}/"
+    username: goreleaser
+builds:
+  - binary: pulumi-resource-aws-native
+    dir: provider
+    env:
+      - CGO_ENABLED=0
+      - GO111MODULE=on
+    goarch:
+      - amd64
+      - arm64
+    goos:
+      - darwin
+      - windows
+      - linux
+    ldflags:
+      - -X github.com/pulumi/pulumi-aws-native/provider/pkg/version.Version={{.Tag}}
+    main: ./cmd/pulumi-resource-aws-native/
+changelog:
+  skip: true
+release:
+  disable: false
+snapshot:
+  name_template: '{{ .Tag }}-SNAPSHOT'
