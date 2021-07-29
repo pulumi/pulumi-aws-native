@@ -271,8 +271,7 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 	}
 	p.Language["csharp"] = rawMessage(map[string]interface{}{
 		"packageReferences": map[string]string{
-			"Pulumi":                       "3.*",
-			"System.Collections.Immutable": "1.6.0",
+			"Pulumi": "3.*",
 		},
 		"namespaces": csharpNamespaces,
 	})
