@@ -108,21 +108,21 @@ export interface DashboardArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
      */
-    readonly dashboardDefinition: pulumi.Input<string>;
+    dashboardDefinition: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
      */
-    readonly dashboardDescription: pulumi.Input<string>;
+    dashboardDescription: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
      */
-    readonly dashboardName: pulumi.Input<string>;
+    dashboardName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

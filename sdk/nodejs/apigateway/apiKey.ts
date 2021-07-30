@@ -111,33 +111,33 @@ export interface ApiKeyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-customerid
      */
-    readonly customerId?: pulumi.Input<string>;
+    customerId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-enabled
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-generatedistinctid
      */
-    readonly generateDistinctId?: pulumi.Input<boolean>;
+    generateDistinctId?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys
      */
-    readonly stageKeys?: pulumi.Input<pulumi.Input<inputs.ApiGateway.ApiKeyStageKeyArgs>[]>;
+    stageKeys?: pulumi.Input<pulumi.Input<inputs.ApiGateway.ApiKeyStageKeyArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-value
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }

@@ -99,21 +99,21 @@ export interface StreamArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
      */
-    readonly retentionPeriodHours?: pulumi.Input<number>;
+    retentionPeriodHours?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
      */
-    readonly shardCount: pulumi.Input<number>;
+    shardCount: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
      */
-    readonly streamEncryption?: pulumi.Input<inputs.Kinesis.StreamStreamEncryptionArgs>;
+    streamEncryption?: pulumi.Input<inputs.Kinesis.StreamStreamEncryptionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

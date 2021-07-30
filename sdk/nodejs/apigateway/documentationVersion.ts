@@ -86,13 +86,13 @@ export interface DocumentationVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
      */
-    readonly documentationVersion: pulumi.Input<string>;
+    documentationVersion: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
      */
-    readonly restApiId: pulumi.Input<string>;
+    restApiId: pulumi.Input<string>;
 }

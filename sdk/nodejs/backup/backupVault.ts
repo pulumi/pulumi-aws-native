@@ -96,21 +96,21 @@ export interface BackupVaultArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
      */
-    readonly accessPolicy?: pulumi.Input<any | string>;
+    accessPolicy?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
      */
-    readonly backupVaultName: pulumi.Input<string>;
+    backupVaultName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
      */
-    readonly backupVaultTags?: pulumi.Input<any | string>;
+    backupVaultTags?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
      */
-    readonly encryptionKeyArn?: pulumi.Input<string>;
+    encryptionKeyArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
      */
-    readonly notifications?: pulumi.Input<inputs.Backup.BackupVaultNotificationObjectTypeArgs>;
+    notifications?: pulumi.Input<inputs.Backup.BackupVaultNotificationObjectTypeArgs>;
 }

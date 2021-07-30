@@ -111,29 +111,29 @@ export interface AuthorizerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
      */
-    readonly authorizerFunctionArn: pulumi.Input<string>;
+    authorizerFunctionArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
      */
-    readonly authorizerName?: pulumi.Input<string>;
+    authorizerName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
      */
-    readonly signingDisabled?: pulumi.Input<boolean>;
+    signingDisabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
      */
-    readonly tags?: pulumi.Input<inputs.IoT.AuthorizerTagsArgs>;
+    tags?: pulumi.Input<inputs.IoT.AuthorizerTagsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
      */
-    readonly tokenKeyName?: pulumi.Input<string>;
+    tokenKeyName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
      */
-    readonly tokenSigningPublicKeys?: pulumi.Input<inputs.IoT.AuthorizerTokenSigningPublicKeysArgs>;
+    tokenSigningPublicKeys?: pulumi.Input<inputs.IoT.AuthorizerTokenSigningPublicKeysArgs>;
 }

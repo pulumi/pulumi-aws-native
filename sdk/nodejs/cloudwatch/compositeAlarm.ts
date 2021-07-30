@@ -113,29 +113,29 @@ export interface CompositeAlarmArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
      */
-    readonly actionsEnabled?: pulumi.Input<boolean>;
+    actionsEnabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
      */
-    readonly alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
+    alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
      */
-    readonly alarmDescription?: pulumi.Input<string>;
+    alarmDescription?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
      */
-    readonly alarmName: pulumi.Input<string>;
+    alarmName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
      */
-    readonly alarmRule: pulumi.Input<string>;
+    alarmRule: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
      */
-    readonly insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
+    insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
      */
-    readonly oKActions?: pulumi.Input<pulumi.Input<string>[]>;
+    oKActions?: pulumi.Input<pulumi.Input<string>[]>;
 }

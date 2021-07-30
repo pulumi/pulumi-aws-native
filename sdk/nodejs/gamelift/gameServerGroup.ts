@@ -153,49 +153,49 @@ export interface GameServerGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
      */
-    readonly autoScalingPolicy?: pulumi.Input<inputs.GameLift.GameServerGroupAutoScalingPolicyArgs>;
+    autoScalingPolicy?: pulumi.Input<inputs.GameLift.GameServerGroupAutoScalingPolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
      */
-    readonly balancingStrategy?: pulumi.Input<string>;
+    balancingStrategy?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
      */
-    readonly deleteOption?: pulumi.Input<string>;
+    deleteOption?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
      */
-    readonly gameServerGroupName: pulumi.Input<string>;
+    gameServerGroupName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
      */
-    readonly gameServerProtectionPolicy?: pulumi.Input<string>;
+    gameServerProtectionPolicy?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
      */
-    readonly instanceDefinitions: pulumi.Input<inputs.GameLift.GameServerGroupInstanceDefinitionsArgs>;
+    instanceDefinitions: pulumi.Input<inputs.GameLift.GameServerGroupInstanceDefinitionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
      */
-    readonly launchTemplate: pulumi.Input<inputs.GameLift.GameServerGroupLaunchTemplateArgs>;
+    launchTemplate: pulumi.Input<inputs.GameLift.GameServerGroupLaunchTemplateArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
      */
-    readonly maxSize?: pulumi.Input<number>;
+    maxSize?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
      */
-    readonly minSize?: pulumi.Input<number>;
+    minSize?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
      */
-    readonly tags?: pulumi.Input<inputs.GameLift.GameServerGroupTagsArgs>;
+    tags?: pulumi.Input<inputs.GameLift.GameServerGroupTagsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
      */
-    readonly vpcSubnets?: pulumi.Input<inputs.GameLift.GameServerGroupVpcSubnetsArgs>;
+    vpcSubnets?: pulumi.Input<inputs.GameLift.GameServerGroupVpcSubnetsArgs>;
 }

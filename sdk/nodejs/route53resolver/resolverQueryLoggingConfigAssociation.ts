@@ -89,9 +89,9 @@ export interface ResolverQueryLoggingConfigAssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
      */
-    readonly resolverQueryLogConfigId?: pulumi.Input<string>;
+    resolverQueryLogConfigId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
 }

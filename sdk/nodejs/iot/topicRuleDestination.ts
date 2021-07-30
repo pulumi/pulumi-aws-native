@@ -87,13 +87,13 @@ export interface TopicRuleDestinationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
      */
-    readonly httpUrlProperties?: pulumi.Input<inputs.IoT.TopicRuleDestinationHttpUrlDestinationSummaryArgs>;
+    httpUrlProperties?: pulumi.Input<inputs.IoT.TopicRuleDestinationHttpUrlDestinationSummaryArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
      */
-    readonly vpcProperties?: pulumi.Input<inputs.IoT.TopicRuleDestinationVpcDestinationPropertiesArgs>;
+    vpcProperties?: pulumi.Input<inputs.IoT.TopicRuleDestinationVpcDestinationPropertiesArgs>;
 }

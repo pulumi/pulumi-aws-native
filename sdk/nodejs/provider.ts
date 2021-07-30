@@ -54,5 +54,5 @@ export interface ProviderArgs {
     /**
      * the region to use for deployments
      */
-    readonly region: pulumi.Input<string>;
+    region: pulumi.Input<string>;
 }

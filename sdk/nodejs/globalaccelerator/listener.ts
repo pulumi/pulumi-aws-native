@@ -99,17 +99,17 @@ export interface ListenerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
      */
-    readonly acceleratorArn: pulumi.Input<string>;
+    acceleratorArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
      */
-    readonly clientAffinity?: pulumi.Input<string>;
+    clientAffinity?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
      */
-    readonly portRanges: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.ListenerPortRangeArgs>[]>;
+    portRanges: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.ListenerPortRangeArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
      */
-    readonly protocol: pulumi.Input<string>;
+    protocol: pulumi.Input<string>;
 }

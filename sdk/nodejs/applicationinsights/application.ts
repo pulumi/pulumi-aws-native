@@ -123,37 +123,37 @@ export interface ApplicationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
      */
-    readonly autoConfigurationEnabled?: pulumi.Input<boolean>;
+    autoConfigurationEnabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
      */
-    readonly cWEMonitorEnabled?: pulumi.Input<boolean>;
+    cWEMonitorEnabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
      */
-    readonly componentMonitoringSettings?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationComponentMonitoringSettingArgs>[]>;
+    componentMonitoringSettings?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationComponentMonitoringSettingArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
      */
-    readonly customComponents?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationCustomComponentArgs>[]>;
+    customComponents?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationCustomComponentArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
      */
-    readonly logPatternSets?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationLogPatternSetArgs>[]>;
+    logPatternSets?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationLogPatternSetArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
      */
-    readonly opsCenterEnabled?: pulumi.Input<boolean>;
+    opsCenterEnabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
      */
-    readonly opsItemSNSTopicArn?: pulumi.Input<string>;
+    opsItemSNSTopicArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

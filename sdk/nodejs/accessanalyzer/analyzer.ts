@@ -93,17 +93,17 @@ export interface AnalyzerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
      */
-    readonly analyzerName?: pulumi.Input<string>;
+    analyzerName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
      */
-    readonly archiveRules?: pulumi.Input<pulumi.Input<inputs.AccessAnalyzer.AnalyzerArchiveRuleArgs>[]>;
+    archiveRules?: pulumi.Input<pulumi.Input<inputs.AccessAnalyzer.AnalyzerArchiveRuleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

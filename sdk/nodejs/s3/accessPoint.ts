@@ -114,33 +114,33 @@ export interface AccessPointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
      */
-    readonly bucket: pulumi.Input<string>;
+    bucket: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
      */
-    readonly creationDate?: pulumi.Input<string>;
+    creationDate?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
      */
-    readonly networkOrigin?: pulumi.Input<string>;
+    networkOrigin?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
      */
-    readonly policy?: pulumi.Input<any | string>;
+    policy?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
      */
-    readonly policyStatus?: pulumi.Input<any | string>;
+    policyStatus?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
      */
-    readonly publicAccessBlockConfiguration?: pulumi.Input<inputs.S3.AccessPointPublicAccessBlockConfigurationArgs>;
+    publicAccessBlockConfiguration?: pulumi.Input<inputs.S3.AccessPointPublicAccessBlockConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
      */
-    readonly vpcConfiguration?: pulumi.Input<inputs.S3.AccessPointVpcConfigurationArgs>;
+    vpcConfiguration?: pulumi.Input<inputs.S3.AccessPointVpcConfigurationArgs>;
 }

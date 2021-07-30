@@ -87,9 +87,9 @@ export interface CarrierGatewayArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
      */
-    readonly tags?: pulumi.Input<inputs.EC2.CarrierGatewayTagsArgs>;
+    tags?: pulumi.Input<inputs.EC2.CarrierGatewayTagsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
      */
-    readonly vpcId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

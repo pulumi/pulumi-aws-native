@@ -159,61 +159,61 @@ export interface AssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
      */
-    readonly applyOnlyAtCronInterval?: pulumi.Input<boolean>;
+    applyOnlyAtCronInterval?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
      */
-    readonly associationName?: pulumi.Input<string>;
+    associationName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
      */
-    readonly automationTargetParameterName?: pulumi.Input<string>;
+    automationTargetParameterName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
      */
-    readonly complianceSeverity?: pulumi.Input<string>;
+    complianceSeverity?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
      */
-    readonly documentVersion?: pulumi.Input<string>;
+    documentVersion?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
      */
-    readonly instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
      */
-    readonly maxConcurrency?: pulumi.Input<string>;
+    maxConcurrency?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
      */
-    readonly maxErrors?: pulumi.Input<string>;
+    maxErrors?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
      */
-    readonly outputLocation?: pulumi.Input<inputs.SSM.AssociationInstanceAssociationOutputLocationArgs>;
+    outputLocation?: pulumi.Input<inputs.SSM.AssociationInstanceAssociationOutputLocationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.SSM.AssociationParameterValuesArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.SSM.AssociationParameterValuesArgs>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
      */
-    readonly scheduleExpression?: pulumi.Input<string>;
+    scheduleExpression?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
      */
-    readonly syncCompliance?: pulumi.Input<string>;
+    syncCompliance?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
      */
-    readonly targets?: pulumi.Input<pulumi.Input<inputs.SSM.AssociationTargetArgs>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.SSM.AssociationTargetArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
      */
-    readonly waitForSuccessTimeoutSeconds?: pulumi.Input<number>;
+    waitForSuccessTimeoutSeconds?: pulumi.Input<number>;
 }

@@ -123,29 +123,29 @@ export interface WebACLArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
      */
-    readonly defaultAction: pulumi.Input<inputs.WAFv2.WebACLDefaultActionArgs>;
+    defaultAction: pulumi.Input<inputs.WAFv2.WebACLDefaultActionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLRuleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
      */
-    readonly visibilityConfig: pulumi.Input<inputs.WAFv2.WebACLVisibilityConfigArgs>;
+    visibilityConfig: pulumi.Input<inputs.WAFv2.WebACLVisibilityConfigArgs>;
 }

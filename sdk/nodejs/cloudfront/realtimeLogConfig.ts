@@ -102,17 +102,17 @@ export interface RealtimeLogConfigArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
      */
-    readonly endPoints: pulumi.Input<pulumi.Input<inputs.CloudFront.RealtimeLogConfigEndPointArgs>[]>;
+    endPoints: pulumi.Input<pulumi.Input<inputs.CloudFront.RealtimeLogConfigEndPointArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
      */
-    readonly fields: pulumi.Input<pulumi.Input<string>[]>;
+    fields: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
      */
-    readonly samplingRate: pulumi.Input<number>;
+    samplingRate: pulumi.Input<number>;
 }

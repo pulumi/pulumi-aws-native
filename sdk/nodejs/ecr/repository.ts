@@ -102,25 +102,25 @@ export interface RepositoryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
      */
-    readonly imageScanningConfiguration?: pulumi.Input<any | string>;
+    imageScanningConfiguration?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
      */
-    readonly imageTagMutability?: pulumi.Input<string>;
+    imageTagMutability?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
      */
-    readonly lifecyclePolicy?: pulumi.Input<inputs.ECR.RepositoryLifecyclePolicyArgs>;
+    lifecyclePolicy?: pulumi.Input<inputs.ECR.RepositoryLifecyclePolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
      */
-    readonly repositoryName?: pulumi.Input<string>;
+    repositoryName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
      */
-    readonly repositoryPolicyText?: any;
+    repositoryPolicyText?: any;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

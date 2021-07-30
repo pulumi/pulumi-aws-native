@@ -89,13 +89,13 @@ export interface PrimaryTaskSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
      */
-    readonly cluster: pulumi.Input<string>;
+    cluster: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
      */
-    readonly service: pulumi.Input<string>;
+    service: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
      */
-    readonly taskSetId: pulumi.Input<string>;
+    taskSetId: pulumi.Input<string>;
 }

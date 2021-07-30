@@ -116,25 +116,25 @@ export interface AssignmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
      */
-    readonly instanceArn: pulumi.Input<string>;
+    instanceArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
      */
-    readonly permissionSetArn: pulumi.Input<string>;
+    permissionSetArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
      */
-    readonly principalId: pulumi.Input<string>;
+    principalId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
      */
-    readonly principalType: pulumi.Input<string>;
+    principalType: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
      */
-    readonly targetId: pulumi.Input<string>;
+    targetId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
      */
-    readonly targetType: pulumi.Input<string>;
+    targetType: pulumi.Input<string>;
 }

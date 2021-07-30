@@ -87,17 +87,17 @@ export interface InputArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
      */
-    readonly inputDefinition?: pulumi.Input<inputs.IoTEvents.InputInputDefinitionArgs>;
+    inputDefinition?: pulumi.Input<inputs.IoTEvents.InputInputDefinitionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription
      */
-    readonly inputDescription?: pulumi.Input<string>;
+    inputDescription?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputname
      */
-    readonly inputName?: pulumi.Input<string>;
+    inputName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

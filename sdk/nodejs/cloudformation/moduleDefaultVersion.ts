@@ -80,13 +80,13 @@ export interface ModuleDefaultVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
      */
-    readonly moduleName?: pulumi.Input<string>;
+    moduleName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
      */
-    readonly versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string>;
 }

@@ -75,5 +75,5 @@ export interface CloudFrontOriginAccessIdentityArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
      */
-    readonly cloudFrontOriginAccessIdentityConfig: pulumi.Input<inputs.CloudFront.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs>;
+    cloudFrontOriginAccessIdentityConfig: pulumi.Input<inputs.CloudFront.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs>;
 }

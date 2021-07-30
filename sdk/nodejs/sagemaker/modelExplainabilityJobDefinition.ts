@@ -144,41 +144,41 @@ export interface ModelExplainabilityJobDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobdefinitionname
      */
-    readonly jobDefinitionName?: pulumi.Input<string>;
+    jobDefinitionName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobresources
      */
-    readonly jobResources: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionMonitoringResourcesArgs>;
+    jobResources: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionMonitoringResourcesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification
      */
-    readonly modelExplainabilityAppSpecification: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs>;
+    modelExplainabilityAppSpecification: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig
      */
-    readonly modelExplainabilityBaselineConfig?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs>;
+    modelExplainabilityBaselineConfig?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput
      */
-    readonly modelExplainabilityJobInput: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs>;
+    modelExplainabilityJobInput: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjoboutputconfig
      */
-    readonly modelExplainabilityJobOutputConfig: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs>;
+    modelExplainabilityJobOutputConfig: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig
      */
-    readonly networkConfig?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionNetworkConfigArgs>;
+    networkConfig?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionNetworkConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-rolearn
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition
      */
-    readonly stoppingCondition?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionStoppingConditionArgs>;
+    stoppingCondition?: pulumi.Input<inputs.SageMaker.ModelExplainabilityJobDefinitionStoppingConditionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

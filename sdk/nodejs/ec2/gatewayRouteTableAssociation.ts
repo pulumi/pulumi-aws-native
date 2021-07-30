@@ -83,9 +83,9 @@ export interface GatewayRouteTableAssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
      */
-    readonly gatewayId: pulumi.Input<string>;
+    gatewayId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
      */
-    readonly routeTableId: pulumi.Input<string>;
+    routeTableId: pulumi.Input<string>;
 }

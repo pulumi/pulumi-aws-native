@@ -116,25 +116,25 @@ export interface CustomDataIdentifierArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-ignorewords
      */
-    readonly ignoreWords?: pulumi.Input<pulumi.Input<string>[]>;
+    ignoreWords?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-keywords
      */
-    readonly keywords?: pulumi.Input<pulumi.Input<string>[]>;
+    keywords?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-maximummatchdistance
      */
-    readonly maximumMatchDistance?: pulumi.Input<number>;
+    maximumMatchDistance?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-regex
      */
-    readonly regex: pulumi.Input<string>;
+    regex: pulumi.Input<string>;
 }

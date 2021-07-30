@@ -144,41 +144,41 @@ export interface DBProxyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
      */
-    readonly auth: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyAuthFormatArgs>[]>;
+    auth: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyAuthFormatArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
      */
-    readonly dBProxyName: pulumi.Input<string>;
+    dBProxyName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
      */
-    readonly debugLogging?: pulumi.Input<boolean>;
+    debugLogging?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
      */
-    readonly engineFamily: pulumi.Input<string>;
+    engineFamily: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
      */
-    readonly idleClientTimeout?: pulumi.Input<number>;
+    idleClientTimeout?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
      */
-    readonly requireTLS?: pulumi.Input<boolean>;
+    requireTLS?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyTagFormatArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyTagFormatArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
      */
-    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
      */
-    readonly vpcSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }

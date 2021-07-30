@@ -150,53 +150,53 @@ export interface StackSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
      */
-    readonly administrationRoleARN?: pulumi.Input<string>;
+    administrationRoleARN?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
      */
-    readonly autoDeployment?: pulumi.Input<inputs.CloudFormation.StackSetAutoDeploymentArgs>;
+    autoDeployment?: pulumi.Input<inputs.CloudFormation.StackSetAutoDeploymentArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
      */
-    readonly capabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    capabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
      */
-    readonly executionRoleName?: pulumi.Input<string>;
+    executionRoleName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
      */
-    readonly operationPreferences?: pulumi.Input<inputs.CloudFormation.StackSetOperationPreferencesArgs>;
+    operationPreferences?: pulumi.Input<inputs.CloudFormation.StackSetOperationPreferencesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetParameterArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetParameterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
      */
-    readonly permissionModel: pulumi.Input<string>;
+    permissionModel: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
      */
-    readonly stackInstancesGroup?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetStackInstancesArgs>[]>;
+    stackInstancesGroup?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetStackInstancesArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
      */
-    readonly stackSetName: pulumi.Input<string>;
+    stackSetName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
      */
-    readonly templateBody?: pulumi.Input<string>;
+    templateBody?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
      */
-    readonly templateURL?: pulumi.Input<string>;
+    templateURL?: pulumi.Input<string>;
 }

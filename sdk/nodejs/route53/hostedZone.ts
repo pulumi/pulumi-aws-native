@@ -102,21 +102,21 @@ export interface HostedZoneArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
      */
-    readonly hostedZoneConfig?: pulumi.Input<inputs.Route53.HostedZoneHostedZoneConfigArgs>;
+    hostedZoneConfig?: pulumi.Input<inputs.Route53.HostedZoneHostedZoneConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
      */
-    readonly hostedZoneTags?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneHostedZoneTagArgs>[]>;
+    hostedZoneTags?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneHostedZoneTagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
      */
-    readonly queryLoggingConfig?: pulumi.Input<inputs.Route53.HostedZoneQueryLoggingConfigArgs>;
+    queryLoggingConfig?: pulumi.Input<inputs.Route53.HostedZoneQueryLoggingConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
      */
-    readonly vPCs?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneVPCArgs>[]>;
+    vPCs?: pulumi.Input<pulumi.Input<inputs.Route53.HostedZoneVPCArgs>[]>;
 }

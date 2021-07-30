@@ -99,21 +99,21 @@ export interface ProfilingGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
      */
-    readonly agentPermissions?: pulumi.Input<any | string>;
+    agentPermissions?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
      */
-    readonly anomalyDetectionNotificationConfiguration?: pulumi.Input<pulumi.Input<inputs.CodeGuruProfiler.ProfilingGroupChannelArgs>[]>;
+    anomalyDetectionNotificationConfiguration?: pulumi.Input<pulumi.Input<inputs.CodeGuruProfiler.ProfilingGroupChannelArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
      */
-    readonly computePlatform?: pulumi.Input<string>;
+    computePlatform?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
      */
-    readonly profilingGroupName: pulumi.Input<string>;
+    profilingGroupName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

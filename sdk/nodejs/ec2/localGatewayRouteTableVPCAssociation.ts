@@ -96,13 +96,13 @@ export interface LocalGatewayRouteTableVPCAssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
      */
-    readonly localGatewayRouteTableId: pulumi.Input<string>;
+    localGatewayRouteTableId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
      */
-    readonly tags?: pulumi.Input<inputs.EC2.LocalGatewayRouteTableVPCAssociationTagsArgs>;
+    tags?: pulumi.Input<inputs.EC2.LocalGatewayRouteTableVPCAssociationTagsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
      */
-    readonly vpcId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

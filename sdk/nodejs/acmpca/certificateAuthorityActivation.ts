@@ -95,17 +95,17 @@ export interface CertificateAuthorityActivationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
      */
-    readonly certificate: pulumi.Input<string>;
+    certificate: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
      */
-    readonly certificateAuthorityArn: pulumi.Input<string>;
+    certificateAuthorityArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
      */
-    readonly certificateChain?: pulumi.Input<string>;
+    certificateChain?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
 }

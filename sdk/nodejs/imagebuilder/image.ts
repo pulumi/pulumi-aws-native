@@ -114,25 +114,25 @@ export interface ImageArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
      */
-    readonly distributionConfigurationArn?: pulumi.Input<string>;
+    distributionConfigurationArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
      */
-    readonly enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
+    enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
      */
-    readonly imageRecipeArn: pulumi.Input<string>;
+    imageRecipeArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
      */
-    readonly imageTestsConfiguration?: pulumi.Input<inputs.ImageBuilder.ImageImageTestsConfigurationArgs>;
+    imageTestsConfiguration?: pulumi.Input<inputs.ImageBuilder.ImageImageTestsConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
      */
-    readonly infrastructureConfigurationArn: pulumi.Input<string>;
+    infrastructureConfigurationArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

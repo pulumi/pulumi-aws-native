@@ -80,9 +80,9 @@ export interface TransitGatewayRegistrationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
      */
-    readonly globalNetworkId: pulumi.Input<string>;
+    globalNetworkId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
      */
-    readonly transitGatewayArn: pulumi.Input<string>;
+    transitGatewayArn: pulumi.Input<string>;
 }

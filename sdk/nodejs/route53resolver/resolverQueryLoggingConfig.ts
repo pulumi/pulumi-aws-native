@@ -98,9 +98,9 @@ export interface ResolverQueryLoggingConfigArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
      */
-    readonly destinationArn?: pulumi.Input<string>;
+    destinationArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

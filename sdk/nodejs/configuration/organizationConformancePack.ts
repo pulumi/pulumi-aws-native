@@ -108,29 +108,29 @@ export interface OrganizationConformancePackArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
      */
-    readonly conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.Configuration.OrganizationConformancePackConformancePackInputParameterArgs>[]>;
+    conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.Configuration.OrganizationConformancePackConformancePackInputParameterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
      */
-    readonly deliveryS3Bucket?: pulumi.Input<string>;
+    deliveryS3Bucket?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
      */
-    readonly deliveryS3KeyPrefix?: pulumi.Input<string>;
+    deliveryS3KeyPrefix?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
      */
-    readonly excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
      */
-    readonly organizationConformancePackName: pulumi.Input<string>;
+    organizationConformancePackName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
      */
-    readonly templateBody?: pulumi.Input<string>;
+    templateBody?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
      */
-    readonly templateS3Uri?: pulumi.Input<string>;
+    templateS3Uri?: pulumi.Input<string>;
 }

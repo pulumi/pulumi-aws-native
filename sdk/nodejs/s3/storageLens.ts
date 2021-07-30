@@ -81,9 +81,9 @@ export interface StorageLensArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
      */
-    readonly storageLensConfiguration: pulumi.Input<inputs.S3.StorageLensStorageLensConfigurationArgs>;
+    storageLensConfiguration: pulumi.Input<inputs.S3.StorageLensStorageLensConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -195,85 +195,85 @@ export interface FleetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid
      */
-    readonly buildId?: pulumi.Input<string>;
+    buildId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-certificateconfiguration
      */
-    readonly certificateConfiguration?: pulumi.Input<inputs.GameLift.FleetCertificateConfigurationArgs>;
+    certificateConfiguration?: pulumi.Input<inputs.GameLift.FleetCertificateConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
      */
-    readonly desiredEC2Instances?: pulumi.Input<number>;
+    desiredEC2Instances?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
      */
-    readonly eC2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.GameLift.FleetIpPermissionArgs>[]>;
+    eC2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.GameLift.FleetIpPermissionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
      */
-    readonly eC2InstanceType: pulumi.Input<string>;
+    eC2InstanceType: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
      */
-    readonly fleetType?: pulumi.Input<string>;
+    fleetType?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolearn
      */
-    readonly instanceRoleARN?: pulumi.Input<string>;
+    instanceRoleARN?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
      */
-    readonly logPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    logPaths?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
      */
-    readonly maxSize?: pulumi.Input<number>;
+    maxSize?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-metricgroups
      */
-    readonly metricGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    metricGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
      */
-    readonly minSize?: pulumi.Input<number>;
+    minSize?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy
      */
-    readonly newGameSessionProtectionPolicy?: pulumi.Input<string>;
+    newGameSessionProtectionPolicy?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcawsaccountid
      */
-    readonly peerVpcAwsAccountId?: pulumi.Input<string>;
+    peerVpcAwsAccountId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcid
      */
-    readonly peerVpcId?: pulumi.Input<string>;
+    peerVpcId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-resourcecreationlimitpolicy
      */
-    readonly resourceCreationLimitPolicy?: pulumi.Input<inputs.GameLift.FleetResourceCreationLimitPolicyArgs>;
+    resourceCreationLimitPolicy?: pulumi.Input<inputs.GameLift.FleetResourceCreationLimitPolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-runtimeconfiguration
      */
-    readonly runtimeConfiguration?: pulumi.Input<inputs.GameLift.FleetRuntimeConfigurationArgs>;
+    runtimeConfiguration?: pulumi.Input<inputs.GameLift.FleetRuntimeConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid
      */
-    readonly scriptId?: pulumi.Input<string>;
+    scriptId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters
      */
-    readonly serverLaunchParameters?: pulumi.Input<string>;
+    serverLaunchParameters?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath
      */
-    readonly serverLaunchPath?: pulumi.Input<string>;
+    serverLaunchPath?: pulumi.Input<string>;
 }

@@ -102,25 +102,25 @@ export interface ConformancePackArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
      */
-    readonly conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.Configuration.ConformancePackConformancePackInputParameterArgs>[]>;
+    conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.Configuration.ConformancePackConformancePackInputParameterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
      */
-    readonly conformancePackName: pulumi.Input<string>;
+    conformancePackName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
      */
-    readonly deliveryS3Bucket?: pulumi.Input<string>;
+    deliveryS3Bucket?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
      */
-    readonly deliveryS3KeyPrefix?: pulumi.Input<string>;
+    deliveryS3KeyPrefix?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
      */
-    readonly templateBody?: pulumi.Input<string>;
+    templateBody?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
      */
-    readonly templateS3Uri?: pulumi.Input<string>;
+    templateS3Uri?: pulumi.Input<string>;
 }

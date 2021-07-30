@@ -120,25 +120,25 @@ export interface UserArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
      */
-    readonly accessString?: pulumi.Input<string>;
+    accessString?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
      */
-    readonly engine: pulumi.Input<string>;
+    engine: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
      */
-    readonly noPasswordRequired?: pulumi.Input<boolean>;
+    noPasswordRequired?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
      */
-    readonly passwords?: pulumi.Input<inputs.ElastiCache.UserPasswordListArgs>;
+    passwords?: pulumi.Input<inputs.ElastiCache.UserPasswordListArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
      */
-    readonly userName: pulumi.Input<string>;
+    userName: pulumi.Input<string>;
 }

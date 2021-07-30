@@ -102,21 +102,21 @@ export interface DBProxyTargetGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
      */
-    readonly connectionPoolConfigurationInfo?: pulumi.Input<inputs.RDS.DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>;
+    connectionPoolConfigurationInfo?: pulumi.Input<inputs.RDS.DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
      */
-    readonly dBClusterIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    dBClusterIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
      */
-    readonly dBInstanceIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    dBInstanceIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
      */
-    readonly dBProxyName: pulumi.Input<string>;
+    dBProxyName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
      */
-    readonly targetGroupName: pulumi.Input<string>;
+    targetGroupName: pulumi.Input<string>;
 }

@@ -99,13 +99,13 @@ export interface UserGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
      */
-    readonly engine: pulumi.Input<string>;
+    engine: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
      */
-    readonly userGroupId: pulumi.Input<string>;
+    userGroupId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
      */
-    readonly userIds?: pulumi.Input<inputs.ElastiCache.UserGroupUserIdListArgs>;
+    userIds?: pulumi.Input<inputs.ElastiCache.UserGroupUserIdListArgs>;
 }

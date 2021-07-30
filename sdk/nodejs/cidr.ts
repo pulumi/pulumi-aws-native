@@ -21,9 +21,9 @@ export function cidr(args: CidrArgs, opts?: pulumi.InvokeOptions): Promise<CidrR
 }
 
 export interface CidrArgs {
-    readonly cidrBits: number;
-    readonly count: number;
-    readonly ipBlock: string;
+    cidrBits: number;
+    count: number;
+    ipBlock: string;
 }
 
 export interface CidrResult {

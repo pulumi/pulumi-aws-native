@@ -78,5 +78,5 @@ export interface KeyGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
      */
-    readonly keyGroupConfig: pulumi.Input<inputs.CloudFront.KeyGroupKeyGroupConfigArgs>;
+    keyGroupConfig: pulumi.Input<inputs.CloudFront.KeyGroupKeyGroupConfigArgs>;
 }

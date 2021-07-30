@@ -19,7 +19,7 @@ export function getSsmParameterString(args: GetSsmParameterStringArgs, opts?: pu
 }
 
 export interface GetSsmParameterStringArgs {
-    readonly name: string;
+    name: string;
 }
 
 export interface GetSsmParameterStringResult {

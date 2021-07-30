@@ -138,41 +138,41 @@ export interface IndexArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
      */
-    readonly capacityUnits?: pulumi.Input<inputs.Kendra.IndexCapacityUnitsConfigurationArgs>;
+    capacityUnits?: pulumi.Input<inputs.Kendra.IndexCapacityUnitsConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
      */
-    readonly documentMetadataConfigurations?: pulumi.Input<inputs.Kendra.IndexDocumentMetadataConfigurationListArgs>;
+    documentMetadataConfigurations?: pulumi.Input<inputs.Kendra.IndexDocumentMetadataConfigurationListArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
      */
-    readonly edition: pulumi.Input<string>;
+    edition: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
      */
-    readonly serverSideEncryptionConfiguration?: pulumi.Input<inputs.Kendra.IndexServerSideEncryptionConfigurationArgs>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.Kendra.IndexServerSideEncryptionConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
      */
-    readonly tags?: pulumi.Input<inputs.Kendra.IndexTagListArgs>;
+    tags?: pulumi.Input<inputs.Kendra.IndexTagListArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
      */
-    readonly userContextPolicy?: pulumi.Input<string>;
+    userContextPolicy?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
      */
-    readonly userTokenConfigurations?: pulumi.Input<inputs.Kendra.IndexUserTokenConfigurationListArgs>;
+    userTokenConfigurations?: pulumi.Input<inputs.Kendra.IndexUserTokenConfigurationListArgs>;
 }

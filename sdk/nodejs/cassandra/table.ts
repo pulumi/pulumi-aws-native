@@ -105,25 +105,25 @@ export interface TableArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
      */
-    readonly billingMode?: pulumi.Input<inputs.Cassandra.TableBillingModeArgs>;
+    billingMode?: pulumi.Input<inputs.Cassandra.TableBillingModeArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
      */
-    readonly clusteringKeyColumns?: pulumi.Input<pulumi.Input<inputs.Cassandra.TableClusteringKeyColumnArgs>[]>;
+    clusteringKeyColumns?: pulumi.Input<pulumi.Input<inputs.Cassandra.TableClusteringKeyColumnArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
      */
-    readonly keyspaceName: pulumi.Input<string>;
+    keyspaceName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
      */
-    readonly partitionKeyColumns: pulumi.Input<pulumi.Input<inputs.Cassandra.TableColumnArgs>[]>;
+    partitionKeyColumns: pulumi.Input<pulumi.Input<inputs.Cassandra.TableColumnArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
      */
-    readonly regularColumns?: pulumi.Input<pulumi.Input<inputs.Cassandra.TableColumnArgs>[]>;
+    regularColumns?: pulumi.Input<pulumi.Input<inputs.Cassandra.TableColumnArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
      */
-    readonly tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
 }

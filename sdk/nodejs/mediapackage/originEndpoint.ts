@@ -159,57 +159,57 @@ export interface OriginEndpointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
      */
-    readonly authorization?: pulumi.Input<inputs.MediaPackage.OriginEndpointAuthorizationArgs>;
+    authorization?: pulumi.Input<inputs.MediaPackage.OriginEndpointAuthorizationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
      */
-    readonly channelId: pulumi.Input<string>;
+    channelId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
      */
-    readonly cmafPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointCmafPackageArgs>;
+    cmafPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointCmafPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
      */
-    readonly dashPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointDashPackageArgs>;
+    dashPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointDashPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
      */
-    readonly hlsPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointHlsPackageArgs>;
+    hlsPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointHlsPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
      */
-    readonly id: pulumi.Input<string>;
+    id: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
      */
-    readonly manifestName?: pulumi.Input<string>;
+    manifestName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
      */
-    readonly mssPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointMssPackageArgs>;
+    mssPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointMssPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
      */
-    readonly origination?: pulumi.Input<string>;
+    origination?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
      */
-    readonly startoverWindowSeconds?: pulumi.Input<number>;
+    startoverWindowSeconds?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
      */
-    readonly timeDelaySeconds?: pulumi.Input<number>;
+    timeDelaySeconds?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
      */
-    readonly whitelist?: pulumi.Input<pulumi.Input<string>[]>;
+    whitelist?: pulumi.Input<pulumi.Input<string>[]>;
 }

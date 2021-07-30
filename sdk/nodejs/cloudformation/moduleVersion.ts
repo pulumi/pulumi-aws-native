@@ -101,9 +101,9 @@ export interface ModuleVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
      */
-    readonly moduleName: pulumi.Input<string>;
+    moduleName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
      */
-    readonly modulePackage?: pulumi.Input<string>;
+    modulePackage?: pulumi.Input<string>;
 }

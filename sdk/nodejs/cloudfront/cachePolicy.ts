@@ -78,5 +78,5 @@ export interface CachePolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
      */
-    readonly cachePolicyConfig: pulumi.Input<inputs.CloudFront.CachePolicyCachePolicyConfigArgs>;
+    cachePolicyConfig: pulumi.Input<inputs.CloudFront.CachePolicyCachePolicyConfigArgs>;
 }

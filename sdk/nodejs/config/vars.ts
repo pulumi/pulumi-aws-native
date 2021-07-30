@@ -4,9 +4,17 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-let __config = new pulumi.Config("aws-native");
+declare var exports: any;
+const __config = new pulumi.Config("aws-native");
 
 /**
  * the region to use for deployments
  */
-export let region: string | undefined = __config.get("region");
+export declare const region: string | undefined;
+Object.defineProperty(exports, "region", {
+    get() {
+        return __config.get("region");
+    },
+    enumerable: true,
+});
+

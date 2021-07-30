@@ -80,9 +80,9 @@ export interface InstanceAccessControlAttributeConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
      */
-    readonly instanceAccessControlAttributeConfiguration: pulumi.Input<any | string>;
+    instanceAccessControlAttributeConfiguration: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
      */
-    readonly instanceArn: pulumi.Input<string>;
+    instanceArn: pulumi.Input<string>;
 }

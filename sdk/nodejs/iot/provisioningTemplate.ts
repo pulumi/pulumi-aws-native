@@ -114,29 +114,29 @@ export interface ProvisioningTemplateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
      */
-    readonly preProvisioningHook?: pulumi.Input<inputs.IoT.ProvisioningTemplateProvisioningHookArgs>;
+    preProvisioningHook?: pulumi.Input<inputs.IoT.ProvisioningTemplateProvisioningHookArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
      */
-    readonly provisioningRoleArn: pulumi.Input<string>;
+    provisioningRoleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
      */
-    readonly tags?: pulumi.Input<inputs.IoT.ProvisioningTemplateTagsArgs>;
+    tags?: pulumi.Input<inputs.IoT.ProvisioningTemplateTagsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
      */
-    readonly templateBody: pulumi.Input<string>;
+    templateBody: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
      */
-    readonly templateName?: pulumi.Input<string>;
+    templateName?: pulumi.Input<string>;
 }

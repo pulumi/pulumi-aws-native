@@ -144,41 +144,41 @@ export interface DataQualityJobDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification
      */
-    readonly dataQualityAppSpecification: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs>;
+    dataQualityAppSpecification: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig
      */
-    readonly dataQualityBaselineConfig?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionDataQualityBaselineConfigArgs>;
+    dataQualityBaselineConfig?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionDataQualityBaselineConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput
      */
-    readonly dataQualityJobInput: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionDataQualityJobInputArgs>;
+    dataQualityJobInput: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionDataQualityJobInputArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjoboutputconfig
      */
-    readonly dataQualityJobOutputConfig: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionMonitoringOutputConfigArgs>;
+    dataQualityJobOutputConfig: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionMonitoringOutputConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobdefinitionname
      */
-    readonly jobDefinitionName?: pulumi.Input<string>;
+    jobDefinitionName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobresources
      */
-    readonly jobResources: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionMonitoringResourcesArgs>;
+    jobResources: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionMonitoringResourcesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig
      */
-    readonly networkConfig?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionNetworkConfigArgs>;
+    networkConfig?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionNetworkConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-rolearn
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition
      */
-    readonly stoppingCondition?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionStoppingConditionArgs>;
+    stoppingCondition?: pulumi.Input<inputs.SageMaker.DataQualityJobDefinitionStoppingConditionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

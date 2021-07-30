@@ -113,25 +113,25 @@ export interface SlackChannelConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
      */
-    readonly configurationName: pulumi.Input<string>;
+    configurationName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
      */
-    readonly iamRoleArn: pulumi.Input<string>;
+    iamRoleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
      */
-    readonly loggingLevel?: pulumi.Input<string>;
+    loggingLevel?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
      */
-    readonly slackChannelId: pulumi.Input<string>;
+    slackChannelId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
      */
-    readonly slackWorkspaceId: pulumi.Input<string>;
+    slackWorkspaceId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
      */
-    readonly snsTopicArns?: pulumi.Input<pulumi.Input<string>[]>;
+    snsTopicArns?: pulumi.Input<pulumi.Input<string>[]>;
 }

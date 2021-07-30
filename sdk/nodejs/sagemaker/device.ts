@@ -78,9 +78,9 @@ export interface DeviceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
      */
-    readonly device?: pulumi.Input<any | string>;
+    device?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
      */
-    readonly tags?: pulumi.Input<inputs.TagArgs>;
+    tags?: pulumi.Input<inputs.TagArgs>;
 }

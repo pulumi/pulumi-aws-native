@@ -108,21 +108,21 @@ export interface ConnectorProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
      */
-    readonly connectionMode: pulumi.Input<string>;
+    connectionMode: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
      */
-    readonly connectorProfileConfig?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorProfileConfigArgs>;
+    connectorProfileConfig?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorProfileConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
      */
-    readonly connectorProfileName: pulumi.Input<string>;
+    connectorProfileName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
      */
-    readonly connectorType: pulumi.Input<string>;
+    connectorType: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
      */
-    readonly kMSArn?: pulumi.Input<string>;
+    kMSArn?: pulumi.Input<string>;
 }
