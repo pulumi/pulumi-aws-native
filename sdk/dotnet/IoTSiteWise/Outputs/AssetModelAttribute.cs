@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 {
 
+    /// <summary>
+    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html
+    /// </summary>
     [OutputType]
     public sealed class AssetModelAttribute
     {

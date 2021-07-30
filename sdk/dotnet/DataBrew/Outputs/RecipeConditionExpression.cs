@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Outputs
 {
 
+    /// <summary>
+    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html
+    /// </summary>
     [OutputType]
     public sealed class RecipeConditionExpression
     {
