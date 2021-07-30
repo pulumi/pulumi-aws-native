@@ -20,8 +20,8 @@ __all__ = [
     'AssetModelAssetModelPropertyArgs',
     'AssetModelAttributeArgs',
     'AssetModelExpressionVariableArgs',
-    'AssetModelMetricArgs',
     'AssetModelMetricWindowArgs',
+    'AssetModelMetricArgs',
     'AssetModelPropertyTypeArgs',
     'AssetModelTransformArgs',
     'AssetModelTumblingWindowArgs',
@@ -460,6 +460,30 @@ class AssetModelExpressionVariableArgs:
 
 
 @pulumi.input_type
+class AssetModelMetricWindowArgs:
+    def __init__(__self__, *,
+                 tumbling: Optional[pulumi.Input['AssetModelTumblingWindowArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html
+        :param pulumi.Input['AssetModelTumblingWindowArgs'] tumbling: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
+        """
+        if tumbling is not None:
+            pulumi.set(__self__, "tumbling", tumbling)
+
+    @property
+    @pulumi.getter
+    def tumbling(self) -> Optional[pulumi.Input['AssetModelTumblingWindowArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
+        """
+        return pulumi.get(self, "tumbling")
+
+    @tumbling.setter
+    def tumbling(self, value: Optional[pulumi.Input['AssetModelTumblingWindowArgs']]):
+        pulumi.set(self, "tumbling", value)
+
+
+@pulumi.input_type
 class AssetModelMetricArgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[str],
@@ -510,30 +534,6 @@ class AssetModelMetricArgs:
     @window.setter
     def window(self, value: pulumi.Input['AssetModelMetricWindowArgs']):
         pulumi.set(self, "window", value)
-
-
-@pulumi.input_type
-class AssetModelMetricWindowArgs:
-    def __init__(__self__, *,
-                 tumbling: Optional[pulumi.Input['AssetModelTumblingWindowArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html
-        :param pulumi.Input['AssetModelTumblingWindowArgs'] tumbling: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
-        """
-        if tumbling is not None:
-            pulumi.set(__self__, "tumbling", tumbling)
-
-    @property
-    @pulumi.getter
-    def tumbling(self) -> Optional[pulumi.Input['AssetModelTumblingWindowArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
-        """
-        return pulumi.get(self, "tumbling")
-
-    @tumbling.setter
-    def tumbling(self, value: Optional[pulumi.Input['AssetModelTumblingWindowArgs']]):
-        pulumi.set(self, "tumbling", value)
 
 
 @pulumi.input_type

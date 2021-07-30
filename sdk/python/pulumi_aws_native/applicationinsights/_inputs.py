@@ -9,20 +9,43 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApplicationAlarmArgs',
     'ApplicationAlarmMetricArgs',
+    'ApplicationAlarmArgs',
     'ApplicationComponentConfigurationArgs',
     'ApplicationComponentMonitoringSettingArgs',
     'ApplicationConfigurationDetailsArgs',
     'ApplicationCustomComponentArgs',
     'ApplicationJMXPrometheusExporterArgs',
-    'ApplicationLogArgs',
-    'ApplicationLogPatternArgs',
     'ApplicationLogPatternSetArgs',
+    'ApplicationLogPatternArgs',
+    'ApplicationLogArgs',
     'ApplicationSubComponentConfigurationDetailsArgs',
     'ApplicationSubComponentTypeConfigurationArgs',
     'ApplicationWindowsEventArgs',
 ]
+
+@pulumi.input_type
+class ApplicationAlarmMetricArgs:
+    def __init__(__self__, *,
+                 alarm_metric_name: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html
+        :param pulumi.Input[str] alarm_metric_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
+        """
+        pulumi.set(__self__, "alarm_metric_name", alarm_metric_name)
+
+    @property
+    @pulumi.getter(name="alarmMetricName")
+    def alarm_metric_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
+        """
+        return pulumi.get(self, "alarm_metric_name")
+
+    @alarm_metric_name.setter
+    def alarm_metric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alarm_metric_name", value)
+
 
 @pulumi.input_type
 class ApplicationAlarmArgs:
@@ -61,29 +84,6 @@ class ApplicationAlarmArgs:
     @severity.setter
     def severity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "severity", value)
-
-
-@pulumi.input_type
-class ApplicationAlarmMetricArgs:
-    def __init__(__self__, *,
-                 alarm_metric_name: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html
-        :param pulumi.Input[str] alarm_metric_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
-        """
-        pulumi.set(__self__, "alarm_metric_name", alarm_metric_name)
-
-    @property
-    @pulumi.getter(name="alarmMetricName")
-    def alarm_metric_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
-        """
-        return pulumi.get(self, "alarm_metric_name")
-
-    @alarm_metric_name.setter
-    def alarm_metric_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "alarm_metric_name", value)
 
 
 @pulumi.input_type
@@ -413,6 +413,97 @@ class ApplicationJMXPrometheusExporterArgs:
 
 
 @pulumi.input_type
+class ApplicationLogPatternSetArgs:
+    def __init__(__self__, *,
+                 log_patterns: pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternArgs']]],
+                 pattern_set_name: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternArgs']]] log_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
+        :param pulumi.Input[str] pattern_set_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
+        """
+        pulumi.set(__self__, "log_patterns", log_patterns)
+        pulumi.set(__self__, "pattern_set_name", pattern_set_name)
+
+    @property
+    @pulumi.getter(name="logPatterns")
+    def log_patterns(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
+        """
+        return pulumi.get(self, "log_patterns")
+
+    @log_patterns.setter
+    def log_patterns(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternArgs']]]):
+        pulumi.set(self, "log_patterns", value)
+
+    @property
+    @pulumi.getter(name="patternSetName")
+    def pattern_set_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
+        """
+        return pulumi.get(self, "pattern_set_name")
+
+    @pattern_set_name.setter
+    def pattern_set_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pattern_set_name", value)
+
+
+@pulumi.input_type
+class ApplicationLogPatternArgs:
+    def __init__(__self__, *,
+                 pattern: pulumi.Input[str],
+                 pattern_name: pulumi.Input[str],
+                 rank: pulumi.Input[int]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html
+        :param pulumi.Input[str] pattern: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
+        :param pulumi.Input[str] pattern_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-patternname
+        :param pulumi.Input[int] rank: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-rank
+        """
+        pulumi.set(__self__, "pattern", pattern)
+        pulumi.set(__self__, "pattern_name", pattern_name)
+        pulumi.set(__self__, "rank", rank)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
+        """
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pattern", value)
+
+    @property
+    @pulumi.getter(name="patternName")
+    def pattern_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-patternname
+        """
+        return pulumi.get(self, "pattern_name")
+
+    @pattern_name.setter
+    def pattern_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pattern_name", value)
+
+    @property
+    @pulumi.getter
+    def rank(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-rank
+        """
+        return pulumi.get(self, "rank")
+
+    @rank.setter
+    def rank(self, value: pulumi.Input[int]):
+        pulumi.set(self, "rank", value)
+
+
+@pulumi.input_type
 class ApplicationLogArgs:
     def __init__(__self__, *,
                  log_type: pulumi.Input[str],
@@ -497,97 +588,6 @@ class ApplicationLogArgs:
     @pattern_set.setter
     def pattern_set(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pattern_set", value)
-
-
-@pulumi.input_type
-class ApplicationLogPatternArgs:
-    def __init__(__self__, *,
-                 pattern: pulumi.Input[str],
-                 pattern_name: pulumi.Input[str],
-                 rank: pulumi.Input[int]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html
-        :param pulumi.Input[str] pattern: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
-        :param pulumi.Input[str] pattern_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-patternname
-        :param pulumi.Input[int] rank: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-rank
-        """
-        pulumi.set(__self__, "pattern", pattern)
-        pulumi.set(__self__, "pattern_name", pattern_name)
-        pulumi.set(__self__, "rank", rank)
-
-    @property
-    @pulumi.getter
-    def pattern(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
-        """
-        return pulumi.get(self, "pattern")
-
-    @pattern.setter
-    def pattern(self, value: pulumi.Input[str]):
-        pulumi.set(self, "pattern", value)
-
-    @property
-    @pulumi.getter(name="patternName")
-    def pattern_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-patternname
-        """
-        return pulumi.get(self, "pattern_name")
-
-    @pattern_name.setter
-    def pattern_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "pattern_name", value)
-
-    @property
-    @pulumi.getter
-    def rank(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-rank
-        """
-        return pulumi.get(self, "rank")
-
-    @rank.setter
-    def rank(self, value: pulumi.Input[int]):
-        pulumi.set(self, "rank", value)
-
-
-@pulumi.input_type
-class ApplicationLogPatternSetArgs:
-    def __init__(__self__, *,
-                 log_patterns: pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternArgs']]],
-                 pattern_set_name: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternArgs']]] log_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
-        :param pulumi.Input[str] pattern_set_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
-        """
-        pulumi.set(__self__, "log_patterns", log_patterns)
-        pulumi.set(__self__, "pattern_set_name", pattern_set_name)
-
-    @property
-    @pulumi.getter(name="logPatterns")
-    def log_patterns(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
-        """
-        return pulumi.get(self, "log_patterns")
-
-    @log_patterns.setter
-    def log_patterns(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternArgs']]]):
-        pulumi.set(self, "log_patterns", value)
-
-    @property
-    @pulumi.getter(name="patternSetName")
-    def pattern_set_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
-        """
-        return pulumi.get(self, "pattern_set_name")
-
-    @pattern_set_name.setter
-    def pattern_set_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "pattern_set_name", value)
 
 
 @pulumi.input_type

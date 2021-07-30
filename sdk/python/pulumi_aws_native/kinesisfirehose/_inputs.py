@@ -33,8 +33,8 @@ __all__ = [
     'DeliveryStreamOutputFormatConfigurationArgs',
     'DeliveryStreamParquetSerDeArgs',
     'DeliveryStreamProcessingConfigurationArgs',
-    'DeliveryStreamProcessorArgs',
     'DeliveryStreamProcessorParameterArgs',
+    'DeliveryStreamProcessorArgs',
     'DeliveryStreamRedshiftDestinationConfigurationArgs',
     'DeliveryStreamRedshiftRetryOptionsArgs',
     'DeliveryStreamRetryOptionsArgs',
@@ -1648,6 +1648,44 @@ class DeliveryStreamProcessingConfigurationArgs:
 
 
 @pulumi.input_type
+class DeliveryStreamProcessorParameterArgs:
+    def __init__(__self__, *,
+                 parameter_name: pulumi.Input[str],
+                 parameter_value: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html
+        :param pulumi.Input[str] parameter_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametername
+        :param pulumi.Input[str] parameter_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametervalue
+        """
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametername
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @parameter_name.setter
+    def parameter_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parameter_name", value)
+
+    @property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametervalue
+        """
+        return pulumi.get(self, "parameter_value")
+
+    @parameter_value.setter
+    def parameter_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parameter_value", value)
+
+
+@pulumi.input_type
 class DeliveryStreamProcessorArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -1684,44 +1722,6 @@ class DeliveryStreamProcessorArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamProcessorParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
-
-
-@pulumi.input_type
-class DeliveryStreamProcessorParameterArgs:
-    def __init__(__self__, *,
-                 parameter_name: pulumi.Input[str],
-                 parameter_value: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html
-        :param pulumi.Input[str] parameter_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametername
-        :param pulumi.Input[str] parameter_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametervalue
-        """
-        pulumi.set(__self__, "parameter_name", parameter_name)
-        pulumi.set(__self__, "parameter_value", parameter_value)
-
-    @property
-    @pulumi.getter(name="parameterName")
-    def parameter_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametername
-        """
-        return pulumi.get(self, "parameter_name")
-
-    @parameter_name.setter
-    def parameter_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "parameter_name", value)
-
-    @property
-    @pulumi.getter(name="parameterValue")
-    def parameter_value(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametervalue
-        """
-        return pulumi.get(self, "parameter_value")
-
-    @parameter_value.setter
-    def parameter_value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "parameter_value", value)
 
 
 @pulumi.input_type

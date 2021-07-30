@@ -15,8 +15,8 @@ __all__ = [
     'DetectorModelAssetPropertyVariantArgs',
     'DetectorModelClearTimerArgs',
     'DetectorModelDetectorModelDefinitionArgs',
-    'DetectorModelDynamoDBArgs',
     'DetectorModelDynamoDBv2Args',
+    'DetectorModelDynamoDBArgs',
     'DetectorModelEventArgs',
     'DetectorModelFirehoseArgs',
     'DetectorModelIotEventsArgs',
@@ -487,6 +487,46 @@ class DetectorModelDetectorModelDefinitionArgs:
 
 
 @pulumi.input_type
+class DetectorModelDynamoDBv2Args:
+    def __init__(__self__, *,
+                 payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
+                 table_name: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html
+        :param pulumi.Input['DetectorModelPayloadArgs'] payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-payload
+        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
+        """
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional[pulumi.Input['DetectorModelPayloadArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-payload
+        """
+        return pulumi.get(self, "payload")
+
+    @payload.setter
+    def payload(self, value: Optional[pulumi.Input['DetectorModelPayloadArgs']]):
+        pulumi.set(self, "payload", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_name", value)
+
+
+@pulumi.input_type
 class DetectorModelDynamoDBArgs:
     def __init__(__self__, *,
                  hash_key_field: Optional[pulumi.Input[str]] = None,
@@ -646,46 +686,6 @@ class DetectorModelDynamoDBArgs:
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename
-        """
-        return pulumi.get(self, "table_name")
-
-    @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "table_name", value)
-
-
-@pulumi.input_type
-class DetectorModelDynamoDBv2Args:
-    def __init__(__self__, *,
-                 payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
-                 table_name: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html
-        :param pulumi.Input['DetectorModelPayloadArgs'] payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-payload
-        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
-        """
-        if payload is not None:
-            pulumi.set(__self__, "payload", payload)
-        if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
-
-    @property
-    @pulumi.getter
-    def payload(self) -> Optional[pulumi.Input['DetectorModelPayloadArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-payload
-        """
-        return pulumi.get(self, "payload")
-
-    @payload.setter
-    def payload(self, value: Optional[pulumi.Input['DetectorModelPayloadArgs']]):
-        pulumi.set(self, "payload", value)
-
-    @property
-    @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
         """
         return pulumi.get(self, "table_name")
 

@@ -31,8 +31,8 @@ __all__ = [
     'DataSourceConnectionConfigurationArgs',
     'DataSourceDataSourceConfigurationArgs',
     'DataSourceDataSourceInclusionsExclusionsStringsArgs',
-    'DataSourceDataSourceToIndexFieldMappingArgs',
     'DataSourceDataSourceToIndexFieldMappingListArgs',
+    'DataSourceDataSourceToIndexFieldMappingArgs',
     'DataSourceDataSourceVpcConfigurationArgs',
     'DataSourceDatabaseConfigurationArgs',
     'DataSourceDocumentsMetadataConfigurationArgs',
@@ -44,14 +44,14 @@ __all__ = [
     'DataSourceSalesforceChatterFeedConfigurationArgs',
     'DataSourceSalesforceChatterFeedIncludeFilterTypesArgs',
     'DataSourceSalesforceConfigurationArgs',
-    'DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs',
     'DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs',
+    'DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs',
     'DataSourceSalesforceKnowledgeArticleConfigurationArgs',
     'DataSourceSalesforceKnowledgeArticleStateListArgs',
     'DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs',
     'DataSourceSalesforceStandardObjectAttachmentConfigurationArgs',
-    'DataSourceSalesforceStandardObjectConfigurationArgs',
     'DataSourceSalesforceStandardObjectConfigurationListArgs',
+    'DataSourceSalesforceStandardObjectConfigurationArgs',
     'DataSourceServiceNowConfigurationArgs',
     'DataSourceServiceNowKnowledgeArticleConfigurationArgs',
     'DataSourceServiceNowServiceCatalogConfigurationArgs',
@@ -61,18 +61,18 @@ __all__ = [
     'FaqS3PathArgs',
     'FaqTagListArgs',
     'IndexCapacityUnitsConfigurationArgs',
-    'IndexDocumentMetadataConfigurationArgs',
     'IndexDocumentMetadataConfigurationListArgs',
+    'IndexDocumentMetadataConfigurationArgs',
     'IndexJsonTokenTypeConfigurationArgs',
     'IndexJwtTokenTypeConfigurationArgs',
     'IndexRelevanceArgs',
     'IndexSearchArgs',
     'IndexServerSideEncryptionConfigurationArgs',
     'IndexTagListArgs',
-    'IndexUserTokenConfigurationArgs',
     'IndexUserTokenConfigurationListArgs',
-    'IndexValueImportanceItemArgs',
+    'IndexUserTokenConfigurationArgs',
     'IndexValueImportanceItemsArgs',
+    'IndexValueImportanceItemArgs',
 ]
 
 @pulumi.input_type
@@ -1136,6 +1136,30 @@ class DataSourceDataSourceInclusionsExclusionsStringsArgs:
 
 
 @pulumi.input_type
+class DataSourceDataSourceToIndexFieldMappingListArgs:
+    def __init__(__self__, *,
+                 data_source_to_index_field_mapping_list: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]] data_source_to_index_field_mapping_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html#cfn-kendra-datasource-datasourcetoindexfieldmappinglist-datasourcetoindexfieldmappinglist
+        """
+        if data_source_to_index_field_mapping_list is not None:
+            pulumi.set(__self__, "data_source_to_index_field_mapping_list", data_source_to_index_field_mapping_list)
+
+    @property
+    @pulumi.getter(name="dataSourceToIndexFieldMappingList")
+    def data_source_to_index_field_mapping_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html#cfn-kendra-datasource-datasourcetoindexfieldmappinglist-datasourcetoindexfieldmappinglist
+        """
+        return pulumi.get(self, "data_source_to_index_field_mapping_list")
+
+    @data_source_to_index_field_mapping_list.setter
+    def data_source_to_index_field_mapping_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
+        pulumi.set(self, "data_source_to_index_field_mapping_list", value)
+
+
+@pulumi.input_type
 class DataSourceDataSourceToIndexFieldMappingArgs:
     def __init__(__self__, *,
                  data_source_field_name: pulumi.Input[str],
@@ -1187,30 +1211,6 @@ class DataSourceDataSourceToIndexFieldMappingArgs:
     @date_field_format.setter
     def date_field_format(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "date_field_format", value)
-
-
-@pulumi.input_type
-class DataSourceDataSourceToIndexFieldMappingListArgs:
-    def __init__(__self__, *,
-                 data_source_to_index_field_mapping_list: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]] data_source_to_index_field_mapping_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html#cfn-kendra-datasource-datasourcetoindexfieldmappinglist-datasourcetoindexfieldmappinglist
-        """
-        if data_source_to_index_field_mapping_list is not None:
-            pulumi.set(__self__, "data_source_to_index_field_mapping_list", data_source_to_index_field_mapping_list)
-
-    @property
-    @pulumi.getter(name="dataSourceToIndexFieldMappingList")
-    def data_source_to_index_field_mapping_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html#cfn-kendra-datasource-datasourcetoindexfieldmappinglist-datasourcetoindexfieldmappinglist
-        """
-        return pulumi.get(self, "data_source_to_index_field_mapping_list")
-
-    @data_source_to_index_field_mapping_list.setter
-    def data_source_to_index_field_mapping_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
-        pulumi.set(self, "data_source_to_index_field_mapping_list", value)
 
 
 @pulumi.input_type
@@ -1944,6 +1944,30 @@ class DataSourceSalesforceConfigurationArgs:
 
 
 @pulumi.input_type
+class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs:
+    def __init__(__self__, *,
+                 salesforce_custom_knowledge_article_type_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]] salesforce_custom_knowledge_article_type_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist-salesforcecustomknowledgearticletypeconfigurationlist
+        """
+        if salesforce_custom_knowledge_article_type_configuration_list is not None:
+            pulumi.set(__self__, "salesforce_custom_knowledge_article_type_configuration_list", salesforce_custom_knowledge_article_type_configuration_list)
+
+    @property
+    @pulumi.getter(name="salesforceCustomKnowledgeArticleTypeConfigurationList")
+    def salesforce_custom_knowledge_article_type_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist-salesforcecustomknowledgearticletypeconfigurationlist
+        """
+        return pulumi.get(self, "salesforce_custom_knowledge_article_type_configuration_list")
+
+    @salesforce_custom_knowledge_article_type_configuration_list.setter
+    def salesforce_custom_knowledge_article_type_configuration_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]]):
+        pulumi.set(self, "salesforce_custom_knowledge_article_type_configuration_list", value)
+
+
+@pulumi.input_type
 class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs:
     def __init__(__self__, *,
                  document_data_field_name: pulumi.Input[str],
@@ -2011,30 +2035,6 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs:
     @field_mappings.setter
     def field_mappings(self, value: Optional[pulumi.Input['DataSourceDataSourceToIndexFieldMappingListArgs']]):
         pulumi.set(self, "field_mappings", value)
-
-
-@pulumi.input_type
-class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs:
-    def __init__(__self__, *,
-                 salesforce_custom_knowledge_article_type_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]] salesforce_custom_knowledge_article_type_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist-salesforcecustomknowledgearticletypeconfigurationlist
-        """
-        if salesforce_custom_knowledge_article_type_configuration_list is not None:
-            pulumi.set(__self__, "salesforce_custom_knowledge_article_type_configuration_list", salesforce_custom_knowledge_article_type_configuration_list)
-
-    @property
-    @pulumi.getter(name="salesforceCustomKnowledgeArticleTypeConfigurationList")
-    def salesforce_custom_knowledge_article_type_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist-salesforcecustomknowledgearticletypeconfigurationlist
-        """
-        return pulumi.get(self, "salesforce_custom_knowledge_article_type_configuration_list")
-
-    @salesforce_custom_knowledge_article_type_configuration_list.setter
-    def salesforce_custom_knowledge_article_type_configuration_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]]):
-        pulumi.set(self, "salesforce_custom_knowledge_article_type_configuration_list", value)
 
 
 @pulumi.input_type
@@ -2212,6 +2212,30 @@ class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs:
 
 
 @pulumi.input_type
+class DataSourceSalesforceStandardObjectConfigurationListArgs:
+    def __init__(__self__, *,
+                 salesforce_standard_object_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]] salesforce_standard_object_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html#cfn-kendra-datasource-salesforcestandardobjectconfigurationlist-salesforcestandardobjectconfigurationlist
+        """
+        if salesforce_standard_object_configuration_list is not None:
+            pulumi.set(__self__, "salesforce_standard_object_configuration_list", salesforce_standard_object_configuration_list)
+
+    @property
+    @pulumi.getter(name="salesforceStandardObjectConfigurationList")
+    def salesforce_standard_object_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html#cfn-kendra-datasource-salesforcestandardobjectconfigurationlist-salesforcestandardobjectconfigurationlist
+        """
+        return pulumi.get(self, "salesforce_standard_object_configuration_list")
+
+    @salesforce_standard_object_configuration_list.setter
+    def salesforce_standard_object_configuration_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]]):
+        pulumi.set(self, "salesforce_standard_object_configuration_list", value)
+
+
+@pulumi.input_type
 class DataSourceSalesforceStandardObjectConfigurationArgs:
     def __init__(__self__, *,
                  document_data_field_name: pulumi.Input[str],
@@ -2279,30 +2303,6 @@ class DataSourceSalesforceStandardObjectConfigurationArgs:
     @field_mappings.setter
     def field_mappings(self, value: Optional[pulumi.Input['DataSourceDataSourceToIndexFieldMappingListArgs']]):
         pulumi.set(self, "field_mappings", value)
-
-
-@pulumi.input_type
-class DataSourceSalesforceStandardObjectConfigurationListArgs:
-    def __init__(__self__, *,
-                 salesforce_standard_object_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]] salesforce_standard_object_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html#cfn-kendra-datasource-salesforcestandardobjectconfigurationlist-salesforcestandardobjectconfigurationlist
-        """
-        if salesforce_standard_object_configuration_list is not None:
-            pulumi.set(__self__, "salesforce_standard_object_configuration_list", salesforce_standard_object_configuration_list)
-
-    @property
-    @pulumi.getter(name="salesforceStandardObjectConfigurationList")
-    def salesforce_standard_object_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html#cfn-kendra-datasource-salesforcestandardobjectconfigurationlist-salesforcestandardobjectconfigurationlist
-        """
-        return pulumi.get(self, "salesforce_standard_object_configuration_list")
-
-    @salesforce_standard_object_configuration_list.setter
-    def salesforce_standard_object_configuration_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]]):
-        pulumi.set(self, "salesforce_standard_object_configuration_list", value)
 
 
 @pulumi.input_type
@@ -2926,6 +2926,30 @@ class IndexCapacityUnitsConfigurationArgs:
 
 
 @pulumi.input_type
+class IndexDocumentMetadataConfigurationListArgs:
+    def __init__(__self__, *,
+                 document_metadata_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html
+        :param pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]] document_metadata_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html#cfn-kendra-index-documentmetadataconfigurationlist-documentmetadataconfigurationlist
+        """
+        if document_metadata_configuration_list is not None:
+            pulumi.set(__self__, "document_metadata_configuration_list", document_metadata_configuration_list)
+
+    @property
+    @pulumi.getter(name="documentMetadataConfigurationList")
+    def document_metadata_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html#cfn-kendra-index-documentmetadataconfigurationlist-documentmetadataconfigurationlist
+        """
+        return pulumi.get(self, "document_metadata_configuration_list")
+
+    @document_metadata_configuration_list.setter
+    def document_metadata_configuration_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]]):
+        pulumi.set(self, "document_metadata_configuration_list", value)
+
+
+@pulumi.input_type
 class IndexDocumentMetadataConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -2993,30 +3017,6 @@ class IndexDocumentMetadataConfigurationArgs:
     @search.setter
     def search(self, value: Optional[pulumi.Input['IndexSearchArgs']]):
         pulumi.set(self, "search", value)
-
-
-@pulumi.input_type
-class IndexDocumentMetadataConfigurationListArgs:
-    def __init__(__self__, *,
-                 document_metadata_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html
-        :param pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]] document_metadata_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html#cfn-kendra-index-documentmetadataconfigurationlist-documentmetadataconfigurationlist
-        """
-        if document_metadata_configuration_list is not None:
-            pulumi.set(__self__, "document_metadata_configuration_list", document_metadata_configuration_list)
-
-    @property
-    @pulumi.getter(name="documentMetadataConfigurationList")
-    def document_metadata_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html#cfn-kendra-index-documentmetadataconfigurationlist-documentmetadataconfigurationlist
-        """
-        return pulumi.get(self, "document_metadata_configuration_list")
-
-    @document_metadata_configuration_list.setter
-    def document_metadata_configuration_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]]):
-        pulumi.set(self, "document_metadata_configuration_list", value)
 
 
 @pulumi.input_type
@@ -3385,6 +3385,30 @@ class IndexTagListArgs:
 
 
 @pulumi.input_type
+class IndexUserTokenConfigurationListArgs:
+    def __init__(__self__, *,
+                 user_token_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html
+        :param pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]] user_token_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
+        """
+        if user_token_configuration_list is not None:
+            pulumi.set(__self__, "user_token_configuration_list", user_token_configuration_list)
+
+    @property
+    @pulumi.getter(name="userTokenConfigurationList")
+    def user_token_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
+        """
+        return pulumi.get(self, "user_token_configuration_list")
+
+    @user_token_configuration_list.setter
+    def user_token_configuration_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]]):
+        pulumi.set(self, "user_token_configuration_list", value)
+
+
+@pulumi.input_type
 class IndexUserTokenConfigurationArgs:
     def __init__(__self__, *,
                  json_token_type_configuration: Optional[pulumi.Input['IndexJsonTokenTypeConfigurationArgs']] = None,
@@ -3425,27 +3449,27 @@ class IndexUserTokenConfigurationArgs:
 
 
 @pulumi.input_type
-class IndexUserTokenConfigurationListArgs:
+class IndexValueImportanceItemsArgs:
     def __init__(__self__, *,
-                 user_token_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]] = None):
+                 value_importance_items: Optional[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html
-        :param pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]] user_token_configuration_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html
+        :param pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]] value_importance_items: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems
         """
-        if user_token_configuration_list is not None:
-            pulumi.set(__self__, "user_token_configuration_list", user_token_configuration_list)
+        if value_importance_items is not None:
+            pulumi.set(__self__, "value_importance_items", value_importance_items)
 
     @property
-    @pulumi.getter(name="userTokenConfigurationList")
-    def user_token_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]]:
+    @pulumi.getter(name="valueImportanceItems")
+    def value_importance_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems
         """
-        return pulumi.get(self, "user_token_configuration_list")
+        return pulumi.get(self, "value_importance_items")
 
-    @user_token_configuration_list.setter
-    def user_token_configuration_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]]):
-        pulumi.set(self, "user_token_configuration_list", value)
+    @value_importance_items.setter
+    def value_importance_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]]):
+        pulumi.set(self, "value_importance_items", value)
 
 
 @pulumi.input_type
@@ -3486,29 +3510,5 @@ class IndexValueImportanceItemArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class IndexValueImportanceItemsArgs:
-    def __init__(__self__, *,
-                 value_importance_items: Optional[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html
-        :param pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]] value_importance_items: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems
-        """
-        if value_importance_items is not None:
-            pulumi.set(__self__, "value_importance_items", value_importance_items)
-
-    @property
-    @pulumi.getter(name="valueImportanceItems")
-    def value_importance_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems
-        """
-        return pulumi.get(self, "value_importance_items")
-
-    @value_importance_items.setter
-    def value_importance_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]]):
-        pulumi.set(self, "value_importance_items", value)
 
 

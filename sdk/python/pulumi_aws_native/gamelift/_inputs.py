@@ -17,8 +17,8 @@ __all__ = [
     'FleetRuntimeConfigurationArgs',
     'FleetServerProcessArgs',
     'GameServerGroupAutoScalingPolicyArgs',
-    'GameServerGroupInstanceDefinitionArgs',
     'GameServerGroupInstanceDefinitionsArgs',
+    'GameServerGroupInstanceDefinitionArgs',
     'GameServerGroupLaunchTemplateArgs',
     'GameServerGroupTagsArgs',
     'GameServerGroupTargetTrackingConfigurationArgs',
@@ -362,6 +362,30 @@ class GameServerGroupAutoScalingPolicyArgs:
 
 
 @pulumi.input_type
+class GameServerGroupInstanceDefinitionsArgs:
+    def __init__(__self__, *,
+                 instance_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html
+        :param pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]] instance_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
+        """
+        if instance_definitions is not None:
+            pulumi.set(__self__, "instance_definitions", instance_definitions)
+
+    @property
+    @pulumi.getter(name="instanceDefinitions")
+    def instance_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
+        """
+        return pulumi.get(self, "instance_definitions")
+
+    @instance_definitions.setter
+    def instance_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]]]):
+        pulumi.set(self, "instance_definitions", value)
+
+
+@pulumi.input_type
 class GameServerGroupInstanceDefinitionArgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[str],
@@ -398,30 +422,6 @@ class GameServerGroupInstanceDefinitionArgs:
     @weighted_capacity.setter
     def weighted_capacity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "weighted_capacity", value)
-
-
-@pulumi.input_type
-class GameServerGroupInstanceDefinitionsArgs:
-    def __init__(__self__, *,
-                 instance_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html
-        :param pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]] instance_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
-        """
-        if instance_definitions is not None:
-            pulumi.set(__self__, "instance_definitions", instance_definitions)
-
-    @property
-    @pulumi.getter(name="instanceDefinitions")
-    def instance_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
-        """
-        return pulumi.get(self, "instance_definitions")
-
-    @instance_definitions.setter
-    def instance_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]]]):
-        pulumi.set(self, "instance_definitions", value)
 
 
 @pulumi.input_type

@@ -8,16 +8,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-import types
-
-__config__ = pulumi.Config('aws-native')
-
-
-class _ExportableConfig(types.ModuleType):
-    @property
-    def region(self) -> Optional[str]:
-        """
-        the region to use for deployments
-        """
-        return __config__.get('region')
+region: Optional[str]
+"""
+the region to use for deployments
+"""
 

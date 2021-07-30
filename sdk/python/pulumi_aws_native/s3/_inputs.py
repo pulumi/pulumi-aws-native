@@ -18,8 +18,8 @@ __all__ = [
     'StorageLensBucketsAndRegionsArgs',
     'StorageLensDataExportArgs',
     'StorageLensEncryptionArgs',
-    'StorageLensPrefixLevelArgs',
     'StorageLensPrefixLevelStorageMetricsArgs',
+    'StorageLensPrefixLevelArgs',
     'StorageLensS3BucketDestinationArgs',
     'StorageLensSelectionCriteriaArgs',
     'StorageLensStorageLensConfigurationArgs',
@@ -320,29 +320,6 @@ class StorageLensEncryptionArgs:
 
 
 @pulumi.input_type
-class StorageLensPrefixLevelArgs:
-    def __init__(__self__, *,
-                 storage_metrics: pulumi.Input['StorageLensPrefixLevelStorageMetricsArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
-        :param pulumi.Input['StorageLensPrefixLevelStorageMetricsArgs'] storage_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
-        """
-        pulumi.set(__self__, "storage_metrics", storage_metrics)
-
-    @property
-    @pulumi.getter(name="storageMetrics")
-    def storage_metrics(self) -> pulumi.Input['StorageLensPrefixLevelStorageMetricsArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
-        """
-        return pulumi.get(self, "storage_metrics")
-
-    @storage_metrics.setter
-    def storage_metrics(self, value: pulumi.Input['StorageLensPrefixLevelStorageMetricsArgs']):
-        pulumi.set(self, "storage_metrics", value)
-
-
-@pulumi.input_type
 class StorageLensPrefixLevelStorageMetricsArgs:
     def __init__(__self__, *,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
@@ -380,6 +357,29 @@ class StorageLensPrefixLevelStorageMetricsArgs:
     @selection_criteria.setter
     def selection_criteria(self, value: Optional[pulumi.Input['StorageLensSelectionCriteriaArgs']]):
         pulumi.set(self, "selection_criteria", value)
+
+
+@pulumi.input_type
+class StorageLensPrefixLevelArgs:
+    def __init__(__self__, *,
+                 storage_metrics: pulumi.Input['StorageLensPrefixLevelStorageMetricsArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
+        :param pulumi.Input['StorageLensPrefixLevelStorageMetricsArgs'] storage_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
+        """
+        pulumi.set(__self__, "storage_metrics", storage_metrics)
+
+    @property
+    @pulumi.getter(name="storageMetrics")
+    def storage_metrics(self) -> pulumi.Input['StorageLensPrefixLevelStorageMetricsArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
+        """
+        return pulumi.get(self, "storage_metrics")
+
+    @storage_metrics.setter
+    def storage_metrics(self, value: pulumi.Input['StorageLensPrefixLevelStorageMetricsArgs']):
+        pulumi.set(self, "storage_metrics", value)
 
 
 @pulumi.input_type
