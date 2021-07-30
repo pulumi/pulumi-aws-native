@@ -82,6 +82,8 @@ generate_go::
 	$(WORKING_DIR)/bin/$(CODEGEN) go $(CFN_SCHEMA_FILE) ${VERSION}
 
 build_go::
+	cd sdk/ && \
+		GOGC=50 go list github.com/pulumi/pulumi-aws-native/sdk/go/aws/... | xargs -L 1 go build
 
 clean::
 	rm -rf sdk/nodejs && mkdir sdk/nodejs && touch sdk/nodejs/go.mod
