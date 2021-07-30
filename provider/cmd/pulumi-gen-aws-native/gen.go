@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"sort"
 	"strings"
 
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
@@ -22,7 +21,7 @@ type context struct {
 	types codegen.StringSet
 }
 
-func rawMessage(v interface{}) json.RawMessage {
+func rawMessage(v interface{}) pschema.RawMessage {
 	bytes, err := json.Marshal(v)
 	contract.Assert(err == nil)
 	return bytes
@@ -137,7 +136,7 @@ func (ctx *context) propertyTypeSpec(resourceScope, itemType, primitiveItemType,
 }
 
 func (ctx *context) gatherPropertyType(resourceScope string, spec schema.PropertyTypeSpec) pschema.ComplexTypeSpec {
-	properties, required := map[string]pschema.PropertySpec{}, []string{}
+	properties, required := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	for name, spec := range spec.Properties {
 		sdkName := schema.ToPropertyName(name)
 		properties[sdkName] = pschema.PropertySpec{
@@ -145,37 +144,35 @@ func (ctx *context) gatherPropertyType(resourceScope string, spec schema.Propert
 			Description: spec.Documentation,
 		}
 		if spec.Required {
-			required = append(required, sdkName)
+			required.Add(sdkName)
 		}
 	}
-	sort.Strings(required)
 
 	return pschema.ComplexTypeSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
 			Description: spec.Documentation,
 			Properties:  properties,
 			Type:        "object",
-			Required:    required,
+			Required:    required.SortedValues(),
 		},
 	}
 }
 
 func (ctx *context) gatherAttributesType(resourceScope string, attributes map[string]schema.AttributeSpec) pschema.ComplexTypeSpec {
-	properties, required := map[string]pschema.PropertySpec{}, []string{}
+	properties, required := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	for name, spec := range attributes {
 		sdkName := schema.ToPropertyName(strings.Replace(name, ".", "", -1))
 		properties[sdkName] = pschema.PropertySpec{
 			TypeSpec: ctx.propertyTypeSpec(resourceScope, spec.ItemType, spec.PrimitiveItemType, spec.PrimitiveType, spec.Type),
 		}
-		required = append(required, sdkName)
+		required.Add(sdkName)
 	}
-	sort.Strings(required)
 
 	return pschema.ComplexTypeSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
 			Properties: properties,
 			Type:       "object",
-			Required:   required,
+			Required:   required.SortedValues(),
 		},
 	}
 }
@@ -184,15 +181,15 @@ func (ctx *context) gatherResourceType(pkg *pschema.PackageSpec, resourceName st
 	resourceToken := typeToken(resourceName + ".")
 	resourceTypeName := typeName(resourceName + ".")
 
-	inputProperties, requiredInputs := map[string]pschema.PropertySpec{}, []string{}
-	properties, required := map[string]pschema.PropertySpec{}, []string{}
+	inputProperties, requiredInputs := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
+	properties, required := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	for prop, spec := range resourceSpec.Properties {
 		propertySpec := pschema.PropertySpec{
 			TypeSpec:    ctx.propertyTypeSpec(resourceName, spec.ItemType, spec.PrimitiveItemType, spec.PrimitiveType, spec.Type),
 			Description: spec.Documentation,
 		}
 		if resourceTypeName == prop {
-			propertySpec.Language = map[string]json.RawMessage{
+			propertySpec.Language = map[string]pschema.RawMessage{
 				"csharp": rawMessage(dotnetgen.CSharpPropertyInfo{
 					Name: prop + "Value",
 				}),
@@ -202,11 +199,10 @@ func (ctx *context) gatherResourceType(pkg *pschema.PackageSpec, resourceName st
 		properties[sdkName] = propertySpec
 		inputProperties[sdkName] = propertySpec
 		if spec.Required {
-			required = append(required, sdkName)
-			requiredInputs = append(requiredInputs, sdkName)
+			required.Add(sdkName)
+			requiredInputs.Add(sdkName)
 		}
 	}
-	sort.Strings(required)
 
 	for attr, spec := range resourceSpec.Attributes {
 		attr = strings.Replace(attr, ".", "", -1)
@@ -214,7 +210,7 @@ func (ctx *context) gatherResourceType(pkg *pschema.PackageSpec, resourceName st
 			TypeSpec: ctx.propertyTypeSpec(resourceName, spec.ItemType, spec.PrimitiveItemType, spec.PrimitiveType, spec.Type),
 		}
 		if resourceTypeName == attr {
-			propertySpec.Language = map[string]json.RawMessage{
+			propertySpec.Language = map[string]pschema.RawMessage{
 				"csharp": rawMessage(dotnetgen.CSharpPropertyInfo{
 					Name: attr + "Value",
 				}),
@@ -222,19 +218,18 @@ func (ctx *context) gatherResourceType(pkg *pschema.PackageSpec, resourceName st
 		}
 		sdkName := schema.ToPropertyName(attr)
 		properties[sdkName] = propertySpec
-		required = append(required, sdkName)
+		required.Add(sdkName)
 	}
-	sort.Strings(required)
 
 	pkg.Resources[resourceToken] = pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
 			Description: resourceSpec.Documentation,
 			Properties:  properties,
 			Type:        "object",
-			Required:    required,
+			Required:    required.SortedValues(),
 		},
 		InputProperties: inputProperties,
-		RequiredInputs:  requiredInputs,
+		RequiredInputs:  requiredInputs.SortedValues(),
 	}
 }
 
@@ -264,7 +259,7 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 		Types:     map[string]pschema.ComplexTypeSpec{},
 		Resources: map[string]pschema.ResourceSpec{},
 		Functions: map[string]pschema.FunctionSpec{},
-		Language:  map[string]json.RawMessage{},
+		Language:  map[string]pschema.RawMessage{},
 	}
 	csharpNamespaces := map[string]string{
 		"aws-native": "AwsNative",
