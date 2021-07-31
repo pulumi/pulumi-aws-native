@@ -120,37 +120,37 @@ export interface ResourceDataSyncArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
      */
-    readonly bucketName?: pulumi.Input<string>;
+    bucketName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
      */
-    readonly bucketPrefix?: pulumi.Input<string>;
+    bucketPrefix?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
      */
-    readonly bucketRegion?: pulumi.Input<string>;
+    bucketRegion?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
      */
-    readonly kMSKeyArn?: pulumi.Input<string>;
+    kMSKeyArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
      */
-    readonly s3Destination?: pulumi.Input<inputs.SSM.ResourceDataSyncS3DestinationArgs>;
+    s3Destination?: pulumi.Input<inputs.SSM.ResourceDataSyncS3DestinationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
      */
-    readonly syncFormat?: pulumi.Input<string>;
+    syncFormat?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
      */
-    readonly syncName: pulumi.Input<string>;
+    syncName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
      */
-    readonly syncSource?: pulumi.Input<inputs.SSM.ResourceDataSyncSyncSourceArgs>;
+    syncSource?: pulumi.Input<inputs.SSM.ResourceDataSyncSyncSourceArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
      */
-    readonly syncType?: pulumi.Input<string>;
+    syncType?: pulumi.Input<string>;
 }

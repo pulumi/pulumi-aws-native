@@ -75,5 +75,5 @@ export interface NotificationChannelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
      */
-    readonly config: pulumi.Input<inputs.DevOpsGuru.NotificationChannelNotificationChannelConfigArgs>;
+    config: pulumi.Input<inputs.DevOpsGuru.NotificationChannelNotificationChannelConfigArgs>;
 }

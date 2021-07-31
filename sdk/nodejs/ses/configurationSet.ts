@@ -68,5 +68,5 @@ export interface ConfigurationSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

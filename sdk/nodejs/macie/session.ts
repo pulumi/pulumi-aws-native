@@ -80,9 +80,9 @@ export interface SessionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
      */
-    readonly findingPublishingFrequency?: pulumi.Input<string>;
+    findingPublishingFrequency?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
 }

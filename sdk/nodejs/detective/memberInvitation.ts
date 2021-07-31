@@ -95,17 +95,17 @@ export interface MemberInvitationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
      */
-    readonly graphArn: pulumi.Input<string>;
+    graphArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
      */
-    readonly memberEmailAddress: pulumi.Input<string>;
+    memberEmailAddress: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
      */
-    readonly memberId: pulumi.Input<string>;
+    memberId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
      */
-    readonly message?: pulumi.Input<string>;
+    message?: pulumi.Input<string>;
 }

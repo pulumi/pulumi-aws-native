@@ -87,9 +87,9 @@ export interface BackupPlanArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
      */
-    readonly backupPlan: pulumi.Input<inputs.Backup.BackupPlanBackupPlanResourceTypeArgs>;
+    backupPlan: pulumi.Input<inputs.Backup.BackupPlanBackupPlanResourceTypeArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
      */
-    readonly backupPlanTags?: pulumi.Input<any | string>;
+    backupPlanTags?: pulumi.Input<any | string>;
 }

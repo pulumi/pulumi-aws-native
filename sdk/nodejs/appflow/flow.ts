@@ -129,33 +129,33 @@ export interface FlowArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
      */
-    readonly destinationFlowConfigList: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowDestinationFlowConfigArgs>[]>;
+    destinationFlowConfigList: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowDestinationFlowConfigArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
      */
-    readonly flowName: pulumi.Input<string>;
+    flowName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
      */
-    readonly kMSArn?: pulumi.Input<string>;
+    kMSArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
      */
-    readonly sourceFlowConfig: pulumi.Input<inputs.AppFlow.FlowSourceFlowConfigArgs>;
+    sourceFlowConfig: pulumi.Input<inputs.AppFlow.FlowSourceFlowConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
      */
-    readonly tasks: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowTaskArgs>[]>;
+    tasks: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowTaskArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
      */
-    readonly triggerConfig: pulumi.Input<inputs.AppFlow.FlowTriggerConfigArgs>;
+    triggerConfig: pulumi.Input<inputs.AppFlow.FlowTriggerConfigArgs>;
 }

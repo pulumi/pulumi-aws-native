@@ -20,7 +20,7 @@ export function getAzs(args?: GetAzsArgs, opts?: pulumi.InvokeOptions): Promise<
 }
 
 export interface GetAzsArgs {
-    readonly region?: string;
+    region?: string;
 }
 
 export interface GetAzsResult {

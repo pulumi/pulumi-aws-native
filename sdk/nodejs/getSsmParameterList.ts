@@ -19,7 +19,7 @@ export function getSsmParameterList(args: GetSsmParameterListArgs, opts?: pulumi
 }
 
 export interface GetSsmParameterListArgs {
-    readonly name: string;
+    name: string;
 }
 
 export interface GetSsmParameterListResult {

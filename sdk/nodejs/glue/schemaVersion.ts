@@ -84,9 +84,9 @@ export interface SchemaVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
      */
-    readonly schema: pulumi.Input<inputs.Glue.SchemaVersionSchemaArgs>;
+    schema: pulumi.Input<inputs.Glue.SchemaVersionSchemaArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
      */
-    readonly schemaDefinition: pulumi.Input<string>;
+    schemaDefinition: pulumi.Input<string>;
 }

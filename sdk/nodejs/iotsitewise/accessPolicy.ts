@@ -96,13 +96,13 @@ export interface AccessPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
      */
-    readonly accessPolicyIdentity: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyIdentityArgs>;
+    accessPolicyIdentity: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyIdentityArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
      */
-    readonly accessPolicyPermission: pulumi.Input<string>;
+    accessPolicyPermission: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
      */
-    readonly accessPolicyResource: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyResourceArgs>;
+    accessPolicyResource: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyResourceArgs>;
 }

@@ -89,13 +89,13 @@ export interface LinkAssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
      */
-    readonly deviceId: pulumi.Input<string>;
+    deviceId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
      */
-    readonly globalNetworkId: pulumi.Input<string>;
+    globalNetworkId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
      */
-    readonly linkId: pulumi.Input<string>;
+    linkId: pulumi.Input<string>;
 }

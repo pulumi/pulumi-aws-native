@@ -75,5 +75,5 @@ export interface ResourceCollectionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
      */
-    readonly resourceCollectionFilter: pulumi.Input<inputs.DevOpsGuru.ResourceCollectionResourceCollectionFilterArgs>;
+    resourceCollectionFilter: pulumi.Input<inputs.DevOpsGuru.ResourceCollectionResourceCollectionFilterArgs>;
 }

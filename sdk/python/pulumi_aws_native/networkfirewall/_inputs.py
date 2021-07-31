@@ -10,49 +10,49 @@ from .. import _utilities
 
 __all__ = [
     'FirewallPolicyActionDefinitionArgs',
-    'FirewallPolicyCustomActionArgs',
     'FirewallPolicyCustomActionsArgs',
-    'FirewallPolicyDimensionArgs',
+    'FirewallPolicyCustomActionArgs',
     'FirewallPolicyDimensionsArgs',
+    'FirewallPolicyDimensionArgs',
     'FirewallPolicyFirewallPolicyArgs',
     'FirewallPolicyPublishMetricActionArgs',
-    'FirewallPolicyStatefulRuleGroupReferenceArgs',
     'FirewallPolicyStatefulRuleGroupReferencesArgs',
+    'FirewallPolicyStatefulRuleGroupReferenceArgs',
     'FirewallPolicyStatelessActionsArgs',
-    'FirewallPolicyStatelessRuleGroupReferenceArgs',
     'FirewallPolicyStatelessRuleGroupReferencesArgs',
+    'FirewallPolicyStatelessRuleGroupReferenceArgs',
     'FirewallSubnetMappingArgs',
-    'LoggingConfigurationLogDestinationConfigArgs',
     'LoggingConfigurationLogDestinationConfigsArgs',
+    'LoggingConfigurationLogDestinationConfigArgs',
     'LoggingConfigurationLoggingConfigurationArgs',
     'RuleGroupActionDefinitionArgs',
-    'RuleGroupAddressArgs',
     'RuleGroupAddressesArgs',
-    'RuleGroupCustomActionArgs',
+    'RuleGroupAddressArgs',
     'RuleGroupCustomActionsArgs',
-    'RuleGroupDimensionArgs',
+    'RuleGroupCustomActionArgs',
     'RuleGroupDimensionsArgs',
+    'RuleGroupDimensionArgs',
     'RuleGroupFlagsArgs',
     'RuleGroupHeaderArgs',
     'RuleGroupIPSetArgs',
     'RuleGroupMatchAttributesArgs',
-    'RuleGroupPortRangeArgs',
     'RuleGroupPortRangesArgs',
+    'RuleGroupPortRangeArgs',
     'RuleGroupPortSetArgs',
     'RuleGroupProtocolNumbersArgs',
     'RuleGroupPublishMetricActionArgs',
     'RuleGroupRuleDefinitionArgs',
     'RuleGroupRuleGroupArgs',
-    'RuleGroupRuleOptionArgs',
     'RuleGroupRuleOptionsArgs',
+    'RuleGroupRuleOptionArgs',
     'RuleGroupRuleVariablesArgs',
-    'RuleGroupRulesSourceArgs',
     'RuleGroupRulesSourceListArgs',
-    'RuleGroupStatefulRuleArgs',
+    'RuleGroupRulesSourceArgs',
     'RuleGroupStatefulRulesArgs',
-    'RuleGroupStatelessRuleArgs',
-    'RuleGroupStatelessRulesArgs',
+    'RuleGroupStatefulRuleArgs',
     'RuleGroupStatelessRulesAndCustomActionsArgs',
+    'RuleGroupStatelessRulesArgs',
+    'RuleGroupStatelessRuleArgs',
     'RuleGroupTCPFlagFieldArgs',
     'RuleGroupTCPFlagsArgs',
     'RuleGroupTargetTypesArgs',
@@ -81,6 +81,30 @@ class FirewallPolicyActionDefinitionArgs:
     @publish_metric_action.setter
     def publish_metric_action(self, value: Optional[pulumi.Input['FirewallPolicyPublishMetricActionArgs']]):
         pulumi.set(self, "publish_metric_action", value)
+
+
+@pulumi.input_type
+class FirewallPolicyCustomActionsArgs:
+    def __init__(__self__, *,
+                 custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]] custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html#cfn-networkfirewall-firewallpolicy-customactions-customactions
+        """
+        if custom_actions is not None:
+            pulumi.set(__self__, "custom_actions", custom_actions)
+
+    @property
+    @pulumi.getter(name="customActions")
+    def custom_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html#cfn-networkfirewall-firewallpolicy-customactions-customactions
+        """
+        return pulumi.get(self, "custom_actions")
+
+    @custom_actions.setter
+    def custom_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]]):
+        pulumi.set(self, "custom_actions", value)
 
 
 @pulumi.input_type
@@ -122,27 +146,27 @@ class FirewallPolicyCustomActionArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyCustomActionsArgs:
+class FirewallPolicyDimensionsArgs:
     def __init__(__self__, *,
-                 custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]] = None):
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]] custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html#cfn-networkfirewall-firewallpolicy-customactions-customactions
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]] dimensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html#cfn-networkfirewall-firewallpolicy-dimensions-dimensions
         """
-        if custom_actions is not None:
-            pulumi.set(__self__, "custom_actions", custom_actions)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
 
     @property
-    @pulumi.getter(name="customActions")
-    def custom_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]]:
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html#cfn-networkfirewall-firewallpolicy-customactions-customactions
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html#cfn-networkfirewall-firewallpolicy-dimensions-dimensions
         """
-        return pulumi.get(self, "custom_actions")
+        return pulumi.get(self, "dimensions")
 
-    @custom_actions.setter
-    def custom_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]]):
-        pulumi.set(self, "custom_actions", value)
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]]):
+        pulumi.set(self, "dimensions", value)
 
 
 @pulumi.input_type
@@ -166,30 +190,6 @@ class FirewallPolicyDimensionArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class FirewallPolicyDimensionsArgs:
-    def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]] dimensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html#cfn-networkfirewall-firewallpolicy-dimensions-dimensions
-        """
-        if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
-
-    @property
-    @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html#cfn-networkfirewall-firewallpolicy-dimensions-dimensions
-        """
-        return pulumi.get(self, "dimensions")
-
-    @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]]):
-        pulumi.set(self, "dimensions", value)
 
 
 @pulumi.input_type
@@ -302,29 +302,6 @@ class FirewallPolicyPublishMetricActionArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyStatefulRuleGroupReferenceArgs:
-    def __init__(__self__, *,
-                 resource_arn: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html
-        :param pulumi.Input[str] resource_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreference-resourcearn
-        """
-        pulumi.set(__self__, "resource_arn", resource_arn)
-
-    @property
-    @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreference-resourcearn
-        """
-        return pulumi.get(self, "resource_arn")
-
-    @resource_arn.setter
-    def resource_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_arn", value)
-
-
-@pulumi.input_type
 class FirewallPolicyStatefulRuleGroupReferencesArgs:
     def __init__(__self__, *,
                  stateful_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]]] = None):
@@ -349,6 +326,29 @@ class FirewallPolicyStatefulRuleGroupReferencesArgs:
 
 
 @pulumi.input_type
+class FirewallPolicyStatefulRuleGroupReferenceArgs:
+    def __init__(__self__, *,
+                 resource_arn: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html
+        :param pulumi.Input[str] resource_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreference-resourcearn
+        """
+        pulumi.set(__self__, "resource_arn", resource_arn)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreference-resourcearn
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_arn", value)
+
+
+@pulumi.input_type
 class FirewallPolicyStatelessActionsArgs:
     def __init__(__self__, *,
                  stateless_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -370,6 +370,30 @@ class FirewallPolicyStatelessActionsArgs:
     @stateless_actions.setter
     def stateless_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "stateless_actions", value)
+
+
+@pulumi.input_type
+class FirewallPolicyStatelessRuleGroupReferencesArgs:
+    def __init__(__self__, *,
+                 stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]] stateless_rule_group_references: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreferences-statelessrulegroupreferences
+        """
+        if stateless_rule_group_references is not None:
+            pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
+
+    @property
+    @pulumi.getter(name="statelessRuleGroupReferences")
+    def stateless_rule_group_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreferences-statelessrulegroupreferences
+        """
+        return pulumi.get(self, "stateless_rule_group_references")
+
+    @stateless_rule_group_references.setter
+    def stateless_rule_group_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]]):
+        pulumi.set(self, "stateless_rule_group_references", value)
 
 
 @pulumi.input_type
@@ -411,30 +435,6 @@ class FirewallPolicyStatelessRuleGroupReferenceArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyStatelessRuleGroupReferencesArgs:
-    def __init__(__self__, *,
-                 stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]] stateless_rule_group_references: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreferences-statelessrulegroupreferences
-        """
-        if stateless_rule_group_references is not None:
-            pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
-
-    @property
-    @pulumi.getter(name="statelessRuleGroupReferences")
-    def stateless_rule_group_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreferences-statelessrulegroupreferences
-        """
-        return pulumi.get(self, "stateless_rule_group_references")
-
-    @stateless_rule_group_references.setter
-    def stateless_rule_group_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]]):
-        pulumi.set(self, "stateless_rule_group_references", value)
-
-
-@pulumi.input_type
 class FirewallSubnetMappingArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str]):
@@ -455,6 +455,30 @@ class FirewallSubnetMappingArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class LoggingConfigurationLogDestinationConfigsArgs:
+    def __init__(__self__, *,
+                 log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html
+        :param pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]] log_destination_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfigs-logdestinationconfigs
+        """
+        if log_destination_configs is not None:
+            pulumi.set(__self__, "log_destination_configs", log_destination_configs)
+
+    @property
+    @pulumi.getter(name="logDestinationConfigs")
+    def log_destination_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfigs-logdestinationconfigs
+        """
+        return pulumi.get(self, "log_destination_configs")
+
+    @log_destination_configs.setter
+    def log_destination_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]]]):
+        pulumi.set(self, "log_destination_configs", value)
 
 
 @pulumi.input_type
@@ -511,30 +535,6 @@ class LoggingConfigurationLogDestinationConfigArgs:
 
 
 @pulumi.input_type
-class LoggingConfigurationLogDestinationConfigsArgs:
-    def __init__(__self__, *,
-                 log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html
-        :param pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]] log_destination_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfigs-logdestinationconfigs
-        """
-        if log_destination_configs is not None:
-            pulumi.set(__self__, "log_destination_configs", log_destination_configs)
-
-    @property
-    @pulumi.getter(name="logDestinationConfigs")
-    def log_destination_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfigs-logdestinationconfigs
-        """
-        return pulumi.get(self, "log_destination_configs")
-
-    @log_destination_configs.setter
-    def log_destination_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]]]):
-        pulumi.set(self, "log_destination_configs", value)
-
-
-@pulumi.input_type
 class LoggingConfigurationLoggingConfigurationArgs:
     def __init__(__self__, *,
                  log_destination_configs: pulumi.Input['LoggingConfigurationLogDestinationConfigsArgs']):
@@ -582,6 +582,30 @@ class RuleGroupActionDefinitionArgs:
 
 
 @pulumi.input_type
+class RuleGroupAddressesArgs:
+    def __init__(__self__, *,
+                 addresses: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]] addresses: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html#cfn-networkfirewall-rulegroup-addresses-addresses
+        """
+        if addresses is not None:
+            pulumi.set(__self__, "addresses", addresses)
+
+    @property
+    @pulumi.getter
+    def addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html#cfn-networkfirewall-rulegroup-addresses-addresses
+        """
+        return pulumi.get(self, "addresses")
+
+    @addresses.setter
+    def addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]]):
+        pulumi.set(self, "addresses", value)
+
+
+@pulumi.input_type
 class RuleGroupAddressArgs:
     def __init__(__self__, *,
                  address_definition: pulumi.Input[str]):
@@ -605,27 +629,27 @@ class RuleGroupAddressArgs:
 
 
 @pulumi.input_type
-class RuleGroupAddressesArgs:
+class RuleGroupCustomActionsArgs:
     def __init__(__self__, *,
-                 addresses: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]] = None):
+                 custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]] addresses: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html#cfn-networkfirewall-rulegroup-addresses-addresses
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]] custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html#cfn-networkfirewall-rulegroup-customactions-customactions
         """
-        if addresses is not None:
-            pulumi.set(__self__, "addresses", addresses)
+        if custom_actions is not None:
+            pulumi.set(__self__, "custom_actions", custom_actions)
 
     @property
-    @pulumi.getter
-    def addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]]:
+    @pulumi.getter(name="customActions")
+    def custom_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html#cfn-networkfirewall-rulegroup-addresses-addresses
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html#cfn-networkfirewall-rulegroup-customactions-customactions
         """
-        return pulumi.get(self, "addresses")
+        return pulumi.get(self, "custom_actions")
 
-    @addresses.setter
-    def addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]]):
-        pulumi.set(self, "addresses", value)
+    @custom_actions.setter
+    def custom_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]]):
+        pulumi.set(self, "custom_actions", value)
 
 
 @pulumi.input_type
@@ -667,27 +691,27 @@ class RuleGroupCustomActionArgs:
 
 
 @pulumi.input_type
-class RuleGroupCustomActionsArgs:
+class RuleGroupDimensionsArgs:
     def __init__(__self__, *,
-                 custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]] = None):
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]] custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html#cfn-networkfirewall-rulegroup-customactions-customactions
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]] dimensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html#cfn-networkfirewall-rulegroup-dimensions-dimensions
         """
-        if custom_actions is not None:
-            pulumi.set(__self__, "custom_actions", custom_actions)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
 
     @property
-    @pulumi.getter(name="customActions")
-    def custom_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]]:
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html#cfn-networkfirewall-rulegroup-customactions-customactions
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html#cfn-networkfirewall-rulegroup-dimensions-dimensions
         """
-        return pulumi.get(self, "custom_actions")
+        return pulumi.get(self, "dimensions")
 
-    @custom_actions.setter
-    def custom_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]]):
-        pulumi.set(self, "custom_actions", value)
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]]]):
+        pulumi.set(self, "dimensions", value)
 
 
 @pulumi.input_type
@@ -711,30 +735,6 @@ class RuleGroupDimensionArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class RuleGroupDimensionsArgs:
-    def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]] dimensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html#cfn-networkfirewall-rulegroup-dimensions-dimensions
-        """
-        if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
-
-    @property
-    @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html#cfn-networkfirewall-rulegroup-dimensions-dimensions
-        """
-        return pulumi.get(self, "dimensions")
-
-    @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]]]):
-        pulumi.set(self, "dimensions", value)
 
 
 @pulumi.input_type
@@ -988,6 +988,30 @@ class RuleGroupMatchAttributesArgs:
 
 
 @pulumi.input_type
+class RuleGroupPortRangesArgs:
+    def __init__(__self__, *,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]] port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html#cfn-networkfirewall-rulegroup-portranges-portranges
+        """
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html#cfn-networkfirewall-rulegroup-portranges-portranges
+        """
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]]):
+        pulumi.set(self, "port_ranges", value)
+
+
+@pulumi.input_type
 class RuleGroupPortRangeArgs:
     def __init__(__self__, *,
                  from_port: pulumi.Input[int],
@@ -1023,30 +1047,6 @@ class RuleGroupPortRangeArgs:
     @to_port.setter
     def to_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "to_port", value)
-
-
-@pulumi.input_type
-class RuleGroupPortRangesArgs:
-    def __init__(__self__, *,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]] port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html#cfn-networkfirewall-rulegroup-portranges-portranges
-        """
-        if port_ranges is not None:
-            pulumi.set(__self__, "port_ranges", port_ranges)
-
-    @property
-    @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html#cfn-networkfirewall-rulegroup-portranges-portranges
-        """
-        return pulumi.get(self, "port_ranges")
-
-    @port_ranges.setter
-    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]]):
-        pulumi.set(self, "port_ranges", value)
 
 
 @pulumi.input_type
@@ -1198,6 +1198,30 @@ class RuleGroupRuleGroupArgs:
 
 
 @pulumi.input_type
+class RuleGroupRuleOptionsArgs:
+    def __init__(__self__, *,
+                 rule_options: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]] rule_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html#cfn-networkfirewall-rulegroup-ruleoptions-ruleoptions
+        """
+        if rule_options is not None:
+            pulumi.set(__self__, "rule_options", rule_options)
+
+    @property
+    @pulumi.getter(name="ruleOptions")
+    def rule_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html#cfn-networkfirewall-rulegroup-ruleoptions-ruleoptions
+        """
+        return pulumi.get(self, "rule_options")
+
+    @rule_options.setter
+    def rule_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]]]):
+        pulumi.set(self, "rule_options", value)
+
+
+@pulumi.input_type
 class RuleGroupRuleOptionArgs:
     def __init__(__self__, *,
                  keyword: pulumi.Input[str],
@@ -1234,30 +1258,6 @@ class RuleGroupRuleOptionArgs:
     @settings.setter
     def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "settings", value)
-
-
-@pulumi.input_type
-class RuleGroupRuleOptionsArgs:
-    def __init__(__self__, *,
-                 rule_options: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]] rule_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html#cfn-networkfirewall-rulegroup-ruleoptions-ruleoptions
-        """
-        if rule_options is not None:
-            pulumi.set(__self__, "rule_options", rule_options)
-
-    @property
-    @pulumi.getter(name="ruleOptions")
-    def rule_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html#cfn-networkfirewall-rulegroup-ruleoptions-ruleoptions
-        """
-        return pulumi.get(self, "rule_options")
-
-    @rule_options.setter
-    def rule_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]]]):
-        pulumi.set(self, "rule_options", value)
 
 
 @pulumi.input_type
@@ -1298,6 +1298,59 @@ class RuleGroupRuleVariablesArgs:
     @port_sets.setter
     def port_sets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupPortSetArgs']]]]):
         pulumi.set(self, "port_sets", value)
+
+
+@pulumi.input_type
+class RuleGroupRulesSourceListArgs:
+    def __init__(__self__, *,
+                 generated_rules_type: pulumi.Input[str],
+                 target_types: pulumi.Input['RuleGroupTargetTypesArgs'],
+                 targets: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html
+        :param pulumi.Input[str] generated_rules_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-generatedrulestype
+        :param pulumi.Input['RuleGroupTargetTypesArgs'] target_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets
+        """
+        pulumi.set(__self__, "generated_rules_type", generated_rules_type)
+        pulumi.set(__self__, "target_types", target_types)
+        pulumi.set(__self__, "targets", targets)
+
+    @property
+    @pulumi.getter(name="generatedRulesType")
+    def generated_rules_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-generatedrulestype
+        """
+        return pulumi.get(self, "generated_rules_type")
+
+    @generated_rules_type.setter
+    def generated_rules_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "generated_rules_type", value)
+
+    @property
+    @pulumi.getter(name="targetTypes")
+    def target_types(self) -> pulumi.Input['RuleGroupTargetTypesArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
+        """
+        return pulumi.get(self, "target_types")
+
+    @target_types.setter
+    def target_types(self, value: pulumi.Input['RuleGroupTargetTypesArgs']):
+        pulumi.set(self, "target_types", value)
+
+    @property
+    @pulumi.getter
+    def targets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets
+        """
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "targets", value)
 
 
 @pulumi.input_type
@@ -1373,56 +1426,27 @@ class RuleGroupRulesSourceArgs:
 
 
 @pulumi.input_type
-class RuleGroupRulesSourceListArgs:
+class RuleGroupStatefulRulesArgs:
     def __init__(__self__, *,
-                 generated_rules_type: pulumi.Input[str],
-                 target_types: pulumi.Input['RuleGroupTargetTypesArgs'],
-                 targets: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 stateful_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html
-        :param pulumi.Input[str] generated_rules_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-generatedrulestype
-        :param pulumi.Input['RuleGroupTargetTypesArgs'] target_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]] stateful_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html#cfn-networkfirewall-rulegroup-statefulrules-statefulrules
         """
-        pulumi.set(__self__, "generated_rules_type", generated_rules_type)
-        pulumi.set(__self__, "target_types", target_types)
-        pulumi.set(__self__, "targets", targets)
+        if stateful_rules is not None:
+            pulumi.set(__self__, "stateful_rules", stateful_rules)
 
     @property
-    @pulumi.getter(name="generatedRulesType")
-    def generated_rules_type(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="statefulRules")
+    def stateful_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-generatedrulestype
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html#cfn-networkfirewall-rulegroup-statefulrules-statefulrules
         """
-        return pulumi.get(self, "generated_rules_type")
+        return pulumi.get(self, "stateful_rules")
 
-    @generated_rules_type.setter
-    def generated_rules_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "generated_rules_type", value)
-
-    @property
-    @pulumi.getter(name="targetTypes")
-    def target_types(self) -> pulumi.Input['RuleGroupTargetTypesArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
-        """
-        return pulumi.get(self, "target_types")
-
-    @target_types.setter
-    def target_types(self, value: pulumi.Input['RuleGroupTargetTypesArgs']):
-        pulumi.set(self, "target_types", value)
-
-    @property
-    @pulumi.getter
-    def targets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets
-        """
-        return pulumi.get(self, "targets")
-
-    @targets.setter
-    def targets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "targets", value)
+    @stateful_rules.setter
+    def stateful_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]]]):
+        pulumi.set(self, "stateful_rules", value)
 
 
 @pulumi.input_type
@@ -1479,27 +1503,66 @@ class RuleGroupStatefulRuleArgs:
 
 
 @pulumi.input_type
-class RuleGroupStatefulRulesArgs:
+class RuleGroupStatelessRulesAndCustomActionsArgs:
     def __init__(__self__, *,
-                 stateful_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]]] = None):
+                 stateless_rules: pulumi.Input['RuleGroupStatelessRulesArgs'],
+                 custom_actions: Optional[pulumi.Input['RuleGroupCustomActionsArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]] stateful_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html#cfn-networkfirewall-rulegroup-statefulrules-statefulrules
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html
+        :param pulumi.Input['RuleGroupStatelessRulesArgs'] stateless_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
+        :param pulumi.Input['RuleGroupCustomActionsArgs'] custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
         """
-        if stateful_rules is not None:
-            pulumi.set(__self__, "stateful_rules", stateful_rules)
+        pulumi.set(__self__, "stateless_rules", stateless_rules)
+        if custom_actions is not None:
+            pulumi.set(__self__, "custom_actions", custom_actions)
 
     @property
-    @pulumi.getter(name="statefulRules")
-    def stateful_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]]]:
+    @pulumi.getter(name="statelessRules")
+    def stateless_rules(self) -> pulumi.Input['RuleGroupStatelessRulesArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html#cfn-networkfirewall-rulegroup-statefulrules-statefulrules
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
         """
-        return pulumi.get(self, "stateful_rules")
+        return pulumi.get(self, "stateless_rules")
 
-    @stateful_rules.setter
-    def stateful_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]]]):
-        pulumi.set(self, "stateful_rules", value)
+    @stateless_rules.setter
+    def stateless_rules(self, value: pulumi.Input['RuleGroupStatelessRulesArgs']):
+        pulumi.set(self, "stateless_rules", value)
+
+    @property
+    @pulumi.getter(name="customActions")
+    def custom_actions(self) -> Optional[pulumi.Input['RuleGroupCustomActionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
+        """
+        return pulumi.get(self, "custom_actions")
+
+    @custom_actions.setter
+    def custom_actions(self, value: Optional[pulumi.Input['RuleGroupCustomActionsArgs']]):
+        pulumi.set(self, "custom_actions", value)
+
+
+@pulumi.input_type
+class RuleGroupStatelessRulesArgs:
+    def __init__(__self__, *,
+                 stateless_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]] stateless_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html#cfn-networkfirewall-rulegroup-statelessrules-statelessrules
+        """
+        if stateless_rules is not None:
+            pulumi.set(__self__, "stateless_rules", stateless_rules)
+
+    @property
+    @pulumi.getter(name="statelessRules")
+    def stateless_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html#cfn-networkfirewall-rulegroup-statelessrules-statelessrules
+        """
+        return pulumi.get(self, "stateless_rules")
+
+    @stateless_rules.setter
+    def stateless_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]]]):
+        pulumi.set(self, "stateless_rules", value)
 
 
 @pulumi.input_type
@@ -1538,69 +1601,6 @@ class RuleGroupStatelessRuleArgs:
     @rule_definition.setter
     def rule_definition(self, value: pulumi.Input['RuleGroupRuleDefinitionArgs']):
         pulumi.set(self, "rule_definition", value)
-
-
-@pulumi.input_type
-class RuleGroupStatelessRulesArgs:
-    def __init__(__self__, *,
-                 stateless_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]] stateless_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html#cfn-networkfirewall-rulegroup-statelessrules-statelessrules
-        """
-        if stateless_rules is not None:
-            pulumi.set(__self__, "stateless_rules", stateless_rules)
-
-    @property
-    @pulumi.getter(name="statelessRules")
-    def stateless_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html#cfn-networkfirewall-rulegroup-statelessrules-statelessrules
-        """
-        return pulumi.get(self, "stateless_rules")
-
-    @stateless_rules.setter
-    def stateless_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]]]):
-        pulumi.set(self, "stateless_rules", value)
-
-
-@pulumi.input_type
-class RuleGroupStatelessRulesAndCustomActionsArgs:
-    def __init__(__self__, *,
-                 stateless_rules: pulumi.Input['RuleGroupStatelessRulesArgs'],
-                 custom_actions: Optional[pulumi.Input['RuleGroupCustomActionsArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html
-        :param pulumi.Input['RuleGroupStatelessRulesArgs'] stateless_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
-        :param pulumi.Input['RuleGroupCustomActionsArgs'] custom_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
-        """
-        pulumi.set(__self__, "stateless_rules", stateless_rules)
-        if custom_actions is not None:
-            pulumi.set(__self__, "custom_actions", custom_actions)
-
-    @property
-    @pulumi.getter(name="statelessRules")
-    def stateless_rules(self) -> pulumi.Input['RuleGroupStatelessRulesArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
-        """
-        return pulumi.get(self, "stateless_rules")
-
-    @stateless_rules.setter
-    def stateless_rules(self, value: pulumi.Input['RuleGroupStatelessRulesArgs']):
-        pulumi.set(self, "stateless_rules", value)
-
-    @property
-    @pulumi.getter(name="customActions")
-    def custom_actions(self) -> Optional[pulumi.Input['RuleGroupCustomActionsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
-        """
-        return pulumi.get(self, "custom_actions")
-
-    @custom_actions.setter
-    def custom_actions(self, value: Optional[pulumi.Input['RuleGroupCustomActionsArgs']]):
-        pulumi.set(self, "custom_actions", value)
 
 
 @pulumi.input_type

@@ -120,29 +120,29 @@ export interface MonitoringScheduleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
      */
-    readonly endpointName?: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
      */
-    readonly failureReason?: pulumi.Input<string>;
+    failureReason?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
      */
-    readonly lastMonitoringExecutionSummary?: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringExecutionSummaryArgs>;
+    lastMonitoringExecutionSummary?: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringExecutionSummaryArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
      */
-    readonly monitoringScheduleConfig: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringScheduleConfigArgs>;
+    monitoringScheduleConfig: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringScheduleConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
      */
-    readonly monitoringScheduleName: pulumi.Input<string>;
+    monitoringScheduleName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
      */
-    readonly monitoringScheduleStatus?: pulumi.Input<string>;
+    monitoringScheduleStatus?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

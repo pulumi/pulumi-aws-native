@@ -126,29 +126,29 @@ export interface MissionProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
      */
-    readonly contactPostPassDurationSeconds?: pulumi.Input<number>;
+    contactPostPassDurationSeconds?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
      */
-    readonly contactPrePassDurationSeconds?: pulumi.Input<number>;
+    contactPrePassDurationSeconds?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
      */
-    readonly dataflowEdges: pulumi.Input<pulumi.Input<inputs.GroundStation.MissionProfileDataflowEdgeArgs>[]>;
+    dataflowEdges: pulumi.Input<pulumi.Input<inputs.GroundStation.MissionProfileDataflowEdgeArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
      */
-    readonly minimumViableContactDurationSeconds: pulumi.Input<number>;
+    minimumViableContactDurationSeconds: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
      */
-    readonly trackingConfigArn: pulumi.Input<string>;
+    trackingConfigArn: pulumi.Input<string>;
 }

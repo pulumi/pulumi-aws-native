@@ -114,29 +114,29 @@ export interface ListenerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
      */
-    readonly alpnPolicy?: pulumi.Input<pulumi.Input<string>[]>;
+    alpnPolicy?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerCertificateArgs>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerCertificateArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
      */
-    readonly defaultActions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerActionArgs>[]>;
+    defaultActions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerActionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
      */
-    readonly loadBalancerArn: pulumi.Input<string>;
+    loadBalancerArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
      */
-    readonly protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
      */
-    readonly sslPolicy?: pulumi.Input<string>;
+    sslPolicy?: pulumi.Input<string>;
 }

@@ -162,49 +162,49 @@ export interface CanaryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
      */
-    readonly artifactS3Location: pulumi.Input<string>;
+    artifactS3Location: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
      */
-    readonly code: pulumi.Input<inputs.Synthetics.CanaryCodeArgs>;
+    code: pulumi.Input<inputs.Synthetics.CanaryCodeArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
      */
-    readonly executionRoleArn: pulumi.Input<string>;
+    executionRoleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
      */
-    readonly failureRetentionPeriod?: pulumi.Input<number>;
+    failureRetentionPeriod?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
      */
-    readonly runConfig?: pulumi.Input<inputs.Synthetics.CanaryRunConfigArgs>;
+    runConfig?: pulumi.Input<inputs.Synthetics.CanaryRunConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
      */
-    readonly runtimeVersion: pulumi.Input<string>;
+    runtimeVersion: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
      */
-    readonly schedule: pulumi.Input<inputs.Synthetics.CanaryScheduleArgs>;
+    schedule: pulumi.Input<inputs.Synthetics.CanaryScheduleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
      */
-    readonly startCanaryAfterCreation: pulumi.Input<boolean>;
+    startCanaryAfterCreation: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
      */
-    readonly successRetentionPeriod?: pulumi.Input<number>;
+    successRetentionPeriod?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
      */
-    readonly vPCConfig?: pulumi.Input<inputs.Synthetics.CanaryVPCConfigArgs>;
+    vPCConfig?: pulumi.Input<inputs.Synthetics.CanaryVPCConfigArgs>;
 }

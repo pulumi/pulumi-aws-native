@@ -21,6 +21,8 @@ import (
 	"encoding/base32"
 	"encoding/json"
 	"fmt"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"net/http"
 	"strings"
 	"time"
@@ -651,6 +653,11 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 // Construct creates a new component resource.
 func (p *cfnProvider) Construct(_ context.Context, _ *pulumirpc.ConstructRequest) (*pulumirpc.ConstructResponse, error) {
 	panic("Construct not implemented")
+}
+
+// Call dynamically executes a method in the provider associated with a component resource.
+func (p *cfnProvider) Call(_ context.Context, _ *pulumirpc.CallRequest) (*pulumirpc.CallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "Call is not yet implemented")
 }
 
 // GetPluginInfo returns generic information about this plugin, like its version.

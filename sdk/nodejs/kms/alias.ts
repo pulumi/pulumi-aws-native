@@ -80,9 +80,9 @@ export interface AliasArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
      */
-    readonly aliasName: pulumi.Input<string>;
+    aliasName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid
      */
-    readonly targetKeyId: pulumi.Input<string>;
+    targetKeyId: pulumi.Input<string>;
 }

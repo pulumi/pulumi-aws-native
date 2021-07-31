@@ -48,8 +48,8 @@ __all__ = [
     'TaskDefinitionTaskDefinitionPlacementConstraintArgs',
     'TaskDefinitionTmpfsArgs',
     'TaskDefinitionUlimitArgs',
-    'TaskDefinitionVolumeArgs',
     'TaskDefinitionVolumeFromArgs',
+    'TaskDefinitionVolumeArgs',
     'TaskSetAwsVpcConfigurationArgs',
     'TaskSetLoadBalancerArgs',
     'TaskSetNetworkConfigurationArgs',
@@ -2641,6 +2641,46 @@ class TaskDefinitionUlimitArgs:
 
 
 @pulumi.input_type
+class TaskDefinitionVolumeFromArgs:
+    def __init__(__self__, *,
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 source_container: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html
+        :param pulumi.Input[bool] read_only: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-readonly
+        :param pulumi.Input[str] source_container: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-sourcecontainer
+        """
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if source_container is not None:
+            pulumi.set(__self__, "source_container", source_container)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-readonly
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @property
+    @pulumi.getter(name="sourceContainer")
+    def source_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-sourcecontainer
+        """
+        return pulumi.get(self, "source_container")
+
+    @source_container.setter
+    def source_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_container", value)
+
+
+@pulumi.input_type
 class TaskDefinitionVolumeArgs:
     def __init__(__self__, *,
                  docker_volume_configuration: Optional[pulumi.Input['TaskDefinitionDockerVolumeConfigurationArgs']] = None,
@@ -2710,46 +2750,6 @@ class TaskDefinitionVolumeArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class TaskDefinitionVolumeFromArgs:
-    def __init__(__self__, *,
-                 read_only: Optional[pulumi.Input[bool]] = None,
-                 source_container: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html
-        :param pulumi.Input[bool] read_only: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-readonly
-        :param pulumi.Input[str] source_container: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-sourcecontainer
-        """
-        if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
-        if source_container is not None:
-            pulumi.set(__self__, "source_container", source_container)
-
-    @property
-    @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-readonly
-        """
-        return pulumi.get(self, "read_only")
-
-    @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "read_only", value)
-
-    @property
-    @pulumi.getter(name="sourceContainer")
-    def source_container(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-sourcecontainer
-        """
-        return pulumi.get(self, "source_container")
-
-    @source_container.setter
-    def source_container(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_container", value)
 
 
 @pulumi.input_type

@@ -95,13 +95,13 @@ export interface LocalGatewayRouteArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
      */
-    readonly destinationCidrBlock: pulumi.Input<string>;
+    destinationCidrBlock: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
      */
-    readonly localGatewayRouteTableId: pulumi.Input<string>;
+    localGatewayRouteTableId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
      */
-    readonly localGatewayVirtualInterfaceGroupId: pulumi.Input<string>;
+    localGatewayVirtualInterfaceGroupId: pulumi.Input<string>;
 }

@@ -90,13 +90,13 @@ export interface ComponentVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
      */
-    readonly inlineRecipe?: pulumi.Input<string>;
+    inlineRecipe?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
      */
-    readonly lambdaFunction?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaFunctionRecipeSourceArgs>;
+    lambdaFunction?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaFunctionRecipeSourceArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

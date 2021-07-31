@@ -87,9 +87,9 @@ export interface DataflowEndpointGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
      */
-    readonly endpointDetails: pulumi.Input<pulumi.Input<inputs.GroundStation.DataflowEndpointGroupEndpointDetailsArgs>[]>;
+    endpointDetails: pulumi.Input<pulumi.Input<inputs.GroundStation.DataflowEndpointGroupEndpointDetailsArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

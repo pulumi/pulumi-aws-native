@@ -123,37 +123,37 @@ export interface FileSystemArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
      */
-    readonly backupPolicy?: pulumi.Input<inputs.EFS.FileSystemBackupPolicyArgs>;
+    backupPolicy?: pulumi.Input<inputs.EFS.FileSystemBackupPolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
      */
-    readonly encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
      */
-    readonly fileSystemPolicy?: pulumi.Input<any | string>;
+    fileSystemPolicy?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
      */
-    readonly fileSystemTags?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemElasticFileSystemTagArgs>[]>;
+    fileSystemTags?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemElasticFileSystemTagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
      */
-    readonly lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemLifecyclePolicyArgs>[]>;
+    lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemLifecyclePolicyArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
      */
-    readonly performanceMode?: pulumi.Input<string>;
+    performanceMode?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
      */
-    readonly provisionedThroughputInMibps?: pulumi.Input<number>;
+    provisionedThroughputInMibps?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
      */
-    readonly throughputMode?: pulumi.Input<string>;
+    throughputMode?: pulumi.Input<string>;
 }

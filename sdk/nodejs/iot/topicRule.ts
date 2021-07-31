@@ -81,9 +81,9 @@ export interface TopicRuleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
      */
-    readonly topicRulePayload: pulumi.Input<inputs.IoT.TopicRuleTopicRulePayloadArgs>;
+    topicRulePayload: pulumi.Input<inputs.IoT.TopicRuleTopicRulePayloadArgs>;
 }

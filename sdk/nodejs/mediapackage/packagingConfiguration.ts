@@ -114,29 +114,29 @@ export interface PackagingConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
      */
-    readonly cmafPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationCmafPackageArgs>;
+    cmafPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationCmafPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
      */
-    readonly dashPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationDashPackageArgs>;
+    dashPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationDashPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
      */
-    readonly hlsPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsPackageArgs>;
+    hlsPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
      */
-    readonly id: pulumi.Input<string>;
+    id: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
      */
-    readonly mssPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationMssPackageArgs>;
+    mssPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationMssPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
      */
-    readonly packagingGroupId: pulumi.Input<string>;
+    packagingGroupId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

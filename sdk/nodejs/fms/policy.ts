@@ -150,45 +150,45 @@ export interface PolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
      */
-    readonly deleteAllPolicyResources?: pulumi.Input<boolean>;
+    deleteAllPolicyResources?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
      */
-    readonly excludeMap?: pulumi.Input<inputs.FMS.PolicyIEMapArgs>;
+    excludeMap?: pulumi.Input<inputs.FMS.PolicyIEMapArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
      */
-    readonly excludeResourceTags: pulumi.Input<boolean>;
+    excludeResourceTags: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
      */
-    readonly includeMap?: pulumi.Input<inputs.FMS.PolicyIEMapArgs>;
+    includeMap?: pulumi.Input<inputs.FMS.PolicyIEMapArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
      */
-    readonly policyName: pulumi.Input<string>;
+    policyName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
      */
-    readonly remediationEnabled: pulumi.Input<boolean>;
+    remediationEnabled: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
      */
-    readonly resourceTags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyResourceTagArgs>[]>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyResourceTagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
      */
-    readonly resourceType: pulumi.Input<string>;
+    resourceType: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
      */
-    readonly resourceTypeList?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceTypeList?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
      */
-    readonly securityServicePolicyData: pulumi.Input<any | string>;
+    securityServicePolicyData: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyPolicyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyPolicyTagArgs>[]>;
 }

@@ -90,13 +90,13 @@ export interface CodeSigningConfigArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
      */
-    readonly allowedPublishers: pulumi.Input<inputs.Lambda.CodeSigningConfigAllowedPublishersArgs>;
+    allowedPublishers: pulumi.Input<inputs.Lambda.CodeSigningConfigAllowedPublishersArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
      */
-    readonly codeSigningPolicies?: pulumi.Input<inputs.Lambda.CodeSigningConfigCodeSigningPoliciesArgs>;
+    codeSigningPolicies?: pulumi.Input<inputs.Lambda.CodeSigningConfigCodeSigningPoliciesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
 }

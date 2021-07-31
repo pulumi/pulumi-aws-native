@@ -87,13 +87,13 @@ export interface LoggingConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
      */
-    readonly firewallArn: pulumi.Input<string>;
+    firewallArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
      */
-    readonly firewallName?: pulumi.Input<string>;
+    firewallName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
      */
-    readonly loggingConfiguration: pulumi.Input<inputs.NetworkFirewall.LoggingConfigurationLoggingConfigurationArgs>;
+    loggingConfiguration: pulumi.Input<inputs.NetworkFirewall.LoggingConfigurationLoggingConfigurationArgs>;
 }

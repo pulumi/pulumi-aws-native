@@ -19,7 +19,7 @@ export function importValue(args: ImportValueArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface ImportValueArgs {
-    readonly name: string;
+    name: string;
 }
 
 export interface ImportValueResult {

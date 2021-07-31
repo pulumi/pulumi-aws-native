@@ -81,9 +81,9 @@ export interface BackupSelectionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid
      */
-    readonly backupPlanId: pulumi.Input<string>;
+    backupPlanId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
      */
-    readonly backupSelection: pulumi.Input<inputs.Backup.BackupSelectionBackupSelectionResourceTypeArgs>;
+    backupSelection: pulumi.Input<inputs.Backup.BackupSelectionBackupSelectionResourceTypeArgs>;
 }

@@ -126,37 +126,37 @@ export interface StateMachineArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
      */
-    readonly definitionS3Location?: pulumi.Input<inputs.StepFunctions.StateMachineS3LocationArgs>;
+    definitionS3Location?: pulumi.Input<inputs.StepFunctions.StateMachineS3LocationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
      */
-    readonly definitionString?: pulumi.Input<string>;
+    definitionString?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
      */
-    readonly definitionSubstitutions?: pulumi.Input<inputs.StepFunctions.StateMachineDefinitionSubstitutionsArgs>;
+    definitionSubstitutions?: pulumi.Input<inputs.StepFunctions.StateMachineDefinitionSubstitutionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
      */
-    readonly loggingConfiguration?: pulumi.Input<inputs.StepFunctions.StateMachineLoggingConfigurationArgs>;
+    loggingConfiguration?: pulumi.Input<inputs.StepFunctions.StateMachineLoggingConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
      */
-    readonly stateMachineName?: pulumi.Input<string>;
+    stateMachineName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
      */
-    readonly stateMachineType?: pulumi.Input<string>;
+    stateMachineType?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.StepFunctions.StateMachineTagsEntryArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.StepFunctions.StateMachineTagsEntryArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
      */
-    readonly tracingConfiguration?: pulumi.Input<inputs.StepFunctions.StateMachineTracingConfigurationArgs>;
+    tracingConfiguration?: pulumi.Input<inputs.StepFunctions.StateMachineTracingConfigurationArgs>;
 }

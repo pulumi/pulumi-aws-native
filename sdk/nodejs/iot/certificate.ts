@@ -101,21 +101,21 @@ export interface CertificateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
      */
-    readonly cACertificatePem?: pulumi.Input<string>;
+    cACertificatePem?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
      */
-    readonly certificateMode?: pulumi.Input<string>;
+    certificateMode?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
      */
-    readonly certificatePem?: pulumi.Input<string>;
+    certificatePem?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
      */
-    readonly certificateSigningRequest?: pulumi.Input<string>;
+    certificateSigningRequest?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
      */
-    readonly status: pulumi.Input<string>;
+    status: pulumi.Input<string>;
 }

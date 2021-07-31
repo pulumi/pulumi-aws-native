@@ -81,9 +81,9 @@ export interface HealthCheckArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
      */
-    readonly healthCheckConfig: pulumi.Input<any | string>;
+    healthCheckConfig: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
      */
-    readonly healthCheckTags?: pulumi.Input<pulumi.Input<inputs.Route53.HealthCheckHealthCheckTagArgs>[]>;
+    healthCheckTags?: pulumi.Input<pulumi.Input<inputs.Route53.HealthCheckHealthCheckTagArgs>[]>;
 }

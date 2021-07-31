@@ -68,5 +68,5 @@ export interface KeyspaceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
      */
-    readonly keyspaceName?: pulumi.Input<string>;
+    keyspaceName?: pulumi.Input<string>;
 }

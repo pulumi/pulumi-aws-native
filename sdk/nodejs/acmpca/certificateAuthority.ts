@@ -117,25 +117,25 @@ export interface CertificateAuthorityArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
      */
-    readonly keyAlgorithm: pulumi.Input<string>;
+    keyAlgorithm: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
      */
-    readonly revocationConfiguration?: pulumi.Input<inputs.ACMPCA.CertificateAuthorityRevocationConfigurationArgs>;
+    revocationConfiguration?: pulumi.Input<inputs.ACMPCA.CertificateAuthorityRevocationConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
      */
-    readonly signingAlgorithm: pulumi.Input<string>;
+    signingAlgorithm: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
      */
-    readonly subject: pulumi.Input<inputs.ACMPCA.CertificateAuthoritySubjectArgs>;
+    subject: pulumi.Input<inputs.ACMPCA.CertificateAuthoritySubjectArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

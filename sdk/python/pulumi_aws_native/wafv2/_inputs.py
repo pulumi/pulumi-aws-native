@@ -24,8 +24,8 @@ __all__ = [
     'RuleGroupRateBasedStatementOneArgs',
     'RuleGroupRateBasedStatementTwoArgs',
     'RuleGroupRegexPatternSetReferenceStatementArgs',
-    'RuleGroupRuleArgs',
     'RuleGroupRuleActionArgs',
+    'RuleGroupRuleArgs',
     'RuleGroupSizeConstraintStatementArgs',
     'RuleGroupSqliMatchStatementArgs',
     'RuleGroupStatementOneArgs',
@@ -53,9 +53,9 @@ __all__ = [
     'WebACLRateBasedStatementOneArgs',
     'WebACLRateBasedStatementTwoArgs',
     'WebACLRegexPatternSetReferenceStatementArgs',
-    'WebACLRuleArgs',
     'WebACLRuleActionArgs',
     'WebACLRuleGroupReferenceStatementArgs',
+    'WebACLRuleArgs',
     'WebACLSizeConstraintStatementArgs',
     'WebACLSqliMatchStatementArgs',
     'WebACLStatementOneArgs',
@@ -773,6 +773,62 @@ class RuleGroupRegexPatternSetReferenceStatementArgs:
 
 
 @pulumi.input_type
+class RuleGroupRuleActionArgs:
+    def __init__(__self__, *,
+                 allow: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 block: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 count: Optional[pulumi.Input[Union[Any, str]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html
+        :param pulumi.Input[Union[Any, str]] allow: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
+        :param pulumi.Input[Union[Any, str]] block: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
+        :param pulumi.Input[Union[Any, str]] count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
+        """
+        if allow is not None:
+            pulumi.set(__self__, "allow", allow)
+        if block is not None:
+            pulumi.set(__self__, "block", block)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @property
+    @pulumi.getter
+    def allow(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
+        """
+        return pulumi.get(self, "allow")
+
+    @allow.setter
+    def allow(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "allow", value)
+
+    @property
+    @pulumi.getter
+    def block(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
+        """
+        return pulumi.get(self, "block")
+
+    @block.setter
+    def block(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "block", value)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "count", value)
+
+
+@pulumi.input_type
 class RuleGroupRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -854,62 +910,6 @@ class RuleGroupRuleArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input['RuleGroupRuleActionArgs']]):
         pulumi.set(self, "action", value)
-
-
-@pulumi.input_type
-class RuleGroupRuleActionArgs:
-    def __init__(__self__, *,
-                 allow: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 block: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 count: Optional[pulumi.Input[Union[Any, str]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html
-        :param pulumi.Input[Union[Any, str]] allow: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
-        :param pulumi.Input[Union[Any, str]] block: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
-        :param pulumi.Input[Union[Any, str]] count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
-        """
-        if allow is not None:
-            pulumi.set(__self__, "allow", allow)
-        if block is not None:
-            pulumi.set(__self__, "block", block)
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-
-    @property
-    @pulumi.getter
-    def allow(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
-        """
-        return pulumi.get(self, "allow")
-
-    @allow.setter
-    def allow(self, value: Optional[pulumi.Input[Union[Any, str]]]):
-        pulumi.set(self, "allow", value)
-
-    @property
-    @pulumi.getter
-    def block(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
-        """
-        return pulumi.get(self, "block")
-
-    @block.setter
-    def block(self, value: Optional[pulumi.Input[Union[Any, str]]]):
-        pulumi.set(self, "block", value)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
-        """
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: Optional[pulumi.Input[Union[Any, str]]]):
-        pulumi.set(self, "count", value)
 
 
 @pulumi.input_type
@@ -2499,6 +2499,101 @@ class WebACLRegexPatternSetReferenceStatementArgs:
 
 
 @pulumi.input_type
+class WebACLRuleActionArgs:
+    def __init__(__self__, *,
+                 allow: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 block: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 count: Optional[pulumi.Input[Union[Any, str]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html
+        :param pulumi.Input[Union[Any, str]] allow: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
+        :param pulumi.Input[Union[Any, str]] block: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
+        :param pulumi.Input[Union[Any, str]] count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
+        """
+        if allow is not None:
+            pulumi.set(__self__, "allow", allow)
+        if block is not None:
+            pulumi.set(__self__, "block", block)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @property
+    @pulumi.getter
+    def allow(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
+        """
+        return pulumi.get(self, "allow")
+
+    @allow.setter
+    def allow(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "allow", value)
+
+    @property
+    @pulumi.getter
+    def block(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
+        """
+        return pulumi.get(self, "block")
+
+    @block.setter
+    def block(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "block", value)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "count", value)
+
+
+@pulumi.input_type
+class WebACLRuleGroupReferenceStatementArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str],
+                 excluded_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
+        :param pulumi.Input[str] arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
+        :param pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]] excluded_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
+        """
+        pulumi.set(__self__, "arn", arn)
+        if excluded_rules is not None:
+            pulumi.set(__self__, "excluded_rules", excluded_rules)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="excludedRules")
+    def excluded_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
+        """
+        return pulumi.get(self, "excluded_rules")
+
+    @excluded_rules.setter
+    def excluded_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]]):
+        pulumi.set(self, "excluded_rules", value)
+
+
+@pulumi.input_type
 class WebACLRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -2596,101 +2691,6 @@ class WebACLRuleArgs:
     @override_action.setter
     def override_action(self, value: Optional[pulumi.Input['WebACLOverrideActionArgs']]):
         pulumi.set(self, "override_action", value)
-
-
-@pulumi.input_type
-class WebACLRuleActionArgs:
-    def __init__(__self__, *,
-                 allow: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 block: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 count: Optional[pulumi.Input[Union[Any, str]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html
-        :param pulumi.Input[Union[Any, str]] allow: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
-        :param pulumi.Input[Union[Any, str]] block: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
-        :param pulumi.Input[Union[Any, str]] count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
-        """
-        if allow is not None:
-            pulumi.set(__self__, "allow", allow)
-        if block is not None:
-            pulumi.set(__self__, "block", block)
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-
-    @property
-    @pulumi.getter
-    def allow(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
-        """
-        return pulumi.get(self, "allow")
-
-    @allow.setter
-    def allow(self, value: Optional[pulumi.Input[Union[Any, str]]]):
-        pulumi.set(self, "allow", value)
-
-    @property
-    @pulumi.getter
-    def block(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
-        """
-        return pulumi.get(self, "block")
-
-    @block.setter
-    def block(self, value: Optional[pulumi.Input[Union[Any, str]]]):
-        pulumi.set(self, "block", value)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
-        """
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: Optional[pulumi.Input[Union[Any, str]]]):
-        pulumi.set(self, "count", value)
-
-
-@pulumi.input_type
-class WebACLRuleGroupReferenceStatementArgs:
-    def __init__(__self__, *,
-                 arn: pulumi.Input[str],
-                 excluded_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
-        :param pulumi.Input[str] arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
-        :param pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]] excluded_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
-        """
-        pulumi.set(__self__, "arn", arn)
-        if excluded_rules is not None:
-            pulumi.set(__self__, "excluded_rules", excluded_rules)
-
-    @property
-    @pulumi.getter
-    def arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
-        """
-        return pulumi.get(self, "arn")
-
-    @arn.setter
-    def arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "arn", value)
-
-    @property
-    @pulumi.getter(name="excludedRules")
-    def excluded_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
-        """
-        return pulumi.get(self, "excluded_rules")
-
-    @excluded_rules.setter
-    def excluded_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]]):
-        pulumi.set(self, "excluded_rules", value)
 
 
 @pulumi.input_type

@@ -78,5 +78,5 @@ export interface OriginRequestPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
      */
-    readonly originRequestPolicyConfig: pulumi.Input<inputs.CloudFront.OriginRequestPolicyOriginRequestPolicyConfigArgs>;
+    originRequestPolicyConfig: pulumi.Input<inputs.CloudFront.OriginRequestPolicyOriginRequestPolicyConfigArgs>;
 }

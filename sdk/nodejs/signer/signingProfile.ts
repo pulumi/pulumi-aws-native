@@ -96,13 +96,13 @@ export interface SigningProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
      */
-    readonly platformId: pulumi.Input<string>;
+    platformId: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
      */
-    readonly signatureValidityPeriod?: pulumi.Input<inputs.Signer.SigningProfileSignatureValidityPeriodArgs>;
+    signatureValidityPeriod?: pulumi.Input<inputs.Signer.SigningProfileSignatureValidityPeriodArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

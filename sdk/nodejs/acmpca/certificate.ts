@@ -111,21 +111,21 @@ export interface CertificateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
      */
-    readonly certificateAuthorityArn: pulumi.Input<string>;
+    certificateAuthorityArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
      */
-    readonly certificateSigningRequest: pulumi.Input<string>;
+    certificateSigningRequest: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
      */
-    readonly signingAlgorithm: pulumi.Input<string>;
+    signingAlgorithm: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
      */
-    readonly templateArn?: pulumi.Input<string>;
+    templateArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
      */
-    readonly validity: pulumi.Input<inputs.ACMPCA.CertificateValidityArgs>;
+    validity: pulumi.Input<inputs.ACMPCA.CertificateValidityArgs>;
 }

@@ -135,41 +135,41 @@ export interface TaskSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
      */
-    readonly cluster: pulumi.Input<string>;
+    cluster: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
      */
-    readonly externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
      */
-    readonly launchType?: pulumi.Input<string>;
+    launchType?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
      */
-    readonly loadBalancers?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetLoadBalancerArgs>[]>;
+    loadBalancers?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetLoadBalancerArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
      */
-    readonly networkConfiguration?: pulumi.Input<inputs.ECS.TaskSetNetworkConfigurationArgs>;
+    networkConfiguration?: pulumi.Input<inputs.ECS.TaskSetNetworkConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
      */
-    readonly platformVersion?: pulumi.Input<string>;
+    platformVersion?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
      */
-    readonly scale?: pulumi.Input<inputs.ECS.TaskSetScaleArgs>;
+    scale?: pulumi.Input<inputs.ECS.TaskSetScaleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
      */
-    readonly service: pulumi.Input<string>;
+    service: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
      */
-    readonly serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetServiceRegistryArgs>[]>;
+    serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetServiceRegistryArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
      */
-    readonly taskDefinition: pulumi.Input<string>;
+    taskDefinition: pulumi.Input<string>;
 }

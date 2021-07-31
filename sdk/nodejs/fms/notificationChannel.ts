@@ -80,9 +80,9 @@ export interface NotificationChannelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
      */
-    readonly snsRoleName: pulumi.Input<string>;
+    snsRoleName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
      */
-    readonly snsTopicArn: pulumi.Input<string>;
+    snsTopicArn: pulumi.Input<string>;
 }

@@ -1375,6 +1375,7 @@ export namespace AppFlow {
          */
         object: pulumi.Input<string>;
     }
+
 }
 
 export namespace ApplicationInsights {
@@ -3572,6 +3573,7 @@ export namespace ECS {
          */
         registryArn?: pulumi.Input<string>;
     }
+
 }
 
 export namespace EFS {
@@ -8699,6 +8701,7 @@ export namespace LicenseManager {
          */
         end: pulumi.Input<string>;
     }
+
 }
 
 export namespace MWAA {
@@ -9385,6 +9388,7 @@ export namespace MediaPackage {
          */
         secretsRoleArn: pulumi.Input<string>;
     }
+
 }
 
 export namespace NetworkFirewall {
@@ -10003,6 +10007,7 @@ export namespace NetworkFirewall {
          */
         variableDefinitionList?: pulumi.Input<pulumi.Input<string>[]>;
     }
+
 }
 
 export namespace NetworkManager {

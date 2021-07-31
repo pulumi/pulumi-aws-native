@@ -132,41 +132,41 @@ export interface EndpointGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
      */
-    readonly endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.EndpointGroupEndpointConfigurationArgs>[]>;
+    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.EndpointGroupEndpointConfigurationArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
      */
-    readonly endpointGroupRegion: pulumi.Input<string>;
+    endpointGroupRegion: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
      */
-    readonly healthCheckIntervalSeconds?: pulumi.Input<number>;
+    healthCheckIntervalSeconds?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
      */
-    readonly healthCheckPath?: pulumi.Input<string>;
+    healthCheckPath?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
      */
-    readonly healthCheckPort?: pulumi.Input<number>;
+    healthCheckPort?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
      */
-    readonly healthCheckProtocol?: pulumi.Input<string>;
+    healthCheckProtocol?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
      */
-    readonly listenerArn: pulumi.Input<string>;
+    listenerArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
      */
-    readonly portOverrides?: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.EndpointGroupPortOverrideArgs>[]>;
+    portOverrides?: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.EndpointGroupPortOverrideArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
      */
-    readonly thresholdCount?: pulumi.Input<number>;
+    thresholdCount?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
      */
-    readonly trafficDialPercentage?: pulumi.Input<number>;
+    trafficDialPercentage?: pulumi.Input<number>;
 }

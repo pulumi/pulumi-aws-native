@@ -16,8 +16,8 @@ __all__ = [
     'DataQualityJobDefinitionDataQualityJobInputArgs',
     'DataQualityJobDefinitionEndpointInputArgs',
     'DataQualityJobDefinitionEnvironmentArgs',
-    'DataQualityJobDefinitionMonitoringOutputArgs',
     'DataQualityJobDefinitionMonitoringOutputConfigArgs',
+    'DataQualityJobDefinitionMonitoringOutputArgs',
     'DataQualityJobDefinitionMonitoringResourcesArgs',
     'DataQualityJobDefinitionNetworkConfigArgs',
     'DataQualityJobDefinitionS3OutputArgs',
@@ -33,8 +33,8 @@ __all__ = [
     'ModelBiasJobDefinitionModelBiasBaselineConfigArgs',
     'ModelBiasJobDefinitionModelBiasJobInputArgs',
     'ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs',
-    'ModelBiasJobDefinitionMonitoringOutputArgs',
     'ModelBiasJobDefinitionMonitoringOutputConfigArgs',
+    'ModelBiasJobDefinitionMonitoringOutputArgs',
     'ModelBiasJobDefinitionMonitoringResourcesArgs',
     'ModelBiasJobDefinitionNetworkConfigArgs',
     'ModelBiasJobDefinitionS3OutputArgs',
@@ -47,8 +47,8 @@ __all__ = [
     'ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs',
     'ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs',
     'ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs',
-    'ModelExplainabilityJobDefinitionMonitoringOutputArgs',
     'ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs',
+    'ModelExplainabilityJobDefinitionMonitoringOutputArgs',
     'ModelExplainabilityJobDefinitionMonitoringResourcesArgs',
     'ModelExplainabilityJobDefinitionNetworkConfigArgs',
     'ModelExplainabilityJobDefinitionS3OutputArgs',
@@ -62,8 +62,8 @@ __all__ = [
     'ModelQualityJobDefinitionModelQualityBaselineConfigArgs',
     'ModelQualityJobDefinitionModelQualityJobInputArgs',
     'ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs',
-    'ModelQualityJobDefinitionMonitoringOutputArgs',
     'ModelQualityJobDefinitionMonitoringOutputConfigArgs',
+    'ModelQualityJobDefinitionMonitoringOutputArgs',
     'ModelQualityJobDefinitionMonitoringResourcesArgs',
     'ModelQualityJobDefinitionNetworkConfigArgs',
     'ModelQualityJobDefinitionS3OutputArgs',
@@ -76,11 +76,11 @@ __all__ = [
     'MonitoringScheduleEnvironmentArgs',
     'MonitoringScheduleMonitoringAppSpecificationArgs',
     'MonitoringScheduleMonitoringExecutionSummaryArgs',
-    'MonitoringScheduleMonitoringInputArgs',
     'MonitoringScheduleMonitoringInputsArgs',
+    'MonitoringScheduleMonitoringInputArgs',
     'MonitoringScheduleMonitoringJobDefinitionArgs',
-    'MonitoringScheduleMonitoringOutputArgs',
     'MonitoringScheduleMonitoringOutputConfigArgs',
+    'MonitoringScheduleMonitoringOutputArgs',
     'MonitoringScheduleMonitoringResourcesArgs',
     'MonitoringScheduleMonitoringScheduleConfigArgs',
     'MonitoringScheduleNetworkConfigArgs',
@@ -446,29 +446,6 @@ class DataQualityJobDefinitionEnvironmentArgs:
 
 
 @pulumi.input_type
-class DataQualityJobDefinitionMonitoringOutputArgs:
-    def __init__(__self__, *,
-                 s3_output: pulumi.Input['DataQualityJobDefinitionS3OutputArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html
-        :param pulumi.Input['DataQualityJobDefinitionS3OutputArgs'] s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
-        """
-        pulumi.set(__self__, "s3_output", s3_output)
-
-    @property
-    @pulumi.getter(name="s3Output")
-    def s3_output(self) -> pulumi.Input['DataQualityJobDefinitionS3OutputArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
-        """
-        return pulumi.get(self, "s3_output")
-
-    @s3_output.setter
-    def s3_output(self, value: pulumi.Input['DataQualityJobDefinitionS3OutputArgs']):
-        pulumi.set(self, "s3_output", value)
-
-
-@pulumi.input_type
 class DataQualityJobDefinitionMonitoringOutputConfigArgs:
     def __init__(__self__, *,
                  monitoring_outputs: pulumi.Input[Sequence[pulumi.Input['DataQualityJobDefinitionMonitoringOutputArgs']]],
@@ -505,6 +482,29 @@ class DataQualityJobDefinitionMonitoringOutputConfigArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionMonitoringOutputArgs:
+    def __init__(__self__, *,
+                 s3_output: pulumi.Input['DataQualityJobDefinitionS3OutputArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html
+        :param pulumi.Input['DataQualityJobDefinitionS3OutputArgs'] s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
+        """
+        pulumi.set(__self__, "s3_output", s3_output)
+
+    @property
+    @pulumi.getter(name="s3Output")
+    def s3_output(self) -> pulumi.Input['DataQualityJobDefinitionS3OutputArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
+        """
+        return pulumi.get(self, "s3_output")
+
+    @s3_output.setter
+    def s3_output(self, value: pulumi.Input['DataQualityJobDefinitionS3OutputArgs']):
+        pulumi.set(self, "s3_output", value)
 
 
 @pulumi.input_type
@@ -1188,29 +1188,6 @@ class ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs:
 
 
 @pulumi.input_type
-class ModelBiasJobDefinitionMonitoringOutputArgs:
-    def __init__(__self__, *,
-                 s3_output: pulumi.Input['ModelBiasJobDefinitionS3OutputArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html
-        :param pulumi.Input['ModelBiasJobDefinitionS3OutputArgs'] s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
-        """
-        pulumi.set(__self__, "s3_output", s3_output)
-
-    @property
-    @pulumi.getter(name="s3Output")
-    def s3_output(self) -> pulumi.Input['ModelBiasJobDefinitionS3OutputArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
-        """
-        return pulumi.get(self, "s3_output")
-
-    @s3_output.setter
-    def s3_output(self, value: pulumi.Input['ModelBiasJobDefinitionS3OutputArgs']):
-        pulumi.set(self, "s3_output", value)
-
-
-@pulumi.input_type
 class ModelBiasJobDefinitionMonitoringOutputConfigArgs:
     def __init__(__self__, *,
                  monitoring_outputs: pulumi.Input[Sequence[pulumi.Input['ModelBiasJobDefinitionMonitoringOutputArgs']]],
@@ -1247,6 +1224,29 @@ class ModelBiasJobDefinitionMonitoringOutputConfigArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class ModelBiasJobDefinitionMonitoringOutputArgs:
+    def __init__(__self__, *,
+                 s3_output: pulumi.Input['ModelBiasJobDefinitionS3OutputArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html
+        :param pulumi.Input['ModelBiasJobDefinitionS3OutputArgs'] s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
+        """
+        pulumi.set(__self__, "s3_output", s3_output)
+
+    @property
+    @pulumi.getter(name="s3Output")
+    def s3_output(self) -> pulumi.Input['ModelBiasJobDefinitionS3OutputArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
+        """
+        return pulumi.get(self, "s3_output")
+
+    @s3_output.setter
+    def s3_output(self, value: pulumi.Input['ModelBiasJobDefinitionS3OutputArgs']):
+        pulumi.set(self, "s3_output", value)
 
 
 @pulumi.input_type
@@ -1781,29 +1781,6 @@ class ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs:
 
 
 @pulumi.input_type
-class ModelExplainabilityJobDefinitionMonitoringOutputArgs:
-    def __init__(__self__, *,
-                 s3_output: pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html
-        :param pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgs'] s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output
-        """
-        pulumi.set(__self__, "s3_output", s3_output)
-
-    @property
-    @pulumi.getter(name="s3Output")
-    def s3_output(self) -> pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output
-        """
-        return pulumi.get(self, "s3_output")
-
-    @s3_output.setter
-    def s3_output(self, value: pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgs']):
-        pulumi.set(self, "s3_output", value)
-
-
-@pulumi.input_type
 class ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs:
     def __init__(__self__, *,
                  monitoring_outputs: pulumi.Input[Sequence[pulumi.Input['ModelExplainabilityJobDefinitionMonitoringOutputArgs']]],
@@ -1840,6 +1817,29 @@ class ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class ModelExplainabilityJobDefinitionMonitoringOutputArgs:
+    def __init__(__self__, *,
+                 s3_output: pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html
+        :param pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgs'] s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output
+        """
+        pulumi.set(__self__, "s3_output", s3_output)
+
+    @property
+    @pulumi.getter(name="s3Output")
+    def s3_output(self) -> pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output
+        """
+        return pulumi.get(self, "s3_output")
+
+    @s3_output.setter
+    def s3_output(self, value: pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgs']):
+        pulumi.set(self, "s3_output", value)
 
 
 @pulumi.input_type
@@ -2508,29 +2508,6 @@ class ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs:
 
 
 @pulumi.input_type
-class ModelQualityJobDefinitionMonitoringOutputArgs:
-    def __init__(__self__, *,
-                 s3_output: pulumi.Input['ModelQualityJobDefinitionS3OutputArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html
-        :param pulumi.Input['ModelQualityJobDefinitionS3OutputArgs'] s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
-        """
-        pulumi.set(__self__, "s3_output", s3_output)
-
-    @property
-    @pulumi.getter(name="s3Output")
-    def s3_output(self) -> pulumi.Input['ModelQualityJobDefinitionS3OutputArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
-        """
-        return pulumi.get(self, "s3_output")
-
-    @s3_output.setter
-    def s3_output(self, value: pulumi.Input['ModelQualityJobDefinitionS3OutputArgs']):
-        pulumi.set(self, "s3_output", value)
-
-
-@pulumi.input_type
 class ModelQualityJobDefinitionMonitoringOutputConfigArgs:
     def __init__(__self__, *,
                  monitoring_outputs: pulumi.Input[Sequence[pulumi.Input['ModelQualityJobDefinitionMonitoringOutputArgs']]],
@@ -2567,6 +2544,29 @@ class ModelQualityJobDefinitionMonitoringOutputConfigArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class ModelQualityJobDefinitionMonitoringOutputArgs:
+    def __init__(__self__, *,
+                 s3_output: pulumi.Input['ModelQualityJobDefinitionS3OutputArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html
+        :param pulumi.Input['ModelQualityJobDefinitionS3OutputArgs'] s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
+        """
+        pulumi.set(__self__, "s3_output", s3_output)
+
+    @property
+    @pulumi.getter(name="s3Output")
+    def s3_output(self) -> pulumi.Input['ModelQualityJobDefinitionS3OutputArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
+        """
+        return pulumi.get(self, "s3_output")
+
+    @s3_output.setter
+    def s3_output(self, value: pulumi.Input['ModelQualityJobDefinitionS3OutputArgs']):
+        pulumi.set(self, "s3_output", value)
 
 
 @pulumi.input_type
@@ -3194,29 +3194,6 @@ class MonitoringScheduleMonitoringExecutionSummaryArgs:
 
 
 @pulumi.input_type
-class MonitoringScheduleMonitoringInputArgs:
-    def __init__(__self__, *,
-                 endpoint_input: pulumi.Input['MonitoringScheduleEndpointInputArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html
-        :param pulumi.Input['MonitoringScheduleEndpointInputArgs'] endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
-        """
-        pulumi.set(__self__, "endpoint_input", endpoint_input)
-
-    @property
-    @pulumi.getter(name="endpointInput")
-    def endpoint_input(self) -> pulumi.Input['MonitoringScheduleEndpointInputArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
-        """
-        return pulumi.get(self, "endpoint_input")
-
-    @endpoint_input.setter
-    def endpoint_input(self, value: pulumi.Input['MonitoringScheduleEndpointInputArgs']):
-        pulumi.set(self, "endpoint_input", value)
-
-
-@pulumi.input_type
 class MonitoringScheduleMonitoringInputsArgs:
     def __init__(__self__, *,
                  monitoring_inputs: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgs']]]] = None):
@@ -3238,6 +3215,29 @@ class MonitoringScheduleMonitoringInputsArgs:
     @monitoring_inputs.setter
     def monitoring_inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgs']]]]):
         pulumi.set(self, "monitoring_inputs", value)
+
+
+@pulumi.input_type
+class MonitoringScheduleMonitoringInputArgs:
+    def __init__(__self__, *,
+                 endpoint_input: pulumi.Input['MonitoringScheduleEndpointInputArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html
+        :param pulumi.Input['MonitoringScheduleEndpointInputArgs'] endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
+        """
+        pulumi.set(__self__, "endpoint_input", endpoint_input)
+
+    @property
+    @pulumi.getter(name="endpointInput")
+    def endpoint_input(self) -> pulumi.Input['MonitoringScheduleEndpointInputArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
+        """
+        return pulumi.get(self, "endpoint_input")
+
+    @endpoint_input.setter
+    def endpoint_input(self, value: pulumi.Input['MonitoringScheduleEndpointInputArgs']):
+        pulumi.set(self, "endpoint_input", value)
 
 
 @pulumi.input_type
@@ -3388,29 +3388,6 @@ class MonitoringScheduleMonitoringJobDefinitionArgs:
 
 
 @pulumi.input_type
-class MonitoringScheduleMonitoringOutputArgs:
-    def __init__(__self__, *,
-                 s3_output: pulumi.Input['MonitoringScheduleS3OutputArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html
-        :param pulumi.Input['MonitoringScheduleS3OutputArgs'] s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html#cfn-sagemaker-monitoringschedule-monitoringoutput-s3output
-        """
-        pulumi.set(__self__, "s3_output", s3_output)
-
-    @property
-    @pulumi.getter(name="s3Output")
-    def s3_output(self) -> pulumi.Input['MonitoringScheduleS3OutputArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html#cfn-sagemaker-monitoringschedule-monitoringoutput-s3output
-        """
-        return pulumi.get(self, "s3_output")
-
-    @s3_output.setter
-    def s3_output(self, value: pulumi.Input['MonitoringScheduleS3OutputArgs']):
-        pulumi.set(self, "s3_output", value)
-
-
-@pulumi.input_type
 class MonitoringScheduleMonitoringOutputConfigArgs:
     def __init__(__self__, *,
                  monitoring_outputs: pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringOutputArgs']]],
@@ -3447,6 +3424,29 @@ class MonitoringScheduleMonitoringOutputConfigArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class MonitoringScheduleMonitoringOutputArgs:
+    def __init__(__self__, *,
+                 s3_output: pulumi.Input['MonitoringScheduleS3OutputArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html
+        :param pulumi.Input['MonitoringScheduleS3OutputArgs'] s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html#cfn-sagemaker-monitoringschedule-monitoringoutput-s3output
+        """
+        pulumi.set(__self__, "s3_output", s3_output)
+
+    @property
+    @pulumi.getter(name="s3Output")
+    def s3_output(self) -> pulumi.Input['MonitoringScheduleS3OutputArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html#cfn-sagemaker-monitoringschedule-monitoringoutput-s3output
+        """
+        return pulumi.get(self, "s3_output")
+
+    @s3_output.setter
+    def s3_output(self, value: pulumi.Input['MonitoringScheduleS3OutputArgs']):
+        pulumi.set(self, "s3_output", value)
 
 
 @pulumi.input_type
