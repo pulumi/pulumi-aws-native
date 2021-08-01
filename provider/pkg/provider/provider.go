@@ -27,13 +27,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awserr"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/cloudformation"
-	"github.com/aws/aws-sdk-go/service/ec2"
-	"github.com/aws/aws-sdk-go/service/ssm"
-	"github.com/aws/aws-sdk-go/service/sts"
+	"github.com/aws/aws-sdk-go-v2/aws"
+	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
+	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
+	"github.com/aws/aws-sdk-go-v2/service/cloudformation/types"
+	"github.com/aws/aws-sdk-go-v2/service/ec2"
+	"github.com/aws/aws-sdk-go-v2/service/ssm"
+	"github.com/aws/aws-sdk-go-v2/service/sts"
+	"github.com/aws/smithy-go"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	pbstruct "github.com/golang/protobuf/ptypes/struct"
@@ -73,9 +75,9 @@ type cfnProvider struct {
 	schema       schema.CloudFormationSchema
 	pulumiSchema []byte
 
-	cfn *cloudformation.CloudFormation
-	ec2 *ec2.EC2
-	ssm *ssm.SSM
+	cfn *cloudformation.Client
+	ec2 *ec2.Client
+	ssm *ssm.Client
 }
 
 var _ pulumirpc.ResourceProviderServer = (*cfnProvider)(nil)
@@ -168,26 +170,26 @@ func (p *cfnProvider) DiffConfig(ctx context.Context, req *pulumirpc.DiffRequest
 }
 
 // Configure configures the resource provider with "globals" that control its behavior.
-func (p *cfnProvider) Configure(_ context.Context, req *pulumirpc.ConfigureRequest) (*pulumirpc.ConfigureResponse, error) {
+func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureRequest) (*pulumirpc.ConfigureResponse, error) {
 	region, ok := req.Variables["aws-native:config:region"]
 	if !ok {
 		return nil, errors.New("missing required property 'region'")
 	}
 	p.region = region
 
-	sess, err := session.NewSession(&aws.Config{
-		Region: aws.String(p.region),
-	})
+	cfg, err := config.LoadDefaultConfig(ctx)
+	cfg.Region = p.region
 	if err != nil {
-		return nil, errors.Errorf("could not create AWS session: %v", err)
+		return nil, errors.Errorf("could not load AWS config: %v", err)
 	}
-	p.cfn, p.ec2, p.ssm = cloudformation.New(sess), ec2.New(sess), ssm.New(sess)
 
-	callerIdentityResp, err := sts.New(sess).GetCallerIdentity(&sts.GetCallerIdentityInput{})
+	p.cfn, p.ec2, p.ssm = cloudformation.NewFromConfig(cfg), ec2.NewFromConfig(cfg), ssm.NewFromConfig(cfg)
+
+	callerIdentityResp, err := sts.NewFromConfig(cfg).GetCallerIdentity(ctx, &sts.GetCallerIdentityInput{})
 	if err != nil {
 		return nil, errors.Errorf("could not get AWS account ID: %v", err)
 	}
-	p.accountID = aws.StringValue(callerIdentityResp.Account)
+	p.accountID = *callerIdentityResp.Account
 
 	schema, err := getCloudFormationSchema(p.canceler.context, region)
 	if err != nil {
@@ -205,9 +207,7 @@ func (p *cfnProvider) Configure(_ context.Context, req *pulumirpc.ConfigureReque
 var functions = map[string]func(*cfnProvider, context.Context, resource.PropertyMap) (resource.PropertyMap, error){
 	"aws-native:index:getAccountId":          (*cfnProvider).getAccountID,
 	"aws-native:index:getAzs":                (*cfnProvider).getAZs,
-	"aws-native:index:getPartition":          (*cfnProvider).getPartition,
 	"aws-native:index:getRegion":             (*cfnProvider).getRegion,
-	"aws-native:index:getUrlSuffix":          (*cfnProvider).getURLSuffix,
 	"aws-native:index:cidr":                  (*cfnProvider).cidr,
 	"aws-native:index:getSsmParameterString": (*cfnProvider).getSSMParameterString,
 	"aws-native:index:getSsmParameterList":   (*cfnProvider).getSSMParameterList,
@@ -428,7 +428,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	// Create the resource with Cloud API.
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.CreateResource %q token %q state %q", label, resourceType, clientToken, desiredState)
-	res, err := p.cfn.CreateResourceWithContext(ctx, &cloudformation.CreateResourceInput{
+	res, err := p.cfn.CreateResource(ctx, &cloudformation.CreateResourceInput{
 		ClientToken:  aws.String(clientToken),
 		TypeName:     aws.String(resourceType),
 		DesiredState: aws.String(desiredState),
@@ -442,7 +442,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	}
 
 	// Retrieve the resource state from AWS.
-	id := aws.StringValue(pi.Identifier)
+	id := *pi.Identifier
 	glog.V(9).Infof("%s.GetResource %q id %q", label, resourceType, id)
 	resourceState, err := p.readResourceState(ctx, resourceType, id)
 	if err != nil {
@@ -486,9 +486,12 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	}
 	resourceState, err := p.readResourceState(ctx, resourceType, id)
 	if err != nil {
-		if httpErr, ok := err.(awserr.Error); ok && httpErr.Code() == cloudformation.ErrCodeResourceNotFoundException {
-			// ResourceNotFound means that the resource was deleted.
-			return &pulumirpc.ReadResponse{Id: ""}, nil
+		var oe *smithy.OperationError
+		if errors.As(err, &oe) {
+			if re, ok := oe.Unwrap().(*awshttp.ResponseError); ok && re.HTTPStatusCode() == 404 {
+				// ResourceNotFound means that the resource was deleted.
+				return &pulumirpc.ReadResponse{Id: ""}, nil
+			}
 		}
 		return nil, err
 	}
@@ -573,7 +576,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %q", label, resourceType, id, clientToken, ops)
-	res, err := p.cfn.UpdateResourceWithContext(ctx, &cloudformation.UpdateResourceInput{
+	res, err := p.cfn.UpdateResource(ctx, &cloudformation.UpdateResourceInput{
 		ClientToken:     aws.String(clientToken),
 		TypeName:        aws.String(resourceType),
 		Identifier:      aws.String(id),
@@ -628,7 +631,7 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.DeleteResource %q id %q token %q", label, resourceType, id, clientToken)
-	res, err := p.cfn.DeleteResourceWithContext(ctx, &cloudformation.DeleteResourceInput{
+	res, err := p.cfn.DeleteResource(ctx, &cloudformation.DeleteResourceInput{
 		ClientToken: aws.String(clientToken),
 		TypeName:    aws.String(resourceType),
 		Identifier:  aws.String(id),
@@ -638,8 +641,8 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	}
 	if pi, err := p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
 		if pi != nil {
-			errorCode := aws.StringValue(pi.ErrorCode)
-			if errorCode == cloudformation.HandlerErrorCodeNotFound {
+			errorCode := pi.ErrorCode
+			if errorCode == types.HandlerErrorCodeNotFound {
 				// NotFound means that the resource was already deleted, so the operation can succeed.
 				return &pbempty.Empty{}, nil
 			}
@@ -718,7 +721,7 @@ func resourceInfoFromURN(urn resource.URN) (string, string, error) {
 }
 
 func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
-	getRes, err := p.cfn.GetResourceWithContext(ctx, &cloudformation.GetResourceInput{
+	getRes, err := p.cfn.GetResource(ctx, &cloudformation.GetResourceInput{
 		TypeName:   aws.String(typeName),
 		Identifier: aws.String(identifier),
 	})
@@ -726,7 +729,7 @@ func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifie
 		return nil, err
 	}
 
-	resourceModel := aws.StringValue(getRes.ResourceDescription.ResourceModel)
+	resourceModel := *getRes.ResourceDescription.ResourceModel
 	var outputs map[string]interface{}
 	if err = json.Unmarshal([]byte(resourceModel), &outputs); err != nil {
 		return nil, err
@@ -735,7 +738,7 @@ func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifie
 	return outputs, nil
 }
 
-func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *cloudformation.ProgressEvent) (*cloudformation.ProgressEvent, error) {
+func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
 	// TODO: Consider using ExponentialJitterBackoff from the AWS Go SDK v2 when we switch over.
 	retryPolicy := backoff.Backoff{
 		Min:    1 * time.Second,
@@ -744,13 +747,13 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *cloud
 		Jitter: true,
 	}
 	for {
-		status := aws.StringValue(pi.OperationStatus)
+		status := pi.OperationStatus
 		glog.V(9).Infof("waiting for resource %q: status %q", pi.Identifier, status)
 		switch status {
 		case "SUCCESS":
 			return pi, nil
 		case "FAILED":
-			return pi, errors.Errorf("operation %s failed with %q: %s", aws.StringValue(pi.Operation), aws.StringValue(pi.ErrorCode), aws.StringValue(pi.StatusMessage))
+			return pi, errors.Errorf("operation %s failed with %q: %s", pi.Operation, pi.ErrorCode, pi.StatusMessage)
 		case "IN_PROGRESS":
 			var pause time.Duration
 			if pi.RetryAfter != nil {
@@ -763,7 +766,7 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *cloud
 			return nil, errors.Errorf("unknown status %q: %+v", status, pi)
 		}
 
-		output, err := p.cfn.GetResourceRequestStatusWithContext(ctx, &cloudformation.GetResourceRequestStatusInput{
+		output, err := p.cfn.GetResourceRequestStatus(ctx, &cloudformation.GetResourceRequestStatusInput{
 			RequestToken: pi.RequestToken,
 		})
 		if err != nil {

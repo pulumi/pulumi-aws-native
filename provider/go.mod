@@ -4,7 +4,13 @@ go 1.15
 
 require (
 	github.com/apparentlymart/go-cidr v1.1.0
-	github.com/aws/aws-sdk-go v1.38.35
+	github.com/aws/aws-sdk-go-v2 v1.7.1
+	github.com/aws/aws-sdk-go-v2/config v1.5.0
+	github.com/aws/aws-sdk-go-v2/service/cloudformation v1.7.0
+	github.com/aws/aws-sdk-go-v2/service/ec2 v1.12.0
+	github.com/aws/aws-sdk-go-v2/service/ssm v1.8.0
+	github.com/aws/aws-sdk-go-v2/service/sts v1.6.0
+	github.com/aws/smithy-go v1.6.1-0.20210719175327-4970553d9934
 	github.com/goccy/go-yaml v1.8.0
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/protobuf v1.5.2
@@ -19,4 +25,4 @@ require (
 	google.golang.org/grpc v1.37.0
 )
 
-replace github.com/aws/aws-sdk-go => ../aws-sdk-go-preview
+replace github.com/aws/aws-sdk-go-v2/service/cloudformation => ../aws-sdk-go-v2-cf-preview

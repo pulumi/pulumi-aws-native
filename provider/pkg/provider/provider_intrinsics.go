@@ -6,9 +6,10 @@ import (
 	"net"
 
 	gocidr "github.com/apparentlymart/go-cidr/cidr"
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/service/cloudformation"
-	"github.com/aws/aws-sdk-go/service/ec2"
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
+	"github.com/aws/aws-sdk-go-v2/service/ec2"
+	"github.com/aws/aws-sdk-go-v2/service/ec2/types"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
@@ -20,10 +21,10 @@ func (p *cfnProvider) getAZs(ctx context.Context, inputs resource.PropertyMap) (
 		return nil, fmt.Errorf("'region' must be a string")
 	}
 
-	resp, err := p.ec2.DescribeAvailabilityZonesWithContext(ctx, &ec2.DescribeAvailabilityZonesInput{
-		Filters: []*ec2.Filter{{
+	resp, err := p.ec2.DescribeAvailabilityZones(ctx, &ec2.DescribeAvailabilityZonesInput{
+		Filters: []types.Filter{{
 			Name:   aws.String("region-name"),
-			Values: []*string{aws.String(region.String())},
+			Values: []string{region.String()},
 		}},
 	})
 	if err != nil {
@@ -32,7 +33,7 @@ func (p *cfnProvider) getAZs(ctx context.Context, inputs resource.PropertyMap) (
 
 	azs := make([]interface{}, len(resp.AvailabilityZones))
 	for i, az := range resp.AvailabilityZones {
-		azs[i] = aws.StringValue(az.ZoneName)
+		azs[i] = az.ZoneName
 	}
 	return resource.NewPropertyMapFromMap(map[string]interface{}{
 		"azs": azs,
@@ -96,17 +97,18 @@ func (p *cfnProvider) importValue(ctx context.Context, inputs resource.PropertyM
 	}
 
 	value, ok := "", false
-	err := p.cfn.ListExportsPages(&cloudformation.ListExportsInput{}, func(page *cloudformation.ListExportsOutput, lastPage bool) bool {
-		for _, export := range page.Exports {
-			if aws.StringValue(export.Name) == name.StringValue() {
-				value, ok = aws.StringValue(export.Value), true
-				return false
+	paginator := cloudformation.NewListExportsPaginator(p.cfn, &cloudformation.ListExportsInput{})
+	for paginator.HasMorePages() && !ok {
+		output, err := paginator.NextPage(ctx)
+		if err != nil {
+			return nil, err
+		}
+		for _, export := range output.Exports {
+			if *export.Name == name.StringValue() {
+				value, ok = *export.Value, true
+				break
 			}
 		}
-		return true
-	})
-	if err != nil {
-		return nil, err
 	}
 	if !ok {
 		return nil, fmt.Errorf("unknown export '%s'", name.StringValue())
