@@ -6,7 +6,6 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 	"os"
-	"path"
 	"testing"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
@@ -32,18 +31,18 @@ func init() {
 	}
 }
 
-func TestVpcSingleInstanceInSubnet(t *testing.T) {
-	stack := getStackName(t)
-	defer deleteStack(t, stack)
-
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "vpc-single-instance-in-subnet"),
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
+//func TestVpcSingleInstanceInSubnet(t *testing.T) {
+//	stack := getStackName(t)
+//	defer deleteStack(t, stack)
+//
+//	test := getJSBaseOptions(t).
+//		With(integration.ProgramTestOptions{
+//			Dir: path.Join(getCwd(t), "vpc-single-instance-in-subnet"),
+//		})
+//
+//	integration.ProgramTest(t, &test)
+//}
+//
 func getStackName(t *testing.T) string {
 	b := make([]byte, 8)
 	if _, err := rand.Read(b); err != nil {

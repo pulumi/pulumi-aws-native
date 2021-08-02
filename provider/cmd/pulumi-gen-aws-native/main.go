@@ -181,6 +181,7 @@ func writeGoSDK(pkg *pschema.Package, outdir string) {
 }
 
 func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir string) {
+	pkgSpec.Version = ""
 	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
 	if err != nil {
 		panic(errors.Wrap(err, "marshaling Pulumi schema"))
