@@ -319,6 +319,7 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 	}
 
 	supportedResources := codegen.NewStringSet(supportedResourceTypes...)
+	supportedResources.Add("") // Top-level modules (e.g. Tag).
 
 	// Gather nested property types.
 	for name, spec := range schema.PropertyTypes {

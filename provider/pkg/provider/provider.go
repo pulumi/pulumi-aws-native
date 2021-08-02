@@ -180,14 +180,14 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	cfg, err := config.LoadDefaultConfig(ctx)
 	cfg.Region = p.region
 	if err != nil {
-		return nil, errors.Errorf("could not load AWS config: %v", err)
+		return nil, errors.Wrapf(err, "could not load AWS config")
 	}
 
 	p.cfn, p.ec2, p.ssm = cloudformation.NewFromConfig(cfg), ec2.NewFromConfig(cfg), ssm.NewFromConfig(cfg)
 
 	callerIdentityResp, err := sts.NewFromConfig(cfg).GetCallerIdentity(ctx, &sts.GetCallerIdentityInput{})
 	if err != nil {
-		return nil, errors.Errorf("could not get AWS account ID: %v", err)
+		return nil, errors.Wrapf(err, "could not get AWS account ID")
 	}
 	if callerIdentityResp.Account == nil {
 		return nil, errors.New("could not get AWS account ID: nil account")
@@ -196,7 +196,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 
 	schema, err := getCloudFormationSchema(p.canceler.context, region)
 	if err != nil {
-		return nil, errors.Errorf("could not fetch CloudFormation schema: %v", err)
+		return nil, errors.Wrapf(err, "could not fetch CloudFormation schema")
 	}
 	p.schema = *schema
 
