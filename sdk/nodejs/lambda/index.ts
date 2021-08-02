@@ -7,10 +7,12 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./codeSigningConfig";
 export * from "./eventSourceMapping";
+export * from "./function";
 
 // Import resources to register:
 import { CodeSigningConfig } from "./codeSigningConfig";
 import { EventSourceMapping } from "./eventSourceMapping";
+import { Function } from "./function";
 
 const _module = {
     version: utilities.getVersion(),
@@ -20,6 +22,8 @@ const _module = {
                 return new CodeSigningConfig(name, <any>undefined, { urn })
             case "aws-native:Lambda:EventSourceMapping":
                 return new EventSourceMapping(name, <any>undefined, { urn })
+            case "aws-native:Lambda:Function":
+                return new Function(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -169,6 +169,154 @@ export namespace AccessAnalyzer {
     }
 }
 
+export namespace Amplify {
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html
+     */
+    export interface AppAutoBranchCreationConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-autobranchcreationpatterns
+         */
+        autoBranchCreationPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-basicauthconfig
+         */
+        basicAuthConfig?: pulumi.Input<inputs.Amplify.AppBasicAuthConfigArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-buildspec
+         */
+        buildSpec?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobranchcreation
+         */
+        enableAutoBranchCreation?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobuild
+         */
+        enableAutoBuild?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
+         */
+        enablePerformanceMode?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
+         */
+        enablePullRequestPreview?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables
+         */
+        environmentVariables?: pulumi.Input<pulumi.Input<inputs.Amplify.AppEnvironmentVariableArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-pullrequestenvironmentname
+         */
+        pullRequestEnvironmentName?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-stage
+         */
+        stage?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html
+     */
+    export interface AppBasicAuthConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-enablebasicauth
+         */
+        enableBasicAuth?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-password
+         */
+        password?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-username
+         */
+        username?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html
+     */
+    export interface AppCustomRuleArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-condition
+         */
+        condition?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-source
+         */
+        source: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-status
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-target
+         */
+        target: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html
+     */
+    export interface AppEnvironmentVariableArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-name
+         */
+        name: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-value
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html
+     */
+    export interface BranchBasicAuthConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-enablebasicauth
+         */
+        enableBasicAuth?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-password
+         */
+        password: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-username
+         */
+        username: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html
+     */
+    export interface BranchEnvironmentVariableArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-name
+         */
+        name: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-value
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html
+     */
+    export interface DomainSubDomainSettingArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-branchname
+         */
+        branchName: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-prefix
+         */
+        prefix: pulumi.Input<string>;
+    }
+}
+
 export namespace ApiGateway {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html
@@ -2268,6 +2416,562 @@ export namespace CloudFront {
     }
 
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html
+     */
+    export interface DistributionCacheBehaviorArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods
+         */
+        allowedMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachepolicyid
+         */
+        cachePolicyId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
+         */
+        cachedMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-compress
+         */
+        compress?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-defaultttl
+         */
+        defaultTTL?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid
+         */
+        fieldLevelEncryptionId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
+         */
+        forwardedValues?: pulumi.Input<inputs.CloudFront.DistributionForwardedValuesArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
+         */
+        lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<inputs.CloudFront.DistributionLambdaFunctionAssociationArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-maxttl
+         */
+        maxTTL?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl
+         */
+        minTTL?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-originrequestpolicyid
+         */
+        originRequestPolicyId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
+         */
+        pathPattern: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-realtimelogconfigarn
+         */
+        realtimeLogConfigArn?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
+         */
+        smoothStreaming?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-targetoriginid
+         */
+        targetOriginId: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedkeygroups
+         */
+        trustedKeyGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners
+         */
+        trustedSigners?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy
+         */
+        viewerProtocolPolicy: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html
+     */
+    export interface DistributionCookiesArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-forward
+         */
+        forward: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-whitelistednames
+         */
+        whitelistedNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html
+     */
+    export interface DistributionCustomErrorResponseArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcachingminttl
+         */
+        errorCachingMinTTL?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcode
+         */
+        errorCode: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsecode
+         */
+        responseCode?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsepagepath
+         */
+        responsePagePath?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html
+     */
+    export interface DistributionCustomOriginConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpport
+         */
+        hTTPPort?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpsport
+         */
+        hTTPSPort?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout
+         */
+        originKeepaliveTimeout?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originprotocolpolicy
+         */
+        originProtocolPolicy: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originreadtimeout
+         */
+        originReadTimeout?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originsslprotocols
+         */
+        originSSLProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html
+     */
+    export interface DistributionDefaultCacheBehaviorArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods
+         */
+        allowedMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
+         */
+        cachePolicyId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
+         */
+        cachedMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress
+         */
+        compress?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl
+         */
+        defaultTTL?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-fieldlevelencryptionid
+         */
+        fieldLevelEncryptionId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
+         */
+        forwardedValues?: pulumi.Input<inputs.CloudFront.DistributionForwardedValuesArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
+         */
+        lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<inputs.CloudFront.DistributionLambdaFunctionAssociationArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
+         */
+        maxTTL?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl
+         */
+        minTTL?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
+         */
+        originRequestPolicyId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
+         */
+        realtimeLogConfigArn?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
+         */
+        smoothStreaming?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
+         */
+        targetOriginId: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
+         */
+        trustedKeyGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
+         */
+        trustedSigners?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy
+         */
+        viewerProtocolPolicy: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html
+     */
+    export interface DistributionDistributionConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
+         */
+        aliases?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
+         */
+        cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.CloudFront.DistributionCacheBehaviorArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-comment
+         */
+        comment?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
+         */
+        customErrorResponses?: pulumi.Input<pulumi.Input<inputs.CloudFront.DistributionCustomErrorResponseArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultcachebehavior
+         */
+        defaultCacheBehavior?: pulumi.Input<inputs.CloudFront.DistributionDefaultCacheBehaviorArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultrootobject
+         */
+        defaultRootObject?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-enabled
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-httpversion
+         */
+        httpVersion?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-ipv6enabled
+         */
+        iPV6Enabled?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-logging
+         */
+        logging?: pulumi.Input<inputs.CloudFront.DistributionLoggingArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origingroups
+         */
+        originGroups?: pulumi.Input<inputs.CloudFront.DistributionOriginGroupsArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
+         */
+        origins?: pulumi.Input<pulumi.Input<inputs.CloudFront.DistributionOriginArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-priceclass
+         */
+        priceClass?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions
+         */
+        restrictions?: pulumi.Input<inputs.CloudFront.DistributionRestrictionsArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate
+         */
+        viewerCertificate?: pulumi.Input<inputs.CloudFront.DistributionViewerCertificateArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-webaclid
+         */
+        webACLId?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html
+     */
+    export interface DistributionForwardedValuesArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-cookies
+         */
+        cookies?: pulumi.Input<inputs.CloudFront.DistributionCookiesArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-headers
+         */
+        headers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystring
+         */
+        queryString: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystringcachekeys
+         */
+        queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html
+     */
+    export interface DistributionGeoRestrictionArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-locations
+         */
+        locations?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-restrictiontype
+         */
+        restrictionType: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html
+     */
+    export interface DistributionLambdaFunctionAssociationArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype
+         */
+        eventType?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-includebody
+         */
+        includeBody?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn
+         */
+        lambdaFunctionARN?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html
+     */
+    export interface DistributionLoggingArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-bucket
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-includecookies
+         */
+        includeCookies?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-prefix
+         */
+        prefix?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html
+     */
+    export interface DistributionOriginArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectionattempts
+         */
+        connectionAttempts?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectiontimeout
+         */
+        connectionTimeout?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-customoriginconfig
+         */
+        customOriginConfig?: pulumi.Input<inputs.CloudFront.DistributionCustomOriginConfigArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-domainname
+         */
+        domainName: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-id
+         */
+        id: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-origincustomheaders
+         */
+        originCustomHeaders?: pulumi.Input<pulumi.Input<inputs.CloudFront.DistributionOriginCustomHeaderArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
+         */
+        originPath?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originshield
+         */
+        originShield?: pulumi.Input<inputs.CloudFront.DistributionOriginShieldArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
+         */
+        s3OriginConfig?: pulumi.Input<inputs.CloudFront.DistributionS3OriginConfigArgs>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html
+     */
+    export interface DistributionOriginCustomHeaderArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headername
+         */
+        headerName: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headervalue
+         */
+        headerValue: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html
+     */
+    export interface DistributionOriginGroupArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria
+         */
+        failoverCriteria: pulumi.Input<inputs.CloudFront.DistributionOriginGroupFailoverCriteriaArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id
+         */
+        id: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members
+         */
+        members: pulumi.Input<inputs.CloudFront.DistributionOriginGroupMembersArgs>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html
+     */
+    export interface DistributionOriginGroupFailoverCriteriaArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html#cfn-cloudfront-distribution-origingroupfailovercriteria-statuscodes
+         */
+        statusCodes: pulumi.Input<inputs.CloudFront.DistributionStatusCodesArgs>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html
+     */
+    export interface DistributionOriginGroupMemberArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html#cfn-cloudfront-distribution-origingroupmember-originid
+         */
+        originId: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html
+     */
+    export interface DistributionOriginGroupMembersArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-items
+         */
+        items: pulumi.Input<pulumi.Input<inputs.CloudFront.DistributionOriginGroupMemberArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-quantity
+         */
+        quantity: pulumi.Input<number>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html
+     */
+    export interface DistributionOriginGroupsArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-items
+         */
+        items?: pulumi.Input<pulumi.Input<inputs.CloudFront.DistributionOriginGroupArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-quantity
+         */
+        quantity: pulumi.Input<number>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html
+     */
+    export interface DistributionOriginShieldArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-enabled
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-originshieldregion
+         */
+        originShieldRegion?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html
+     */
+    export interface DistributionRestrictionsArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html#cfn-cloudfront-distribution-restrictions-georestriction
+         */
+        geoRestriction: pulumi.Input<inputs.CloudFront.DistributionGeoRestrictionArgs>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html
+     */
+    export interface DistributionS3OriginConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originaccessidentity
+         */
+        originAccessIdentity?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html
+     */
+    export interface DistributionStatusCodesArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items
+         */
+        items: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-quantity
+         */
+        quantity: pulumi.Input<number>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html
+     */
+    export interface DistributionViewerCertificateArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-acmcertificatearn
+         */
+        acmCertificateArn?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-cloudfrontdefaultcertificate
+         */
+        cloudFrontDefaultCertificate?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-iamcertificateid
+         */
+        iamCertificateId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-minimumprotocolversion
+         */
+        minimumProtocolVersion?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-sslsupportmethod
+         */
+        sslSupportMethod?: pulumi.Input<string>;
+    }
+
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html
      */
     export interface KeyGroupKeyGroupConfigArgs {
@@ -2433,6 +3137,42 @@ export namespace CodeGuruProfiler {
 }
 
 export namespace Configuration {
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html
+     */
+    export interface ConfigurationAggregatorAccountAggregationSourceArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
+         */
+        accountIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
+         */
+        allAwsRegions?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html
+     */
+    export interface ConfigurationAggregatorOrganizationAggregationSourceArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions
+         */
+        allAwsRegions?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
+         */
+        awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html
      */
@@ -2605,6 +3345,220 @@ export namespace EC2 {
     }
 
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityreservationoptionsrequest.html
+     */
+    export interface EC2FleetCapacityReservationOptionsRequestArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityreservationoptionsrequest.html#cfn-ec2-ec2fleet-capacityreservationoptionsrequest-usagestrategy
+         */
+        usageStrategy?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html
+     */
+    export interface EC2FleetFleetLaunchTemplateConfigRequestArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-launchtemplatespecification
+         */
+        launchTemplateSpecification?: pulumi.Input<inputs.EC2.EC2FleetFleetLaunchTemplateSpecificationRequestArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-overrides
+         */
+        overrides?: pulumi.Input<pulumi.Input<inputs.EC2.EC2FleetFleetLaunchTemplateOverridesRequestArgs>[]>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html
+     */
+    export interface EC2FleetFleetLaunchTemplateOverridesRequestArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-availabilityzone
+         */
+        availabilityZone?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-instancetype
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-maxprice
+         */
+        maxPrice?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-placement
+         */
+        placement?: pulumi.Input<inputs.EC2.EC2FleetPlacementArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-priority
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-subnetid
+         */
+        subnetId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-weightedcapacity
+         */
+        weightedCapacity?: pulumi.Input<number>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html
+     */
+    export interface EC2FleetFleetLaunchTemplateSpecificationRequestArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplateid
+         */
+        launchTemplateId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplatename
+         */
+        launchTemplateName?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-version
+         */
+        version?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html
+     */
+    export interface EC2FleetOnDemandOptionsRequestArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-allocationstrategy
+         */
+        allocationStrategy?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-capacityreservationoptions
+         */
+        capacityReservationOptions?: pulumi.Input<inputs.EC2.EC2FleetCapacityReservationOptionsRequestArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-maxtotalprice
+         */
+        maxTotalPrice?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-mintargetcapacity
+         */
+        minTargetCapacity?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-singleavailabilityzone
+         */
+        singleAvailabilityZone?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-singleinstancetype
+         */
+        singleInstanceType?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html
+     */
+    export interface EC2FleetPlacementArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-affinity
+         */
+        affinity?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-availabilityzone
+         */
+        availabilityZone?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-groupname
+         */
+        groupName?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-hostid
+         */
+        hostId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-hostresourcegrouparn
+         */
+        hostResourceGroupArn?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-partitionnumber
+         */
+        partitionNumber?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-spreaddomain
+         */
+        spreadDomain?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-placement.html#cfn-ec2-ec2fleet-placement-tenancy
+         */
+        tenancy?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html
+     */
+    export interface EC2FleetSpotOptionsRequestArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-allocationstrategy
+         */
+        allocationStrategy?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-instanceinterruptionbehavior
+         */
+        instanceInterruptionBehavior?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-instancepoolstousecount
+         */
+        instancePoolsToUseCount?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-maxtotalprice
+         */
+        maxTotalPrice?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-mintargetcapacity
+         */
+        minTargetCapacity?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-singleavailabilityzone
+         */
+        singleAvailabilityZone?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-singleinstancetype
+         */
+        singleInstanceType?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html
+     */
+    export interface EC2FleetTagSpecificationArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-resourcetype
+         */
+        resourceType?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-tags
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html
+     */
+    export interface EC2FleetTargetCapacitySpecificationRequestArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-defaulttargetcapacitytype
+         */
+        defaultTargetCapacityType?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-ondemandtargetcapacity
+         */
+        onDemandTargetCapacity?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-spottargetcapacity
+         */
+        spotTargetCapacity?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-totaltargetcapacity
+         */
+        totalTargetCapacity: pulumi.Input<number>;
+    }
+
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html
      */
     export interface LocalGatewayRouteTableVPCAssociationTagsArgs {
@@ -2626,6 +3580,490 @@ export namespace EC2 {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-description
          */
         description?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html
+     */
+    export interface SpotFleetBlockDeviceMappingArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-devicename
+         */
+        deviceName: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-ebs
+         */
+        ebs?: pulumi.Input<inputs.EC2.SpotFleetEbsBlockDeviceArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-nodevice
+         */
+        noDevice?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-virtualname
+         */
+        virtualName?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancer.html
+     */
+    export interface SpotFleetClassicLoadBalancerArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancer.html#cfn-ec2-spotfleet-classicloadbalancer-name
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancersconfig.html
+     */
+    export interface SpotFleetClassicLoadBalancersConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancersconfig.html#cfn-ec2-spotfleet-classicloadbalancersconfig-classicloadbalancers
+         */
+        classicLoadBalancers: pulumi.Input<pulumi.Input<inputs.EC2.SpotFleetClassicLoadBalancerArgs>[]>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html
+     */
+    export interface SpotFleetEbsBlockDeviceArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-deleteontermination
+         */
+        deleteOnTermination?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-encrypted
+         */
+        encrypted?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-iops
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-snapshotid
+         */
+        snapshotId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumesize
+         */
+        volumeSize?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype
+         */
+        volumeType?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification.html
+     */
+    export interface SpotFleetFleetLaunchTemplateSpecificationArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification.html#cfn-ec2-spotfleet-fleetlaunchtemplatespecification-launchtemplateid
+         */
+        launchTemplateId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification.html#cfn-ec2-spotfleet-fleetlaunchtemplatespecification-launchtemplatename
+         */
+        launchTemplateName?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification.html#cfn-ec2-spotfleet-fleetlaunchtemplatespecification-version
+         */
+        version: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-securitygroups.html
+     */
+    export interface SpotFleetGroupIdentifierArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-securitygroups.html#cfn-ec2-spotfleet-groupidentifier-groupid
+         */
+        groupId: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-iaminstanceprofile.html
+     */
+    export interface SpotFleetIamInstanceProfileSpecificationArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-iaminstanceprofile.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
+         */
+        arn?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instanceipv6address.html
+     */
+    export interface SpotFleetInstanceIpv6AddressArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instanceipv6address.html#cfn-ec2-spotfleet-instanceipv6address-ipv6address
+         */
+        ipv6Address: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html
+     */
+    export interface SpotFleetInstanceNetworkInterfaceSpecificationArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-associatepublicipaddress
+         */
+        associatePublicIpAddress?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deleteontermination
+         */
+        deleteOnTermination?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-description
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deviceindex
+         */
+        deviceIndex?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-groups
+         */
+        groups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresscount
+         */
+        ipv6AddressCount?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresses
+         */
+        ipv6Addresses?: pulumi.Input<pulumi.Input<inputs.EC2.SpotFleetInstanceIpv6AddressArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-networkinterfaceid
+         */
+        networkInterfaceId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-privateipaddresses
+         */
+        privateIpAddresses?: pulumi.Input<pulumi.Input<inputs.EC2.SpotFleetPrivateIpAddressSpecificationArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-secondaryprivateipaddresscount
+         */
+        secondaryPrivateIpAddressCount?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-subnetid
+         */
+        subnetId?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html
+     */
+    export interface SpotFleetLaunchTemplateConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html#cfn-ec2-spotfleet-launchtemplateconfig-launchtemplatespecification
+         */
+        launchTemplateSpecification?: pulumi.Input<inputs.EC2.SpotFleetFleetLaunchTemplateSpecificationArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html#cfn-ec2-spotfleet-launchtemplateconfig-overrides
+         */
+        overrides?: pulumi.Input<pulumi.Input<inputs.EC2.SpotFleetLaunchTemplateOverridesArgs>[]>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html
+     */
+    export interface SpotFleetLaunchTemplateOverridesArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-availabilityzone
+         */
+        availabilityZone?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-instancetype
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-priority
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-spotprice
+         */
+        spotPrice?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-subnetid
+         */
+        subnetId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-weightedcapacity
+         */
+        weightedCapacity?: pulumi.Input<number>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html
+     */
+    export interface SpotFleetLoadBalancersConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-classicloadbalancersconfig
+         */
+        classicLoadBalancersConfig?: pulumi.Input<inputs.EC2.SpotFleetClassicLoadBalancersConfigArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-targetgroupsconfig
+         */
+        targetGroupsConfig?: pulumi.Input<inputs.EC2.SpotFleetTargetGroupsConfigArgs>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html
+     */
+    export interface SpotFleetPrivateIpAddressSpecificationArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html#cfn-ec2-spotfleet-privateipaddressspecification-primary
+         */
+        primary?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html#cfn-ec2-spotfleet-privateipaddressspecification-privateipaddress
+         */
+        privateIpAddress: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotcapacityrebalance.html
+     */
+    export interface SpotFleetSpotCapacityRebalanceArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotcapacityrebalance.html#cfn-ec2-spotfleet-spotcapacityrebalance-replacementstrategy
+         */
+        replacementStrategy?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html
+     */
+    export interface SpotFleetSpotFleetLaunchSpecificationArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-blockdevicemappings
+         */
+        blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.EC2.SpotFleetBlockDeviceMappingArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ebsoptimized
+         */
+        ebsOptimized?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-iaminstanceprofile
+         */
+        iamInstanceProfile?: pulumi.Input<inputs.EC2.SpotFleetIamInstanceProfileSpecificationArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-imageid
+         */
+        imageId: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-instancetype
+         */
+        instanceType: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-kernelid
+         */
+        kernelId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-keyname
+         */
+        keyName?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-monitoring
+         */
+        monitoring?: pulumi.Input<inputs.EC2.SpotFleetSpotFleetMonitoringArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-networkinterfaces
+         */
+        networkInterfaces?: pulumi.Input<pulumi.Input<inputs.EC2.SpotFleetInstanceNetworkInterfaceSpecificationArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-placement
+         */
+        placement?: pulumi.Input<inputs.EC2.SpotFleetSpotPlacementArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ramdiskid
+         */
+        ramdiskId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-securitygroups
+         */
+        securityGroups?: pulumi.Input<pulumi.Input<inputs.EC2.SpotFleetGroupIdentifierArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-spotprice
+         */
+        spotPrice?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-subnetid
+         */
+        subnetId?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-tagspecifications
+         */
+        tagSpecifications?: pulumi.Input<pulumi.Input<inputs.EC2.SpotFleetSpotFleetTagSpecificationArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-userdata
+         */
+        userData?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-weightedcapacity
+         */
+        weightedCapacity?: pulumi.Input<number>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-monitoring.html
+     */
+    export interface SpotFleetSpotFleetMonitoringArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-monitoring.html#cfn-ec2-spotfleet-spotfleetmonitoring-enabled
+         */
+        enabled?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html
+     */
+    export interface SpotFleetSpotFleetRequestConfigDataArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-allocationstrategy
+         */
+        allocationStrategy?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-excesscapacityterminationpolicy
+         */
+        excessCapacityTerminationPolicy?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-iamfleetrole
+         */
+        iamFleetRole: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instanceinterruptionbehavior
+         */
+        instanceInterruptionBehavior?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instancepoolstousecount
+         */
+        instancePoolsToUseCount?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications
+         */
+        launchSpecifications?: pulumi.Input<pulumi.Input<inputs.EC2.SpotFleetSpotFleetLaunchSpecificationArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchtemplateconfigs
+         */
+        launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.EC2.SpotFleetLaunchTemplateConfigArgs>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-loadbalancersconfig
+         */
+        loadBalancersConfig?: pulumi.Input<inputs.EC2.SpotFleetLoadBalancersConfigArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandallocationstrategy
+         */
+        onDemandAllocationStrategy?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandmaxtotalprice
+         */
+        onDemandMaxTotalPrice?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandtargetcapacity
+         */
+        onDemandTargetCapacity?: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-replaceunhealthyinstances
+         */
+        replaceUnhealthyInstances?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaintenancestrategies
+         */
+        spotMaintenanceStrategies?: pulumi.Input<inputs.EC2.SpotFleetSpotMaintenanceStrategiesArgs>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaxtotalprice
+         */
+        spotMaxTotalPrice?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotprice
+         */
+        spotPrice?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-targetcapacity
+         */
+        targetCapacity: pulumi.Input<number>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-terminateinstanceswithexpiration
+         */
+        terminateInstancesWithExpiration?: pulumi.Input<boolean>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-type
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-validfrom
+         */
+        validFrom?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-validuntil
+         */
+        validUntil?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html
+     */
+    export interface SpotFleetSpotFleetTagSpecificationArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html#cfn-ec2-spotfleet-spotfleettagspecification-resourcetype
+         */
+        resourceType?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html#cfn-ec2-spotfleet-tags
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html
+     */
+    export interface SpotFleetSpotMaintenanceStrategiesArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html#cfn-ec2-spotfleet-spotmaintenancestrategies-capacityrebalance
+         */
+        capacityRebalance?: pulumi.Input<inputs.EC2.SpotFleetSpotCapacityRebalanceArgs>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html
+     */
+    export interface SpotFleetSpotPlacementArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-availabilityzone
+         */
+        availabilityZone?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-groupname
+         */
+        groupName?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-tenancy
+         */
+        tenancy?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroup.html
+     */
+    export interface SpotFleetTargetGroupArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroup.html#cfn-ec2-spotfleet-targetgroup-arn
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroupsconfig.html
+     */
+    export interface SpotFleetTargetGroupsConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroupsconfig.html#cfn-ec2-spotfleet-targetgroupsconfig-targetgroups
+         */
+        targetGroups: pulumi.Input<pulumi.Input<inputs.EC2.SpotFleetTargetGroupArgs>[]>;
     }
 }
 
@@ -8415,6 +9853,108 @@ export namespace Lambda {
          */
         uRI?: pulumi.Input<string>;
     }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html
+     */
+    export interface FunctionCodeArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-imageuri
+         */
+        imageUri?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3bucket
+         */
+        s3Bucket?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3key
+         */
+        s3Key?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3objectversion
+         */
+        s3ObjectVersion?: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-zipfile
+         */
+        zipFile?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html
+     */
+    export interface FunctionDeadLetterConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html#cfn-lambda-function-deadletterconfig-targetarn
+         */
+        targetArn?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html
+     */
+    export interface FunctionEnvironmentArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html#cfn-lambda-function-environment-variables
+         */
+        variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html
+     */
+    export interface FunctionFileSystemConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-arn
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-localmountpath
+         */
+        localMountPath: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html
+     */
+    export interface FunctionImageConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-command
+         */
+        command?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-entrypoint
+         */
+        entryPoint?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-workingdirectory
+         */
+        workingDirectory?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html
+     */
+    export interface FunctionTracingConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html#cfn-lambda-function-tracingconfig-mode
+         */
+        mode?: pulumi.Input<string>;
+    }
+
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
+     */
+    export interface FunctionVpcConfigArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-securitygroupids
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-subnetids
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
 }
 
 export namespace LicenseManager {
@@ -10159,6 +11699,22 @@ export namespace RDS {
          * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-sessionpinningfilters
          */
         sessionPinningFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+}
+
+export namespace Redshift {
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html
+     */
+    export interface ClusterLoggingPropertiesArgs {
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-bucketname
+         */
+        bucketName: pulumi.Input<string>;
+        /**
+         * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-s3keyprefix
+         */
+        s3KeyPrefix?: pulumi.Input<string>;
     }
 }
 

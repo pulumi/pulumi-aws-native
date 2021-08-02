@@ -9,12 +9,20 @@ export * from "./apiKey";
 export * from "./clientCertificate";
 export * from "./documentationVersion";
 export * from "./domainName";
+export * from "./model";
+export * from "./requestValidator";
+export * from "./resource";
+export * from "./usagePlanKey";
 
 // Import resources to register:
 import { ApiKey } from "./apiKey";
 import { ClientCertificate } from "./clientCertificate";
 import { DocumentationVersion } from "./documentationVersion";
 import { DomainName } from "./domainName";
+import { Model } from "./model";
+import { RequestValidator } from "./requestValidator";
+import { Resource } from "./resource";
+import { UsagePlanKey } from "./usagePlanKey";
 
 const _module = {
     version: utilities.getVersion(),
@@ -28,6 +36,14 @@ const _module = {
                 return new DocumentationVersion(name, <any>undefined, { urn })
             case "aws-native:ApiGateway:DomainName":
                 return new DomainName(name, <any>undefined, { urn })
+            case "aws-native:ApiGateway:Model":
+                return new Model(name, <any>undefined, { urn })
+            case "aws-native:ApiGateway:RequestValidator":
+                return new RequestValidator(name, <any>undefined, { urn })
+            case "aws-native:ApiGateway:Resource":
+                return new Resource(name, <any>undefined, { urn })
+            case "aws-native:ApiGateway:UsagePlanKey":
+                return new UsagePlanKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

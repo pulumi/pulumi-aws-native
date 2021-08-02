@@ -19,6 +19,7 @@ export * from "./provider";
 // Export sub-modules:
 import * as accessanalyzer from "./accessanalyzer";
 import * as acmpca from "./acmpca";
+import * as amplify from "./amplify";
 import * as apigateway from "./apigateway";
 import * as appflow from "./appflow";
 import * as applicationinsights from "./applicationinsights";
@@ -74,6 +75,7 @@ import * as networkmanager from "./networkmanager";
 import * as opsworkscm from "./opsworkscm";
 import * as qldb from "./qldb";
 import * as rds from "./rds";
+import * as redshift from "./redshift";
 import * as resourcegroups from "./resourcegroups";
 import * as route53 from "./route53";
 import * as route53resolver from "./route53resolver";
@@ -94,6 +96,7 @@ import * as workspaces from "./workspaces";
 export {
     accessanalyzer,
     acmpca,
+    amplify,
     apigateway,
     appflow,
     applicationinsights,
@@ -149,6 +152,7 @@ export {
     opsworkscm,
     qldb,
     rds,
+    redshift,
     resourcegroups,
     route53,
     route53resolver,
