@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .cache_policy import *
 from .cloud_front_origin_access_identity import *
+from .distribution import *
 from .key_group import *
 from .origin_request_policy import *
 from .public_key import *

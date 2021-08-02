@@ -15,6 +15,28 @@ __all__ = [
     'CachePolicyParametersInCacheKeyAndForwardedToOriginArgs',
     'CachePolicyQueryStringsConfigArgs',
     'CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs',
+    'DistributionCacheBehaviorArgs',
+    'DistributionCookiesArgs',
+    'DistributionCustomErrorResponseArgs',
+    'DistributionCustomOriginConfigArgs',
+    'DistributionDefaultCacheBehaviorArgs',
+    'DistributionDistributionConfigArgs',
+    'DistributionForwardedValuesArgs',
+    'DistributionGeoRestrictionArgs',
+    'DistributionLambdaFunctionAssociationArgs',
+    'DistributionLoggingArgs',
+    'DistributionOriginCustomHeaderArgs',
+    'DistributionOriginGroupFailoverCriteriaArgs',
+    'DistributionOriginGroupMembersArgs',
+    'DistributionOriginGroupMemberArgs',
+    'DistributionOriginGroupsArgs',
+    'DistributionOriginGroupArgs',
+    'DistributionOriginShieldArgs',
+    'DistributionOriginArgs',
+    'DistributionRestrictionsArgs',
+    'DistributionS3OriginConfigArgs',
+    'DistributionStatusCodesArgs',
+    'DistributionViewerCertificateArgs',
     'KeyGroupKeyGroupConfigArgs',
     'OriginRequestPolicyCookiesConfigArgs',
     'OriginRequestPolicyHeadersConfigArgs',
@@ -346,6 +368,1850 @@ class CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs:
     @comment.setter
     def comment(self, value: pulumi.Input[str]):
         pulumi.set(self, "comment", value)
+
+
+@pulumi.input_type
+class DistributionCacheBehaviorArgs:
+    def __init__(__self__, *,
+                 path_pattern: pulumi.Input[str],
+                 target_origin_id: pulumi.Input[str],
+                 viewer_protocol_policy: pulumi.Input[str],
+                 allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cache_policy_id: Optional[pulumi.Input[str]] = None,
+                 cached_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 compress: Optional[pulumi.Input[bool]] = None,
+                 default_ttl: Optional[pulumi.Input[float]] = None,
+                 field_level_encryption_id: Optional[pulumi.Input[str]] = None,
+                 forwarded_values: Optional[pulumi.Input['DistributionForwardedValuesArgs']] = None,
+                 lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]]] = None,
+                 max_ttl: Optional[pulumi.Input[float]] = None,
+                 min_ttl: Optional[pulumi.Input[float]] = None,
+                 origin_request_policy_id: Optional[pulumi.Input[str]] = None,
+                 realtime_log_config_arn: Optional[pulumi.Input[str]] = None,
+                 smooth_streaming: Optional[pulumi.Input[bool]] = None,
+                 trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html
+        :param pulumi.Input[str] path_pattern: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
+        :param pulumi.Input[str] target_origin_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-targetoriginid
+        :param pulumi.Input[str] viewer_protocol_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods
+        :param pulumi.Input[str] cache_policy_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachepolicyid
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cached_methods: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
+        :param pulumi.Input[bool] compress: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-compress
+        :param pulumi.Input[float] default_ttl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-defaultttl
+        :param pulumi.Input[str] field_level_encryption_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid
+        :param pulumi.Input['DistributionForwardedValuesArgs'] forwarded_values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]] lambda_function_associations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
+        :param pulumi.Input[float] max_ttl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-maxttl
+        :param pulumi.Input[float] min_ttl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl
+        :param pulumi.Input[str] origin_request_policy_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-originrequestpolicyid
+        :param pulumi.Input[str] realtime_log_config_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-realtimelogconfigarn
+        :param pulumi.Input[bool] smooth_streaming: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_key_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedkeygroups
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_signers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners
+        """
+        pulumi.set(__self__, "path_pattern", path_pattern)
+        pulumi.set(__self__, "target_origin_id", target_origin_id)
+        pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if cache_policy_id is not None:
+            pulumi.set(__self__, "cache_policy_id", cache_policy_id)
+        if cached_methods is not None:
+            pulumi.set(__self__, "cached_methods", cached_methods)
+        if compress is not None:
+            pulumi.set(__self__, "compress", compress)
+        if default_ttl is not None:
+            pulumi.set(__self__, "default_ttl", default_ttl)
+        if field_level_encryption_id is not None:
+            pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
+        if forwarded_values is not None:
+            pulumi.set(__self__, "forwarded_values", forwarded_values)
+        if lambda_function_associations is not None:
+            pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
+        if max_ttl is not None:
+            pulumi.set(__self__, "max_ttl", max_ttl)
+        if min_ttl is not None:
+            pulumi.set(__self__, "min_ttl", min_ttl)
+        if origin_request_policy_id is not None:
+            pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
+        if realtime_log_config_arn is not None:
+            pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+        if smooth_streaming is not None:
+            pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+        if trusted_key_groups is not None:
+            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
+        if trusted_signers is not None:
+            pulumi.set(__self__, "trusted_signers", trusted_signers)
+
+    @property
+    @pulumi.getter(name="pathPattern")
+    def path_pattern(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
+        """
+        return pulumi.get(self, "path_pattern")
+
+    @path_pattern.setter
+    def path_pattern(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path_pattern", value)
+
+    @property
+    @pulumi.getter(name="targetOriginId")
+    def target_origin_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-targetoriginid
+        """
+        return pulumi.get(self, "target_origin_id")
+
+    @target_origin_id.setter
+    def target_origin_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_origin_id", value)
+
+    @property
+    @pulumi.getter(name="viewerProtocolPolicy")
+    def viewer_protocol_policy(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy
+        """
+        return pulumi.get(self, "viewer_protocol_policy")
+
+    @viewer_protocol_policy.setter
+    def viewer_protocol_policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "viewer_protocol_policy", value)
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @allowed_methods.setter
+    def allowed_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_methods", value)
+
+    @property
+    @pulumi.getter(name="cachePolicyId")
+    def cache_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachepolicyid
+        """
+        return pulumi.get(self, "cache_policy_id")
+
+    @cache_policy_id.setter
+    def cache_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_policy_id", value)
+
+    @property
+    @pulumi.getter(name="cachedMethods")
+    def cached_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
+        """
+        return pulumi.get(self, "cached_methods")
+
+    @cached_methods.setter
+    def cached_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cached_methods", value)
+
+    @property
+    @pulumi.getter
+    def compress(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-compress
+        """
+        return pulumi.get(self, "compress")
+
+    @compress.setter
+    def compress(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compress", value)
+
+    @property
+    @pulumi.getter(name="defaultTTL")
+    def default_ttl(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-defaultttl
+        """
+        return pulumi.get(self, "default_ttl")
+
+    @default_ttl.setter
+    def default_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "default_ttl", value)
+
+    @property
+    @pulumi.getter(name="fieldLevelEncryptionId")
+    def field_level_encryption_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid
+        """
+        return pulumi.get(self, "field_level_encryption_id")
+
+    @field_level_encryption_id.setter
+    def field_level_encryption_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_level_encryption_id", value)
+
+    @property
+    @pulumi.getter(name="forwardedValues")
+    def forwarded_values(self) -> Optional[pulumi.Input['DistributionForwardedValuesArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
+        """
+        return pulumi.get(self, "forwarded_values")
+
+    @forwarded_values.setter
+    def forwarded_values(self, value: Optional[pulumi.Input['DistributionForwardedValuesArgs']]):
+        pulumi.set(self, "forwarded_values", value)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionAssociations")
+    def lambda_function_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
+        """
+        return pulumi.get(self, "lambda_function_associations")
+
+    @lambda_function_associations.setter
+    def lambda_function_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]]]):
+        pulumi.set(self, "lambda_function_associations", value)
+
+    @property
+    @pulumi.getter(name="maxTTL")
+    def max_ttl(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-maxttl
+        """
+        return pulumi.get(self, "max_ttl")
+
+    @max_ttl.setter
+    def max_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_ttl", value)
+
+    @property
+    @pulumi.getter(name="minTTL")
+    def min_ttl(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl
+        """
+        return pulumi.get(self, "min_ttl")
+
+    @min_ttl.setter
+    def min_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_ttl", value)
+
+    @property
+    @pulumi.getter(name="originRequestPolicyId")
+    def origin_request_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-originrequestpolicyid
+        """
+        return pulumi.get(self, "origin_request_policy_id")
+
+    @origin_request_policy_id.setter
+    def origin_request_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_request_policy_id", value)
+
+    @property
+    @pulumi.getter(name="realtimeLogConfigArn")
+    def realtime_log_config_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-realtimelogconfigarn
+        """
+        return pulumi.get(self, "realtime_log_config_arn")
+
+    @realtime_log_config_arn.setter
+    def realtime_log_config_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "realtime_log_config_arn", value)
+
+    @property
+    @pulumi.getter(name="smoothStreaming")
+    def smooth_streaming(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
+        """
+        return pulumi.get(self, "smooth_streaming")
+
+    @smooth_streaming.setter
+    def smooth_streaming(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "smooth_streaming", value)
+
+    @property
+    @pulumi.getter(name="trustedKeyGroups")
+    def trusted_key_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedkeygroups
+        """
+        return pulumi.get(self, "trusted_key_groups")
+
+    @trusted_key_groups.setter
+    def trusted_key_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "trusted_key_groups", value)
+
+    @property
+    @pulumi.getter(name="trustedSigners")
+    def trusted_signers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners
+        """
+        return pulumi.get(self, "trusted_signers")
+
+    @trusted_signers.setter
+    def trusted_signers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "trusted_signers", value)
+
+
+@pulumi.input_type
+class DistributionCookiesArgs:
+    def __init__(__self__, *,
+                 forward: pulumi.Input[str],
+                 whitelisted_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html
+        :param pulumi.Input[str] forward: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-forward
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] whitelisted_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-whitelistednames
+        """
+        pulumi.set(__self__, "forward", forward)
+        if whitelisted_names is not None:
+            pulumi.set(__self__, "whitelisted_names", whitelisted_names)
+
+    @property
+    @pulumi.getter
+    def forward(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-forward
+        """
+        return pulumi.get(self, "forward")
+
+    @forward.setter
+    def forward(self, value: pulumi.Input[str]):
+        pulumi.set(self, "forward", value)
+
+    @property
+    @pulumi.getter(name="whitelistedNames")
+    def whitelisted_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-whitelistednames
+        """
+        return pulumi.get(self, "whitelisted_names")
+
+    @whitelisted_names.setter
+    def whitelisted_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "whitelisted_names", value)
+
+
+@pulumi.input_type
+class DistributionCustomErrorResponseArgs:
+    def __init__(__self__, *,
+                 error_code: pulumi.Input[int],
+                 error_caching_min_ttl: Optional[pulumi.Input[float]] = None,
+                 response_code: Optional[pulumi.Input[int]] = None,
+                 response_page_path: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html
+        :param pulumi.Input[int] error_code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcode
+        :param pulumi.Input[float] error_caching_min_ttl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcachingminttl
+        :param pulumi.Input[int] response_code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsecode
+        :param pulumi.Input[str] response_page_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsepagepath
+        """
+        pulumi.set(__self__, "error_code", error_code)
+        if error_caching_min_ttl is not None:
+            pulumi.set(__self__, "error_caching_min_ttl", error_caching_min_ttl)
+        if response_code is not None:
+            pulumi.set(__self__, "response_code", response_code)
+        if response_page_path is not None:
+            pulumi.set(__self__, "response_page_path", response_page_path)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcode
+        """
+        return pulumi.get(self, "error_code")
+
+    @error_code.setter
+    def error_code(self, value: pulumi.Input[int]):
+        pulumi.set(self, "error_code", value)
+
+    @property
+    @pulumi.getter(name="errorCachingMinTTL")
+    def error_caching_min_ttl(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcachingminttl
+        """
+        return pulumi.get(self, "error_caching_min_ttl")
+
+    @error_caching_min_ttl.setter
+    def error_caching_min_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "error_caching_min_ttl", value)
+
+    @property
+    @pulumi.getter(name="responseCode")
+    def response_code(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsecode
+        """
+        return pulumi.get(self, "response_code")
+
+    @response_code.setter
+    def response_code(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "response_code", value)
+
+    @property
+    @pulumi.getter(name="responsePagePath")
+    def response_page_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsepagepath
+        """
+        return pulumi.get(self, "response_page_path")
+
+    @response_page_path.setter
+    def response_page_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "response_page_path", value)
+
+
+@pulumi.input_type
+class DistributionCustomOriginConfigArgs:
+    def __init__(__self__, *,
+                 origin_protocol_policy: pulumi.Input[str],
+                 h_ttp_port: Optional[pulumi.Input[int]] = None,
+                 h_ttps_port: Optional[pulumi.Input[int]] = None,
+                 origin_keepalive_timeout: Optional[pulumi.Input[int]] = None,
+                 origin_read_timeout: Optional[pulumi.Input[int]] = None,
+                 origin_ssl_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html
+        :param pulumi.Input[str] origin_protocol_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originprotocolpolicy
+        :param pulumi.Input[int] h_ttp_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpport
+        :param pulumi.Input[int] h_ttps_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpsport
+        :param pulumi.Input[int] origin_keepalive_timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout
+        :param pulumi.Input[int] origin_read_timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originreadtimeout
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] origin_ssl_protocols: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originsslprotocols
+        """
+        pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
+        if h_ttp_port is not None:
+            pulumi.set(__self__, "h_ttp_port", h_ttp_port)
+        if h_ttps_port is not None:
+            pulumi.set(__self__, "h_ttps_port", h_ttps_port)
+        if origin_keepalive_timeout is not None:
+            pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
+        if origin_read_timeout is not None:
+            pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
+        if origin_ssl_protocols is not None:
+            pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
+
+    @property
+    @pulumi.getter(name="originProtocolPolicy")
+    def origin_protocol_policy(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originprotocolpolicy
+        """
+        return pulumi.get(self, "origin_protocol_policy")
+
+    @origin_protocol_policy.setter
+    def origin_protocol_policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "origin_protocol_policy", value)
+
+    @property
+    @pulumi.getter(name="hTTPPort")
+    def h_ttp_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpport
+        """
+        return pulumi.get(self, "h_ttp_port")
+
+    @h_ttp_port.setter
+    def h_ttp_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "h_ttp_port", value)
+
+    @property
+    @pulumi.getter(name="hTTPSPort")
+    def h_ttps_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpsport
+        """
+        return pulumi.get(self, "h_ttps_port")
+
+    @h_ttps_port.setter
+    def h_ttps_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "h_ttps_port", value)
+
+    @property
+    @pulumi.getter(name="originKeepaliveTimeout")
+    def origin_keepalive_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout
+        """
+        return pulumi.get(self, "origin_keepalive_timeout")
+
+    @origin_keepalive_timeout.setter
+    def origin_keepalive_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "origin_keepalive_timeout", value)
+
+    @property
+    @pulumi.getter(name="originReadTimeout")
+    def origin_read_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originreadtimeout
+        """
+        return pulumi.get(self, "origin_read_timeout")
+
+    @origin_read_timeout.setter
+    def origin_read_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "origin_read_timeout", value)
+
+    @property
+    @pulumi.getter(name="originSSLProtocols")
+    def origin_ssl_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originsslprotocols
+        """
+        return pulumi.get(self, "origin_ssl_protocols")
+
+    @origin_ssl_protocols.setter
+    def origin_ssl_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "origin_ssl_protocols", value)
+
+
+@pulumi.input_type
+class DistributionDefaultCacheBehaviorArgs:
+    def __init__(__self__, *,
+                 target_origin_id: pulumi.Input[str],
+                 viewer_protocol_policy: pulumi.Input[str],
+                 allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cache_policy_id: Optional[pulumi.Input[str]] = None,
+                 cached_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 compress: Optional[pulumi.Input[bool]] = None,
+                 default_ttl: Optional[pulumi.Input[float]] = None,
+                 field_level_encryption_id: Optional[pulumi.Input[str]] = None,
+                 forwarded_values: Optional[pulumi.Input['DistributionForwardedValuesArgs']] = None,
+                 lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]]] = None,
+                 max_ttl: Optional[pulumi.Input[float]] = None,
+                 min_ttl: Optional[pulumi.Input[float]] = None,
+                 origin_request_policy_id: Optional[pulumi.Input[str]] = None,
+                 realtime_log_config_arn: Optional[pulumi.Input[str]] = None,
+                 smooth_streaming: Optional[pulumi.Input[bool]] = None,
+                 trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html
+        :param pulumi.Input[str] target_origin_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
+        :param pulumi.Input[str] viewer_protocol_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods
+        :param pulumi.Input[str] cache_policy_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cached_methods: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
+        :param pulumi.Input[bool] compress: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress
+        :param pulumi.Input[float] default_ttl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl
+        :param pulumi.Input[str] field_level_encryption_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-fieldlevelencryptionid
+        :param pulumi.Input['DistributionForwardedValuesArgs'] forwarded_values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]] lambda_function_associations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
+        :param pulumi.Input[float] max_ttl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
+        :param pulumi.Input[float] min_ttl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl
+        :param pulumi.Input[str] origin_request_policy_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
+        :param pulumi.Input[str] realtime_log_config_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
+        :param pulumi.Input[bool] smooth_streaming: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_key_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_signers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
+        """
+        pulumi.set(__self__, "target_origin_id", target_origin_id)
+        pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if cache_policy_id is not None:
+            pulumi.set(__self__, "cache_policy_id", cache_policy_id)
+        if cached_methods is not None:
+            pulumi.set(__self__, "cached_methods", cached_methods)
+        if compress is not None:
+            pulumi.set(__self__, "compress", compress)
+        if default_ttl is not None:
+            pulumi.set(__self__, "default_ttl", default_ttl)
+        if field_level_encryption_id is not None:
+            pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
+        if forwarded_values is not None:
+            pulumi.set(__self__, "forwarded_values", forwarded_values)
+        if lambda_function_associations is not None:
+            pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
+        if max_ttl is not None:
+            pulumi.set(__self__, "max_ttl", max_ttl)
+        if min_ttl is not None:
+            pulumi.set(__self__, "min_ttl", min_ttl)
+        if origin_request_policy_id is not None:
+            pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
+        if realtime_log_config_arn is not None:
+            pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+        if smooth_streaming is not None:
+            pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+        if trusted_key_groups is not None:
+            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
+        if trusted_signers is not None:
+            pulumi.set(__self__, "trusted_signers", trusted_signers)
+
+    @property
+    @pulumi.getter(name="targetOriginId")
+    def target_origin_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
+        """
+        return pulumi.get(self, "target_origin_id")
+
+    @target_origin_id.setter
+    def target_origin_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_origin_id", value)
+
+    @property
+    @pulumi.getter(name="viewerProtocolPolicy")
+    def viewer_protocol_policy(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy
+        """
+        return pulumi.get(self, "viewer_protocol_policy")
+
+    @viewer_protocol_policy.setter
+    def viewer_protocol_policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "viewer_protocol_policy", value)
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @allowed_methods.setter
+    def allowed_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_methods", value)
+
+    @property
+    @pulumi.getter(name="cachePolicyId")
+    def cache_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
+        """
+        return pulumi.get(self, "cache_policy_id")
+
+    @cache_policy_id.setter
+    def cache_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_policy_id", value)
+
+    @property
+    @pulumi.getter(name="cachedMethods")
+    def cached_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
+        """
+        return pulumi.get(self, "cached_methods")
+
+    @cached_methods.setter
+    def cached_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cached_methods", value)
+
+    @property
+    @pulumi.getter
+    def compress(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress
+        """
+        return pulumi.get(self, "compress")
+
+    @compress.setter
+    def compress(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compress", value)
+
+    @property
+    @pulumi.getter(name="defaultTTL")
+    def default_ttl(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl
+        """
+        return pulumi.get(self, "default_ttl")
+
+    @default_ttl.setter
+    def default_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "default_ttl", value)
+
+    @property
+    @pulumi.getter(name="fieldLevelEncryptionId")
+    def field_level_encryption_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-fieldlevelencryptionid
+        """
+        return pulumi.get(self, "field_level_encryption_id")
+
+    @field_level_encryption_id.setter
+    def field_level_encryption_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_level_encryption_id", value)
+
+    @property
+    @pulumi.getter(name="forwardedValues")
+    def forwarded_values(self) -> Optional[pulumi.Input['DistributionForwardedValuesArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
+        """
+        return pulumi.get(self, "forwarded_values")
+
+    @forwarded_values.setter
+    def forwarded_values(self, value: Optional[pulumi.Input['DistributionForwardedValuesArgs']]):
+        pulumi.set(self, "forwarded_values", value)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionAssociations")
+    def lambda_function_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
+        """
+        return pulumi.get(self, "lambda_function_associations")
+
+    @lambda_function_associations.setter
+    def lambda_function_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]]]):
+        pulumi.set(self, "lambda_function_associations", value)
+
+    @property
+    @pulumi.getter(name="maxTTL")
+    def max_ttl(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
+        """
+        return pulumi.get(self, "max_ttl")
+
+    @max_ttl.setter
+    def max_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_ttl", value)
+
+    @property
+    @pulumi.getter(name="minTTL")
+    def min_ttl(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl
+        """
+        return pulumi.get(self, "min_ttl")
+
+    @min_ttl.setter
+    def min_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_ttl", value)
+
+    @property
+    @pulumi.getter(name="originRequestPolicyId")
+    def origin_request_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
+        """
+        return pulumi.get(self, "origin_request_policy_id")
+
+    @origin_request_policy_id.setter
+    def origin_request_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_request_policy_id", value)
+
+    @property
+    @pulumi.getter(name="realtimeLogConfigArn")
+    def realtime_log_config_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
+        """
+        return pulumi.get(self, "realtime_log_config_arn")
+
+    @realtime_log_config_arn.setter
+    def realtime_log_config_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "realtime_log_config_arn", value)
+
+    @property
+    @pulumi.getter(name="smoothStreaming")
+    def smooth_streaming(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
+        """
+        return pulumi.get(self, "smooth_streaming")
+
+    @smooth_streaming.setter
+    def smooth_streaming(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "smooth_streaming", value)
+
+    @property
+    @pulumi.getter(name="trustedKeyGroups")
+    def trusted_key_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
+        """
+        return pulumi.get(self, "trusted_key_groups")
+
+    @trusted_key_groups.setter
+    def trusted_key_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "trusted_key_groups", value)
+
+    @property
+    @pulumi.getter(name="trustedSigners")
+    def trusted_signers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
+        """
+        return pulumi.get(self, "trusted_signers")
+
+    @trusted_signers.setter
+    def trusted_signers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "trusted_signers", value)
+
+
+@pulumi.input_type
+class DistributionDistributionConfigArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
+                 default_cache_behavior: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']] = None,
+                 default_root_object: Optional[pulumi.Input[str]] = None,
+                 http_version: Optional[pulumi.Input[str]] = None,
+                 i_pv6_enabled: Optional[pulumi.Input[bool]] = None,
+                 logging: Optional[pulumi.Input['DistributionLoggingArgs']] = None,
+                 origin_groups: Optional[pulumi.Input['DistributionOriginGroupsArgs']] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]] = None,
+                 price_class: Optional[pulumi.Input[str]] = None,
+                 restrictions: Optional[pulumi.Input['DistributionRestrictionsArgs']] = None,
+                 viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
+                 web_acl_id: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html
+        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-enabled
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]] cache_behaviors: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
+        :param pulumi.Input[str] comment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-comment
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]] custom_error_responses: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
+        :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultcachebehavior
+        :param pulumi.Input[str] default_root_object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultrootobject
+        :param pulumi.Input[str] http_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-httpversion
+        :param pulumi.Input[bool] i_pv6_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-ipv6enabled
+        :param pulumi.Input['DistributionLoggingArgs'] logging: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-logging
+        :param pulumi.Input['DistributionOriginGroupsArgs'] origin_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origingroups
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]] origins: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
+        :param pulumi.Input[str] price_class: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-priceclass
+        :param pulumi.Input['DistributionRestrictionsArgs'] restrictions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions
+        :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate
+        :param pulumi.Input[str] web_acl_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-webaclid
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if aliases is not None:
+            pulumi.set(__self__, "aliases", aliases)
+        if cache_behaviors is not None:
+            pulumi.set(__self__, "cache_behaviors", cache_behaviors)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if custom_error_responses is not None:
+            pulumi.set(__self__, "custom_error_responses", custom_error_responses)
+        if default_cache_behavior is not None:
+            pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
+        if default_root_object is not None:
+            pulumi.set(__self__, "default_root_object", default_root_object)
+        if http_version is not None:
+            pulumi.set(__self__, "http_version", http_version)
+        if i_pv6_enabled is not None:
+            pulumi.set(__self__, "i_pv6_enabled", i_pv6_enabled)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+        if origin_groups is not None:
+            pulumi.set(__self__, "origin_groups", origin_groups)
+        if origins is not None:
+            pulumi.set(__self__, "origins", origins)
+        if price_class is not None:
+            pulumi.set(__self__, "price_class", price_class)
+        if restrictions is not None:
+            pulumi.set(__self__, "restrictions", restrictions)
+        if viewer_certificate is not None:
+            pulumi.set(__self__, "viewer_certificate", viewer_certificate)
+        if web_acl_id is not None:
+            pulumi.set(__self__, "web_acl_id", web_acl_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
+        """
+        return pulumi.get(self, "aliases")
+
+    @aliases.setter
+    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "aliases", value)
+
+    @property
+    @pulumi.getter(name="cacheBehaviors")
+    def cache_behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
+        """
+        return pulumi.get(self, "cache_behaviors")
+
+    @cache_behaviors.setter
+    def cache_behaviors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]]):
+        pulumi.set(self, "cache_behaviors", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-comment
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="customErrorResponses")
+    def custom_error_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
+        """
+        return pulumi.get(self, "custom_error_responses")
+
+    @custom_error_responses.setter
+    def custom_error_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]):
+        pulumi.set(self, "custom_error_responses", value)
+
+    @property
+    @pulumi.getter(name="defaultCacheBehavior")
+    def default_cache_behavior(self) -> Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultcachebehavior
+        """
+        return pulumi.get(self, "default_cache_behavior")
+
+    @default_cache_behavior.setter
+    def default_cache_behavior(self, value: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']]):
+        pulumi.set(self, "default_cache_behavior", value)
+
+    @property
+    @pulumi.getter(name="defaultRootObject")
+    def default_root_object(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultrootobject
+        """
+        return pulumi.get(self, "default_root_object")
+
+    @default_root_object.setter
+    def default_root_object(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_root_object", value)
+
+    @property
+    @pulumi.getter(name="httpVersion")
+    def http_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-httpversion
+        """
+        return pulumi.get(self, "http_version")
+
+    @http_version.setter
+    def http_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_version", value)
+
+    @property
+    @pulumi.getter(name="iPV6Enabled")
+    def i_pv6_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-ipv6enabled
+        """
+        return pulumi.get(self, "i_pv6_enabled")
+
+    @i_pv6_enabled.setter
+    def i_pv6_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "i_pv6_enabled", value)
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional[pulumi.Input['DistributionLoggingArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-logging
+        """
+        return pulumi.get(self, "logging")
+
+    @logging.setter
+    def logging(self, value: Optional[pulumi.Input['DistributionLoggingArgs']]):
+        pulumi.set(self, "logging", value)
+
+    @property
+    @pulumi.getter(name="originGroups")
+    def origin_groups(self) -> Optional[pulumi.Input['DistributionOriginGroupsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origingroups
+        """
+        return pulumi.get(self, "origin_groups")
+
+    @origin_groups.setter
+    def origin_groups(self, value: Optional[pulumi.Input['DistributionOriginGroupsArgs']]):
+        pulumi.set(self, "origin_groups", value)
+
+    @property
+    @pulumi.getter
+    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
+        """
+        return pulumi.get(self, "origins")
+
+    @origins.setter
+    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]]):
+        pulumi.set(self, "origins", value)
+
+    @property
+    @pulumi.getter(name="priceClass")
+    def price_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-priceclass
+        """
+        return pulumi.get(self, "price_class")
+
+    @price_class.setter
+    def price_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "price_class", value)
+
+    @property
+    @pulumi.getter
+    def restrictions(self) -> Optional[pulumi.Input['DistributionRestrictionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions
+        """
+        return pulumi.get(self, "restrictions")
+
+    @restrictions.setter
+    def restrictions(self, value: Optional[pulumi.Input['DistributionRestrictionsArgs']]):
+        pulumi.set(self, "restrictions", value)
+
+    @property
+    @pulumi.getter(name="viewerCertificate")
+    def viewer_certificate(self) -> Optional[pulumi.Input['DistributionViewerCertificateArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate
+        """
+        return pulumi.get(self, "viewer_certificate")
+
+    @viewer_certificate.setter
+    def viewer_certificate(self, value: Optional[pulumi.Input['DistributionViewerCertificateArgs']]):
+        pulumi.set(self, "viewer_certificate", value)
+
+    @property
+    @pulumi.getter(name="webACLId")
+    def web_acl_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-webaclid
+        """
+        return pulumi.get(self, "web_acl_id")
+
+    @web_acl_id.setter
+    def web_acl_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "web_acl_id", value)
+
+
+@pulumi.input_type
+class DistributionForwardedValuesArgs:
+    def __init__(__self__, *,
+                 query_string: pulumi.Input[bool],
+                 cookies: Optional[pulumi.Input['DistributionCookiesArgs']] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 query_string_cache_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html
+        :param pulumi.Input[bool] query_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystring
+        :param pulumi.Input['DistributionCookiesArgs'] cookies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-cookies
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] headers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-headers
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] query_string_cache_keys: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystringcachekeys
+        """
+        pulumi.set(__self__, "query_string", query_string)
+        if cookies is not None:
+            pulumi.set(__self__, "cookies", cookies)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_string_cache_keys is not None:
+            pulumi.set(__self__, "query_string_cache_keys", query_string_cache_keys)
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> pulumi.Input[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystring
+        """
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "query_string", value)
+
+    @property
+    @pulumi.getter
+    def cookies(self) -> Optional[pulumi.Input['DistributionCookiesArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-cookies
+        """
+        return pulumi.get(self, "cookies")
+
+    @cookies.setter
+    def cookies(self, value: Optional[pulumi.Input['DistributionCookiesArgs']]):
+        pulumi.set(self, "cookies", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-headers
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="queryStringCacheKeys")
+    def query_string_cache_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystringcachekeys
+        """
+        return pulumi.get(self, "query_string_cache_keys")
+
+    @query_string_cache_keys.setter
+    def query_string_cache_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "query_string_cache_keys", value)
+
+
+@pulumi.input_type
+class DistributionGeoRestrictionArgs:
+    def __init__(__self__, *,
+                 restriction_type: pulumi.Input[str],
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html
+        :param pulumi.Input[str] restriction_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-restrictiontype
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-locations
+        """
+        pulumi.set(__self__, "restriction_type", restriction_type)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+
+    @property
+    @pulumi.getter(name="restrictionType")
+    def restriction_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-restrictiontype
+        """
+        return pulumi.get(self, "restriction_type")
+
+    @restriction_type.setter
+    def restriction_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "restriction_type", value)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-locations
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "locations", value)
+
+
+@pulumi.input_type
+class DistributionLambdaFunctionAssociationArgs:
+    def __init__(__self__, *,
+                 event_type: Optional[pulumi.Input[str]] = None,
+                 include_body: Optional[pulumi.Input[bool]] = None,
+                 lambda_function_arn: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html
+        :param pulumi.Input[str] event_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype
+        :param pulumi.Input[bool] include_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-includebody
+        :param pulumi.Input[str] lambda_function_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn
+        """
+        if event_type is not None:
+            pulumi.set(__self__, "event_type", event_type)
+        if include_body is not None:
+            pulumi.set(__self__, "include_body", include_body)
+        if lambda_function_arn is not None:
+            pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+
+    @property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype
+        """
+        return pulumi.get(self, "event_type")
+
+    @event_type.setter
+    def event_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_type", value)
+
+    @property
+    @pulumi.getter(name="includeBody")
+    def include_body(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-includebody
+        """
+        return pulumi.get(self, "include_body")
+
+    @include_body.setter
+    def include_body(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_body", value)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionARN")
+    def lambda_function_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn
+        """
+        return pulumi.get(self, "lambda_function_arn")
+
+    @lambda_function_arn.setter
+    def lambda_function_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lambda_function_arn", value)
+
+
+@pulumi.input_type
+class DistributionLoggingArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 include_cookies: Optional[pulumi.Input[bool]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html
+        :param pulumi.Input[str] bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-bucket
+        :param pulumi.Input[bool] include_cookies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-includecookies
+        :param pulumi.Input[str] prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-prefix
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if include_cookies is not None:
+            pulumi.set(__self__, "include_cookies", include_cookies)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-bucket
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="includeCookies")
+    def include_cookies(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-includecookies
+        """
+        return pulumi.get(self, "include_cookies")
+
+    @include_cookies.setter
+    def include_cookies(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_cookies", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-prefix
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+
+@pulumi.input_type
+class DistributionOriginCustomHeaderArgs:
+    def __init__(__self__, *,
+                 header_name: pulumi.Input[str],
+                 header_value: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html
+        :param pulumi.Input[str] header_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headername
+        :param pulumi.Input[str] header_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headervalue
+        """
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "header_value", header_value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headername
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header_name", value)
+
+    @property
+    @pulumi.getter(name="headerValue")
+    def header_value(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headervalue
+        """
+        return pulumi.get(self, "header_value")
+
+    @header_value.setter
+    def header_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header_value", value)
+
+
+@pulumi.input_type
+class DistributionOriginGroupFailoverCriteriaArgs:
+    def __init__(__self__, *,
+                 status_codes: pulumi.Input['DistributionStatusCodesArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html
+        :param pulumi.Input['DistributionStatusCodesArgs'] status_codes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html#cfn-cloudfront-distribution-origingroupfailovercriteria-statuscodes
+        """
+        pulumi.set(__self__, "status_codes", status_codes)
+
+    @property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> pulumi.Input['DistributionStatusCodesArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html#cfn-cloudfront-distribution-origingroupfailovercriteria-statuscodes
+        """
+        return pulumi.get(self, "status_codes")
+
+    @status_codes.setter
+    def status_codes(self, value: pulumi.Input['DistributionStatusCodesArgs']):
+        pulumi.set(self, "status_codes", value)
+
+
+@pulumi.input_type
+class DistributionOriginGroupMembersArgs:
+    def __init__(__self__, *,
+                 items: pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupMemberArgs']]],
+                 quantity: pulumi.Input[int]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupMemberArgs']]] items: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-items
+        :param pulumi.Input[int] quantity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-quantity
+        """
+        pulumi.set(__self__, "items", items)
+        pulumi.set(__self__, "quantity", quantity)
+
+    @property
+    @pulumi.getter
+    def items(self) -> pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupMemberArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-items
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupMemberArgs']]]):
+        pulumi.set(self, "items", value)
+
+    @property
+    @pulumi.getter
+    def quantity(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-quantity
+        """
+        return pulumi.get(self, "quantity")
+
+    @quantity.setter
+    def quantity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "quantity", value)
+
+
+@pulumi.input_type
+class DistributionOriginGroupMemberArgs:
+    def __init__(__self__, *,
+                 origin_id: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html
+        :param pulumi.Input[str] origin_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html#cfn-cloudfront-distribution-origingroupmember-originid
+        """
+        pulumi.set(__self__, "origin_id", origin_id)
+
+    @property
+    @pulumi.getter(name="originId")
+    def origin_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html#cfn-cloudfront-distribution-origingroupmember-originid
+        """
+        return pulumi.get(self, "origin_id")
+
+    @origin_id.setter
+    def origin_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "origin_id", value)
+
+
+@pulumi.input_type
+class DistributionOriginGroupsArgs:
+    def __init__(__self__, *,
+                 quantity: pulumi.Input[int],
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html
+        :param pulumi.Input[int] quantity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-quantity
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]] items: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-items
+        """
+        pulumi.set(__self__, "quantity", quantity)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def quantity(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-quantity
+        """
+        return pulumi.get(self, "quantity")
+
+    @quantity.setter
+    def quantity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "quantity", value)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-items
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class DistributionOriginGroupArgs:
+    def __init__(__self__, *,
+                 failover_criteria: pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs'],
+                 id: pulumi.Input[str],
+                 members: pulumi.Input['DistributionOriginGroupMembersArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html
+        :param pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs'] failover_criteria: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria
+        :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id
+        :param pulumi.Input['DistributionOriginGroupMembersArgs'] members: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members
+        """
+        pulumi.set(__self__, "failover_criteria", failover_criteria)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "members", members)
+
+    @property
+    @pulumi.getter(name="failoverCriteria")
+    def failover_criteria(self) -> pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria
+        """
+        return pulumi.get(self, "failover_criteria")
+
+    @failover_criteria.setter
+    def failover_criteria(self, value: pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs']):
+        pulumi.set(self, "failover_criteria", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def members(self) -> pulumi.Input['DistributionOriginGroupMembersArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members
+        """
+        return pulumi.get(self, "members")
+
+    @members.setter
+    def members(self, value: pulumi.Input['DistributionOriginGroupMembersArgs']):
+        pulumi.set(self, "members", value)
+
+
+@pulumi.input_type
+class DistributionOriginShieldArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 origin_shield_region: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html
+        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-enabled
+        :param pulumi.Input[str] origin_shield_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-originshieldregion
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if origin_shield_region is not None:
+            pulumi.set(__self__, "origin_shield_region", origin_shield_region)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="originShieldRegion")
+    def origin_shield_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-originshieldregion
+        """
+        return pulumi.get(self, "origin_shield_region")
+
+    @origin_shield_region.setter
+    def origin_shield_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_shield_region", value)
+
+
+@pulumi.input_type
+class DistributionOriginArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 id: pulumi.Input[str],
+                 connection_attempts: Optional[pulumi.Input[int]] = None,
+                 connection_timeout: Optional[pulumi.Input[int]] = None,
+                 custom_origin_config: Optional[pulumi.Input['DistributionCustomOriginConfigArgs']] = None,
+                 origin_custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginCustomHeaderArgs']]]] = None,
+                 origin_path: Optional[pulumi.Input[str]] = None,
+                 origin_shield: Optional[pulumi.Input['DistributionOriginShieldArgs']] = None,
+                 s3_origin_config: Optional[pulumi.Input['DistributionS3OriginConfigArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html
+        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-domainname
+        :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-id
+        :param pulumi.Input[int] connection_attempts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectionattempts
+        :param pulumi.Input[int] connection_timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectiontimeout
+        :param pulumi.Input['DistributionCustomOriginConfigArgs'] custom_origin_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-customoriginconfig
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginCustomHeaderArgs']]] origin_custom_headers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-origincustomheaders
+        :param pulumi.Input[str] origin_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
+        :param pulumi.Input['DistributionOriginShieldArgs'] origin_shield: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originshield
+        :param pulumi.Input['DistributionS3OriginConfigArgs'] s3_origin_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "id", id)
+        if connection_attempts is not None:
+            pulumi.set(__self__, "connection_attempts", connection_attempts)
+        if connection_timeout is not None:
+            pulumi.set(__self__, "connection_timeout", connection_timeout)
+        if custom_origin_config is not None:
+            pulumi.set(__self__, "custom_origin_config", custom_origin_config)
+        if origin_custom_headers is not None:
+            pulumi.set(__self__, "origin_custom_headers", origin_custom_headers)
+        if origin_path is not None:
+            pulumi.set(__self__, "origin_path", origin_path)
+        if origin_shield is not None:
+            pulumi.set(__self__, "origin_shield", origin_shield)
+        if s3_origin_config is not None:
+            pulumi.set(__self__, "s3_origin_config", s3_origin_config)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-domainname
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="connectionAttempts")
+    def connection_attempts(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectionattempts
+        """
+        return pulumi.get(self, "connection_attempts")
+
+    @connection_attempts.setter
+    def connection_attempts(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "connection_attempts", value)
+
+    @property
+    @pulumi.getter(name="connectionTimeout")
+    def connection_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectiontimeout
+        """
+        return pulumi.get(self, "connection_timeout")
+
+    @connection_timeout.setter
+    def connection_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "connection_timeout", value)
+
+    @property
+    @pulumi.getter(name="customOriginConfig")
+    def custom_origin_config(self) -> Optional[pulumi.Input['DistributionCustomOriginConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-customoriginconfig
+        """
+        return pulumi.get(self, "custom_origin_config")
+
+    @custom_origin_config.setter
+    def custom_origin_config(self, value: Optional[pulumi.Input['DistributionCustomOriginConfigArgs']]):
+        pulumi.set(self, "custom_origin_config", value)
+
+    @property
+    @pulumi.getter(name="originCustomHeaders")
+    def origin_custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginCustomHeaderArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-origincustomheaders
+        """
+        return pulumi.get(self, "origin_custom_headers")
+
+    @origin_custom_headers.setter
+    def origin_custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginCustomHeaderArgs']]]]):
+        pulumi.set(self, "origin_custom_headers", value)
+
+    @property
+    @pulumi.getter(name="originPath")
+    def origin_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
+        """
+        return pulumi.get(self, "origin_path")
+
+    @origin_path.setter
+    def origin_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_path", value)
+
+    @property
+    @pulumi.getter(name="originShield")
+    def origin_shield(self) -> Optional[pulumi.Input['DistributionOriginShieldArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originshield
+        """
+        return pulumi.get(self, "origin_shield")
+
+    @origin_shield.setter
+    def origin_shield(self, value: Optional[pulumi.Input['DistributionOriginShieldArgs']]):
+        pulumi.set(self, "origin_shield", value)
+
+    @property
+    @pulumi.getter(name="s3OriginConfig")
+    def s3_origin_config(self) -> Optional[pulumi.Input['DistributionS3OriginConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
+        """
+        return pulumi.get(self, "s3_origin_config")
+
+    @s3_origin_config.setter
+    def s3_origin_config(self, value: Optional[pulumi.Input['DistributionS3OriginConfigArgs']]):
+        pulumi.set(self, "s3_origin_config", value)
+
+
+@pulumi.input_type
+class DistributionRestrictionsArgs:
+    def __init__(__self__, *,
+                 geo_restriction: pulumi.Input['DistributionGeoRestrictionArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html
+        :param pulumi.Input['DistributionGeoRestrictionArgs'] geo_restriction: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html#cfn-cloudfront-distribution-restrictions-georestriction
+        """
+        pulumi.set(__self__, "geo_restriction", geo_restriction)
+
+    @property
+    @pulumi.getter(name="geoRestriction")
+    def geo_restriction(self) -> pulumi.Input['DistributionGeoRestrictionArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html#cfn-cloudfront-distribution-restrictions-georestriction
+        """
+        return pulumi.get(self, "geo_restriction")
+
+    @geo_restriction.setter
+    def geo_restriction(self, value: pulumi.Input['DistributionGeoRestrictionArgs']):
+        pulumi.set(self, "geo_restriction", value)
+
+
+@pulumi.input_type
+class DistributionS3OriginConfigArgs:
+    def __init__(__self__, *,
+                 origin_access_identity: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html
+        :param pulumi.Input[str] origin_access_identity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originaccessidentity
+        """
+        if origin_access_identity is not None:
+            pulumi.set(__self__, "origin_access_identity", origin_access_identity)
+
+    @property
+    @pulumi.getter(name="originAccessIdentity")
+    def origin_access_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originaccessidentity
+        """
+        return pulumi.get(self, "origin_access_identity")
+
+    @origin_access_identity.setter
+    def origin_access_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_access_identity", value)
+
+
+@pulumi.input_type
+class DistributionStatusCodesArgs:
+    def __init__(__self__, *,
+                 items: pulumi.Input[Sequence[pulumi.Input[int]]],
+                 quantity: pulumi.Input[int]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] items: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items
+        :param pulumi.Input[int] quantity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-quantity
+        """
+        pulumi.set(__self__, "items", items)
+        pulumi.set(__self__, "quantity", quantity)
+
+    @property
+    @pulumi.getter
+    def items(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "items", value)
+
+    @property
+    @pulumi.getter
+    def quantity(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-quantity
+        """
+        return pulumi.get(self, "quantity")
+
+    @quantity.setter
+    def quantity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "quantity", value)
+
+
+@pulumi.input_type
+class DistributionViewerCertificateArgs:
+    def __init__(__self__, *,
+                 acm_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 cloud_front_default_certificate: Optional[pulumi.Input[bool]] = None,
+                 iam_certificate_id: Optional[pulumi.Input[str]] = None,
+                 minimum_protocol_version: Optional[pulumi.Input[str]] = None,
+                 ssl_support_method: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html
+        :param pulumi.Input[str] acm_certificate_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-acmcertificatearn
+        :param pulumi.Input[bool] cloud_front_default_certificate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-cloudfrontdefaultcertificate
+        :param pulumi.Input[str] iam_certificate_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-iamcertificateid
+        :param pulumi.Input[str] minimum_protocol_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-minimumprotocolversion
+        :param pulumi.Input[str] ssl_support_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-sslsupportmethod
+        """
+        if acm_certificate_arn is not None:
+            pulumi.set(__self__, "acm_certificate_arn", acm_certificate_arn)
+        if cloud_front_default_certificate is not None:
+            pulumi.set(__self__, "cloud_front_default_certificate", cloud_front_default_certificate)
+        if iam_certificate_id is not None:
+            pulumi.set(__self__, "iam_certificate_id", iam_certificate_id)
+        if minimum_protocol_version is not None:
+            pulumi.set(__self__, "minimum_protocol_version", minimum_protocol_version)
+        if ssl_support_method is not None:
+            pulumi.set(__self__, "ssl_support_method", ssl_support_method)
+
+    @property
+    @pulumi.getter(name="acmCertificateArn")
+    def acm_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-acmcertificatearn
+        """
+        return pulumi.get(self, "acm_certificate_arn")
+
+    @acm_certificate_arn.setter
+    def acm_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "acm_certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="cloudFrontDefaultCertificate")
+    def cloud_front_default_certificate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-cloudfrontdefaultcertificate
+        """
+        return pulumi.get(self, "cloud_front_default_certificate")
+
+    @cloud_front_default_certificate.setter
+    def cloud_front_default_certificate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cloud_front_default_certificate", value)
+
+    @property
+    @pulumi.getter(name="iamCertificateId")
+    def iam_certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-iamcertificateid
+        """
+        return pulumi.get(self, "iam_certificate_id")
+
+    @iam_certificate_id.setter
+    def iam_certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_certificate_id", value)
+
+    @property
+    @pulumi.getter(name="minimumProtocolVersion")
+    def minimum_protocol_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-minimumprotocolversion
+        """
+        return pulumi.get(self, "minimum_protocol_version")
+
+    @minimum_protocol_version.setter
+    def minimum_protocol_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_protocol_version", value)
+
+    @property
+    @pulumi.getter(name="sslSupportMethod")
+    def ssl_support_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-sslsupportmethod
+        """
+        return pulumi.get(self, "ssl_support_method")
+
+    @ssl_support_method.setter
+    def ssl_support_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_support_method", value)
 
 
 @pulumi.input_type

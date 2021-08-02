@@ -22,6 +22,7 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_aws_native.accessanalyzer as accessanalyzer
     import pulumi_aws_native.acmpca as acmpca
+    import pulumi_aws_native.amplify as amplify
     import pulumi_aws_native.apigateway as apigateway
     import pulumi_aws_native.appflow as appflow
     import pulumi_aws_native.applicationinsights as applicationinsights
@@ -77,6 +78,7 @@ if typing.TYPE_CHECKING:
     import pulumi_aws_native.opsworkscm as opsworkscm
     import pulumi_aws_native.qldb as qldb
     import pulumi_aws_native.rds as rds
+    import pulumi_aws_native.redshift as redshift
     import pulumi_aws_native.resourcegroups as resourcegroups
     import pulumi_aws_native.route53 as route53
     import pulumi_aws_native.route53resolver as route53resolver
@@ -95,6 +97,7 @@ if typing.TYPE_CHECKING:
 else:
     accessanalyzer = _utilities.lazy_import('pulumi_aws_native.accessanalyzer')
     acmpca = _utilities.lazy_import('pulumi_aws_native.acmpca')
+    amplify = _utilities.lazy_import('pulumi_aws_native.amplify')
     apigateway = _utilities.lazy_import('pulumi_aws_native.apigateway')
     appflow = _utilities.lazy_import('pulumi_aws_native.appflow')
     applicationinsights = _utilities.lazy_import('pulumi_aws_native.applicationinsights')
@@ -150,6 +153,7 @@ else:
     opsworkscm = _utilities.lazy_import('pulumi_aws_native.opsworkscm')
     qldb = _utilities.lazy_import('pulumi_aws_native.qldb')
     rds = _utilities.lazy_import('pulumi_aws_native.rds')
+    redshift = _utilities.lazy_import('pulumi_aws_native.redshift')
     resourcegroups = _utilities.lazy_import('pulumi_aws_native.resourcegroups')
     route53 = _utilities.lazy_import('pulumi_aws_native.route53')
     route53resolver = _utilities.lazy_import('pulumi_aws_native.route53resolver')
@@ -189,13 +193,27 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "Amplify",
+  "fqn": "pulumi_aws_native.amplify",
+  "classes": {
+   "aws-native:Amplify:App": "App",
+   "aws-native:Amplify:Branch": "Branch",
+   "aws-native:Amplify:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "ApiGateway",
   "fqn": "pulumi_aws_native.apigateway",
   "classes": {
    "aws-native:ApiGateway:ApiKey": "ApiKey",
    "aws-native:ApiGateway:ClientCertificate": "ClientCertificate",
    "aws-native:ApiGateway:DocumentationVersion": "DocumentationVersion",
-   "aws-native:ApiGateway:DomainName": "DomainName"
+   "aws-native:ApiGateway:DomainName": "DomainName",
+   "aws-native:ApiGateway:Model": "Model",
+   "aws-native:ApiGateway:RequestValidator": "RequestValidator",
+   "aws-native:ApiGateway:Resource": "Resource",
+   "aws-native:ApiGateway:UsagePlanKey": "UsagePlanKey"
   }
  },
  {
@@ -277,6 +295,7 @@ _utilities.register(
   "classes": {
    "aws-native:CloudFront:CachePolicy": "CachePolicy",
    "aws-native:CloudFront:CloudFrontOriginAccessIdentity": "CloudFrontOriginAccessIdentity",
+   "aws-native:CloudFront:Distribution": "Distribution",
    "aws-native:CloudFront:KeyGroup": "KeyGroup",
    "aws-native:CloudFront:OriginRequestPolicy": "OriginRequestPolicy",
    "aws-native:CloudFront:PublicKey": "PublicKey",
@@ -330,6 +349,7 @@ _utilities.register(
   "mod": "Configuration",
   "fqn": "pulumi_aws_native.configuration",
   "classes": {
+   "aws-native:Configuration:ConfigurationAggregator": "ConfigurationAggregator",
    "aws-native:Configuration:ConformancePack": "ConformancePack",
    "aws-native:Configuration:OrganizationConformancePack": "OrganizationConformancePack"
   }
@@ -370,13 +390,16 @@ _utilities.register(
   "fqn": "pulumi_aws_native.ec2",
   "classes": {
    "aws-native:EC2:CarrierGateway": "CarrierGateway",
+   "aws-native:EC2:EC2Fleet": "EC2Fleet",
    "aws-native:EC2:FlowLog": "FlowLog",
    "aws-native:EC2:GatewayRouteTableAssociation": "GatewayRouteTableAssociation",
    "aws-native:EC2:LocalGatewayRoute": "LocalGatewayRoute",
    "aws-native:EC2:LocalGatewayRouteTableVPCAssociation": "LocalGatewayRouteTableVPCAssociation",
    "aws-native:EC2:NetworkInsightsAnalysis": "NetworkInsightsAnalysis",
    "aws-native:EC2:NetworkInsightsPath": "NetworkInsightsPath",
-   "aws-native:EC2:PrefixList": "PrefixList"
+   "aws-native:EC2:PrefixList": "PrefixList",
+   "aws-native:EC2:SpotFleet": "SpotFleet",
+   "aws-native:EC2:TransitGateway": "TransitGateway"
   }
  },
  {
@@ -608,7 +631,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.lambda_",
   "classes": {
    "aws-native:Lambda:CodeSigningConfig": "CodeSigningConfig",
-   "aws-native:Lambda:EventSourceMapping": "EventSourceMapping"
+   "aws-native:Lambda:EventSourceMapping": "EventSourceMapping",
+   "aws-native:Lambda:Function": "Function"
   }
  },
  {
@@ -707,6 +731,14 @@ _utilities.register(
    "aws-native:RDS:DBProxy": "DBProxy",
    "aws-native:RDS:DBProxyTargetGroup": "DBProxyTargetGroup",
    "aws-native:RDS:GlobalCluster": "GlobalCluster"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "Redshift",
+  "fqn": "pulumi_aws_native.redshift",
+  "classes": {
+   "aws-native:Redshift:Cluster": "Cluster"
   }
  },
  {

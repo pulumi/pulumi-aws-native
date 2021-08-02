@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .configuration_aggregator import *
 from .conformance_pack import *
 from .organization_conformance_pack import *
 from ._inputs import *

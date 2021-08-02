@@ -9,9 +9,121 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ConfigurationAggregatorAccountAggregationSourceArgs',
+    'ConfigurationAggregatorOrganizationAggregationSourceArgs',
     'ConformancePackConformancePackInputParameterArgs',
     'OrganizationConformancePackConformancePackInputParameterArgs',
 ]
+
+@pulumi.input_type
+class ConfigurationAggregatorAccountAggregationSourceArgs:
+    def __init__(__self__, *,
+                 account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 all_aws_regions: Optional[pulumi.Input[bool]] = None,
+                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
+        :param pulumi.Input[bool] all_aws_regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
+        """
+        pulumi.set(__self__, "account_ids", account_ids)
+        if all_aws_regions is not None:
+            pulumi.set(__self__, "all_aws_regions", all_aws_regions)
+        if aws_regions is not None:
+            pulumi.set(__self__, "aws_regions", aws_regions)
+
+    @property
+    @pulumi.getter(name="accountIds")
+    def account_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
+        """
+        return pulumi.get(self, "account_ids")
+
+    @account_ids.setter
+    def account_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "account_ids", value)
+
+    @property
+    @pulumi.getter(name="allAwsRegions")
+    def all_aws_regions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
+        """
+        return pulumi.get(self, "all_aws_regions")
+
+    @all_aws_regions.setter
+    def all_aws_regions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "all_aws_regions", value)
+
+    @property
+    @pulumi.getter(name="awsRegions")
+    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
+        """
+        return pulumi.get(self, "aws_regions")
+
+    @aws_regions.setter
+    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "aws_regions", value)
+
+
+@pulumi.input_type
+class ConfigurationAggregatorOrganizationAggregationSourceArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[str],
+                 all_aws_regions: Optional[pulumi.Input[bool]] = None,
+                 aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html
+        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn
+        :param pulumi.Input[bool] all_aws_regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        if all_aws_regions is not None:
+            pulumi.set(__self__, "all_aws_regions", all_aws_regions)
+        if aws_regions is not None:
+            pulumi.set(__self__, "aws_regions", aws_regions)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="allAwsRegions")
+    def all_aws_regions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions
+        """
+        return pulumi.get(self, "all_aws_regions")
+
+    @all_aws_regions.setter
+    def all_aws_regions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "all_aws_regions", value)
+
+    @property
+    @pulumi.getter(name="awsRegions")
+    def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
+        """
+        return pulumi.get(self, "aws_regions")
+
+    @aws_regions.setter
+    def aws_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "aws_regions", value)
+
 
 @pulumi.input_type
 class ConformancePackConformancePackInputParameterArgs:

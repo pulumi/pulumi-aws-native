@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .carrier_gateway import *
+from .ec2_fleet import *
 from .flow_log import *
 from .gateway_route_table_association import *
 from .local_gateway_route import *
@@ -13,5 +14,7 @@ from .local_gateway_route_table_vpcassociation import *
 from .network_insights_analysis import *
 from .network_insights_path import *
 from .prefix_list import *
+from .spot_fleet import *
+from .transit_gateway import *
 from ._inputs import *
 from . import outputs
