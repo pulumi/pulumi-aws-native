@@ -189,6 +189,9 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	if err != nil {
 		return nil, errors.Errorf("could not get AWS account ID: %v", err)
 	}
+	if callerIdentityResp.Account == nil {
+		return nil, errors.New("could not get AWS account ID: nil account")
+	}
 	p.accountID = *callerIdentityResp.Account
 
 	schema, err := getCloudFormationSchema(p.canceler.context, region)
@@ -439,6 +442,9 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	pi, err := p.waitForResourceOpCompletion(ctx, res.ProgressEvent)
 	if err != nil {
 		return nil, err
+	}
+	if pi.Identifier == nil {
+		return nil, errors.New("received nil identifier while reading resource state")
 	}
 
 	// Retrieve the resource state from AWS.
@@ -727,6 +733,9 @@ func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifie
 	})
 	if err != nil {
 		return nil, err
+	}
+	if getRes.ResourceDescription.ResourceModel == nil {
+		return nil, errors.New("received nil resource model")
 	}
 
 	resourceModel := *getRes.ResourceDescription.ResourceModel
