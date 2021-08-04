@@ -60,13 +60,13 @@ build_nodejs::
 generate_python::
 	$(WORKING_DIR)/bin/$(CODEGEN) python $(CFN_SCHEMA_FILE) ${VERSION}
 
-build_python:: VERSION := $(shell pulumictl get version --language python)
+build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
 build_python::
 	cd sdk/python/ && \
         cp ../../README.md . && \
         python3 setup.py clean --all 2>/dev/null && \
         rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-        sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
+        sed -i.bak -e 's/^VERSION = .*/VERSION = "$(PYPI_VERSION)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION)"/g' ./bin/setup.py && \
         rm ./bin/setup.py.bak && \
         cd ./bin && python3 setup.py build sdist
 
