@@ -4,8 +4,8 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/service/cloudformation"
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/service/cloudformation/types"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 )
@@ -42,21 +42,22 @@ func TestDiffToPatch(t *testing.T) {
 			"platformVersion": resource.NewStringProperty("LATEST"),
 		},
 	}
-	expected := []*cloudformation.PatchOperation{
-		{Op: aws.String("replace"), Path: aws.String("/DesiredCount"), IntegerValue: aws.Int64(2)},
-		{Op: aws.String("replace"), Path: aws.String("/EnableECSManagedTags"), BooleanValue: aws.Bool(true)},
-		{Op: aws.String("add"), Path: aws.String("/LaunchType"), StringValue: aws.String("FARGATE")},
+	two := int32(2)
+	expected := []types.PatchOperation{
+		{Op: types.Op("replace"), Path: aws.String("/DesiredCount"), IntegerValue: &two},
+		{Op: types.Op("replace"), Path: aws.String("/EnableECSManagedTags"), BooleanValue: aws.Bool(true)},
+		{Op: types.Op("add"), Path: aws.String("/LaunchType"), StringValue: aws.String("FARGATE")},
 		{
-			Op:          aws.String("replace"),
+			Op:          types.Op("replace"),
 			Path:        aws.String("/LoadBalancers"),
 			ObjectValue: aws.String("[{\"ContainerName\":\"my-app\",\"ContainerPort\":80}]"),
 		},
-		{Op: aws.String("remove"), Path: aws.String("/PlatformVersion")},
+		{Op: types.Op("remove"), Path: aws.String("/PlatformVersion")},
 	}
 	actual, err := DiffToPatch(sampleSchema, "AWS::ECS::Service", &diff)
 	assert.NoError(t, err)
 	sort.SliceStable(actual, func(i, j int) bool {
-		return aws.StringValue(actual[i].Path) < aws.StringValue(actual[j].Path)
+		return *actual[i].Path < *actual[j].Path
 	})
 	assert.Equal(t, expected, actual)
 }

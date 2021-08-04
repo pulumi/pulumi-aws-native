@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"reflect"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/service/cloudformation"
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/service/cloudformation/types"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -24,7 +24,7 @@ func SdkToCfn(schema CloudFormationSchema, resourceType string, properties map[s
 
 // DiffToPatch converts a Pulumi object diff to a CloudFormation-shaped patch operation slice. Update/add/delete operations are
 // mapped to corresponding patch terms, and SDK properties are translated to respective CFN names.
-func DiffToPatch(schema CloudFormationSchema, resourceType string, diff *resource.ObjectDiff) ([]*cloudformation.PatchOperation, error) {
+func DiffToPatch(schema CloudFormationSchema, resourceType string, diff *resource.ObjectDiff) ([]types.PatchOperation, error) {
 	if _, ok := schema.ResourceTypes[resourceType]; !ok {
 		return nil, errors.Errorf("unknown resource type %v", resourceType)
 	}
@@ -104,9 +104,9 @@ func (c *sdkToCfnConverter) convertPropertyValue(propertyType string, value inte
 	return result
 }
 
-func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) []*cloudformation.PatchOperation {
+func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) []types.PatchOperation {
 	resourceSpec := c.schema.ResourceTypes[c.resourceType]
-	var ops []*cloudformation.PatchOperation
+	var ops []types.PatchOperation
 	for cfnName, prop := range resourceSpec.Properties {
 		sdkName := resource.PropertyKey(ToPropertyName(cfnName))
 		if v, ok := diff.Updates[sdkName]; ok {
@@ -118,24 +118,25 @@ func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) []*cloudforma
 			ops = append(ops, op)
 		}
 		if _, ok := diff.Deletes[sdkName]; ok {
-			op := cloudformation.PatchOperation{
-				Op:   aws.String("remove"),
+			op := types.PatchOperation{
+				Op:   "remove",
 				Path: aws.String("/" + cfnName),
 			}
-			ops = append(ops, &op)
+			ops = append(ops, op)
 		}
 	}
 	return ops
 }
 
-func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop PropertySpec, value resource.PropertyValue) *cloudformation.PatchOperation {
-	op := cloudformation.PatchOperation{
-		Op:   aws.String(opName),
+func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop PropertySpec, value resource.PropertyValue) types.PatchOperation {
+	op := types.PatchOperation{
+		Op:   types.Op(opName),
 		Path: aws.String("/" + propName),
 	}
 	switch {
 	case value.IsNumber() && prop.PrimitiveType == "Integer":
-		op.IntegerValue = aws.Int64(int64(value.NumberValue()))
+		i := int32(value.NumberValue())
+		op.IntegerValue = &i
 	case value.IsNumber():
 		op.NumberValue = aws.Float64(value.NumberValue())
 	case value.IsBool():
@@ -149,7 +150,7 @@ func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop PropertyS
 		contract.AssertNoError(err)
 		op.ObjectValue = aws.String(string(jsonBytes))
 	}
-	return &op
+	return op
 }
 
 // CfnToSdk converts CloudFormation-shaped payload to Pulumi-SDK-shaped state. In particular, SDK properties

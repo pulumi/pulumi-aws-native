@@ -9,9 +9,9 @@ import (
 	"path"
 	"testing"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/cloudformation"
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/aws/session"
+	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
 	"github.com/pkg/errors"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
