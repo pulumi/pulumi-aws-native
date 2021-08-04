@@ -3,66 +3,11 @@
 package examples
 
 import (
-	"crypto/rand"
-	"encoding/hex"
 	"os"
 	"testing"
 
-	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/aws/session"
-	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
-	"github.com/pkg/errors"
-
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
-
-var client *cloudformation.CloudFormation
-
-func init() {
-	region := os.Getenv("AWS_REGION")
-	if region != "" {
-		sess, err := session.NewSession(&aws.Config{
-			Region: aws.String(region),
-		})
-		if err != nil {
-			panic(errors.Errorf("could not create AWS session: %v", err))
-		}
-		client = cloudformation.New(sess)
-	}
-}
-
-//func TestVpcSingleInstanceInSubnet(t *testing.T) {
-//	stack := getStackName(t)
-//	defer deleteStack(t, stack)
-//
-//	test := getJSBaseOptions(t).
-//		With(integration.ProgramTestOptions{
-//			Dir: path.Join(getCwd(t), "vpc-single-instance-in-subnet"),
-//		})
-//
-//	integration.ProgramTest(t, &test)
-//}
-//
-func getStackName(t *testing.T) string {
-	b := make([]byte, 8)
-	if _, err := rand.Read(b); err != nil {
-		t.Fatalf("failed to generate stack name: %v", err)
-	}
-	return "pulumi-cfn-test-" + hex.EncodeToString(b)
-}
-
-func deleteStack(t *testing.T, name string) {
-	if t.Skipped() {
-		return
-	}
-
-	_, err := client.DeleteStack(&cloudformation.DeleteStackInput{
-		StackName: aws.String(name),
-	})
-	if err != nil {
-		t.Fatalf("failed to delete stack %v: %v", name, err)
-	}
-}
 
 func getEnvRegion(t *testing.T) string {
 	envRegion := os.Getenv("AWS_REGION")
