@@ -5,10 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./configurationAggregator";
 export * from "./conformancePack";
 export * from "./organizationConformancePack";
 
 // Import resources to register:
+import { ConfigurationAggregator } from "./configurationAggregator";
 import { ConformancePack } from "./conformancePack";
 import { OrganizationConformancePack } from "./organizationConformancePack";
 
@@ -16,6 +18,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:Configuration:ConfigurationAggregator":
+                return new ConfigurationAggregator(name, <any>undefined, { urn })
             case "aws-native:Configuration:ConformancePack":
                 return new ConformancePack(name, <any>undefined, { urn })
             case "aws-native:Configuration:OrganizationConformancePack":

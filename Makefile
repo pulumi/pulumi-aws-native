@@ -17,8 +17,9 @@ CFN_SCHEMA_URL      ?= https://cfn-resource-specifications-${CFN_SCHEMA_REGION}-
 CFN_SCHEMA_DIR      := provider/cmd/pulumi-gen-${PACK}
 CFN_SCHEMA_FILE     := ${CFN_SCHEMA_DIR}/cfn-spec-${CFN_SCHEMA_REGION}.json
 
-update_cfm_schema::
+discovery::codegen
 	test -f $(CFN_SCHEMA_FILE) || curl -s -L $(CFN_SCHEMA_URL) | gzip -d > $(CFN_SCHEMA_FILE)
+	$(WORKING_DIR)/bin/$(CODEGEN) discovery $(CFN_SCHEMA_FILE) ${VERSION}
 
 ensure::
 	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy

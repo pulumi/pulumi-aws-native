@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./carrierGateway";
+export * from "./ec2fleet";
 export * from "./flowLog";
 export * from "./gatewayRouteTableAssociation";
 export * from "./localGatewayRoute";
@@ -13,9 +14,12 @@ export * from "./localGatewayRouteTableVPCAssociation";
 export * from "./networkInsightsAnalysis";
 export * from "./networkInsightsPath";
 export * from "./prefixList";
+export * from "./spotFleet";
+export * from "./transitGateway";
 
 // Import resources to register:
 import { CarrierGateway } from "./carrierGateway";
+import { EC2Fleet } from "./ec2fleet";
 import { FlowLog } from "./flowLog";
 import { GatewayRouteTableAssociation } from "./gatewayRouteTableAssociation";
 import { LocalGatewayRoute } from "./localGatewayRoute";
@@ -23,6 +27,8 @@ import { LocalGatewayRouteTableVPCAssociation } from "./localGatewayRouteTableVP
 import { NetworkInsightsAnalysis } from "./networkInsightsAnalysis";
 import { NetworkInsightsPath } from "./networkInsightsPath";
 import { PrefixList } from "./prefixList";
+import { SpotFleet } from "./spotFleet";
+import { TransitGateway } from "./transitGateway";
 
 const _module = {
     version: utilities.getVersion(),
@@ -30,6 +36,8 @@ const _module = {
         switch (type) {
             case "aws-native:EC2:CarrierGateway":
                 return new CarrierGateway(name, <any>undefined, { urn })
+            case "aws-native:EC2:EC2Fleet":
+                return new EC2Fleet(name, <any>undefined, { urn })
             case "aws-native:EC2:FlowLog":
                 return new FlowLog(name, <any>undefined, { urn })
             case "aws-native:EC2:GatewayRouteTableAssociation":
@@ -44,6 +52,10 @@ const _module = {
                 return new NetworkInsightsPath(name, <any>undefined, { urn })
             case "aws-native:EC2:PrefixList":
                 return new PrefixList(name, <any>undefined, { urn })
+            case "aws-native:EC2:SpotFleet":
+                return new SpotFleet(name, <any>undefined, { urn })
+            case "aws-native:EC2:TransitGateway":
+                return new TransitGateway(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
