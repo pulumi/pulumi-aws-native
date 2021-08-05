@@ -8,3 +8,4 @@
 Pulumi.*.yaml
 yarn.lock
 /sdk/dotnet/version.txt
+**/dist

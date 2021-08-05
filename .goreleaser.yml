@@ -5,11 +5,13 @@ before:
   hooks:
     - make codegen
     - make generate_schema
-artifactories:
-  - name: pulumipreview
-    mode: archive
-    target: "https://pulumipreview.jfrog.io/artifactory/pulumi-packages/{{ .ProjectName }}/"
-    username: goreleaser
+blobs:
+  - bucket: get.pulumi.com
+    folder: releases/plugins/
+    ids:
+      - archive
+    provider: s3
+    region: us-west-2
 builds:
   - binary: pulumi-resource-aws-native
     dir: provider

@@ -25,148 +25,161 @@ jobs:
           repo: pulumi/pulumictl
       - name: Install Pulumi CLI
         uses: pulumi/action-install-pulumi-cli@v1.0.1
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: us-east-2
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-duration-seconds: 3600
+          role-external-id: upload-pulumi-release
+          role-session-name: private-preview@githubActions
+          role-to-assume: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
         with:
           args: -f .goreleaser.yml --rm-dist
           version: latest
         env:
-          ARTIFACTORY_PULUMIPREVIEW_SECRET: ${{ secrets.ARTIFACTORY_PULUMIPREVIEW_SECRET }}
-#  build_sdk:
-#    name: build_sdk
-#    runs-on: ubuntu-latest
-#    needs: publish_provider
-#    steps:
-#      - name: Checkout Repo
-#        uses: actions/checkout@v2
-#      - name: Checkout Scripts Repo
-#        uses: actions/checkout@v2
-#        with:
-#          path: ci-scripts
-#          repository: pulumi/scripts
-#      - name: Unshallow clone for tags
-#        run: git fetch --prune --unshallow --tags
-#      - name: Install Go
-#        uses: actions/setup-go@v2
-#        with:
-#          go-version: ${{ matrix.goversion }}
-#      - name: Install pulumictl
-#        uses: jaxxstorm/action-install-gh-release@v1.1.0
-#        with:
-#          repo: pulumi/pulumictl
-#      - name: Install Pulumi CLI
-#        uses: pulumi/action-install-pulumi-cli@v1.0.1
-#      - name: Setup Node
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: ${{matrix.nodeversion}}
-#          registry-url: https://registry.npmjs.org
-#      - name: Setup DotNet
-#        uses: actions/setup-dotnet@v1
-#        with:
-#          dotnet-version: ${{matrix.dotnetverson}}
-#      - name: Setup Python
-#        uses: actions/setup-python@v1
-#        with:
-#          python-version: ${{matrix.pythonversion}}
-#      - name: Build SDK
-#        run: make build_${{ matrix.language }}
-#      - name: Check worktree clean
-#        run: ./ci-scripts/ci/check-worktree-is-clean
-#      - name: Compress SDK folder
-#        run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
-#      - name: Upload artifacts
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: ${{ matrix.language  }}-sdk.tar.gz
-#          path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
-#    strategy:
-#      fail-fast: true
-#      matrix:
-#        dotnetversion:
-#          - 3.1.301
-#        goversion:
-#          - 1.16.x
-#        language:
-#          - nodejs
-#          - python
-#          - dotnet
-#          - go
-#        nodeversion:
-#          - 14.x
-#        pythonversion:
-#          - "3.9"
-#  publish_sdk:
-#    name: publish_sdk
-#    needs: [ build_sdk, publish_provider ]
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout Repo
-#        uses: actions/checkout@v2
-#      - name: Checkout Scripts Repo
-#        uses: actions/checkout@v2
-#        with:
-#          path: ci-scripts
-#          repository: pulumi/scripts
-#      - name: Unshallow clone for tags
-#        run: git fetch --prune --unshallow --tags
-#      - name: Install Go
-#        uses: actions/setup-go@v2
-#        with:
-#          go-version: ${{ matrix.goversion }}
-#      - name: Install pulumictl
-#        uses: jaxxstorm/action-install-gh-release@v1.1.0
-#        with:
-#          repo: pulumi/pulumictl
-#      - name: Install Pulumi CLI
-#        uses: pulumi/action-install-pulumi-cli@v1.0.1
-#      - name: Setup Node
-#        uses: actions/setup-node@v1
-#        with:
-#          always-auth: true
-#          registry-url: https://registry.npmjs.org
-#      - name: Setup DotNet
-#        uses: actions/setup-dotnet@v1
-#      - name: Setup Python
-#        uses: actions/setup-python@v1
-#      - name: Download Python SDK
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: python-sdk.tar.gz
-#          path: ${{ github.workspace}}/sdk
-#      - name: Unzip Python SDK
-#        run: tar -zxf ${{ github.workspace}}/sdk/python.tar.gz -C ${{ github.workspace}}/sdk/python
-#      - name: Install Twine
-#        run: python -m pip install pip twine
-#      - name: Download NodeJS SDK
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: nodejs-sdk.tar.gz
-#          path: ${{ github.workspace}}/sdk
-#      - name: Unzip NodeJS SDK
-#        run: tar -zxf ${{ github.workspace}}/sdk/nodejs.tar.gz -C ${{ github.workspace}}/sdk/nodejs
-#      - name: Download DotNet SDK
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: dotnet-sdk.tar.gz
-#          path: ${{ github.workspace}}/sdk
-#      - name: Unzip DotNet SDK
-#        run: tar -zxf ${{ github.workspace}}/sdk/dotnet.tar.gz -C ${{ github.workspace}}/sdk/dotnet
-#      - uses: JS-DevTools/npm-publish@v1
-#        with:
-#          access: "public"
-#          token: ${{ secrets.ARTIFACTORY_NPM_TOKEN }}
-#          package: ${{github.workspace}}/sdk/nodejs/bin/package.json
-#          registry: ${{ secrets.ARTIFACTORY_NPM_REGISTRY_URL }}
-#      - name: Publish package to PyPI
-#        uses: pypa/gh-action-pypi-publish@release/v1
-#        with:
-#          user: __token__
-#          password: ${{ secrets.PYPI_PASSWORD }}
-#          packages_dir: ${{github.workspace}}/sdk/python/bin/dist
-#          repository_url: ${{ secrets.ARTIFACTORY_PYPI_REGISTRY_URL }}
-#      - name: Publish package to Nuget
-#        run: nuget push ${{github.workspace}}/sdk/dotnet/bin/Debug/*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{env.ARTIFACTORY_NUGET_PUBLISH_KEY}}
+          GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+  build_sdk:
+    name: build_sdk
+    runs-on: ubuntu-latest
+    needs: publish_provider
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Checkout Scripts Repo
+        uses: actions/checkout@v2
+        with:
+          path: ci-scripts
+          repository: pulumi/scripts
+      - name: Unshallow clone for tags
+        run: git fetch --prune --unshallow --tags
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.goversion }}
+      - name: Install pulumictl
+        uses: jaxxstorm/action-install-gh-release@v1.1.0
+        with:
+          repo: pulumi/pulumictl
+      - name: Install Pulumi CLI
+        uses: pulumi/action-install-pulumi-cli@v1.0.1
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.nodeversion}}
+          registry-url: https://registry.npmjs.org
+      - name: Setup DotNet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{matrix.dotnetverson}}
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{matrix.pythonversion}}
+      - name: Build SDK
+        run: make build_${{ matrix.language }}
+      - name: Check worktree clean
+        run: ./ci-scripts/ci/check-worktree-is-clean
+      - name: Compress SDK folder
+        run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.language  }}-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
+    strategy:
+      fail-fast: true
+      matrix:
+        dotnetversion:
+          - 3.1.301
+        goversion:
+          - 1.16.x
+        language:
+          - nodejs
+          - python
+          - dotnet
+          - go
+        nodeversion:
+          - 14.x
+        pythonversion:
+          - "3.9"
+  publish_sdk:
+    name: publish_sdk
+    needs: [ build_sdk, publish_provider ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Checkout Scripts Repo
+        uses: actions/checkout@v2
+        with:
+          path: ci-scripts
+          repository: pulumi/scripts
+      - name: Unshallow clone for tags
+        run: git fetch --prune --unshallow --tags
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.goversion }}
+      - name: Install pulumictl
+        uses: jaxxstorm/action-install-gh-release@v1.1.0
+        with:
+          repo: pulumi/pulumictl
+      - name: Install Pulumi CLI
+        uses: pulumi/action-install-pulumi-cli@v1.0.1
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: us-east-1
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-duration-seconds: 3600
+          role-session-name: private-preview@githubActions
+          role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+      - name: Setup Node
+        uses: actions/setup-node@v2
+      - name: Setup DotNet
+        uses: actions/setup-dotnet@v1
+      - name: Setup Python
+        uses: actions/setup-python@v2
+      - name: Download Python SDK
+        uses: actions/download-artifact@v2
+        with:
+          name: python-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk
+      - name: Unzip Python SDK
+        run: tar -zxf ${{ github.workspace}}/sdk/python.tar.gz -C ${{ github.workspace}}/sdk/python
+      - name: Install Twine
+        run: python -m pip install pip twine
+      - name: Download NodeJS SDK
+        uses: actions/download-artifact@v2
+        with:
+          name: nodejs-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk
+      - name: Unzip NodeJS SDK
+        run: tar -zxf ${{ github.workspace}}/sdk/nodejs.tar.gz -C ${{ github.workspace}}/sdk/nodejs
+      - name: Download DotNet SDK
+        uses: actions/download-artifact@v2
+        with:
+          name: dotnet-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk
+      - name: Unzip DotNet SDK
+        run: tar -zxf ${{ github.workspace}}/sdk/dotnet.tar.gz -C ${{ github.workspace}}/sdk/dotnet
+      - name: Authenticate with CodeArtifact
+        run: |
+          echo "CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain private-preview --domain-owner 894850187425 --query authorizationToken --output text)" >> $GITHUB_ENV
+          echo "TWINE_USERNAME=aws" >> $GITHUB_ENV
+          echo "TWINE_PASSWORD=$(aws codeartifact get-authorization-token --domain private-preview --domain-owner 894850187425 --query authorizationToken --output text)" >> $GITHUB_ENV
+          echo "TWINE_REPOSITORY_URL=$(aws codeartifact get-repository-endpoint --domain private-preview --domain-owner 894850187425 --repository preview --format pypi --query repositoryEndpoint --output text)" >> $GITHUB_ENV
+      - name: Publish NPM Package
+        run: npm publish ${{github.workspace}}/sdk/nodejs/bin
+      - name: Publish PyPi Package
+        run: twine upload ${{github.workspace}}/sdk/python/bin/dist
+      - name: Publish package to Nuget
+        run: nuget push ${{github.workspace}}/sdk/dotnet/bin/Debug/*.nupkg -Source 'https://private-preview-894850187425.d.codeartifact.us-east-1.amazonaws.com/nuget/preview/v3/index.json"' -username "aws" -password "${CODEARTIFACT_AUTH_TOKEN}"
 name: release
 "on":
   push:
