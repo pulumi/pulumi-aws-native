@@ -34,18 +34,3 @@ func getBaseOptions() integration.ProgramTestOptions {
 		Quick:                true,
 	}
 }
-
-func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	envRegion := getEnvRegion(t)
-	base := getBaseOptions()
-	baseJS := base.With(integration.ProgramTestOptions{
-		Config: map[string]string{
-			"aws-native:region": envRegion,
-		},
-		Dependencies: []string{
-			"@pulumi/aws-native",
-		},
-	})
-
-	return baseJS
-}
