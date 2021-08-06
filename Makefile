@@ -55,7 +55,7 @@ build_nodejs::
 		yarn install && \
 		tsc && \
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/@pulumi\/aws-native/@pulumipreview\/aws-native"g ./bin/package.json && \
+		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/@pulumi\/aws-native/@pulumipreview\/aws-native"g ./bin/package.json
 
 generate_python::
 	$(WORKING_DIR)/bin/$(CODEGEN) python $(CFN_SCHEMA_FILE) ${VERSION}
