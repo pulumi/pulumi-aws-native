@@ -158,7 +158,7 @@ func (p *cfnProvider) DiffConfig(ctx context.Context, req *pulumirpc.DiffRequest
 	}
 
 	var diffs, replaces []string
-	for k := range diff.Keys() {
+	for _, k := range diff.Keys() {
 		diffs = append(diffs, string(k))
 	}
 
@@ -581,7 +581,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	}
 
 	clientToken := uuid.New().String()
-	glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %q", label, resourceType, id, clientToken, ops)
+	glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %+v", label, resourceType, id, clientToken, ops)
 	res, err := p.cfn.UpdateResource(ctx, &cloudformation.UpdateResourceInput{
 		ClientToken:     aws.String(clientToken),
 		TypeName:        aws.String(resourceType),
@@ -757,12 +757,20 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 	}
 	for {
 		status := pi.OperationStatus
-		glog.V(9).Infof("waiting for resource %q: status %q", pi.Identifier, status)
+		identifier := ""
+		if pi.Identifier != nil {
+			identifier = *pi.Identifier
+		}
+		glog.V(9).Infof("waiting for resource %q: status %q", identifier, status)
 		switch status {
 		case "SUCCESS":
 			return pi, nil
 		case "FAILED":
-			return pi, errors.Errorf("operation %s failed with %q: %s", pi.Operation, pi.ErrorCode, pi.StatusMessage)
+			statusMessage := ""
+			if pi.StatusMessage != nil {
+				statusMessage = *pi.StatusMessage
+			}
+			return pi, errors.Errorf("operation %s failed with %q: %s", pi.Operation, pi.ErrorCode, statusMessage)
 		case "IN_PROGRESS":
 			var pause time.Duration
 			if pi.RetryAfter != nil {

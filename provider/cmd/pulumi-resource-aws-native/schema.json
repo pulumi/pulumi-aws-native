@@ -1,6 +1,5 @@
 {
     "name": "aws-native",
-    "version": "0.0.1-alpha.1627916081+531d0a2c.dirty",
     "description": "A Pulumi package for creating and managing Amazon Web Services (AWS) resources via CloudFormation.",
     "keywords": [
         "pulumi",
