@@ -20,80 +20,154 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_aws_native.accessanalyzer as accessanalyzer
-    import pulumi_aws_native.acmpca as acmpca
-    import pulumi_aws_native.amplify as amplify
-    import pulumi_aws_native.apigateway as apigateway
-    import pulumi_aws_native.appflow as appflow
-    import pulumi_aws_native.applicationinsights as applicationinsights
-    import pulumi_aws_native.athena as athena
-    import pulumi_aws_native.auditmanager as auditmanager
-    import pulumi_aws_native.backup as backup
-    import pulumi_aws_native.cassandra as cassandra
-    import pulumi_aws_native.chatbot as chatbot
-    import pulumi_aws_native.cloudformation as cloudformation
-    import pulumi_aws_native.cloudfront as cloudfront
-    import pulumi_aws_native.cloudwatch as cloudwatch
-    import pulumi_aws_native.codeartifact as codeartifact
-    import pulumi_aws_native.codeguruprofiler as codeguruprofiler
-    import pulumi_aws_native.codegurureviewer as codegurureviewer
-    import pulumi_aws_native.codestarconnections as codestarconnections
-    import pulumi_aws_native.config as config
-    import pulumi_aws_native.configuration as configuration
-    import pulumi_aws_native.databrew as databrew
-    import pulumi_aws_native.detective as detective
-    import pulumi_aws_native.devopsguru as devopsguru
-    import pulumi_aws_native.ec2 as ec2
-    import pulumi_aws_native.ecr as ecr
-    import pulumi_aws_native.ecs as ecs
-    import pulumi_aws_native.efs as efs
-    import pulumi_aws_native.eks as eks
-    import pulumi_aws_native.elasticache as elasticache
-    import pulumi_aws_native.elasticloadbalancingv2 as elasticloadbalancingv2
-    import pulumi_aws_native.events as events
-    import pulumi_aws_native.eventschemas as eventschemas
-    import pulumi_aws_native.fms as fms
-    import pulumi_aws_native.gamelift as gamelift
-    import pulumi_aws_native.globalaccelerator as globalaccelerator
-    import pulumi_aws_native.glue as glue
-    import pulumi_aws_native.greengrassv2 as greengrassv2
-    import pulumi_aws_native.groundstation as groundstation
-    import pulumi_aws_native.imagebuilder as imagebuilder
-    import pulumi_aws_native.iot as iot
-    import pulumi_aws_native.iotevents as iotevents
-    import pulumi_aws_native.iotsitewise as iotsitewise
-    import pulumi_aws_native.ivs as ivs
-    import pulumi_aws_native.kendra as kendra
-    import pulumi_aws_native.kinesis as kinesis
-    import pulumi_aws_native.kinesisfirehose as kinesisfirehose
-    import pulumi_aws_native.kms as kms
-    import pulumi_aws_native.lambda_ as lambda_
-    import pulumi_aws_native.licensemanager as licensemanager
-    import pulumi_aws_native.logs as logs
-    import pulumi_aws_native.macie as macie
-    import pulumi_aws_native.mediapackage as mediapackage
-    import pulumi_aws_native.mwaa as mwaa
-    import pulumi_aws_native.networkfirewall as networkfirewall
-    import pulumi_aws_native.networkmanager as networkmanager
-    import pulumi_aws_native.opsworkscm as opsworkscm
-    import pulumi_aws_native.qldb as qldb
-    import pulumi_aws_native.rds as rds
-    import pulumi_aws_native.redshift as redshift
-    import pulumi_aws_native.resourcegroups as resourcegroups
-    import pulumi_aws_native.route53 as route53
-    import pulumi_aws_native.route53resolver as route53resolver
-    import pulumi_aws_native.s3 as s3
-    import pulumi_aws_native.sagemaker as sagemaker
-    import pulumi_aws_native.servicecatalog as servicecatalog
-    import pulumi_aws_native.ses as ses
-    import pulumi_aws_native.signer as signer
-    import pulumi_aws_native.ssm as ssm
-    import pulumi_aws_native.sso as sso
-    import pulumi_aws_native.stepfunctions as stepfunctions
-    import pulumi_aws_native.synthetics as synthetics
-    import pulumi_aws_native.timestream as timestream
-    import pulumi_aws_native.wafv2 as wafv2
-    import pulumi_aws_native.workspaces as workspaces
+    import pulumi_aws_native.accessanalyzer as __accessanalyzer
+    accessanalyzer = __accessanalyzer
+    import pulumi_aws_native.acmpca as __acmpca
+    acmpca = __acmpca
+    import pulumi_aws_native.amplify as __amplify
+    amplify = __amplify
+    import pulumi_aws_native.apigateway as __apigateway
+    apigateway = __apigateway
+    import pulumi_aws_native.appflow as __appflow
+    appflow = __appflow
+    import pulumi_aws_native.applicationinsights as __applicationinsights
+    applicationinsights = __applicationinsights
+    import pulumi_aws_native.athena as __athena
+    athena = __athena
+    import pulumi_aws_native.auditmanager as __auditmanager
+    auditmanager = __auditmanager
+    import pulumi_aws_native.backup as __backup
+    backup = __backup
+    import pulumi_aws_native.cassandra as __cassandra
+    cassandra = __cassandra
+    import pulumi_aws_native.chatbot as __chatbot
+    chatbot = __chatbot
+    import pulumi_aws_native.cloudformation as __cloudformation
+    cloudformation = __cloudformation
+    import pulumi_aws_native.cloudfront as __cloudfront
+    cloudfront = __cloudfront
+    import pulumi_aws_native.cloudwatch as __cloudwatch
+    cloudwatch = __cloudwatch
+    import pulumi_aws_native.codeartifact as __codeartifact
+    codeartifact = __codeartifact
+    import pulumi_aws_native.codeguruprofiler as __codeguruprofiler
+    codeguruprofiler = __codeguruprofiler
+    import pulumi_aws_native.codegurureviewer as __codegurureviewer
+    codegurureviewer = __codegurureviewer
+    import pulumi_aws_native.codestarconnections as __codestarconnections
+    codestarconnections = __codestarconnections
+    import pulumi_aws_native.config as __config
+    config = __config
+    import pulumi_aws_native.configuration as __configuration
+    configuration = __configuration
+    import pulumi_aws_native.databrew as __databrew
+    databrew = __databrew
+    import pulumi_aws_native.detective as __detective
+    detective = __detective
+    import pulumi_aws_native.devopsguru as __devopsguru
+    devopsguru = __devopsguru
+    import pulumi_aws_native.ec2 as __ec2
+    ec2 = __ec2
+    import pulumi_aws_native.ecr as __ecr
+    ecr = __ecr
+    import pulumi_aws_native.ecs as __ecs
+    ecs = __ecs
+    import pulumi_aws_native.efs as __efs
+    efs = __efs
+    import pulumi_aws_native.eks as __eks
+    eks = __eks
+    import pulumi_aws_native.elasticache as __elasticache
+    elasticache = __elasticache
+    import pulumi_aws_native.elasticloadbalancingv2 as __elasticloadbalancingv2
+    elasticloadbalancingv2 = __elasticloadbalancingv2
+    import pulumi_aws_native.events as __events
+    events = __events
+    import pulumi_aws_native.eventschemas as __eventschemas
+    eventschemas = __eventschemas
+    import pulumi_aws_native.fms as __fms
+    fms = __fms
+    import pulumi_aws_native.gamelift as __gamelift
+    gamelift = __gamelift
+    import pulumi_aws_native.globalaccelerator as __globalaccelerator
+    globalaccelerator = __globalaccelerator
+    import pulumi_aws_native.glue as __glue
+    glue = __glue
+    import pulumi_aws_native.greengrassv2 as __greengrassv2
+    greengrassv2 = __greengrassv2
+    import pulumi_aws_native.groundstation as __groundstation
+    groundstation = __groundstation
+    import pulumi_aws_native.imagebuilder as __imagebuilder
+    imagebuilder = __imagebuilder
+    import pulumi_aws_native.iot as __iot
+    iot = __iot
+    import pulumi_aws_native.iotevents as __iotevents
+    iotevents = __iotevents
+    import pulumi_aws_native.iotsitewise as __iotsitewise
+    iotsitewise = __iotsitewise
+    import pulumi_aws_native.ivs as __ivs
+    ivs = __ivs
+    import pulumi_aws_native.kendra as __kendra
+    kendra = __kendra
+    import pulumi_aws_native.kinesis as __kinesis
+    kinesis = __kinesis
+    import pulumi_aws_native.kinesisfirehose as __kinesisfirehose
+    kinesisfirehose = __kinesisfirehose
+    import pulumi_aws_native.kms as __kms
+    kms = __kms
+    import pulumi_aws_native.lambda_ as __lambda_
+    lambda_ = __lambda_
+    import pulumi_aws_native.licensemanager as __licensemanager
+    licensemanager = __licensemanager
+    import pulumi_aws_native.logs as __logs
+    logs = __logs
+    import pulumi_aws_native.macie as __macie
+    macie = __macie
+    import pulumi_aws_native.mediapackage as __mediapackage
+    mediapackage = __mediapackage
+    import pulumi_aws_native.mwaa as __mwaa
+    mwaa = __mwaa
+    import pulumi_aws_native.networkfirewall as __networkfirewall
+    networkfirewall = __networkfirewall
+    import pulumi_aws_native.networkmanager as __networkmanager
+    networkmanager = __networkmanager
+    import pulumi_aws_native.opsworkscm as __opsworkscm
+    opsworkscm = __opsworkscm
+    import pulumi_aws_native.qldb as __qldb
+    qldb = __qldb
+    import pulumi_aws_native.rds as __rds
+    rds = __rds
+    import pulumi_aws_native.redshift as __redshift
+    redshift = __redshift
+    import pulumi_aws_native.resourcegroups as __resourcegroups
+    resourcegroups = __resourcegroups
+    import pulumi_aws_native.route53 as __route53
+    route53 = __route53
+    import pulumi_aws_native.route53resolver as __route53resolver
+    route53resolver = __route53resolver
+    import pulumi_aws_native.s3 as __s3
+    s3 = __s3
+    import pulumi_aws_native.sagemaker as __sagemaker
+    sagemaker = __sagemaker
+    import pulumi_aws_native.servicecatalog as __servicecatalog
+    servicecatalog = __servicecatalog
+    import pulumi_aws_native.ses as __ses
+    ses = __ses
+    import pulumi_aws_native.signer as __signer
+    signer = __signer
+    import pulumi_aws_native.ssm as __ssm
+    ssm = __ssm
+    import pulumi_aws_native.sso as __sso
+    sso = __sso
+    import pulumi_aws_native.stepfunctions as __stepfunctions
+    stepfunctions = __stepfunctions
+    import pulumi_aws_native.synthetics as __synthetics
+    synthetics = __synthetics
+    import pulumi_aws_native.timestream as __timestream
+    timestream = __timestream
+    import pulumi_aws_native.wafv2 as __wafv2
+    wafv2 = __wafv2
+    import pulumi_aws_native.workspaces as __workspaces
+    workspaces = __workspaces
 else:
     accessanalyzer = _utilities.lazy_import('pulumi_aws_native.accessanalyzer')
     acmpca = _utilities.lazy_import('pulumi_aws_native.acmpca')

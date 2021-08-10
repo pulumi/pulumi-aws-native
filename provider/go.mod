@@ -18,7 +18,7 @@ require (
 	github.com/hashicorp/hcl/v2 v2.3.0
 	github.com/jpillora/backoff v1.0.0
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v3 v3.9.1
+	github.com/pulumi/pulumi/pkg/v3 v3.9.2-0.20210810055824-9c501b5bede1
 	github.com/pulumi/pulumi/sdk/v3 v3.9.1
 	github.com/stretchr/testify v1.6.1
 	github.com/zclconf/go-cty v1.3.1
