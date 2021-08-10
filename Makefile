@@ -26,7 +26,7 @@ ensure::
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 
 local_generate:: clean
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python $(CFN_SCHEMA_FILE) ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go $(CFN_SCHEMA_FILE) ${VERSION}
 	echo "Finished generating."
 
 generate_schema::
@@ -55,7 +55,7 @@ build_nodejs::
 		yarn install && \
 		tsc && \
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/@pulumi\/aws-native/@pulumipreview\/aws-native"g ./bin/package.json
+		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/@pulumi\/aws-native/@pulumipreview\/aws-native/g" ./bin/package.json
 
 generate_python::
 	$(WORKING_DIR)/bin/$(CODEGEN) python $(CFN_SCHEMA_FILE) ${VERSION}
@@ -81,11 +81,10 @@ build_dotnet::
 
 generate_go::
 	rm -rf sdk/go && mkdir sdk/go && touch sdk/go/tbd.txt
-#	$(WORKING_DIR)/bin/$(CODEGEN) go $(CFN_SCHEMA_FILE) ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) go $(CFN_SCHEMA_FILE) ${VERSION}
 
 build_go::
-#	cd sdk/ && \
-#		GOGC=50 go list github.com/pulumi/pulumi-aws-native/sdk/go/aws/... | xargs -L 1 go build
+	cd sdk/ && go build github.com/pulumi/pulumi-aws-native/sdk/go/aws/...
 
 clean::
 	rm -rf sdk/nodejs && mkdir sdk/nodejs && touch sdk/nodejs/go.mod
