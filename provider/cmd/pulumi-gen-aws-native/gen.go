@@ -295,9 +295,7 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 	})
 	p.Language["python"] = rawMessage(map[string]interface{}{
 		"requires": map[string]string{
-			"pulumi":   ">=3.0.0,<4.0.0",
-			"requests": ">=2.21.0,<2.22.0",
-			"pyyaml":   ">=5.1,<5.2",
+			"pulumi": ">=3.0.0,<4.0.0",
 		},
 	})
 
