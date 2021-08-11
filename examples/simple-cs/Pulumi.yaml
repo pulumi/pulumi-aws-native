@@ -1,0 +1,3 @@
+name: simple-cs
+runtime: dotnet
+description: A simple AWS Cloud C# Pulumi program

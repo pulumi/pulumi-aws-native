@@ -27,25 +27,14 @@ func getCwd(t *testing.T) string {
 	return cwd
 }
 
-func getBaseOptions() integration.ProgramTestOptions {
+func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	envRegion := getEnvRegion(t)
 	return integration.ProgramTestOptions{
+		Config: map[string]string{
+			"aws-native:region": envRegion,
+		},
 		ExpectRefreshChanges: true,
 		SkipRefresh:          true,
 		Quick:                true,
 	}
-}
-
-func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	envRegion := getEnvRegion(t)
-	base := getBaseOptions()
-	baseJS := base.With(integration.ProgramTestOptions{
-		Config: map[string]string{
-			"aws-native:region": envRegion,
-		},
-		Dependencies: []string{
-			"@pulumi/aws-native",
-		},
-	})
-
-	return baseJS
 }
