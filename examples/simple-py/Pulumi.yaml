@@ -1,0 +1,3 @@
+name: simple-py
+runtime: python
+description: A minimal AWS Python Pulumi program
