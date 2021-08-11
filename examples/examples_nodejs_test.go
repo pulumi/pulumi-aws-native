@@ -20,12 +20,8 @@ func TestSimpleTs(t *testing.T) {
 }
 
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	envRegion := getEnvRegion(t)
-	base := getBaseOptions()
+	base := getBaseOptions(t)
 	baseJS := base.With(integration.ProgramTestOptions{
-		Config: map[string]string{
-			"aws-native:region": envRegion,
-		},
 		Dependencies: []string{
 			"@pulumi/aws-native",
 		},
