@@ -170,6 +170,8 @@ jobs:
         run: tar -zxf ${{ github.workspace}}/sdk/dotnet.tar.gz -C ${{ github.workspace}}/sdk/dotnet
       - name: Login to AWS CodeArtifact NPM for package publishing
         run: aws codeartifact login --tool npm --repository preview --domain private-preview --domain-owner 894850187425
+      - name: Login to AWS CodeArtifact Nuget for package publishing
+        run: aws codeartifact login --tool nuget --repository preview --domain private-preview --domain-owner 894850187425
       - name: Set CodeArtifact AuthToken
         run: |
           echo "CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain private-preview --domain-owner 894850187425 --query authorizationToken --output text)" >> $GITHUB_ENV
@@ -181,7 +183,7 @@ jobs:
       - name: Publish PyPi Package
         run: twine upload ${{github.workspace}}/sdk/python/bin/dist/*.tar.gz
       - name: Publish package to Nuget
-        run: nuget push ${{github.workspace}}/sdk/dotnet/bin/Debug/*.nupkg -Source 'https://private-preview-894850187425.d.codeartifact.us-east-1.amazonaws.com/nuget/preview/v3/index.json"' -username "aws" -password "${CODEARTIFACT_AUTH_TOKEN}"
+        run: nuget push ${{github.workspace}}/sdk/dotnet/bin/Debug/*.nupkg -Source 'https://private-preview-894850187425.d.codeartifact.us-east-1.amazonaws.com/nuget/preview/v3/index.json"'
 name: release
 "on":
   push:
