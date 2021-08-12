@@ -170,11 +170,12 @@ jobs:
         run: tar -zxf ${{ github.workspace}}/sdk/dotnet.tar.gz -C ${{ github.workspace}}/sdk/dotnet
       - name: Login to AWS CodeArtifact NPM for package publishing
         run: aws codeartifact login --tool npm --repository preview --domain private-preview --domain-owner 894850187425
-      - name: Login to AWS CodeArtifact Twine for package publishing
-        run: aws codeartifact login --tool twine --repository preview --domain private-preview --domain-owner 894850187425
       - name: Set CodeArtifact AuthToken
         run: |
           echo "CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain private-preview --domain-owner 894850187425 --query authorizationToken --output text)" >> $GITHUB_ENV
+          echo "TWINE_USERNAME=aws" >> $GITHUB_ENV
+          echo "TWINE_PASSWORD=$(aws codeartifact get-authorization-token --domain private-preview --domain-owner 894850187425 --query authorizationToken --output text)" >> $GITHUB_ENV
+          echo "TWINE_REPOSITORY_URL=$(aws codeartifact get-repository-endpoint --domain private-preview --domain-owner 894850187425 --repository preview --format pypi --query repositoryEndpoint --output text)" >> $GITHUB_ENV
       - name: Publish NPM Package
         run: npm publish ${{github.workspace}}/sdk/nodejs/bin
       - name: Publish PyPi Package
