@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     public sealed class OriginEndpointCmafEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
+        /// </summary>
+        [Input("constantInitializationVector")]
+        public Input<string>? ConstantInitializationVector { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
         /// </summary>
         [Input("keyRotationIntervalSeconds")]

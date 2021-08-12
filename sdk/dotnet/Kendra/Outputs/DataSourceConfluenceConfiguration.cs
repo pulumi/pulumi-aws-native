@@ -27,11 +27,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceInclusionsExclusionsStrings? ExclusionPatterns;
+        public readonly ImmutableArray<string> ExclusionPatterns;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceInclusionsExclusionsStrings? InclusionPatterns;
+        public readonly ImmutableArray<string> InclusionPatterns;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-pageconfiguration
         /// </summary>
@@ -63,9 +63,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Outputs.DataSourceConfluenceBlogConfiguration? blogConfiguration,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? exclusionPatterns,
+            ImmutableArray<string> exclusionPatterns,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? inclusionPatterns,
+            ImmutableArray<string> inclusionPatterns,
 
             Outputs.DataSourceConfluencePageConfiguration? pageConfiguration,
 

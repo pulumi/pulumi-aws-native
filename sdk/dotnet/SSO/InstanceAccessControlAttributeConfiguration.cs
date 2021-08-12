@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.SSO
     public partial class InstanceAccessControlAttributeConfiguration : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
         /// </summary>
-        [Output("instanceAccessControlAttributeConfiguration")]
-        public Output<Union<System.Text.Json.JsonElement, string>> InstanceAccessControlAttributeConfigurationValue { get; private set; } = null!;
+        [Output("accessControlAttributes")]
+        public Output<ImmutableArray<Outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute>> AccessControlAttributes { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
@@ -72,11 +72,17 @@ namespace Pulumi.AwsNative.SSO
 
     public sealed class InstanceAccessControlAttributeConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("accessControlAttributes")]
+        private InputList<Inputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>? _accessControlAttributes;
+
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
         /// </summary>
-        [Input("instanceAccessControlAttributeConfiguration", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> InstanceAccessControlAttributeConfigurationValue { get; set; } = null!;
+        public InputList<Inputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs> AccessControlAttributes
+        {
+            get => _accessControlAttributes ?? (_accessControlAttributes = new InputList<Inputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>());
+            set => _accessControlAttributes = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn

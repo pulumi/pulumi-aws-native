@@ -15,17 +15,29 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class RuleGroupStatelessRulesAndCustomActionsArgs : Pulumi.ResourceArgs
     {
+        [Input("customActions")]
+        private InputList<Inputs.RuleGroupCustomActionArgs>? _customActions;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
         /// </summary>
-        [Input("customActions")]
-        public Input<Inputs.RuleGroupCustomActionsArgs>? CustomActions { get; set; }
+        public InputList<Inputs.RuleGroupCustomActionArgs> CustomActions
+        {
+            get => _customActions ?? (_customActions = new InputList<Inputs.RuleGroupCustomActionArgs>());
+            set => _customActions = value;
+        }
+
+        [Input("statelessRules", required: true)]
+        private InputList<Inputs.RuleGroupStatelessRuleArgs>? _statelessRules;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
         /// </summary>
-        [Input("statelessRules", required: true)]
-        public Input<Inputs.RuleGroupStatelessRulesArgs> StatelessRules { get; set; } = null!;
+        public InputList<Inputs.RuleGroupStatelessRuleArgs> StatelessRules
+        {
+            get => _statelessRules ?? (_statelessRules = new InputList<Inputs.RuleGroupStatelessRuleArgs>());
+            set => _statelessRules = value;
+        }
 
         public RuleGroupStatelessRulesAndCustomActionsArgs()
         {

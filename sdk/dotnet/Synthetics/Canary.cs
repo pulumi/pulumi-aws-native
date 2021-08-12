@@ -93,6 +93,12 @@ namespace Pulumi.AwsNative.Synthetics
         [Output("vPCConfig")]
         public Output<Outputs.CanaryVPCConfig?> VPCConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+        /// </summary>
+        [Output("visualReference")]
+        public Output<Outputs.CanaryVisualReference?> VisualReference { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Canary resource with the given unique name, arguments, and options.
@@ -215,6 +221,12 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         [Input("vPCConfig")]
         public Input<Inputs.CanaryVPCConfigArgs>? VPCConfig { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+        /// </summary>
+        [Input("visualReference")]
+        public Input<Inputs.CanaryVisualReferenceArgs>? VisualReference { get; set; }
 
         public CanaryArgs()
         {

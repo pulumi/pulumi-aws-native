@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
         /// </summary>
-        public readonly int Size;
+        public readonly double Size;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.RuleGroupFieldToMatch fieldToMatch,
 
-            int size,
+            double size,
 
             ImmutableArray<Outputs.RuleGroupTextTransformation> textTransformations)
         {

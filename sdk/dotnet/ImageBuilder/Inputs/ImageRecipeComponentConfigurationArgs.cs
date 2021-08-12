@@ -21,6 +21,18 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         [Input("componentArn")]
         public Input<string>? ComponentArn { get; set; }
 
+        [Input("parameters")]
+        private InputList<Inputs.ImageRecipeComponentParameterArgs>? _parameters;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-parameters
+        /// </summary>
+        public InputList<Inputs.ImageRecipeComponentParameterArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputList<Inputs.ImageRecipeComponentParameterArgs>());
+            set => _parameters = value;
+        }
+
         public ImageRecipeComponentConfigurationArgs()
         {
         }

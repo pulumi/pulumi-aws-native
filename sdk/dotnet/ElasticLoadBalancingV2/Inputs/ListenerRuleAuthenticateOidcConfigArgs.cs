@@ -82,6 +82,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public Input<string> TokenEndpoint { get; set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-useexistingclientsecret
+        /// </summary>
+        [Input("useExistingClientSecret")]
+        public Input<bool>? UseExistingClientSecret { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-userinfoendpoint
         /// </summary>
         [Input("userInfoEndpoint", required: true)]

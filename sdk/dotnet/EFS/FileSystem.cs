@@ -19,10 +19,22 @@ namespace Pulumi.AwsNative.EFS
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
+        /// </summary>
+        [Output("availabilityZoneName")]
+        public Output<string?> AvailabilityZoneName { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
         /// </summary>
         [Output("backupPolicy")]
         public Output<Outputs.FileSystemBackupPolicy?> BackupPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
+        /// </summary>
+        [Output("bypassPolicyLockoutSafetyCheck")]
+        public Output<bool?> BypassPolicyLockoutSafetyCheck { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
@@ -121,10 +133,22 @@ namespace Pulumi.AwsNative.EFS
     public sealed class FileSystemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
+        /// </summary>
+        [Input("availabilityZoneName")]
+        public Input<string>? AvailabilityZoneName { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
         /// </summary>
         [Input("backupPolicy")]
         public Input<Inputs.FileSystemBackupPolicyArgs>? BackupPolicy { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
+        /// </summary>
+        [Input("bypassPolicyLockoutSafetyCheck")]
+        public Input<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted

@@ -21,11 +21,14 @@ namespace Pulumi.AwsNative.Configuration
         [Output("accountAggregationSources")]
         public Output<ImmutableArray<Outputs.ConfigurationAggregatorAccountAggregationSource>> AccountAggregationSources { get; private set; } = null!;
 
+        [Output("configurationAggregatorArn")]
+        public Output<string> ConfigurationAggregatorArn { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
         /// </summary>
         [Output("configurationAggregatorName")]
-        public Output<string> ConfigurationAggregatorName { get; private set; } = null!;
+        public Output<string?> ConfigurationAggregatorName { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
@@ -47,7 +50,7 @@ namespace Pulumi.AwsNative.Configuration
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ConfigurationAggregator(string name, ConfigurationAggregatorArgs args, CustomResourceOptions? options = null)
+        public ConfigurationAggregator(string name, ConfigurationAggregatorArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:Configuration:ConfigurationAggregator", name, args ?? new ConfigurationAggregatorArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -99,8 +102,8 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
         /// </summary>
-        [Input("configurationAggregatorName", required: true)]
-        public Input<string> ConfigurationAggregatorName { get; set; } = null!;
+        [Input("configurationAggregatorName")]
+        public Input<string>? ConfigurationAggregatorName { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource

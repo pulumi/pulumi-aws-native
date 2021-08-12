@@ -87,6 +87,12 @@ namespace Pulumi.AwsNative.Redshift
         [Output("encrypted")]
         public Output<bool?> Encrypted { get; private set; } = null!;
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
+        /// </summary>
+        [Output("endpoint")]
+        public Output<Outputs.ClusterEndpoint?> Endpoint { get; private set; } = null!;
+
         [Output("endpointAddress")]
         public Output<string> EndpointAddress { get; private set; } = null!;
 
@@ -94,13 +100,13 @@ namespace Pulumi.AwsNative.Redshift
         public Output<string> EndpointPort { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertidentifier
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
         /// </summary>
         [Output("hsmClientCertificateIdentifier")]
         public Output<string?> HsmClientCertificateIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-HsmConfigurationIdentifier
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
         /// </summary>
         [Output("hsmConfigurationIdentifier")]
         public Output<string?> HsmConfigurationIdentifier { get; private set; } = null!;
@@ -110,6 +116,9 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         [Output("iamRoles")]
         public Output<ImmutableArray<string>> IamRoles { get; private set; } = null!;
+
+        [Output("id")]
+        public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
@@ -142,7 +151,7 @@ namespace Pulumi.AwsNative.Redshift
         public Output<string> NodeType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
         /// </summary>
         [Output("numberOfNodes")]
         public Output<int?> NumberOfNodes { get; private set; } = null!;
@@ -319,13 +328,19 @@ namespace Pulumi.AwsNative.Redshift
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertidentifier
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
+        /// </summary>
+        [Input("endpoint")]
+        public Input<Inputs.ClusterEndpointArgs>? Endpoint { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
         /// </summary>
         [Input("hsmClientCertificateIdentifier")]
         public Input<string>? HsmClientCertificateIdentifier { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-HsmConfigurationIdentifier
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
         /// </summary>
         [Input("hsmConfigurationIdentifier")]
         public Input<string>? HsmConfigurationIdentifier { get; set; }
@@ -373,7 +388,7 @@ namespace Pulumi.AwsNative.Redshift
         public Input<string> NodeType { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
         /// </summary>
         [Input("numberOfNodes")]
         public Input<int>? NumberOfNodes { get; set; }

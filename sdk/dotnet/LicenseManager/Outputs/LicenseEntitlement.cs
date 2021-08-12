@@ -21,10 +21,6 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
         /// </summary>
         public readonly bool? AllowCheckIn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-checkoutrules
-        /// </summary>
-        public readonly Outputs.LicenseRuleList? CheckoutRules;
-        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-maxcount
         /// </summary>
         public readonly int? MaxCount;
@@ -49,8 +45,6 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
         private LicenseEntitlement(
             bool? allowCheckIn,
 
-            Outputs.LicenseRuleList? checkoutRules,
-
             int? maxCount,
 
             string name,
@@ -62,7 +56,6 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
             string? value)
         {
             AllowCheckIn = allowCheckIn;
-            CheckoutRules = checkoutRules;
             MaxCount = maxCount;
             Name = name;
             Overage = overage;

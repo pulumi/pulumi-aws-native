@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         public Output<string> AssociationArn { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-bucketname
+        /// </summary>
+        [Output("bucketName")]
+        public Output<string?> BucketName { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-connectionarn
         /// </summary>
         [Output("connectionArn")]
@@ -93,6 +99,12 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
 
     public sealed class RepositoryAssociationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-bucketname
+        /// </summary>
+        [Input("bucketName")]
+        public Input<string>? BucketName { get; set; }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-connectionarn
         /// </summary>

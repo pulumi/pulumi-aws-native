@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-timeinseconds
         /// </summary>
-        public readonly string? TimeInSeconds;
+        public readonly string TimeInSeconds;
 
         [OutputConstructor]
         private DetectorModelAssetPropertyTimestamp(
             string? offsetInNanos,
 
-            string? timeInSeconds)
+            string timeInSeconds)
         {
             OffsetInNanos = offsetInNanos;
             TimeInSeconds = timeInSeconds;

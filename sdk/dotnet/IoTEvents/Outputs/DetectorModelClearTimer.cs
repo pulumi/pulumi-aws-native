@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html#cfn-iotevents-detectormodel-cleartimer-timername
         /// </summary>
-        public readonly string? TimerName;
+        public readonly string TimerName;
 
         [OutputConstructor]
-        private DetectorModelClearTimer(string? timerName)
+        private DetectorModelClearTimer(string timerName)
         {
             TimerName = timerName;
         }

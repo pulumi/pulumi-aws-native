@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
+        /// </summary>
+        [Input("scopeDownStatement")]
+        public Input<Inputs.WebACLStatementArgs>? ScopeDownStatement { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
         /// </summary>
         [Input("vendorName", required: true)]

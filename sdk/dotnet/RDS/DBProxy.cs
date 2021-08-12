@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.RDS
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DBProxyTagFormat>> Tags { get; private set; } = null!;
 
+        [Output("vpcId")]
+        public Output<string> VpcId { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
         /// </summary>

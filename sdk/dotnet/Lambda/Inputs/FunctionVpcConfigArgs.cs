@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// </summary>
     public sealed class FunctionVpcConfigArgs : Pulumi.ResourceArgs
     {
-        [Input("securityGroupIds", required: true)]
+        [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
             set => _securityGroupIds = value;
         }
 
-        [Input("subnetIds", required: true)]
+        [Input("subnetIds")]
         private InputList<string>? _subnetIds;
 
         /// <summary>

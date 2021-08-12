@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-containerrecipearn
+        /// </summary>
+        [Output("containerRecipeArn")]
+        public Output<string?> ContainerRecipeArn { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
         /// </summary>
         [Output("description")]
@@ -40,7 +46,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
         /// </summary>
         [Output("imageRecipeArn")]
-        public Output<string> ImageRecipeArn { get; private set; } = null!;
+        public Output<string?> ImageRecipeArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
@@ -54,9 +60,6 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Output("infrastructureConfigurationArn")]
         public Output<string> InfrastructureConfigurationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-name
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -124,6 +127,12 @@ namespace Pulumi.AwsNative.ImageBuilder
     public sealed class ImagePipelineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-containerrecipearn
+        /// </summary>
+        [Input("containerRecipeArn")]
+        public Input<string>? ContainerRecipeArn { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
         /// </summary>
         [Input("description")]
@@ -144,8 +153,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
         /// </summary>
-        [Input("imageRecipeArn", required: true)]
-        public Input<string> ImageRecipeArn { get; set; } = null!;
+        [Input("imageRecipeArn")]
+        public Input<string>? ImageRecipeArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration

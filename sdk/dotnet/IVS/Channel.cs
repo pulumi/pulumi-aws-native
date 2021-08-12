@@ -43,6 +43,12 @@ namespace Pulumi.AwsNative.IVS
         public Output<string> PlaybackUrl { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-recordingconfigurationarn
+        /// </summary>
+        [Output("recordingConfigurationArn")]
+        public Output<string?> RecordingConfigurationArn { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
         /// </summary>
         [Output("tags")]
@@ -116,6 +122,12 @@ namespace Pulumi.AwsNative.IVS
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-recordingconfigurationarn
+        /// </summary>
+        [Input("recordingConfigurationArn")]
+        public Input<string>? RecordingConfigurationArn { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

@@ -15,35 +15,65 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class FirewallPolicyFirewallPolicyArgs : Pulumi.ResourceArgs
     {
+        [Input("statefulRuleGroupReferences")]
+        private InputList<Inputs.FirewallPolicyStatefulRuleGroupReferenceArgs>? _statefulRuleGroupReferences;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences
         /// </summary>
-        [Input("statefulRuleGroupReferences")]
-        public Input<Inputs.FirewallPolicyStatefulRuleGroupReferencesArgs>? StatefulRuleGroupReferences { get; set; }
+        public InputList<Inputs.FirewallPolicyStatefulRuleGroupReferenceArgs> StatefulRuleGroupReferences
+        {
+            get => _statefulRuleGroupReferences ?? (_statefulRuleGroupReferences = new InputList<Inputs.FirewallPolicyStatefulRuleGroupReferenceArgs>());
+            set => _statefulRuleGroupReferences = value;
+        }
+
+        [Input("statelessCustomActions")]
+        private InputList<Inputs.FirewallPolicyCustomActionArgs>? _statelessCustomActions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions
         /// </summary>
-        [Input("statelessCustomActions")]
-        public Input<Inputs.FirewallPolicyCustomActionsArgs>? StatelessCustomActions { get; set; }
+        public InputList<Inputs.FirewallPolicyCustomActionArgs> StatelessCustomActions
+        {
+            get => _statelessCustomActions ?? (_statelessCustomActions = new InputList<Inputs.FirewallPolicyCustomActionArgs>());
+            set => _statelessCustomActions = value;
+        }
+
+        [Input("statelessDefaultActions", required: true)]
+        private InputList<string>? _statelessDefaultActions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions
         /// </summary>
-        [Input("statelessDefaultActions", required: true)]
-        public Input<Inputs.FirewallPolicyStatelessActionsArgs> StatelessDefaultActions { get; set; } = null!;
+        public InputList<string> StatelessDefaultActions
+        {
+            get => _statelessDefaultActions ?? (_statelessDefaultActions = new InputList<string>());
+            set => _statelessDefaultActions = value;
+        }
+
+        [Input("statelessFragmentDefaultActions", required: true)]
+        private InputList<string>? _statelessFragmentDefaultActions;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions
         /// </summary>
-        [Input("statelessFragmentDefaultActions", required: true)]
-        public Input<Inputs.FirewallPolicyStatelessActionsArgs> StatelessFragmentDefaultActions { get; set; } = null!;
+        public InputList<string> StatelessFragmentDefaultActions
+        {
+            get => _statelessFragmentDefaultActions ?? (_statelessFragmentDefaultActions = new InputList<string>());
+            set => _statelessFragmentDefaultActions = value;
+        }
+
+        [Input("statelessRuleGroupReferences")]
+        private InputList<Inputs.FirewallPolicyStatelessRuleGroupReferenceArgs>? _statelessRuleGroupReferences;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
         /// </summary>
-        [Input("statelessRuleGroupReferences")]
-        public Input<Inputs.FirewallPolicyStatelessRuleGroupReferencesArgs>? StatelessRuleGroupReferences { get; set; }
+        public InputList<Inputs.FirewallPolicyStatelessRuleGroupReferenceArgs> StatelessRuleGroupReferences
+        {
+            get => _statelessRuleGroupReferences ?? (_statelessRuleGroupReferences = new InputList<Inputs.FirewallPolicyStatelessRuleGroupReferenceArgs>());
+            set => _statelessRuleGroupReferences = value;
+        }
 
         public FirewallPolicyFirewallPolicyArgs()
         {

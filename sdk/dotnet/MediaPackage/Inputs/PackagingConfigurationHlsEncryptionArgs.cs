@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
         /// </summary>
         [Input("spekeKeyProvider", required: true)]
-        public Input<object> SpekeKeyProvider { get; set; } = null!;
+        public Input<Inputs.PackagingConfigurationSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;
 
         public PackagingConfigurationHlsEncryptionArgs()
         {

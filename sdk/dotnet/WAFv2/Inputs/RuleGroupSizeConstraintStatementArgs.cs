@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
         /// </summary>
         [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
+        public Input<double> Size { get; set; } = null!;
 
         [Input("textTransformations", required: true)]
         private InputList<Inputs.RuleGroupTextTransformationArgs>? _textTransformations;

@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html#cfn-networkfirewall-rulegroup-portset-definition
         /// </summary>
-        public readonly Outputs.RuleGroupVariableDefinitionList? Definition;
+        public readonly ImmutableArray<string> Definition;
 
         [OutputConstructor]
-        private RuleGroupPortSet(Outputs.RuleGroupVariableDefinitionList? definition)
+        private RuleGroupPortSet(ImmutableArray<string> definition)
         {
             Definition = definition;
         }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SSO
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
         /// </summary>
         [Output("inlinePolicy")]
-        public Output<string?> InlinePolicy { get; private set; } = null!;
+        public Output<Union<System.Text.Json.JsonElement, string>?> InlinePolicy { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.SSO
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
         /// </summary>
         [Input("inlinePolicy")]
-        public Input<string>? InlinePolicy { get; set; }
+        public InputUnion<System.Text.Json.JsonElement, string>? InlinePolicy { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn

@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly Outputs.DataSourceDatabaseConfiguration? DatabaseConfiguration;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-googledriveconfiguration
+        /// </summary>
+        public readonly Outputs.DataSourceGoogleDriveConfiguration? GoogleDriveConfiguration;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
         /// </summary>
         public readonly Outputs.DataSourceOneDriveConfiguration? OneDriveConfiguration;
@@ -51,6 +55,8 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Outputs.DataSourceDatabaseConfiguration? databaseConfiguration,
 
+            Outputs.DataSourceGoogleDriveConfiguration? googleDriveConfiguration,
+
             Outputs.DataSourceOneDriveConfiguration? oneDriveConfiguration,
 
             Outputs.DataSourceS3DataSourceConfiguration? s3Configuration,
@@ -63,6 +69,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         {
             ConfluenceConfiguration = confluenceConfiguration;
             DatabaseConfiguration = databaseConfiguration;
+            GoogleDriveConfiguration = googleDriveConfiguration;
             OneDriveConfiguration = oneDriveConfiguration;
             S3Configuration = s3Configuration;
             SalesforceConfiguration = salesforceConfiguration;

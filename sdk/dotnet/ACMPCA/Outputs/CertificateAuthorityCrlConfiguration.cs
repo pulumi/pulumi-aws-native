@@ -32,6 +32,10 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname
         /// </summary>
         public readonly string? S3BucketName;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3objectacl
+        /// </summary>
+        public readonly string? S3ObjectAcl;
 
         [OutputConstructor]
         private CertificateAuthorityCrlConfiguration(
@@ -41,12 +45,15 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
 
             int? expirationInDays,
 
-            string? s3BucketName)
+            string? s3BucketName,
+
+            string? s3ObjectAcl)
         {
             CustomCname = customCname;
             Enabled = enabled;
             ExpirationInDays = expirationInDays;
             S3BucketName = s3BucketName;
+            S3ObjectAcl = s3ObjectAcl;
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
         /// </summary>
-        public readonly Outputs.DetectorModelAssetPropertyVariant? Value;
+        public readonly Outputs.DetectorModelAssetPropertyVariant Value;
 
         [OutputConstructor]
         private DetectorModelAssetPropertyValue(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 
             Outputs.DetectorModelAssetPropertyTimestamp? timestamp,
 
-            Outputs.DetectorModelAssetPropertyVariant? value)
+            Outputs.DetectorModelAssetPropertyVariant value)
         {
             Quality = quality;
             Timestamp = timestamp;

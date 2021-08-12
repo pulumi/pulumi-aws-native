@@ -27,17 +27,29 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("crawlAttachments")]
         public Input<bool>? CrawlAttachments { get; set; }
 
+        [Input("excludeAttachmentFilePatterns")]
+        private InputList<string>? _excludeAttachmentFilePatterns;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns
         /// </summary>
-        [Input("excludeAttachmentFilePatterns")]
-        public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? ExcludeAttachmentFilePatterns { get; set; }
+        public InputList<string> ExcludeAttachmentFilePatterns
+        {
+            get => _excludeAttachmentFilePatterns ?? (_excludeAttachmentFilePatterns = new InputList<string>());
+            set => _excludeAttachmentFilePatterns = value;
+        }
+
+        [Input("includeAttachmentFilePatterns")]
+        private InputList<string>? _includeAttachmentFilePatterns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns
         /// </summary>
-        [Input("includeAttachmentFilePatterns")]
-        public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? IncludeAttachmentFilePatterns { get; set; }
+        public InputList<string> IncludeAttachmentFilePatterns
+        {
+            get => _includeAttachmentFilePatterns ?? (_includeAttachmentFilePatterns = new InputList<string>());
+            set => _includeAttachmentFilePatterns = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
@@ -63,11 +75,17 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("standardObjectAttachmentConfiguration")]
         public Input<Inputs.DataSourceSalesforceStandardObjectAttachmentConfigurationArgs>? StandardObjectAttachmentConfiguration { get; set; }
 
+        [Input("standardObjectConfigurations")]
+        private InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs>? _standardObjectConfigurations;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
         /// </summary>
-        [Input("standardObjectConfigurations")]
-        public Input<Inputs.DataSourceSalesforceStandardObjectConfigurationListArgs>? StandardObjectConfigurations { get; set; }
+        public InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs> StandardObjectConfigurations
+        {
+            get => _standardObjectConfigurations ?? (_standardObjectConfigurations = new InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs>());
+            set => _standardObjectConfigurations = value;
+        }
 
         public DataSourceSalesforceConfigurationArgs()
         {

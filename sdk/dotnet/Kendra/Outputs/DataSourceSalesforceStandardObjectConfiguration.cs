@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-fieldmappings
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceToIndexFieldMappingList? FieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-name
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             string? documentTitleFieldName,
 
-            Outputs.DataSourceDataSourceToIndexFieldMappingList? fieldMappings,
+            ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings,
 
             string name)
         {

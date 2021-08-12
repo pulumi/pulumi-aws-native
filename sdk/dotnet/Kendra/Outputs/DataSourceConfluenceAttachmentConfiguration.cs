@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings
         /// </summary>
-        public readonly Outputs.DataSourceConfluenceAttachmentFieldMappingsList? AttachmentFieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceConfluenceAttachmentToIndexFieldMapping> AttachmentFieldMappings;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-crawlattachments
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceConfluenceAttachmentConfiguration(
-            Outputs.DataSourceConfluenceAttachmentFieldMappingsList? attachmentFieldMappings,
+            ImmutableArray<Outputs.DataSourceConfluenceAttachmentToIndexFieldMapping> attachmentFieldMappings,
 
             bool? crawlAttachments)
         {

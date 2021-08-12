@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public InputUnion<System.Text.Json.JsonElement, string>? Body { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-jsonbody
+        /// </summary>
+        [Input("jsonBody")]
+        public Input<Inputs.WebACLJsonBodyArgs>? JsonBody { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
         /// </summary>
         [Input("method")]

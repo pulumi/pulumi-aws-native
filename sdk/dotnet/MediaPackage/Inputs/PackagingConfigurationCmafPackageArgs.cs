@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
+        /// </summary>
+        [Input("includeEncoderConfigurationInSegments")]
+        public Input<bool>? IncludeEncoderConfigurationInSegments { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
         /// </summary>
         [Input("segmentDurationSeconds")]

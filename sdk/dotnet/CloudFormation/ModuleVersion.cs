@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
         /// </summary>
         [Output("modulePackage")]
-        public Output<string?> ModulePackage { get; private set; } = null!;
+        public Output<string> ModulePackage { get; private set; } = null!;
 
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
@@ -105,8 +105,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
         /// </summary>
-        [Input("modulePackage")]
-        public Input<string>? ModulePackage { get; set; }
+        [Input("modulePackage", required: true)]
+        public Input<string> ModulePackage { get; set; } = null!;
 
         public ModuleVersionArgs()
         {

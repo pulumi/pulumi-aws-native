@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public Output<string> AssetModelArn { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
+        /// </summary>
+        [Output("assetModelCompositeModels")]
+        public Output<ImmutableArray<Outputs.AssetModelAssetModelCompositeModel>> AssetModelCompositeModels { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
         /// </summary>
         [Output("assetModelDescription")]
@@ -96,6 +102,18 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
     public sealed class AssetModelArgs : Pulumi.ResourceArgs
     {
+        [Input("assetModelCompositeModels")]
+        private InputList<Inputs.AssetModelAssetModelCompositeModelArgs>? _assetModelCompositeModels;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
+        /// </summary>
+        public InputList<Inputs.AssetModelAssetModelCompositeModelArgs> AssetModelCompositeModels
+        {
+            get => _assetModelCompositeModels ?? (_assetModelCompositeModels = new InputList<Inputs.AssetModelAssetModelCompositeModelArgs>());
+            set => _assetModelCompositeModels = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
         /// </summary>

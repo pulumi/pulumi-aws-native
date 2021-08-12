@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn
         /// </summary>
-        public readonly string? FunctionArn;
+        public readonly string FunctionArn;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-payload
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 
         [OutputConstructor]
         private DetectorModelLambda(
-            string? functionArn,
+            string functionArn,
 
             Outputs.DetectorModelPayload? payload)
         {

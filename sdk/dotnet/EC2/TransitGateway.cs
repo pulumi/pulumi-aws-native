@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EC2
         public Output<int?> AmazonSideAsn { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-associationdefaultroutetableid
+        /// </summary>
+        [Output("associationDefaultRouteTableId")]
+        public Output<string?> AssociationDefaultRouteTableId { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-autoacceptsharedattachments
         /// </summary>
         [Output("autoAcceptSharedAttachments")]
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.EC2
         [Output("dnsSupport")]
         public Output<string?> DnsSupport { get; private set; } = null!;
 
+        [Output("id")]
+        public Output<string> Id { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-multicastsupport
         /// </summary>
@@ -58,10 +67,22 @@ namespace Pulumi.AwsNative.EC2
         public Output<string?> MulticastSupport { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-propagationdefaultroutetableid
+        /// </summary>
+        [Output("propagationDefaultRouteTableId")]
+        public Output<string?> PropagationDefaultRouteTableId { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-transitgatewaycidrblocks
+        /// </summary>
+        [Output("transitGatewayCidrBlocks")]
+        public Output<ImmutableArray<string>> TransitGatewayCidrBlocks { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-vpnecmpsupport
@@ -121,6 +142,12 @@ namespace Pulumi.AwsNative.EC2
         public Input<int>? AmazonSideAsn { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-associationdefaultroutetableid
+        /// </summary>
+        [Input("associationDefaultRouteTableId")]
+        public Input<string>? AssociationDefaultRouteTableId { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-autoacceptsharedattachments
         /// </summary>
         [Input("autoAcceptSharedAttachments")]
@@ -156,6 +183,12 @@ namespace Pulumi.AwsNative.EC2
         [Input("multicastSupport")]
         public Input<string>? MulticastSupport { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-propagationdefaultroutetableid
+        /// </summary>
+        [Input("propagationDefaultRouteTableId")]
+        public Input<string>? PropagationDefaultRouteTableId { get; set; }
+
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
@@ -166,6 +199,18 @@ namespace Pulumi.AwsNative.EC2
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
+        }
+
+        [Input("transitGatewayCidrBlocks")]
+        private InputList<string>? _transitGatewayCidrBlocks;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-transitgatewaycidrblocks
+        /// </summary>
+        public InputList<string> TransitGatewayCidrBlocks
+        {
+            get => _transitGatewayCidrBlocks ?? (_transitGatewayCidrBlocks = new InputList<string>());
+            set => _transitGatewayCidrBlocks = value;
         }
 
         /// <summary>

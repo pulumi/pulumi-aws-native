@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.ECS.Outputs
     public sealed class CapacityProviderManagedScaling
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
+        /// </summary>
+        public readonly int? InstanceWarmupPeriod;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
         /// </summary>
         public readonly int? MaximumScalingStepSize;
@@ -35,6 +39,8 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private CapacityProviderManagedScaling(
+            int? instanceWarmupPeriod,
+
             int? maximumScalingStepSize,
 
             int? minimumScalingStepSize,
@@ -43,6 +49,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
             int? targetCapacity)
         {
+            InstanceWarmupPeriod = instanceWarmupPeriod;
             MaximumScalingStepSize = maximumScalingStepSize;
             MinimumScalingStepSize = minimumScalingStepSize;
             Status = status;

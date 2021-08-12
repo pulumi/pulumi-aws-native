@@ -27,15 +27,15 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
         /// </summary>
-        public readonly Outputs.DataSourceConfluenceSpaceList? ExcludeSpaces;
+        public readonly ImmutableArray<string> ExcludeSpaces;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
         /// </summary>
-        public readonly Outputs.DataSourceConfluenceSpaceList? IncludeSpaces;
+        public readonly ImmutableArray<string> IncludeSpaces;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
         /// </summary>
-        public readonly Outputs.DataSourceConfluenceSpaceFieldMappingsList? SpaceFieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceConfluenceSpaceToIndexFieldMapping> SpaceFieldMappings;
 
         [OutputConstructor]
         private DataSourceConfluenceSpaceConfiguration(
@@ -43,11 +43,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             bool? crawlPersonalSpaces,
 
-            Outputs.DataSourceConfluenceSpaceList? excludeSpaces,
+            ImmutableArray<string> excludeSpaces,
 
-            Outputs.DataSourceConfluenceSpaceList? includeSpaces,
+            ImmutableArray<string> includeSpaces,
 
-            Outputs.DataSourceConfluenceSpaceFieldMappingsList? spaceFieldMappings)
+            ImmutableArray<Outputs.DataSourceConfluenceSpaceToIndexFieldMapping> spaceFieldMappings)
         {
             CrawlArchivedSpaces = crawlArchivedSpaces;
             CrawlPersonalSpaces = crawlPersonalSpaces;

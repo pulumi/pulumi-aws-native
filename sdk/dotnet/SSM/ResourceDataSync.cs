@@ -51,9 +51,6 @@ namespace Pulumi.AwsNative.SSM
         [Output("syncFormat")]
         public Output<string?> SyncFormat { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
-        /// </summary>
         [Output("syncName")]
         public Output<string> SyncName { get; private set; } = null!;
 

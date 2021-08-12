@@ -21,6 +21,24 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         [Input("amiDistributionConfiguration")]
         public InputUnion<System.Text.Json.JsonElement, string>? AmiDistributionConfiguration { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
+        /// </summary>
+        [Input("containerDistributionConfiguration")]
+        public InputUnion<System.Text.Json.JsonElement, string>? ContainerDistributionConfiguration { get; set; }
+
+        [Input("launchTemplateConfigurations")]
+        private InputList<Inputs.DistributionConfigurationLaunchTemplateConfigurationArgs>? _launchTemplateConfigurations;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
+        /// </summary>
+        public InputList<Inputs.DistributionConfigurationLaunchTemplateConfigurationArgs> LaunchTemplateConfigurations
+        {
+            get => _launchTemplateConfigurations ?? (_launchTemplateConfigurations = new InputList<Inputs.DistributionConfigurationLaunchTemplateConfigurationArgs>());
+            set => _launchTemplateConfigurations = value;
+        }
+
         [Input("licenseConfigurationArns")]
         private InputList<string>? _licenseConfigurationArns;
 

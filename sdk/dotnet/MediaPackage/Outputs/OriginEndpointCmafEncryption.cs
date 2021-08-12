@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
     public sealed class OriginEndpointCmafEncryption
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
+        /// </summary>
+        public readonly string? ConstantInitializationVector;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
         /// </summary>
         public readonly int? KeyRotationIntervalSeconds;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private OriginEndpointCmafEncryption(
+            string? constantInitializationVector,
+
             int? keyRotationIntervalSeconds,
 
             Outputs.OriginEndpointSpekeKeyProvider spekeKeyProvider)
         {
+            ConstantInitializationVector = constantInitializationVector;
             KeyRotationIntervalSeconds = keyRotationIntervalSeconds;
             SpekeKeyProvider = spekeKeyProvider;
         }

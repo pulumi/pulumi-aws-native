@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [AwsNativeResourceType("aws-native:ApiGateway:UsagePlanKey")]
     public partial class UsagePlanKey : Pulumi.CustomResource
     {
+        [Output("id")]
+        public Output<string> Id { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
         /// </summary>

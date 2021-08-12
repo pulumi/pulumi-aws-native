@@ -19,35 +19,35 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences
         /// </summary>
-        public readonly Outputs.FirewallPolicyStatefulRuleGroupReferences? StatefulRuleGroupReferences;
+        public readonly ImmutableArray<Outputs.FirewallPolicyStatefulRuleGroupReference> StatefulRuleGroupReferences;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions
         /// </summary>
-        public readonly Outputs.FirewallPolicyCustomActions? StatelessCustomActions;
+        public readonly ImmutableArray<Outputs.FirewallPolicyCustomAction> StatelessCustomActions;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions
         /// </summary>
-        public readonly Outputs.FirewallPolicyStatelessActions StatelessDefaultActions;
+        public readonly ImmutableArray<string> StatelessDefaultActions;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions
         /// </summary>
-        public readonly Outputs.FirewallPolicyStatelessActions StatelessFragmentDefaultActions;
+        public readonly ImmutableArray<string> StatelessFragmentDefaultActions;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
         /// </summary>
-        public readonly Outputs.FirewallPolicyStatelessRuleGroupReferences? StatelessRuleGroupReferences;
+        public readonly ImmutableArray<Outputs.FirewallPolicyStatelessRuleGroupReference> StatelessRuleGroupReferences;
 
         [OutputConstructor]
         private FirewallPolicyFirewallPolicy(
-            Outputs.FirewallPolicyStatefulRuleGroupReferences? statefulRuleGroupReferences,
+            ImmutableArray<Outputs.FirewallPolicyStatefulRuleGroupReference> statefulRuleGroupReferences,
 
-            Outputs.FirewallPolicyCustomActions? statelessCustomActions,
+            ImmutableArray<Outputs.FirewallPolicyCustomAction> statelessCustomActions,
 
-            Outputs.FirewallPolicyStatelessActions statelessDefaultActions,
+            ImmutableArray<string> statelessDefaultActions,
 
-            Outputs.FirewallPolicyStatelessActions statelessFragmentDefaultActions,
+            ImmutableArray<string> statelessFragmentDefaultActions,
 
-            Outputs.FirewallPolicyStatelessRuleGroupReferences? statelessRuleGroupReferences)
+            ImmutableArray<Outputs.FirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences)
         {
             StatefulRuleGroupReferences = statefulRuleGroupReferences;
             StatelessCustomActions = statelessCustomActions;

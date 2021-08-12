@@ -21,18 +21,32 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.FlowErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
+        /// </summary>
+        public readonly ImmutableArray<string> IdFieldNames;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
         /// </summary>
         public readonly string Object;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype
+        /// </summary>
+        public readonly string? WriteOperationType;
 
         [OutputConstructor]
         private FlowSalesforceDestinationProperties(
             Outputs.FlowErrorHandlingConfig? errorHandlingConfig,
 
-            string @object)
+            ImmutableArray<string> idFieldNames,
+
+            string @object,
+
+            string? writeOperationType)
         {
             ErrorHandlingConfig = errorHandlingConfig;
+            IdFieldNames = idFieldNames;
             Object = @object;
+            WriteOperationType = writeOperationType;
         }
     }
 }

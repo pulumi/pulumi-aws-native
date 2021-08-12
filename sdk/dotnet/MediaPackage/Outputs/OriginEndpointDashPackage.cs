@@ -68,6 +68,14 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
         /// </summary>
         public readonly int? SuggestedPresentationDelaySeconds;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
+        /// </summary>
+        public readonly string? UtcTiming;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
+        /// </summary>
+        public readonly string? UtcTimingUri;
 
         [OutputConstructor]
         private OriginEndpointDashPackage(
@@ -95,7 +103,11 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
             Outputs.OriginEndpointStreamSelection? streamSelection,
 
-            int? suggestedPresentationDelaySeconds)
+            int? suggestedPresentationDelaySeconds,
+
+            string? utcTiming,
+
+            string? utcTimingUri)
         {
             AdTriggers = adTriggers;
             AdsOnDeliveryRestrictions = adsOnDeliveryRestrictions;
@@ -110,6 +122,8 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
             SegmentTemplateFormat = segmentTemplateFormat;
             StreamSelection = streamSelection;
             SuggestedPresentationDelaySeconds = suggestedPresentationDelaySeconds;
+            UtcTiming = utcTiming;
+            UtcTimingUri = utcTimingUri;
         }
     }
 }

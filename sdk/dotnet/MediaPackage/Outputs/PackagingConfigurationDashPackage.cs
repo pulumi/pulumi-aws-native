@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// </summary>
         public readonly Outputs.PackagingConfigurationDashEncryption? Encryption;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
+        /// </summary>
+        public readonly bool? IncludeEncoderConfigurationInSegments;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
         /// </summary>
         public readonly ImmutableArray<string> PeriodTriggers;
@@ -43,6 +47,8 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
             Outputs.PackagingConfigurationDashEncryption? encryption,
 
+            bool? includeEncoderConfigurationInSegments,
+
             ImmutableArray<string> periodTriggers,
 
             int? segmentDurationSeconds,
@@ -51,6 +57,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         {
             DashManifests = dashManifests;
             Encryption = encryption;
+            IncludeEncoderConfigurationInSegments = includeEncoderConfigurationInSegments;
             PeriodTriggers = periodTriggers;
             SegmentDurationSeconds = segmentDurationSeconds;
             SegmentTemplateFormat = segmentTemplateFormat;

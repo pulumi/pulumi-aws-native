@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-eventname
         /// </summary>
-        public readonly string? EventName;
+        public readonly string EventName;
 
         [OutputConstructor]
         private DetectorModelEvent(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 
             string? condition,
 
-            string? eventName)
+            string eventName)
         {
             Actions = actions;
             Condition = condition;

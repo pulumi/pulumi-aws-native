@@ -27,11 +27,17 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         [Input("rulesString")]
         public Input<string>? RulesString { get; set; }
 
+        [Input("statefulRules")]
+        private InputList<Inputs.RuleGroupStatefulRuleArgs>? _statefulRules;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules
         /// </summary>
-        [Input("statefulRules")]
-        public Input<Inputs.RuleGroupStatefulRulesArgs>? StatefulRules { get; set; }
+        public InputList<Inputs.RuleGroupStatefulRuleArgs> StatefulRules
+        {
+            get => _statefulRules ?? (_statefulRules = new InputList<Inputs.RuleGroupStatefulRuleArgs>());
+            set => _statefulRules = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions

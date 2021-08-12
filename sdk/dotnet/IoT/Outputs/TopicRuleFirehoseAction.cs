@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.IoT.Outputs
     public sealed class TopicRuleFirehoseAction
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-batchmode
+        /// </summary>
+        public readonly bool? BatchMode;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-deliverystreamname
         /// </summary>
         public readonly string DeliveryStreamName;
@@ -31,12 +35,15 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleFirehoseAction(
+            bool? batchMode,
+
             string deliveryStreamName,
 
             string roleArn,
 
             string? separator)
         {
+            BatchMode = batchMode;
             DeliveryStreamName = deliveryStreamName;
             RoleArn = roleArn;
             Separator = separator;

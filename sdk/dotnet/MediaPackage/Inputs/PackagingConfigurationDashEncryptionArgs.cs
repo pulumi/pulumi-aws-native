@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
         /// </summary>
         [Input("spekeKeyProvider", required: true)]
-        public Input<object> SpekeKeyProvider { get; set; } = null!;
+        public Input<Inputs.PackagingConfigurationSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;
 
         public PackagingConfigurationDashEncryptionArgs()
         {

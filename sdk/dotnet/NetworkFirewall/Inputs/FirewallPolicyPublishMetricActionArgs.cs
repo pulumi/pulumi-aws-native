@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class FirewallPolicyPublishMetricActionArgs : Pulumi.ResourceArgs
     {
+        [Input("dimensions", required: true)]
+        private InputList<Inputs.FirewallPolicyDimensionArgs>? _dimensions;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html#cfn-networkfirewall-firewallpolicy-publishmetricaction-dimensions
         /// </summary>
-        [Input("dimensions", required: true)]
-        public Input<Inputs.FirewallPolicyDimensionsArgs> Dimensions { get; set; } = null!;
+        public InputList<Inputs.FirewallPolicyDimensionArgs> Dimensions
+        {
+            get => _dimensions ?? (_dimensions = new InputList<Inputs.FirewallPolicyDimensionArgs>());
+            set => _dimensions = value;
+        }
 
         public FirewallPolicyPublishMetricActionArgs()
         {

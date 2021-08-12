@@ -33,6 +33,10 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
         /// </summary>
         public readonly int? MaxConcurrentPercentage;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
+        /// </summary>
+        public readonly string? RegionConcurrencyType;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
         /// </summary>
         public readonly ImmutableArray<string> RegionOrder;
@@ -47,12 +51,15 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
 
             int? maxConcurrentPercentage,
 
+            string? regionConcurrencyType,
+
             ImmutableArray<string> regionOrder)
         {
             FailureToleranceCount = failureToleranceCount;
             FailureTolerancePercentage = failureTolerancePercentage;
             MaxConcurrentCount = maxConcurrentCount;
             MaxConcurrentPercentage = maxConcurrentPercentage;
+            RegionConcurrencyType = regionConcurrencyType;
             RegionOrder = regionOrder;
         }
     }

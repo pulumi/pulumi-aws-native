@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         /// </summary>
         public readonly string DataType;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec
+        /// </summary>
+        public readonly string? DataTypeSpec;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
         /// </summary>
         public readonly string LogicalId;
@@ -41,6 +45,8 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         private AssetModelAssetModelProperty(
             string dataType,
 
+            string? dataTypeSpec,
+
             string logicalId,
 
             string name,
@@ -50,6 +56,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
             string? unit)
         {
             DataType = dataType;
+            DataTypeSpec = dataTypeSpec;
             LogicalId = logicalId;
             Name = name;
             Type = type;

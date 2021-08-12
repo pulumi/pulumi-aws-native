@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
         /// </summary>
-        public readonly Outputs.DataSourceOneDriveUserList? OneDriveUserList;
+        public readonly ImmutableArray<string> OneDriveUserList;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceOneDriveUsers(
-            Outputs.DataSourceOneDriveUserList? oneDriveUserList,
+            ImmutableArray<string> oneDriveUserList,
 
             Outputs.DataSourceS3Path? oneDriveUserS3Path)
         {

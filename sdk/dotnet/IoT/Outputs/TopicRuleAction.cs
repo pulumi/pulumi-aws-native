@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// </summary>
         public readonly Outputs.TopicRuleCloudwatchAlarmAction? CloudwatchAlarm;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchlogs
+        /// </summary>
+        public readonly Outputs.TopicRuleCloudwatchLogsAction? CloudwatchLogs;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchmetric
         /// </summary>
         public readonly Outputs.TopicRuleCloudwatchMetricAction? CloudwatchMetric;
@@ -57,6 +61,10 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// </summary>
         public readonly Outputs.TopicRuleIotSiteWiseAction? IotSiteWise;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kafka
+        /// </summary>
+        public readonly Outputs.TopicRuleKafkaAction? Kafka;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
         /// </summary>
         public readonly Outputs.TopicRuleKinesisAction? Kinesis;
@@ -84,10 +92,16 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
         /// </summary>
         public readonly Outputs.TopicRuleStepFunctionsAction? StepFunctions;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-timestream
+        /// </summary>
+        public readonly Outputs.TopicRuleTimestreamAction? Timestream;
 
         [OutputConstructor]
         private TopicRuleAction(
             Outputs.TopicRuleCloudwatchAlarmAction? cloudwatchAlarm,
+
+            Outputs.TopicRuleCloudwatchLogsAction? cloudwatchLogs,
 
             Outputs.TopicRuleCloudwatchMetricAction? cloudwatchMetric,
 
@@ -107,6 +121,8 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
             Outputs.TopicRuleIotSiteWiseAction? iotSiteWise,
 
+            Outputs.TopicRuleKafkaAction? kafka,
+
             Outputs.TopicRuleKinesisAction? kinesis,
 
             Outputs.TopicRuleLambdaAction? lambda,
@@ -119,9 +135,12 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
             Outputs.TopicRuleSqsAction? sqs,
 
-            Outputs.TopicRuleStepFunctionsAction? stepFunctions)
+            Outputs.TopicRuleStepFunctionsAction? stepFunctions,
+
+            Outputs.TopicRuleTimestreamAction? timestream)
         {
             CloudwatchAlarm = cloudwatchAlarm;
+            CloudwatchLogs = cloudwatchLogs;
             CloudwatchMetric = cloudwatchMetric;
             DynamoDB = dynamoDB;
             DynamoDBv2 = dynamoDBv2;
@@ -131,6 +150,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
             IotAnalytics = iotAnalytics;
             IotEvents = iotEvents;
             IotSiteWise = iotSiteWise;
+            Kafka = kafka;
             Kinesis = kinesis;
             Lambda = lambda;
             Republish = republish;
@@ -138,6 +158,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
             Sns = sns;
             Sqs = sqs;
             StepFunctions = stepFunctions;
+            Timestream = timestream;
         }
     }
 }

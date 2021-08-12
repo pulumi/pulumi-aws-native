@@ -34,16 +34,28 @@ namespace Pulumi.AwsNative.Backup.Inputs
         }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-enablecontinuousbackup
+        /// </summary>
+        [Input("enableContinuousBackup")]
+        public Input<bool>? EnableContinuousBackup { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
         /// </summary>
         [Input("lifecycle")]
         public Input<Inputs.BackupPlanLifecycleResourceTypeArgs>? Lifecycle { get; set; }
 
+        [Input("recoveryPointTags")]
+        private InputMap<string>? _recoveryPointTags;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
         /// </summary>
-        [Input("recoveryPointTags")]
-        public InputUnion<System.Text.Json.JsonElement, string>? RecoveryPointTags { get; set; }
+        public InputMap<string> RecoveryPointTags
+        {
+            get => _recoveryPointTags ?? (_recoveryPointTags = new InputMap<string>());
+            set => _recoveryPointTags = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename

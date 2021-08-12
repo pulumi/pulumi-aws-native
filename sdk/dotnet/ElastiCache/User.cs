@@ -24,9 +24,6 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("authentication")]
-        public Output<Outputs.UserAuthentication> Authentication { get; private set; } = null!;
-
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
         /// </summary>
@@ -43,13 +40,10 @@ namespace Pulumi.AwsNative.ElastiCache
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
         /// </summary>
         [Output("passwords")]
-        public Output<Outputs.UserPasswordList?> Passwords { get; private set; } = null!;
+        public Output<ImmutableArray<string>> Passwords { get; private set; } = null!;
 
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
-
-        [Output("userGroupIds")]
-        public Output<Outputs.UserUserGroupIdList> UserGroupIds { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
@@ -126,11 +120,17 @@ namespace Pulumi.AwsNative.ElastiCache
         [Input("noPasswordRequired")]
         public Input<bool>? NoPasswordRequired { get; set; }
 
+        [Input("passwords")]
+        private InputList<string>? _passwords;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
         /// </summary>
-        [Input("passwords")]
-        public Input<Inputs.UserPasswordListArgs>? Passwords { get; set; }
+        public InputList<string> Passwords
+        {
+            get => _passwords ?? (_passwords = new InputList<string>());
+            set => _passwords = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid

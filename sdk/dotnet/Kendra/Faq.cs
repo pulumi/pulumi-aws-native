@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Kendra
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.FaqTagList?> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -144,11 +144,17 @@ namespace Pulumi.AwsNative.Kendra
         [Input("s3Path", required: true)]
         public Input<Inputs.FaqS3PathArgs> S3Path { get; set; } = null!;
 
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.FaqTagListArgs>? Tags { get; set; }
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public FaqArgs()
         {

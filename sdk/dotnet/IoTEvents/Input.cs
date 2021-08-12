@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
         /// </summary>
         [Output("inputDefinition")]
-        public Output<Outputs.InputInputDefinition?> InputDefinition { get; private set; } = null!;
+        public Output<Outputs.InputInputDefinition> InputDefinition { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Input(string name, InputArgs? args = null, CustomResourceOptions? options = null)
+        public Input(string name, InputArgs args, CustomResourceOptions? options = null)
             : base("aws-native:IoTEvents:Input", name, args ?? new InputArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -87,8 +87,8 @@ namespace Pulumi.AwsNative.IoTEvents
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
         /// </summary>
-        [Input("inputDefinition")]
-        public Input<Inputs.InputInputDefinitionArgs>? InputDefinition { get; set; }
+        [Input("inputDefinition", required: true)]
+        public Input<Inputs.InputInputDefinitionArgs> InputDefinition { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription

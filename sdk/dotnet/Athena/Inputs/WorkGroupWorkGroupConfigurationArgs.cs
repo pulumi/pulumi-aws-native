@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Athena.Inputs
         public Input<bool>? EnforceWorkGroupConfiguration { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
+        /// </summary>
+        [Input("engineVersion")]
+        public Input<Inputs.WorkGroupEngineVersionArgs>? EngineVersion { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
         /// </summary>
         [Input("publishCloudWatchMetricsEnabled")]

@@ -33,23 +33,41 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("documentTitleFieldName")]
         public Input<string>? DocumentTitleFieldName { get; set; }
 
+        [Input("excludeAttachmentFilePatterns")]
+        private InputList<string>? _excludeAttachmentFilePatterns;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-excludeattachmentfilepatterns
         /// </summary>
-        [Input("excludeAttachmentFilePatterns")]
-        public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? ExcludeAttachmentFilePatterns { get; set; }
+        public InputList<string> ExcludeAttachmentFilePatterns
+        {
+            get => _excludeAttachmentFilePatterns ?? (_excludeAttachmentFilePatterns = new InputList<string>());
+            set => _excludeAttachmentFilePatterns = value;
+        }
+
+        [Input("fieldMappings")]
+        private InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>? _fieldMappings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-fieldmappings
         /// </summary>
-        [Input("fieldMappings")]
-        public Input<Inputs.DataSourceDataSourceToIndexFieldMappingListArgs>? FieldMappings { get; set; }
+        public InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs> FieldMappings
+        {
+            get => _fieldMappings ?? (_fieldMappings = new InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>());
+            set => _fieldMappings = value;
+        }
+
+        [Input("includeAttachmentFilePatterns")]
+        private InputList<string>? _includeAttachmentFilePatterns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-includeattachmentfilepatterns
         /// </summary>
-        [Input("includeAttachmentFilePatterns")]
-        public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? IncludeAttachmentFilePatterns { get; set; }
+        public InputList<string> IncludeAttachmentFilePatterns
+        {
+            get => _includeAttachmentFilePatterns ?? (_includeAttachmentFilePatterns = new InputList<string>());
+            set => _includeAttachmentFilePatterns = value;
+        }
 
         public DataSourceServiceNowKnowledgeArticleConfigurationArgs()
         {

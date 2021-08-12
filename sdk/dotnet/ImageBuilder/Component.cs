@@ -45,9 +45,6 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 

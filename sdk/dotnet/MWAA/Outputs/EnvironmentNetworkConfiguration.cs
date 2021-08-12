@@ -19,17 +19,17 @@ namespace Pulumi.AwsNative.MWAA.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
         /// </summary>
-        public readonly Outputs.EnvironmentSecurityGroupList? SecurityGroupIds;
+        public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
         /// </summary>
-        public readonly Outputs.EnvironmentSubnetList? SubnetIds;
+        public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]
         private EnvironmentNetworkConfiguration(
-            Outputs.EnvironmentSecurityGroupList? securityGroupIds,
+            ImmutableArray<string> securityGroupIds,
 
-            Outputs.EnvironmentSubnetList? subnetIds)
+            ImmutableArray<string> subnetIds)
         {
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;

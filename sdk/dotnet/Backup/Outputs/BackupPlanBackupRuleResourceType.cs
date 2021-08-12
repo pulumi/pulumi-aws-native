@@ -25,13 +25,17 @@ namespace Pulumi.AwsNative.Backup.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.BackupPlanCopyActionResourceType> CopyActions;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-enablecontinuousbackup
+        /// </summary>
+        public readonly bool? EnableContinuousBackup;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
         /// </summary>
         public readonly Outputs.BackupPlanLifecycleResourceType? Lifecycle;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? RecoveryPointTags;
+        public readonly ImmutableDictionary<string, string>? RecoveryPointTags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename
         /// </summary>
@@ -55,9 +59,11 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
             ImmutableArray<Outputs.BackupPlanCopyActionResourceType> copyActions,
 
+            bool? enableContinuousBackup,
+
             Outputs.BackupPlanLifecycleResourceType? lifecycle,
 
-            Union<System.Text.Json.JsonElement, string>? recoveryPointTags,
+            ImmutableDictionary<string, string>? recoveryPointTags,
 
             string ruleName,
 
@@ -69,6 +75,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
         {
             CompletionWindowMinutes = completionWindowMinutes;
             CopyActions = copyActions;
+            EnableContinuousBackup = enableContinuousBackup;
             Lifecycle = lifecycle;
             RecoveryPointTags = recoveryPointTags;
             RuleName = ruleName;

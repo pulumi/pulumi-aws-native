@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("conditions")]
         public Output<ImmutableArray<Outputs.ListenerRuleRuleCondition>> Conditions { get; private set; } = null!;
 
+        [Output("isDefault")]
+        public Output<bool> IsDefault { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
         /// </summary>
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
+
+        [Output("ruleArn")]
+        public Output<string> RuleArn { get; private set; } = null!;
 
 
         /// <summary>

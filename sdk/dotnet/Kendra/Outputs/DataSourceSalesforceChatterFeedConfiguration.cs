@@ -27,11 +27,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceToIndexFieldMappingList? FieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-includefiltertypes
         /// </summary>
-        public readonly Outputs.DataSourceSalesforceChatterFeedIncludeFilterTypes? IncludeFilterTypes;
+        public readonly ImmutableArray<string> IncludeFilterTypes;
 
         [OutputConstructor]
         private DataSourceSalesforceChatterFeedConfiguration(
@@ -39,9 +39,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             string? documentTitleFieldName,
 
-            Outputs.DataSourceDataSourceToIndexFieldMappingList? fieldMappings,
+            ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings,
 
-            Outputs.DataSourceSalesforceChatterFeedIncludeFilterTypes? includeFilterTypes)
+            ImmutableArray<string> includeFilterTypes)
         {
             DocumentDataFieldName = documentDataFieldName;
             DocumentTitleFieldName = documentTitleFieldName;

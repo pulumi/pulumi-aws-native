@@ -18,11 +18,23 @@ namespace Pulumi.AwsNative.WAFv2
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("availableLabels")]
+        public Output<ImmutableArray<Outputs.RuleGroupLabelSummary>> AvailableLabels { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
         /// </summary>
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
+
+        [Output("consumedLabels")]
+        public Output<ImmutableArray<Outputs.RuleGroupLabelSummary>> ConsumedLabels { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
+        /// </summary>
+        [Output("customResponseBodies")]
+        public Output<ImmutableDictionary<string, Outputs.RuleGroupCustomResponseBody>?> CustomResponseBodies { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
@@ -32,6 +44,9 @@ namespace Pulumi.AwsNative.WAFv2
 
         [Output("id")]
         public Output<string> Id { get; private set; } = null!;
+
+        [Output("labelNamespace")]
+        public Output<string> LabelNamespace { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
@@ -113,6 +128,18 @@ namespace Pulumi.AwsNative.WAFv2
         /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
+
+        [Input("customResponseBodies")]
+        private InputMap<Inputs.RuleGroupCustomResponseBodyArgs>? _customResponseBodies;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
+        /// </summary>
+        public InputMap<Inputs.RuleGroupCustomResponseBodyArgs> CustomResponseBodies
+        {
+            get => _customResponseBodies ?? (_customResponseBodies = new InputMap<Inputs.RuleGroupCustomResponseBodyArgs>());
+            set => _customResponseBodies = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description

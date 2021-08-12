@@ -16,6 +16,18 @@ namespace Pulumi.AwsNative.DataBrew
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
+        /// </summary>
+        [Output("dataCatalogOutputs")]
+        public Output<ImmutableArray<Outputs.JobDataCatalogOutput>> DataCatalogOutputs { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
+        /// </summary>
+        [Output("databaseOutputs")]
+        public Output<ImmutableArray<Outputs.JobDatabaseOutput>> DatabaseOutputs { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
         /// </summary>
         [Output("datasetName")]
@@ -32,6 +44,12 @@ namespace Pulumi.AwsNative.DataBrew
         /// </summary>
         [Output("encryptionMode")]
         public Output<string?> EncryptionMode { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample
+        /// </summary>
+        [Output("jobSample")]
+        public Output<Outputs.JobJobSample?> JobSample { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
@@ -61,13 +79,19 @@ namespace Pulumi.AwsNative.DataBrew
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
         /// </summary>
         [Output("outputLocation")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> OutputLocation { get; private set; } = null!;
+        public Output<Outputs.JobOutputLocation?> OutputLocation { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
         /// </summary>
         [Output("outputs")]
         public Output<ImmutableArray<Outputs.JobOutput>> Outputs { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
+        /// </summary>
+        [Output("profileConfiguration")]
+        public Output<Outputs.JobProfileConfiguration?> ProfileConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
@@ -150,6 +174,30 @@ namespace Pulumi.AwsNative.DataBrew
 
     public sealed class JobArgs : Pulumi.ResourceArgs
     {
+        [Input("dataCatalogOutputs")]
+        private InputList<Inputs.JobDataCatalogOutputArgs>? _dataCatalogOutputs;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
+        /// </summary>
+        public InputList<Inputs.JobDataCatalogOutputArgs> DataCatalogOutputs
+        {
+            get => _dataCatalogOutputs ?? (_dataCatalogOutputs = new InputList<Inputs.JobDataCatalogOutputArgs>());
+            set => _dataCatalogOutputs = value;
+        }
+
+        [Input("databaseOutputs")]
+        private InputList<Inputs.JobDatabaseOutputArgs>? _databaseOutputs;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
+        /// </summary>
+        public InputList<Inputs.JobDatabaseOutputArgs> DatabaseOutputs
+        {
+            get => _databaseOutputs ?? (_databaseOutputs = new InputList<Inputs.JobDatabaseOutputArgs>());
+            set => _databaseOutputs = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
         /// </summary>
@@ -167,6 +215,12 @@ namespace Pulumi.AwsNative.DataBrew
         /// </summary>
         [Input("encryptionMode")]
         public Input<string>? EncryptionMode { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample
+        /// </summary>
+        [Input("jobSample")]
+        public Input<Inputs.JobJobSampleArgs>? JobSample { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
@@ -196,7 +250,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
         /// </summary>
         [Input("outputLocation")]
-        public InputUnion<System.Text.Json.JsonElement, string>? OutputLocation { get; set; }
+        public Input<Inputs.JobOutputLocationArgs>? OutputLocation { get; set; }
 
         [Input("outputs")]
         private InputList<Inputs.JobOutputArgs>? _outputs;
@@ -209,6 +263,12 @@ namespace Pulumi.AwsNative.DataBrew
             get => _outputs ?? (_outputs = new InputList<Inputs.JobOutputArgs>());
             set => _outputs = value;
         }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
+        /// </summary>
+        [Input("profileConfiguration")]
+        public Input<Inputs.JobProfileConfigurationArgs>? ProfileConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname

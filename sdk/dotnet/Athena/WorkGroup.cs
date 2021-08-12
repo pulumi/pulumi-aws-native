@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Athena
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.WorkGroupTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
@@ -54,11 +54,17 @@ namespace Pulumi.AwsNative.Athena
         [Output("workGroupConfiguration")]
         public Output<Outputs.WorkGroupWorkGroupConfiguration?> WorkGroupConfiguration { get; private set; } = null!;
 
+        [Output("workGroupConfigurationEngineVersionEffectiveEngineVersion")]
+        public Output<string> WorkGroupConfigurationEngineVersionEffectiveEngineVersion { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
         /// </summary>
         [Output("workGroupConfigurationUpdates")]
         public Output<Outputs.WorkGroupWorkGroupConfigurationUpdates?> WorkGroupConfigurationUpdates { get; private set; } = null!;
+
+        [Output("workGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion")]
+        public Output<string> WorkGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion { get; private set; } = null!;
 
 
         /// <summary>
@@ -129,11 +135,17 @@ namespace Pulumi.AwsNative.Athena
         [Input("state")]
         public Input<string>? State { get; set; }
 
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.WorkGroupTagsArgs>? Tags { get; set; }
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration

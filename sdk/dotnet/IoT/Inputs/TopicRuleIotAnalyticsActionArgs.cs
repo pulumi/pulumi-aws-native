@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.IoT.Inputs
     public sealed class TopicRuleIotAnalyticsActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-batchmode
+        /// </summary>
+        [Input("batchMode")]
+        public Input<bool>? BatchMode { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-channelname
         /// </summary>
         [Input("channelName", required: true)]

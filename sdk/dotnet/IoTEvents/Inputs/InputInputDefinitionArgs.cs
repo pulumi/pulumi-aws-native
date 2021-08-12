@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// </summary>
     public sealed class InputInputDefinitionArgs : Pulumi.ResourceArgs
     {
-        [Input("attributes")]
+        [Input("attributes", required: true)]
         private InputList<Inputs.InputAttributeArgs>? _attributes;
 
         /// <summary>

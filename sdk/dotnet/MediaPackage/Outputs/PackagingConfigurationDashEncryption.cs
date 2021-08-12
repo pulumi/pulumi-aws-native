@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
         /// </summary>
-        public readonly object SpekeKeyProvider;
+        public readonly Outputs.PackagingConfigurationSpekeKeyProvider SpekeKeyProvider;
 
         [OutputConstructor]
-        private PackagingConfigurationDashEncryption(object spekeKeyProvider)
+        private PackagingConfigurationDashEncryption(Outputs.PackagingConfigurationSpekeKeyProvider spekeKeyProvider)
         {
             SpekeKeyProvider = spekeKeyProvider;
         }

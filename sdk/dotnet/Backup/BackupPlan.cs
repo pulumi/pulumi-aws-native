@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Backup
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
         /// </summary>
         [Output("backupPlanTags")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> BackupPlanTags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> BackupPlanTags { get; private set; } = null!;
 
         [Output("versionId")]
         public Output<string> VersionId { get; private set; } = null!;
@@ -87,11 +87,17 @@ namespace Pulumi.AwsNative.Backup
         [Input("backupPlan", required: true)]
         public Input<Inputs.BackupPlanBackupPlanResourceTypeArgs> BackupPlanValue { get; set; } = null!;
 
+        [Input("backupPlanTags")]
+        private InputMap<string>? _backupPlanTags;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
         /// </summary>
-        [Input("backupPlanTags")]
-        public InputUnion<System.Text.Json.JsonElement, string>? BackupPlanTags { get; set; }
+        public InputMap<string> BackupPlanTags
+        {
+            get => _backupPlanTags ?? (_backupPlanTags = new InputMap<string>());
+            set => _backupPlanTags = value;
+        }
 
         public BackupPlanArgs()
         {

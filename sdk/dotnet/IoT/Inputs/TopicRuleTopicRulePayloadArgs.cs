@@ -48,8 +48,8 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
         /// </summary>
-        [Input("ruleDisabled", required: true)]
-        public Input<bool> RuleDisabled { get; set; } = null!;
+        [Input("ruleDisabled")]
+        public Input<bool>? RuleDisabled { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql

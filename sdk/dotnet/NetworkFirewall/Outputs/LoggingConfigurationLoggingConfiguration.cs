@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs
         /// </summary>
-        public readonly Outputs.LoggingConfigurationLogDestinationConfigs LogDestinationConfigs;
+        public readonly ImmutableArray<Outputs.LoggingConfigurationLogDestinationConfig> LogDestinationConfigs;
 
         [OutputConstructor]
-        private LoggingConfigurationLoggingConfiguration(Outputs.LoggingConfigurationLogDestinationConfigs logDestinationConfigs)
+        private LoggingConfigurationLoggingConfiguration(ImmutableArray<Outputs.LoggingConfigurationLogDestinationConfig> logDestinationConfigs)
         {
             LogDestinationConfigs = logDestinationConfigs;
         }

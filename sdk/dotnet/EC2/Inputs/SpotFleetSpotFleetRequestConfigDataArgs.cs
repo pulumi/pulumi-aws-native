@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public Input<string>? AllocationStrategy { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-context
+        /// </summary>
+        [Input("context")]
+        public Input<string>? Context { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-excesscapacityterminationpolicy
         /// </summary>
         [Input("excessCapacityTerminationPolicy")]

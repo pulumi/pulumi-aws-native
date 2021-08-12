@@ -21,11 +21,29 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowErrorHandlingConfigArgs>? ErrorHandlingConfig { get; set; }
 
+        [Input("idFieldNames")]
+        private InputList<string>? _idFieldNames;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
+        /// </summary>
+        public InputList<string> IdFieldNames
+        {
+            get => _idFieldNames ?? (_idFieldNames = new InputList<string>());
+            set => _idFieldNames = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
         /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype
+        /// </summary>
+        [Input("writeOperationType")]
+        public Input<string>? WriteOperationType { get; set; }
 
         public FlowSalesforceDestinationPropertiesArgs()
         {

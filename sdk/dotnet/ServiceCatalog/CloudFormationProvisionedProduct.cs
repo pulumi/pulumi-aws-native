@@ -30,9 +30,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
         [Output("notificationArns")]
         public Output<ImmutableArray<string>> NotificationArns { get; private set; } = null!;
 
-        [Output("outputs")]
-        public Output<ImmutableDictionary<string, string>> Outputs { get; private set; } = null!;
-
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
         /// </summary>

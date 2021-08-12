@@ -19,11 +19,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
         /// </summary>
-        public readonly Outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList? CustomKnowledgeArticleTypeConfigurations;
+        public readonly ImmutableArray<Outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration> CustomKnowledgeArticleTypeConfigurations;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
         /// </summary>
-        public readonly Outputs.DataSourceSalesforceKnowledgeArticleStateList IncludedStates;
+        public readonly ImmutableArray<string> IncludedStates;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration
         /// </summary>
@@ -31,9 +31,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceSalesforceKnowledgeArticleConfiguration(
-            Outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList? customKnowledgeArticleTypeConfigurations,
+            ImmutableArray<Outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration> customKnowledgeArticleTypeConfigurations,
 
-            Outputs.DataSourceSalesforceKnowledgeArticleStateList includedStates,
+            ImmutableArray<string> includedStates,
 
             Outputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration? standardKnowledgeArticleTypeConfiguration)
         {

@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceColumnConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("changeDetectingColumns", required: true)]
+        private InputList<string>? _changeDetectingColumns;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
         /// </summary>
-        [Input("changeDetectingColumns", required: true)]
-        public Input<Inputs.DataSourceChangeDetectingColumnsArgs> ChangeDetectingColumns { get; set; } = null!;
+        public InputList<string> ChangeDetectingColumns
+        {
+            get => _changeDetectingColumns ?? (_changeDetectingColumns = new InputList<string>());
+            set => _changeDetectingColumns = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentdatacolumnname
@@ -39,11 +45,17 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("documentTitleColumnName")]
         public Input<string>? DocumentTitleColumnName { get; set; }
 
+        [Input("fieldMappings")]
+        private InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>? _fieldMappings;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
         /// </summary>
-        [Input("fieldMappings")]
-        public Input<Inputs.DataSourceDataSourceToIndexFieldMappingListArgs>? FieldMappings { get; set; }
+        public InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs> FieldMappings
+        {
+            get => _fieldMappings ?? (_fieldMappings = new InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>());
+            set => _fieldMappings = value;
+        }
 
         public DataSourceColumnConfigurationArgs()
         {

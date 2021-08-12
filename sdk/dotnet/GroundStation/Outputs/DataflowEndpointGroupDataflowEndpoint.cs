@@ -28,10 +28,6 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
         /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
-        /// </summary>
-        public readonly string? Status;
 
         [OutputConstructor]
         private DataflowEndpointGroupDataflowEndpoint(
@@ -39,14 +35,11 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
 
             int? mtu,
 
-            string? name,
-
-            string? status)
+            string? name)
         {
             Address = address;
             Mtu = mtu;
             Name = name;
-            Status = status;
         }
     }
 }

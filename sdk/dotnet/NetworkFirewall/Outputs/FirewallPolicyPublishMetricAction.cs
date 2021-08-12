@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html#cfn-networkfirewall-firewallpolicy-publishmetricaction-dimensions
         /// </summary>
-        public readonly Outputs.FirewallPolicyDimensions Dimensions;
+        public readonly ImmutableArray<Outputs.FirewallPolicyDimension> Dimensions;
 
         [OutputConstructor]
-        private FirewallPolicyPublishMetricAction(Outputs.FirewallPolicyDimensions dimensions)
+        private FirewallPolicyPublishMetricAction(ImmutableArray<Outputs.FirewallPolicyDimension> dimensions)
         {
             Dimensions = dimensions;
         }

@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.ImageBuilder
     [AwsNativeResourceType("aws-native:ImageBuilder:ImageRecipe")]
     public partial class ImageRecipe : Pulumi.CustomResource
     {
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+        /// </summary>
+        [Output("additionalInstanceConfiguration")]
+        public Output<Outputs.ImageRecipeAdditionalInstanceConfiguration?> AdditionalInstanceConfiguration { get; private set; } = null!;
+
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -36,9 +42,6 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -111,6 +114,12 @@ namespace Pulumi.AwsNative.ImageBuilder
 
     public sealed class ImageRecipeArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+        /// </summary>
+        [Input("additionalInstanceConfiguration")]
+        public Input<Inputs.ImageRecipeAdditionalInstanceConfigurationArgs>? AdditionalInstanceConfiguration { get; set; }
+
         [Input("blockDeviceMappings")]
         private InputList<Inputs.ImageRecipeInstanceBlockDeviceMappingArgs>? _blockDeviceMappings;
 

@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.MediaPackage
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
+        /// </summary>
+        [Output("egressAccessLogs")]
+        public Output<Outputs.PackagingGroupLogConfiguration?> EgressAccessLogs { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
         /// </summary>
         [Output("id")]
@@ -89,6 +95,12 @@ namespace Pulumi.AwsNative.MediaPackage
         /// </summary>
         [Input("authorization")]
         public Input<Inputs.PackagingGroupAuthorizationArgs>? Authorization { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
+        /// </summary>
+        [Input("egressAccessLogs")]
+        public Input<Inputs.PackagingGroupLogConfigurationArgs>? EgressAccessLogs { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id

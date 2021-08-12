@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-ruleoptions
         /// </summary>
-        public readonly Outputs.RuleGroupRuleOptions RuleOptions;
+        public readonly ImmutableArray<Outputs.RuleGroupRuleOption> RuleOptions;
 
         [OutputConstructor]
         private RuleGroupStatefulRule(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
             Outputs.RuleGroupHeader header,
 
-            Outputs.RuleGroupRuleOptions ruleOptions)
+            ImmutableArray<Outputs.RuleGroupRuleOption> ruleOptions)
         {
             Action = action;
             Header = header;

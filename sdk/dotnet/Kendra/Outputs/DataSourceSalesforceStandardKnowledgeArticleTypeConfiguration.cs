@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-fieldmappings
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceToIndexFieldMappingList? FieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
 
         [OutputConstructor]
         private DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             string? documentTitleFieldName,
 
-            Outputs.DataSourceDataSourceToIndexFieldMappingList? fieldMappings)
+            ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings)
         {
             DocumentDataFieldName = documentDataFieldName;
             DocumentTitleFieldName = documentTitleFieldName;

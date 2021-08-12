@@ -85,12 +85,6 @@ namespace Pulumi.AwsNative.Lambda
         public Output<int?> ParallelizationFactor { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
-        /// </summary>
-        [Output("partialBatchResponse")]
-        public Output<bool?> PartialBatchResponse { get; private set; } = null!;
-
-        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
         /// </summary>
         [Output("queues")]
@@ -113,6 +107,12 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Output("startingPosition")]
         public Output<string?> StartingPosition { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
+        /// </summary>
+        [Output("startingPositionTimestamp")]
+        public Output<double?> StartingPositionTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
@@ -243,12 +243,6 @@ namespace Pulumi.AwsNative.Lambda
         [Input("parallelizationFactor")]
         public Input<int>? ParallelizationFactor { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
-        /// </summary>
-        [Input("partialBatchResponse")]
-        public Input<bool>? PartialBatchResponse { get; set; }
-
         [Input("queues")]
         private InputList<string>? _queues;
 
@@ -284,6 +278,12 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("startingPosition")]
         public Input<string>? StartingPosition { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
+        /// </summary>
+        [Input("startingPositionTimestamp")]
+        public Input<double>? StartingPositionTimestamp { get; set; }
 
         [Input("topics")]
         private InputList<string>? _topics;

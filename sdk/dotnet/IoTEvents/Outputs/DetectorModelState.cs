@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename
         /// </summary>
-        public readonly string? StateName;
+        public readonly string StateName;
 
         [OutputConstructor]
         private DetectorModelState(
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 
             Outputs.DetectorModelOnInput? onInput,
 
-            string? stateName)
+            string stateName)
         {
             OnEnter = onEnter;
             OnExit = onExit;

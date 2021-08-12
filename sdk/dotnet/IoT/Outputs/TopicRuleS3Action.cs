@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// </summary>
         public readonly string BucketName;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-cannedacl
+        /// </summary>
+        public readonly string? CannedAcl;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-key
         /// </summary>
         public readonly string Key;
@@ -33,11 +37,14 @@ namespace Pulumi.AwsNative.IoT.Outputs
         private TopicRuleS3Action(
             string bucketName,
 
+            string? cannedAcl,
+
             string key,
 
             string roleArn)
         {
             BucketName = bucketName;
+            CannedAcl = cannedAcl;
             Key = key;
             RoleArn = roleArn;
         }

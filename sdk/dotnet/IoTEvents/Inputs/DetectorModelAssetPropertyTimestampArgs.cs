@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-timeinseconds
         /// </summary>
-        [Input("timeInSeconds")]
-        public Input<string>? TimeInSeconds { get; set; }
+        [Input("timeInSeconds", required: true)]
+        public Input<string> TimeInSeconds { get; set; } = null!;
 
         public DetectorModelAssetPropertyTimestampArgs()
         {

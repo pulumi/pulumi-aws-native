@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// </summary>
         public readonly Union<System.Text.Json.JsonElement, string>? Body;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
+        /// </summary>
+        public readonly Outputs.RuleGroupJsonBody? JsonBody;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
         /// </summary>
         public readonly Union<System.Text.Json.JsonElement, string>? Method;
@@ -51,6 +55,8 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Union<System.Text.Json.JsonElement, string>? body,
 
+            Outputs.RuleGroupJsonBody? jsonBody,
+
             Union<System.Text.Json.JsonElement, string>? method,
 
             Union<System.Text.Json.JsonElement, string>? queryString,
@@ -63,6 +69,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         {
             AllQueryArguments = allQueryArguments;
             Body = body;
+            JsonBody = jsonBody;
             Method = method;
             QueryString = queryString;
             SingleHeader = singleHeader;

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        [Output("requestValidatorId")]
+        public Output<string> RequestValidatorId { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
         /// </summary>

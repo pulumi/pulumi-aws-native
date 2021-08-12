@@ -21,6 +21,14 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// </summary>
         public readonly Union<System.Text.Json.JsonElement, string>? AmiDistributionConfiguration;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
+        /// </summary>
+        public readonly Union<System.Text.Json.JsonElement, string>? ContainerDistributionConfiguration;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DistributionConfigurationLaunchTemplateConfiguration> LaunchTemplateConfigurations;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
         /// </summary>
         public readonly ImmutableArray<string> LicenseConfigurationArns;
@@ -33,11 +41,17 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         private DistributionConfigurationDistribution(
             Union<System.Text.Json.JsonElement, string>? amiDistributionConfiguration,
 
+            Union<System.Text.Json.JsonElement, string>? containerDistributionConfiguration,
+
+            ImmutableArray<Outputs.DistributionConfigurationLaunchTemplateConfiguration> launchTemplateConfigurations,
+
             ImmutableArray<string> licenseConfigurationArns,
 
             string region)
         {
             AmiDistributionConfiguration = amiDistributionConfiguration;
+            ContainerDistributionConfiguration = containerDistributionConfiguration;
+            LaunchTemplateConfigurations = launchTemplateConfigurations;
             LicenseConfigurationArns = licenseConfigurationArns;
             Region = region;
         }

@@ -22,10 +22,22 @@ namespace Pulumi.AwsNative.ACMPCA
         public Output<string> CertificateSigningRequest { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
+        /// </summary>
+        [Output("csrExtensions")]
+        public Output<Outputs.CertificateAuthorityCsrExtensions?> CsrExtensions { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
         /// </summary>
         [Output("keyAlgorithm")]
         public Output<string> KeyAlgorithm { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
+        /// </summary>
+        [Output("keyStorageSecurityStandard")]
+        public Output<string?> KeyStorageSecurityStandard { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
@@ -103,10 +115,22 @@ namespace Pulumi.AwsNative.ACMPCA
     public sealed class CertificateAuthorityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
+        /// </summary>
+        [Input("csrExtensions")]
+        public Input<Inputs.CertificateAuthorityCsrExtensionsArgs>? CsrExtensions { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
         /// </summary>
         [Input("keyAlgorithm", required: true)]
         public Input<string> KeyAlgorithm { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
+        /// </summary>
+        [Input("keyStorageSecurityStandard")]
+        public Input<string>? KeyStorageSecurityStandard { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration

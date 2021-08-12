@@ -27,11 +27,17 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         [Input("header", required: true)]
         public Input<Inputs.RuleGroupHeaderArgs> Header { get; set; } = null!;
 
+        [Input("ruleOptions", required: true)]
+        private InputList<Inputs.RuleGroupRuleOptionArgs>? _ruleOptions;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-ruleoptions
         /// </summary>
-        [Input("ruleOptions", required: true)]
-        public Input<Inputs.RuleGroupRuleOptionsArgs> RuleOptions { get; set; } = null!;
+        public InputList<Inputs.RuleGroupRuleOptionArgs> RuleOptions
+        {
+            get => _ruleOptions ?? (_ruleOptions = new InputList<Inputs.RuleGroupRuleOptionArgs>());
+            set => _ruleOptions = value;
+        }
 
         public RuleGroupStatefulRuleArgs()
         {

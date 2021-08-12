@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
         /// </summary>
-        public readonly string? Handler;
+        public readonly string Handler;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
 
         [OutputConstructor]
         private CanaryCode(
-            string? handler,
+            string handler,
 
             string? s3Bucket,
 

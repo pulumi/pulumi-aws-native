@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
         /// </summary>
-        public readonly string? ComponentConfigurationMode;
+        public readonly string ComponentConfigurationMode;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
         /// </summary>
@@ -39,13 +39,13 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
         /// </summary>
-        public readonly string? Tier;
+        public readonly string Tier;
 
         [OutputConstructor]
         private ApplicationComponentMonitoringSetting(
             string? componentARN,
 
-            string? componentConfigurationMode,
+            string componentConfigurationMode,
 
             string? componentName,
 
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
             Outputs.ApplicationComponentConfiguration? defaultOverwriteComponentConfiguration,
 
-            string? tier)
+            string tier)
         {
             ComponentARN = componentARN;
             ComponentConfigurationMode = componentConfigurationMode;

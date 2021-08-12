@@ -33,23 +33,41 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("documentsMetadataConfiguration")]
         public Input<Inputs.DataSourceDocumentsMetadataConfigurationArgs>? DocumentsMetadataConfiguration { get; set; }
 
+        [Input("exclusionPatterns")]
+        private InputList<string>? _exclusionPatterns;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
         /// </summary>
-        [Input("exclusionPatterns")]
-        public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? ExclusionPatterns { get; set; }
+        public InputList<string> ExclusionPatterns
+        {
+            get => _exclusionPatterns ?? (_exclusionPatterns = new InputList<string>());
+            set => _exclusionPatterns = value;
+        }
+
+        [Input("inclusionPatterns")]
+        private InputList<string>? _inclusionPatterns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
         /// </summary>
-        [Input("inclusionPatterns")]
-        public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? InclusionPatterns { get; set; }
+        public InputList<string> InclusionPatterns
+        {
+            get => _inclusionPatterns ?? (_inclusionPatterns = new InputList<string>());
+            set => _inclusionPatterns = value;
+        }
+
+        [Input("inclusionPrefixes")]
+        private InputList<string>? _inclusionPrefixes;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionprefixes
         /// </summary>
-        [Input("inclusionPrefixes")]
-        public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? InclusionPrefixes { get; set; }
+        public InputList<string> InclusionPrefixes
+        {
+            get => _inclusionPrefixes ?? (_inclusionPrefixes = new InputList<string>());
+            set => _inclusionPrefixes = value;
+        }
 
         public DataSourceS3DataSourceConfigurationArgs()
         {

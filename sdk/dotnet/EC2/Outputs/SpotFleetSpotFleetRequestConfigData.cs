@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.EC2.Outputs
         /// </summary>
         public readonly string? AllocationStrategy;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-context
+        /// </summary>
+        public readonly string? Context;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-excesscapacityterminationpolicy
         /// </summary>
         public readonly string? ExcessCapacityTerminationPolicy;
@@ -101,6 +105,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
         private SpotFleetSpotFleetRequestConfigData(
             string? allocationStrategy,
 
+            string? context,
+
             string? excessCapacityTerminationPolicy,
 
             string iamFleetRole,
@@ -140,6 +146,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             string? validUntil)
         {
             AllocationStrategy = allocationStrategy;
+            Context = context;
             ExcessCapacityTerminationPolicy = excessCapacityTerminationPolicy;
             IamFleetRole = iamFleetRole;
             InstanceInterruptionBehavior = instanceInterruptionBehavior;

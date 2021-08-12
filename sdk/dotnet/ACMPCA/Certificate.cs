@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.ACMPCA
     [AwsNativeResourceType("aws-native:ACMPCA:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
+        /// </summary>
+        [Output("apiPassthrough")]
+        public Output<Outputs.CertificateApiPassthrough?> ApiPassthrough { get; private set; } = null!;
+
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -50,6 +56,12 @@ namespace Pulumi.AwsNative.ACMPCA
         /// </summary>
         [Output("validity")]
         public Output<Outputs.CertificateValidity> Validity { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
+        /// </summary>
+        [Output("validityNotBefore")]
+        public Output<Outputs.CertificateValidity?> ValidityNotBefore { get; private set; } = null!;
 
 
         /// <summary>
@@ -97,6 +109,12 @@ namespace Pulumi.AwsNative.ACMPCA
     public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
+        /// </summary>
+        [Input("apiPassthrough")]
+        public Input<Inputs.CertificateApiPassthroughArgs>? ApiPassthrough { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
         /// </summary>
         [Input("certificateAuthorityArn", required: true)]
@@ -125,6 +143,12 @@ namespace Pulumi.AwsNative.ACMPCA
         /// </summary>
         [Input("validity", required: true)]
         public Input<Inputs.CertificateValidityArgs> Validity { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
+        /// </summary>
+        [Input("validityNotBefore")]
+        public Input<Inputs.CertificateValidityArgs>? ValidityNotBefore { get; set; }
 
         public CertificateArgs()
         {

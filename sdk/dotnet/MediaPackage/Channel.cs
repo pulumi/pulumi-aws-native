@@ -24,14 +24,23 @@ namespace Pulumi.AwsNative.MediaPackage
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("hlsIngest")]
-        public Output<Outputs.ChannelHlsIngest> HlsIngest { get; private set; } = null!;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+        /// </summary>
+        [Output("egressAccessLogs")]
+        public Output<Outputs.ChannelLogConfiguration?> EgressAccessLogs { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
         /// </summary>
         [Output("id")]
         public Output<string> Id { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+        /// </summary>
+        [Output("ingressAccessLogs")]
+        public Output<Outputs.ChannelLogConfiguration?> IngressAccessLogs { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
@@ -91,10 +100,22 @@ namespace Pulumi.AwsNative.MediaPackage
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+        /// </summary>
+        [Input("egressAccessLogs")]
+        public Input<Inputs.ChannelLogConfigurationArgs>? EgressAccessLogs { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+        /// </summary>
+        [Input("ingressAccessLogs")]
+        public Input<Inputs.ChannelLogConfigurationArgs>? IngressAccessLogs { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

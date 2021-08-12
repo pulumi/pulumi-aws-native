@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
         /// </summary>
-        [Input("value")]
-        public Input<Inputs.DetectorModelAssetPropertyVariantArgs>? Value { get; set; }
+        [Input("value", required: true)]
+        public Input<Inputs.DetectorModelAssetPropertyVariantArgs> Value { get; set; } = null!;
 
         public DetectorModelAssetPropertyValueArgs()
         {

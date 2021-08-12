@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.ECS
         public Output<bool?> EnableECSManagedTags { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
+        /// </summary>
+        [Output("enableExecuteCommand")]
+        public Output<bool?> EnableExecuteCommand { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
         /// </summary>
         [Output("healthCheckGracePeriodSeconds")]
@@ -114,11 +120,8 @@ namespace Pulumi.AwsNative.ECS
         [Output("schedulingStrategy")]
         public Output<string?> SchedulingStrategy { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
-        /// </summary>
         [Output("serviceArn")]
-        public Output<string?> ServiceArn { get; private set; } = null!;
+        public Output<string> ServiceArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
@@ -232,6 +235,12 @@ namespace Pulumi.AwsNative.ECS
         public Input<bool>? EnableECSManagedTags { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
+        /// </summary>
+        [Input("enableExecuteCommand")]
+        public Input<bool>? EnableExecuteCommand { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
         /// </summary>
         [Input("healthCheckGracePeriodSeconds")]
@@ -308,12 +317,6 @@ namespace Pulumi.AwsNative.ECS
         /// </summary>
         [Input("schedulingStrategy")]
         public Input<string>? SchedulingStrategy { get; set; }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
-        /// </summary>
-        [Input("serviceArn")]
-        public Input<string>? ServiceArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename

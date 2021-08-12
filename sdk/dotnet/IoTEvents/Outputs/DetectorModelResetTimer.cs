@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html#cfn-iotevents-detectormodel-resettimer-timername
         /// </summary>
-        public readonly string? TimerName;
+        public readonly string TimerName;
 
         [OutputConstructor]
-        private DetectorModelResetTimer(string? timerName)
+        private DetectorModelResetTimer(string timerName)
         {
             TimerName = timerName;
         }

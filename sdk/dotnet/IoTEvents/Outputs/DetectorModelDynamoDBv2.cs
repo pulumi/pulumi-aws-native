@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
         /// </summary>
-        public readonly string? TableName;
+        public readonly string TableName;
 
         [OutputConstructor]
         private DetectorModelDynamoDBv2(
             Outputs.DetectorModelPayload? payload,
 
-            string? tableName)
+            string tableName)
         {
             Payload = payload;
             TableName = tableName;

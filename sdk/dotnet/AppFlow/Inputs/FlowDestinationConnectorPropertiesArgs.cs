@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<Inputs.FlowEventBridgeDestinationPropertiesArgs>? EventBridge { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
+        /// </summary>
+        [Input("lookoutMetrics")]
+        public Input<Inputs.FlowLookoutMetricsDestinationPropertiesArgs>? LookoutMetrics { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
         /// </summary>
         [Input("redshift")]
@@ -50,6 +56,12 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// </summary>
         [Input("upsolver")]
         public Input<Inputs.FlowUpsolverDestinationPropertiesArgs>? Upsolver { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
+        /// </summary>
+        [Input("zendesk")]
+        public Input<Inputs.FlowZendeskDestinationPropertiesArgs>? Zendesk { get; set; }
 
         public FlowDestinationConnectorPropertiesArgs()
         {

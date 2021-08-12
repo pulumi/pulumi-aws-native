@@ -57,6 +57,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         /// </summary>
         public readonly string TokenEndpoint;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-useexistingclientsecret
+        /// </summary>
+        public readonly bool? UseExistingClientSecret;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-userinfoendpoint
         /// </summary>
         public readonly string UserInfoEndpoint;
@@ -83,6 +87,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
             string tokenEndpoint,
 
+            bool? useExistingClientSecret,
+
             string userInfoEndpoint)
         {
             AuthenticationRequestExtraParams = authenticationRequestExtraParams;
@@ -95,6 +101,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
             SessionCookieName = sessionCookieName;
             SessionTimeout = sessionTimeout;
             TokenEndpoint = tokenEndpoint;
+            UseExistingClientSecret = useExistingClientSecret;
             UserInfoEndpoint = userInfoEndpoint;
         }
     }

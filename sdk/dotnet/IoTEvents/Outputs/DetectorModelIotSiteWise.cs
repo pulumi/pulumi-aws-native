@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
         /// </summary>
-        public readonly Outputs.DetectorModelAssetPropertyValue? PropertyValue;
+        public readonly Outputs.DetectorModelAssetPropertyValue PropertyValue;
 
         [OutputConstructor]
         private DetectorModelIotSiteWise(
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 
             string? propertyId,
 
-            Outputs.DetectorModelAssetPropertyValue? propertyValue)
+            Outputs.DetectorModelAssetPropertyValue propertyValue)
         {
             AssetId = assetId;
             EntryId = entryId;

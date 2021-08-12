@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
         /// </summary>
-        [Input("componentConfigurationMode")]
-        public Input<string>? ComponentConfigurationMode { get; set; }
+        [Input("componentConfigurationMode", required: true)]
+        public Input<string> ComponentConfigurationMode { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
@@ -48,8 +48,8 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
         /// </summary>
-        [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        [Input("tier", required: true)]
+        public Input<string> Tier { get; set; } = null!;
 
         public ApplicationComponentMonitoringSettingArgs()
         {

@@ -19,17 +19,17 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? Allow;
+        public readonly Outputs.WebACLAllowAction? Allow;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? Block;
+        public readonly Outputs.WebACLBlockAction? Block;
 
         [OutputConstructor]
         private WebACLDefaultAction(
-            Union<System.Text.Json.JsonElement, string>? allow,
+            Outputs.WebACLAllowAction? allow,
 
-            Union<System.Text.Json.JsonElement, string>? block)
+            Outputs.WebACLBlockAction? block)
         {
             Allow = allow;
             Block = block;

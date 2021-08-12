@@ -27,11 +27,17 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("documentTitleFieldName")]
         public Input<string>? DocumentTitleFieldName { get; set; }
 
+        [Input("fieldMappings")]
+        private InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>? _fieldMappings;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-fieldmappings
         /// </summary>
-        [Input("fieldMappings")]
-        public Input<Inputs.DataSourceDataSourceToIndexFieldMappingListArgs>? FieldMappings { get; set; }
+        public InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs> FieldMappings
+        {
+            get => _fieldMappings ?? (_fieldMappings = new InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>());
+            set => _fieldMappings = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-name

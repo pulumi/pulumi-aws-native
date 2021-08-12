@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.Athena.Outputs
         /// </summary>
         public readonly bool? EnforceWorkGroupConfiguration;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
+        /// </summary>
+        public readonly Outputs.WorkGroupEngineVersion? EngineVersion;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
         /// </summary>
         public readonly bool? PublishCloudWatchMetricsEnabled;
@@ -43,6 +47,8 @@ namespace Pulumi.AwsNative.Athena.Outputs
 
             bool? enforceWorkGroupConfiguration,
 
+            Outputs.WorkGroupEngineVersion? engineVersion,
+
             bool? publishCloudWatchMetricsEnabled,
 
             bool? requesterPaysEnabled,
@@ -51,6 +57,7 @@ namespace Pulumi.AwsNative.Athena.Outputs
         {
             BytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
             EnforceWorkGroupConfiguration = enforceWorkGroupConfiguration;
+            EngineVersion = engineVersion;
             PublishCloudWatchMetricsEnabled = publishCloudWatchMetricsEnabled;
             RequesterPaysEnabled = requesterPaysEnabled;
             ResultConfiguration = resultConfiguration;

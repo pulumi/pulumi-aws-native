@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("cloudFrontOriginAccessIdentityConfig")]
         public Output<Outputs.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig> CloudFrontOriginAccessIdentityConfig { get; private set; } = null!;
 
+        [Output("id")]
+        public Output<string> Id { get; private set; } = null!;
+
         [Output("s3CanonicalUserId")]
         public Output<string> S3CanonicalUserId { get; private set; } = null!;
 

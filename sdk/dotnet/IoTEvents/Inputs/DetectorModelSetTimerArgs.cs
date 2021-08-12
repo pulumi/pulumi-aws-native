@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername
         /// </summary>
-        [Input("timerName")]
-        public Input<string>? TimerName { get; set; }
+        [Input("timerName", required: true)]
+        public Input<string> TimerName { get; set; } = null!;
 
         public DetectorModelSetTimerArgs()
         {

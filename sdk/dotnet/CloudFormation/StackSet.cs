@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<Outputs.StackSetAutoDeployment?> AutoDeployment { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+        /// </summary>
+        [Output("callAs")]
+        public Output<string?> CallAs { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
         /// </summary>
         [Output("capabilities")]
@@ -152,6 +158,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         [Input("autoDeployment")]
         public Input<Inputs.StackSetAutoDeploymentArgs>? AutoDeployment { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+        /// </summary>
+        [Input("callAs")]
+        public Input<string>? CallAs { get; set; }
 
         [Input("capabilities")]
         private InputList<string>? _capabilities;

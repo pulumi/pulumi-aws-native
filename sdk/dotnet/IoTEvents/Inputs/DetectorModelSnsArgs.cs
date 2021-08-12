@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
         /// </summary>
-        [Input("targetArn")]
-        public Input<string>? TargetArn { get; set; }
+        [Input("targetArn", required: true)]
+        public Input<string> TargetArn { get; set; } = null!;
 
         public DetectorModelSnsArgs()
         {

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        [Output("id")]
+        public Output<string> Id { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
         /// </summary>

@@ -30,9 +30,6 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Output("distributions")]
         public Output<ImmutableArray<Outputs.DistributionConfigurationDistribution>> Distributions { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-name
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 

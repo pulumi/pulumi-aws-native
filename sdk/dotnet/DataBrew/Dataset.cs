@@ -16,22 +16,34 @@ namespace Pulumi.AwsNative.DataBrew
     public partial class Dataset : Pulumi.CustomResource
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-format
+        /// </summary>
+        [Output("format")]
+        public Output<string?> Format { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
         /// </summary>
         [Output("formatOptions")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> FormatOptions { get; private set; } = null!;
+        public Output<Outputs.DatasetFormatOptions?> FormatOptions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
         /// </summary>
         [Output("input")]
-        public Output<Union<System.Text.Json.JsonElement, string>> Input { get; private set; } = null!;
+        public Output<Outputs.DatasetInput> Input { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
+        /// </summary>
+        [Output("pathOptions")]
+        public Output<Outputs.DatasetPathOptions?> PathOptions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
@@ -85,22 +97,34 @@ namespace Pulumi.AwsNative.DataBrew
     public sealed class DatasetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-format
+        /// </summary>
+        [Input("format")]
+        public Input<string>? Format { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
         /// </summary>
         [Input("formatOptions")]
-        public InputUnion<System.Text.Json.JsonElement, string>? FormatOptions { get; set; }
+        public Input<Inputs.DatasetFormatOptionsArgs>? FormatOptions { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
         /// </summary>
         [Input("input", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> Input { get; set; } = null!;
+        public Input<Inputs.DatasetInputArgs> Input { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
+        /// </summary>
+        [Input("pathOptions")]
+        public Input<Inputs.DatasetPathOptionsArgs>? PathOptions { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

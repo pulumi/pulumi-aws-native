@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
         /// </summary>
-        public readonly Outputs.IndexValueImportanceItems? ValueImportanceItems;
+        public readonly ImmutableArray<Outputs.IndexValueImportanceItem> ValueImportanceItems;
 
         [OutputConstructor]
         private IndexRelevance(
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             string? rankOrder,
 
-            Outputs.IndexValueImportanceItems? valueImportanceItems)
+            ImmutableArray<Outputs.IndexValueImportanceItem> valueImportanceItems)
         {
             Duration = duration;
             Freshness = freshness;
