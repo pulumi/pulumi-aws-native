@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .capacity_provider import *
 from .cluster import *
+from .cluster_capacity_provider_associations import *
 from .primary_task_set import *
 from .service import *
 from .task_definition import *

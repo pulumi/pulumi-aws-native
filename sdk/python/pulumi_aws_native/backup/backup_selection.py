@@ -110,6 +110,7 @@ class BackupSelection(pulumi.CustomResource):
             if backup_selection is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_selection'")
             __props__.__dict__["backup_selection"] = backup_selection
+            __props__.__dict__["id"] = None
             __props__.__dict__["selection_id"] = None
         super(BackupSelection, __self__).__init__(
             'aws-native:Backup:BackupSelection',
@@ -135,6 +136,7 @@ class BackupSelection(pulumi.CustomResource):
 
         __props__.__dict__["backup_plan_id"] = None
         __props__.__dict__["backup_selection"] = None
+        __props__.__dict__["id"] = None
         __props__.__dict__["selection_id"] = None
         return BackupSelection(resource_name, opts=opts, __props__=__props__)
 
@@ -150,6 +152,11 @@ class BackupSelection(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
         """
         return pulumi.get(self, "backup_selection")
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="selectionId")

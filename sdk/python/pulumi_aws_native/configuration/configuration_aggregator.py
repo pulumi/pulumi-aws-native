@@ -17,36 +17,25 @@ __all__ = ['ConfigurationAggregatorArgs', 'ConfigurationAggregator']
 @pulumi.input_type
 class ConfigurationAggregatorArgs:
     def __init__(__self__, *,
-                 configuration_aggregator_name: pulumi.Input[str],
                  account_aggregation_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]]] = None,
+                 configuration_aggregator_name: Optional[pulumi.Input[str]] = None,
                  organization_aggregation_source: Optional[pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationAggregator resource.
-        :param pulumi.Input[str] configuration_aggregator_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]] account_aggregation_sources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-accountaggregationsources
+        :param pulumi.Input[str] configuration_aggregator_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
         :param pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs'] organization_aggregation_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-tags
         """
-        pulumi.set(__self__, "configuration_aggregator_name", configuration_aggregator_name)
         if account_aggregation_sources is not None:
             pulumi.set(__self__, "account_aggregation_sources", account_aggregation_sources)
+        if configuration_aggregator_name is not None:
+            pulumi.set(__self__, "configuration_aggregator_name", configuration_aggregator_name)
         if organization_aggregation_source is not None:
             pulumi.set(__self__, "organization_aggregation_source", organization_aggregation_source)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="configurationAggregatorName")
-    def configuration_aggregator_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
-        """
-        return pulumi.get(self, "configuration_aggregator_name")
-
-    @configuration_aggregator_name.setter
-    def configuration_aggregator_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "configuration_aggregator_name", value)
 
     @property
     @pulumi.getter(name="accountAggregationSources")
@@ -59,6 +48,18 @@ class ConfigurationAggregatorArgs:
     @account_aggregation_sources.setter
     def account_aggregation_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]]]):
         pulumi.set(self, "account_aggregation_sources", value)
+
+    @property
+    @pulumi.getter(name="configurationAggregatorName")
+    def configuration_aggregator_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
+        """
+        return pulumi.get(self, "configuration_aggregator_name")
+
+    @configuration_aggregator_name.setter
+    def configuration_aggregator_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_aggregator_name", value)
 
     @property
     @pulumi.getter(name="organizationAggregationSource")
@@ -109,7 +110,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConfigurationAggregatorArgs,
+                 args: Optional[ConfigurationAggregatorArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html
@@ -146,11 +147,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
             __props__ = ConfigurationAggregatorArgs.__new__(ConfigurationAggregatorArgs)
 
             __props__.__dict__["account_aggregation_sources"] = account_aggregation_sources
-            if configuration_aggregator_name is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration_aggregator_name'")
             __props__.__dict__["configuration_aggregator_name"] = configuration_aggregator_name
             __props__.__dict__["organization_aggregation_source"] = organization_aggregation_source
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["configuration_aggregator_arn"] = None
         super(ConfigurationAggregator, __self__).__init__(
             'aws-native:Configuration:ConfigurationAggregator',
             resource_name,
@@ -174,6 +174,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
         __props__ = ConfigurationAggregatorArgs.__new__(ConfigurationAggregatorArgs)
 
         __props__.__dict__["account_aggregation_sources"] = None
+        __props__.__dict__["configuration_aggregator_arn"] = None
         __props__.__dict__["configuration_aggregator_name"] = None
         __props__.__dict__["organization_aggregation_source"] = None
         __props__.__dict__["tags"] = None
@@ -188,8 +189,13 @@ class ConfigurationAggregator(pulumi.CustomResource):
         return pulumi.get(self, "account_aggregation_sources")
 
     @property
+    @pulumi.getter(name="configurationAggregatorArn")
+    def configuration_aggregator_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "configuration_aggregator_arn")
+
+    @property
     @pulumi.getter(name="configurationAggregatorName")
-    def configuration_aggregator_name(self) -> pulumi.Output[str]:
+    def configuration_aggregator_name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
         """

@@ -10,7 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'StateMachineCloudWatchLogsLogGroupArgs',
-    'StateMachineDefinitionSubstitutionsArgs',
+    'StateMachineDefinitionArgs',
     'StateMachineLogDestinationArgs',
     'StateMachineLoggingConfigurationArgs',
     'StateMachineS3LocationArgs',
@@ -43,10 +43,10 @@ class StateMachineCloudWatchLogsLogGroupArgs:
 
 
 @pulumi.input_type
-class StateMachineDefinitionSubstitutionsArgs:
+class StateMachineDefinitionArgs:
     def __init__(__self__):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definitionsubstitutions.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definition.html
         """
         pass
 

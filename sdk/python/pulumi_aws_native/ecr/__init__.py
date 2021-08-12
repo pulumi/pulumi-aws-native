@@ -5,6 +5,8 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .registry_policy import *
+from .replication_configuration import *
 from .repository import *
 from ._inputs import *
 from . import outputs

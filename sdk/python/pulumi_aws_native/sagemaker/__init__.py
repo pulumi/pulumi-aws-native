@@ -5,9 +5,15 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .app import *
+from .app_image_config import *
 from .data_quality_job_definition import *
 from .device import *
 from .device_fleet import *
+from .domain import *
+from .feature_group import *
+from .image import *
+from .image_version import *
 from .model_bias_job_definition import *
 from .model_explainability_job_definition import *
 from .model_package_group import *
@@ -15,5 +21,6 @@ from .model_quality_job_definition import *
 from .monitoring_schedule import *
 from .pipeline import *
 from .project import *
+from .user_profile import *
 from ._inputs import *
 from . import outputs

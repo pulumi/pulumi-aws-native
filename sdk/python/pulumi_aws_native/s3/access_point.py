@@ -16,9 +16,7 @@ __all__ = ['AccessPointArgs', 'AccessPoint']
 class AccessPointArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
-                 creation_date: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_origin: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  policy_status: Optional[pulumi.Input[Union[Any, str]]] = None,
                  public_access_block_configuration: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']] = None,
@@ -26,21 +24,15 @@ class AccessPointArgs:
         """
         The set of arguments for constructing a AccessPoint resource.
         :param pulumi.Input[str] bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
-        :param pulumi.Input[str] creation_date: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
-        :param pulumi.Input[str] network_origin: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
         :param pulumi.Input[Union[Any, str]] policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
         :param pulumi.Input[Union[Any, str]] policy_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
         :param pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
         :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
         """
         pulumi.set(__self__, "bucket", bucket)
-        if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if network_origin is not None:
-            pulumi.set(__self__, "network_origin", network_origin)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if policy_status is not None:
@@ -63,18 +55,6 @@ class AccessPointArgs:
         pulumi.set(self, "bucket", value)
 
     @property
-    @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
-        """
-        return pulumi.get(self, "creation_date")
-
-    @creation_date.setter
-    def creation_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "creation_date", value)
-
-    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -85,18 +65,6 @@ class AccessPointArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="networkOrigin")
-    def network_origin(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
-        """
-        return pulumi.get(self, "network_origin")
-
-    @network_origin.setter
-    def network_origin(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "network_origin", value)
 
     @property
     @pulumi.getter
@@ -153,9 +121,7 @@ class AccessPoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 creation_date: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_origin: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  policy_status: Optional[pulumi.Input[Union[Any, str]]] = None,
                  public_access_block_configuration: Optional[pulumi.Input[pulumi.InputType['AccessPointPublicAccessBlockConfigurationArgs']]] = None,
@@ -167,9 +133,7 @@ class AccessPoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
-        :param pulumi.Input[str] creation_date: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
-        :param pulumi.Input[str] network_origin: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
         :param pulumi.Input[Union[Any, str]] policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
         :param pulumi.Input[Union[Any, str]] policy_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
         :param pulumi.Input[pulumi.InputType['AccessPointPublicAccessBlockConfigurationArgs']] public_access_block_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
@@ -200,9 +164,7 @@ class AccessPoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 creation_date: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_origin: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  policy_status: Optional[pulumi.Input[Union[Any, str]]] = None,
                  public_access_block_configuration: Optional[pulumi.Input[pulumi.InputType['AccessPointPublicAccessBlockConfigurationArgs']]] = None,
@@ -222,13 +184,14 @@ class AccessPoint(pulumi.CustomResource):
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
-            __props__.__dict__["creation_date"] = creation_date
             __props__.__dict__["name"] = name
-            __props__.__dict__["network_origin"] = network_origin
             __props__.__dict__["policy"] = policy
             __props__.__dict__["policy_status"] = policy_status
             __props__.__dict__["public_access_block_configuration"] = public_access_block_configuration
             __props__.__dict__["vpc_configuration"] = vpc_configuration
+            __props__.__dict__["alias"] = None
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["network_origin"] = None
         super(AccessPoint, __self__).__init__(
             'aws-native:S3:AccessPoint',
             resource_name,
@@ -251,8 +214,9 @@ class AccessPoint(pulumi.CustomResource):
 
         __props__ = AccessPointArgs.__new__(AccessPointArgs)
 
+        __props__.__dict__["alias"] = None
+        __props__.__dict__["arn"] = None
         __props__.__dict__["bucket"] = None
-        __props__.__dict__["creation_date"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_origin"] = None
         __props__.__dict__["policy"] = None
@@ -263,6 +227,16 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def alias(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
@@ -270,27 +244,13 @@ class AccessPoint(pulumi.CustomResource):
         return pulumi.get(self, "bucket")
 
     @property
-    @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-creationdate
-        """
-        return pulumi.get(self, "creation_date")
-
-    @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
-        """
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="networkOrigin")
-    def network_origin(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-networkorigin
-        """
+    def network_origin(self) -> pulumi.Output[str]:
         return pulumi.get(self, "network_origin")
 
     @property

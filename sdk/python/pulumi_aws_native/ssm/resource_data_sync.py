@@ -333,9 +333,6 @@ class ResourceDataSync(pulumi.CustomResource):
     @property
     @pulumi.getter(name="syncName")
     def sync_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
-        """
         return pulumi.get(self, "sync_name")
 
     @property

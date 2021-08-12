@@ -9,6 +9,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AppImageConfigFileSystemConfigArgs',
+    'AppImageConfigKernelGatewayImageConfigArgs',
+    'AppImageConfigKernelSpecArgs',
+    'AppResourceSpecArgs',
     'DataQualityJobDefinitionClusterConfigArgs',
     'DataQualityJobDefinitionConstraintsResourceArgs',
     'DataQualityJobDefinitionDataQualityAppSpecificationArgs',
@@ -25,6 +29,13 @@ __all__ = [
     'DataQualityJobDefinitionStoppingConditionArgs',
     'DataQualityJobDefinitionVpcConfigArgs',
     'DeviceFleetEdgeOutputConfigArgs',
+    'DomainCustomImageArgs',
+    'DomainJupyterServerAppSettingsArgs',
+    'DomainKernelGatewayAppSettingsArgs',
+    'DomainResourceSpecArgs',
+    'DomainSharingSettingsArgs',
+    'DomainUserSettingsArgs',
+    'FeatureGroupFeatureDefinitionArgs',
     'ModelBiasJobDefinitionClusterConfigArgs',
     'ModelBiasJobDefinitionConstraintsResourceArgs',
     'ModelBiasJobDefinitionEndpointInputArgs',
@@ -76,7 +87,6 @@ __all__ = [
     'MonitoringScheduleEnvironmentArgs',
     'MonitoringScheduleMonitoringAppSpecificationArgs',
     'MonitoringScheduleMonitoringExecutionSummaryArgs',
-    'MonitoringScheduleMonitoringInputsArgs',
     'MonitoringScheduleMonitoringInputArgs',
     'MonitoringScheduleMonitoringJobDefinitionArgs',
     'MonitoringScheduleMonitoringOutputConfigArgs',
@@ -89,7 +99,203 @@ __all__ = [
     'MonitoringScheduleStatisticsResourceArgs',
     'MonitoringScheduleStoppingConditionArgs',
     'MonitoringScheduleVpcConfigArgs',
+    'UserProfileCustomImageArgs',
+    'UserProfileJupyterServerAppSettingsArgs',
+    'UserProfileKernelGatewayAppSettingsArgs',
+    'UserProfileResourceSpecArgs',
+    'UserProfileSharingSettingsArgs',
+    'UserProfileUserSettingsArgs',
 ]
+
+@pulumi.input_type
+class AppImageConfigFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 default_gid: Optional[pulumi.Input[int]] = None,
+                 default_uid: Optional[pulumi.Input[int]] = None,
+                 mount_path: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html
+        :param pulumi.Input[int] default_gid: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
+        :param pulumi.Input[int] default_uid: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
+        :param pulumi.Input[str] mount_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
+        """
+        if default_gid is not None:
+            pulumi.set(__self__, "default_gid", default_gid)
+        if default_uid is not None:
+            pulumi.set(__self__, "default_uid", default_uid)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="defaultGid")
+    def default_gid(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
+        """
+        return pulumi.get(self, "default_gid")
+
+    @default_gid.setter
+    def default_gid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default_gid", value)
+
+    @property
+    @pulumi.getter(name="defaultUid")
+    def default_uid(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
+        """
+        return pulumi.get(self, "default_uid")
+
+    @default_uid.setter
+    def default_uid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default_uid", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_path", value)
+
+
+@pulumi.input_type
+class AppImageConfigKernelGatewayImageConfigArgs:
+    def __init__(__self__, *,
+                 kernel_specs: pulumi.Input[Sequence[pulumi.Input['AppImageConfigKernelSpecArgs']]],
+                 file_system_config: Optional[pulumi.Input['AppImageConfigFileSystemConfigArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html
+        :param pulumi.Input[Sequence[pulumi.Input['AppImageConfigKernelSpecArgs']]] kernel_specs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
+        :param pulumi.Input['AppImageConfigFileSystemConfigArgs'] file_system_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
+        """
+        pulumi.set(__self__, "kernel_specs", kernel_specs)
+        if file_system_config is not None:
+            pulumi.set(__self__, "file_system_config", file_system_config)
+
+    @property
+    @pulumi.getter(name="kernelSpecs")
+    def kernel_specs(self) -> pulumi.Input[Sequence[pulumi.Input['AppImageConfigKernelSpecArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
+        """
+        return pulumi.get(self, "kernel_specs")
+
+    @kernel_specs.setter
+    def kernel_specs(self, value: pulumi.Input[Sequence[pulumi.Input['AppImageConfigKernelSpecArgs']]]):
+        pulumi.set(self, "kernel_specs", value)
+
+    @property
+    @pulumi.getter(name="fileSystemConfig")
+    def file_system_config(self) -> Optional[pulumi.Input['AppImageConfigFileSystemConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
+        """
+        return pulumi.get(self, "file_system_config")
+
+    @file_system_config.setter
+    def file_system_config(self, value: Optional[pulumi.Input['AppImageConfigFileSystemConfigArgs']]):
+        pulumi.set(self, "file_system_config", value)
+
+
+@pulumi.input_type
+class AppImageConfigKernelSpecArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 display_name: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-name
+        :param pulumi.Input[str] display_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-displayname
+        """
+        pulumi.set(__self__, "name", name)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-displayname
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+
+@pulumi.input_type
+class AppResourceSpecArgs:
+    def __init__(__self__, *,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 sage_maker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sage_maker_image_version_arn: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html
+        :param pulumi.Input[str] instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-instancetype
+        :param pulumi.Input[str] sage_maker_image_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimagearn
+        :param pulumi.Input[str] sage_maker_image_version_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimageversionarn
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if sage_maker_image_arn is not None:
+            pulumi.set(__self__, "sage_maker_image_arn", sage_maker_image_arn)
+        if sage_maker_image_version_arn is not None:
+            pulumi.set(__self__, "sage_maker_image_version_arn", sage_maker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-instancetype
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="sageMakerImageArn")
+    def sage_maker_image_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimagearn
+        """
+        return pulumi.get(self, "sage_maker_image_arn")
+
+    @sage_maker_image_arn.setter
+    def sage_maker_image_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sage_maker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sageMakerImageVersionArn")
+    def sage_maker_image_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimageversionarn
+        """
+        return pulumi.get(self, "sage_maker_image_version_arn")
+
+    @sage_maker_image_version_arn.setter
+    def sage_maker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sage_maker_image_version_arn", value)
+
 
 @pulumi.input_type
 class DataQualityJobDefinitionClusterConfigArgs:
@@ -762,6 +968,362 @@ class DeviceFleetEdgeOutputConfigArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class DomainCustomImageArgs:
+    def __init__(__self__, *,
+                 app_image_config_name: pulumi.Input[str],
+                 image_name: pulumi.Input[str],
+                 image_version_number: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html
+        :param pulumi.Input[str] app_image_config_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-appimageconfigname
+        :param pulumi.Input[str] image_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imagename
+        :param pulumi.Input[int] image_version_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imageversionnumber
+        """
+        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        pulumi.set(__self__, "image_name", image_name)
+        if image_version_number is not None:
+            pulumi.set(__self__, "image_version_number", image_version_number)
+
+    @property
+    @pulumi.getter(name="appImageConfigName")
+    def app_image_config_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-appimageconfigname
+        """
+        return pulumi.get(self, "app_image_config_name")
+
+    @app_image_config_name.setter
+    def app_image_config_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_image_config_name", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imagename
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="imageVersionNumber")
+    def image_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imageversionnumber
+        """
+        return pulumi.get(self, "image_version_number")
+
+    @image_version_number.setter
+    def image_version_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_version_number", value)
+
+
+@pulumi.input_type
+class DomainJupyterServerAppSettingsArgs:
+    def __init__(__self__, *,
+                 default_resource_spec: Optional[pulumi.Input['DomainResourceSpecArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html
+        :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
+        """
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['DomainResourceSpecArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['DomainResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+
+@pulumi.input_type
+class DomainKernelGatewayAppSettingsArgs:
+    def __init__(__self__, *,
+                 custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]]] = None,
+                 default_resource_spec: Optional[pulumi.Input['DomainResourceSpecArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html
+        :param pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]] custom_images: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
+        :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+        """
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
+        """
+        return pulumi.get(self, "custom_images")
+
+    @custom_images.setter
+    def custom_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]]]):
+        pulumi.set(self, "custom_images", value)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['DomainResourceSpecArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['DomainResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+
+@pulumi.input_type
+class DomainResourceSpecArgs:
+    def __init__(__self__, *,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 sage_maker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sage_maker_image_version_arn: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html
+        :param pulumi.Input[str] instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-instancetype
+        :param pulumi.Input[str] sage_maker_image_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimagearn
+        :param pulumi.Input[str] sage_maker_image_version_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if sage_maker_image_arn is not None:
+            pulumi.set(__self__, "sage_maker_image_arn", sage_maker_image_arn)
+        if sage_maker_image_version_arn is not None:
+            pulumi.set(__self__, "sage_maker_image_version_arn", sage_maker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-instancetype
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="sageMakerImageArn")
+    def sage_maker_image_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimagearn
+        """
+        return pulumi.get(self, "sage_maker_image_arn")
+
+    @sage_maker_image_arn.setter
+    def sage_maker_image_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sage_maker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sageMakerImageVersionArn")
+    def sage_maker_image_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
+        """
+        return pulumi.get(self, "sage_maker_image_version_arn")
+
+    @sage_maker_image_version_arn.setter
+    def sage_maker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sage_maker_image_version_arn", value)
+
+
+@pulumi.input_type
+class DomainSharingSettingsArgs:
+    def __init__(__self__, *,
+                 notebook_output_option: Optional[pulumi.Input[str]] = None,
+                 s3_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 s3_output_path: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html
+        :param pulumi.Input[str] notebook_output_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-notebookoutputoption
+        :param pulumi.Input[str] s3_kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3kmskeyid
+        :param pulumi.Input[str] s3_output_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3outputpath
+        """
+        if notebook_output_option is not None:
+            pulumi.set(__self__, "notebook_output_option", notebook_output_option)
+        if s3_kms_key_id is not None:
+            pulumi.set(__self__, "s3_kms_key_id", s3_kms_key_id)
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
+
+    @property
+    @pulumi.getter(name="notebookOutputOption")
+    def notebook_output_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-notebookoutputoption
+        """
+        return pulumi.get(self, "notebook_output_option")
+
+    @notebook_output_option.setter
+    def notebook_output_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notebook_output_option", value)
+
+    @property
+    @pulumi.getter(name="s3KmsKeyId")
+    def s3_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3kmskeyid
+        """
+        return pulumi.get(self, "s3_kms_key_id")
+
+    @s3_kms_key_id.setter
+    def s3_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3outputpath
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @s3_output_path.setter
+    def s3_output_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_output_path", value)
+
+
+@pulumi.input_type
+class DomainUserSettingsArgs:
+    def __init__(__self__, *,
+                 execution_role: Optional[pulumi.Input[str]] = None,
+                 jupyter_server_app_settings: Optional[pulumi.Input['DomainJupyterServerAppSettingsArgs']] = None,
+                 kernel_gateway_app_settings: Optional[pulumi.Input['DomainKernelGatewayAppSettingsArgs']] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sharing_settings: Optional[pulumi.Input['DomainSharingSettingsArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html
+        :param pulumi.Input[str] execution_role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-executionrole
+        :param pulumi.Input['DomainJupyterServerAppSettingsArgs'] jupyter_server_app_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-jupyterserverappsettings
+        :param pulumi.Input['DomainKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-kernelgatewayappsettings
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-securitygroups
+        :param pulumi.Input['DomainSharingSettingsArgs'] sharing_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
+        """
+        if execution_role is not None:
+            pulumi.set(__self__, "execution_role", execution_role)
+        if jupyter_server_app_settings is not None:
+            pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
+        if kernel_gateway_app_settings is not None:
+            pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if sharing_settings is not None:
+            pulumi.set(__self__, "sharing_settings", sharing_settings)
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-executionrole
+        """
+        return pulumi.get(self, "execution_role")
+
+    @execution_role.setter
+    def execution_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_role", value)
+
+    @property
+    @pulumi.getter(name="jupyterServerAppSettings")
+    def jupyter_server_app_settings(self) -> Optional[pulumi.Input['DomainJupyterServerAppSettingsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-jupyterserverappsettings
+        """
+        return pulumi.get(self, "jupyter_server_app_settings")
+
+    @jupyter_server_app_settings.setter
+    def jupyter_server_app_settings(self, value: Optional[pulumi.Input['DomainJupyterServerAppSettingsArgs']]):
+        pulumi.set(self, "jupyter_server_app_settings", value)
+
+    @property
+    @pulumi.getter(name="kernelGatewayAppSettings")
+    def kernel_gateway_app_settings(self) -> Optional[pulumi.Input['DomainKernelGatewayAppSettingsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-kernelgatewayappsettings
+        """
+        return pulumi.get(self, "kernel_gateway_app_settings")
+
+    @kernel_gateway_app_settings.setter
+    def kernel_gateway_app_settings(self, value: Optional[pulumi.Input['DomainKernelGatewayAppSettingsArgs']]):
+        pulumi.set(self, "kernel_gateway_app_settings", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-securitygroups
+        """
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @property
+    @pulumi.getter(name="sharingSettings")
+    def sharing_settings(self) -> Optional[pulumi.Input['DomainSharingSettingsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
+        """
+        return pulumi.get(self, "sharing_settings")
+
+    @sharing_settings.setter
+    def sharing_settings(self, value: Optional[pulumi.Input['DomainSharingSettingsArgs']]):
+        pulumi.set(self, "sharing_settings", value)
+
+
+@pulumi.input_type
+class FeatureGroupFeatureDefinitionArgs:
+    def __init__(__self__, *,
+                 feature_name: pulumi.Input[str],
+                 feature_type: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html
+        :param pulumi.Input[str] feature_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename
+        :param pulumi.Input[str] feature_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featuretype
+        """
+        pulumi.set(__self__, "feature_name", feature_name)
+        pulumi.set(__self__, "feature_type", feature_type)
+
+    @property
+    @pulumi.getter(name="featureName")
+    def feature_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename
+        """
+        return pulumi.get(self, "feature_name")
+
+    @feature_name.setter
+    def feature_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "feature_name", value)
+
+    @property
+    @pulumi.getter(name="featureType")
+    def feature_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featuretype
+        """
+        return pulumi.get(self, "feature_type")
+
+    @feature_type.setter
+    def feature_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "feature_type", value)
 
 
 @pulumi.input_type
@@ -3194,30 +3756,6 @@ class MonitoringScheduleMonitoringExecutionSummaryArgs:
 
 
 @pulumi.input_type
-class MonitoringScheduleMonitoringInputsArgs:
-    def __init__(__self__, *,
-                 monitoring_inputs: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html
-        :param pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgs']]] monitoring_inputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html#cfn-sagemaker-monitoringschedule-monitoringinputs-monitoringinputs
-        """
-        if monitoring_inputs is not None:
-            pulumi.set(__self__, "monitoring_inputs", monitoring_inputs)
-
-    @property
-    @pulumi.getter(name="monitoringInputs")
-    def monitoring_inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html#cfn-sagemaker-monitoringschedule-monitoringinputs-monitoringinputs
-        """
-        return pulumi.get(self, "monitoring_inputs")
-
-    @monitoring_inputs.setter
-    def monitoring_inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgs']]]]):
-        pulumi.set(self, "monitoring_inputs", value)
-
-
-@pulumi.input_type
 class MonitoringScheduleMonitoringInputArgs:
     def __init__(__self__, *,
                  endpoint_input: pulumi.Input['MonitoringScheduleEndpointInputArgs']):
@@ -3244,7 +3782,7 @@ class MonitoringScheduleMonitoringInputArgs:
 class MonitoringScheduleMonitoringJobDefinitionArgs:
     def __init__(__self__, *,
                  monitoring_app_specification: pulumi.Input['MonitoringScheduleMonitoringAppSpecificationArgs'],
-                 monitoring_inputs: pulumi.Input['MonitoringScheduleMonitoringInputsArgs'],
+                 monitoring_inputs: pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgs']]],
                  monitoring_output_config: pulumi.Input['MonitoringScheduleMonitoringOutputConfigArgs'],
                  monitoring_resources: pulumi.Input['MonitoringScheduleMonitoringResourcesArgs'],
                  role_arn: pulumi.Input[str],
@@ -3255,7 +3793,7 @@ class MonitoringScheduleMonitoringJobDefinitionArgs:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html
         :param pulumi.Input['MonitoringScheduleMonitoringAppSpecificationArgs'] monitoring_app_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
-        :param pulumi.Input['MonitoringScheduleMonitoringInputsArgs'] monitoring_inputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
+        :param pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgs']]] monitoring_inputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
         :param pulumi.Input['MonitoringScheduleMonitoringOutputConfigArgs'] monitoring_output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
         :param pulumi.Input['MonitoringScheduleMonitoringResourcesArgs'] monitoring_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
         :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
@@ -3292,14 +3830,14 @@ class MonitoringScheduleMonitoringJobDefinitionArgs:
 
     @property
     @pulumi.getter(name="monitoringInputs")
-    def monitoring_inputs(self) -> pulumi.Input['MonitoringScheduleMonitoringInputsArgs']:
+    def monitoring_inputs(self) -> pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgs']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
         """
         return pulumi.get(self, "monitoring_inputs")
 
     @monitoring_inputs.setter
-    def monitoring_inputs(self, value: pulumi.Input['MonitoringScheduleMonitoringInputsArgs']):
+    def monitoring_inputs(self, value: pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgs']]]):
         pulumi.set(self, "monitoring_inputs", value)
 
     @property
@@ -3760,5 +4298,323 @@ class MonitoringScheduleVpcConfigArgs:
     @subnets.setter
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
+
+
+@pulumi.input_type
+class UserProfileCustomImageArgs:
+    def __init__(__self__, *,
+                 app_image_config_name: pulumi.Input[str],
+                 image_name: pulumi.Input[str],
+                 image_version_number: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html
+        :param pulumi.Input[str] app_image_config_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
+        :param pulumi.Input[str] image_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imagename
+        :param pulumi.Input[int] image_version_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imageversionnumber
+        """
+        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        pulumi.set(__self__, "image_name", image_name)
+        if image_version_number is not None:
+            pulumi.set(__self__, "image_version_number", image_version_number)
+
+    @property
+    @pulumi.getter(name="appImageConfigName")
+    def app_image_config_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
+        """
+        return pulumi.get(self, "app_image_config_name")
+
+    @app_image_config_name.setter
+    def app_image_config_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_image_config_name", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imagename
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="imageVersionNumber")
+    def image_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imageversionnumber
+        """
+        return pulumi.get(self, "image_version_number")
+
+    @image_version_number.setter
+    def image_version_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_version_number", value)
+
+
+@pulumi.input_type
+class UserProfileJupyterServerAppSettingsArgs:
+    def __init__(__self__, *,
+                 default_resource_spec: Optional[pulumi.Input['UserProfileResourceSpecArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html
+        :param pulumi.Input['UserProfileResourceSpecArgs'] default_resource_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec
+        """
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileResourceSpecArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['UserProfileResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+
+@pulumi.input_type
+class UserProfileKernelGatewayAppSettingsArgs:
+    def __init__(__self__, *,
+                 custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]]] = None,
+                 default_resource_spec: Optional[pulumi.Input['UserProfileResourceSpecArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]] custom_images: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
+        :param pulumi.Input['UserProfileResourceSpecArgs'] default_resource_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
+        """
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
+        """
+        return pulumi.get(self, "custom_images")
+
+    @custom_images.setter
+    def custom_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]]]):
+        pulumi.set(self, "custom_images", value)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileResourceSpecArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['UserProfileResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+
+@pulumi.input_type
+class UserProfileResourceSpecArgs:
+    def __init__(__self__, *,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 sage_maker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sage_maker_image_version_arn: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html
+        :param pulumi.Input[str] instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-instancetype
+        :param pulumi.Input[str] sage_maker_image_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimagearn
+        :param pulumi.Input[str] sage_maker_image_version_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimageversionarn
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if sage_maker_image_arn is not None:
+            pulumi.set(__self__, "sage_maker_image_arn", sage_maker_image_arn)
+        if sage_maker_image_version_arn is not None:
+            pulumi.set(__self__, "sage_maker_image_version_arn", sage_maker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-instancetype
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="sageMakerImageArn")
+    def sage_maker_image_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimagearn
+        """
+        return pulumi.get(self, "sage_maker_image_arn")
+
+    @sage_maker_image_arn.setter
+    def sage_maker_image_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sage_maker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sageMakerImageVersionArn")
+    def sage_maker_image_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimageversionarn
+        """
+        return pulumi.get(self, "sage_maker_image_version_arn")
+
+    @sage_maker_image_version_arn.setter
+    def sage_maker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sage_maker_image_version_arn", value)
+
+
+@pulumi.input_type
+class UserProfileSharingSettingsArgs:
+    def __init__(__self__, *,
+                 notebook_output_option: Optional[pulumi.Input[str]] = None,
+                 s3_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 s3_output_path: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html
+        :param pulumi.Input[str] notebook_output_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-notebookoutputoption
+        :param pulumi.Input[str] s3_kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3kmskeyid
+        :param pulumi.Input[str] s3_output_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3outputpath
+        """
+        if notebook_output_option is not None:
+            pulumi.set(__self__, "notebook_output_option", notebook_output_option)
+        if s3_kms_key_id is not None:
+            pulumi.set(__self__, "s3_kms_key_id", s3_kms_key_id)
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
+
+    @property
+    @pulumi.getter(name="notebookOutputOption")
+    def notebook_output_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-notebookoutputoption
+        """
+        return pulumi.get(self, "notebook_output_option")
+
+    @notebook_output_option.setter
+    def notebook_output_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notebook_output_option", value)
+
+    @property
+    @pulumi.getter(name="s3KmsKeyId")
+    def s3_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3kmskeyid
+        """
+        return pulumi.get(self, "s3_kms_key_id")
+
+    @s3_kms_key_id.setter
+    def s3_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3outputpath
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @s3_output_path.setter
+    def s3_output_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_output_path", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsArgs:
+    def __init__(__self__, *,
+                 execution_role: Optional[pulumi.Input[str]] = None,
+                 jupyter_server_app_settings: Optional[pulumi.Input['UserProfileJupyterServerAppSettingsArgs']] = None,
+                 kernel_gateway_app_settings: Optional[pulumi.Input['UserProfileKernelGatewayAppSettingsArgs']] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sharing_settings: Optional[pulumi.Input['UserProfileSharingSettingsArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html
+        :param pulumi.Input[str] execution_role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
+        :param pulumi.Input['UserProfileJupyterServerAppSettingsArgs'] jupyter_server_app_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
+        :param pulumi.Input['UserProfileKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
+        :param pulumi.Input['UserProfileSharingSettingsArgs'] sharing_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
+        """
+        if execution_role is not None:
+            pulumi.set(__self__, "execution_role", execution_role)
+        if jupyter_server_app_settings is not None:
+            pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
+        if kernel_gateway_app_settings is not None:
+            pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if sharing_settings is not None:
+            pulumi.set(__self__, "sharing_settings", sharing_settings)
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
+        """
+        return pulumi.get(self, "execution_role")
+
+    @execution_role.setter
+    def execution_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_role", value)
+
+    @property
+    @pulumi.getter(name="jupyterServerAppSettings")
+    def jupyter_server_app_settings(self) -> Optional[pulumi.Input['UserProfileJupyterServerAppSettingsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
+        """
+        return pulumi.get(self, "jupyter_server_app_settings")
+
+    @jupyter_server_app_settings.setter
+    def jupyter_server_app_settings(self, value: Optional[pulumi.Input['UserProfileJupyterServerAppSettingsArgs']]):
+        pulumi.set(self, "jupyter_server_app_settings", value)
+
+    @property
+    @pulumi.getter(name="kernelGatewayAppSettings")
+    def kernel_gateway_app_settings(self) -> Optional[pulumi.Input['UserProfileKernelGatewayAppSettingsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
+        """
+        return pulumi.get(self, "kernel_gateway_app_settings")
+
+    @kernel_gateway_app_settings.setter
+    def kernel_gateway_app_settings(self, value: Optional[pulumi.Input['UserProfileKernelGatewayAppSettingsArgs']]):
+        pulumi.set(self, "kernel_gateway_app_settings", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
+        """
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @property
+    @pulumi.getter(name="sharingSettings")
+    def sharing_settings(self) -> Optional[pulumi.Input['UserProfileSharingSettingsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
+        """
+        return pulumi.get(self, "sharing_settings")
+
+    @sharing_settings.setter
+    def sharing_settings(self, value: Optional[pulumi.Input['UserProfileSharingSettingsArgs']]):
+        pulumi.set(self, "sharing_settings", value)
 
 

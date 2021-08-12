@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .component import *
+from .container_recipe import *
 from .distribution_configuration import *
 from .image import *
 from .image_pipeline import *

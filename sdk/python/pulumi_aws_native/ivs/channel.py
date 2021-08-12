@@ -18,6 +18,7 @@ class ChannelArgs:
                  authorized: Optional[pulumi.Input[bool]] = None,
                  latency_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 recording_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -25,6 +26,7 @@ class ChannelArgs:
         :param pulumi.Input[bool] authorized: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
         :param pulumi.Input[str] latency_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
+        :param pulumi.Input[str] recording_configuration_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-recordingconfigurationarn
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
         :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
         """
@@ -34,6 +36,8 @@ class ChannelArgs:
             pulumi.set(__self__, "latency_mode", latency_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if recording_configuration_arn is not None:
+            pulumi.set(__self__, "recording_configuration_arn", recording_configuration_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
@@ -76,6 +80,18 @@ class ChannelArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="recordingConfigurationArn")
+    def recording_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-recordingconfigurationarn
+        """
+        return pulumi.get(self, "recording_configuration_arn")
+
+    @recording_configuration_arn.setter
+    def recording_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recording_configuration_arn", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -108,6 +124,7 @@ class Channel(pulumi.CustomResource):
                  authorized: Optional[pulumi.Input[bool]] = None,
                  latency_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 recording_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -119,6 +136,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[bool] authorized: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
         :param pulumi.Input[str] latency_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
+        :param pulumi.Input[str] recording_configuration_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-recordingconfigurationarn
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
         :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
         """
@@ -149,6 +167,7 @@ class Channel(pulumi.CustomResource):
                  authorized: Optional[pulumi.Input[bool]] = None,
                  latency_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 recording_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -166,6 +185,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["authorized"] = authorized
             __props__.__dict__["latency_mode"] = latency_mode
             __props__.__dict__["name"] = name
+            __props__.__dict__["recording_configuration_arn"] = recording_configuration_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
@@ -199,6 +219,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["latency_mode"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["playback_url"] = None
+        __props__.__dict__["recording_configuration_arn"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Channel(resource_name, opts=opts, __props__=__props__)
@@ -241,6 +262,14 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="playbackUrl")
     def playback_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "playback_url")
+
+    @property
+    @pulumi.getter(name="recordingConfigurationArn")
+    def recording_configuration_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-recordingconfigurationarn
+        """
+        return pulumi.get(self, "recording_configuration_arn")
 
     @property
     @pulumi.getter

@@ -154,7 +154,6 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["project_arn"] = None
             __props__.__dict__["project_id"] = None
             __props__.__dict__["project_status"] = None
-            __props__.__dict__["service_catalog_provisioned_product_details"] = None
         super(Project, __self__).__init__(
             'aws-native:SageMaker:Project',
             resource_name,
@@ -183,7 +182,6 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["project_id"] = None
         __props__.__dict__["project_name"] = None
         __props__.__dict__["project_status"] = None
-        __props__.__dict__["service_catalog_provisioned_product_details"] = None
         __props__.__dict__["service_catalog_provisioning_details"] = None
         __props__.__dict__["tags"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
@@ -223,11 +221,6 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="projectStatus")
     def project_status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "project_status")
-
-    @property
-    @pulumi.getter(name="serviceCatalogProvisionedProductDetails")
-    def service_catalog_provisioned_product_details(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "service_catalog_provisioned_product_details")
 
     @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")

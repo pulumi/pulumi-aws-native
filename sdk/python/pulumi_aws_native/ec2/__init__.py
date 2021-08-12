@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from .carrier_gateway import *
 from .ec2_fleet import *
+from .egress_only_internet_gateway import *
+from .enclave_certificate_iam_role_association import *
 from .flow_log import *
 from .gateway_route_table_association import *
 from .local_gateway_route import *
@@ -16,5 +18,11 @@ from .network_insights_path import *
 from .prefix_list import *
 from .spot_fleet import *
 from .transit_gateway import *
+from .transit_gateway_connect import *
+from .transit_gateway_multicast_domain import *
+from .transit_gateway_multicast_domain_association import *
+from .transit_gateway_multicast_group_member import *
+from .transit_gateway_multicast_group_source import *
+from .transit_gateway_peering_attachment import *
 from ._inputs import *
 from . import outputs

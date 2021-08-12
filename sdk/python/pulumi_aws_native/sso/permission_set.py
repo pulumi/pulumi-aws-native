@@ -18,7 +18,7 @@ class PermissionSetArgs:
                  instance_arn: pulumi.Input[str],
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 inline_policy: Optional[pulumi.Input[str]] = None,
+                 inline_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  relay_state_type: Optional[pulumi.Input[str]] = None,
                  session_duration: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class PermissionSetArgs:
         :param pulumi.Input[str] instance_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
-        :param pulumi.Input[str] inline_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
+        :param pulumi.Input[Union[Any, str]] inline_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
         :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies
         :param pulumi.Input[str] relay_state_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype
         :param pulumi.Input[str] session_duration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration
@@ -87,14 +87,14 @@ class PermissionSetArgs:
 
     @property
     @pulumi.getter(name="inlinePolicy")
-    def inline_policy(self) -> Optional[pulumi.Input[str]]:
+    def inline_policy(self) -> Optional[pulumi.Input[Union[Any, str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
         """
         return pulumi.get(self, "inline_policy")
 
     @inline_policy.setter
-    def inline_policy(self, value: Optional[pulumi.Input[str]]):
+    def inline_policy(self, value: Optional[pulumi.Input[Union[Any, str]]]):
         pulumi.set(self, "inline_policy", value)
 
     @property
@@ -152,7 +152,7 @@ class PermissionSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 inline_policy: Optional[pulumi.Input[str]] = None,
+                 inline_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -166,7 +166,7 @@ class PermissionSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
-        :param pulumi.Input[str] inline_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
+        :param pulumi.Input[Union[Any, str]] inline_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
         :param pulumi.Input[str] instance_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
         :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
@@ -199,7 +199,7 @@ class PermissionSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 inline_policy: Optional[pulumi.Input[str]] = None,
+                 inline_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,

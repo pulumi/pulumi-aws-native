@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .global_replication_group import *
 from .user import *
 from .user_group import *
 from ._inputs import *

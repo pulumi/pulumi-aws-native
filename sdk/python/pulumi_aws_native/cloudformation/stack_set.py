@@ -21,6 +21,7 @@ class StackSetArgs:
                  stack_set_name: pulumi.Input[str],
                  administration_role_arn: Optional[pulumi.Input[str]] = None,
                  auto_deployment: Optional[pulumi.Input['StackSetAutoDeploymentArgs']] = None,
+                 call_as: Optional[pulumi.Input[str]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
@@ -36,6 +37,7 @@ class StackSetArgs:
         :param pulumi.Input[str] stack_set_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
         :param pulumi.Input[str] administration_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
         :param pulumi.Input['StackSetAutoDeploymentArgs'] auto_deployment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
+        :param pulumi.Input[str] call_as: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
         :param pulumi.Input[str] execution_role_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
@@ -52,6 +54,8 @@ class StackSetArgs:
             pulumi.set(__self__, "administration_role_arn", administration_role_arn)
         if auto_deployment is not None:
             pulumi.set(__self__, "auto_deployment", auto_deployment)
+        if call_as is not None:
+            pulumi.set(__self__, "call_as", call_as)
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
         if description is not None:
@@ -118,6 +122,18 @@ class StackSetArgs:
     @auto_deployment.setter
     def auto_deployment(self, value: Optional[pulumi.Input['StackSetAutoDeploymentArgs']]):
         pulumi.set(self, "auto_deployment", value)
+
+    @property
+    @pulumi.getter(name="callAs")
+    def call_as(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+        """
+        return pulumi.get(self, "call_as")
+
+    @call_as.setter
+    def call_as(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "call_as", value)
 
     @property
     @pulumi.getter
@@ -235,6 +251,7 @@ class StackSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administration_role_arn: Optional[pulumi.Input[str]] = None,
                  auto_deployment: Optional[pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']]] = None,
+                 call_as: Optional[pulumi.Input[str]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
@@ -254,6 +271,7 @@ class StackSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administration_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
         :param pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']] auto_deployment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
+        :param pulumi.Input[str] call_as: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
         :param pulumi.Input[str] execution_role_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
@@ -292,6 +310,7 @@ class StackSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administration_role_arn: Optional[pulumi.Input[str]] = None,
                  auto_deployment: Optional[pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']]] = None,
+                 call_as: Optional[pulumi.Input[str]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
@@ -317,6 +336,7 @@ class StackSet(pulumi.CustomResource):
 
             __props__.__dict__["administration_role_arn"] = administration_role_arn
             __props__.__dict__["auto_deployment"] = auto_deployment
+            __props__.__dict__["call_as"] = call_as
             __props__.__dict__["capabilities"] = capabilities
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_role_name"] = execution_role_name
@@ -357,6 +377,7 @@ class StackSet(pulumi.CustomResource):
 
         __props__.__dict__["administration_role_arn"] = None
         __props__.__dict__["auto_deployment"] = None
+        __props__.__dict__["call_as"] = None
         __props__.__dict__["capabilities"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["execution_role_name"] = None
@@ -386,6 +407,14 @@ class StackSet(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
         """
         return pulumi.get(self, "auto_deployment")
+
+    @property
+    @pulumi.getter(name="callAs")
+    def call_as(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+        """
+        return pulumi.get(self, "call_as")
 
     @property
     @pulumi.getter

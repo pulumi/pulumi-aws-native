@@ -12,8 +12,12 @@ from . import outputs
 __all__ = [
     'CapacityProviderAutoScalingGroupProvider',
     'CapacityProviderManagedScaling',
+    'ClusterCapacityProviderAssociationsCapacityProviderStrategy',
     'ClusterCapacityProviderStrategyItem',
+    'ClusterClusterConfiguration',
     'ClusterClusterSettings',
+    'ClusterExecuteCommandConfiguration',
+    'ClusterExecuteCommandLogConfiguration',
     'ServiceAwsVpcConfiguration',
     'ServiceCapacityProviderStrategyItem',
     'ServiceDeploymentCircuitBreaker',
@@ -30,6 +34,7 @@ __all__ = [
     'TaskDefinitionDockerVolumeConfiguration',
     'TaskDefinitionEFSVolumeConfiguration',
     'TaskDefinitionEnvironmentFile',
+    'TaskDefinitionEphemeralStorage',
     'TaskDefinitionFirelensConfiguration',
     'TaskDefinitionHealthCheck',
     'TaskDefinitionHostEntry',
@@ -133,7 +138,9 @@ class CapacityProviderManagedScaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "maximumScalingStepSize":
+        if key == "instanceWarmupPeriod":
+            suggest = "instance_warmup_period"
+        elif key == "maximumScalingStepSize":
             suggest = "maximum_scaling_step_size"
         elif key == "minimumScalingStepSize":
             suggest = "minimum_scaling_step_size"
@@ -152,17 +159,21 @@ class CapacityProviderManagedScaling(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 instance_warmup_period: Optional[int] = None,
                  maximum_scaling_step_size: Optional[int] = None,
                  minimum_scaling_step_size: Optional[int] = None,
                  status: Optional[str] = None,
                  target_capacity: Optional[int] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html
+        :param int instance_warmup_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
         :param int maximum_scaling_step_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
         :param int minimum_scaling_step_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-minimumscalingstepsize
         :param str status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-status
         :param int target_capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-targetcapacity
         """
+        if instance_warmup_period is not None:
+            pulumi.set(__self__, "instance_warmup_period", instance_warmup_period)
         if maximum_scaling_step_size is not None:
             pulumi.set(__self__, "maximum_scaling_step_size", maximum_scaling_step_size)
         if minimum_scaling_step_size is not None:
@@ -171,6 +182,14 @@ class CapacityProviderManagedScaling(dict):
             pulumi.set(__self__, "status", status)
         if target_capacity is not None:
             pulumi.set(__self__, "target_capacity", target_capacity)
+
+    @property
+    @pulumi.getter(name="instanceWarmupPeriod")
+    def instance_warmup_period(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
+        """
+        return pulumi.get(self, "instance_warmup_period")
 
     @property
     @pulumi.getter(name="maximumScalingStepSize")
@@ -203,6 +222,69 @@ class CapacityProviderManagedScaling(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-targetcapacity
         """
         return pulumi.get(self, "target_capacity")
+
+
+@pulumi.output_type
+class ClusterCapacityProviderAssociationsCapacityProviderStrategy(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityProvider":
+            suggest = "capacity_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCapacityProviderAssociationsCapacityProviderStrategy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCapacityProviderAssociationsCapacityProviderStrategy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCapacityProviderAssociationsCapacityProviderStrategy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_provider: str,
+                 base: Optional[int] = None,
+                 weight: Optional[int] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html
+        :param str capacity_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-capacityprovider
+        :param int base: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-base
+        :param int weight: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-weight
+        """
+        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        if base is not None:
+            pulumi.set(__self__, "base", base)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="capacityProvider")
+    def capacity_provider(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-capacityprovider
+        """
+        return pulumi.get(self, "capacity_provider")
+
+    @property
+    @pulumi.getter
+    def base(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-base
+        """
+        return pulumi.get(self, "base")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-weight
+        """
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
@@ -270,6 +352,46 @@ class ClusterCapacityProviderStrategyItem(dict):
 
 
 @pulumi.output_type
+class ClusterClusterConfiguration(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executeCommandConfiguration":
+            suggest = "execute_command_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterClusterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterClusterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterClusterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execute_command_configuration: Optional['outputs.ClusterExecuteCommandConfiguration'] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html
+        :param 'ClusterExecuteCommandConfiguration' execute_command_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
+        """
+        if execute_command_configuration is not None:
+            pulumi.set(__self__, "execute_command_configuration", execute_command_configuration)
+
+    @property
+    @pulumi.getter(name="executeCommandConfiguration")
+    def execute_command_configuration(self) -> Optional['outputs.ClusterExecuteCommandConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
+        """
+        return pulumi.get(self, "execute_command_configuration")
+
+
+@pulumi.output_type
 class ClusterClusterSettings(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html
@@ -302,6 +424,168 @@ class ClusterClusterSettings(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-value
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ClusterExecuteCommandConfiguration(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "logConfiguration":
+            suggest = "log_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterExecuteCommandConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterExecuteCommandConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterExecuteCommandConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: Optional[str] = None,
+                 log_configuration: Optional['outputs.ClusterExecuteCommandLogConfiguration'] = None,
+                 logging: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html
+        :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid
+        :param 'ClusterExecuteCommandLogConfiguration' log_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration
+        :param str logging: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional['outputs.ClusterExecuteCommandLogConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
+        """
+        return pulumi.get(self, "logging")
+
+
+@pulumi.output_type
+class ClusterExecuteCommandLogConfiguration(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchEncryptionEnabled":
+            suggest = "cloud_watch_encryption_enabled"
+        elif key == "cloudWatchLogGroupName":
+            suggest = "cloud_watch_log_group_name"
+        elif key == "s3BucketName":
+            suggest = "s3_bucket_name"
+        elif key == "s3EncryptionEnabled":
+            suggest = "s3_encryption_enabled"
+        elif key == "s3KeyPrefix":
+            suggest = "s3_key_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterExecuteCommandLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterExecuteCommandLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterExecuteCommandLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_encryption_enabled: Optional[bool] = None,
+                 cloud_watch_log_group_name: Optional[str] = None,
+                 s3_bucket_name: Optional[str] = None,
+                 s3_encryption_enabled: Optional[bool] = None,
+                 s3_key_prefix: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html
+        :param bool cloud_watch_encryption_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
+        :param str cloud_watch_log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
+        :param str s3_bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
+        :param bool s3_encryption_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
+        :param str s3_key_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
+        """
+        if cloud_watch_encryption_enabled is not None:
+            pulumi.set(__self__, "cloud_watch_encryption_enabled", cloud_watch_encryption_enabled)
+        if cloud_watch_log_group_name is not None:
+            pulumi.set(__self__, "cloud_watch_log_group_name", cloud_watch_log_group_name)
+        if s3_bucket_name is not None:
+            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        if s3_encryption_enabled is not None:
+            pulumi.set(__self__, "s3_encryption_enabled", s3_encryption_enabled)
+        if s3_key_prefix is not None:
+            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+
+    @property
+    @pulumi.getter(name="cloudWatchEncryptionEnabled")
+    def cloud_watch_encryption_enabled(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
+        """
+        return pulumi.get(self, "cloud_watch_encryption_enabled")
+
+    @property
+    @pulumi.getter(name="cloudWatchLogGroupName")
+    def cloud_watch_log_group_name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
+        """
+        return pulumi.get(self, "cloud_watch_log_group_name")
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @property
+    @pulumi.getter(name="s3EncryptionEnabled")
+    def s3_encryption_enabled(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
+        """
+        return pulumi.get(self, "s3_encryption_enabled")
+
+    @property
+    @pulumi.getter(name="s3KeyPrefix")
+    def s3_key_prefix(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
+        """
+        return pulumi.get(self, "s3_key_prefix")
 
 
 @pulumi.output_type
@@ -1706,6 +1990,46 @@ class TaskDefinitionEnvironmentFile(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-value
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskDefinitionEphemeralStorage(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeInGiB":
+            suggest = "size_in_gi_b"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionEphemeralStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionEphemeralStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionEphemeralStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 size_in_gi_b: Optional[int] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html
+        :param int size_in_gi_b: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
+        """
+        if size_in_gi_b is not None:
+            pulumi.set(__self__, "size_in_gi_b", size_in_gi_b)
+
+    @property
+    @pulumi.getter(name="sizeInGiB")
+    def size_in_gi_b(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
+        """
+        return pulumi.get(self, "size_in_gi_b")
 
 
 @pulumi.output_type

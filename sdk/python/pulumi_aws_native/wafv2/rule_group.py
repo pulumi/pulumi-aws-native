@@ -20,6 +20,7 @@ class RuleGroupArgs:
                  capacity: pulumi.Input[int],
                  scope: pulumi.Input[str],
                  visibility_config: pulumi.Input['RuleGroupVisibilityConfigArgs'],
+                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
@@ -29,6 +30,7 @@ class RuleGroupArgs:
         :param pulumi.Input[int] capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
         :param pulumi.Input[str] scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
         :param pulumi.Input['RuleGroupVisibilityConfigArgs'] visibility_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
+        :param pulumi.Input[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]] custom_response_bodies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
@@ -37,6 +39,8 @@ class RuleGroupArgs:
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "visibility_config", visibility_config)
+        if custom_response_bodies is not None:
+            pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -81,6 +85,18 @@ class RuleGroupArgs:
     @visibility_config.setter
     def visibility_config(self, value: pulumi.Input['RuleGroupVisibilityConfigArgs']):
         pulumi.set(self, "visibility_config", value)
+
+    @property
+    @pulumi.getter(name="customResponseBodies")
+    def custom_response_bodies(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
+        """
+        return pulumi.get(self, "custom_response_bodies")
+
+    @custom_response_bodies.setter
+    def custom_response_bodies(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]):
+        pulumi.set(self, "custom_response_bodies", value)
 
     @property
     @pulumi.getter
@@ -137,6 +153,7 @@ class RuleGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
@@ -150,6 +167,7 @@ class RuleGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]] custom_response_bodies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
@@ -182,6 +200,7 @@ class RuleGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
@@ -203,6 +222,7 @@ class RuleGroup(pulumi.CustomResource):
             if capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity'")
             __props__.__dict__["capacity"] = capacity
+            __props__.__dict__["custom_response_bodies"] = custom_response_bodies
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["rules"] = rules
@@ -214,7 +234,10 @@ class RuleGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'visibility_config'")
             __props__.__dict__["visibility_config"] = visibility_config
             __props__.__dict__["arn"] = None
+            __props__.__dict__["available_labels"] = None
+            __props__.__dict__["consumed_labels"] = None
             __props__.__dict__["id"] = None
+            __props__.__dict__["label_namespace"] = None
         super(RuleGroup, __self__).__init__(
             'aws-native:WAFv2:RuleGroup',
             resource_name,
@@ -238,9 +261,13 @@ class RuleGroup(pulumi.CustomResource):
         __props__ = RuleGroupArgs.__new__(RuleGroupArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["available_labels"] = None
         __props__.__dict__["capacity"] = None
+        __props__.__dict__["consumed_labels"] = None
+        __props__.__dict__["custom_response_bodies"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["id"] = None
+        __props__.__dict__["label_namespace"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rules"] = None
         __props__.__dict__["scope"] = None
@@ -254,12 +281,30 @@ class RuleGroup(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="availableLabels")
+    def available_labels(self) -> pulumi.Output[Sequence['outputs.RuleGroupLabelSummary']]:
+        return pulumi.get(self, "available_labels")
+
+    @property
     @pulumi.getter
     def capacity(self) -> pulumi.Output[int]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
         """
         return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter(name="consumedLabels")
+    def consumed_labels(self) -> pulumi.Output[Sequence['outputs.RuleGroupLabelSummary']]:
+        return pulumi.get(self, "consumed_labels")
+
+    @property
+    @pulumi.getter(name="customResponseBodies")
+    def custom_response_bodies(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.RuleGroupCustomResponseBody']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
+        """
+        return pulumi.get(self, "custom_response_bodies")
 
     @property
     @pulumi.getter
@@ -273,6 +318,11 @@ class RuleGroup(pulumi.CustomResource):
     @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="labelNamespace")
+    def label_namespace(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "label_namespace")
 
     @property
     @pulumi.getter

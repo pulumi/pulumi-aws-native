@@ -8,40 +8,15 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
-    'DataCatalogTags',
     'WorkGroupEncryptionConfiguration',
+    'WorkGroupEngineVersion',
     'WorkGroupResultConfiguration',
     'WorkGroupResultConfigurationUpdates',
-    'WorkGroupTags',
     'WorkGroupWorkGroupConfiguration',
     'WorkGroupWorkGroupConfigurationUpdates',
 ]
-
-@pulumi.output_type
-class DataCatalogTags(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html
-    """
-    def __init__(__self__, *,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html
-        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
-        """
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
-        """
-        return pulumi.get(self, "tags")
-
 
 @pulumi.output_type
 class WorkGroupEncryptionConfiguration(dict):
@@ -94,6 +69,60 @@ class WorkGroupEncryptionConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-kmskey
         """
         return pulumi.get(self, "kms_key")
+
+
+@pulumi.output_type
+class WorkGroupEngineVersion(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "effectiveEngineVersion":
+            suggest = "effective_engine_version"
+        elif key == "selectedEngineVersion":
+            suggest = "selected_engine_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkGroupEngineVersion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkGroupEngineVersion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkGroupEngineVersion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 effective_engine_version: Optional[str] = None,
+                 selected_engine_version: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html
+        :param str effective_engine_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
+        :param str selected_engine_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
+        """
+        if effective_engine_version is not None:
+            pulumi.set(__self__, "effective_engine_version", effective_engine_version)
+        if selected_engine_version is not None:
+            pulumi.set(__self__, "selected_engine_version", selected_engine_version)
+
+    @property
+    @pulumi.getter(name="effectiveEngineVersion")
+    def effective_engine_version(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
+        """
+        return pulumi.get(self, "effective_engine_version")
+
+    @property
+    @pulumi.getter(name="selectedEngineVersion")
+    def selected_engine_version(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
+        """
+        return pulumi.get(self, "selected_engine_version")
 
 
 @pulumi.output_type
@@ -233,29 +262,6 @@ class WorkGroupResultConfigurationUpdates(dict):
 
 
 @pulumi.output_type
-class WorkGroupTags(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html
-    """
-    def __init__(__self__, *,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html
-        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html#cfn-athena-workgroup-tags-tags
-        """
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html#cfn-athena-workgroup-tags-tags
-        """
-        return pulumi.get(self, "tags")
-
-
-@pulumi.output_type
 class WorkGroupWorkGroupConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html
@@ -267,6 +273,8 @@ class WorkGroupWorkGroupConfiguration(dict):
             suggest = "bytes_scanned_cutoff_per_query"
         elif key == "enforceWorkGroupConfiguration":
             suggest = "enforce_work_group_configuration"
+        elif key == "engineVersion":
+            suggest = "engine_version"
         elif key == "publishCloudWatchMetricsEnabled":
             suggest = "publish_cloud_watch_metrics_enabled"
         elif key == "requesterPaysEnabled":
@@ -288,6 +296,7 @@ class WorkGroupWorkGroupConfiguration(dict):
     def __init__(__self__, *,
                  bytes_scanned_cutoff_per_query: Optional[int] = None,
                  enforce_work_group_configuration: Optional[bool] = None,
+                 engine_version: Optional['outputs.WorkGroupEngineVersion'] = None,
                  publish_cloud_watch_metrics_enabled: Optional[bool] = None,
                  requester_pays_enabled: Optional[bool] = None,
                  result_configuration: Optional['outputs.WorkGroupResultConfiguration'] = None):
@@ -295,6 +304,7 @@ class WorkGroupWorkGroupConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html
         :param int bytes_scanned_cutoff_per_query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
         :param bool enforce_work_group_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
+        :param 'WorkGroupEngineVersion' engine_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
         :param bool publish_cloud_watch_metrics_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
         :param bool requester_pays_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
         :param 'WorkGroupResultConfiguration' result_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration
@@ -303,6 +313,8 @@ class WorkGroupWorkGroupConfiguration(dict):
             pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
         if enforce_work_group_configuration is not None:
             pulumi.set(__self__, "enforce_work_group_configuration", enforce_work_group_configuration)
+        if engine_version is not None:
+            pulumi.set(__self__, "engine_version", engine_version)
         if publish_cloud_watch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
         if requester_pays_enabled is not None:
@@ -325,6 +337,14 @@ class WorkGroupWorkGroupConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
         """
         return pulumi.get(self, "enforce_work_group_configuration")
+
+    @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional['outputs.WorkGroupEngineVersion']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
+        """
+        return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="publishCloudWatchMetricsEnabled")
@@ -363,6 +383,8 @@ class WorkGroupWorkGroupConfigurationUpdates(dict):
             suggest = "bytes_scanned_cutoff_per_query"
         elif key == "enforceWorkGroupConfiguration":
             suggest = "enforce_work_group_configuration"
+        elif key == "engineVersion":
+            suggest = "engine_version"
         elif key == "publishCloudWatchMetricsEnabled":
             suggest = "publish_cloud_watch_metrics_enabled"
         elif key == "removeBytesScannedCutoffPerQuery":
@@ -386,6 +408,7 @@ class WorkGroupWorkGroupConfigurationUpdates(dict):
     def __init__(__self__, *,
                  bytes_scanned_cutoff_per_query: Optional[int] = None,
                  enforce_work_group_configuration: Optional[bool] = None,
+                 engine_version: Optional['outputs.WorkGroupEngineVersion'] = None,
                  publish_cloud_watch_metrics_enabled: Optional[bool] = None,
                  remove_bytes_scanned_cutoff_per_query: Optional[bool] = None,
                  requester_pays_enabled: Optional[bool] = None,
@@ -394,6 +417,7 @@ class WorkGroupWorkGroupConfigurationUpdates(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html
         :param int bytes_scanned_cutoff_per_query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-bytesscannedcutoffperquery
         :param bool enforce_work_group_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-enforceworkgroupconfiguration
+        :param 'WorkGroupEngineVersion' engine_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineversion
         :param bool publish_cloud_watch_metrics_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
         :param bool remove_bytes_scanned_cutoff_per_query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-removebytesscannedcutoffperquery
         :param bool requester_pays_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-requesterpaysenabled
@@ -403,6 +427,8 @@ class WorkGroupWorkGroupConfigurationUpdates(dict):
             pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
         if enforce_work_group_configuration is not None:
             pulumi.set(__self__, "enforce_work_group_configuration", enforce_work_group_configuration)
+        if engine_version is not None:
+            pulumi.set(__self__, "engine_version", engine_version)
         if publish_cloud_watch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
         if remove_bytes_scanned_cutoff_per_query is not None:
@@ -427,6 +453,14 @@ class WorkGroupWorkGroupConfigurationUpdates(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-enforceworkgroupconfiguration
         """
         return pulumi.get(self, "enforce_work_group_configuration")
+
+    @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional['outputs.WorkGroupEngineVersion']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineversion
+        """
+        return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="publishCloudWatchMetricsEnabled")

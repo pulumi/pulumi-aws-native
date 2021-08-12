@@ -89,6 +89,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
             if cloud_front_origin_access_identity_config is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud_front_origin_access_identity_config'")
             __props__.__dict__["cloud_front_origin_access_identity_config"] = cloud_front_origin_access_identity_config
+            __props__.__dict__["id"] = None
             __props__.__dict__["s3_canonical_user_id"] = None
         super(CloudFrontOriginAccessIdentity, __self__).__init__(
             'aws-native:CloudFront:CloudFrontOriginAccessIdentity',
@@ -113,6 +114,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
         __props__ = CloudFrontOriginAccessIdentityArgs.__new__(CloudFrontOriginAccessIdentityArgs)
 
         __props__.__dict__["cloud_front_origin_access_identity_config"] = None
+        __props__.__dict__["id"] = None
         __props__.__dict__["s3_canonical_user_id"] = None
         return CloudFrontOriginAccessIdentity(resource_name, opts=opts, __props__=__props__)
 
@@ -123,6 +125,11 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
         """
         return pulumi.get(self, "cloud_front_origin_access_identity_config")
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="s3CanonicalUserId")

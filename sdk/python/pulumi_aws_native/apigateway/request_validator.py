@@ -147,6 +147,7 @@ class RequestValidator(pulumi.CustomResource):
             __props__.__dict__["rest_api_id"] = rest_api_id
             __props__.__dict__["validate_request_body"] = validate_request_body
             __props__.__dict__["validate_request_parameters"] = validate_request_parameters
+            __props__.__dict__["request_validator_id"] = None
         super(RequestValidator, __self__).__init__(
             'aws-native:ApiGateway:RequestValidator',
             resource_name,
@@ -170,6 +171,7 @@ class RequestValidator(pulumi.CustomResource):
         __props__ = RequestValidatorArgs.__new__(RequestValidatorArgs)
 
         __props__.__dict__["name"] = None
+        __props__.__dict__["request_validator_id"] = None
         __props__.__dict__["rest_api_id"] = None
         __props__.__dict__["validate_request_body"] = None
         __props__.__dict__["validate_request_parameters"] = None
@@ -182,6 +184,11 @@ class RequestValidator(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="requestValidatorId")
+    def request_validator_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "request_validator_id")
 
     @property
     @pulumi.getter(name="restApiId")

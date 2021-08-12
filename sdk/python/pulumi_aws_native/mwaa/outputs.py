@@ -10,92 +10,11 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'EnvironmentAirflowConfigurationOptions',
-    'EnvironmentLastUpdate',
     'EnvironmentLoggingConfiguration',
     'EnvironmentModuleLoggingConfiguration',
     'EnvironmentNetworkConfiguration',
-    'EnvironmentSecurityGroupList',
-    'EnvironmentSubnetList',
     'EnvironmentTagMap',
-    'EnvironmentUpdateError',
 ]
-
-@pulumi.output_type
-class EnvironmentAirflowConfigurationOptions(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-airflowconfigurationoptions.html
-    """
-    def __init__(__self__):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-airflowconfigurationoptions.html
-        """
-        pass
-
-
-@pulumi.output_type
-class EnvironmentLastUpdate(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EnvironmentLastUpdate. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EnvironmentLastUpdate.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EnvironmentLastUpdate.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: Optional[str] = None,
-                 error: Optional['outputs.EnvironmentUpdateError'] = None,
-                 status: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html
-        :param str created_at: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html#cfn-mwaa-environment-lastupdate-createdat
-        :param 'EnvironmentUpdateError' error: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html#cfn-mwaa-environment-lastupdate-error
-        :param str status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html#cfn-mwaa-environment-lastupdate-status
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if error is not None:
-            pulumi.set(__self__, "error", error)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html#cfn-mwaa-environment-lastupdate-createdat
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter
-    def error(self) -> Optional['outputs.EnvironmentUpdateError']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html#cfn-mwaa-environment-lastupdate-error
-        """
-        return pulumi.get(self, "error")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html#cfn-mwaa-environment-lastupdate-status
-        """
-        return pulumi.get(self, "status")
-
 
 @pulumi.output_type
 class EnvironmentLoggingConfiguration(dict):
@@ -284,12 +203,12 @@ class EnvironmentNetworkConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 security_group_ids: Optional['outputs.EnvironmentSecurityGroupList'] = None,
-                 subnet_ids: Optional['outputs.EnvironmentSubnetList'] = None):
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 subnet_ids: Optional[Sequence[str]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html
-        :param 'EnvironmentSecurityGroupList' security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
-        :param 'EnvironmentSubnetList' subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
+        :param Sequence[str] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
+        :param Sequence[str] subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
         """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -298,7 +217,7 @@ class EnvironmentNetworkConfiguration(dict):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional['outputs.EnvironmentSecurityGroupList']:
+    def security_group_ids(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
         """
@@ -306,91 +225,11 @@ class EnvironmentNetworkConfiguration(dict):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional['outputs.EnvironmentSubnetList']:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
         """
         return pulumi.get(self, "subnet_ids")
-
-
-@pulumi.output_type
-class EnvironmentSecurityGroupList(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-securitygrouplist.html
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "securityGroupList":
-            suggest = "security_group_list"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EnvironmentSecurityGroupList. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EnvironmentSecurityGroupList.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EnvironmentSecurityGroupList.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 security_group_list: Optional[Sequence[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-securitygrouplist.html
-        :param Sequence[str] security_group_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-securitygrouplist.html#cfn-mwaa-environment-securitygrouplist-securitygrouplist
-        """
-        if security_group_list is not None:
-            pulumi.set(__self__, "security_group_list", security_group_list)
-
-    @property
-    @pulumi.getter(name="securityGroupList")
-    def security_group_list(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-securitygrouplist.html#cfn-mwaa-environment-securitygrouplist-securitygrouplist
-        """
-        return pulumi.get(self, "security_group_list")
-
-
-@pulumi.output_type
-class EnvironmentSubnetList(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-subnetlist.html
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "subnetList":
-            suggest = "subnet_list"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EnvironmentSubnetList. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EnvironmentSubnetList.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EnvironmentSubnetList.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 subnet_list: Optional[Sequence[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-subnetlist.html
-        :param Sequence[str] subnet_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-subnetlist.html#cfn-mwaa-environment-subnetlist-subnetlist
-        """
-        if subnet_list is not None:
-            pulumi.set(__self__, "subnet_list", subnet_list)
-
-    @property
-    @pulumi.getter(name="subnetList")
-    def subnet_list(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-subnetlist.html#cfn-mwaa-environment-subnetlist-subnetlist
-        """
-        return pulumi.get(self, "subnet_list")
 
 
 @pulumi.output_type
@@ -403,59 +242,5 @@ class EnvironmentTagMap(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-tagmap.html
         """
         pass
-
-
-@pulumi.output_type
-class EnvironmentUpdateError(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-updateerror.html
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "errorCode":
-            suggest = "error_code"
-        elif key == "errorMessage":
-            suggest = "error_message"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EnvironmentUpdateError. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EnvironmentUpdateError.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EnvironmentUpdateError.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 error_code: Optional[str] = None,
-                 error_message: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-updateerror.html
-        :param str error_code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-updateerror.html#cfn-mwaa-environment-updateerror-errorcode
-        :param str error_message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-updateerror.html#cfn-mwaa-environment-updateerror-errormessage
-        """
-        if error_code is not None:
-            pulumi.set(__self__, "error_code", error_code)
-        if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
-
-    @property
-    @pulumi.getter(name="errorCode")
-    def error_code(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-updateerror.html#cfn-mwaa-environment-updateerror-errorcode
-        """
-        return pulumi.get(self, "error_code")
-
-    @property
-    @pulumi.getter(name="errorMessage")
-    def error_message(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-updateerror.html#cfn-mwaa-environment-updateerror-errormessage
-        """
-        return pulumi.get(self, "error_message")
 
 

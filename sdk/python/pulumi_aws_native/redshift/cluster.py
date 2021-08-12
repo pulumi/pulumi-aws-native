@@ -32,6 +32,7 @@ class ClusterArgs:
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
+                 endpoint: Optional[pulumi.Input['ClusterEndpointArgs']] = None,
                  hsm_client_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  hsm_configuration_identifier: Optional[pulumi.Input[str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -63,12 +64,13 @@ class ClusterArgs:
         :param pulumi.Input[str] cluster_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterversion
         :param pulumi.Input[str] elastic_ip: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
         :param pulumi.Input[bool] encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
-        :param pulumi.Input[str] hsm_client_certificate_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertidentifier
-        :param pulumi.Input[str] hsm_configuration_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-HsmConfigurationIdentifier
+        :param pulumi.Input['ClusterEndpointArgs'] endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
+        :param pulumi.Input[str] hsm_client_certificate_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
+        :param pulumi.Input[str] hsm_configuration_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
         :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
         :param pulumi.Input['ClusterLoggingPropertiesArgs'] logging_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
-        :param pulumi.Input[int] number_of_nodes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
+        :param pulumi.Input[int] number_of_nodes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
         :param pulumi.Input[str] owner_account: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-owneraccount
         :param pulumi.Input[int] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-port
         :param pulumi.Input[str] preferred_maintenance_window: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-preferredmaintenancewindow
@@ -103,6 +105,8 @@ class ClusterArgs:
             pulumi.set(__self__, "elastic_ip", elastic_ip)
         if encrypted is not None:
             pulumi.set(__self__, "encrypted", encrypted)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
         if hsm_client_certificate_identifier is not None:
             pulumi.set(__self__, "hsm_client_certificate_identifier", hsm_client_certificate_identifier)
         if hsm_configuration_identifier is not None:
@@ -313,10 +317,22 @@ class ClusterArgs:
         pulumi.set(self, "encrypted", value)
 
     @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input['ClusterEndpointArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input['ClusterEndpointArgs']]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
     @pulumi.getter(name="hsmClientCertificateIdentifier")
     def hsm_client_certificate_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertidentifier
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
         """
         return pulumi.get(self, "hsm_client_certificate_identifier")
 
@@ -328,7 +344,7 @@ class ClusterArgs:
     @pulumi.getter(name="hsmConfigurationIdentifier")
     def hsm_configuration_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-HsmConfigurationIdentifier
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
         """
         return pulumi.get(self, "hsm_configuration_identifier")
 
@@ -376,7 +392,7 @@ class ClusterArgs:
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
         """
         return pulumi.get(self, "number_of_nodes")
 
@@ -498,6 +514,7 @@ class Cluster(pulumi.CustomResource):
                  d_b_name: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
+                 endpoint: Optional[pulumi.Input[pulumi.InputType['ClusterEndpointArgs']]] = None,
                  hsm_client_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  hsm_configuration_identifier: Optional[pulumi.Input[str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -533,15 +550,16 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] d_b_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-dbname
         :param pulumi.Input[str] elastic_ip: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
         :param pulumi.Input[bool] encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
-        :param pulumi.Input[str] hsm_client_certificate_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertidentifier
-        :param pulumi.Input[str] hsm_configuration_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-HsmConfigurationIdentifier
+        :param pulumi.Input[pulumi.InputType['ClusterEndpointArgs']] endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
+        :param pulumi.Input[str] hsm_client_certificate_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
+        :param pulumi.Input[str] hsm_configuration_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
         :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
         :param pulumi.Input[pulumi.InputType['ClusterLoggingPropertiesArgs']] logging_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
         :param pulumi.Input[str] master_user_password: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
         :param pulumi.Input[str] master_username: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterusername
         :param pulumi.Input[str] node_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
-        :param pulumi.Input[int] number_of_nodes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
+        :param pulumi.Input[int] number_of_nodes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
         :param pulumi.Input[str] owner_account: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-owneraccount
         :param pulumi.Input[int] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-port
         :param pulumi.Input[str] preferred_maintenance_window: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-preferredmaintenancewindow
@@ -587,6 +605,7 @@ class Cluster(pulumi.CustomResource):
                  d_b_name: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
+                 endpoint: Optional[pulumi.Input[pulumi.InputType['ClusterEndpointArgs']]] = None,
                  hsm_client_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  hsm_configuration_identifier: Optional[pulumi.Input[str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -632,6 +651,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["d_b_name"] = d_b_name
             __props__.__dict__["elastic_ip"] = elastic_ip
             __props__.__dict__["encrypted"] = encrypted
+            __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["hsm_client_certificate_identifier"] = hsm_client_certificate_identifier
             __props__.__dict__["hsm_configuration_identifier"] = hsm_configuration_identifier
             __props__.__dict__["iam_roles"] = iam_roles
@@ -657,6 +677,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["endpoint_address"] = None
             __props__.__dict__["endpoint_port"] = None
+            __props__.__dict__["id"] = None
         super(Cluster, __self__).__init__(
             'aws-native:Redshift:Cluster',
             resource_name,
@@ -691,11 +712,13 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["d_b_name"] = None
         __props__.__dict__["elastic_ip"] = None
         __props__.__dict__["encrypted"] = None
+        __props__.__dict__["endpoint"] = None
         __props__.__dict__["endpoint_address"] = None
         __props__.__dict__["endpoint_port"] = None
         __props__.__dict__["hsm_client_certificate_identifier"] = None
         __props__.__dict__["hsm_configuration_identifier"] = None
         __props__.__dict__["iam_roles"] = None
+        __props__.__dict__["id"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["logging_properties"] = None
         __props__.__dict__["master_user_password"] = None
@@ -809,6 +832,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "encrypted")
 
     @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Output[Optional['outputs.ClusterEndpoint']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
     @pulumi.getter(name="endpointAddress")
     def endpoint_address(self) -> pulumi.Output[str]:
         return pulumi.get(self, "endpoint_address")
@@ -822,7 +853,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="hsmClientCertificateIdentifier")
     def hsm_client_certificate_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertidentifier
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
         """
         return pulumi.get(self, "hsm_client_certificate_identifier")
 
@@ -830,7 +861,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="hsmConfigurationIdentifier")
     def hsm_configuration_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-HsmConfigurationIdentifier
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
         """
         return pulumi.get(self, "hsm_configuration_identifier")
 
@@ -841,6 +872,11 @@ class Cluster(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
         """
         return pulumi.get(self, "iam_roles")
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -886,7 +922,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
         """
         return pulumi.get(self, "number_of_nodes")
 

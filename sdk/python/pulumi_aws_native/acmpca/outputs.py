@@ -10,11 +10,170 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'CertificateApiPassthrough',
+    'CertificateAuthorityAccessDescription',
+    'CertificateAuthorityAccessMethod',
     'CertificateAuthorityCrlConfiguration',
+    'CertificateAuthorityCsrExtensions',
+    'CertificateAuthorityEdiPartyName',
+    'CertificateAuthorityGeneralName',
+    'CertificateAuthorityKeyUsage',
+    'CertificateAuthorityOtherName',
     'CertificateAuthorityRevocationConfiguration',
     'CertificateAuthoritySubject',
+    'CertificateEdiPartyName',
+    'CertificateExtendedKeyUsage',
+    'CertificateExtensions',
+    'CertificateGeneralName',
+    'CertificateKeyUsage',
+    'CertificateOtherName',
+    'CertificatePolicyInformation',
+    'CertificatePolicyQualifierInfo',
+    'CertificateQualifier',
+    'CertificateSubject',
     'CertificateValidity',
 ]
+
+@pulumi.output_type
+class CertificateApiPassthrough(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html
+    """
+    def __init__(__self__, *,
+                 extensions: Optional['outputs.CertificateExtensions'] = None,
+                 subject: Optional['outputs.CertificateSubject'] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html
+        :param 'CertificateExtensions' extensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-extensions
+        :param 'CertificateSubject' subject: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-subject
+        """
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional['outputs.CertificateExtensions']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-extensions
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional['outputs.CertificateSubject']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-subject
+        """
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class CertificateAuthorityAccessDescription(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessLocation":
+            suggest = "access_location"
+        elif key == "accessMethod":
+            suggest = "access_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityAccessDescription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityAccessDescription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityAccessDescription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_location: 'outputs.CertificateAuthorityGeneralName',
+                 access_method: 'outputs.CertificateAuthorityAccessMethod'):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html
+        :param 'CertificateAuthorityGeneralName' access_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accesslocation
+        :param 'CertificateAuthorityAccessMethod' access_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accessmethod
+        """
+        pulumi.set(__self__, "access_location", access_location)
+        pulumi.set(__self__, "access_method", access_method)
+
+    @property
+    @pulumi.getter(name="accessLocation")
+    def access_location(self) -> 'outputs.CertificateAuthorityGeneralName':
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accesslocation
+        """
+        return pulumi.get(self, "access_location")
+
+    @property
+    @pulumi.getter(name="accessMethod")
+    def access_method(self) -> 'outputs.CertificateAuthorityAccessMethod':
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accessmethod
+        """
+        return pulumi.get(self, "access_method")
+
+
+@pulumi.output_type
+class CertificateAuthorityAccessMethod(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessMethodType":
+            suggest = "access_method_type"
+        elif key == "customObjectIdentifier":
+            suggest = "custom_object_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityAccessMethod. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityAccessMethod.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityAccessMethod.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_method_type: Optional[str] = None,
+                 custom_object_identifier: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html
+        :param str access_method_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-accessmethodtype
+        :param str custom_object_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-customobjectidentifier
+        """
+        if access_method_type is not None:
+            pulumi.set(__self__, "access_method_type", access_method_type)
+        if custom_object_identifier is not None:
+            pulumi.set(__self__, "custom_object_identifier", custom_object_identifier)
+
+    @property
+    @pulumi.getter(name="accessMethodType")
+    def access_method_type(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-accessmethodtype
+        """
+        return pulumi.get(self, "access_method_type")
+
+    @property
+    @pulumi.getter(name="customObjectIdentifier")
+    def custom_object_identifier(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-customobjectidentifier
+        """
+        return pulumi.get(self, "custom_object_identifier")
+
 
 @pulumi.output_type
 class CertificateAuthorityCrlConfiguration(dict):
@@ -30,6 +189,8 @@ class CertificateAuthorityCrlConfiguration(dict):
             suggest = "expiration_in_days"
         elif key == "s3BucketName":
             suggest = "s3_bucket_name"
+        elif key == "s3ObjectAcl":
+            suggest = "s3_object_acl"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityCrlConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -46,13 +207,15 @@ class CertificateAuthorityCrlConfiguration(dict):
                  custom_cname: Optional[str] = None,
                  enabled: Optional[bool] = None,
                  expiration_in_days: Optional[int] = None,
-                 s3_bucket_name: Optional[str] = None):
+                 s3_bucket_name: Optional[str] = None,
+                 s3_object_acl: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html
         :param str custom_cname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-customcname
         :param bool enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-enabled
         :param int expiration_in_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-expirationindays
         :param str s3_bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname
+        :param str s3_object_acl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3objectacl
         """
         if custom_cname is not None:
             pulumi.set(__self__, "custom_cname", custom_cname)
@@ -62,6 +225,8 @@ class CertificateAuthorityCrlConfiguration(dict):
             pulumi.set(__self__, "expiration_in_days", expiration_in_days)
         if s3_bucket_name is not None:
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        if s3_object_acl is not None:
+            pulumi.set(__self__, "s3_object_acl", s3_object_acl)
 
     @property
     @pulumi.getter(name="customCname")
@@ -94,6 +259,460 @@ class CertificateAuthorityCrlConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname
         """
         return pulumi.get(self, "s3_bucket_name")
+
+    @property
+    @pulumi.getter(name="s3ObjectAcl")
+    def s3_object_acl(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3objectacl
+        """
+        return pulumi.get(self, "s3_object_acl")
+
+
+@pulumi.output_type
+class CertificateAuthorityCsrExtensions(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyUsage":
+            suggest = "key_usage"
+        elif key == "subjectInformationAccess":
+            suggest = "subject_information_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityCsrExtensions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityCsrExtensions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityCsrExtensions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_usage: Optional['outputs.CertificateAuthorityKeyUsage'] = None,
+                 subject_information_access: Optional[Sequence['outputs.CertificateAuthorityAccessDescription']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html
+        :param 'CertificateAuthorityKeyUsage' key_usage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-keyusage
+        :param Sequence['CertificateAuthorityAccessDescription'] subject_information_access: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-subjectinformationaccess
+        """
+        if key_usage is not None:
+            pulumi.set(__self__, "key_usage", key_usage)
+        if subject_information_access is not None:
+            pulumi.set(__self__, "subject_information_access", subject_information_access)
+
+    @property
+    @pulumi.getter(name="keyUsage")
+    def key_usage(self) -> Optional['outputs.CertificateAuthorityKeyUsage']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-keyusage
+        """
+        return pulumi.get(self, "key_usage")
+
+    @property
+    @pulumi.getter(name="subjectInformationAccess")
+    def subject_information_access(self) -> Optional[Sequence['outputs.CertificateAuthorityAccessDescription']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-subjectinformationaccess
+        """
+        return pulumi.get(self, "subject_information_access")
+
+
+@pulumi.output_type
+class CertificateAuthorityEdiPartyName(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nameAssigner":
+            suggest = "name_assigner"
+        elif key == "partyName":
+            suggest = "party_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityEdiPartyName. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityEdiPartyName.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityEdiPartyName.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name_assigner: str,
+                 party_name: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html
+        :param str name_assigner: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-nameassigner
+        :param str party_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-partyname
+        """
+        pulumi.set(__self__, "name_assigner", name_assigner)
+        pulumi.set(__self__, "party_name", party_name)
+
+    @property
+    @pulumi.getter(name="nameAssigner")
+    def name_assigner(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-nameassigner
+        """
+        return pulumi.get(self, "name_assigner")
+
+    @property
+    @pulumi.getter(name="partyName")
+    def party_name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-partyname
+        """
+        return pulumi.get(self, "party_name")
+
+
+@pulumi.output_type
+class CertificateAuthorityGeneralName(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryName":
+            suggest = "directory_name"
+        elif key == "dnsName":
+            suggest = "dns_name"
+        elif key == "ediPartyName":
+            suggest = "edi_party_name"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "otherName":
+            suggest = "other_name"
+        elif key == "registeredId":
+            suggest = "registered_id"
+        elif key == "rfc822Name":
+            suggest = "rfc822_name"
+        elif key == "uniformResourceIdentifier":
+            suggest = "uniform_resource_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityGeneralName. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityGeneralName.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityGeneralName.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_name: Optional['outputs.CertificateAuthoritySubject'] = None,
+                 dns_name: Optional[str] = None,
+                 edi_party_name: Optional['outputs.CertificateAuthorityEdiPartyName'] = None,
+                 ip_address: Optional[str] = None,
+                 other_name: Optional['outputs.CertificateAuthorityOtherName'] = None,
+                 registered_id: Optional[str] = None,
+                 rfc822_name: Optional[str] = None,
+                 uniform_resource_identifier: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html
+        :param 'CertificateAuthoritySubject' directory_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-directoryname
+        :param str dns_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-dnsname
+        :param 'CertificateAuthorityEdiPartyName' edi_party_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-edipartyname
+        :param str ip_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-ipaddress
+        :param 'CertificateAuthorityOtherName' other_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-othername
+        :param str registered_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-registeredid
+        :param str rfc822_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-rfc822name
+        :param str uniform_resource_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-uniformresourceidentifier
+        """
+        if directory_name is not None:
+            pulumi.set(__self__, "directory_name", directory_name)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if edi_party_name is not None:
+            pulumi.set(__self__, "edi_party_name", edi_party_name)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if other_name is not None:
+            pulumi.set(__self__, "other_name", other_name)
+        if registered_id is not None:
+            pulumi.set(__self__, "registered_id", registered_id)
+        if rfc822_name is not None:
+            pulumi.set(__self__, "rfc822_name", rfc822_name)
+        if uniform_resource_identifier is not None:
+            pulumi.set(__self__, "uniform_resource_identifier", uniform_resource_identifier)
+
+    @property
+    @pulumi.getter(name="directoryName")
+    def directory_name(self) -> Optional['outputs.CertificateAuthoritySubject']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-directoryname
+        """
+        return pulumi.get(self, "directory_name")
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-dnsname
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ediPartyName")
+    def edi_party_name(self) -> Optional['outputs.CertificateAuthorityEdiPartyName']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-edipartyname
+        """
+        return pulumi.get(self, "edi_party_name")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-ipaddress
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="otherName")
+    def other_name(self) -> Optional['outputs.CertificateAuthorityOtherName']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-othername
+        """
+        return pulumi.get(self, "other_name")
+
+    @property
+    @pulumi.getter(name="registeredId")
+    def registered_id(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-registeredid
+        """
+        return pulumi.get(self, "registered_id")
+
+    @property
+    @pulumi.getter(name="rfc822Name")
+    def rfc822_name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-rfc822name
+        """
+        return pulumi.get(self, "rfc822_name")
+
+    @property
+    @pulumi.getter(name="uniformResourceIdentifier")
+    def uniform_resource_identifier(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-uniformresourceidentifier
+        """
+        return pulumi.get(self, "uniform_resource_identifier")
+
+
+@pulumi.output_type
+class CertificateAuthorityKeyUsage(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cRLSign":
+            suggest = "c_rl_sign"
+        elif key == "dataEncipherment":
+            suggest = "data_encipherment"
+        elif key == "decipherOnly":
+            suggest = "decipher_only"
+        elif key == "digitalSignature":
+            suggest = "digital_signature"
+        elif key == "encipherOnly":
+            suggest = "encipher_only"
+        elif key == "keyAgreement":
+            suggest = "key_agreement"
+        elif key == "keyCertSign":
+            suggest = "key_cert_sign"
+        elif key == "keyEncipherment":
+            suggest = "key_encipherment"
+        elif key == "nonRepudiation":
+            suggest = "non_repudiation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityKeyUsage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityKeyUsage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityKeyUsage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 c_rl_sign: Optional[bool] = None,
+                 data_encipherment: Optional[bool] = None,
+                 decipher_only: Optional[bool] = None,
+                 digital_signature: Optional[bool] = None,
+                 encipher_only: Optional[bool] = None,
+                 key_agreement: Optional[bool] = None,
+                 key_cert_sign: Optional[bool] = None,
+                 key_encipherment: Optional[bool] = None,
+                 non_repudiation: Optional[bool] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html
+        :param bool c_rl_sign: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-crlsign
+        :param bool data_encipherment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-dataencipherment
+        :param bool decipher_only: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-decipheronly
+        :param bool digital_signature: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-digitalsignature
+        :param bool encipher_only: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-encipheronly
+        :param bool key_agreement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyagreement
+        :param bool key_cert_sign: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keycertsign
+        :param bool key_encipherment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyencipherment
+        :param bool non_repudiation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-nonrepudiation
+        """
+        if c_rl_sign is not None:
+            pulumi.set(__self__, "c_rl_sign", c_rl_sign)
+        if data_encipherment is not None:
+            pulumi.set(__self__, "data_encipherment", data_encipherment)
+        if decipher_only is not None:
+            pulumi.set(__self__, "decipher_only", decipher_only)
+        if digital_signature is not None:
+            pulumi.set(__self__, "digital_signature", digital_signature)
+        if encipher_only is not None:
+            pulumi.set(__self__, "encipher_only", encipher_only)
+        if key_agreement is not None:
+            pulumi.set(__self__, "key_agreement", key_agreement)
+        if key_cert_sign is not None:
+            pulumi.set(__self__, "key_cert_sign", key_cert_sign)
+        if key_encipherment is not None:
+            pulumi.set(__self__, "key_encipherment", key_encipherment)
+        if non_repudiation is not None:
+            pulumi.set(__self__, "non_repudiation", non_repudiation)
+
+    @property
+    @pulumi.getter(name="cRLSign")
+    def c_rl_sign(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-crlsign
+        """
+        return pulumi.get(self, "c_rl_sign")
+
+    @property
+    @pulumi.getter(name="dataEncipherment")
+    def data_encipherment(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-dataencipherment
+        """
+        return pulumi.get(self, "data_encipherment")
+
+    @property
+    @pulumi.getter(name="decipherOnly")
+    def decipher_only(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-decipheronly
+        """
+        return pulumi.get(self, "decipher_only")
+
+    @property
+    @pulumi.getter(name="digitalSignature")
+    def digital_signature(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-digitalsignature
+        """
+        return pulumi.get(self, "digital_signature")
+
+    @property
+    @pulumi.getter(name="encipherOnly")
+    def encipher_only(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-encipheronly
+        """
+        return pulumi.get(self, "encipher_only")
+
+    @property
+    @pulumi.getter(name="keyAgreement")
+    def key_agreement(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyagreement
+        """
+        return pulumi.get(self, "key_agreement")
+
+    @property
+    @pulumi.getter(name="keyCertSign")
+    def key_cert_sign(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keycertsign
+        """
+        return pulumi.get(self, "key_cert_sign")
+
+    @property
+    @pulumi.getter(name="keyEncipherment")
+    def key_encipherment(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyencipherment
+        """
+        return pulumi.get(self, "key_encipherment")
+
+    @property
+    @pulumi.getter(name="nonRepudiation")
+    def non_repudiation(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-nonrepudiation
+        """
+        return pulumi.get(self, "non_repudiation")
+
+
+@pulumi.output_type
+class CertificateAuthorityOtherName(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeId":
+            suggest = "type_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityOtherName. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityOtherName.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityOtherName.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type_id: str,
+                 value: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html
+        :param str type_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-typeid
+        :param str value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-value
+        """
+        pulumi.set(__self__, "type_id", type_id)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="typeId")
+    def type_id(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-typeid
+        """
+        return pulumi.get(self, "type_id")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-value
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -343,17 +962,893 @@ class CertificateAuthoritySubject(dict):
 
 
 @pulumi.output_type
+class CertificateEdiPartyName(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nameAssigner":
+            suggest = "name_assigner"
+        elif key == "partyName":
+            suggest = "party_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateEdiPartyName. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateEdiPartyName.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateEdiPartyName.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name_assigner: str,
+                 party_name: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html
+        :param str name_assigner: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-nameassigner
+        :param str party_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-partyname
+        """
+        pulumi.set(__self__, "name_assigner", name_assigner)
+        pulumi.set(__self__, "party_name", party_name)
+
+    @property
+    @pulumi.getter(name="nameAssigner")
+    def name_assigner(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-nameassigner
+        """
+        return pulumi.get(self, "name_assigner")
+
+    @property
+    @pulumi.getter(name="partyName")
+    def party_name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-partyname
+        """
+        return pulumi.get(self, "party_name")
+
+
+@pulumi.output_type
+class CertificateExtendedKeyUsage(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extendedKeyUsageObjectIdentifier":
+            suggest = "extended_key_usage_object_identifier"
+        elif key == "extendedKeyUsageType":
+            suggest = "extended_key_usage_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateExtendedKeyUsage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateExtendedKeyUsage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateExtendedKeyUsage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 extended_key_usage_object_identifier: Optional[str] = None,
+                 extended_key_usage_type: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html
+        :param str extended_key_usage_object_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusageobjectidentifier
+        :param str extended_key_usage_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusagetype
+        """
+        if extended_key_usage_object_identifier is not None:
+            pulumi.set(__self__, "extended_key_usage_object_identifier", extended_key_usage_object_identifier)
+        if extended_key_usage_type is not None:
+            pulumi.set(__self__, "extended_key_usage_type", extended_key_usage_type)
+
+    @property
+    @pulumi.getter(name="extendedKeyUsageObjectIdentifier")
+    def extended_key_usage_object_identifier(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusageobjectidentifier
+        """
+        return pulumi.get(self, "extended_key_usage_object_identifier")
+
+    @property
+    @pulumi.getter(name="extendedKeyUsageType")
+    def extended_key_usage_type(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusagetype
+        """
+        return pulumi.get(self, "extended_key_usage_type")
+
+
+@pulumi.output_type
+class CertificateExtensions(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificatePolicies":
+            suggest = "certificate_policies"
+        elif key == "extendedKeyUsage":
+            suggest = "extended_key_usage"
+        elif key == "keyUsage":
+            suggest = "key_usage"
+        elif key == "subjectAlternativeNames":
+            suggest = "subject_alternative_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateExtensions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateExtensions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateExtensions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_policies: Optional[Sequence['outputs.CertificatePolicyInformation']] = None,
+                 extended_key_usage: Optional[Sequence['outputs.CertificateExtendedKeyUsage']] = None,
+                 key_usage: Optional['outputs.CertificateKeyUsage'] = None,
+                 subject_alternative_names: Optional[Sequence['outputs.CertificateGeneralName']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html
+        :param Sequence['CertificatePolicyInformation'] certificate_policies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-certificatepolicies
+        :param Sequence['CertificateExtendedKeyUsage'] extended_key_usage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-extendedkeyusage
+        :param 'CertificateKeyUsage' key_usage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-keyusage
+        :param Sequence['CertificateGeneralName'] subject_alternative_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-subjectalternativenames
+        """
+        if certificate_policies is not None:
+            pulumi.set(__self__, "certificate_policies", certificate_policies)
+        if extended_key_usage is not None:
+            pulumi.set(__self__, "extended_key_usage", extended_key_usage)
+        if key_usage is not None:
+            pulumi.set(__self__, "key_usage", key_usage)
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+
+    @property
+    @pulumi.getter(name="certificatePolicies")
+    def certificate_policies(self) -> Optional[Sequence['outputs.CertificatePolicyInformation']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-certificatepolicies
+        """
+        return pulumi.get(self, "certificate_policies")
+
+    @property
+    @pulumi.getter(name="extendedKeyUsage")
+    def extended_key_usage(self) -> Optional[Sequence['outputs.CertificateExtendedKeyUsage']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-extendedkeyusage
+        """
+        return pulumi.get(self, "extended_key_usage")
+
+    @property
+    @pulumi.getter(name="keyUsage")
+    def key_usage(self) -> Optional['outputs.CertificateKeyUsage']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-keyusage
+        """
+        return pulumi.get(self, "key_usage")
+
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Optional[Sequence['outputs.CertificateGeneralName']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-subjectalternativenames
+        """
+        return pulumi.get(self, "subject_alternative_names")
+
+
+@pulumi.output_type
+class CertificateGeneralName(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryName":
+            suggest = "directory_name"
+        elif key == "dnsName":
+            suggest = "dns_name"
+        elif key == "ediPartyName":
+            suggest = "edi_party_name"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "otherName":
+            suggest = "other_name"
+        elif key == "registeredId":
+            suggest = "registered_id"
+        elif key == "rfc822Name":
+            suggest = "rfc822_name"
+        elif key == "uniformResourceIdentifier":
+            suggest = "uniform_resource_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateGeneralName. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateGeneralName.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateGeneralName.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_name: Optional['outputs.CertificateSubject'] = None,
+                 dns_name: Optional[str] = None,
+                 edi_party_name: Optional['outputs.CertificateEdiPartyName'] = None,
+                 ip_address: Optional[str] = None,
+                 other_name: Optional['outputs.CertificateOtherName'] = None,
+                 registered_id: Optional[str] = None,
+                 rfc822_name: Optional[str] = None,
+                 uniform_resource_identifier: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html
+        :param 'CertificateSubject' directory_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-directoryname
+        :param str dns_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-dnsname
+        :param 'CertificateEdiPartyName' edi_party_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-edipartyname
+        :param str ip_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-ipaddress
+        :param 'CertificateOtherName' other_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-othername
+        :param str registered_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-registeredid
+        :param str rfc822_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-rfc822name
+        :param str uniform_resource_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-uniformresourceidentifier
+        """
+        if directory_name is not None:
+            pulumi.set(__self__, "directory_name", directory_name)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if edi_party_name is not None:
+            pulumi.set(__self__, "edi_party_name", edi_party_name)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if other_name is not None:
+            pulumi.set(__self__, "other_name", other_name)
+        if registered_id is not None:
+            pulumi.set(__self__, "registered_id", registered_id)
+        if rfc822_name is not None:
+            pulumi.set(__self__, "rfc822_name", rfc822_name)
+        if uniform_resource_identifier is not None:
+            pulumi.set(__self__, "uniform_resource_identifier", uniform_resource_identifier)
+
+    @property
+    @pulumi.getter(name="directoryName")
+    def directory_name(self) -> Optional['outputs.CertificateSubject']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-directoryname
+        """
+        return pulumi.get(self, "directory_name")
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-dnsname
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ediPartyName")
+    def edi_party_name(self) -> Optional['outputs.CertificateEdiPartyName']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-edipartyname
+        """
+        return pulumi.get(self, "edi_party_name")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-ipaddress
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="otherName")
+    def other_name(self) -> Optional['outputs.CertificateOtherName']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-othername
+        """
+        return pulumi.get(self, "other_name")
+
+    @property
+    @pulumi.getter(name="registeredId")
+    def registered_id(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-registeredid
+        """
+        return pulumi.get(self, "registered_id")
+
+    @property
+    @pulumi.getter(name="rfc822Name")
+    def rfc822_name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-rfc822name
+        """
+        return pulumi.get(self, "rfc822_name")
+
+    @property
+    @pulumi.getter(name="uniformResourceIdentifier")
+    def uniform_resource_identifier(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-uniformresourceidentifier
+        """
+        return pulumi.get(self, "uniform_resource_identifier")
+
+
+@pulumi.output_type
+class CertificateKeyUsage(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cRLSign":
+            suggest = "c_rl_sign"
+        elif key == "dataEncipherment":
+            suggest = "data_encipherment"
+        elif key == "decipherOnly":
+            suggest = "decipher_only"
+        elif key == "digitalSignature":
+            suggest = "digital_signature"
+        elif key == "encipherOnly":
+            suggest = "encipher_only"
+        elif key == "keyAgreement":
+            suggest = "key_agreement"
+        elif key == "keyCertSign":
+            suggest = "key_cert_sign"
+        elif key == "keyEncipherment":
+            suggest = "key_encipherment"
+        elif key == "nonRepudiation":
+            suggest = "non_repudiation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateKeyUsage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateKeyUsage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateKeyUsage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 c_rl_sign: Optional[bool] = None,
+                 data_encipherment: Optional[bool] = None,
+                 decipher_only: Optional[bool] = None,
+                 digital_signature: Optional[bool] = None,
+                 encipher_only: Optional[bool] = None,
+                 key_agreement: Optional[bool] = None,
+                 key_cert_sign: Optional[bool] = None,
+                 key_encipherment: Optional[bool] = None,
+                 non_repudiation: Optional[bool] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html
+        :param bool c_rl_sign: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-crlsign
+        :param bool data_encipherment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-dataencipherment
+        :param bool decipher_only: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-decipheronly
+        :param bool digital_signature: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-digitalsignature
+        :param bool encipher_only: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-encipheronly
+        :param bool key_agreement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyagreement
+        :param bool key_cert_sign: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keycertsign
+        :param bool key_encipherment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyencipherment
+        :param bool non_repudiation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-nonrepudiation
+        """
+        if c_rl_sign is not None:
+            pulumi.set(__self__, "c_rl_sign", c_rl_sign)
+        if data_encipherment is not None:
+            pulumi.set(__self__, "data_encipherment", data_encipherment)
+        if decipher_only is not None:
+            pulumi.set(__self__, "decipher_only", decipher_only)
+        if digital_signature is not None:
+            pulumi.set(__self__, "digital_signature", digital_signature)
+        if encipher_only is not None:
+            pulumi.set(__self__, "encipher_only", encipher_only)
+        if key_agreement is not None:
+            pulumi.set(__self__, "key_agreement", key_agreement)
+        if key_cert_sign is not None:
+            pulumi.set(__self__, "key_cert_sign", key_cert_sign)
+        if key_encipherment is not None:
+            pulumi.set(__self__, "key_encipherment", key_encipherment)
+        if non_repudiation is not None:
+            pulumi.set(__self__, "non_repudiation", non_repudiation)
+
+    @property
+    @pulumi.getter(name="cRLSign")
+    def c_rl_sign(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-crlsign
+        """
+        return pulumi.get(self, "c_rl_sign")
+
+    @property
+    @pulumi.getter(name="dataEncipherment")
+    def data_encipherment(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-dataencipherment
+        """
+        return pulumi.get(self, "data_encipherment")
+
+    @property
+    @pulumi.getter(name="decipherOnly")
+    def decipher_only(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-decipheronly
+        """
+        return pulumi.get(self, "decipher_only")
+
+    @property
+    @pulumi.getter(name="digitalSignature")
+    def digital_signature(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-digitalsignature
+        """
+        return pulumi.get(self, "digital_signature")
+
+    @property
+    @pulumi.getter(name="encipherOnly")
+    def encipher_only(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-encipheronly
+        """
+        return pulumi.get(self, "encipher_only")
+
+    @property
+    @pulumi.getter(name="keyAgreement")
+    def key_agreement(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyagreement
+        """
+        return pulumi.get(self, "key_agreement")
+
+    @property
+    @pulumi.getter(name="keyCertSign")
+    def key_cert_sign(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keycertsign
+        """
+        return pulumi.get(self, "key_cert_sign")
+
+    @property
+    @pulumi.getter(name="keyEncipherment")
+    def key_encipherment(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyencipherment
+        """
+        return pulumi.get(self, "key_encipherment")
+
+    @property
+    @pulumi.getter(name="nonRepudiation")
+    def non_repudiation(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-nonrepudiation
+        """
+        return pulumi.get(self, "non_repudiation")
+
+
+@pulumi.output_type
+class CertificateOtherName(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeId":
+            suggest = "type_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateOtherName. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateOtherName.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateOtherName.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type_id: str,
+                 value: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html
+        :param str type_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-typeid
+        :param str value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-value
+        """
+        pulumi.set(__self__, "type_id", type_id)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="typeId")
+    def type_id(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-typeid
+        """
+        return pulumi.get(self, "type_id")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CertificatePolicyInformation(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certPolicyId":
+            suggest = "cert_policy_id"
+        elif key == "policyQualifiers":
+            suggest = "policy_qualifiers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificatePolicyInformation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificatePolicyInformation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificatePolicyInformation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cert_policy_id: str,
+                 policy_qualifiers: Optional[Sequence['outputs.CertificatePolicyQualifierInfo']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html
+        :param str cert_policy_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-certpolicyid
+        :param Sequence['CertificatePolicyQualifierInfo'] policy_qualifiers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-policyqualifiers
+        """
+        pulumi.set(__self__, "cert_policy_id", cert_policy_id)
+        if policy_qualifiers is not None:
+            pulumi.set(__self__, "policy_qualifiers", policy_qualifiers)
+
+    @property
+    @pulumi.getter(name="certPolicyId")
+    def cert_policy_id(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-certpolicyid
+        """
+        return pulumi.get(self, "cert_policy_id")
+
+    @property
+    @pulumi.getter(name="policyQualifiers")
+    def policy_qualifiers(self) -> Optional[Sequence['outputs.CertificatePolicyQualifierInfo']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-policyqualifiers
+        """
+        return pulumi.get(self, "policy_qualifiers")
+
+
+@pulumi.output_type
+class CertificatePolicyQualifierInfo(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyQualifierId":
+            suggest = "policy_qualifier_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificatePolicyQualifierInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificatePolicyQualifierInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificatePolicyQualifierInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_qualifier_id: str,
+                 qualifier: 'outputs.CertificateQualifier'):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html
+        :param str policy_qualifier_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-policyqualifierid
+        :param 'CertificateQualifier' qualifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-qualifier
+        """
+        pulumi.set(__self__, "policy_qualifier_id", policy_qualifier_id)
+        pulumi.set(__self__, "qualifier", qualifier)
+
+    @property
+    @pulumi.getter(name="policyQualifierId")
+    def policy_qualifier_id(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-policyqualifierid
+        """
+        return pulumi.get(self, "policy_qualifier_id")
+
+    @property
+    @pulumi.getter
+    def qualifier(self) -> 'outputs.CertificateQualifier':
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-qualifier
+        """
+        return pulumi.get(self, "qualifier")
+
+
+@pulumi.output_type
+class CertificateQualifier(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpsUri":
+            suggest = "cps_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateQualifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateQualifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateQualifier.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cps_uri: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html
+        :param str cps_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html#cfn-acmpca-certificate-qualifier-cpsuri
+        """
+        pulumi.set(__self__, "cps_uri", cps_uri)
+
+    @property
+    @pulumi.getter(name="cpsUri")
+    def cps_uri(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html#cfn-acmpca-certificate-qualifier-cpsuri
+        """
+        return pulumi.get(self, "cps_uri")
+
+
+@pulumi.output_type
+class CertificateSubject(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonName":
+            suggest = "common_name"
+        elif key == "distinguishedNameQualifier":
+            suggest = "distinguished_name_qualifier"
+        elif key == "generationQualifier":
+            suggest = "generation_qualifier"
+        elif key == "givenName":
+            suggest = "given_name"
+        elif key == "organizationalUnit":
+            suggest = "organizational_unit"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateSubject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateSubject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateSubject.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 common_name: Optional[str] = None,
+                 country: Optional[str] = None,
+                 distinguished_name_qualifier: Optional[str] = None,
+                 generation_qualifier: Optional[str] = None,
+                 given_name: Optional[str] = None,
+                 initials: Optional[str] = None,
+                 locality: Optional[str] = None,
+                 organization: Optional[str] = None,
+                 organizational_unit: Optional[str] = None,
+                 pseudonym: Optional[str] = None,
+                 serial_number: Optional[str] = None,
+                 state: Optional[str] = None,
+                 surname: Optional[str] = None,
+                 title: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html
+        :param str common_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-commonname
+        :param str country: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-country
+        :param str distinguished_name_qualifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-distinguishednamequalifier
+        :param str generation_qualifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-generationqualifier
+        :param str given_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-givenname
+        :param str initials: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-initials
+        :param str locality: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-locality
+        :param str organization: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organization
+        :param str organizational_unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organizationalunit
+        :param str pseudonym: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-pseudonym
+        :param str serial_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-serialnumber
+        :param str state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-state
+        :param str surname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-surname
+        :param str title: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-title
+        """
+        if common_name is not None:
+            pulumi.set(__self__, "common_name", common_name)
+        if country is not None:
+            pulumi.set(__self__, "country", country)
+        if distinguished_name_qualifier is not None:
+            pulumi.set(__self__, "distinguished_name_qualifier", distinguished_name_qualifier)
+        if generation_qualifier is not None:
+            pulumi.set(__self__, "generation_qualifier", generation_qualifier)
+        if given_name is not None:
+            pulumi.set(__self__, "given_name", given_name)
+        if initials is not None:
+            pulumi.set(__self__, "initials", initials)
+        if locality is not None:
+            pulumi.set(__self__, "locality", locality)
+        if organization is not None:
+            pulumi.set(__self__, "organization", organization)
+        if organizational_unit is not None:
+            pulumi.set(__self__, "organizational_unit", organizational_unit)
+        if pseudonym is not None:
+            pulumi.set(__self__, "pseudonym", pseudonym)
+        if serial_number is not None:
+            pulumi.set(__self__, "serial_number", serial_number)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if surname is not None:
+            pulumi.set(__self__, "surname", surname)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="commonName")
+    def common_name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-commonname
+        """
+        return pulumi.get(self, "common_name")
+
+    @property
+    @pulumi.getter
+    def country(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-country
+        """
+        return pulumi.get(self, "country")
+
+    @property
+    @pulumi.getter(name="distinguishedNameQualifier")
+    def distinguished_name_qualifier(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-distinguishednamequalifier
+        """
+        return pulumi.get(self, "distinguished_name_qualifier")
+
+    @property
+    @pulumi.getter(name="generationQualifier")
+    def generation_qualifier(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-generationqualifier
+        """
+        return pulumi.get(self, "generation_qualifier")
+
+    @property
+    @pulumi.getter(name="givenName")
+    def given_name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-givenname
+        """
+        return pulumi.get(self, "given_name")
+
+    @property
+    @pulumi.getter
+    def initials(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-initials
+        """
+        return pulumi.get(self, "initials")
+
+    @property
+    @pulumi.getter
+    def locality(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-locality
+        """
+        return pulumi.get(self, "locality")
+
+    @property
+    @pulumi.getter
+    def organization(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organization
+        """
+        return pulumi.get(self, "organization")
+
+    @property
+    @pulumi.getter(name="organizationalUnit")
+    def organizational_unit(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organizationalunit
+        """
+        return pulumi.get(self, "organizational_unit")
+
+    @property
+    @pulumi.getter
+    def pseudonym(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-pseudonym
+        """
+        return pulumi.get(self, "pseudonym")
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-serialnumber
+        """
+        return pulumi.get(self, "serial_number")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-state
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def surname(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-surname
+        """
+        return pulumi.get(self, "surname")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-title
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
 class CertificateValidity(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html
     """
     def __init__(__self__, *,
                  type: str,
-                 value: int):
+                 value: float):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html
         :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-type
-        :param int value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
+        :param float value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -368,7 +1863,7 @@ class CertificateValidity(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> int:
+    def value(self) -> float:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
         """

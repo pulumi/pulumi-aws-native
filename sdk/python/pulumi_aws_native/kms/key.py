@@ -15,22 +15,24 @@ __all__ = ['KeyArgs', 'Key']
 @pulumi.input_type
 class KeyArgs:
     def __init__(__self__, *,
-                 key_policy: Any,
+                 key_policy: pulumi.Input[Union[Any, str]],
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  key_spec: Optional[pulumi.Input[str]] = None,
                  key_usage: Optional[pulumi.Input[str]] = None,
+                 multi_region: Optional[pulumi.Input[bool]] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Key resource.
-        :param Any key_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
+        :param pulumi.Input[Union[Any, str]] key_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
         :param pulumi.Input[bool] enable_key_rotation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
         :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
         :param pulumi.Input[str] key_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
         :param pulumi.Input[str] key_usage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
+        :param pulumi.Input[bool] multi_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
         :param pulumi.Input[int] pending_window_in_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
         """
@@ -45,6 +47,8 @@ class KeyArgs:
             pulumi.set(__self__, "key_spec", key_spec)
         if key_usage is not None:
             pulumi.set(__self__, "key_usage", key_usage)
+        if multi_region is not None:
+            pulumi.set(__self__, "multi_region", multi_region)
         if pending_window_in_days is not None:
             pulumi.set(__self__, "pending_window_in_days", pending_window_in_days)
         if tags is not None:
@@ -52,14 +56,14 @@ class KeyArgs:
 
     @property
     @pulumi.getter(name="keyPolicy")
-    def key_policy(self) -> Any:
+    def key_policy(self) -> pulumi.Input[Union[Any, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
         """
         return pulumi.get(self, "key_policy")
 
     @key_policy.setter
-    def key_policy(self, value: Any):
+    def key_policy(self, value: pulumi.Input[Union[Any, str]]):
         pulumi.set(self, "key_policy", value)
 
     @property
@@ -123,6 +127,18 @@ class KeyArgs:
         pulumi.set(self, "key_usage", value)
 
     @property
+    @pulumi.getter(name="multiRegion")
+    def multi_region(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
+        """
+        return pulumi.get(self, "multi_region")
+
+    @multi_region.setter
+    def multi_region(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multi_region", value)
+
+    @property
     @pulumi.getter(name="pendingWindowInDays")
     def pending_window_in_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -155,9 +171,10 @@ class Key(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_policy: Optional[Any] = None,
+                 key_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  key_spec: Optional[pulumi.Input[str]] = None,
                  key_usage: Optional[pulumi.Input[str]] = None,
+                 multi_region: Optional[pulumi.Input[bool]] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
@@ -169,9 +186,10 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
         :param pulumi.Input[bool] enable_key_rotation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
         :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
-        :param Any key_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
+        :param pulumi.Input[Union[Any, str]] key_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
         :param pulumi.Input[str] key_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
         :param pulumi.Input[str] key_usage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
+        :param pulumi.Input[bool] multi_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
         :param pulumi.Input[int] pending_window_in_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
         """
@@ -202,9 +220,10 @@ class Key(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_policy: Optional[Any] = None,
+                 key_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  key_spec: Optional[pulumi.Input[str]] = None,
                  key_usage: Optional[pulumi.Input[str]] = None,
+                 multi_region: Optional[pulumi.Input[bool]] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
@@ -227,6 +246,7 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["key_policy"] = key_policy
             __props__.__dict__["key_spec"] = key_spec
             __props__.__dict__["key_usage"] = key_usage
+            __props__.__dict__["multi_region"] = multi_region
             __props__.__dict__["pending_window_in_days"] = pending_window_in_days
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -261,6 +281,7 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["key_policy"] = None
         __props__.__dict__["key_spec"] = None
         __props__.__dict__["key_usage"] = None
+        __props__.__dict__["multi_region"] = None
         __props__.__dict__["pending_window_in_days"] = None
         __props__.__dict__["tags"] = None
         return Key(resource_name, opts=opts, __props__=__props__)
@@ -301,7 +322,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyPolicy")
-    def key_policy(self) -> pulumi.Output[Any]:
+    def key_policy(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
         """
@@ -322,6 +343,14 @@ class Key(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
         """
         return pulumi.get(self, "key_usage")
+
+    @property
+    @pulumi.getter(name="multiRegion")
+    def multi_region(self) -> pulumi.Output[Optional[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
+        """
+        return pulumi.get(self, "multi_region")
 
     @property
     @pulumi.getter(name="pendingWindowInDays")

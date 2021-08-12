@@ -9,12 +9,54 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ResourceVersionLoggingConfigArgs',
     'StackSetAutoDeploymentArgs',
     'StackSetDeploymentTargetsArgs',
     'StackSetOperationPreferencesArgs',
     'StackSetParameterArgs',
     'StackSetStackInstancesArgs',
+    'TypeActivationLoggingConfigArgs',
 ]
+
+@pulumi.input_type
+class ResourceVersionLoggingConfigArgs:
+    def __init__(__self__, *,
+                 log_group_name: Optional[pulumi.Input[str]] = None,
+                 log_role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html
+        :param pulumi.Input[str] log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
+        :param pulumi.Input[str] log_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
+        """
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_role_arn is not None:
+            pulumi.set(__self__, "log_role_arn", log_role_arn)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="logRoleArn")
+    def log_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
+        """
+        return pulumi.get(self, "log_role_arn")
+
+    @log_role_arn.setter
+    def log_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_role_arn", value)
+
 
 @pulumi.input_type
 class StackSetAutoDeploymentArgs:
@@ -103,6 +145,7 @@ class StackSetOperationPreferencesArgs:
                  failure_tolerance_percentage: Optional[pulumi.Input[int]] = None,
                  max_concurrent_count: Optional[pulumi.Input[int]] = None,
                  max_concurrent_percentage: Optional[pulumi.Input[int]] = None,
+                 region_concurrency_type: Optional[pulumi.Input[str]] = None,
                  region_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html
@@ -110,6 +153,7 @@ class StackSetOperationPreferencesArgs:
         :param pulumi.Input[int] failure_tolerance_percentage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
         :param pulumi.Input[int] max_concurrent_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
         :param pulumi.Input[int] max_concurrent_percentage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
+        :param pulumi.Input[str] region_concurrency_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
         :param pulumi.Input[Sequence[pulumi.Input[str]]] region_order: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
         """
         if failure_tolerance_count is not None:
@@ -120,6 +164,8 @@ class StackSetOperationPreferencesArgs:
             pulumi.set(__self__, "max_concurrent_count", max_concurrent_count)
         if max_concurrent_percentage is not None:
             pulumi.set(__self__, "max_concurrent_percentage", max_concurrent_percentage)
+        if region_concurrency_type is not None:
+            pulumi.set(__self__, "region_concurrency_type", region_concurrency_type)
         if region_order is not None:
             pulumi.set(__self__, "region_order", region_order)
 
@@ -170,6 +216,18 @@ class StackSetOperationPreferencesArgs:
     @max_concurrent_percentage.setter
     def max_concurrent_percentage(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_concurrent_percentage", value)
+
+    @property
+    @pulumi.getter(name="regionConcurrencyType")
+    def region_concurrency_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
+        """
+        return pulumi.get(self, "region_concurrency_type")
+
+    @region_concurrency_type.setter
+    def region_concurrency_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region_concurrency_type", value)
 
     @property
     @pulumi.getter(name="regionOrder")
@@ -274,5 +332,45 @@ class StackSetStackInstancesArgs:
     @parameter_overrides.setter
     def parameter_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]]):
         pulumi.set(self, "parameter_overrides", value)
+
+
+@pulumi.input_type
+class TypeActivationLoggingConfigArgs:
+    def __init__(__self__, *,
+                 log_group_name: Optional[pulumi.Input[str]] = None,
+                 log_role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html
+        :param pulumi.Input[str] log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
+        :param pulumi.Input[str] log_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
+        """
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_role_arn is not None:
+            pulumi.set(__self__, "log_role_arn", log_role_arn)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="logRoleArn")
+    def log_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
+        """
+        return pulumi.get(self, "log_role_arn")
+
+    @log_role_arn.setter
+    def log_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_role_arn", value)
 
 

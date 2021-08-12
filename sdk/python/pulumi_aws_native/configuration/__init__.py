@@ -8,5 +8,6 @@ import typing
 from .configuration_aggregator import *
 from .conformance_pack import *
 from .organization_conformance_pack import *
+from .stored_query import *
 from ._inputs import *
 from . import outputs

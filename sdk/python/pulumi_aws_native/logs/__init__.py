@@ -6,3 +6,5 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .log_group import *
+from .query_definition import *
+from .resource_policy import *

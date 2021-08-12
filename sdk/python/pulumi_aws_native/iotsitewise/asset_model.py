@@ -18,6 +18,7 @@ __all__ = ['AssetModelArgs', 'AssetModel']
 class AssetModelArgs:
     def __init__(__self__, *,
                  asset_model_name: pulumi.Input[str],
+                 asset_model_composite_models: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelAssetModelCompositeModelArgs']]]] = None,
                  asset_model_description: Optional[pulumi.Input[str]] = None,
                  asset_model_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelAssetModelHierarchyArgs']]]] = None,
                  asset_model_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelAssetModelPropertyArgs']]]] = None,
@@ -25,12 +26,15 @@ class AssetModelArgs:
         """
         The set of arguments for constructing a AssetModel resource.
         :param pulumi.Input[str] asset_model_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
+        :param pulumi.Input[Sequence[pulumi.Input['AssetModelAssetModelCompositeModelArgs']]] asset_model_composite_models: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
         :param pulumi.Input[str] asset_model_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
         :param pulumi.Input[Sequence[pulumi.Input['AssetModelAssetModelHierarchyArgs']]] asset_model_hierarchies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
         :param pulumi.Input[Sequence[pulumi.Input['AssetModelAssetModelPropertyArgs']]] asset_model_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
         """
         pulumi.set(__self__, "asset_model_name", asset_model_name)
+        if asset_model_composite_models is not None:
+            pulumi.set(__self__, "asset_model_composite_models", asset_model_composite_models)
         if asset_model_description is not None:
             pulumi.set(__self__, "asset_model_description", asset_model_description)
         if asset_model_hierarchies is not None:
@@ -51,6 +55,18 @@ class AssetModelArgs:
     @asset_model_name.setter
     def asset_model_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "asset_model_name", value)
+
+    @property
+    @pulumi.getter(name="assetModelCompositeModels")
+    def asset_model_composite_models(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelAssetModelCompositeModelArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
+        """
+        return pulumi.get(self, "asset_model_composite_models")
+
+    @asset_model_composite_models.setter
+    def asset_model_composite_models(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelAssetModelCompositeModelArgs']]]]):
+        pulumi.set(self, "asset_model_composite_models", value)
 
     @property
     @pulumi.getter(name="assetModelDescription")
@@ -106,6 +122,7 @@ class AssetModel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 asset_model_composite_models: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelAssetModelCompositeModelArgs']]]]] = None,
                  asset_model_description: Optional[pulumi.Input[str]] = None,
                  asset_model_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelAssetModelHierarchyArgs']]]]] = None,
                  asset_model_name: Optional[pulumi.Input[str]] = None,
@@ -117,6 +134,7 @@ class AssetModel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelAssetModelCompositeModelArgs']]]] asset_model_composite_models: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
         :param pulumi.Input[str] asset_model_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelAssetModelHierarchyArgs']]]] asset_model_hierarchies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
         :param pulumi.Input[str] asset_model_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
@@ -147,6 +165,7 @@ class AssetModel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 asset_model_composite_models: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelAssetModelCompositeModelArgs']]]]] = None,
                  asset_model_description: Optional[pulumi.Input[str]] = None,
                  asset_model_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelAssetModelHierarchyArgs']]]]] = None,
                  asset_model_name: Optional[pulumi.Input[str]] = None,
@@ -164,6 +183,7 @@ class AssetModel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssetModelArgs.__new__(AssetModelArgs)
 
+            __props__.__dict__["asset_model_composite_models"] = asset_model_composite_models
             __props__.__dict__["asset_model_description"] = asset_model_description
             __props__.__dict__["asset_model_hierarchies"] = asset_model_hierarchies
             if asset_model_name is None and not opts.urn:
@@ -196,6 +216,7 @@ class AssetModel(pulumi.CustomResource):
         __props__ = AssetModelArgs.__new__(AssetModelArgs)
 
         __props__.__dict__["asset_model_arn"] = None
+        __props__.__dict__["asset_model_composite_models"] = None
         __props__.__dict__["asset_model_description"] = None
         __props__.__dict__["asset_model_hierarchies"] = None
         __props__.__dict__["asset_model_id"] = None
@@ -208,6 +229,14 @@ class AssetModel(pulumi.CustomResource):
     @pulumi.getter(name="assetModelArn")
     def asset_model_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "asset_model_arn")
+
+    @property
+    @pulumi.getter(name="assetModelCompositeModels")
+    def asset_model_composite_models(self) -> pulumi.Output[Optional[Sequence['outputs.AssetModelAssetModelCompositeModel']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
+        """
+        return pulumi.get(self, "asset_model_composite_models")
 
     @property
     @pulumi.getter(name="assetModelDescription")

@@ -17,21 +17,25 @@ __all__ = ['RepositoryArgs', 'Repository']
 @pulumi.input_type
 class RepositoryArgs:
     def __init__(__self__, *,
-                 image_scanning_configuration: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 encryption_configuration: Optional[pulumi.Input['RepositoryEncryptionConfigurationArgs']] = None,
+                 image_scanning_configuration: Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']] = None,
                  image_tag_mutability: Optional[pulumi.Input[str]] = None,
                  lifecycle_policy: Optional[pulumi.Input['RepositoryLifecyclePolicyArgs']] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 repository_policy_text: Optional[Any] = None,
+                 repository_policy_text: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Repository resource.
-        :param pulumi.Input[Union[Any, str]] image_scanning_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
+        :param pulumi.Input['RepositoryEncryptionConfigurationArgs'] encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
+        :param pulumi.Input['RepositoryImageScanningConfigurationArgs'] image_scanning_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
         :param pulumi.Input[str] image_tag_mutability: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
         :param pulumi.Input['RepositoryLifecyclePolicyArgs'] lifecycle_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
         :param pulumi.Input[str] repository_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
-        :param Any repository_policy_text: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
+        :param pulumi.Input[Union[Any, str]] repository_policy_text: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
         """
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if image_scanning_configuration is not None:
             pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
         if image_tag_mutability is not None:
@@ -46,15 +50,27 @@ class RepositoryArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['RepositoryEncryptionConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['RepositoryEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
+
+    @property
     @pulumi.getter(name="imageScanningConfiguration")
-    def image_scanning_configuration(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+    def image_scanning_configuration(self) -> Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
         """
         return pulumi.get(self, "image_scanning_configuration")
 
     @image_scanning_configuration.setter
-    def image_scanning_configuration(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def image_scanning_configuration(self, value: Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']]):
         pulumi.set(self, "image_scanning_configuration", value)
 
     @property
@@ -95,14 +111,14 @@ class RepositoryArgs:
 
     @property
     @pulumi.getter(name="repositoryPolicyText")
-    def repository_policy_text(self) -> Optional[Any]:
+    def repository_policy_text(self) -> Optional[pulumi.Input[Union[Any, str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
         """
         return pulumi.get(self, "repository_policy_text")
 
     @repository_policy_text.setter
-    def repository_policy_text(self, value: Optional[Any]):
+    def repository_policy_text(self, value: Optional[pulumi.Input[Union[Any, str]]]):
         pulumi.set(self, "repository_policy_text", value)
 
     @property
@@ -123,11 +139,12 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]] = None,
+                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
                  image_tag_mutability: Optional[pulumi.Input[str]] = None,
                  lifecycle_policy: Optional[pulumi.Input[pulumi.InputType['RepositoryLifecyclePolicyArgs']]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 repository_policy_text: Optional[Any] = None,
+                 repository_policy_text: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
@@ -135,11 +152,12 @@ class Repository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Any, str]] image_scanning_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
+        :param pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']] encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
+        :param pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']] image_scanning_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
         :param pulumi.Input[str] image_tag_mutability: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
         :param pulumi.Input[pulumi.InputType['RepositoryLifecyclePolicyArgs']] lifecycle_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
         :param pulumi.Input[str] repository_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
-        :param Any repository_policy_text: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
+        :param pulumi.Input[Union[Any, str]] repository_policy_text: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
         """
         ...
@@ -166,11 +184,12 @@ class Repository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]] = None,
+                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
                  image_tag_mutability: Optional[pulumi.Input[str]] = None,
                  lifecycle_policy: Optional[pulumi.Input[pulumi.InputType['RepositoryLifecyclePolicyArgs']]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 repository_policy_text: Optional[Any] = None,
+                 repository_policy_text: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -184,6 +203,7 @@ class Repository(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
+            __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tag_mutability"] = image_tag_mutability
             __props__.__dict__["lifecycle_policy"] = lifecycle_policy
@@ -191,6 +211,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["repository_policy_text"] = repository_policy_text
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["repository_uri"] = None
         super(Repository, __self__).__init__(
             'aws-native:ECR:Repository',
             resource_name,
@@ -214,11 +235,13 @@ class Repository(pulumi.CustomResource):
         __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["image_scanning_configuration"] = None
         __props__.__dict__["image_tag_mutability"] = None
         __props__.__dict__["lifecycle_policy"] = None
         __props__.__dict__["repository_name"] = None
         __props__.__dict__["repository_policy_text"] = None
+        __props__.__dict__["repository_uri"] = None
         __props__.__dict__["tags"] = None
         return Repository(resource_name, opts=opts, __props__=__props__)
 
@@ -228,8 +251,16 @@ class Repository(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Output[Optional['outputs.RepositoryEncryptionConfiguration']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @property
     @pulumi.getter(name="imageScanningConfiguration")
-    def image_scanning_configuration(self) -> pulumi.Output[Optional[str]]:
+    def image_scanning_configuration(self) -> pulumi.Output[Optional['outputs.RepositoryImageScanningConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
         """
@@ -261,11 +292,16 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repositoryPolicyText")
-    def repository_policy_text(self) -> pulumi.Output[Optional[Any]]:
+    def repository_policy_text(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
         """
         return pulumi.get(self, "repository_policy_text")
+
+    @property
+    @pulumi.getter(name="repositoryUri")
+    def repository_uri(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "repository_uri")
 
     @property
     @pulumi.getter

@@ -7,3 +7,4 @@ import typing
 # Export this package's modules as members:
 from .alias import *
 from .key import *
+from .replica_key import *

@@ -11,8 +11,7 @@ from . import outputs
 
 __all__ = [
     'AssetEgressEndpoint',
-    'ChannelHlsIngest',
-    'ChannelIngestEndpoint',
+    'ChannelLogConfiguration',
     'OriginEndpointAuthorization',
     'OriginEndpointCmafEncryption',
     'OriginEndpointCmafPackage',
@@ -36,8 +35,10 @@ __all__ = [
     'PackagingConfigurationMssEncryption',
     'PackagingConfigurationMssManifest',
     'PackagingConfigurationMssPackage',
+    'PackagingConfigurationSpekeKeyProvider',
     'PackagingConfigurationStreamSelection',
     'PackagingGroupAuthorization',
+    'PackagingGroupLogConfiguration',
 ]
 
 @pulumi.output_type
@@ -91,102 +92,43 @@ class AssetEgressEndpoint(dict):
 
 
 @pulumi.output_type
-class ChannelHlsIngest(dict):
+class ChannelLogConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ingestEndpoints":
-            suggest = "ingest_endpoints"
+        if key == "logGroupName":
+            suggest = "log_group_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ChannelHlsIngest. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ChannelLogConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ChannelHlsIngest.__key_warning(key)
+        ChannelLogConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ChannelHlsIngest.__key_warning(key)
+        ChannelLogConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ingest_endpoints: Optional[Sequence['outputs.ChannelIngestEndpoint']] = None):
+                 log_group_name: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html
-        :param Sequence['ChannelIngestEndpoint'] ingest_endpoints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html#cfn-mediapackage-channel-hlsingest-ingestendpoints
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html
+        :param str log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
         """
-        if ingest_endpoints is not None:
-            pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
 
     @property
-    @pulumi.getter(name="ingestEndpoints")
-    def ingest_endpoints(self) -> Optional[Sequence['outputs.ChannelIngestEndpoint']]:
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html#cfn-mediapackage-channel-hlsingest-ingestendpoints
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
         """
-        return pulumi.get(self, "ingest_endpoints")
-
-
-@pulumi.output_type
-class ChannelIngestEndpoint(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html
-    """
-    def __init__(__self__, *,
-                 id: Optional[str] = None,
-                 password: Optional[str] = None,
-                 url: Optional[str] = None,
-                 username: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html
-        :param str id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-id
-        :param str password: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-password
-        :param str url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-url
-        :param str username: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-username
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-id
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-password
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter
-    def url(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-url
-        """
-        return pulumi.get(self, "url")
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-username
-        """
-        return pulumi.get(self, "username")
+        return pulumi.get(self, "log_group_name")
 
 
 @pulumi.output_type
@@ -251,6 +193,8 @@ class OriginEndpointCmafEncryption(dict):
         suggest = None
         if key == "spekeKeyProvider":
             suggest = "speke_key_provider"
+        elif key == "constantInitializationVector":
+            suggest = "constant_initialization_vector"
         elif key == "keyRotationIntervalSeconds":
             suggest = "key_rotation_interval_seconds"
 
@@ -267,13 +211,17 @@ class OriginEndpointCmafEncryption(dict):
 
     def __init__(__self__, *,
                  speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider',
+                 constant_initialization_vector: Optional[str] = None,
                  key_rotation_interval_seconds: Optional[int] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html
         :param 'OriginEndpointSpekeKeyProvider' speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
+        :param str constant_initialization_vector: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
         :param int key_rotation_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
+        if constant_initialization_vector is not None:
+            pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
         if key_rotation_interval_seconds is not None:
             pulumi.set(__self__, "key_rotation_interval_seconds", key_rotation_interval_seconds)
 
@@ -284,6 +232,14 @@ class OriginEndpointCmafEncryption(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
         """
         return pulumi.get(self, "speke_key_provider")
+
+    @property
+    @pulumi.getter(name="constantInitializationVector")
+    def constant_initialization_vector(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
+        """
+        return pulumi.get(self, "constant_initialization_vector")
 
     @property
     @pulumi.getter(name="keyRotationIntervalSeconds")
@@ -471,6 +427,10 @@ class OriginEndpointDashPackage(dict):
             suggest = "stream_selection"
         elif key == "suggestedPresentationDelaySeconds":
             suggest = "suggested_presentation_delay_seconds"
+        elif key == "utcTiming":
+            suggest = "utc_timing"
+        elif key == "utcTimingUri":
+            suggest = "utc_timing_uri"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OriginEndpointDashPackage. Access the value via the '{suggest}' property getter instead.")
@@ -496,7 +456,9 @@ class OriginEndpointDashPackage(dict):
                  segment_duration_seconds: Optional[int] = None,
                  segment_template_format: Optional[str] = None,
                  stream_selection: Optional['outputs.OriginEndpointStreamSelection'] = None,
-                 suggested_presentation_delay_seconds: Optional[int] = None):
+                 suggested_presentation_delay_seconds: Optional[int] = None,
+                 utc_timing: Optional[str] = None,
+                 utc_timing_uri: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html
         :param Sequence[str] ad_triggers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers
@@ -512,6 +474,8 @@ class OriginEndpointDashPackage(dict):
         :param str segment_template_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmenttemplateformat
         :param 'OriginEndpointStreamSelection' stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-streamselection
         :param int suggested_presentation_delay_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
+        :param str utc_timing: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
+        :param str utc_timing_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
         """
         if ad_triggers is not None:
             pulumi.set(__self__, "ad_triggers", ad_triggers)
@@ -539,6 +503,10 @@ class OriginEndpointDashPackage(dict):
             pulumi.set(__self__, "stream_selection", stream_selection)
         if suggested_presentation_delay_seconds is not None:
             pulumi.set(__self__, "suggested_presentation_delay_seconds", suggested_presentation_delay_seconds)
+        if utc_timing is not None:
+            pulumi.set(__self__, "utc_timing", utc_timing)
+        if utc_timing_uri is not None:
+            pulumi.set(__self__, "utc_timing_uri", utc_timing_uri)
 
     @property
     @pulumi.getter(name="adTriggers")
@@ -643,6 +611,22 @@ class OriginEndpointDashPackage(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
         """
         return pulumi.get(self, "suggested_presentation_delay_seconds")
+
+    @property
+    @pulumi.getter(name="utcTiming")
+    def utc_timing(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
+        """
+        return pulumi.get(self, "utc_timing")
+
+    @property
+    @pulumi.getter(name="utcTimingUri")
+    def utc_timing_uri(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
+        """
+        return pulumi.get(self, "utc_timing_uri")
 
 
 @pulumi.output_type
@@ -1379,16 +1363,16 @@ class PackagingConfigurationCmafEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 speke_key_provider: Any):
+                 speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html
-        :param Any speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
+        :param 'PackagingConfigurationSpekeKeyProvider' speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
-    def speke_key_provider(self) -> Any:
+    def speke_key_provider(self) -> 'outputs.PackagingConfigurationSpekeKeyProvider':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
         """
@@ -1405,6 +1389,8 @@ class PackagingConfigurationCmafPackage(dict):
         suggest = None
         if key == "hlsManifests":
             suggest = "hls_manifests"
+        elif key == "includeEncoderConfigurationInSegments":
+            suggest = "include_encoder_configuration_in_segments"
         elif key == "segmentDurationSeconds":
             suggest = "segment_duration_seconds"
 
@@ -1422,16 +1408,20 @@ class PackagingConfigurationCmafPackage(dict):
     def __init__(__self__, *,
                  hls_manifests: Sequence['outputs.PackagingConfigurationHlsManifest'],
                  encryption: Optional['outputs.PackagingConfigurationCmafEncryption'] = None,
+                 include_encoder_configuration_in_segments: Optional[bool] = None,
                  segment_duration_seconds: Optional[int] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html
         :param Sequence['PackagingConfigurationHlsManifest'] hls_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
         :param 'PackagingConfigurationCmafEncryption' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption
+        :param bool include_encoder_configuration_in_segments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
         :param int segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
         """
         pulumi.set(__self__, "hls_manifests", hls_manifests)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if include_encoder_configuration_in_segments is not None:
+            pulumi.set(__self__, "include_encoder_configuration_in_segments", include_encoder_configuration_in_segments)
         if segment_duration_seconds is not None:
             pulumi.set(__self__, "segment_duration_seconds", segment_duration_seconds)
 
@@ -1450,6 +1440,14 @@ class PackagingConfigurationCmafPackage(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="includeEncoderConfigurationInSegments")
+    def include_encoder_configuration_in_segments(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
+        """
+        return pulumi.get(self, "include_encoder_configuration_in_segments")
 
     @property
     @pulumi.getter(name="segmentDurationSeconds")
@@ -1483,16 +1481,16 @@ class PackagingConfigurationDashEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 speke_key_provider: Any):
+                 speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html
-        :param Any speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
+        :param 'PackagingConfigurationSpekeKeyProvider' speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
-    def speke_key_provider(self) -> Any:
+    def speke_key_provider(self) -> 'outputs.PackagingConfigurationSpekeKeyProvider':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
         """
@@ -1603,6 +1601,8 @@ class PackagingConfigurationDashPackage(dict):
         suggest = None
         if key == "dashManifests":
             suggest = "dash_manifests"
+        elif key == "includeEncoderConfigurationInSegments":
+            suggest = "include_encoder_configuration_in_segments"
         elif key == "periodTriggers":
             suggest = "period_triggers"
         elif key == "segmentDurationSeconds":
@@ -1624,6 +1624,7 @@ class PackagingConfigurationDashPackage(dict):
     def __init__(__self__, *,
                  dash_manifests: Sequence['outputs.PackagingConfigurationDashManifest'],
                  encryption: Optional['outputs.PackagingConfigurationDashEncryption'] = None,
+                 include_encoder_configuration_in_segments: Optional[bool] = None,
                  period_triggers: Optional[Sequence[str]] = None,
                  segment_duration_seconds: Optional[int] = None,
                  segment_template_format: Optional[str] = None):
@@ -1631,6 +1632,7 @@ class PackagingConfigurationDashPackage(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html
         :param Sequence['PackagingConfigurationDashManifest'] dash_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
         :param 'PackagingConfigurationDashEncryption' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
+        :param bool include_encoder_configuration_in_segments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
         :param Sequence[str] period_triggers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
         :param int segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
         :param str segment_template_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmenttemplateformat
@@ -1638,6 +1640,8 @@ class PackagingConfigurationDashPackage(dict):
         pulumi.set(__self__, "dash_manifests", dash_manifests)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if include_encoder_configuration_in_segments is not None:
+            pulumi.set(__self__, "include_encoder_configuration_in_segments", include_encoder_configuration_in_segments)
         if period_triggers is not None:
             pulumi.set(__self__, "period_triggers", period_triggers)
         if segment_duration_seconds is not None:
@@ -1660,6 +1664,14 @@ class PackagingConfigurationDashPackage(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="includeEncoderConfigurationInSegments")
+    def include_encoder_configuration_in_segments(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
+        """
+        return pulumi.get(self, "include_encoder_configuration_in_segments")
 
     @property
     @pulumi.getter(name="periodTriggers")
@@ -1713,12 +1725,12 @@ class PackagingConfigurationHlsEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 speke_key_provider: Any,
+                 speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider',
                  constant_initialization_vector: Optional[str] = None,
                  encryption_method: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html
-        :param Any speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
+        :param 'PackagingConfigurationSpekeKeyProvider' speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
         :param str constant_initialization_vector: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector
         :param str encryption_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
         """
@@ -1730,7 +1742,7 @@ class PackagingConfigurationHlsEncryption(dict):
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
-    def speke_key_provider(self) -> Any:
+    def speke_key_provider(self) -> 'outputs.PackagingConfigurationSpekeKeyProvider':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
         """
@@ -1965,16 +1977,16 @@ class PackagingConfigurationMssEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 speke_key_provider: Any):
+                 speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider'):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html
-        :param Any speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
+        :param 'PackagingConfigurationSpekeKeyProvider' speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
-    def speke_key_provider(self) -> Any:
+    def speke_key_provider(self) -> 'outputs.PackagingConfigurationSpekeKeyProvider':
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
         """
@@ -2101,6 +2113,69 @@ class PackagingConfigurationMssPackage(dict):
 
 
 @pulumi.output_type
+class PackagingConfigurationSpekeKeyProvider(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "systemIds":
+            suggest = "system_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingConfigurationSpekeKeyProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingConfigurationSpekeKeyProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingConfigurationSpekeKeyProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: str,
+                 system_ids: Sequence[str],
+                 url: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html
+        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-rolearn
+        :param Sequence[str] system_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-systemids
+        :param str url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-url
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "system_ids", system_ids)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="systemIds")
+    def system_ids(self) -> Sequence[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-systemids
+        """
+        return pulumi.get(self, "system_ids")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-url
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
 class PackagingConfigurationStreamSelection(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html
@@ -2218,5 +2293,45 @@ class PackagingGroupAuthorization(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-secretsrolearn
         """
         return pulumi.get(self, "secrets_role_arn")
+
+
+@pulumi.output_type
+class PackagingGroupLogConfiguration(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagingGroupLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagingGroupLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagingGroupLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html
+        :param str log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname
+        """
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname
+        """
+        return pulumi.get(self, "log_group_name")
 
 

@@ -12,11 +12,14 @@ from . import outputs
 __all__ = [
     'AccessPolicyAccessPolicyIdentity',
     'AccessPolicyAccessPolicyResource',
+    'AccessPolicyIamRole',
+    'AccessPolicyIamUser',
     'AccessPolicyPortal',
     'AccessPolicyProject',
     'AccessPolicyUser',
     'AssetAssetHierarchy',
     'AssetAssetProperty',
+    'AssetModelAssetModelCompositeModel',
     'AssetModelAssetModelHierarchy',
     'AssetModelAssetModelProperty',
     'AssetModelAttribute',
@@ -30,8 +33,6 @@ __all__ = [
     'GatewayGatewayCapabilitySummary',
     'GatewayGatewayPlatform',
     'GatewayGreengrass',
-    'PortalMonitorErrorDetails',
-    'PortalPortalStatus',
 ]
 
 @pulumi.output_type
@@ -39,14 +40,57 @@ class AccessPolicyAccessPolicyIdentity(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamRole":
+            suggest = "iam_role"
+        elif key == "iamUser":
+            suggest = "iam_user"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPolicyAccessPolicyIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPolicyAccessPolicyIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPolicyAccessPolicyIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 iam_role: Optional['outputs.AccessPolicyIamRole'] = None,
+                 iam_user: Optional['outputs.AccessPolicyIamUser'] = None,
                  user: Optional['outputs.AccessPolicyUser'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html
+        :param 'AccessPolicyIamRole' iam_role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
+        :param 'AccessPolicyIamUser' iam_user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
         :param 'AccessPolicyUser' user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
         """
+        if iam_role is not None:
+            pulumi.set(__self__, "iam_role", iam_role)
+        if iam_user is not None:
+            pulumi.set(__self__, "iam_user", iam_user)
         if user is not None:
             pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter(name="iamRole")
+    def iam_role(self) -> Optional['outputs.AccessPolicyIamRole']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
+        """
+        return pulumi.get(self, "iam_role")
+
+    @property
+    @pulumi.getter(name="iamUser")
+    def iam_user(self) -> Optional['outputs.AccessPolicyIamUser']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
+        """
+        return pulumi.get(self, "iam_user")
 
     @property
     @pulumi.getter
@@ -90,6 +134,52 @@ class AccessPolicyAccessPolicyResource(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-project
         """
         return pulumi.get(self, "project")
+
+
+@pulumi.output_type
+class AccessPolicyIamRole(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html
+    """
+    def __init__(__self__, *,
+                 arn: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html
+        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html#cfn-iotsitewise-accesspolicy-iamrole-arn
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html#cfn-iotsitewise-accesspolicy-iamrole-arn
+        """
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class AccessPolicyIamUser(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html
+    """
+    def __init__(__self__, *,
+                 arn: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html
+        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html#cfn-iotsitewise-accesspolicy-iamuser-arn
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html#cfn-iotsitewise-accesspolicy-iamuser-arn
+        """
+        return pulumi.get(self, "arn")
 
 
 @pulumi.output_type
@@ -279,6 +369,80 @@ class AssetAssetProperty(dict):
 
 
 @pulumi.output_type
+class AssetModelAssetModelCompositeModel(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compositeModelProperties":
+            suggest = "composite_model_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetModelAssetModelCompositeModel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetModelAssetModelCompositeModel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetModelAssetModelCompositeModel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 composite_model_properties: Optional[Sequence['outputs.AssetModelAssetModelProperty']] = None,
+                 description: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html
+        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-name
+        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-type
+        :param Sequence['AssetModelAssetModelProperty'] composite_model_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-compositemodelproperties
+        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-description
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if composite_model_properties is not None:
+            pulumi.set(__self__, "composite_model_properties", composite_model_properties)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="compositeModelProperties")
+    def composite_model_properties(self) -> Optional[Sequence['outputs.AssetModelAssetModelProperty']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-compositemodelproperties
+        """
+        return pulumi.get(self, "composite_model_properties")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-description
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
 class AssetModelAssetModelHierarchy(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html
@@ -353,6 +517,8 @@ class AssetModelAssetModelProperty(dict):
             suggest = "data_type"
         elif key == "logicalId":
             suggest = "logical_id"
+        elif key == "dataTypeSpec":
+            suggest = "data_type_spec"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AssetModelAssetModelProperty. Access the value via the '{suggest}' property getter instead.")
@@ -370,6 +536,7 @@ class AssetModelAssetModelProperty(dict):
                  logical_id: str,
                  name: str,
                  type: 'outputs.AssetModelPropertyType',
+                 data_type_spec: Optional[str] = None,
                  unit: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html
@@ -377,12 +544,15 @@ class AssetModelAssetModelProperty(dict):
         :param str logical_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-name
         :param 'AssetModelPropertyType' type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-type
+        :param str data_type_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec
         :param str unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-unit
         """
         pulumi.set(__self__, "data_type", data_type)
         pulumi.set(__self__, "logical_id", logical_id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if data_type_spec is not None:
+            pulumi.set(__self__, "data_type_spec", data_type_spec)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
 
@@ -417,6 +587,14 @@ class AssetModelAssetModelProperty(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="dataTypeSpec")
+    def data_type_spec(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec
+        """
+        return pulumi.get(self, "data_type_spec")
 
     @property
     @pulumi.getter
@@ -681,12 +859,16 @@ class AssetModelTumblingWindow(dict):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html
     """
     def __init__(__self__, *,
-                 interval: str):
+                 interval: str,
+                 offset: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html
         :param str interval: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval
+        :param str offset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-offset
         """
         pulumi.set(__self__, "interval", interval)
+        if offset is not None:
+            pulumi.set(__self__, "offset", offset)
 
     @property
     @pulumi.getter
@@ -695,6 +877,14 @@ class AssetModelTumblingWindow(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval
         """
         return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def offset(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-offset
+        """
+        return pulumi.get(self, "offset")
 
 
 @pulumi.output_type
@@ -862,74 +1052,5 @@ class GatewayGreengrass(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html#cfn-iotsitewise-gateway-greengrass-grouparn
         """
         return pulumi.get(self, "group_arn")
-
-
-@pulumi.output_type
-class PortalMonitorErrorDetails(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html
-    """
-    def __init__(__self__, *,
-                 code: Optional[str] = None,
-                 message: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html
-        :param str code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html#cfn-iotsitewise-portal-monitorerrordetails-code
-        :param str message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html#cfn-iotsitewise-portal-monitorerrordetails-message
-        """
-        if code is not None:
-            pulumi.set(__self__, "code", code)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-
-    @property
-    @pulumi.getter
-    def code(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html#cfn-iotsitewise-portal-monitorerrordetails-code
-        """
-        return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter
-    def message(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html#cfn-iotsitewise-portal-monitorerrordetails-message
-        """
-        return pulumi.get(self, "message")
-
-
-@pulumi.output_type
-class PortalPortalStatus(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html
-    """
-    def __init__(__self__, *,
-                 state: str,
-                 error: Optional['outputs.PortalMonitorErrorDetails'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html
-        :param str state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-state
-        :param 'PortalMonitorErrorDetails' error: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-error
-        """
-        pulumi.set(__self__, "state", state)
-        if error is not None:
-            pulumi.set(__self__, "error", error)
-
-    @property
-    @pulumi.getter
-    def state(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-state
-        """
-        return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter
-    def error(self) -> Optional['outputs.PortalMonitorErrorDetails']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-error
-        """
-        return pulumi.get(self, "error")
 
 

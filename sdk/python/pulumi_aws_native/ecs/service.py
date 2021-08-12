@@ -23,6 +23,7 @@ class ServiceArgs:
                  deployment_controller: Optional[pulumi.Input['ServiceDeploymentControllerArgs']] = None,
                  desired_count: Optional[pulumi.Input[int]] = None,
                  enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
+                 enable_execute_command: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
                  launch_type: Optional[pulumi.Input[str]] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
@@ -33,7 +34,6 @@ class ServiceArgs:
                  propagate_tags: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input[str]] = None,
-                 service_arn: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceRegistryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -46,6 +46,7 @@ class ServiceArgs:
         :param pulumi.Input['ServiceDeploymentControllerArgs'] deployment_controller: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
         :param pulumi.Input[int] desired_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
         :param pulumi.Input[bool] enable_ecs_managed_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
+        :param pulumi.Input[bool] enable_execute_command: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
         :param pulumi.Input[int] health_check_grace_period_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
         :param pulumi.Input[str] launch_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]] load_balancers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
@@ -56,7 +57,6 @@ class ServiceArgs:
         :param pulumi.Input[str] propagate_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
         :param pulumi.Input[str] role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
         :param pulumi.Input[str] scheduling_strategy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
-        :param pulumi.Input[str] service_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
         :param pulumi.Input[str] service_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
         :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceRegistryArgs']]] service_registries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
@@ -74,6 +74,8 @@ class ServiceArgs:
             pulumi.set(__self__, "desired_count", desired_count)
         if enable_ecs_managed_tags is not None:
             pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
+        if enable_execute_command is not None:
+            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
         if health_check_grace_period_seconds is not None:
             pulumi.set(__self__, "health_check_grace_period_seconds", health_check_grace_period_seconds)
         if launch_type is not None:
@@ -94,8 +96,6 @@ class ServiceArgs:
             pulumi.set(__self__, "role", role)
         if scheduling_strategy is not None:
             pulumi.set(__self__, "scheduling_strategy", scheduling_strategy)
-        if service_arn is not None:
-            pulumi.set(__self__, "service_arn", service_arn)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if service_registries is not None:
@@ -176,6 +176,18 @@ class ServiceArgs:
     @enable_ecs_managed_tags.setter
     def enable_ecs_managed_tags(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_ecs_managed_tags", value)
+
+    @property
+    @pulumi.getter(name="enableExecuteCommand")
+    def enable_execute_command(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
+        """
+        return pulumi.get(self, "enable_execute_command")
+
+    @enable_execute_command.setter
+    def enable_execute_command(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_execute_command", value)
 
     @property
     @pulumi.getter(name="healthCheckGracePeriodSeconds")
@@ -298,18 +310,6 @@ class ServiceArgs:
         pulumi.set(self, "scheduling_strategy", value)
 
     @property
-    @pulumi.getter(name="serviceArn")
-    def service_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
-        """
-        return pulumi.get(self, "service_arn")
-
-    @service_arn.setter
-    def service_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "service_arn", value)
-
-    @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -369,6 +369,7 @@ class Service(pulumi.CustomResource):
                  deployment_controller: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArgs']]] = None,
                  desired_count: Optional[pulumi.Input[int]] = None,
                  enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
+                 enable_execute_command: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
                  launch_type: Optional[pulumi.Input[str]] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArgs']]]]] = None,
@@ -379,7 +380,6 @@ class Service(pulumi.CustomResource):
                  propagate_tags: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input[str]] = None,
-                 service_arn: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceServiceRegistryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -396,6 +396,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArgs']] deployment_controller: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
         :param pulumi.Input[int] desired_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
         :param pulumi.Input[bool] enable_ecs_managed_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
+        :param pulumi.Input[bool] enable_execute_command: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
         :param pulumi.Input[int] health_check_grace_period_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
         :param pulumi.Input[str] launch_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArgs']]]] load_balancers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
@@ -406,7 +407,6 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] propagate_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
         :param pulumi.Input[str] role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
         :param pulumi.Input[str] scheduling_strategy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
-        :param pulumi.Input[str] service_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
         :param pulumi.Input[str] service_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceServiceRegistryArgs']]]] service_registries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
@@ -442,6 +442,7 @@ class Service(pulumi.CustomResource):
                  deployment_controller: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArgs']]] = None,
                  desired_count: Optional[pulumi.Input[int]] = None,
                  enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
+                 enable_execute_command: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
                  launch_type: Optional[pulumi.Input[str]] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArgs']]]]] = None,
@@ -452,7 +453,6 @@ class Service(pulumi.CustomResource):
                  propagate_tags: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input[str]] = None,
-                 service_arn: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceServiceRegistryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -475,6 +475,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["deployment_controller"] = deployment_controller
             __props__.__dict__["desired_count"] = desired_count
             __props__.__dict__["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            __props__.__dict__["enable_execute_command"] = enable_execute_command
             __props__.__dict__["health_check_grace_period_seconds"] = health_check_grace_period_seconds
             __props__.__dict__["launch_type"] = launch_type
             __props__.__dict__["load_balancers"] = load_balancers
@@ -485,12 +486,12 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["propagate_tags"] = propagate_tags
             __props__.__dict__["role"] = role
             __props__.__dict__["scheduling_strategy"] = scheduling_strategy
-            __props__.__dict__["service_arn"] = service_arn
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["service_registries"] = service_registries
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_definition"] = task_definition
             __props__.__dict__["name"] = None
+            __props__.__dict__["service_arn"] = None
         super(Service, __self__).__init__(
             'aws-native:ECS:Service',
             resource_name,
@@ -519,6 +520,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["deployment_controller"] = None
         __props__.__dict__["desired_count"] = None
         __props__.__dict__["enable_ecs_managed_tags"] = None
+        __props__.__dict__["enable_execute_command"] = None
         __props__.__dict__["health_check_grace_period_seconds"] = None
         __props__.__dict__["launch_type"] = None
         __props__.__dict__["load_balancers"] = None
@@ -584,6 +586,14 @@ class Service(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
         """
         return pulumi.get(self, "enable_ecs_managed_tags")
+
+    @property
+    @pulumi.getter(name="enableExecuteCommand")
+    def enable_execute_command(self) -> pulumi.Output[Optional[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
+        """
+        return pulumi.get(self, "enable_execute_command")
 
     @property
     @pulumi.getter(name="healthCheckGracePeriodSeconds")
@@ -672,10 +682,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceArn")
-    def service_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
-        """
+    def service_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "service_arn")
 
     @property

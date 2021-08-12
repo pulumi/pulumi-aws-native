@@ -18,20 +18,16 @@ class NetworkInsightsAnalysisArgs:
     def __init__(__self__, *,
                  network_insights_path_id: pulumi.Input[str],
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 status_message: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAnalysis resource.
         :param pulumi.Input[str] network_insights_path_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_in_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
-        :param pulumi.Input[str] status_message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
         """
         pulumi.set(__self__, "network_insights_path_id", network_insights_path_id)
         if filter_in_arns is not None:
             pulumi.set(__self__, "filter_in_arns", filter_in_arns)
-        if status_message is not None:
-            pulumi.set(__self__, "status_message", status_message)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -60,18 +56,6 @@ class NetworkInsightsAnalysisArgs:
         pulumi.set(self, "filter_in_arns", value)
 
     @property
-    @pulumi.getter(name="statusMessage")
-    def status_message(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
-        """
-        return pulumi.get(self, "status_message")
-
-    @status_message.setter
-    def status_message(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status_message", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -91,7 +75,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_insights_path_id: Optional[pulumi.Input[str]] = None,
-                 status_message: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
@@ -101,7 +84,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_in_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
         :param pulumi.Input[str] network_insights_path_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
-        :param pulumi.Input[str] status_message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
         """
         ...
@@ -130,7 +112,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_insights_path_id: Optional[pulumi.Input[str]] = None,
-                 status_message: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -148,7 +129,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             if network_insights_path_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_insights_path_id'")
             __props__.__dict__["network_insights_path_id"] = network_insights_path_id
-            __props__.__dict__["status_message"] = status_message
             __props__.__dict__["tags"] = tags
             __props__.__dict__["alternate_path_hints"] = None
             __props__.__dict__["explanations"] = None
@@ -159,6 +139,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             __props__.__dict__["return_path_components"] = None
             __props__.__dict__["start_date"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["status_message"] = None
         super(NetworkInsightsAnalysis, __self__).__init__(
             'aws-native:EC2:NetworkInsightsAnalysis',
             resource_name,
@@ -259,10 +240,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusMessage")
-    def status_message(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
-        """
+    def status_message(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status_message")
 
     @property

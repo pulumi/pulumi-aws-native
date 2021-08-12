@@ -11,8 +11,12 @@ from .. import _utilities
 __all__ = [
     'CapacityProviderAutoScalingGroupProviderArgs',
     'CapacityProviderManagedScalingArgs',
+    'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs',
     'ClusterCapacityProviderStrategyItemArgs',
+    'ClusterClusterConfigurationArgs',
     'ClusterClusterSettingsArgs',
+    'ClusterExecuteCommandConfigurationArgs',
+    'ClusterExecuteCommandLogConfigurationArgs',
     'ServiceAwsVpcConfigurationArgs',
     'ServiceCapacityProviderStrategyItemArgs',
     'ServiceDeploymentCircuitBreakerArgs',
@@ -29,6 +33,7 @@ __all__ = [
     'TaskDefinitionDockerVolumeConfigurationArgs',
     'TaskDefinitionEFSVolumeConfigurationArgs',
     'TaskDefinitionEnvironmentFileArgs',
+    'TaskDefinitionEphemeralStorageArgs',
     'TaskDefinitionFirelensConfigurationArgs',
     'TaskDefinitionHealthCheckArgs',
     'TaskDefinitionHostEntryArgs',
@@ -115,17 +120,21 @@ class CapacityProviderAutoScalingGroupProviderArgs:
 @pulumi.input_type
 class CapacityProviderManagedScalingArgs:
     def __init__(__self__, *,
+                 instance_warmup_period: Optional[pulumi.Input[int]] = None,
                  maximum_scaling_step_size: Optional[pulumi.Input[int]] = None,
                  minimum_scaling_step_size: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html
+        :param pulumi.Input[int] instance_warmup_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
         :param pulumi.Input[int] maximum_scaling_step_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
         :param pulumi.Input[int] minimum_scaling_step_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-minimumscalingstepsize
         :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-status
         :param pulumi.Input[int] target_capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-targetcapacity
         """
+        if instance_warmup_period is not None:
+            pulumi.set(__self__, "instance_warmup_period", instance_warmup_period)
         if maximum_scaling_step_size is not None:
             pulumi.set(__self__, "maximum_scaling_step_size", maximum_scaling_step_size)
         if minimum_scaling_step_size is not None:
@@ -134,6 +143,18 @@ class CapacityProviderManagedScalingArgs:
             pulumi.set(__self__, "status", status)
         if target_capacity is not None:
             pulumi.set(__self__, "target_capacity", target_capacity)
+
+    @property
+    @pulumi.getter(name="instanceWarmupPeriod")
+    def instance_warmup_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
+        """
+        return pulumi.get(self, "instance_warmup_period")
+
+    @instance_warmup_period.setter
+    def instance_warmup_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instance_warmup_period", value)
 
     @property
     @pulumi.getter(name="maximumScalingStepSize")
@@ -182,6 +203,61 @@ class CapacityProviderManagedScalingArgs:
     @target_capacity.setter
     def target_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "target_capacity", value)
+
+
+@pulumi.input_type
+class ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs:
+    def __init__(__self__, *,
+                 capacity_provider: pulumi.Input[str],
+                 base: Optional[pulumi.Input[int]] = None,
+                 weight: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html
+        :param pulumi.Input[str] capacity_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-capacityprovider
+        :param pulumi.Input[int] base: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-base
+        :param pulumi.Input[int] weight: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-weight
+        """
+        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        if base is not None:
+            pulumi.set(__self__, "base", base)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="capacityProvider")
+    def capacity_provider(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-capacityprovider
+        """
+        return pulumi.get(self, "capacity_provider")
+
+    @capacity_provider.setter
+    def capacity_provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "capacity_provider", value)
+
+    @property
+    @pulumi.getter
+    def base(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-base
+        """
+        return pulumi.get(self, "base")
+
+    @base.setter
+    def base(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "base", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-weight
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weight", value)
 
 
 @pulumi.input_type
@@ -241,6 +317,30 @@ class ClusterCapacityProviderStrategyItemArgs:
 
 
 @pulumi.input_type
+class ClusterClusterConfigurationArgs:
+    def __init__(__self__, *,
+                 execute_command_configuration: Optional[pulumi.Input['ClusterExecuteCommandConfigurationArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html
+        :param pulumi.Input['ClusterExecuteCommandConfigurationArgs'] execute_command_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
+        """
+        if execute_command_configuration is not None:
+            pulumi.set(__self__, "execute_command_configuration", execute_command_configuration)
+
+    @property
+    @pulumi.getter(name="executeCommandConfiguration")
+    def execute_command_configuration(self) -> Optional[pulumi.Input['ClusterExecuteCommandConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
+        """
+        return pulumi.get(self, "execute_command_configuration")
+
+    @execute_command_configuration.setter
+    def execute_command_configuration(self, value: Optional[pulumi.Input['ClusterExecuteCommandConfigurationArgs']]):
+        pulumi.set(self, "execute_command_configuration", value)
+
+
+@pulumi.input_type
 class ClusterClusterSettingsArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
@@ -278,6 +378,150 @@ class ClusterClusterSettingsArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ClusterExecuteCommandConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 log_configuration: Optional[pulumi.Input['ClusterExecuteCommandLogConfigurationArgs']] = None,
+                 logging: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html
+        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid
+        :param pulumi.Input['ClusterExecuteCommandLogConfigurationArgs'] log_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration
+        :param pulumi.Input[str] logging: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional[pulumi.Input['ClusterExecuteCommandLogConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: Optional[pulumi.Input['ClusterExecuteCommandLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
+        """
+        return pulumi.get(self, "logging")
+
+    @logging.setter
+    def logging(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logging", value)
+
+
+@pulumi.input_type
+class ClusterExecuteCommandLogConfigurationArgs:
+    def __init__(__self__, *,
+                 cloud_watch_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 cloud_watch_log_group_name: Optional[pulumi.Input[str]] = None,
+                 s3_bucket_name: Optional[pulumi.Input[str]] = None,
+                 s3_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 s3_key_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html
+        :param pulumi.Input[bool] cloud_watch_encryption_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
+        :param pulumi.Input[str] cloud_watch_log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
+        :param pulumi.Input[str] s3_bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
+        :param pulumi.Input[bool] s3_encryption_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
+        :param pulumi.Input[str] s3_key_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
+        """
+        if cloud_watch_encryption_enabled is not None:
+            pulumi.set(__self__, "cloud_watch_encryption_enabled", cloud_watch_encryption_enabled)
+        if cloud_watch_log_group_name is not None:
+            pulumi.set(__self__, "cloud_watch_log_group_name", cloud_watch_log_group_name)
+        if s3_bucket_name is not None:
+            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        if s3_encryption_enabled is not None:
+            pulumi.set(__self__, "s3_encryption_enabled", s3_encryption_enabled)
+        if s3_key_prefix is not None:
+            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+
+    @property
+    @pulumi.getter(name="cloudWatchEncryptionEnabled")
+    def cloud_watch_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
+        """
+        return pulumi.get(self, "cloud_watch_encryption_enabled")
+
+    @cloud_watch_encryption_enabled.setter
+    def cloud_watch_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cloud_watch_encryption_enabled", value)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogGroupName")
+    def cloud_watch_log_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
+        """
+        return pulumi.get(self, "cloud_watch_log_group_name")
+
+    @cloud_watch_log_group_name.setter
+    def cloud_watch_log_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloud_watch_log_group_name", value)
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @s3_bucket_name.setter
+    def s3_bucket_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_bucket_name", value)
+
+    @property
+    @pulumi.getter(name="s3EncryptionEnabled")
+    def s3_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
+        """
+        return pulumi.get(self, "s3_encryption_enabled")
+
+    @s3_encryption_enabled.setter
+    def s3_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "s3_encryption_enabled", value)
+
+    @property
+    @pulumi.getter(name="s3KeyPrefix")
+    def s3_key_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
+        """
+        return pulumi.get(self, "s3_key_prefix")
+
+    @s3_key_prefix.setter
+    def s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_key_prefix", value)
 
 
 @pulumi.input_type
@@ -1697,6 +1941,30 @@ class TaskDefinitionEnvironmentFileArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TaskDefinitionEphemeralStorageArgs:
+    def __init__(__self__, *,
+                 size_in_gi_b: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html
+        :param pulumi.Input[int] size_in_gi_b: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
+        """
+        if size_in_gi_b is not None:
+            pulumi.set(__self__, "size_in_gi_b", size_in_gi_b)
+
+    @property
+    @pulumi.getter(name="sizeInGiB")
+    def size_in_gi_b(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
+        """
+        return pulumi.get(self, "size_in_gi_b")
+
+    @size_in_gi_b.setter
+    def size_in_gi_b(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size_in_gi_b", value)
 
 
 @pulumi.input_type

@@ -8,22 +8,20 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
     'AliasRoutingStrategy',
     'FleetCertificateConfiguration',
     'FleetIpPermission',
+    'FleetLocationCapacity',
+    'FleetLocationConfiguration',
     'FleetResourceCreationLimitPolicy',
     'FleetRuntimeConfiguration',
     'FleetServerProcess',
     'GameServerGroupAutoScalingPolicy',
     'GameServerGroupInstanceDefinition',
-    'GameServerGroupInstanceDefinitions',
     'GameServerGroupLaunchTemplate',
-    'GameServerGroupTags',
     'GameServerGroupTargetTrackingConfiguration',
-    'GameServerGroupVpcSubnets',
 ]
 
 @pulumi.output_type
@@ -49,21 +47,28 @@ class AliasRoutingStrategy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 type: str,
                  fleet_id: Optional[str] = None,
-                 message: Optional[str] = None,
-                 type: Optional[str] = None):
+                 message: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html
+        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
         :param str fleet_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid
         :param str message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
-        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
         """
+        pulumi.set(__self__, "type", type)
         if fleet_id is not None:
             pulumi.set(__self__, "fleet_id", fleet_id)
         if message is not None:
             pulumi.set(__self__, "message", message)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="fleetId")
@@ -80,14 +85,6 @@ class AliasRoutingStrategy(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
         """
         return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -132,7 +129,7 @@ class FleetCertificateConfiguration(dict):
 @pulumi.output_type
 class FleetIpPermission(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html
     """
     @staticmethod
     def __key_warning(key: str):
@@ -161,11 +158,11 @@ class FleetIpPermission(dict):
                  protocol: str,
                  to_port: int):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html
-        :param int from_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-fromport
-        :param str ip_range: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-iprange
-        :param str protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-protocol
-        :param int to_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-toport
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html
+        :param int from_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-fromport
+        :param str ip_range: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-iprange
+        :param str protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-protocol
+        :param int to_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-toport
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "ip_range", ip_range)
@@ -176,7 +173,7 @@ class FleetIpPermission(dict):
     @pulumi.getter(name="fromPort")
     def from_port(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-fromport
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-fromport
         """
         return pulumi.get(self, "from_port")
 
@@ -184,7 +181,7 @@ class FleetIpPermission(dict):
     @pulumi.getter(name="ipRange")
     def ip_range(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-iprange
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-iprange
         """
         return pulumi.get(self, "ip_range")
 
@@ -192,7 +189,7 @@ class FleetIpPermission(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-protocol
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-protocol
         """
         return pulumi.get(self, "protocol")
 
@@ -200,9 +197,125 @@ class FleetIpPermission(dict):
     @pulumi.getter(name="toPort")
     def to_port(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-toport
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-toport
         """
         return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class FleetLocationCapacity(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "desiredEC2Instances":
+            suggest = "desired_ec2_instances"
+        elif key == "maxSize":
+            suggest = "max_size"
+        elif key == "minSize":
+            suggest = "min_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetLocationCapacity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetLocationCapacity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetLocationCapacity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 desired_ec2_instances: int,
+                 max_size: int,
+                 min_size: int):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html
+        :param int desired_ec2_instances: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
+        :param int max_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
+        :param int min_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+        """
+        pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
+        pulumi.set(__self__, "max_size", max_size)
+        pulumi.set(__self__, "min_size", min_size)
+
+    @property
+    @pulumi.getter(name="desiredEC2Instances")
+    def desired_ec2_instances(self) -> int:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
+        """
+        return pulumi.get(self, "desired_ec2_instances")
+
+    @property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> int:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
+        """
+        return pulumi.get(self, "max_size")
+
+    @property
+    @pulumi.getter(name="minSize")
+    def min_size(self) -> int:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+        """
+        return pulumi.get(self, "min_size")
+
+
+@pulumi.output_type
+class FleetLocationConfiguration(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "locationCapacity":
+            suggest = "location_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetLocationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetLocationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetLocationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: str,
+                 location_capacity: Optional['outputs.FleetLocationCapacity'] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html
+        :param str location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
+        :param 'FleetLocationCapacity' location_capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-locationcapacity
+        """
+        pulumi.set(__self__, "location", location)
+        if location_capacity is not None:
+            pulumi.set(__self__, "location_capacity", location_capacity)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="locationCapacity")
+    def location_capacity(self) -> Optional['outputs.FleetLocationCapacity']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-locationcapacity
+        """
+        return pulumi.get(self, "location_capacity")
 
 
 @pulumi.output_type
@@ -498,46 +611,6 @@ class GameServerGroupInstanceDefinition(dict):
 
 
 @pulumi.output_type
-class GameServerGroupInstanceDefinitions(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "instanceDefinitions":
-            suggest = "instance_definitions"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GameServerGroupInstanceDefinitions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GameServerGroupInstanceDefinitions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GameServerGroupInstanceDefinitions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 instance_definitions: Optional[Sequence['outputs.GameServerGroupInstanceDefinition']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html
-        :param Sequence['GameServerGroupInstanceDefinition'] instance_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
-        """
-        if instance_definitions is not None:
-            pulumi.set(__self__, "instance_definitions", instance_definitions)
-
-    @property
-    @pulumi.getter(name="instanceDefinitions")
-    def instance_definitions(self) -> Optional[Sequence['outputs.GameServerGroupInstanceDefinition']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
-        """
-        return pulumi.get(self, "instance_definitions")
-
-
-@pulumi.output_type
 class GameServerGroupLaunchTemplate(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html
@@ -604,29 +677,6 @@ class GameServerGroupLaunchTemplate(dict):
 
 
 @pulumi.output_type
-class GameServerGroupTags(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html
-    """
-    def __init__(__self__, *,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html
-        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html#cfn-gamelift-gameservergroup-tags-tags
-        """
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html#cfn-gamelift-gameservergroup-tags-tags
-        """
-        return pulumi.get(self, "tags")
-
-
-@pulumi.output_type
 class GameServerGroupTargetTrackingConfiguration(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html
@@ -663,45 +713,5 @@ class GameServerGroupTargetTrackingConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
         """
         return pulumi.get(self, "target_value")
-
-
-@pulumi.output_type
-class GameServerGroupVpcSubnets(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "vpcSubnets":
-            suggest = "vpc_subnets"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GameServerGroupVpcSubnets. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GameServerGroupVpcSubnets.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GameServerGroupVpcSubnets.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 vpc_subnets: Optional[Sequence[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html
-        :param Sequence[str] vpc_subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html#cfn-gamelift-gameservergroup-vpcsubnets-vpcsubnets
-        """
-        if vpc_subnets is not None:
-            pulumi.set(__self__, "vpc_subnets", vpc_subnets)
-
-    @property
-    @pulumi.getter(name="vpcSubnets")
-    def vpc_subnets(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html#cfn-gamelift-gameservergroup-vpcsubnets-vpcsubnets
-        """
-        return pulumi.get(self, "vpc_subnets")
 
 

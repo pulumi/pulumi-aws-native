@@ -311,7 +311,6 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
             __props__.__dict__["provisioning_preferences"] = provisioning_preferences
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cloudformation_stack_arn"] = None
-            __props__.__dict__["outputs"] = None
             __props__.__dict__["provisioned_product_id"] = None
             __props__.__dict__["record_id"] = None
         super(CloudFormationProvisionedProduct, __self__).__init__(
@@ -339,7 +338,6 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         __props__.__dict__["accept_language"] = None
         __props__.__dict__["cloudformation_stack_arn"] = None
         __props__.__dict__["notification_arns"] = None
-        __props__.__dict__["outputs"] = None
         __props__.__dict__["path_id"] = None
         __props__.__dict__["path_name"] = None
         __props__.__dict__["product_id"] = None
@@ -374,11 +372,6 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
         """
         return pulumi.get(self, "notification_arns")
-
-    @property
-    @pulumi.getter
-    def outputs(self) -> pulumi.Output[Mapping[str, str]]:
-        return pulumi.get(self, "outputs")
 
     @property
     @pulumi.getter(name="pathId")

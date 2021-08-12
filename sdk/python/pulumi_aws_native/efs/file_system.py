@@ -15,7 +15,9 @@ __all__ = ['FileSystemArgs', 'FileSystem']
 @pulumi.input_type
 class FileSystemArgs:
     def __init__(__self__, *,
+                 availability_zone_name: Optional[pulumi.Input[str]] = None,
                  backup_policy: Optional[pulumi.Input['FileSystemBackupPolicyArgs']] = None,
+                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  file_system_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemElasticFileSystemTagArgs']]]] = None,
@@ -26,7 +28,9 @@ class FileSystemArgs:
                  throughput_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FileSystem resource.
+        :param pulumi.Input[str] availability_zone_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
         :param pulumi.Input['FileSystemBackupPolicyArgs'] backup_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
+        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
         :param pulumi.Input[bool] encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
         :param pulumi.Input[Union[Any, str]] file_system_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
         :param pulumi.Input[Sequence[pulumi.Input['FileSystemElasticFileSystemTagArgs']]] file_system_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
@@ -36,8 +40,12 @@ class FileSystemArgs:
         :param pulumi.Input[float] provisioned_throughput_in_mibps: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
         :param pulumi.Input[str] throughput_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
         """
+        if availability_zone_name is not None:
+            pulumi.set(__self__, "availability_zone_name", availability_zone_name)
         if backup_policy is not None:
             pulumi.set(__self__, "backup_policy", backup_policy)
+        if bypass_policy_lockout_safety_check is not None:
+            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if encrypted is not None:
             pulumi.set(__self__, "encrypted", encrypted)
         if file_system_policy is not None:
@@ -56,6 +64,18 @@ class FileSystemArgs:
             pulumi.set(__self__, "throughput_mode", throughput_mode)
 
     @property
+    @pulumi.getter(name="availabilityZoneName")
+    def availability_zone_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
+        """
+        return pulumi.get(self, "availability_zone_name")
+
+    @availability_zone_name.setter
+    def availability_zone_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone_name", value)
+
+    @property
     @pulumi.getter(name="backupPolicy")
     def backup_policy(self) -> Optional[pulumi.Input['FileSystemBackupPolicyArgs']]:
         """
@@ -66,6 +86,18 @@ class FileSystemArgs:
     @backup_policy.setter
     def backup_policy(self, value: Optional[pulumi.Input['FileSystemBackupPolicyArgs']]):
         pulumi.set(self, "backup_policy", value)
+
+    @property
+    @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
+    def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
+        """
+        return pulumi.get(self, "bypass_policy_lockout_safety_check")
+
+    @bypass_policy_lockout_safety_check.setter
+    def bypass_policy_lockout_safety_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bypass_policy_lockout_safety_check", value)
 
     @property
     @pulumi.getter
@@ -169,7 +201,9 @@ class FileSystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone_name: Optional[pulumi.Input[str]] = None,
                  backup_policy: Optional[pulumi.Input[pulumi.InputType['FileSystemBackupPolicyArgs']]] = None,
+                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  file_system_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemElasticFileSystemTagArgs']]]]] = None,
@@ -184,7 +218,9 @@ class FileSystem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] availability_zone_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
         :param pulumi.Input[pulumi.InputType['FileSystemBackupPolicyArgs']] backup_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
+        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
         :param pulumi.Input[bool] encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
         :param pulumi.Input[Union[Any, str]] file_system_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemElasticFileSystemTagArgs']]]] file_system_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
@@ -218,7 +254,9 @@ class FileSystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone_name: Optional[pulumi.Input[str]] = None,
                  backup_policy: Optional[pulumi.Input[pulumi.InputType['FileSystemBackupPolicyArgs']]] = None,
+                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  file_system_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemElasticFileSystemTagArgs']]]]] = None,
@@ -239,7 +277,9 @@ class FileSystem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FileSystemArgs.__new__(FileSystemArgs)
 
+            __props__.__dict__["availability_zone_name"] = availability_zone_name
             __props__.__dict__["backup_policy"] = backup_policy
+            __props__.__dict__["bypass_policy_lockout_safety_check"] = bypass_policy_lockout_safety_check
             __props__.__dict__["encrypted"] = encrypted
             __props__.__dict__["file_system_policy"] = file_system_policy
             __props__.__dict__["file_system_tags"] = file_system_tags
@@ -273,7 +313,9 @@ class FileSystem(pulumi.CustomResource):
         __props__ = FileSystemArgs.__new__(FileSystemArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["availability_zone_name"] = None
         __props__.__dict__["backup_policy"] = None
+        __props__.__dict__["bypass_policy_lockout_safety_check"] = None
         __props__.__dict__["encrypted"] = None
         __props__.__dict__["file_system_id"] = None
         __props__.__dict__["file_system_policy"] = None
@@ -291,12 +333,28 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="availabilityZoneName")
+    def availability_zone_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
+        """
+        return pulumi.get(self, "availability_zone_name")
+
+    @property
     @pulumi.getter(name="backupPolicy")
     def backup_policy(self) -> pulumi.Output[Optional['outputs.FileSystemBackupPolicy']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
         """
         return pulumi.get(self, "backup_policy")
+
+    @property
+    @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
+    def bypass_policy_lockout_safety_check(self) -> pulumi.Output[Optional[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
+        """
+        return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @property
     @pulumi.getter

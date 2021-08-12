@@ -150,6 +150,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["name"] = None
         super(Table, __self__).__init__(
             'aws-native:Timestream:Table',
             resource_name,
@@ -174,6 +175,7 @@ class Table(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["database_name"] = None
+        __props__.__dict__["name"] = None
         __props__.__dict__["retention_properties"] = None
         __props__.__dict__["table_name"] = None
         __props__.__dict__["tags"] = None
@@ -191,6 +193,11 @@ class Table(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-databasename
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="retentionProperties")

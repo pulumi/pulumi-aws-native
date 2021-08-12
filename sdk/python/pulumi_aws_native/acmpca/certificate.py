@@ -19,21 +19,29 @@ class CertificateArgs:
                  certificate_signing_request: pulumi.Input[str],
                  signing_algorithm: pulumi.Input[str],
                  validity: pulumi.Input['CertificateValidityArgs'],
-                 template_arn: Optional[pulumi.Input[str]] = None):
+                 api_passthrough: Optional[pulumi.Input['CertificateApiPassthroughArgs']] = None,
+                 template_arn: Optional[pulumi.Input[str]] = None,
+                 validity_not_before: Optional[pulumi.Input['CertificateValidityArgs']] = None):
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] certificate_authority_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
         :param pulumi.Input[str] certificate_signing_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
         :param pulumi.Input[str] signing_algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
         :param pulumi.Input['CertificateValidityArgs'] validity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
+        :param pulumi.Input['CertificateApiPassthroughArgs'] api_passthrough: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
         :param pulumi.Input[str] template_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
+        :param pulumi.Input['CertificateValidityArgs'] validity_not_before: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
         """
         pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
         pulumi.set(__self__, "signing_algorithm", signing_algorithm)
         pulumi.set(__self__, "validity", validity)
+        if api_passthrough is not None:
+            pulumi.set(__self__, "api_passthrough", api_passthrough)
         if template_arn is not None:
             pulumi.set(__self__, "template_arn", template_arn)
+        if validity_not_before is not None:
+            pulumi.set(__self__, "validity_not_before", validity_not_before)
 
     @property
     @pulumi.getter(name="certificateAuthorityArn")
@@ -84,6 +92,18 @@ class CertificateArgs:
         pulumi.set(self, "validity", value)
 
     @property
+    @pulumi.getter(name="apiPassthrough")
+    def api_passthrough(self) -> Optional[pulumi.Input['CertificateApiPassthroughArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
+        """
+        return pulumi.get(self, "api_passthrough")
+
+    @api_passthrough.setter
+    def api_passthrough(self, value: Optional[pulumi.Input['CertificateApiPassthroughArgs']]):
+        pulumi.set(self, "api_passthrough", value)
+
+    @property
     @pulumi.getter(name="templateArn")
     def template_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -95,28 +115,44 @@ class CertificateArgs:
     def template_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "template_arn", value)
 
+    @property
+    @pulumi.getter(name="validityNotBefore")
+    def validity_not_before(self) -> Optional[pulumi.Input['CertificateValidityArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
+        """
+        return pulumi.get(self, "validity_not_before")
+
+    @validity_not_before.setter
+    def validity_not_before(self, value: Optional[pulumi.Input['CertificateValidityArgs']]):
+        pulumi.set(self, "validity_not_before", value)
+
 
 class Certificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_passthrough: Optional[pulumi.Input[pulumi.InputType['CertificateApiPassthroughArgs']]] = None,
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
                  template_arn: Optional[pulumi.Input[str]] = None,
                  validity: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArgs']]] = None,
+                 validity_not_before: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArgs']]] = None,
                  __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CertificateApiPassthroughArgs']] api_passthrough: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
         :param pulumi.Input[str] certificate_authority_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
         :param pulumi.Input[str] certificate_signing_request: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
         :param pulumi.Input[str] signing_algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
         :param pulumi.Input[str] template_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
         :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
+        :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity_not_before: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
         """
         ...
     @overload
@@ -142,11 +178,13 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_passthrough: Optional[pulumi.Input[pulumi.InputType['CertificateApiPassthroughArgs']]] = None,
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
                  template_arn: Optional[pulumi.Input[str]] = None,
                  validity: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArgs']]] = None,
+                 validity_not_before: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -159,6 +197,7 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateArgs.__new__(CertificateArgs)
 
+            __props__.__dict__["api_passthrough"] = api_passthrough
             if certificate_authority_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_authority_arn'")
             __props__.__dict__["certificate_authority_arn"] = certificate_authority_arn
@@ -172,6 +211,7 @@ class Certificate(pulumi.CustomResource):
             if validity is None and not opts.urn:
                 raise TypeError("Missing required property 'validity'")
             __props__.__dict__["validity"] = validity
+            __props__.__dict__["validity_not_before"] = validity_not_before
             __props__.__dict__["arn"] = None
             __props__.__dict__["certificate"] = None
         super(Certificate, __self__).__init__(
@@ -196,6 +236,7 @@ class Certificate(pulumi.CustomResource):
 
         __props__ = CertificateArgs.__new__(CertificateArgs)
 
+        __props__.__dict__["api_passthrough"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["certificate"] = None
         __props__.__dict__["certificate_authority_arn"] = None
@@ -203,7 +244,16 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["signing_algorithm"] = None
         __props__.__dict__["template_arn"] = None
         __props__.__dict__["validity"] = None
+        __props__.__dict__["validity_not_before"] = None
         return Certificate(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="apiPassthrough")
+    def api_passthrough(self) -> pulumi.Output[Optional['outputs.CertificateApiPassthrough']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
+        """
+        return pulumi.get(self, "api_passthrough")
 
     @property
     @pulumi.getter
@@ -254,4 +304,12 @@ class Certificate(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
         """
         return pulumi.get(self, "validity")
+
+    @property
+    @pulumi.getter(name="validityNotBefore")
+    def validity_not_before(self) -> pulumi.Output[Optional['outputs.CertificateValidity']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
+        """
+        return pulumi.get(self, "validity_not_before")
 

@@ -230,6 +230,7 @@ class ApiKey(pulumi.CustomResource):
             __props__.__dict__["stage_keys"] = stage_keys
             __props__.__dict__["tags"] = tags
             __props__.__dict__["value"] = value
+            __props__.__dict__["a_pi_key_id"] = None
         super(ApiKey, __self__).__init__(
             'aws-native:ApiGateway:ApiKey',
             resource_name,
@@ -252,6 +253,7 @@ class ApiKey(pulumi.CustomResource):
 
         __props__ = ApiKeyArgs.__new__(ApiKeyArgs)
 
+        __props__.__dict__["a_pi_key_id"] = None
         __props__.__dict__["customer_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["enabled"] = None
@@ -261,6 +263,11 @@ class ApiKey(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["value"] = None
         return ApiKey(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="aPIKeyId")
+    def a_pi_key_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "a_pi_key_id")
 
     @property
     @pulumi.getter(name="customerId")

@@ -7,214 +7,16 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
 
 __all__ = [
-    'GrantAllowedOperationListArgs',
-    'GrantArnListArgs',
-    'GrantFilterListArgs',
-    'GrantFilterArgs',
-    'GrantStringListArgs',
-    'GrantTagListArgs',
-    'LicenseArnListArgs',
     'LicenseBorrowConfigurationArgs',
     'LicenseConsumptionConfigurationArgs',
-    'LicenseEntitlementListArgs',
     'LicenseEntitlementArgs',
-    'LicenseFilterListArgs',
-    'LicenseFilterArgs',
     'LicenseIssuerDataArgs',
-    'LicenseMetadataListArgs',
     'LicenseMetadataArgs',
     'LicenseProvisionalConfigurationArgs',
-    'LicenseRuleListArgs',
-    'LicenseRuleArgs',
-    'LicenseStringListArgs',
-    'LicenseTagListArgs',
     'LicenseValidityDateFormatArgs',
 ]
-
-@pulumi.input_type
-class GrantAllowedOperationListArgs:
-    def __init__(__self__, *,
-                 allowed_operation_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-allowedoperationlist.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_operation_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-allowedoperationlist.html#cfn-licensemanager-grant-allowedoperationlist-allowedoperationlist
-        """
-        if allowed_operation_list is not None:
-            pulumi.set(__self__, "allowed_operation_list", allowed_operation_list)
-
-    @property
-    @pulumi.getter(name="allowedOperationList")
-    def allowed_operation_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-allowedoperationlist.html#cfn-licensemanager-grant-allowedoperationlist-allowedoperationlist
-        """
-        return pulumi.get(self, "allowed_operation_list")
-
-    @allowed_operation_list.setter
-    def allowed_operation_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "allowed_operation_list", value)
-
-
-@pulumi.input_type
-class GrantArnListArgs:
-    def __init__(__self__, *,
-                 arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-arnlist.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] arn_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-arnlist.html#cfn-licensemanager-grant-arnlist-arnlist
-        """
-        if arn_list is not None:
-            pulumi.set(__self__, "arn_list", arn_list)
-
-    @property
-    @pulumi.getter(name="arnList")
-    def arn_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-arnlist.html#cfn-licensemanager-grant-arnlist-arnlist
-        """
-        return pulumi.get(self, "arn_list")
-
-    @arn_list.setter
-    def arn_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "arn_list", value)
-
-
-@pulumi.input_type
-class GrantFilterListArgs:
-    def __init__(__self__, *,
-                 filter_list: Optional[pulumi.Input[Sequence[pulumi.Input['GrantFilterArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filterlist.html
-        :param pulumi.Input[Sequence[pulumi.Input['GrantFilterArgs']]] filter_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filterlist.html#cfn-licensemanager-grant-filterlist-filterlist
-        """
-        if filter_list is not None:
-            pulumi.set(__self__, "filter_list", filter_list)
-
-    @property
-    @pulumi.getter(name="filterList")
-    def filter_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GrantFilterArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filterlist.html#cfn-licensemanager-grant-filterlist-filterlist
-        """
-        return pulumi.get(self, "filter_list")
-
-    @filter_list.setter
-    def filter_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GrantFilterArgs']]]]):
-        pulumi.set(self, "filter_list", value)
-
-
-@pulumi.input_type
-class GrantFilterArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 values: pulumi.Input['GrantStringListArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html#cfn-licensemanager-grant-filter-name
-        :param pulumi.Input['GrantStringListArgs'] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html#cfn-licensemanager-grant-filter-values
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html#cfn-licensemanager-grant-filter-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input['GrantStringListArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-filter.html#cfn-licensemanager-grant-filter-values
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input['GrantStringListArgs']):
-        pulumi.set(self, "values", value)
-
-
-@pulumi.input_type
-class GrantStringListArgs:
-    def __init__(__self__, *,
-                 string_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-stringlist.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] string_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-stringlist.html#cfn-licensemanager-grant-stringlist-stringlist
-        """
-        if string_list is not None:
-            pulumi.set(__self__, "string_list", string_list)
-
-    @property
-    @pulumi.getter(name="stringList")
-    def string_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-stringlist.html#cfn-licensemanager-grant-stringlist-stringlist
-        """
-        return pulumi.get(self, "string_list")
-
-    @string_list.setter
-    def string_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "string_list", value)
-
-
-@pulumi.input_type
-class GrantTagListArgs:
-    def __init__(__self__, *,
-                 tag_list: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-taglist.html
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tag_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-taglist.html#cfn-licensemanager-grant-taglist-taglist
-        """
-        if tag_list is not None:
-            pulumi.set(__self__, "tag_list", tag_list)
-
-    @property
-    @pulumi.getter(name="tagList")
-    def tag_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-taglist.html#cfn-licensemanager-grant-taglist-taglist
-        """
-        return pulumi.get(self, "tag_list")
-
-    @tag_list.setter
-    def tag_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tag_list", value)
-
-
-@pulumi.input_type
-class LicenseArnListArgs:
-    def __init__(__self__, *,
-                 arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-arnlist.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] arn_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-arnlist.html#cfn-licensemanager-license-arnlist-arnlist
-        """
-        if arn_list is not None:
-            pulumi.set(__self__, "arn_list", arn_list)
-
-    @property
-    @pulumi.getter(name="arnList")
-    def arn_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-arnlist.html#cfn-licensemanager-license-arnlist-arnlist
-        """
-        return pulumi.get(self, "arn_list")
-
-    @arn_list.setter
-    def arn_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "arn_list", value)
-
 
 @pulumi.input_type
 class LicenseBorrowConfigurationArgs:
@@ -311,36 +113,11 @@ class LicenseConsumptionConfigurationArgs:
 
 
 @pulumi.input_type
-class LicenseEntitlementListArgs:
-    def __init__(__self__, *,
-                 entitlement_list: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlementlist.html
-        :param pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]] entitlement_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlementlist.html#cfn-licensemanager-license-entitlementlist-entitlementlist
-        """
-        if entitlement_list is not None:
-            pulumi.set(__self__, "entitlement_list", entitlement_list)
-
-    @property
-    @pulumi.getter(name="entitlementList")
-    def entitlement_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlementlist.html#cfn-licensemanager-license-entitlementlist-entitlementlist
-        """
-        return pulumi.get(self, "entitlement_list")
-
-    @entitlement_list.setter
-    def entitlement_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]]]):
-        pulumi.set(self, "entitlement_list", value)
-
-
-@pulumi.input_type
 class LicenseEntitlementArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  unit: pulumi.Input[str],
                  allow_check_in: Optional[pulumi.Input[bool]] = None,
-                 checkout_rules: Optional[pulumi.Input['LicenseRuleListArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  overage: Optional[pulumi.Input[bool]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -349,7 +126,6 @@ class LicenseEntitlementArgs:
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-name
         :param pulumi.Input[str] unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-unit
         :param pulumi.Input[bool] allow_check_in: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-allowcheckin
-        :param pulumi.Input['LicenseRuleListArgs'] checkout_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-checkoutrules
         :param pulumi.Input[int] max_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-maxcount
         :param pulumi.Input[bool] overage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-overage
         :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-value
@@ -358,8 +134,6 @@ class LicenseEntitlementArgs:
         pulumi.set(__self__, "unit", unit)
         if allow_check_in is not None:
             pulumi.set(__self__, "allow_check_in", allow_check_in)
-        if checkout_rules is not None:
-            pulumi.set(__self__, "checkout_rules", checkout_rules)
         if max_count is not None:
             pulumi.set(__self__, "max_count", max_count)
         if overage is not None:
@@ -404,18 +178,6 @@ class LicenseEntitlementArgs:
         pulumi.set(self, "allow_check_in", value)
 
     @property
-    @pulumi.getter(name="checkoutRules")
-    def checkout_rules(self) -> Optional[pulumi.Input['LicenseRuleListArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-checkoutrules
-        """
-        return pulumi.get(self, "checkout_rules")
-
-    @checkout_rules.setter
-    def checkout_rules(self, value: Optional[pulumi.Input['LicenseRuleListArgs']]):
-        pulumi.set(self, "checkout_rules", value)
-
-    @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -450,68 +212,6 @@ class LicenseEntitlementArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class LicenseFilterListArgs:
-    def __init__(__self__, *,
-                 filter_list: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseFilterArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filterlist.html
-        :param pulumi.Input[Sequence[pulumi.Input['LicenseFilterArgs']]] filter_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filterlist.html#cfn-licensemanager-license-filterlist-filterlist
-        """
-        if filter_list is not None:
-            pulumi.set(__self__, "filter_list", filter_list)
-
-    @property
-    @pulumi.getter(name="filterList")
-    def filter_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LicenseFilterArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filterlist.html#cfn-licensemanager-license-filterlist-filterlist
-        """
-        return pulumi.get(self, "filter_list")
-
-    @filter_list.setter
-    def filter_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseFilterArgs']]]]):
-        pulumi.set(self, "filter_list", value)
-
-
-@pulumi.input_type
-class LicenseFilterArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 values: pulumi.Input['LicenseStringListArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html#cfn-licensemanager-license-filter-name
-        :param pulumi.Input['LicenseStringListArgs'] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html#cfn-licensemanager-license-filter-values
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html#cfn-licensemanager-license-filter-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input['LicenseStringListArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-filter.html#cfn-licensemanager-license-filter-values
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input['LicenseStringListArgs']):
-        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
@@ -551,30 +251,6 @@ class LicenseIssuerDataArgs:
     @sign_key.setter
     def sign_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sign_key", value)
-
-
-@pulumi.input_type
-class LicenseMetadataListArgs:
-    def __init__(__self__, *,
-                 metadata_list: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadatalist.html
-        :param pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]] metadata_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadatalist.html#cfn-licensemanager-license-metadatalist-metadatalist
-        """
-        if metadata_list is not None:
-            pulumi.set(__self__, "metadata_list", metadata_list)
-
-    @property
-    @pulumi.getter(name="metadataList")
-    def metadata_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadatalist.html#cfn-licensemanager-license-metadatalist-metadatalist
-        """
-        return pulumi.get(self, "metadata_list")
-
-    @metadata_list.setter
-    def metadata_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]]]):
-        pulumi.set(self, "metadata_list", value)
 
 
 @pulumi.input_type
@@ -636,131 +312,6 @@ class LicenseProvisionalConfigurationArgs:
     @max_time_to_live_in_minutes.setter
     def max_time_to_live_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_time_to_live_in_minutes", value)
-
-
-@pulumi.input_type
-class LicenseRuleListArgs:
-    def __init__(__self__, *,
-                 rule_list: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseRuleArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rulelist.html
-        :param pulumi.Input[Sequence[pulumi.Input['LicenseRuleArgs']]] rule_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rulelist.html#cfn-licensemanager-license-rulelist-rulelist
-        """
-        if rule_list is not None:
-            pulumi.set(__self__, "rule_list", rule_list)
-
-    @property
-    @pulumi.getter(name="ruleList")
-    def rule_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LicenseRuleArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rulelist.html#cfn-licensemanager-license-rulelist-rulelist
-        """
-        return pulumi.get(self, "rule_list")
-
-    @rule_list.setter
-    def rule_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseRuleArgs']]]]):
-        pulumi.set(self, "rule_list", value)
-
-
-@pulumi.input_type
-class LicenseRuleArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 unit: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rule.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rule.html#cfn-licensemanager-license-rule-name
-        :param pulumi.Input[str] unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rule.html#cfn-licensemanager-license-rule-unit
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rule.html#cfn-licensemanager-license-rule-value
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rule.html#cfn-licensemanager-license-rule-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def unit(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rule.html#cfn-licensemanager-license-rule-unit
-        """
-        return pulumi.get(self, "unit")
-
-    @unit.setter
-    def unit(self, value: pulumi.Input[str]):
-        pulumi.set(self, "unit", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-rule.html#cfn-licensemanager-license-rule-value
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class LicenseStringListArgs:
-    def __init__(__self__, *,
-                 string_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-stringlist.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] string_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-stringlist.html#cfn-licensemanager-license-stringlist-stringlist
-        """
-        if string_list is not None:
-            pulumi.set(__self__, "string_list", string_list)
-
-    @property
-    @pulumi.getter(name="stringList")
-    def string_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-stringlist.html#cfn-licensemanager-license-stringlist-stringlist
-        """
-        return pulumi.get(self, "string_list")
-
-    @string_list.setter
-    def string_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "string_list", value)
-
-
-@pulumi.input_type
-class LicenseTagListArgs:
-    def __init__(__self__, *,
-                 tag_list: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-taglist.html
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tag_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-taglist.html#cfn-licensemanager-license-taglist-taglist
-        """
-        if tag_list is not None:
-            pulumi.set(__self__, "tag_list", tag_list)
-
-    @property
-    @pulumi.getter(name="tagList")
-    def tag_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-taglist.html#cfn-licensemanager-license-taglist-taglist
-        """
-        return pulumi.get(self, "tag_list")
-
-    @tag_list.setter
-    def tag_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
-        pulumi.set(self, "tag_list", value)
 
 
 @pulumi.input_type

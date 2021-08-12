@@ -15,7 +15,8 @@ __all__ = ['EnvironmentArgs', 'Environment']
 @pulumi.input_type
 class EnvironmentArgs:
     def __init__(__self__, *,
-                 airflow_configuration_options: Optional[pulumi.Input['EnvironmentAirflowConfigurationOptionsArgs']] = None,
+                 name: pulumi.Input[str],
+                 airflow_configuration_options: Optional[pulumi.Input[Union[Any, str]]] = None,
                  airflow_version: Optional[pulumi.Input[str]] = None,
                  dag_s3_path: Optional[pulumi.Input[str]] = None,
                  environment_class: Optional[pulumi.Input[str]] = None,
@@ -23,19 +24,21 @@ class EnvironmentArgs:
                  kms_key: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']] = None,
                  max_workers: Optional[pulumi.Input[int]] = None,
+                 min_workers: Optional[pulumi.Input[int]] = None,
                  network_configuration: Optional[pulumi.Input['EnvironmentNetworkConfigurationArgs']] = None,
                  plugins_s3_object_version: Optional[pulumi.Input[str]] = None,
                  plugins_s3_path: Optional[pulumi.Input[str]] = None,
                  requirements_s3_object_version: Optional[pulumi.Input[str]] = None,
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
+                 schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input['EnvironmentTagMapArgs']] = None,
                  webserver_access_mode: Optional[pulumi.Input[str]] = None,
-                 webserver_url: Optional[pulumi.Input[str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Environment resource.
-        :param pulumi.Input['EnvironmentAirflowConfigurationOptionsArgs'] airflow_configuration_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name
+        :param pulumi.Input[Union[Any, str]] airflow_configuration_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
         :param pulumi.Input[str] airflow_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
         :param pulumi.Input[str] dag_s3_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
         :param pulumi.Input[str] environment_class: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass
@@ -43,17 +46,19 @@ class EnvironmentArgs:
         :param pulumi.Input[str] kms_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey
         :param pulumi.Input['EnvironmentLoggingConfigurationArgs'] logging_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
         :param pulumi.Input[int] max_workers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
+        :param pulumi.Input[int] min_workers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers
         :param pulumi.Input['EnvironmentNetworkConfigurationArgs'] network_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
         :param pulumi.Input[str] plugins_s3_object_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
         :param pulumi.Input[str] plugins_s3_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3path
         :param pulumi.Input[str] requirements_s3_object_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3objectversion
         :param pulumi.Input[str] requirements_s3_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
+        :param pulumi.Input[int] schedulers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers
         :param pulumi.Input[str] source_bucket_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
         :param pulumi.Input['EnvironmentTagMapArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
         :param pulumi.Input[str] webserver_access_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
-        :param pulumi.Input[str] webserver_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
         :param pulumi.Input[str] weekly_maintenance_window_start: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
         """
+        pulumi.set(__self__, "name", name)
         if airflow_configuration_options is not None:
             pulumi.set(__self__, "airflow_configuration_options", airflow_configuration_options)
         if airflow_version is not None:
@@ -70,6 +75,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
         if max_workers is not None:
             pulumi.set(__self__, "max_workers", max_workers)
+        if min_workers is not None:
+            pulumi.set(__self__, "min_workers", min_workers)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
         if plugins_s3_object_version is not None:
@@ -80,27 +87,39 @@ class EnvironmentArgs:
             pulumi.set(__self__, "requirements_s3_object_version", requirements_s3_object_version)
         if requirements_s3_path is not None:
             pulumi.set(__self__, "requirements_s3_path", requirements_s3_path)
+        if schedulers is not None:
+            pulumi.set(__self__, "schedulers", schedulers)
         if source_bucket_arn is not None:
             pulumi.set(__self__, "source_bucket_arn", source_bucket_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if webserver_access_mode is not None:
             pulumi.set(__self__, "webserver_access_mode", webserver_access_mode)
-        if webserver_url is not None:
-            pulumi.set(__self__, "webserver_url", webserver_url)
         if weekly_maintenance_window_start is not None:
             pulumi.set(__self__, "weekly_maintenance_window_start", weekly_maintenance_window_start)
 
     @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
     @pulumi.getter(name="airflowConfigurationOptions")
-    def airflow_configuration_options(self) -> Optional[pulumi.Input['EnvironmentAirflowConfigurationOptionsArgs']]:
+    def airflow_configuration_options(self) -> Optional[pulumi.Input[Union[Any, str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
         """
         return pulumi.get(self, "airflow_configuration_options")
 
     @airflow_configuration_options.setter
-    def airflow_configuration_options(self, value: Optional[pulumi.Input['EnvironmentAirflowConfigurationOptionsArgs']]):
+    def airflow_configuration_options(self, value: Optional[pulumi.Input[Union[Any, str]]]):
         pulumi.set(self, "airflow_configuration_options", value)
 
     @property
@@ -188,6 +207,18 @@ class EnvironmentArgs:
         pulumi.set(self, "max_workers", value)
 
     @property
+    @pulumi.getter(name="minWorkers")
+    def min_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers
+        """
+        return pulumi.get(self, "min_workers")
+
+    @min_workers.setter
+    def min_workers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_workers", value)
+
+    @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['EnvironmentNetworkConfigurationArgs']]:
         """
@@ -248,6 +279,18 @@ class EnvironmentArgs:
         pulumi.set(self, "requirements_s3_path", value)
 
     @property
+    @pulumi.getter
+    def schedulers(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers
+        """
+        return pulumi.get(self, "schedulers")
+
+    @schedulers.setter
+    def schedulers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "schedulers", value)
+
+    @property
     @pulumi.getter(name="sourceBucketArn")
     def source_bucket_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -284,18 +327,6 @@ class EnvironmentArgs:
         pulumi.set(self, "webserver_access_mode", value)
 
     @property
-    @pulumi.getter(name="webserverUrl")
-    def webserver_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
-        """
-        return pulumi.get(self, "webserver_url")
-
-    @webserver_url.setter
-    def webserver_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "webserver_url", value)
-
-    @property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
     def weekly_maintenance_window_start(self) -> Optional[pulumi.Input[str]]:
         """
@@ -313,7 +344,7 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 airflow_configuration_options: Optional[pulumi.Input[pulumi.InputType['EnvironmentAirflowConfigurationOptionsArgs']]] = None,
+                 airflow_configuration_options: Optional[pulumi.Input[Union[Any, str]]] = None,
                  airflow_version: Optional[pulumi.Input[str]] = None,
                  dag_s3_path: Optional[pulumi.Input[str]] = None,
                  environment_class: Optional[pulumi.Input[str]] = None,
@@ -321,15 +352,17 @@ class Environment(pulumi.CustomResource):
                  kms_key: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentLoggingConfigurationArgs']]] = None,
                  max_workers: Optional[pulumi.Input[int]] = None,
+                 min_workers: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentNetworkConfigurationArgs']]] = None,
                  plugins_s3_object_version: Optional[pulumi.Input[str]] = None,
                  plugins_s3_path: Optional[pulumi.Input[str]] = None,
                  requirements_s3_object_version: Optional[pulumi.Input[str]] = None,
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
+                 schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['EnvironmentTagMapArgs']]] = None,
                  webserver_access_mode: Optional[pulumi.Input[str]] = None,
-                 webserver_url: Optional[pulumi.Input[str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -337,7 +370,7 @@ class Environment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EnvironmentAirflowConfigurationOptionsArgs']] airflow_configuration_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
+        :param pulumi.Input[Union[Any, str]] airflow_configuration_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
         :param pulumi.Input[str] airflow_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
         :param pulumi.Input[str] dag_s3_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
         :param pulumi.Input[str] environment_class: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass
@@ -345,22 +378,24 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey
         :param pulumi.Input[pulumi.InputType['EnvironmentLoggingConfigurationArgs']] logging_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
         :param pulumi.Input[int] max_workers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
+        :param pulumi.Input[int] min_workers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name
         :param pulumi.Input[pulumi.InputType['EnvironmentNetworkConfigurationArgs']] network_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
         :param pulumi.Input[str] plugins_s3_object_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
         :param pulumi.Input[str] plugins_s3_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3path
         :param pulumi.Input[str] requirements_s3_object_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3objectversion
         :param pulumi.Input[str] requirements_s3_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
+        :param pulumi.Input[int] schedulers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers
         :param pulumi.Input[str] source_bucket_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
         :param pulumi.Input[pulumi.InputType['EnvironmentTagMapArgs']] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
         :param pulumi.Input[str] webserver_access_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
-        :param pulumi.Input[str] webserver_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
         :param pulumi.Input[str] weekly_maintenance_window_start: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[EnvironmentArgs] = None,
+                 args: EnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html
@@ -380,7 +415,7 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 airflow_configuration_options: Optional[pulumi.Input[pulumi.InputType['EnvironmentAirflowConfigurationOptionsArgs']]] = None,
+                 airflow_configuration_options: Optional[pulumi.Input[Union[Any, str]]] = None,
                  airflow_version: Optional[pulumi.Input[str]] = None,
                  dag_s3_path: Optional[pulumi.Input[str]] = None,
                  environment_class: Optional[pulumi.Input[str]] = None,
@@ -388,15 +423,17 @@ class Environment(pulumi.CustomResource):
                  kms_key: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentLoggingConfigurationArgs']]] = None,
                  max_workers: Optional[pulumi.Input[int]] = None,
+                 min_workers: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentNetworkConfigurationArgs']]] = None,
                  plugins_s3_object_version: Optional[pulumi.Input[str]] = None,
                  plugins_s3_path: Optional[pulumi.Input[str]] = None,
                  requirements_s3_object_version: Optional[pulumi.Input[str]] = None,
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
+                 schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['EnvironmentTagMapArgs']]] = None,
                  webserver_access_mode: Optional[pulumi.Input[str]] = None,
-                 webserver_url: Optional[pulumi.Input[str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -418,22 +455,27 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["kms_key"] = kms_key
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["max_workers"] = max_workers
+            __props__.__dict__["min_workers"] = min_workers
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
+            __props__.__dict__["name"] = name
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["plugins_s3_object_version"] = plugins_s3_object_version
             __props__.__dict__["plugins_s3_path"] = plugins_s3_path
             __props__.__dict__["requirements_s3_object_version"] = requirements_s3_object_version
             __props__.__dict__["requirements_s3_path"] = requirements_s3_path
+            __props__.__dict__["schedulers"] = schedulers
             __props__.__dict__["source_bucket_arn"] = source_bucket_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["webserver_access_mode"] = webserver_access_mode
-            __props__.__dict__["webserver_url"] = webserver_url
             __props__.__dict__["weekly_maintenance_window_start"] = weekly_maintenance_window_start
             __props__.__dict__["arn"] = None
-            __props__.__dict__["created_at"] = None
-            __props__.__dict__["last_update"] = None
-            __props__.__dict__["name"] = None
-            __props__.__dict__["service_role_arn"] = None
-            __props__.__dict__["status"] = None
+            __props__.__dict__["logging_configuration_dag_processing_logs_cloud_watch_log_group_arn"] = None
+            __props__.__dict__["logging_configuration_scheduler_logs_cloud_watch_log_group_arn"] = None
+            __props__.__dict__["logging_configuration_task_logs_cloud_watch_log_group_arn"] = None
+            __props__.__dict__["logging_configuration_webserver_logs_cloud_watch_log_group_arn"] = None
+            __props__.__dict__["logging_configuration_worker_logs_cloud_watch_log_group_arn"] = None
+            __props__.__dict__["webserver_url"] = None
         super(Environment, __self__).__init__(
             'aws-native:MWAA:Environment',
             resource_name,
@@ -459,23 +501,26 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["airflow_configuration_options"] = None
         __props__.__dict__["airflow_version"] = None
         __props__.__dict__["arn"] = None
-        __props__.__dict__["created_at"] = None
         __props__.__dict__["dag_s3_path"] = None
         __props__.__dict__["environment_class"] = None
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["kms_key"] = None
-        __props__.__dict__["last_update"] = None
         __props__.__dict__["logging_configuration"] = None
+        __props__.__dict__["logging_configuration_dag_processing_logs_cloud_watch_log_group_arn"] = None
+        __props__.__dict__["logging_configuration_scheduler_logs_cloud_watch_log_group_arn"] = None
+        __props__.__dict__["logging_configuration_task_logs_cloud_watch_log_group_arn"] = None
+        __props__.__dict__["logging_configuration_webserver_logs_cloud_watch_log_group_arn"] = None
+        __props__.__dict__["logging_configuration_worker_logs_cloud_watch_log_group_arn"] = None
         __props__.__dict__["max_workers"] = None
+        __props__.__dict__["min_workers"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_configuration"] = None
         __props__.__dict__["plugins_s3_object_version"] = None
         __props__.__dict__["plugins_s3_path"] = None
         __props__.__dict__["requirements_s3_object_version"] = None
         __props__.__dict__["requirements_s3_path"] = None
-        __props__.__dict__["service_role_arn"] = None
+        __props__.__dict__["schedulers"] = None
         __props__.__dict__["source_bucket_arn"] = None
-        __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["webserver_access_mode"] = None
         __props__.__dict__["webserver_url"] = None
@@ -484,7 +529,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="airflowConfigurationOptions")
-    def airflow_configuration_options(self) -> pulumi.Output[Optional['outputs.EnvironmentAirflowConfigurationOptions']]:
+    def airflow_configuration_options(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
         """
@@ -502,11 +547,6 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="dagS3Path")
@@ -541,17 +581,37 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "kms_key")
 
     @property
-    @pulumi.getter(name="lastUpdate")
-    def last_update(self) -> pulumi.Output['outputs.EnvironmentLastUpdate']:
-        return pulumi.get(self, "last_update")
-
-    @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output[Optional['outputs.EnvironmentLoggingConfiguration']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
         """
         return pulumi.get(self, "logging_configuration")
+
+    @property
+    @pulumi.getter(name="loggingConfigurationDagProcessingLogsCloudWatchLogGroupArn")
+    def logging_configuration_dag_processing_logs_cloud_watch_log_group_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "logging_configuration_dag_processing_logs_cloud_watch_log_group_arn")
+
+    @property
+    @pulumi.getter(name="loggingConfigurationSchedulerLogsCloudWatchLogGroupArn")
+    def logging_configuration_scheduler_logs_cloud_watch_log_group_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "logging_configuration_scheduler_logs_cloud_watch_log_group_arn")
+
+    @property
+    @pulumi.getter(name="loggingConfigurationTaskLogsCloudWatchLogGroupArn")
+    def logging_configuration_task_logs_cloud_watch_log_group_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "logging_configuration_task_logs_cloud_watch_log_group_arn")
+
+    @property
+    @pulumi.getter(name="loggingConfigurationWebserverLogsCloudWatchLogGroupArn")
+    def logging_configuration_webserver_logs_cloud_watch_log_group_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "logging_configuration_webserver_logs_cloud_watch_log_group_arn")
+
+    @property
+    @pulumi.getter(name="loggingConfigurationWorkerLogsCloudWatchLogGroupArn")
+    def logging_configuration_worker_logs_cloud_watch_log_group_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "logging_configuration_worker_logs_cloud_watch_log_group_arn")
 
     @property
     @pulumi.getter(name="maxWorkers")
@@ -562,8 +622,19 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "max_workers")
 
     @property
+    @pulumi.getter(name="minWorkers")
+    def min_workers(self) -> pulumi.Output[Optional[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers
+        """
+        return pulumi.get(self, "min_workers")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -607,9 +678,12 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "requirements_s3_path")
 
     @property
-    @pulumi.getter(name="serviceRoleArn")
-    def service_role_arn(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "service_role_arn")
+    @pulumi.getter
+    def schedulers(self) -> pulumi.Output[Optional[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers
+        """
+        return pulumi.get(self, "schedulers")
 
     @property
     @pulumi.getter(name="sourceBucketArn")
@@ -618,11 +692,6 @@ class Environment(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
         """
         return pulumi.get(self, "source_bucket_arn")
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
@@ -642,10 +711,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webserverUrl")
-    def webserver_url(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
-        """
+    def webserver_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "webserver_url")
 
     @property

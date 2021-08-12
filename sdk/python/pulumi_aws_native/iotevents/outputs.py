@@ -249,10 +249,10 @@ class DetectorModelAssetPropertyTimestamp(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "offsetInNanos":
-            suggest = "offset_in_nanos"
-        elif key == "timeInSeconds":
+        if key == "timeInSeconds":
             suggest = "time_in_seconds"
+        elif key == "offsetInNanos":
+            suggest = "offset_in_nanos"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DetectorModelAssetPropertyTimestamp. Access the value via the '{suggest}' property getter instead.")
@@ -266,17 +266,24 @@ class DetectorModelAssetPropertyTimestamp(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 offset_in_nanos: Optional[str] = None,
-                 time_in_seconds: Optional[str] = None):
+                 time_in_seconds: str,
+                 offset_in_nanos: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html
-        :param str offset_in_nanos: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-offsetinnanos
         :param str time_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-timeinseconds
+        :param str offset_in_nanos: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-offsetinnanos
         """
+        pulumi.set(__self__, "time_in_seconds", time_in_seconds)
         if offset_in_nanos is not None:
             pulumi.set(__self__, "offset_in_nanos", offset_in_nanos)
-        if time_in_seconds is not None:
-            pulumi.set(__self__, "time_in_seconds", time_in_seconds)
+
+    @property
+    @pulumi.getter(name="timeInSeconds")
+    def time_in_seconds(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-timeinseconds
+        """
+        return pulumi.get(self, "time_in_seconds")
 
     @property
     @pulumi.getter(name="offsetInNanos")
@@ -286,14 +293,6 @@ class DetectorModelAssetPropertyTimestamp(dict):
         """
         return pulumi.get(self, "offset_in_nanos")
 
-    @property
-    @pulumi.getter(name="timeInSeconds")
-    def time_in_seconds(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-timeinseconds
-        """
-        return pulumi.get(self, "time_in_seconds")
-
 
 @pulumi.output_type
 class DetectorModelAssetPropertyValue(dict):
@@ -301,21 +300,28 @@ class DetectorModelAssetPropertyValue(dict):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html
     """
     def __init__(__self__, *,
+                 value: 'outputs.DetectorModelAssetPropertyVariant',
                  quality: Optional[str] = None,
-                 timestamp: Optional['outputs.DetectorModelAssetPropertyTimestamp'] = None,
-                 value: Optional['outputs.DetectorModelAssetPropertyVariant'] = None):
+                 timestamp: Optional['outputs.DetectorModelAssetPropertyTimestamp'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html
+        :param 'DetectorModelAssetPropertyVariant' value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
         :param str quality: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-quality
         :param 'DetectorModelAssetPropertyTimestamp' timestamp: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-timestamp
-        :param 'DetectorModelAssetPropertyVariant' value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
         """
+        pulumi.set(__self__, "value", value)
         if quality is not None:
             pulumi.set(__self__, "quality", quality)
         if timestamp is not None:
             pulumi.set(__self__, "timestamp", timestamp)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> 'outputs.DetectorModelAssetPropertyVariant':
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
+        """
+        return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
@@ -332,14 +338,6 @@ class DetectorModelAssetPropertyValue(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-timestamp
         """
         return pulumi.get(self, "timestamp")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional['outputs.DetectorModelAssetPropertyVariant']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -447,17 +445,16 @@ class DetectorModelClearTimer(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 timer_name: Optional[str] = None):
+                 timer_name: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html
         :param str timer_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html#cfn-iotevents-detectormodel-cleartimer-timername
         """
-        if timer_name is not None:
-            pulumi.set(__self__, "timer_name", timer_name)
+        pulumi.set(__self__, "timer_name", timer_name)
 
     @property
     @pulumi.getter(name="timerName")
-    def timer_name(self) -> Optional[str]:
+    def timer_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html#cfn-iotevents-detectormodel-cleartimer-timername
         """
@@ -487,21 +484,19 @@ class DetectorModelDetectorModelDefinition(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 initial_state_name: Optional[str] = None,
-                 states: Optional[Sequence['outputs.DetectorModelState']] = None):
+                 initial_state_name: str,
+                 states: Sequence['outputs.DetectorModelState']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html
         :param str initial_state_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename
         :param Sequence['DetectorModelState'] states: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states
         """
-        if initial_state_name is not None:
-            pulumi.set(__self__, "initial_state_name", initial_state_name)
-        if states is not None:
-            pulumi.set(__self__, "states", states)
+        pulumi.set(__self__, "initial_state_name", initial_state_name)
+        pulumi.set(__self__, "states", states)
 
     @property
     @pulumi.getter(name="initialStateName")
-    def initial_state_name(self) -> Optional[str]:
+    def initial_state_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename
         """
@@ -509,7 +504,7 @@ class DetectorModelDetectorModelDefinition(dict):
 
     @property
     @pulumi.getter
-    def states(self) -> Optional[Sequence['outputs.DetectorModelState']]:
+    def states(self) -> Sequence['outputs.DetectorModelState']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states
         """
@@ -526,10 +521,12 @@ class DetectorModelDynamoDB(dict):
         suggest = None
         if key == "hashKeyField":
             suggest = "hash_key_field"
-        elif key == "hashKeyType":
-            suggest = "hash_key_type"
         elif key == "hashKeyValue":
             suggest = "hash_key_value"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "hashKeyType":
+            suggest = "hash_key_type"
         elif key == "payloadField":
             suggest = "payload_field"
         elif key == "rangeKeyField":
@@ -538,8 +535,6 @@ class DetectorModelDynamoDB(dict):
             suggest = "range_key_type"
         elif key == "rangeKeyValue":
             suggest = "range_key_value"
-        elif key == "tableName":
-            suggest = "table_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DetectorModelDynamoDB. Access the value via the '{suggest}' property getter instead.")
@@ -553,35 +548,34 @@ class DetectorModelDynamoDB(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 hash_key_field: Optional[str] = None,
+                 hash_key_field: str,
+                 hash_key_value: str,
+                 table_name: str,
                  hash_key_type: Optional[str] = None,
-                 hash_key_value: Optional[str] = None,
                  operation: Optional[str] = None,
                  payload: Optional['outputs.DetectorModelPayload'] = None,
                  payload_field: Optional[str] = None,
                  range_key_field: Optional[str] = None,
                  range_key_type: Optional[str] = None,
-                 range_key_value: Optional[str] = None,
-                 table_name: Optional[str] = None):
+                 range_key_value: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html
         :param str hash_key_field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyfield
-        :param str hash_key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeytype
         :param str hash_key_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyvalue
+        :param str table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename
+        :param str hash_key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeytype
         :param str operation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-operation
         :param 'DetectorModelPayload' payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payload
         :param str payload_field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payloadfield
         :param str range_key_field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyfield
         :param str range_key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeytype
         :param str range_key_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyvalue
-        :param str table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename
         """
-        if hash_key_field is not None:
-            pulumi.set(__self__, "hash_key_field", hash_key_field)
+        pulumi.set(__self__, "hash_key_field", hash_key_field)
+        pulumi.set(__self__, "hash_key_value", hash_key_value)
+        pulumi.set(__self__, "table_name", table_name)
         if hash_key_type is not None:
             pulumi.set(__self__, "hash_key_type", hash_key_type)
-        if hash_key_value is not None:
-            pulumi.set(__self__, "hash_key_value", hash_key_value)
         if operation is not None:
             pulumi.set(__self__, "operation", operation)
         if payload is not None:
@@ -594,16 +588,30 @@ class DetectorModelDynamoDB(dict):
             pulumi.set(__self__, "range_key_type", range_key_type)
         if range_key_value is not None:
             pulumi.set(__self__, "range_key_value", range_key_value)
-        if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="hashKeyField")
-    def hash_key_field(self) -> Optional[str]:
+    def hash_key_field(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyfield
         """
         return pulumi.get(self, "hash_key_field")
+
+    @property
+    @pulumi.getter(name="hashKeyValue")
+    def hash_key_value(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyvalue
+        """
+        return pulumi.get(self, "hash_key_value")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename
+        """
+        return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter(name="hashKeyType")
@@ -612,14 +620,6 @@ class DetectorModelDynamoDB(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeytype
         """
         return pulumi.get(self, "hash_key_type")
-
-    @property
-    @pulumi.getter(name="hashKeyValue")
-    def hash_key_value(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyvalue
-        """
-        return pulumi.get(self, "hash_key_value")
 
     @property
     @pulumi.getter
@@ -669,14 +669,6 @@ class DetectorModelDynamoDB(dict):
         """
         return pulumi.get(self, "range_key_value")
 
-    @property
-    @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename
-        """
-        return pulumi.get(self, "table_name")
-
 
 @pulumi.output_type
 class DetectorModelDynamoDBv2(dict):
@@ -701,17 +693,24 @@ class DetectorModelDynamoDBv2(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 payload: Optional['outputs.DetectorModelPayload'] = None,
-                 table_name: Optional[str] = None):
+                 table_name: str,
+                 payload: Optional['outputs.DetectorModelPayload'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html
-        :param 'DetectorModelPayload' payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-payload
         :param str table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
+        :param 'DetectorModelPayload' payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-payload
         """
+        pulumi.set(__self__, "table_name", table_name)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
-        if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
+        """
+        return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter
@@ -720,14 +719,6 @@ class DetectorModelDynamoDBv2(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-payload
         """
         return pulumi.get(self, "payload")
-
-    @property
-    @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
-        """
-        return pulumi.get(self, "table_name")
 
 
 @pulumi.output_type
@@ -753,21 +744,28 @@ class DetectorModelEvent(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 event_name: str,
                  actions: Optional[Sequence['outputs.DetectorModelAction']] = None,
-                 condition: Optional[str] = None,
-                 event_name: Optional[str] = None):
+                 condition: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html
+        :param str event_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-eventname
         :param Sequence['DetectorModelAction'] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-actions
         :param str condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-condition
-        :param str event_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-eventname
         """
+        pulumi.set(__self__, "event_name", event_name)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
-        if event_name is not None:
-            pulumi.set(__self__, "event_name", event_name)
+
+    @property
+    @pulumi.getter(name="eventName")
+    def event_name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-eventname
+        """
+        return pulumi.get(self, "event_name")
 
     @property
     @pulumi.getter
@@ -784,14 +782,6 @@ class DetectorModelEvent(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-condition
         """
         return pulumi.get(self, "condition")
-
-    @property
-    @pulumi.getter(name="eventName")
-    def event_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-eventname
-        """
-        return pulumi.get(self, "event_name")
 
 
 @pulumi.output_type
@@ -817,7 +807,7 @@ class DetectorModelFirehose(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 delivery_stream_name: Optional[str] = None,
+                 delivery_stream_name: str,
                  payload: Optional['outputs.DetectorModelPayload'] = None,
                  separator: Optional[str] = None):
         """
@@ -826,8 +816,7 @@ class DetectorModelFirehose(dict):
         :param 'DetectorModelPayload' payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-payload
         :param str separator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-separator
         """
-        if delivery_stream_name is not None:
-            pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
+        pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if separator is not None:
@@ -835,7 +824,7 @@ class DetectorModelFirehose(dict):
 
     @property
     @pulumi.getter(name="deliveryStreamName")
-    def delivery_stream_name(self) -> Optional[str]:
+    def delivery_stream_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-deliverystreamname
         """
@@ -881,21 +870,20 @@ class DetectorModelIotEvents(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 input_name: Optional[str] = None,
+                 input_name: str,
                  payload: Optional['outputs.DetectorModelPayload'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html
         :param str input_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname
         :param 'DetectorModelPayload' payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-payload
         """
-        if input_name is not None:
-            pulumi.set(__self__, "input_name", input_name)
+        pulumi.set(__self__, "input_name", input_name)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
 
     @property
     @pulumi.getter(name="inputName")
-    def input_name(self) -> Optional[str]:
+    def input_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname
         """
@@ -918,7 +906,9 @@ class DetectorModelIotSiteWise(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "assetId":
+        if key == "propertyValue":
+            suggest = "property_value"
+        elif key == "assetId":
             suggest = "asset_id"
         elif key == "entryId":
             suggest = "entry_id"
@@ -926,8 +916,6 @@ class DetectorModelIotSiteWise(dict):
             suggest = "property_alias"
         elif key == "propertyId":
             suggest = "property_id"
-        elif key == "propertyValue":
-            suggest = "property_value"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DetectorModelIotSiteWise. Access the value via the '{suggest}' property getter instead.")
@@ -941,19 +929,20 @@ class DetectorModelIotSiteWise(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 property_value: 'outputs.DetectorModelAssetPropertyValue',
                  asset_id: Optional[str] = None,
                  entry_id: Optional[str] = None,
                  property_alias: Optional[str] = None,
-                 property_id: Optional[str] = None,
-                 property_value: Optional['outputs.DetectorModelAssetPropertyValue'] = None):
+                 property_id: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html
+        :param 'DetectorModelAssetPropertyValue' property_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
         :param str asset_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-assetid
         :param str entry_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-entryid
         :param str property_alias: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyalias
         :param str property_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyid
-        :param 'DetectorModelAssetPropertyValue' property_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
         """
+        pulumi.set(__self__, "property_value", property_value)
         if asset_id is not None:
             pulumi.set(__self__, "asset_id", asset_id)
         if entry_id is not None:
@@ -962,8 +951,14 @@ class DetectorModelIotSiteWise(dict):
             pulumi.set(__self__, "property_alias", property_alias)
         if property_id is not None:
             pulumi.set(__self__, "property_id", property_id)
-        if property_value is not None:
-            pulumi.set(__self__, "property_value", property_value)
+
+    @property
+    @pulumi.getter(name="propertyValue")
+    def property_value(self) -> 'outputs.DetectorModelAssetPropertyValue':
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
+        """
+        return pulumi.get(self, "property_value")
 
     @property
     @pulumi.getter(name="assetId")
@@ -997,14 +992,6 @@ class DetectorModelIotSiteWise(dict):
         """
         return pulumi.get(self, "property_id")
 
-    @property
-    @pulumi.getter(name="propertyValue")
-    def property_value(self) -> Optional['outputs.DetectorModelAssetPropertyValue']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
-        """
-        return pulumi.get(self, "property_value")
-
 
 @pulumi.output_type
 class DetectorModelIotTopicPublish(dict):
@@ -1029,21 +1016,20 @@ class DetectorModelIotTopicPublish(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 mqtt_topic: Optional[str] = None,
+                 mqtt_topic: str,
                  payload: Optional['outputs.DetectorModelPayload'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html
         :param str mqtt_topic: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic
         :param 'DetectorModelPayload' payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-payload
         """
-        if mqtt_topic is not None:
-            pulumi.set(__self__, "mqtt_topic", mqtt_topic)
+        pulumi.set(__self__, "mqtt_topic", mqtt_topic)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
 
     @property
     @pulumi.getter(name="mqttTopic")
-    def mqtt_topic(self) -> Optional[str]:
+    def mqtt_topic(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic
         """
@@ -1081,21 +1067,20 @@ class DetectorModelLambda(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 function_arn: Optional[str] = None,
+                 function_arn: str,
                  payload: Optional['outputs.DetectorModelPayload'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html
         :param str function_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn
         :param 'DetectorModelPayload' payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-payload
         """
-        if function_arn is not None:
-            pulumi.set(__self__, "function_arn", function_arn)
+        pulumi.set(__self__, "function_arn", function_arn)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
 
     @property
     @pulumi.getter(name="functionArn")
-    def function_arn(self) -> Optional[str]:
+    def function_arn(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn
         """
@@ -1231,21 +1216,19 @@ class DetectorModelPayload(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 content_expression: Optional[str] = None,
-                 type: Optional[str] = None):
+                 content_expression: str,
+                 type: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html
         :param str content_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-contentexpression
         :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-type
         """
-        if content_expression is not None:
-            pulumi.set(__self__, "content_expression", content_expression)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "content_expression", content_expression)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="contentExpression")
-    def content_expression(self) -> Optional[str]:
+    def content_expression(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-contentexpression
         """
@@ -1253,7 +1236,7 @@ class DetectorModelPayload(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-type
         """
@@ -1283,17 +1266,16 @@ class DetectorModelResetTimer(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 timer_name: Optional[str] = None):
+                 timer_name: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html
         :param str timer_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html#cfn-iotevents-detectormodel-resettimer-timername
         """
-        if timer_name is not None:
-            pulumi.set(__self__, "timer_name", timer_name)
+        pulumi.set(__self__, "timer_name", timer_name)
 
     @property
     @pulumi.getter(name="timerName")
-    def timer_name(self) -> Optional[str]:
+    def timer_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html#cfn-iotevents-detectormodel-resettimer-timername
         """
@@ -1308,10 +1290,10 @@ class DetectorModelSetTimer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "durationExpression":
-            suggest = "duration_expression"
-        elif key == "timerName":
+        if key == "timerName":
             suggest = "timer_name"
+        elif key == "durationExpression":
+            suggest = "duration_expression"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DetectorModelSetTimer. Access the value via the '{suggest}' property getter instead.")
@@ -1325,21 +1307,28 @@ class DetectorModelSetTimer(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 timer_name: str,
                  duration_expression: Optional[str] = None,
-                 seconds: Optional[int] = None,
-                 timer_name: Optional[str] = None):
+                 seconds: Optional[int] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html
+        :param str timer_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername
         :param str duration_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-durationexpression
         :param int seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-seconds
-        :param str timer_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername
         """
+        pulumi.set(__self__, "timer_name", timer_name)
         if duration_expression is not None:
             pulumi.set(__self__, "duration_expression", duration_expression)
         if seconds is not None:
             pulumi.set(__self__, "seconds", seconds)
-        if timer_name is not None:
-            pulumi.set(__self__, "timer_name", timer_name)
+
+    @property
+    @pulumi.getter(name="timerName")
+    def timer_name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername
+        """
+        return pulumi.get(self, "timer_name")
 
     @property
     @pulumi.getter(name="durationExpression")
@@ -1356,14 +1345,6 @@ class DetectorModelSetTimer(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-seconds
         """
         return pulumi.get(self, "seconds")
-
-    @property
-    @pulumi.getter(name="timerName")
-    def timer_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername
-        """
-        return pulumi.get(self, "timer_name")
 
 
 @pulumi.output_type
@@ -1389,21 +1370,19 @@ class DetectorModelSetVariable(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 value: Optional[str] = None,
-                 variable_name: Optional[str] = None):
+                 value: str,
+                 variable_name: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html
         :param str value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-value
         :param str variable_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename
         """
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if variable_name is not None:
-            pulumi.set(__self__, "variable_name", variable_name)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "variable_name", variable_name)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[str]:
+    def value(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-value
         """
@@ -1411,7 +1390,7 @@ class DetectorModelSetVariable(dict):
 
     @property
     @pulumi.getter(name="variableName")
-    def variable_name(self) -> Optional[str]:
+    def variable_name(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename
         """
@@ -1441,17 +1420,24 @@ class DetectorModelSns(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 payload: Optional['outputs.DetectorModelPayload'] = None,
-                 target_arn: Optional[str] = None):
+                 target_arn: str,
+                 payload: Optional['outputs.DetectorModelPayload'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html
-        :param 'DetectorModelPayload' payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
         :param str target_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
+        :param 'DetectorModelPayload' payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
         """
+        pulumi.set(__self__, "target_arn", target_arn)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
-        if target_arn is not None:
-            pulumi.set(__self__, "target_arn", target_arn)
+
+    @property
+    @pulumi.getter(name="targetArn")
+    def target_arn(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
+        """
+        return pulumi.get(self, "target_arn")
 
     @property
     @pulumi.getter
@@ -1460,14 +1446,6 @@ class DetectorModelSns(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
         """
         return pulumi.get(self, "payload")
-
-    @property
-    @pulumi.getter(name="targetArn")
-    def target_arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
-        """
-        return pulumi.get(self, "target_arn")
 
 
 @pulumi.output_type
@@ -1495,21 +1473,28 @@ class DetectorModelSqs(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 queue_url: str,
                  payload: Optional['outputs.DetectorModelPayload'] = None,
-                 queue_url: Optional[str] = None,
                  use_base64: Optional[bool] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html
-        :param 'DetectorModelPayload' payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-payload
         :param str queue_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl
+        :param 'DetectorModelPayload' payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-payload
         :param bool use_base64: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-usebase64
         """
+        pulumi.set(__self__, "queue_url", queue_url)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
-        if queue_url is not None:
-            pulumi.set(__self__, "queue_url", queue_url)
         if use_base64 is not None:
             pulumi.set(__self__, "use_base64", use_base64)
+
+    @property
+    @pulumi.getter(name="queueUrl")
+    def queue_url(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl
+        """
+        return pulumi.get(self, "queue_url")
 
     @property
     @pulumi.getter
@@ -1518,14 +1503,6 @@ class DetectorModelSqs(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-payload
         """
         return pulumi.get(self, "payload")
-
-    @property
-    @pulumi.getter(name="queueUrl")
-    def queue_url(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl
-        """
-        return pulumi.get(self, "queue_url")
 
     @property
     @pulumi.getter(name="useBase64")
@@ -1544,14 +1521,14 @@ class DetectorModelState(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "onEnter":
+        if key == "stateName":
+            suggest = "state_name"
+        elif key == "onEnter":
             suggest = "on_enter"
         elif key == "onExit":
             suggest = "on_exit"
         elif key == "onInput":
             suggest = "on_input"
-        elif key == "stateName":
-            suggest = "state_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DetectorModelState. Access the value via the '{suggest}' property getter instead.")
@@ -1565,25 +1542,32 @@ class DetectorModelState(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 state_name: str,
                  on_enter: Optional['outputs.DetectorModelOnEnter'] = None,
                  on_exit: Optional['outputs.DetectorModelOnExit'] = None,
-                 on_input: Optional['outputs.DetectorModelOnInput'] = None,
-                 state_name: Optional[str] = None):
+                 on_input: Optional['outputs.DetectorModelOnInput'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html
+        :param str state_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename
         :param 'DetectorModelOnEnter' on_enter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onenter
         :param 'DetectorModelOnExit' on_exit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onexit
         :param 'DetectorModelOnInput' on_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-oninput
-        :param str state_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename
         """
+        pulumi.set(__self__, "state_name", state_name)
         if on_enter is not None:
             pulumi.set(__self__, "on_enter", on_enter)
         if on_exit is not None:
             pulumi.set(__self__, "on_exit", on_exit)
         if on_input is not None:
             pulumi.set(__self__, "on_input", on_input)
-        if state_name is not None:
-            pulumi.set(__self__, "state_name", state_name)
+
+    @property
+    @pulumi.getter(name="stateName")
+    def state_name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename
+        """
+        return pulumi.get(self, "state_name")
 
     @property
     @pulumi.getter(name="onEnter")
@@ -1608,14 +1592,6 @@ class DetectorModelState(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-oninput
         """
         return pulumi.get(self, "on_input")
-
-    @property
-    @pulumi.getter(name="stateName")
-    def state_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename
-        """
-        return pulumi.get(self, "state_name")
 
 
 @pulumi.output_type
@@ -1643,25 +1619,46 @@ class DetectorModelTransitionEvent(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 actions: Optional[Sequence['outputs.DetectorModelAction']] = None,
-                 condition: Optional[str] = None,
-                 event_name: Optional[str] = None,
-                 next_state: Optional[str] = None):
+                 condition: str,
+                 event_name: str,
+                 next_state: str,
+                 actions: Optional[Sequence['outputs.DetectorModelAction']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html
-        :param Sequence['DetectorModelAction'] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-actions
         :param str condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition
         :param str event_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname
         :param str next_state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate
+        :param Sequence['DetectorModelAction'] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-actions
         """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "event_name", event_name)
+        pulumi.set(__self__, "next_state", next_state)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
-        if condition is not None:
-            pulumi.set(__self__, "condition", condition)
-        if event_name is not None:
-            pulumi.set(__self__, "event_name", event_name)
-        if next_state is not None:
-            pulumi.set(__self__, "next_state", next_state)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="eventName")
+    def event_name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname
+        """
+        return pulumi.get(self, "event_name")
+
+    @property
+    @pulumi.getter(name="nextState")
+    def next_state(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate
+        """
+        return pulumi.get(self, "next_state")
 
     @property
     @pulumi.getter
@@ -1670,30 +1667,6 @@ class DetectorModelTransitionEvent(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-actions
         """
         return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter
-    def condition(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition
-        """
-        return pulumi.get(self, "condition")
-
-    @property
-    @pulumi.getter(name="eventName")
-    def event_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname
-        """
-        return pulumi.get(self, "event_name")
-
-    @property
-    @pulumi.getter(name="nextState")
-    def next_state(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate
-        """
-        return pulumi.get(self, "next_state")
 
 
 @pulumi.output_type
@@ -1719,17 +1692,16 @@ class InputAttribute(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 json_path: Optional[str] = None):
+                 json_path: str):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html
         :param str json_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html#cfn-iotevents-input-attribute-jsonpath
         """
-        if json_path is not None:
-            pulumi.set(__self__, "json_path", json_path)
+        pulumi.set(__self__, "json_path", json_path)
 
     @property
     @pulumi.getter(name="jsonPath")
-    def json_path(self) -> Optional[str]:
+    def json_path(self) -> str:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html#cfn-iotevents-input-attribute-jsonpath
         """
@@ -1742,17 +1714,16 @@ class InputInputDefinition(dict):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html
     """
     def __init__(__self__, *,
-                 attributes: Optional[Sequence['outputs.InputAttribute']] = None):
+                 attributes: Sequence['outputs.InputAttribute']):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html
         :param Sequence['InputAttribute'] attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html#cfn-iotevents-input-inputdefinition-attributes
         """
-        if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Sequence['outputs.InputAttribute']]:
+    def attributes(self) -> Sequence['outputs.InputAttribute']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html#cfn-iotevents-input-inputdefinition-attributes
         """

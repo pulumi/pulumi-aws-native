@@ -17,13 +17,13 @@ class ModelPackageGroupArgs:
     def __init__(__self__, *,
                  model_package_group_name: pulumi.Input[str],
                  model_package_group_description: Optional[pulumi.Input[str]] = None,
-                 model_package_group_policy: Optional[Any] = None,
+                 model_package_group_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelPackageGroup resource.
         :param pulumi.Input[str] model_package_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
         :param pulumi.Input[str] model_package_group_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
-        :param Any model_package_group_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
+        :param pulumi.Input[Union[Any, str]] model_package_group_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
         """
         pulumi.set(__self__, "model_package_group_name", model_package_group_name)
@@ -60,14 +60,14 @@ class ModelPackageGroupArgs:
 
     @property
     @pulumi.getter(name="modelPackageGroupPolicy")
-    def model_package_group_policy(self) -> Optional[Any]:
+    def model_package_group_policy(self) -> Optional[pulumi.Input[Union[Any, str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
         """
         return pulumi.get(self, "model_package_group_policy")
 
     @model_package_group_policy.setter
-    def model_package_group_policy(self, value: Optional[Any]):
+    def model_package_group_policy(self, value: Optional[pulumi.Input[Union[Any, str]]]):
         pulumi.set(self, "model_package_group_policy", value)
 
     @property
@@ -90,7 +90,7 @@ class ModelPackageGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  model_package_group_description: Optional[pulumi.Input[str]] = None,
                  model_package_group_name: Optional[pulumi.Input[str]] = None,
-                 model_package_group_policy: Optional[Any] = None,
+                 model_package_group_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
@@ -100,7 +100,7 @@ class ModelPackageGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] model_package_group_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
         :param pulumi.Input[str] model_package_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
-        :param Any model_package_group_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
+        :param pulumi.Input[Union[Any, str]] model_package_group_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
         """
         ...
@@ -129,7 +129,7 @@ class ModelPackageGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  model_package_group_description: Optional[pulumi.Input[str]] = None,
                  model_package_group_name: Optional[pulumi.Input[str]] = None,
-                 model_package_group_policy: Optional[Any] = None,
+                 model_package_group_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -211,7 +211,7 @@ class ModelPackageGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modelPackageGroupPolicy")
-    def model_package_group_policy(self) -> pulumi.Output[Optional[Any]]:
+    def model_package_group_policy(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
         """

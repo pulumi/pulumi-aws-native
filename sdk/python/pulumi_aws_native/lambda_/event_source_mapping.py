@@ -26,11 +26,11 @@ class EventSourceMappingArgs:
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
-                 partial_batch_response: Optional[pulumi.Input[bool]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self_managed_event_source: Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']] = None,
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]]] = None,
                  starting_position: Optional[pulumi.Input[str]] = None,
+                 starting_position_timestamp: Optional[pulumi.Input[float]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None):
         """
@@ -46,11 +46,11 @@ class EventSourceMappingArgs:
         :param pulumi.Input[int] maximum_record_age_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
         :param pulumi.Input[int] maximum_retry_attempts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
         :param pulumi.Input[int] parallelization_factor: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
-        :param pulumi.Input[bool] partial_batch_response: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
         :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
         :param pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs'] self_managed_event_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]] source_access_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
         :param pulumi.Input[str] starting_position: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
+        :param pulumi.Input[float] starting_position_timestamp: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
         :param pulumi.Input[int] tumbling_window_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
         """
@@ -75,8 +75,6 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
         if parallelization_factor is not None:
             pulumi.set(__self__, "parallelization_factor", parallelization_factor)
-        if partial_batch_response is not None:
-            pulumi.set(__self__, "partial_batch_response", partial_batch_response)
         if queues is not None:
             pulumi.set(__self__, "queues", queues)
         if self_managed_event_source is not None:
@@ -85,6 +83,8 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "source_access_configurations", source_access_configurations)
         if starting_position is not None:
             pulumi.set(__self__, "starting_position", starting_position)
+        if starting_position_timestamp is not None:
+            pulumi.set(__self__, "starting_position_timestamp", starting_position_timestamp)
         if topics is not None:
             pulumi.set(__self__, "topics", topics)
         if tumbling_window_in_seconds is not None:
@@ -223,18 +223,6 @@ class EventSourceMappingArgs:
         pulumi.set(self, "parallelization_factor", value)
 
     @property
-    @pulumi.getter(name="partialBatchResponse")
-    def partial_batch_response(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
-        """
-        return pulumi.get(self, "partial_batch_response")
-
-    @partial_batch_response.setter
-    def partial_batch_response(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "partial_batch_response", value)
-
-    @property
     @pulumi.getter
     def queues(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -283,6 +271,18 @@ class EventSourceMappingArgs:
         pulumi.set(self, "starting_position", value)
 
     @property
+    @pulumi.getter(name="startingPositionTimestamp")
+    def starting_position_timestamp(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
+        """
+        return pulumi.get(self, "starting_position_timestamp")
+
+    @starting_position_timestamp.setter
+    def starting_position_timestamp(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "starting_position_timestamp", value)
+
+    @property
     @pulumi.getter
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -323,11 +323,11 @@ class EventSourceMapping(pulumi.CustomResource):
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
-                 partial_batch_response: Optional[pulumi.Input[bool]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self_managed_event_source: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']]] = None,
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]]] = None,
                  starting_position: Optional[pulumi.Input[str]] = None,
+                 starting_position_timestamp: Optional[pulumi.Input[float]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -347,11 +347,11 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[int] maximum_record_age_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
         :param pulumi.Input[int] maximum_retry_attempts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
         :param pulumi.Input[int] parallelization_factor: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
-        :param pulumi.Input[bool] partial_batch_response: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
         :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
         :param pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']] self_managed_event_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]] source_access_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
         :param pulumi.Input[str] starting_position: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
+        :param pulumi.Input[float] starting_position_timestamp: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
         :param pulumi.Input[int] tumbling_window_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
         """
@@ -390,11 +390,11 @@ class EventSourceMapping(pulumi.CustomResource):
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
-                 partial_batch_response: Optional[pulumi.Input[bool]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self_managed_event_source: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']]] = None,
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]]] = None,
                  starting_position: Optional[pulumi.Input[str]] = None,
+                 starting_position_timestamp: Optional[pulumi.Input[float]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -422,11 +422,11 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
             __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
             __props__.__dict__["parallelization_factor"] = parallelization_factor
-            __props__.__dict__["partial_batch_response"] = partial_batch_response
             __props__.__dict__["queues"] = queues
             __props__.__dict__["self_managed_event_source"] = self_managed_event_source
             __props__.__dict__["source_access_configurations"] = source_access_configurations
             __props__.__dict__["starting_position"] = starting_position
+            __props__.__dict__["starting_position_timestamp"] = starting_position_timestamp
             __props__.__dict__["topics"] = topics
             __props__.__dict__["tumbling_window_in_seconds"] = tumbling_window_in_seconds
             __props__.__dict__["id"] = None
@@ -464,11 +464,11 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["maximum_record_age_in_seconds"] = None
         __props__.__dict__["maximum_retry_attempts"] = None
         __props__.__dict__["parallelization_factor"] = None
-        __props__.__dict__["partial_batch_response"] = None
         __props__.__dict__["queues"] = None
         __props__.__dict__["self_managed_event_source"] = None
         __props__.__dict__["source_access_configurations"] = None
         __props__.__dict__["starting_position"] = None
+        __props__.__dict__["starting_position_timestamp"] = None
         __props__.__dict__["topics"] = None
         __props__.__dict__["tumbling_window_in_seconds"] = None
         return EventSourceMapping(resource_name, opts=opts, __props__=__props__)
@@ -567,14 +567,6 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "parallelization_factor")
 
     @property
-    @pulumi.getter(name="partialBatchResponse")
-    def partial_batch_response(self) -> pulumi.Output[Optional[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
-        """
-        return pulumi.get(self, "partial_batch_response")
-
-    @property
     @pulumi.getter
     def queues(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
@@ -605,6 +597,14 @@ class EventSourceMapping(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
         """
         return pulumi.get(self, "starting_position")
+
+    @property
+    @pulumi.getter(name="startingPositionTimestamp")
+    def starting_position_timestamp(self) -> pulumi.Output[Optional[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
+        """
+        return pulumi.get(self, "starting_position_timestamp")
 
     @property
     @pulumi.getter

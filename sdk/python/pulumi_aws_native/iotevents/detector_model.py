@@ -17,25 +17,25 @@ __all__ = ['DetectorModelArgs', 'DetectorModel']
 @pulumi.input_type
 class DetectorModelArgs:
     def __init__(__self__, *,
-                 detector_model_definition: Optional[pulumi.Input['DetectorModelDetectorModelDefinitionArgs']] = None,
+                 detector_model_definition: pulumi.Input['DetectorModelDetectorModelDefinitionArgs'],
+                 role_arn: pulumi.Input[str],
                  detector_model_description: Optional[pulumi.Input[str]] = None,
                  detector_model_name: Optional[pulumi.Input[str]] = None,
                  evaluation_method: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
-                 role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DetectorModel resource.
         :param pulumi.Input['DetectorModelDetectorModelDefinitionArgs'] detector_model_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition
+        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn
         :param pulumi.Input[str] detector_model_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription
         :param pulumi.Input[str] detector_model_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodelname
         :param pulumi.Input[str] evaluation_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-evaluationmethod
         :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-key
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-tags
         """
-        if detector_model_definition is not None:
-            pulumi.set(__self__, "detector_model_definition", detector_model_definition)
+        pulumi.set(__self__, "detector_model_definition", detector_model_definition)
+        pulumi.set(__self__, "role_arn", role_arn)
         if detector_model_description is not None:
             pulumi.set(__self__, "detector_model_description", detector_model_description)
         if detector_model_name is not None:
@@ -44,22 +44,32 @@ class DetectorModelArgs:
             pulumi.set(__self__, "evaluation_method", evaluation_method)
         if key is not None:
             pulumi.set(__self__, "key", key)
-        if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="detectorModelDefinition")
-    def detector_model_definition(self) -> Optional[pulumi.Input['DetectorModelDetectorModelDefinitionArgs']]:
+    def detector_model_definition(self) -> pulumi.Input['DetectorModelDetectorModelDefinitionArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition
         """
         return pulumi.get(self, "detector_model_definition")
 
     @detector_model_definition.setter
-    def detector_model_definition(self, value: Optional[pulumi.Input['DetectorModelDetectorModelDefinitionArgs']]):
+    def detector_model_definition(self, value: pulumi.Input['DetectorModelDetectorModelDefinitionArgs']):
         pulumi.set(self, "detector_model_definition", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
 
     @property
     @pulumi.getter(name="detectorModelDescription")
@@ -110,18 +120,6 @@ class DetectorModelArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn
-        """
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "role_arn", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -164,7 +162,7 @@ class DetectorModel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DetectorModelArgs] = None,
+                 args: DetectorModelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html
@@ -203,11 +201,15 @@ class DetectorModel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DetectorModelArgs.__new__(DetectorModelArgs)
 
+            if detector_model_definition is None and not opts.urn:
+                raise TypeError("Missing required property 'detector_model_definition'")
             __props__.__dict__["detector_model_definition"] = detector_model_definition
             __props__.__dict__["detector_model_description"] = detector_model_description
             __props__.__dict__["detector_model_name"] = detector_model_name
             __props__.__dict__["evaluation_method"] = evaluation_method
             __props__.__dict__["key"] = key
+            if role_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
         super(DetectorModel, __self__).__init__(
@@ -243,7 +245,7 @@ class DetectorModel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="detectorModelDefinition")
-    def detector_model_definition(self) -> pulumi.Output[Optional['outputs.DetectorModelDetectorModelDefinition']]:
+    def detector_model_definition(self) -> pulumi.Output['outputs.DetectorModelDetectorModelDefinition']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition
         """
@@ -283,7 +285,7 @@ class DetectorModel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Output[Optional[str]]:
+    def role_arn(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn
         """
