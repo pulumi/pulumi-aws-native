@@ -171,7 +171,9 @@ jobs:
       - name: Login to AWS CodeArtifact NPM for package publishing
         run: aws codeartifact login --tool npm --repository preview --domain private-preview --domain-owner 894850187425
       - name: Login to AWS CodeArtifact Nuget for package publishing
-        run: aws codeartifact login --tool dotnet --repository preview --domain private-preview --domain-owner 894850187425
+        run: |
+          dotnet nuget add source "https://private-preview-894850187425.d.codeartifact.us-east-1.amazonaws.com/nuget/preview/v3/index.json" -n "private-preview/preview"
+          aws codeartifact login --tool dotnet --repository preview --domain private-preview --domain-owner 894850187425
       - name: Set CodeArtifact AuthToken
         run: |
           echo "CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain private-preview --domain-owner 894850187425 --query authorizationToken --output text)" >> $GITHUB_ENV
