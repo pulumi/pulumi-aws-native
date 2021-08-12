@@ -30,20 +30,20 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition
         /// </summary>
-        [Input("condition")]
-        public Input<string>? Condition { get; set; }
+        [Input("condition", required: true)]
+        public Input<string> Condition { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname
         /// </summary>
-        [Input("eventName")]
-        public Input<string>? EventName { get; set; }
+        [Input("eventName", required: true)]
+        public Input<string> EventName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate
         /// </summary>
-        [Input("nextState")]
-        public Input<string>? NextState { get; set; }
+        [Input("nextState", required: true)]
+        public Input<string> NextState { get; set; } = null!;
 
         public DetectorModelTransitionEventArgs()
         {

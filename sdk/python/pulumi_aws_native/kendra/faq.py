@@ -23,7 +23,7 @@ class FaqArgs:
                  s3_path: pulumi.Input['FaqS3PathArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  file_format: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['FaqTagListArgs']] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Faq resource.
         :param pulumi.Input[str] index_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-indexid
@@ -32,7 +32,7 @@ class FaqArgs:
         :param pulumi.Input['FaqS3PathArgs'] s3_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-description
         :param pulumi.Input[str] file_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-fileformat
-        :param pulumi.Input['FaqTagListArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "name", name)
@@ -119,14 +119,14 @@ class FaqArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['FaqTagListArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['FaqTagListArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -141,7 +141,7 @@ class Faq(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  s3_path: Optional[pulumi.Input[pulumi.InputType['FaqS3PathArgs']]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['FaqTagListArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html
@@ -154,7 +154,7 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-name
         :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-rolearn
         :param pulumi.Input[pulumi.InputType['FaqS3PathArgs']] s3_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
-        :param pulumi.Input[pulumi.InputType['FaqTagListArgs']] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
         """
         ...
     @overload
@@ -186,7 +186,7 @@ class Faq(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  s3_path: Optional[pulumi.Input[pulumi.InputType['FaqS3PathArgs']]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['FaqTagListArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -309,7 +309,7 @@ class Faq(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.FaqTagList']]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
         """

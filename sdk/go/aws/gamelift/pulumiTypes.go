@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,7 +17,7 @@ type AliasRoutingStrategy struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
 	Message *string `pulumi:"message"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // AliasRoutingStrategyInput is an input type that accepts AliasRoutingStrategyArgs and AliasRoutingStrategyOutput values.
@@ -39,7 +38,7 @@ type AliasRoutingStrategyArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AliasRoutingStrategyArgs) ElementType() reflect.Type {
@@ -131,8 +130,8 @@ func (o AliasRoutingStrategyOutput) Message() pulumi.StringPtrOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
-func (o AliasRoutingStrategyOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AliasRoutingStrategy) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AliasRoutingStrategyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AliasRoutingStrategy) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type AliasRoutingStrategyPtrOutput struct{ *pulumi.OutputState }
@@ -185,7 +184,7 @@ func (o AliasRoutingStrategyPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -329,15 +328,15 @@ func (o FleetCertificateConfigurationPtrOutput) CertificateType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html
 type FleetIpPermission struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-fromport
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-fromport
 	FromPort int `pulumi:"fromPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-iprange
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-iprange
 	IpRange string `pulumi:"ipRange"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-protocol
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-protocol
 	Protocol string `pulumi:"protocol"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-toport
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-toport
 	ToPort int `pulumi:"toPort"`
 }
 
@@ -352,15 +351,15 @@ type FleetIpPermissionInput interface {
 	ToFleetIpPermissionOutputWithContext(context.Context) FleetIpPermissionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html
 type FleetIpPermissionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-fromport
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-fromport
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-iprange
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-iprange
 	IpRange pulumi.StringInput `pulumi:"ipRange"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-protocol
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-protocol
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-toport
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-toport
 	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
@@ -401,7 +400,7 @@ func (i FleetIpPermissionArray) ToFleetIpPermissionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FleetIpPermissionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html
 type FleetIpPermissionOutput struct{ *pulumi.OutputState }
 
 func (FleetIpPermissionOutput) ElementType() reflect.Type {
@@ -416,22 +415,22 @@ func (o FleetIpPermissionOutput) ToFleetIpPermissionOutputWithContext(ctx contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-fromport
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-fromport
 func (o FleetIpPermissionOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetIpPermission) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-iprange
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-iprange
 func (o FleetIpPermissionOutput) IpRange() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetIpPermission) string { return v.IpRange }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-protocol
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-protocol
 func (o FleetIpPermissionOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetIpPermission) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-toport
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-toport
 func (o FleetIpPermissionOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetIpPermission) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -454,6 +453,293 @@ func (o FleetIpPermissionArrayOutput) Index(i pulumi.IntInput) FleetIpPermission
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetIpPermission {
 		return vs[0].([]FleetIpPermission)[vs[1].(int)]
 	}).(FleetIpPermissionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html
+type FleetLocationCapacity struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
+	DesiredEC2Instances int `pulumi:"desiredEC2Instances"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
+	MaxSize int `pulumi:"maxSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+	MinSize int `pulumi:"minSize"`
+}
+
+// FleetLocationCapacityInput is an input type that accepts FleetLocationCapacityArgs and FleetLocationCapacityOutput values.
+// You can construct a concrete instance of `FleetLocationCapacityInput` via:
+//
+//          FleetLocationCapacityArgs{...}
+type FleetLocationCapacityInput interface {
+	pulumi.Input
+
+	ToFleetLocationCapacityOutput() FleetLocationCapacityOutput
+	ToFleetLocationCapacityOutputWithContext(context.Context) FleetLocationCapacityOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html
+type FleetLocationCapacityArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
+	DesiredEC2Instances pulumi.IntInput `pulumi:"desiredEC2Instances"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
+	MaxSize pulumi.IntInput `pulumi:"maxSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+	MinSize pulumi.IntInput `pulumi:"minSize"`
+}
+
+func (FleetLocationCapacityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLocationCapacity)(nil)).Elem()
+}
+
+func (i FleetLocationCapacityArgs) ToFleetLocationCapacityOutput() FleetLocationCapacityOutput {
+	return i.ToFleetLocationCapacityOutputWithContext(context.Background())
+}
+
+func (i FleetLocationCapacityArgs) ToFleetLocationCapacityOutputWithContext(ctx context.Context) FleetLocationCapacityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLocationCapacityOutput)
+}
+
+func (i FleetLocationCapacityArgs) ToFleetLocationCapacityPtrOutput() FleetLocationCapacityPtrOutput {
+	return i.ToFleetLocationCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i FleetLocationCapacityArgs) ToFleetLocationCapacityPtrOutputWithContext(ctx context.Context) FleetLocationCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLocationCapacityOutput).ToFleetLocationCapacityPtrOutputWithContext(ctx)
+}
+
+// FleetLocationCapacityPtrInput is an input type that accepts FleetLocationCapacityArgs, FleetLocationCapacityPtr and FleetLocationCapacityPtrOutput values.
+// You can construct a concrete instance of `FleetLocationCapacityPtrInput` via:
+//
+//          FleetLocationCapacityArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetLocationCapacityPtrInput interface {
+	pulumi.Input
+
+	ToFleetLocationCapacityPtrOutput() FleetLocationCapacityPtrOutput
+	ToFleetLocationCapacityPtrOutputWithContext(context.Context) FleetLocationCapacityPtrOutput
+}
+
+type fleetLocationCapacityPtrType FleetLocationCapacityArgs
+
+func FleetLocationCapacityPtr(v *FleetLocationCapacityArgs) FleetLocationCapacityPtrInput {
+	return (*fleetLocationCapacityPtrType)(v)
+}
+
+func (*fleetLocationCapacityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLocationCapacity)(nil)).Elem()
+}
+
+func (i *fleetLocationCapacityPtrType) ToFleetLocationCapacityPtrOutput() FleetLocationCapacityPtrOutput {
+	return i.ToFleetLocationCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetLocationCapacityPtrType) ToFleetLocationCapacityPtrOutputWithContext(ctx context.Context) FleetLocationCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLocationCapacityPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html
+type FleetLocationCapacityOutput struct{ *pulumi.OutputState }
+
+func (FleetLocationCapacityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLocationCapacity)(nil)).Elem()
+}
+
+func (o FleetLocationCapacityOutput) ToFleetLocationCapacityOutput() FleetLocationCapacityOutput {
+	return o
+}
+
+func (o FleetLocationCapacityOutput) ToFleetLocationCapacityOutputWithContext(ctx context.Context) FleetLocationCapacityOutput {
+	return o
+}
+
+func (o FleetLocationCapacityOutput) ToFleetLocationCapacityPtrOutput() FleetLocationCapacityPtrOutput {
+	return o.ToFleetLocationCapacityPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLocationCapacityOutput) ToFleetLocationCapacityPtrOutputWithContext(ctx context.Context) FleetLocationCapacityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLocationCapacity) *FleetLocationCapacity {
+		return &v
+	}).(FleetLocationCapacityPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
+func (o FleetLocationCapacityOutput) DesiredEC2Instances() pulumi.IntOutput {
+	return o.ApplyT(func(v FleetLocationCapacity) int { return v.DesiredEC2Instances }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
+func (o FleetLocationCapacityOutput) MaxSize() pulumi.IntOutput {
+	return o.ApplyT(func(v FleetLocationCapacity) int { return v.MaxSize }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+func (o FleetLocationCapacityOutput) MinSize() pulumi.IntOutput {
+	return o.ApplyT(func(v FleetLocationCapacity) int { return v.MinSize }).(pulumi.IntOutput)
+}
+
+type FleetLocationCapacityPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetLocationCapacityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLocationCapacity)(nil)).Elem()
+}
+
+func (o FleetLocationCapacityPtrOutput) ToFleetLocationCapacityPtrOutput() FleetLocationCapacityPtrOutput {
+	return o
+}
+
+func (o FleetLocationCapacityPtrOutput) ToFleetLocationCapacityPtrOutputWithContext(ctx context.Context) FleetLocationCapacityPtrOutput {
+	return o
+}
+
+func (o FleetLocationCapacityPtrOutput) Elem() FleetLocationCapacityOutput {
+	return o.ApplyT(func(v *FleetLocationCapacity) FleetLocationCapacity {
+		if v != nil {
+			return *v
+		}
+		var ret FleetLocationCapacity
+		return ret
+	}).(FleetLocationCapacityOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
+func (o FleetLocationCapacityPtrOutput) DesiredEC2Instances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLocationCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DesiredEC2Instances
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
+func (o FleetLocationCapacityPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLocationCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+func (o FleetLocationCapacityPtrOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLocationCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html
+type FleetLocationConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
+	Location string `pulumi:"location"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-locationcapacity
+	LocationCapacity *FleetLocationCapacity `pulumi:"locationCapacity"`
+}
+
+// FleetLocationConfigurationInput is an input type that accepts FleetLocationConfigurationArgs and FleetLocationConfigurationOutput values.
+// You can construct a concrete instance of `FleetLocationConfigurationInput` via:
+//
+//          FleetLocationConfigurationArgs{...}
+type FleetLocationConfigurationInput interface {
+	pulumi.Input
+
+	ToFleetLocationConfigurationOutput() FleetLocationConfigurationOutput
+	ToFleetLocationConfigurationOutputWithContext(context.Context) FleetLocationConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html
+type FleetLocationConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
+	Location pulumi.StringInput `pulumi:"location"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-locationcapacity
+	LocationCapacity FleetLocationCapacityPtrInput `pulumi:"locationCapacity"`
+}
+
+func (FleetLocationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLocationConfiguration)(nil)).Elem()
+}
+
+func (i FleetLocationConfigurationArgs) ToFleetLocationConfigurationOutput() FleetLocationConfigurationOutput {
+	return i.ToFleetLocationConfigurationOutputWithContext(context.Background())
+}
+
+func (i FleetLocationConfigurationArgs) ToFleetLocationConfigurationOutputWithContext(ctx context.Context) FleetLocationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLocationConfigurationOutput)
+}
+
+// FleetLocationConfigurationArrayInput is an input type that accepts FleetLocationConfigurationArray and FleetLocationConfigurationArrayOutput values.
+// You can construct a concrete instance of `FleetLocationConfigurationArrayInput` via:
+//
+//          FleetLocationConfigurationArray{ FleetLocationConfigurationArgs{...} }
+type FleetLocationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToFleetLocationConfigurationArrayOutput() FleetLocationConfigurationArrayOutput
+	ToFleetLocationConfigurationArrayOutputWithContext(context.Context) FleetLocationConfigurationArrayOutput
+}
+
+type FleetLocationConfigurationArray []FleetLocationConfigurationInput
+
+func (FleetLocationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetLocationConfiguration)(nil)).Elem()
+}
+
+func (i FleetLocationConfigurationArray) ToFleetLocationConfigurationArrayOutput() FleetLocationConfigurationArrayOutput {
+	return i.ToFleetLocationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i FleetLocationConfigurationArray) ToFleetLocationConfigurationArrayOutputWithContext(ctx context.Context) FleetLocationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLocationConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html
+type FleetLocationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FleetLocationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLocationConfiguration)(nil)).Elem()
+}
+
+func (o FleetLocationConfigurationOutput) ToFleetLocationConfigurationOutput() FleetLocationConfigurationOutput {
+	return o
+}
+
+func (o FleetLocationConfigurationOutput) ToFleetLocationConfigurationOutputWithContext(ctx context.Context) FleetLocationConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
+func (o FleetLocationConfigurationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetLocationConfiguration) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-locationcapacity
+func (o FleetLocationConfigurationOutput) LocationCapacity() FleetLocationCapacityPtrOutput {
+	return o.ApplyT(func(v FleetLocationConfiguration) *FleetLocationCapacity { return v.LocationCapacity }).(FleetLocationCapacityPtrOutput)
+}
+
+type FleetLocationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetLocationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetLocationConfiguration)(nil)).Elem()
+}
+
+func (o FleetLocationConfigurationArrayOutput) ToFleetLocationConfigurationArrayOutput() FleetLocationConfigurationArrayOutput {
+	return o
+}
+
+func (o FleetLocationConfigurationArrayOutput) ToFleetLocationConfigurationArrayOutputWithContext(ctx context.Context) FleetLocationConfigurationArrayOutput {
+	return o
+}
+
+func (o FleetLocationConfigurationArrayOutput) Index(i pulumi.IntInput) FleetLocationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetLocationConfiguration {
+		return vs[0].([]FleetLocationConfiguration)[vs[1].(int)]
+	}).(FleetLocationConfigurationOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html
@@ -1181,148 +1467,6 @@ func (o GameServerGroupInstanceDefinitionArrayOutput) Index(i pulumi.IntInput) G
 	}).(GameServerGroupInstanceDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html
-type GameServerGroupInstanceDefinitions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
-	InstanceDefinitions []GameServerGroupInstanceDefinition `pulumi:"instanceDefinitions"`
-}
-
-// GameServerGroupInstanceDefinitionsInput is an input type that accepts GameServerGroupInstanceDefinitionsArgs and GameServerGroupInstanceDefinitionsOutput values.
-// You can construct a concrete instance of `GameServerGroupInstanceDefinitionsInput` via:
-//
-//          GameServerGroupInstanceDefinitionsArgs{...}
-type GameServerGroupInstanceDefinitionsInput interface {
-	pulumi.Input
-
-	ToGameServerGroupInstanceDefinitionsOutput() GameServerGroupInstanceDefinitionsOutput
-	ToGameServerGroupInstanceDefinitionsOutputWithContext(context.Context) GameServerGroupInstanceDefinitionsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html
-type GameServerGroupInstanceDefinitionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
-	InstanceDefinitions GameServerGroupInstanceDefinitionArrayInput `pulumi:"instanceDefinitions"`
-}
-
-func (GameServerGroupInstanceDefinitionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameServerGroupInstanceDefinitions)(nil)).Elem()
-}
-
-func (i GameServerGroupInstanceDefinitionsArgs) ToGameServerGroupInstanceDefinitionsOutput() GameServerGroupInstanceDefinitionsOutput {
-	return i.ToGameServerGroupInstanceDefinitionsOutputWithContext(context.Background())
-}
-
-func (i GameServerGroupInstanceDefinitionsArgs) ToGameServerGroupInstanceDefinitionsOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupInstanceDefinitionsOutput)
-}
-
-func (i GameServerGroupInstanceDefinitionsArgs) ToGameServerGroupInstanceDefinitionsPtrOutput() GameServerGroupInstanceDefinitionsPtrOutput {
-	return i.ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(context.Background())
-}
-
-func (i GameServerGroupInstanceDefinitionsArgs) ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupInstanceDefinitionsOutput).ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(ctx)
-}
-
-// GameServerGroupInstanceDefinitionsPtrInput is an input type that accepts GameServerGroupInstanceDefinitionsArgs, GameServerGroupInstanceDefinitionsPtr and GameServerGroupInstanceDefinitionsPtrOutput values.
-// You can construct a concrete instance of `GameServerGroupInstanceDefinitionsPtrInput` via:
-//
-//          GameServerGroupInstanceDefinitionsArgs{...}
-//
-//  or:
-//
-//          nil
-type GameServerGroupInstanceDefinitionsPtrInput interface {
-	pulumi.Input
-
-	ToGameServerGroupInstanceDefinitionsPtrOutput() GameServerGroupInstanceDefinitionsPtrOutput
-	ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(context.Context) GameServerGroupInstanceDefinitionsPtrOutput
-}
-
-type gameServerGroupInstanceDefinitionsPtrType GameServerGroupInstanceDefinitionsArgs
-
-func GameServerGroupInstanceDefinitionsPtr(v *GameServerGroupInstanceDefinitionsArgs) GameServerGroupInstanceDefinitionsPtrInput {
-	return (*gameServerGroupInstanceDefinitionsPtrType)(v)
-}
-
-func (*gameServerGroupInstanceDefinitionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GameServerGroupInstanceDefinitions)(nil)).Elem()
-}
-
-func (i *gameServerGroupInstanceDefinitionsPtrType) ToGameServerGroupInstanceDefinitionsPtrOutput() GameServerGroupInstanceDefinitionsPtrOutput {
-	return i.ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(context.Background())
-}
-
-func (i *gameServerGroupInstanceDefinitionsPtrType) ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupInstanceDefinitionsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html
-type GameServerGroupInstanceDefinitionsOutput struct{ *pulumi.OutputState }
-
-func (GameServerGroupInstanceDefinitionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameServerGroupInstanceDefinitions)(nil)).Elem()
-}
-
-func (o GameServerGroupInstanceDefinitionsOutput) ToGameServerGroupInstanceDefinitionsOutput() GameServerGroupInstanceDefinitionsOutput {
-	return o
-}
-
-func (o GameServerGroupInstanceDefinitionsOutput) ToGameServerGroupInstanceDefinitionsOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionsOutput {
-	return o
-}
-
-func (o GameServerGroupInstanceDefinitionsOutput) ToGameServerGroupInstanceDefinitionsPtrOutput() GameServerGroupInstanceDefinitionsPtrOutput {
-	return o.ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(context.Background())
-}
-
-func (o GameServerGroupInstanceDefinitionsOutput) ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameServerGroupInstanceDefinitions) *GameServerGroupInstanceDefinitions {
-		return &v
-	}).(GameServerGroupInstanceDefinitionsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
-func (o GameServerGroupInstanceDefinitionsOutput) InstanceDefinitions() GameServerGroupInstanceDefinitionArrayOutput {
-	return o.ApplyT(func(v GameServerGroupInstanceDefinitions) []GameServerGroupInstanceDefinition {
-		return v.InstanceDefinitions
-	}).(GameServerGroupInstanceDefinitionArrayOutput)
-}
-
-type GameServerGroupInstanceDefinitionsPtrOutput struct{ *pulumi.OutputState }
-
-func (GameServerGroupInstanceDefinitionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GameServerGroupInstanceDefinitions)(nil)).Elem()
-}
-
-func (o GameServerGroupInstanceDefinitionsPtrOutput) ToGameServerGroupInstanceDefinitionsPtrOutput() GameServerGroupInstanceDefinitionsPtrOutput {
-	return o
-}
-
-func (o GameServerGroupInstanceDefinitionsPtrOutput) ToGameServerGroupInstanceDefinitionsPtrOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionsPtrOutput {
-	return o
-}
-
-func (o GameServerGroupInstanceDefinitionsPtrOutput) Elem() GameServerGroupInstanceDefinitionsOutput {
-	return o.ApplyT(func(v *GameServerGroupInstanceDefinitions) GameServerGroupInstanceDefinitions {
-		if v != nil {
-			return *v
-		}
-		var ret GameServerGroupInstanceDefinitions
-		return ret
-	}).(GameServerGroupInstanceDefinitionsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinitions.html#cfn-gamelift-gameservergroup-instancedefinitions-instancedefinitions
-func (o GameServerGroupInstanceDefinitionsPtrOutput) InstanceDefinitions() GameServerGroupInstanceDefinitionArrayOutput {
-	return o.ApplyT(func(v *GameServerGroupInstanceDefinitions) []GameServerGroupInstanceDefinition {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceDefinitions
-	}).(GameServerGroupInstanceDefinitionArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html
 type GameServerGroupLaunchTemplate struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
@@ -1501,146 +1645,6 @@ func (o GameServerGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html
-type GameServerGroupTags struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html#cfn-gamelift-gameservergroup-tags-tags
-	Tags []aws.Tag `pulumi:"tags"`
-}
-
-// GameServerGroupTagsInput is an input type that accepts GameServerGroupTagsArgs and GameServerGroupTagsOutput values.
-// You can construct a concrete instance of `GameServerGroupTagsInput` via:
-//
-//          GameServerGroupTagsArgs{...}
-type GameServerGroupTagsInput interface {
-	pulumi.Input
-
-	ToGameServerGroupTagsOutput() GameServerGroupTagsOutput
-	ToGameServerGroupTagsOutputWithContext(context.Context) GameServerGroupTagsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html
-type GameServerGroupTagsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html#cfn-gamelift-gameservergroup-tags-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
-}
-
-func (GameServerGroupTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameServerGroupTags)(nil)).Elem()
-}
-
-func (i GameServerGroupTagsArgs) ToGameServerGroupTagsOutput() GameServerGroupTagsOutput {
-	return i.ToGameServerGroupTagsOutputWithContext(context.Background())
-}
-
-func (i GameServerGroupTagsArgs) ToGameServerGroupTagsOutputWithContext(ctx context.Context) GameServerGroupTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTagsOutput)
-}
-
-func (i GameServerGroupTagsArgs) ToGameServerGroupTagsPtrOutput() GameServerGroupTagsPtrOutput {
-	return i.ToGameServerGroupTagsPtrOutputWithContext(context.Background())
-}
-
-func (i GameServerGroupTagsArgs) ToGameServerGroupTagsPtrOutputWithContext(ctx context.Context) GameServerGroupTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTagsOutput).ToGameServerGroupTagsPtrOutputWithContext(ctx)
-}
-
-// GameServerGroupTagsPtrInput is an input type that accepts GameServerGroupTagsArgs, GameServerGroupTagsPtr and GameServerGroupTagsPtrOutput values.
-// You can construct a concrete instance of `GameServerGroupTagsPtrInput` via:
-//
-//          GameServerGroupTagsArgs{...}
-//
-//  or:
-//
-//          nil
-type GameServerGroupTagsPtrInput interface {
-	pulumi.Input
-
-	ToGameServerGroupTagsPtrOutput() GameServerGroupTagsPtrOutput
-	ToGameServerGroupTagsPtrOutputWithContext(context.Context) GameServerGroupTagsPtrOutput
-}
-
-type gameServerGroupTagsPtrType GameServerGroupTagsArgs
-
-func GameServerGroupTagsPtr(v *GameServerGroupTagsArgs) GameServerGroupTagsPtrInput {
-	return (*gameServerGroupTagsPtrType)(v)
-}
-
-func (*gameServerGroupTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GameServerGroupTags)(nil)).Elem()
-}
-
-func (i *gameServerGroupTagsPtrType) ToGameServerGroupTagsPtrOutput() GameServerGroupTagsPtrOutput {
-	return i.ToGameServerGroupTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *gameServerGroupTagsPtrType) ToGameServerGroupTagsPtrOutputWithContext(ctx context.Context) GameServerGroupTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html
-type GameServerGroupTagsOutput struct{ *pulumi.OutputState }
-
-func (GameServerGroupTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameServerGroupTags)(nil)).Elem()
-}
-
-func (o GameServerGroupTagsOutput) ToGameServerGroupTagsOutput() GameServerGroupTagsOutput {
-	return o
-}
-
-func (o GameServerGroupTagsOutput) ToGameServerGroupTagsOutputWithContext(ctx context.Context) GameServerGroupTagsOutput {
-	return o
-}
-
-func (o GameServerGroupTagsOutput) ToGameServerGroupTagsPtrOutput() GameServerGroupTagsPtrOutput {
-	return o.ToGameServerGroupTagsPtrOutputWithContext(context.Background())
-}
-
-func (o GameServerGroupTagsOutput) ToGameServerGroupTagsPtrOutputWithContext(ctx context.Context) GameServerGroupTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameServerGroupTags) *GameServerGroupTags {
-		return &v
-	}).(GameServerGroupTagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html#cfn-gamelift-gameservergroup-tags-tags
-func (o GameServerGroupTagsOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v GameServerGroupTags) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
-}
-
-type GameServerGroupTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (GameServerGroupTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GameServerGroupTags)(nil)).Elem()
-}
-
-func (o GameServerGroupTagsPtrOutput) ToGameServerGroupTagsPtrOutput() GameServerGroupTagsPtrOutput {
-	return o
-}
-
-func (o GameServerGroupTagsPtrOutput) ToGameServerGroupTagsPtrOutputWithContext(ctx context.Context) GameServerGroupTagsPtrOutput {
-	return o
-}
-
-func (o GameServerGroupTagsPtrOutput) Elem() GameServerGroupTagsOutput {
-	return o.ApplyT(func(v *GameServerGroupTags) GameServerGroupTags {
-		if v != nil {
-			return *v
-		}
-		var ret GameServerGroupTags
-		return ret
-	}).(GameServerGroupTagsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tags.html#cfn-gamelift-gameservergroup-tags-tags
-func (o GameServerGroupTagsPtrOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v *GameServerGroupTags) []aws.Tag {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(aws.TagArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html
 type GameServerGroupTargetTrackingConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
@@ -1781,146 +1785,6 @@ func (o GameServerGroupTargetTrackingConfigurationPtrOutput) TargetValue() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html
-type GameServerGroupVpcSubnets struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html#cfn-gamelift-gameservergroup-vpcsubnets-vpcsubnets
-	VpcSubnets []string `pulumi:"vpcSubnets"`
-}
-
-// GameServerGroupVpcSubnetsInput is an input type that accepts GameServerGroupVpcSubnetsArgs and GameServerGroupVpcSubnetsOutput values.
-// You can construct a concrete instance of `GameServerGroupVpcSubnetsInput` via:
-//
-//          GameServerGroupVpcSubnetsArgs{...}
-type GameServerGroupVpcSubnetsInput interface {
-	pulumi.Input
-
-	ToGameServerGroupVpcSubnetsOutput() GameServerGroupVpcSubnetsOutput
-	ToGameServerGroupVpcSubnetsOutputWithContext(context.Context) GameServerGroupVpcSubnetsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html
-type GameServerGroupVpcSubnetsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html#cfn-gamelift-gameservergroup-vpcsubnets-vpcsubnets
-	VpcSubnets pulumi.StringArrayInput `pulumi:"vpcSubnets"`
-}
-
-func (GameServerGroupVpcSubnetsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameServerGroupVpcSubnets)(nil)).Elem()
-}
-
-func (i GameServerGroupVpcSubnetsArgs) ToGameServerGroupVpcSubnetsOutput() GameServerGroupVpcSubnetsOutput {
-	return i.ToGameServerGroupVpcSubnetsOutputWithContext(context.Background())
-}
-
-func (i GameServerGroupVpcSubnetsArgs) ToGameServerGroupVpcSubnetsOutputWithContext(ctx context.Context) GameServerGroupVpcSubnetsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupVpcSubnetsOutput)
-}
-
-func (i GameServerGroupVpcSubnetsArgs) ToGameServerGroupVpcSubnetsPtrOutput() GameServerGroupVpcSubnetsPtrOutput {
-	return i.ToGameServerGroupVpcSubnetsPtrOutputWithContext(context.Background())
-}
-
-func (i GameServerGroupVpcSubnetsArgs) ToGameServerGroupVpcSubnetsPtrOutputWithContext(ctx context.Context) GameServerGroupVpcSubnetsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupVpcSubnetsOutput).ToGameServerGroupVpcSubnetsPtrOutputWithContext(ctx)
-}
-
-// GameServerGroupVpcSubnetsPtrInput is an input type that accepts GameServerGroupVpcSubnetsArgs, GameServerGroupVpcSubnetsPtr and GameServerGroupVpcSubnetsPtrOutput values.
-// You can construct a concrete instance of `GameServerGroupVpcSubnetsPtrInput` via:
-//
-//          GameServerGroupVpcSubnetsArgs{...}
-//
-//  or:
-//
-//          nil
-type GameServerGroupVpcSubnetsPtrInput interface {
-	pulumi.Input
-
-	ToGameServerGroupVpcSubnetsPtrOutput() GameServerGroupVpcSubnetsPtrOutput
-	ToGameServerGroupVpcSubnetsPtrOutputWithContext(context.Context) GameServerGroupVpcSubnetsPtrOutput
-}
-
-type gameServerGroupVpcSubnetsPtrType GameServerGroupVpcSubnetsArgs
-
-func GameServerGroupVpcSubnetsPtr(v *GameServerGroupVpcSubnetsArgs) GameServerGroupVpcSubnetsPtrInput {
-	return (*gameServerGroupVpcSubnetsPtrType)(v)
-}
-
-func (*gameServerGroupVpcSubnetsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GameServerGroupVpcSubnets)(nil)).Elem()
-}
-
-func (i *gameServerGroupVpcSubnetsPtrType) ToGameServerGroupVpcSubnetsPtrOutput() GameServerGroupVpcSubnetsPtrOutput {
-	return i.ToGameServerGroupVpcSubnetsPtrOutputWithContext(context.Background())
-}
-
-func (i *gameServerGroupVpcSubnetsPtrType) ToGameServerGroupVpcSubnetsPtrOutputWithContext(ctx context.Context) GameServerGroupVpcSubnetsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupVpcSubnetsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html
-type GameServerGroupVpcSubnetsOutput struct{ *pulumi.OutputState }
-
-func (GameServerGroupVpcSubnetsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GameServerGroupVpcSubnets)(nil)).Elem()
-}
-
-func (o GameServerGroupVpcSubnetsOutput) ToGameServerGroupVpcSubnetsOutput() GameServerGroupVpcSubnetsOutput {
-	return o
-}
-
-func (o GameServerGroupVpcSubnetsOutput) ToGameServerGroupVpcSubnetsOutputWithContext(ctx context.Context) GameServerGroupVpcSubnetsOutput {
-	return o
-}
-
-func (o GameServerGroupVpcSubnetsOutput) ToGameServerGroupVpcSubnetsPtrOutput() GameServerGroupVpcSubnetsPtrOutput {
-	return o.ToGameServerGroupVpcSubnetsPtrOutputWithContext(context.Background())
-}
-
-func (o GameServerGroupVpcSubnetsOutput) ToGameServerGroupVpcSubnetsPtrOutputWithContext(ctx context.Context) GameServerGroupVpcSubnetsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameServerGroupVpcSubnets) *GameServerGroupVpcSubnets {
-		return &v
-	}).(GameServerGroupVpcSubnetsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html#cfn-gamelift-gameservergroup-vpcsubnets-vpcsubnets
-func (o GameServerGroupVpcSubnetsOutput) VpcSubnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GameServerGroupVpcSubnets) []string { return v.VpcSubnets }).(pulumi.StringArrayOutput)
-}
-
-type GameServerGroupVpcSubnetsPtrOutput struct{ *pulumi.OutputState }
-
-func (GameServerGroupVpcSubnetsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GameServerGroupVpcSubnets)(nil)).Elem()
-}
-
-func (o GameServerGroupVpcSubnetsPtrOutput) ToGameServerGroupVpcSubnetsPtrOutput() GameServerGroupVpcSubnetsPtrOutput {
-	return o
-}
-
-func (o GameServerGroupVpcSubnetsPtrOutput) ToGameServerGroupVpcSubnetsPtrOutputWithContext(ctx context.Context) GameServerGroupVpcSubnetsPtrOutput {
-	return o
-}
-
-func (o GameServerGroupVpcSubnetsPtrOutput) Elem() GameServerGroupVpcSubnetsOutput {
-	return o.ApplyT(func(v *GameServerGroupVpcSubnets) GameServerGroupVpcSubnets {
-		if v != nil {
-			return *v
-		}
-		var ret GameServerGroupVpcSubnets
-		return ret
-	}).(GameServerGroupVpcSubnetsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-vpcsubnets.html#cfn-gamelift-gameservergroup-vpcsubnets-vpcsubnets
-func (o GameServerGroupVpcSubnetsPtrOutput) VpcSubnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GameServerGroupVpcSubnets) []string {
-		if v == nil {
-			return nil
-		}
-		return v.VpcSubnets
-	}).(pulumi.StringArrayOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AliasRoutingStrategyOutput{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyPtrOutput{})
@@ -1928,6 +1792,10 @@ func init() {
 	pulumi.RegisterOutputType(FleetCertificateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionArrayOutput{})
+	pulumi.RegisterOutputType(FleetLocationCapacityOutput{})
+	pulumi.RegisterOutputType(FleetLocationCapacityPtrOutput{})
+	pulumi.RegisterOutputType(FleetLocationConfigurationOutput{})
+	pulumi.RegisterOutputType(FleetLocationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FleetResourceCreationLimitPolicyOutput{})
 	pulumi.RegisterOutputType(FleetResourceCreationLimitPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FleetRuntimeConfigurationOutput{})
@@ -1938,14 +1806,8 @@ func init() {
 	pulumi.RegisterOutputType(GameServerGroupAutoScalingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionOutput{})
 	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionArrayOutput{})
-	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionsOutput{})
-	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionsPtrOutput{})
 	pulumi.RegisterOutputType(GameServerGroupLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(GameServerGroupLaunchTemplatePtrOutput{})
-	pulumi.RegisterOutputType(GameServerGroupTagsOutput{})
-	pulumi.RegisterOutputType(GameServerGroupTagsPtrOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(GameServerGroupVpcSubnetsOutput{})
-	pulumi.RegisterOutputType(GameServerGroupVpcSubnetsPtrOutput{})
 }

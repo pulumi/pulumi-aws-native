@@ -7,149 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html
-type DataCatalogTags struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
-	Tags []aws.Tag `pulumi:"tags"`
-}
-
-// DataCatalogTagsInput is an input type that accepts DataCatalogTagsArgs and DataCatalogTagsOutput values.
-// You can construct a concrete instance of `DataCatalogTagsInput` via:
-//
-//          DataCatalogTagsArgs{...}
-type DataCatalogTagsInput interface {
-	pulumi.Input
-
-	ToDataCatalogTagsOutput() DataCatalogTagsOutput
-	ToDataCatalogTagsOutputWithContext(context.Context) DataCatalogTagsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html
-type DataCatalogTagsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
-}
-
-func (DataCatalogTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalogTags)(nil)).Elem()
-}
-
-func (i DataCatalogTagsArgs) ToDataCatalogTagsOutput() DataCatalogTagsOutput {
-	return i.ToDataCatalogTagsOutputWithContext(context.Background())
-}
-
-func (i DataCatalogTagsArgs) ToDataCatalogTagsOutputWithContext(ctx context.Context) DataCatalogTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogTagsOutput)
-}
-
-func (i DataCatalogTagsArgs) ToDataCatalogTagsPtrOutput() DataCatalogTagsPtrOutput {
-	return i.ToDataCatalogTagsPtrOutputWithContext(context.Background())
-}
-
-func (i DataCatalogTagsArgs) ToDataCatalogTagsPtrOutputWithContext(ctx context.Context) DataCatalogTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogTagsOutput).ToDataCatalogTagsPtrOutputWithContext(ctx)
-}
-
-// DataCatalogTagsPtrInput is an input type that accepts DataCatalogTagsArgs, DataCatalogTagsPtr and DataCatalogTagsPtrOutput values.
-// You can construct a concrete instance of `DataCatalogTagsPtrInput` via:
-//
-//          DataCatalogTagsArgs{...}
-//
-//  or:
-//
-//          nil
-type DataCatalogTagsPtrInput interface {
-	pulumi.Input
-
-	ToDataCatalogTagsPtrOutput() DataCatalogTagsPtrOutput
-	ToDataCatalogTagsPtrOutputWithContext(context.Context) DataCatalogTagsPtrOutput
-}
-
-type dataCatalogTagsPtrType DataCatalogTagsArgs
-
-func DataCatalogTagsPtr(v *DataCatalogTagsArgs) DataCatalogTagsPtrInput {
-	return (*dataCatalogTagsPtrType)(v)
-}
-
-func (*dataCatalogTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCatalogTags)(nil)).Elem()
-}
-
-func (i *dataCatalogTagsPtrType) ToDataCatalogTagsPtrOutput() DataCatalogTagsPtrOutput {
-	return i.ToDataCatalogTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCatalogTagsPtrType) ToDataCatalogTagsPtrOutputWithContext(ctx context.Context) DataCatalogTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogTagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html
-type DataCatalogTagsOutput struct{ *pulumi.OutputState }
-
-func (DataCatalogTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalogTags)(nil)).Elem()
-}
-
-func (o DataCatalogTagsOutput) ToDataCatalogTagsOutput() DataCatalogTagsOutput {
-	return o
-}
-
-func (o DataCatalogTagsOutput) ToDataCatalogTagsOutputWithContext(ctx context.Context) DataCatalogTagsOutput {
-	return o
-}
-
-func (o DataCatalogTagsOutput) ToDataCatalogTagsPtrOutput() DataCatalogTagsPtrOutput {
-	return o.ToDataCatalogTagsPtrOutputWithContext(context.Background())
-}
-
-func (o DataCatalogTagsOutput) ToDataCatalogTagsPtrOutputWithContext(ctx context.Context) DataCatalogTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogTags) *DataCatalogTags {
-		return &v
-	}).(DataCatalogTagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
-func (o DataCatalogTagsOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v DataCatalogTags) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
-}
-
-type DataCatalogTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (DataCatalogTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCatalogTags)(nil)).Elem()
-}
-
-func (o DataCatalogTagsPtrOutput) ToDataCatalogTagsPtrOutput() DataCatalogTagsPtrOutput {
-	return o
-}
-
-func (o DataCatalogTagsPtrOutput) ToDataCatalogTagsPtrOutputWithContext(ctx context.Context) DataCatalogTagsPtrOutput {
-	return o
-}
-
-func (o DataCatalogTagsPtrOutput) Elem() DataCatalogTagsOutput {
-	return o.ApplyT(func(v *DataCatalogTags) DataCatalogTags {
-		if v != nil {
-			return *v
-		}
-		var ret DataCatalogTags
-		return ret
-	}).(DataCatalogTagsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-datacatalog-tags.html#cfn-athena-datacatalog-tags-tags
-func (o DataCatalogTagsPtrOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v *DataCatalogTags) []aws.Tag {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(aws.TagArrayOutput)
-}
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html
 type WorkGroupEncryptionConfiguration struct {
@@ -307,6 +166,165 @@ func (o WorkGroupEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html
+type WorkGroupEngineVersion struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
+	EffectiveEngineVersion *string `pulumi:"effectiveEngineVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
+	SelectedEngineVersion *string `pulumi:"selectedEngineVersion"`
+}
+
+// WorkGroupEngineVersionInput is an input type that accepts WorkGroupEngineVersionArgs and WorkGroupEngineVersionOutput values.
+// You can construct a concrete instance of `WorkGroupEngineVersionInput` via:
+//
+//          WorkGroupEngineVersionArgs{...}
+type WorkGroupEngineVersionInput interface {
+	pulumi.Input
+
+	ToWorkGroupEngineVersionOutput() WorkGroupEngineVersionOutput
+	ToWorkGroupEngineVersionOutputWithContext(context.Context) WorkGroupEngineVersionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html
+type WorkGroupEngineVersionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
+	EffectiveEngineVersion pulumi.StringPtrInput `pulumi:"effectiveEngineVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
+	SelectedEngineVersion pulumi.StringPtrInput `pulumi:"selectedEngineVersion"`
+}
+
+func (WorkGroupEngineVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupEngineVersion)(nil)).Elem()
+}
+
+func (i WorkGroupEngineVersionArgs) ToWorkGroupEngineVersionOutput() WorkGroupEngineVersionOutput {
+	return i.ToWorkGroupEngineVersionOutputWithContext(context.Background())
+}
+
+func (i WorkGroupEngineVersionArgs) ToWorkGroupEngineVersionOutputWithContext(ctx context.Context) WorkGroupEngineVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupEngineVersionOutput)
+}
+
+func (i WorkGroupEngineVersionArgs) ToWorkGroupEngineVersionPtrOutput() WorkGroupEngineVersionPtrOutput {
+	return i.ToWorkGroupEngineVersionPtrOutputWithContext(context.Background())
+}
+
+func (i WorkGroupEngineVersionArgs) ToWorkGroupEngineVersionPtrOutputWithContext(ctx context.Context) WorkGroupEngineVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupEngineVersionOutput).ToWorkGroupEngineVersionPtrOutputWithContext(ctx)
+}
+
+// WorkGroupEngineVersionPtrInput is an input type that accepts WorkGroupEngineVersionArgs, WorkGroupEngineVersionPtr and WorkGroupEngineVersionPtrOutput values.
+// You can construct a concrete instance of `WorkGroupEngineVersionPtrInput` via:
+//
+//          WorkGroupEngineVersionArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkGroupEngineVersionPtrInput interface {
+	pulumi.Input
+
+	ToWorkGroupEngineVersionPtrOutput() WorkGroupEngineVersionPtrOutput
+	ToWorkGroupEngineVersionPtrOutputWithContext(context.Context) WorkGroupEngineVersionPtrOutput
+}
+
+type workGroupEngineVersionPtrType WorkGroupEngineVersionArgs
+
+func WorkGroupEngineVersionPtr(v *WorkGroupEngineVersionArgs) WorkGroupEngineVersionPtrInput {
+	return (*workGroupEngineVersionPtrType)(v)
+}
+
+func (*workGroupEngineVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupEngineVersion)(nil)).Elem()
+}
+
+func (i *workGroupEngineVersionPtrType) ToWorkGroupEngineVersionPtrOutput() WorkGroupEngineVersionPtrOutput {
+	return i.ToWorkGroupEngineVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *workGroupEngineVersionPtrType) ToWorkGroupEngineVersionPtrOutputWithContext(ctx context.Context) WorkGroupEngineVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupEngineVersionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html
+type WorkGroupEngineVersionOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupEngineVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupEngineVersion)(nil)).Elem()
+}
+
+func (o WorkGroupEngineVersionOutput) ToWorkGroupEngineVersionOutput() WorkGroupEngineVersionOutput {
+	return o
+}
+
+func (o WorkGroupEngineVersionOutput) ToWorkGroupEngineVersionOutputWithContext(ctx context.Context) WorkGroupEngineVersionOutput {
+	return o
+}
+
+func (o WorkGroupEngineVersionOutput) ToWorkGroupEngineVersionPtrOutput() WorkGroupEngineVersionPtrOutput {
+	return o.ToWorkGroupEngineVersionPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupEngineVersionOutput) ToWorkGroupEngineVersionPtrOutputWithContext(ctx context.Context) WorkGroupEngineVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupEngineVersion) *WorkGroupEngineVersion {
+		return &v
+	}).(WorkGroupEngineVersionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
+func (o WorkGroupEngineVersionOutput) EffectiveEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupEngineVersion) *string { return v.EffectiveEngineVersion }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
+func (o WorkGroupEngineVersionOutput) SelectedEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupEngineVersion) *string { return v.SelectedEngineVersion }).(pulumi.StringPtrOutput)
+}
+
+type WorkGroupEngineVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupEngineVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupEngineVersion)(nil)).Elem()
+}
+
+func (o WorkGroupEngineVersionPtrOutput) ToWorkGroupEngineVersionPtrOutput() WorkGroupEngineVersionPtrOutput {
+	return o
+}
+
+func (o WorkGroupEngineVersionPtrOutput) ToWorkGroupEngineVersionPtrOutputWithContext(ctx context.Context) WorkGroupEngineVersionPtrOutput {
+	return o
+}
+
+func (o WorkGroupEngineVersionPtrOutput) Elem() WorkGroupEngineVersionOutput {
+	return o.ApplyT(func(v *WorkGroupEngineVersion) WorkGroupEngineVersion {
+		if v != nil {
+			return *v
+		}
+		var ret WorkGroupEngineVersion
+		return ret
+	}).(WorkGroupEngineVersionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
+func (o WorkGroupEngineVersionPtrOutput) EffectiveEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupEngineVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EffectiveEngineVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
+func (o WorkGroupEngineVersionPtrOutput) SelectedEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupEngineVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SelectedEngineVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -670,152 +688,14 @@ func (o WorkGroupResultConfigurationUpdatesPtrOutput) RemoveOutputLocation() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html
-type WorkGroupTags struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html#cfn-athena-workgroup-tags-tags
-	Tags []aws.Tag `pulumi:"tags"`
-}
-
-// WorkGroupTagsInput is an input type that accepts WorkGroupTagsArgs and WorkGroupTagsOutput values.
-// You can construct a concrete instance of `WorkGroupTagsInput` via:
-//
-//          WorkGroupTagsArgs{...}
-type WorkGroupTagsInput interface {
-	pulumi.Input
-
-	ToWorkGroupTagsOutput() WorkGroupTagsOutput
-	ToWorkGroupTagsOutputWithContext(context.Context) WorkGroupTagsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html
-type WorkGroupTagsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html#cfn-athena-workgroup-tags-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
-}
-
-func (WorkGroupTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkGroupTags)(nil)).Elem()
-}
-
-func (i WorkGroupTagsArgs) ToWorkGroupTagsOutput() WorkGroupTagsOutput {
-	return i.ToWorkGroupTagsOutputWithContext(context.Background())
-}
-
-func (i WorkGroupTagsArgs) ToWorkGroupTagsOutputWithContext(ctx context.Context) WorkGroupTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupTagsOutput)
-}
-
-func (i WorkGroupTagsArgs) ToWorkGroupTagsPtrOutput() WorkGroupTagsPtrOutput {
-	return i.ToWorkGroupTagsPtrOutputWithContext(context.Background())
-}
-
-func (i WorkGroupTagsArgs) ToWorkGroupTagsPtrOutputWithContext(ctx context.Context) WorkGroupTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupTagsOutput).ToWorkGroupTagsPtrOutputWithContext(ctx)
-}
-
-// WorkGroupTagsPtrInput is an input type that accepts WorkGroupTagsArgs, WorkGroupTagsPtr and WorkGroupTagsPtrOutput values.
-// You can construct a concrete instance of `WorkGroupTagsPtrInput` via:
-//
-//          WorkGroupTagsArgs{...}
-//
-//  or:
-//
-//          nil
-type WorkGroupTagsPtrInput interface {
-	pulumi.Input
-
-	ToWorkGroupTagsPtrOutput() WorkGroupTagsPtrOutput
-	ToWorkGroupTagsPtrOutputWithContext(context.Context) WorkGroupTagsPtrOutput
-}
-
-type workGroupTagsPtrType WorkGroupTagsArgs
-
-func WorkGroupTagsPtr(v *WorkGroupTagsArgs) WorkGroupTagsPtrInput {
-	return (*workGroupTagsPtrType)(v)
-}
-
-func (*workGroupTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkGroupTags)(nil)).Elem()
-}
-
-func (i *workGroupTagsPtrType) ToWorkGroupTagsPtrOutput() WorkGroupTagsPtrOutput {
-	return i.ToWorkGroupTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *workGroupTagsPtrType) ToWorkGroupTagsPtrOutputWithContext(ctx context.Context) WorkGroupTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupTagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html
-type WorkGroupTagsOutput struct{ *pulumi.OutputState }
-
-func (WorkGroupTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkGroupTags)(nil)).Elem()
-}
-
-func (o WorkGroupTagsOutput) ToWorkGroupTagsOutput() WorkGroupTagsOutput {
-	return o
-}
-
-func (o WorkGroupTagsOutput) ToWorkGroupTagsOutputWithContext(ctx context.Context) WorkGroupTagsOutput {
-	return o
-}
-
-func (o WorkGroupTagsOutput) ToWorkGroupTagsPtrOutput() WorkGroupTagsPtrOutput {
-	return o.ToWorkGroupTagsPtrOutputWithContext(context.Background())
-}
-
-func (o WorkGroupTagsOutput) ToWorkGroupTagsPtrOutputWithContext(ctx context.Context) WorkGroupTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupTags) *WorkGroupTags {
-		return &v
-	}).(WorkGroupTagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html#cfn-athena-workgroup-tags-tags
-func (o WorkGroupTagsOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v WorkGroupTags) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
-}
-
-type WorkGroupTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkGroupTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkGroupTags)(nil)).Elem()
-}
-
-func (o WorkGroupTagsPtrOutput) ToWorkGroupTagsPtrOutput() WorkGroupTagsPtrOutput {
-	return o
-}
-
-func (o WorkGroupTagsPtrOutput) ToWorkGroupTagsPtrOutputWithContext(ctx context.Context) WorkGroupTagsPtrOutput {
-	return o
-}
-
-func (o WorkGroupTagsPtrOutput) Elem() WorkGroupTagsOutput {
-	return o.ApplyT(func(v *WorkGroupTags) WorkGroupTags {
-		if v != nil {
-			return *v
-		}
-		var ret WorkGroupTags
-		return ret
-	}).(WorkGroupTagsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tags.html#cfn-athena-workgroup-tags-tags
-func (o WorkGroupTagsPtrOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v *WorkGroupTags) []aws.Tag {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(aws.TagArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html
 type WorkGroupWorkGroupConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
 	BytesScannedCutoffPerQuery *int `pulumi:"bytesScannedCutoffPerQuery"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
 	EnforceWorkGroupConfiguration *bool `pulumi:"enforceWorkGroupConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
+	EngineVersion *WorkGroupEngineVersion `pulumi:"engineVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
 	PublishCloudWatchMetricsEnabled *bool `pulumi:"publishCloudWatchMetricsEnabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
@@ -841,6 +721,8 @@ type WorkGroupWorkGroupConfigurationArgs struct {
 	BytesScannedCutoffPerQuery pulumi.IntPtrInput `pulumi:"bytesScannedCutoffPerQuery"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
 	EnforceWorkGroupConfiguration pulumi.BoolPtrInput `pulumi:"enforceWorkGroupConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
+	EngineVersion WorkGroupEngineVersionPtrInput `pulumi:"engineVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
 	PublishCloudWatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudWatchMetricsEnabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
@@ -937,6 +819,11 @@ func (o WorkGroupWorkGroupConfigurationOutput) EnforceWorkGroupConfiguration() p
 	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *bool { return v.EnforceWorkGroupConfiguration }).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
+func (o WorkGroupWorkGroupConfigurationOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
+	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *WorkGroupEngineVersion { return v.EngineVersion }).(WorkGroupEngineVersionPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
 func (o WorkGroupWorkGroupConfigurationOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *bool { return v.PublishCloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
@@ -996,6 +883,16 @@ func (o WorkGroupWorkGroupConfigurationPtrOutput) EnforceWorkGroupConfiguration(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
+func (o WorkGroupWorkGroupConfigurationPtrOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
+	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *WorkGroupEngineVersion {
+		if v == nil {
+			return nil
+		}
+		return v.EngineVersion
+	}).(WorkGroupEngineVersionPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
 func (o WorkGroupWorkGroupConfigurationPtrOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *bool {
@@ -1032,6 +929,8 @@ type WorkGroupWorkGroupConfigurationUpdates struct {
 	BytesScannedCutoffPerQuery *int `pulumi:"bytesScannedCutoffPerQuery"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-enforceworkgroupconfiguration
 	EnforceWorkGroupConfiguration *bool `pulumi:"enforceWorkGroupConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineversion
+	EngineVersion *WorkGroupEngineVersion `pulumi:"engineVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
 	PublishCloudWatchMetricsEnabled *bool `pulumi:"publishCloudWatchMetricsEnabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-removebytesscannedcutoffperquery
@@ -1059,6 +958,8 @@ type WorkGroupWorkGroupConfigurationUpdatesArgs struct {
 	BytesScannedCutoffPerQuery pulumi.IntPtrInput `pulumi:"bytesScannedCutoffPerQuery"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-enforceworkgroupconfiguration
 	EnforceWorkGroupConfiguration pulumi.BoolPtrInput `pulumi:"enforceWorkGroupConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineversion
+	EngineVersion WorkGroupEngineVersionPtrInput `pulumi:"engineVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
 	PublishCloudWatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudWatchMetricsEnabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-removebytesscannedcutoffperquery
@@ -1157,6 +1058,11 @@ func (o WorkGroupWorkGroupConfigurationUpdatesOutput) EnforceWorkGroupConfigurat
 	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *bool { return v.EnforceWorkGroupConfiguration }).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineversion
+func (o WorkGroupWorkGroupConfigurationUpdatesOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
+	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *WorkGroupEngineVersion { return v.EngineVersion }).(WorkGroupEngineVersionPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
 func (o WorkGroupWorkGroupConfigurationUpdatesOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *bool { return v.PublishCloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
@@ -1223,6 +1129,16 @@ func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) EnforceWorkGroupConfigu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineversion
+func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
+	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *WorkGroupEngineVersion {
+		if v == nil {
+			return nil
+		}
+		return v.EngineVersion
+	}).(WorkGroupEngineVersionPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
 func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *bool {
@@ -1264,16 +1180,14 @@ func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) ResultConfigurationUpda
 }
 
 func init() {
-	pulumi.RegisterOutputType(DataCatalogTagsOutput{})
-	pulumi.RegisterOutputType(DataCatalogTagsPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkGroupEngineVersionOutput{})
+	pulumi.RegisterOutputType(WorkGroupEngineVersionPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationUpdatesOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationUpdatesPtrOutput{})
-	pulumi.RegisterOutputType(WorkGroupTagsOutput{})
-	pulumi.RegisterOutputType(WorkGroupTagsPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupWorkGroupConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupWorkGroupConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupWorkGroupConfigurationUpdatesOutput{})

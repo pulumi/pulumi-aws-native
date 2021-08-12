@@ -5,5 +5,11 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .firewall_domain_list import *
+from .firewall_rule_group import *
+from .firewall_rule_group_association import *
+from .resolver_dnssec_config import *
 from .resolver_query_logging_config import *
 from .resolver_query_logging_config_association import *
+from ._inputs import *
+from . import outputs

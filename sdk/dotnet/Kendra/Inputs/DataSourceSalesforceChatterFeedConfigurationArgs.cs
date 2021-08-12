@@ -27,17 +27,29 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("documentTitleFieldName")]
         public Input<string>? DocumentTitleFieldName { get; set; }
 
+        [Input("fieldMappings")]
+        private InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>? _fieldMappings;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings
         /// </summary>
-        [Input("fieldMappings")]
-        public Input<Inputs.DataSourceDataSourceToIndexFieldMappingListArgs>? FieldMappings { get; set; }
+        public InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs> FieldMappings
+        {
+            get => _fieldMappings ?? (_fieldMappings = new InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>());
+            set => _fieldMappings = value;
+        }
+
+        [Input("includeFilterTypes")]
+        private InputList<string>? _includeFilterTypes;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-includefiltertypes
         /// </summary>
-        [Input("includeFilterTypes")]
-        public Input<Inputs.DataSourceSalesforceChatterFeedIncludeFilterTypesArgs>? IncludeFilterTypes { get; set; }
+        public InputList<string> IncludeFilterTypes
+        {
+            get => _includeFilterTypes ?? (_includeFilterTypes = new InputList<string>());
+            set => _includeFilterTypes = value;
+        }
 
         public DataSourceSalesforceChatterFeedConfigurationArgs()
         {

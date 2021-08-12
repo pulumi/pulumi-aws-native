@@ -16,14 +16,24 @@ import (
 type Document struct {
 	pulumi.CustomResourceState
 
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+	Attachments DocumentAttachmentsSourceArrayOutput `pulumi:"attachments"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
 	Content pulumi.AnyOutput `pulumi:"content"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
+	DocumentFormat pulumi.StringPtrOutput `pulumi:"documentFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
 	DocumentType pulumi.StringPtrOutput `pulumi:"documentType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
+	Requires DocumentDocumentRequiresArrayOutput `pulumi:"requires"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+	VersionName pulumi.StringPtrOutput `pulumi:"versionName"`
 }
 
 // NewDocument registers a new resource with the given unique name, arguments, and options.
@@ -68,26 +78,46 @@ func (DocumentState) ElementType() reflect.Type {
 }
 
 type documentArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+	Attachments []DocumentAttachmentsSource `pulumi:"attachments"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
 	Content interface{} `pulumi:"content"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
+	DocumentFormat *string `pulumi:"documentFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
 	DocumentType *string `pulumi:"documentType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
 	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
+	Requires []DocumentDocumentRequires `pulumi:"requires"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
 	Tags []aws.Tag `pulumi:"tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+	TargetType *string `pulumi:"targetType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+	VersionName *string `pulumi:"versionName"`
 }
 
 // The set of arguments for constructing a Document resource.
 type DocumentArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+	Attachments DocumentAttachmentsSourceArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
 	Content pulumi.Input
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
+	DocumentFormat pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
 	DocumentType pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
 	Name pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
+	Requires DocumentDocumentRequiresArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
 	Tags aws.TagArrayInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+	TargetType pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+	VersionName pulumi.StringPtrInput
 }
 
 func (DocumentArgs) ElementType() reflect.Type {

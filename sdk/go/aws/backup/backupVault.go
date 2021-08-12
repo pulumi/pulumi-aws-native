@@ -20,7 +20,7 @@ type BackupVault struct {
 	BackupVaultArn  pulumi.StringOutput `pulumi:"backupVaultArn"`
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-	BackupVaultTags pulumi.AnyOutput `pulumi:"backupVaultTags"`
+	BackupVaultTags pulumi.StringMapOutput `pulumi:"backupVaultTags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
 	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
@@ -74,7 +74,7 @@ type backupVaultArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
 	BackupVaultName string `pulumi:"backupVaultName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-	BackupVaultTags interface{} `pulumi:"backupVaultTags"`
+	BackupVaultTags map[string]string `pulumi:"backupVaultTags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
@@ -88,7 +88,7 @@ type BackupVaultArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
 	BackupVaultName pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-	BackupVaultTags pulumi.Input
+	BackupVaultTags pulumi.StringMapInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
 	EncryptionKeyArn pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications

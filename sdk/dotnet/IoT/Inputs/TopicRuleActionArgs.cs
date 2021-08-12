@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public Input<Inputs.TopicRuleCloudwatchAlarmActionArgs>? CloudwatchAlarm { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchlogs
+        /// </summary>
+        [Input("cloudwatchLogs")]
+        public Input<Inputs.TopicRuleCloudwatchLogsActionArgs>? CloudwatchLogs { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchmetric
         /// </summary>
         [Input("cloudwatchMetric")]
@@ -76,6 +82,12 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public Input<Inputs.TopicRuleIotSiteWiseActionArgs>? IotSiteWise { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kafka
+        /// </summary>
+        [Input("kafka")]
+        public Input<Inputs.TopicRuleKafkaActionArgs>? Kafka { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
         /// </summary>
         [Input("kinesis")]
@@ -116,6 +128,12 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// </summary>
         [Input("stepFunctions")]
         public Input<Inputs.TopicRuleStepFunctionsActionArgs>? StepFunctions { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-timestream
+        /// </summary>
+        [Input("timestream")]
+        public Input<Inputs.TopicRuleTimestreamActionArgs>? Timestream { get; set; }
 
         public TopicRuleActionArgs()
         {

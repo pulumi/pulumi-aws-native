@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
         /// </summary>
-        public readonly string? TargetArn;
+        public readonly string TargetArn;
 
         [OutputConstructor]
         private DetectorModelSns(
             Outputs.DetectorModelPayload? payload,
 
-            string? targetArn)
+            string targetArn)
         {
             Payload = payload;
             TargetArn = targetArn;

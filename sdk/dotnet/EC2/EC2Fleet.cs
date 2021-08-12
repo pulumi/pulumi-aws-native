@@ -16,10 +16,19 @@ namespace Pulumi.AwsNative.EC2
     public partial class EC2Fleet : Pulumi.CustomResource
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
+        /// </summary>
+        [Output("context")]
+        public Output<string?> Context { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
         /// </summary>
         [Output("excessCapacityTerminationPolicy")]
         public Output<string?> ExcessCapacityTerminationPolicy { get; private set; } = null!;
+
+        [Output("fleetId")]
+        public Output<string> FleetId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
@@ -126,6 +135,12 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class EC2FleetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
+        /// </summary>
+        [Input("context")]
+        public Input<string>? Context { get; set; }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
         /// </summary>

@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyfield
         /// </summary>
-        [Input("hashKeyField")]
-        public Input<string>? HashKeyField { get; set; }
+        [Input("hashKeyField", required: true)]
+        public Input<string> HashKeyField { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeytype
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyvalue
         /// </summary>
-        [Input("hashKeyValue")]
-        public Input<string>? HashKeyValue { get; set; }
+        [Input("hashKeyValue", required: true)]
+        public Input<string> HashKeyValue { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-operation
@@ -72,8 +72,8 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename
         /// </summary>
-        [Input("tableName")]
-        public Input<string>? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
 
         public DetectorModelDynamoDBArgs()
         {

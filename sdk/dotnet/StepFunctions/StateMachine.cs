@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.StepFunctions
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition
+        /// </summary>
+        [Output("definition")]
+        public Output<Outputs.StateMachineDefinition?> Definition { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
         /// </summary>
         [Output("definitionS3Location")]
@@ -34,7 +40,7 @@ namespace Pulumi.AwsNative.StepFunctions
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
         /// </summary>
         [Output("definitionSubstitutions")]
-        public Output<Outputs.StateMachineDefinitionSubstitutions?> DefinitionSubstitutions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> DefinitionSubstitutions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
@@ -121,6 +127,12 @@ namespace Pulumi.AwsNative.StepFunctions
     public sealed class StateMachineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition
+        /// </summary>
+        [Input("definition")]
+        public Input<Inputs.StateMachineDefinitionArgs>? Definition { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
         /// </summary>
         [Input("definitionS3Location")]
@@ -132,11 +144,17 @@ namespace Pulumi.AwsNative.StepFunctions
         [Input("definitionString")]
         public Input<string>? DefinitionString { get; set; }
 
+        [Input("definitionSubstitutions")]
+        private InputMap<string>? _definitionSubstitutions;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
         /// </summary>
-        [Input("definitionSubstitutions")]
-        public Input<Inputs.StateMachineDefinitionSubstitutionsArgs>? DefinitionSubstitutions { get; set; }
+        public InputMap<string> DefinitionSubstitutions
+        {
+            get => _definitionSubstitutions ?? (_definitionSubstitutions = new InputMap<string>());
+            set => _definitionSubstitutions = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration

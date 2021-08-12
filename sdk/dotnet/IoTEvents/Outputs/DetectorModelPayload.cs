@@ -19,17 +19,17 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-contentexpression
         /// </summary>
-        public readonly string? ContentExpression;
+        public readonly string ContentExpression;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-type
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private DetectorModelPayload(
-            string? contentExpression,
+            string contentExpression,
 
-            string? type)
+            string type)
         {
             ContentExpression = contentExpression;
             Type = type;

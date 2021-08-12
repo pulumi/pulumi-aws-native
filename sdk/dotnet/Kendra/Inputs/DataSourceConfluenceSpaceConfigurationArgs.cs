@@ -27,23 +27,41 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("crawlPersonalSpaces")]
         public Input<bool>? CrawlPersonalSpaces { get; set; }
 
+        [Input("excludeSpaces")]
+        private InputList<string>? _excludeSpaces;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
         /// </summary>
-        [Input("excludeSpaces")]
-        public Input<Inputs.DataSourceConfluenceSpaceListArgs>? ExcludeSpaces { get; set; }
+        public InputList<string> ExcludeSpaces
+        {
+            get => _excludeSpaces ?? (_excludeSpaces = new InputList<string>());
+            set => _excludeSpaces = value;
+        }
+
+        [Input("includeSpaces")]
+        private InputList<string>? _includeSpaces;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
         /// </summary>
-        [Input("includeSpaces")]
-        public Input<Inputs.DataSourceConfluenceSpaceListArgs>? IncludeSpaces { get; set; }
+        public InputList<string> IncludeSpaces
+        {
+            get => _includeSpaces ?? (_includeSpaces = new InputList<string>());
+            set => _includeSpaces = value;
+        }
+
+        [Input("spaceFieldMappings")]
+        private InputList<Inputs.DataSourceConfluenceSpaceToIndexFieldMappingArgs>? _spaceFieldMappings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
         /// </summary>
-        [Input("spaceFieldMappings")]
-        public Input<Inputs.DataSourceConfluenceSpaceFieldMappingsListArgs>? SpaceFieldMappings { get; set; }
+        public InputList<Inputs.DataSourceConfluenceSpaceToIndexFieldMappingArgs> SpaceFieldMappings
+        {
+            get => _spaceFieldMappings ?? (_spaceFieldMappings = new InputList<Inputs.DataSourceConfluenceSpaceToIndexFieldMappingArgs>());
+            set => _spaceFieldMappings = value;
+        }
 
         public DataSourceConfluenceSpaceConfigurationArgs()
         {

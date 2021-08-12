@@ -16,10 +16,22 @@ namespace Pulumi.AwsNative.SSM
     public partial class Document : Pulumi.CustomResource
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+        /// </summary>
+        [Output("attachments")]
+        public Output<ImmutableArray<Outputs.DocumentAttachmentsSource>> Attachments { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
         /// </summary>
         [Output("content")]
         public Output<Union<System.Text.Json.JsonElement, string>> Content { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
+        /// </summary>
+        [Output("documentFormat")]
+        public Output<string?> DocumentFormat { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
@@ -34,10 +46,28 @@ namespace Pulumi.AwsNative.SSM
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
+        /// </summary>
+        [Output("requires")]
+        public Output<ImmutableArray<Outputs.DocumentDocumentRequires>> Requires { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+        /// </summary>
+        [Output("targetType")]
+        public Output<string?> TargetType { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+        /// </summary>
+        [Output("versionName")]
+        public Output<string?> VersionName { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,11 +114,29 @@ namespace Pulumi.AwsNative.SSM
 
     public sealed class DocumentArgs : Pulumi.ResourceArgs
     {
+        [Input("attachments")]
+        private InputList<Inputs.DocumentAttachmentsSourceArgs>? _attachments;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+        /// </summary>
+        public InputList<Inputs.DocumentAttachmentsSourceArgs> Attachments
+        {
+            get => _attachments ?? (_attachments = new InputList<Inputs.DocumentAttachmentsSourceArgs>());
+            set => _attachments = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
         /// </summary>
         [Input("content", required: true)]
         public InputUnion<System.Text.Json.JsonElement, string> Content { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
+        /// </summary>
+        [Input("documentFormat")]
+        public Input<string>? DocumentFormat { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
@@ -102,6 +150,18 @@ namespace Pulumi.AwsNative.SSM
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("requires")]
+        private InputList<Inputs.DocumentDocumentRequiresArgs>? _requires;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
+        /// </summary>
+        public InputList<Inputs.DocumentDocumentRequiresArgs> Requires
+        {
+            get => _requires ?? (_requires = new InputList<Inputs.DocumentDocumentRequiresArgs>());
+            set => _requires = value;
+        }
+
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
@@ -113,6 +173,18 @@ namespace Pulumi.AwsNative.SSM
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+        /// </summary>
+        [Input("targetType")]
+        public Input<string>? TargetType { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+        /// </summary>
+        [Input("versionName")]
+        public Input<string>? VersionName { get; set; }
 
         public DocumentArgs()
         {

@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.IoT.Outputs
     public sealed class TopicRuleIotAnalyticsAction
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-batchmode
+        /// </summary>
+        public readonly bool? BatchMode;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-channelname
         /// </summary>
         public readonly string ChannelName;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private TopicRuleIotAnalyticsAction(
+            bool? batchMode,
+
             string channelName,
 
             string roleArn)
         {
+            BatchMode = batchMode;
             ChannelName = channelName;
             RoleArn = roleArn;
         }

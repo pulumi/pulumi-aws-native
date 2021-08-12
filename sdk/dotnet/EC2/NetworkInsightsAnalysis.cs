@@ -54,11 +54,8 @@ namespace Pulumi.AwsNative.EC2
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
-        /// </summary>
         [Output("statusMessage")]
-        public Output<string?> StatusMessage { get; private set; } = null!;
+        public Output<string> StatusMessage { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
@@ -128,12 +125,6 @@ namespace Pulumi.AwsNative.EC2
         /// </summary>
         [Input("networkInsightsPathId", required: true)]
         public Input<string> NetworkInsightsPathId { get; set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
-        /// </summary>
-        [Input("statusMessage")]
-        public Input<string>? StatusMessage { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

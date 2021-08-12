@@ -28,12 +28,6 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-priority
-        /// </summary>
-        [Input("priority")]
-        public Input<double>? Priority { get; set; }
-
-        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-spotprice
         /// </summary>
         [Input("spotPrice")]

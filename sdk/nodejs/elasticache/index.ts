@@ -5,10 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./globalReplicationGroup";
 export * from "./user";
 export * from "./userGroup";
 
 // Import resources to register:
+import { GlobalReplicationGroup } from "./globalReplicationGroup";
 import { User } from "./user";
 import { UserGroup } from "./userGroup";
 
@@ -16,6 +18,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:ElastiCache:GlobalReplicationGroup":
+                return new GlobalReplicationGroup(name, <any>undefined, { urn })
             case "aws-native:ElastiCache:User":
                 return new User(name, <any>undefined, { urn })
             case "aws-native:ElastiCache:UserGroup":

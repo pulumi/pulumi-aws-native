@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
         /// </summary>
         [Input("allow")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Allow { get; set; }
+        public Input<Inputs.WebACLAllowActionArgs>? Allow { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
         /// </summary>
         [Input("block")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Block { get; set; }
+        public Input<Inputs.WebACLBlockActionArgs>? Block { get; set; }
 
         public WebACLDefaultActionArgs()
         {

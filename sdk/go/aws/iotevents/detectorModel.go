@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,7 +17,7 @@ type DetectorModel struct {
 	pulumi.CustomResourceState
 
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition
-	DetectorModelDefinition DetectorModelDetectorModelDefinitionPtrOutput `pulumi:"detectorModelDefinition"`
+	DetectorModelDefinition DetectorModelDetectorModelDefinitionOutput `pulumi:"detectorModelDefinition"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription
 	DetectorModelDescription pulumi.StringPtrOutput `pulumi:"detectorModelDescription"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodelname
@@ -26,7 +27,7 @@ type DetectorModel struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-key
 	Key pulumi.StringPtrOutput `pulumi:"key"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn
-	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-tags
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -35,9 +36,15 @@ type DetectorModel struct {
 func NewDetectorModel(ctx *pulumi.Context,
 	name string, args *DetectorModelArgs, opts ...pulumi.ResourceOption) (*DetectorModel, error) {
 	if args == nil {
-		args = &DetectorModelArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DetectorModelDefinition == nil {
+		return nil, errors.New("invalid value for required argument 'DetectorModelDefinition'")
+	}
+	if args.RoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArn'")
+	}
 	var resource DetectorModel
 	err := ctx.RegisterResource("aws-native:IoTEvents:DetectorModel", name, args, &resource, opts...)
 	if err != nil {
@@ -71,7 +78,7 @@ func (DetectorModelState) ElementType() reflect.Type {
 
 type detectorModelArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition
-	DetectorModelDefinition *DetectorModelDetectorModelDefinition `pulumi:"detectorModelDefinition"`
+	DetectorModelDefinition DetectorModelDetectorModelDefinition `pulumi:"detectorModelDefinition"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription
 	DetectorModelDescription *string `pulumi:"detectorModelDescription"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodelname
@@ -81,7 +88,7 @@ type detectorModelArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-key
 	Key *string `pulumi:"key"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn
-	RoleArn *string `pulumi:"roleArn"`
+	RoleArn string `pulumi:"roleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-tags
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -89,7 +96,7 @@ type detectorModelArgs struct {
 // The set of arguments for constructing a DetectorModel resource.
 type DetectorModelArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition
-	DetectorModelDefinition DetectorModelDetectorModelDefinitionPtrInput
+	DetectorModelDefinition DetectorModelDetectorModelDefinitionInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription
 	DetectorModelDescription pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodelname
@@ -99,7 +106,7 @@ type DetectorModelArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-key
 	Key pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn
-	RoleArn pulumi.StringPtrInput
+	RoleArn pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-tags
 	Tags aws.TagArrayInput
 }

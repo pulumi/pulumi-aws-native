@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
         /// </summary>
-        public readonly int TimeoutInSeconds;
+        public readonly int? TimeoutInSeconds;
 
         [OutputConstructor]
         private CanaryRunConfig(
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
 
             int? memoryInMB,
 
-            int timeoutInSeconds)
+            int? timeoutInSeconds)
         {
             ActiveTracing = activeTracing;
             EnvironmentVariables = environmentVariables;

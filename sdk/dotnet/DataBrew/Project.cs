@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
         /// </summary>
         [Output("sample")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Sample { get; private set; } = null!;
+        public Output<Outputs.ProjectSample?> Sample { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
         /// </summary>
         [Input("sample")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Sample { get; set; }
+        public Input<Inputs.ProjectSampleArgs>? Sample { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

@@ -19,6 +19,7 @@ class EC2FleetArgs:
     def __init__(__self__, *,
                  launch_template_configs: pulumi.Input[Sequence[pulumi.Input['EC2FleetFleetLaunchTemplateConfigRequestArgs']]],
                  target_capacity_specification: pulumi.Input['EC2FleetTargetCapacitySpecificationRequestArgs'],
+                 context: Optional[pulumi.Input[str]] = None,
                  excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
                  on_demand_options: Optional[pulumi.Input['EC2FleetOnDemandOptionsRequestArgs']] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
@@ -32,6 +33,7 @@ class EC2FleetArgs:
         The set of arguments for constructing a EC2Fleet resource.
         :param pulumi.Input[Sequence[pulumi.Input['EC2FleetFleetLaunchTemplateConfigRequestArgs']]] launch_template_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
         :param pulumi.Input['EC2FleetTargetCapacitySpecificationRequestArgs'] target_capacity_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
+        :param pulumi.Input[str] context: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
         :param pulumi.Input[str] excess_capacity_termination_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
         :param pulumi.Input['EC2FleetOnDemandOptionsRequestArgs'] on_demand_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
         :param pulumi.Input[bool] replace_unhealthy_instances: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
@@ -44,6 +46,8 @@ class EC2FleetArgs:
         """
         pulumi.set(__self__, "launch_template_configs", launch_template_configs)
         pulumi.set(__self__, "target_capacity_specification", target_capacity_specification)
+        if context is not None:
+            pulumi.set(__self__, "context", context)
         if excess_capacity_termination_policy is not None:
             pulumi.set(__self__, "excess_capacity_termination_policy", excess_capacity_termination_policy)
         if on_demand_options is not None:
@@ -86,6 +90,18 @@ class EC2FleetArgs:
     @target_capacity_specification.setter
     def target_capacity_specification(self, value: pulumi.Input['EC2FleetTargetCapacitySpecificationRequestArgs']):
         pulumi.set(self, "target_capacity_specification", value)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context", value)
 
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
@@ -201,6 +217,7 @@ class EC2Fleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 context: Optional[pulumi.Input[str]] = None,
                  excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EC2FleetFleetLaunchTemplateConfigRequestArgs']]]]] = None,
                  on_demand_options: Optional[pulumi.Input[pulumi.InputType['EC2FleetOnDemandOptionsRequestArgs']]] = None,
@@ -218,6 +235,7 @@ class EC2Fleet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] context: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
         :param pulumi.Input[str] excess_capacity_termination_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EC2FleetFleetLaunchTemplateConfigRequestArgs']]]] launch_template_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
         :param pulumi.Input[pulumi.InputType['EC2FleetOnDemandOptionsRequestArgs']] on_demand_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
@@ -254,6 +272,7 @@ class EC2Fleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 context: Optional[pulumi.Input[str]] = None,
                  excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EC2FleetFleetLaunchTemplateConfigRequestArgs']]]]] = None,
                  on_demand_options: Optional[pulumi.Input[pulumi.InputType['EC2FleetOnDemandOptionsRequestArgs']]] = None,
@@ -277,6 +296,7 @@ class EC2Fleet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EC2FleetArgs.__new__(EC2FleetArgs)
 
+            __props__.__dict__["context"] = context
             __props__.__dict__["excess_capacity_termination_policy"] = excess_capacity_termination_policy
             if launch_template_configs is None and not opts.urn:
                 raise TypeError("Missing required property 'launch_template_configs'")
@@ -292,6 +312,7 @@ class EC2Fleet(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["valid_from"] = valid_from
             __props__.__dict__["valid_until"] = valid_until
+            __props__.__dict__["fleet_id"] = None
         super(EC2Fleet, __self__).__init__(
             'aws-native:EC2:EC2Fleet',
             resource_name,
@@ -314,7 +335,9 @@ class EC2Fleet(pulumi.CustomResource):
 
         __props__ = EC2FleetArgs.__new__(EC2FleetArgs)
 
+        __props__.__dict__["context"] = None
         __props__.__dict__["excess_capacity_termination_policy"] = None
+        __props__.__dict__["fleet_id"] = None
         __props__.__dict__["launch_template_configs"] = None
         __props__.__dict__["on_demand_options"] = None
         __props__.__dict__["replace_unhealthy_instances"] = None
@@ -328,12 +351,25 @@ class EC2Fleet(pulumi.CustomResource):
         return EC2Fleet(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter
+    def context(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
+        """
+        return pulumi.get(self, "context")
+
+    @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
     def excess_capacity_termination_policy(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
         """
         return pulumi.get(self, "excess_capacity_termination_policy")
+
+    @property
+    @pulumi.getter(name="fleetId")
+    def fleet_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "fleet_id")
 
     @property
     @pulumi.getter(name="launchTemplateConfigs")

@@ -39,11 +39,17 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("rankOrder")]
         public Input<string>? RankOrder { get; set; }
 
+        [Input("valueImportanceItems")]
+        private InputList<Inputs.IndexValueImportanceItemArgs>? _valueImportanceItems;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
         /// </summary>
-        [Input("valueImportanceItems")]
-        public Input<Inputs.IndexValueImportanceItemsArgs>? ValueImportanceItems { get; set; }
+        public InputList<Inputs.IndexValueImportanceItemArgs> ValueImportanceItems
+        {
+            get => _valueImportanceItems ?? (_valueImportanceItems = new InputList<Inputs.IndexValueImportanceItemArgs>());
+            set => _valueImportanceItems = value;
+        }
 
         public IndexRelevanceArgs()
         {

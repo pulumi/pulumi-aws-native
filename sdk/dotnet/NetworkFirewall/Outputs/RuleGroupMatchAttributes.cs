@@ -19,41 +19,41 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports
         /// </summary>
-        public readonly Outputs.RuleGroupPortRanges? DestinationPorts;
+        public readonly ImmutableArray<Outputs.RuleGroupPortRange> DestinationPorts;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations
         /// </summary>
-        public readonly Outputs.RuleGroupAddresses? Destinations;
+        public readonly ImmutableArray<Outputs.RuleGroupAddress> Destinations;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-protocols
         /// </summary>
-        public readonly Outputs.RuleGroupProtocolNumbers? Protocols;
+        public readonly ImmutableArray<int> Protocols;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports
         /// </summary>
-        public readonly Outputs.RuleGroupPortRanges? SourcePorts;
+        public readonly ImmutableArray<Outputs.RuleGroupPortRange> SourcePorts;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources
         /// </summary>
-        public readonly Outputs.RuleGroupAddresses? Sources;
+        public readonly ImmutableArray<Outputs.RuleGroupAddress> Sources;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-tcpflags
         /// </summary>
-        public readonly Outputs.RuleGroupTCPFlags? TCPFlags;
+        public readonly ImmutableArray<Outputs.RuleGroupTCPFlagField> TCPFlags;
 
         [OutputConstructor]
         private RuleGroupMatchAttributes(
-            Outputs.RuleGroupPortRanges? destinationPorts,
+            ImmutableArray<Outputs.RuleGroupPortRange> destinationPorts,
 
-            Outputs.RuleGroupAddresses? destinations,
+            ImmutableArray<Outputs.RuleGroupAddress> destinations,
 
-            Outputs.RuleGroupProtocolNumbers? protocols,
+            ImmutableArray<int> protocols,
 
-            Outputs.RuleGroupPortRanges? sourcePorts,
+            ImmutableArray<Outputs.RuleGroupPortRange> sourcePorts,
 
-            Outputs.RuleGroupAddresses? sources,
+            ImmutableArray<Outputs.RuleGroupAddress> sources,
 
-            Outputs.RuleGroupTCPFlags? tCPFlags)
+            ImmutableArray<Outputs.RuleGroupTCPFlagField> tCPFlags)
         {
             DestinationPorts = destinationPorts;
             Destinations = destinations;

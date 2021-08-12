@@ -11,146 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html
-type CarrierGatewayTags struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html#cfn-ec2-carriergateway-tags-tags
-	Tags []aws.Tag `pulumi:"tags"`
-}
-
-// CarrierGatewayTagsInput is an input type that accepts CarrierGatewayTagsArgs and CarrierGatewayTagsOutput values.
-// You can construct a concrete instance of `CarrierGatewayTagsInput` via:
-//
-//          CarrierGatewayTagsArgs{...}
-type CarrierGatewayTagsInput interface {
-	pulumi.Input
-
-	ToCarrierGatewayTagsOutput() CarrierGatewayTagsOutput
-	ToCarrierGatewayTagsOutputWithContext(context.Context) CarrierGatewayTagsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html
-type CarrierGatewayTagsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html#cfn-ec2-carriergateway-tags-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
-}
-
-func (CarrierGatewayTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CarrierGatewayTags)(nil)).Elem()
-}
-
-func (i CarrierGatewayTagsArgs) ToCarrierGatewayTagsOutput() CarrierGatewayTagsOutput {
-	return i.ToCarrierGatewayTagsOutputWithContext(context.Background())
-}
-
-func (i CarrierGatewayTagsArgs) ToCarrierGatewayTagsOutputWithContext(ctx context.Context) CarrierGatewayTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayTagsOutput)
-}
-
-func (i CarrierGatewayTagsArgs) ToCarrierGatewayTagsPtrOutput() CarrierGatewayTagsPtrOutput {
-	return i.ToCarrierGatewayTagsPtrOutputWithContext(context.Background())
-}
-
-func (i CarrierGatewayTagsArgs) ToCarrierGatewayTagsPtrOutputWithContext(ctx context.Context) CarrierGatewayTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayTagsOutput).ToCarrierGatewayTagsPtrOutputWithContext(ctx)
-}
-
-// CarrierGatewayTagsPtrInput is an input type that accepts CarrierGatewayTagsArgs, CarrierGatewayTagsPtr and CarrierGatewayTagsPtrOutput values.
-// You can construct a concrete instance of `CarrierGatewayTagsPtrInput` via:
-//
-//          CarrierGatewayTagsArgs{...}
-//
-//  or:
-//
-//          nil
-type CarrierGatewayTagsPtrInput interface {
-	pulumi.Input
-
-	ToCarrierGatewayTagsPtrOutput() CarrierGatewayTagsPtrOutput
-	ToCarrierGatewayTagsPtrOutputWithContext(context.Context) CarrierGatewayTagsPtrOutput
-}
-
-type carrierGatewayTagsPtrType CarrierGatewayTagsArgs
-
-func CarrierGatewayTagsPtr(v *CarrierGatewayTagsArgs) CarrierGatewayTagsPtrInput {
-	return (*carrierGatewayTagsPtrType)(v)
-}
-
-func (*carrierGatewayTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CarrierGatewayTags)(nil)).Elem()
-}
-
-func (i *carrierGatewayTagsPtrType) ToCarrierGatewayTagsPtrOutput() CarrierGatewayTagsPtrOutput {
-	return i.ToCarrierGatewayTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *carrierGatewayTagsPtrType) ToCarrierGatewayTagsPtrOutputWithContext(ctx context.Context) CarrierGatewayTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CarrierGatewayTagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html
-type CarrierGatewayTagsOutput struct{ *pulumi.OutputState }
-
-func (CarrierGatewayTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CarrierGatewayTags)(nil)).Elem()
-}
-
-func (o CarrierGatewayTagsOutput) ToCarrierGatewayTagsOutput() CarrierGatewayTagsOutput {
-	return o
-}
-
-func (o CarrierGatewayTagsOutput) ToCarrierGatewayTagsOutputWithContext(ctx context.Context) CarrierGatewayTagsOutput {
-	return o
-}
-
-func (o CarrierGatewayTagsOutput) ToCarrierGatewayTagsPtrOutput() CarrierGatewayTagsPtrOutput {
-	return o.ToCarrierGatewayTagsPtrOutputWithContext(context.Background())
-}
-
-func (o CarrierGatewayTagsOutput) ToCarrierGatewayTagsPtrOutputWithContext(ctx context.Context) CarrierGatewayTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CarrierGatewayTags) *CarrierGatewayTags {
-		return &v
-	}).(CarrierGatewayTagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html#cfn-ec2-carriergateway-tags-tags
-func (o CarrierGatewayTagsOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v CarrierGatewayTags) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
-}
-
-type CarrierGatewayTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (CarrierGatewayTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CarrierGatewayTags)(nil)).Elem()
-}
-
-func (o CarrierGatewayTagsPtrOutput) ToCarrierGatewayTagsPtrOutput() CarrierGatewayTagsPtrOutput {
-	return o
-}
-
-func (o CarrierGatewayTagsPtrOutput) ToCarrierGatewayTagsPtrOutputWithContext(ctx context.Context) CarrierGatewayTagsPtrOutput {
-	return o
-}
-
-func (o CarrierGatewayTagsPtrOutput) Elem() CarrierGatewayTagsOutput {
-	return o.ApplyT(func(v *CarrierGatewayTags) CarrierGatewayTags {
-		if v != nil {
-			return *v
-		}
-		var ret CarrierGatewayTags
-		return ret
-	}).(CarrierGatewayTagsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-carriergateway-tags.html#cfn-ec2-carriergateway-tags-tags
-func (o CarrierGatewayTagsPtrOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v *CarrierGatewayTags) []aws.Tag {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(aws.TagArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityreservationoptionsrequest.html
 type EC2FleetCapacityReservationOptionsRequest struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityreservationoptionsrequest.html#cfn-ec2-ec2fleet-capacityreservationoptionsrequest-usagestrategy
@@ -1804,146 +1664,6 @@ func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) TotalTargetCapacity
 		}
 		return &v.TotalTargetCapacity
 	}).(pulumi.IntPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html
-type LocalGatewayRouteTableVPCAssociationTags struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html#cfn-ec2-localgatewayroutetablevpcassociation-tags-tags
-	Tags []aws.Tag `pulumi:"tags"`
-}
-
-// LocalGatewayRouteTableVPCAssociationTagsInput is an input type that accepts LocalGatewayRouteTableVPCAssociationTagsArgs and LocalGatewayRouteTableVPCAssociationTagsOutput values.
-// You can construct a concrete instance of `LocalGatewayRouteTableVPCAssociationTagsInput` via:
-//
-//          LocalGatewayRouteTableVPCAssociationTagsArgs{...}
-type LocalGatewayRouteTableVPCAssociationTagsInput interface {
-	pulumi.Input
-
-	ToLocalGatewayRouteTableVPCAssociationTagsOutput() LocalGatewayRouteTableVPCAssociationTagsOutput
-	ToLocalGatewayRouteTableVPCAssociationTagsOutputWithContext(context.Context) LocalGatewayRouteTableVPCAssociationTagsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html
-type LocalGatewayRouteTableVPCAssociationTagsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html#cfn-ec2-localgatewayroutetablevpcassociation-tags-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
-}
-
-func (LocalGatewayRouteTableVPCAssociationTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGatewayRouteTableVPCAssociationTags)(nil)).Elem()
-}
-
-func (i LocalGatewayRouteTableVPCAssociationTagsArgs) ToLocalGatewayRouteTableVPCAssociationTagsOutput() LocalGatewayRouteTableVPCAssociationTagsOutput {
-	return i.ToLocalGatewayRouteTableVPCAssociationTagsOutputWithContext(context.Background())
-}
-
-func (i LocalGatewayRouteTableVPCAssociationTagsArgs) ToLocalGatewayRouteTableVPCAssociationTagsOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVPCAssociationTagsOutput)
-}
-
-func (i LocalGatewayRouteTableVPCAssociationTagsArgs) ToLocalGatewayRouteTableVPCAssociationTagsPtrOutput() LocalGatewayRouteTableVPCAssociationTagsPtrOutput {
-	return i.ToLocalGatewayRouteTableVPCAssociationTagsPtrOutputWithContext(context.Background())
-}
-
-func (i LocalGatewayRouteTableVPCAssociationTagsArgs) ToLocalGatewayRouteTableVPCAssociationTagsPtrOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVPCAssociationTagsOutput).ToLocalGatewayRouteTableVPCAssociationTagsPtrOutputWithContext(ctx)
-}
-
-// LocalGatewayRouteTableVPCAssociationTagsPtrInput is an input type that accepts LocalGatewayRouteTableVPCAssociationTagsArgs, LocalGatewayRouteTableVPCAssociationTagsPtr and LocalGatewayRouteTableVPCAssociationTagsPtrOutput values.
-// You can construct a concrete instance of `LocalGatewayRouteTableVPCAssociationTagsPtrInput` via:
-//
-//          LocalGatewayRouteTableVPCAssociationTagsArgs{...}
-//
-//  or:
-//
-//          nil
-type LocalGatewayRouteTableVPCAssociationTagsPtrInput interface {
-	pulumi.Input
-
-	ToLocalGatewayRouteTableVPCAssociationTagsPtrOutput() LocalGatewayRouteTableVPCAssociationTagsPtrOutput
-	ToLocalGatewayRouteTableVPCAssociationTagsPtrOutputWithContext(context.Context) LocalGatewayRouteTableVPCAssociationTagsPtrOutput
-}
-
-type localGatewayRouteTableVPCAssociationTagsPtrType LocalGatewayRouteTableVPCAssociationTagsArgs
-
-func LocalGatewayRouteTableVPCAssociationTagsPtr(v *LocalGatewayRouteTableVPCAssociationTagsArgs) LocalGatewayRouteTableVPCAssociationTagsPtrInput {
-	return (*localGatewayRouteTableVPCAssociationTagsPtrType)(v)
-}
-
-func (*localGatewayRouteTableVPCAssociationTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalGatewayRouteTableVPCAssociationTags)(nil)).Elem()
-}
-
-func (i *localGatewayRouteTableVPCAssociationTagsPtrType) ToLocalGatewayRouteTableVPCAssociationTagsPtrOutput() LocalGatewayRouteTableVPCAssociationTagsPtrOutput {
-	return i.ToLocalGatewayRouteTableVPCAssociationTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *localGatewayRouteTableVPCAssociationTagsPtrType) ToLocalGatewayRouteTableVPCAssociationTagsPtrOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVPCAssociationTagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html
-type LocalGatewayRouteTableVPCAssociationTagsOutput struct{ *pulumi.OutputState }
-
-func (LocalGatewayRouteTableVPCAssociationTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGatewayRouteTableVPCAssociationTags)(nil)).Elem()
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagsOutput) ToLocalGatewayRouteTableVPCAssociationTagsOutput() LocalGatewayRouteTableVPCAssociationTagsOutput {
-	return o
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagsOutput) ToLocalGatewayRouteTableVPCAssociationTagsOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationTagsOutput {
-	return o
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagsOutput) ToLocalGatewayRouteTableVPCAssociationTagsPtrOutput() LocalGatewayRouteTableVPCAssociationTagsPtrOutput {
-	return o.ToLocalGatewayRouteTableVPCAssociationTagsPtrOutputWithContext(context.Background())
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagsOutput) ToLocalGatewayRouteTableVPCAssociationTagsPtrOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalGatewayRouteTableVPCAssociationTags) *LocalGatewayRouteTableVPCAssociationTags {
-		return &v
-	}).(LocalGatewayRouteTableVPCAssociationTagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html#cfn-ec2-localgatewayroutetablevpcassociation-tags-tags
-func (o LocalGatewayRouteTableVPCAssociationTagsOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v LocalGatewayRouteTableVPCAssociationTags) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
-}
-
-type LocalGatewayRouteTableVPCAssociationTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalGatewayRouteTableVPCAssociationTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalGatewayRouteTableVPCAssociationTags)(nil)).Elem()
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagsPtrOutput) ToLocalGatewayRouteTableVPCAssociationTagsPtrOutput() LocalGatewayRouteTableVPCAssociationTagsPtrOutput {
-	return o
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagsPtrOutput) ToLocalGatewayRouteTableVPCAssociationTagsPtrOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationTagsPtrOutput {
-	return o
-}
-
-func (o LocalGatewayRouteTableVPCAssociationTagsPtrOutput) Elem() LocalGatewayRouteTableVPCAssociationTagsOutput {
-	return o.ApplyT(func(v *LocalGatewayRouteTableVPCAssociationTags) LocalGatewayRouteTableVPCAssociationTags {
-		if v != nil {
-			return *v
-		}
-		var ret LocalGatewayRouteTableVPCAssociationTags
-		return ret
-	}).(LocalGatewayRouteTableVPCAssociationTagsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-localgatewayroutetablevpcassociation-tags.html#cfn-ec2-localgatewayroutetablevpcassociation-tags-tags
-func (o LocalGatewayRouteTableVPCAssociationTagsPtrOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v *LocalGatewayRouteTableVPCAssociationTags) []aws.Tag {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(aws.TagArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-alternatepathhint.html
@@ -4687,15 +4407,15 @@ func (o PrefixListEntryArrayOutput) Index(i pulumi.IntInput) PrefixListEntryOutp
 	}).(PrefixListEntryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html
 type SpotFleetBlockDeviceMapping struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-devicename
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html#cfn-ec2-spotfleet-blockdevicemapping-devicename
 	DeviceName string `pulumi:"deviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-ebs
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html#cfn-ec2-spotfleet-blockdevicemapping-ebs
 	Ebs *SpotFleetEbsBlockDevice `pulumi:"ebs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-nodevice
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html#cfn-ec2-spotfleet-blockdevicemapping-nodevice
 	NoDevice *string `pulumi:"noDevice"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-virtualname
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html#cfn-ec2-spotfleet-blockdevicemapping-virtualname
 	VirtualName *string `pulumi:"virtualName"`
 }
 
@@ -4710,15 +4430,15 @@ type SpotFleetBlockDeviceMappingInput interface {
 	ToSpotFleetBlockDeviceMappingOutputWithContext(context.Context) SpotFleetBlockDeviceMappingOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html
 type SpotFleetBlockDeviceMappingArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-devicename
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html#cfn-ec2-spotfleet-blockdevicemapping-devicename
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-ebs
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html#cfn-ec2-spotfleet-blockdevicemapping-ebs
 	Ebs SpotFleetEbsBlockDevicePtrInput `pulumi:"ebs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-nodevice
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html#cfn-ec2-spotfleet-blockdevicemapping-nodevice
 	NoDevice pulumi.StringPtrInput `pulumi:"noDevice"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-virtualname
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html#cfn-ec2-spotfleet-blockdevicemapping-virtualname
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
@@ -4759,7 +4479,7 @@ func (i SpotFleetBlockDeviceMappingArray) ToSpotFleetBlockDeviceMappingArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetBlockDeviceMappingArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html
 type SpotFleetBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetBlockDeviceMappingOutput) ElementType() reflect.Type {
@@ -4774,22 +4494,22 @@ func (o SpotFleetBlockDeviceMappingOutput) ToSpotFleetBlockDeviceMappingOutputWi
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-devicename
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html#cfn-ec2-spotfleet-blockdevicemapping-devicename
 func (o SpotFleetBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-ebs
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html#cfn-ec2-spotfleet-blockdevicemapping-ebs
 func (o SpotFleetBlockDeviceMappingOutput) Ebs() SpotFleetEbsBlockDevicePtrOutput {
 	return o.ApplyT(func(v SpotFleetBlockDeviceMapping) *SpotFleetEbsBlockDevice { return v.Ebs }).(SpotFleetEbsBlockDevicePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-nodevice
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html#cfn-ec2-spotfleet-blockdevicemapping-nodevice
 func (o SpotFleetBlockDeviceMappingOutput) NoDevice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetBlockDeviceMapping) *string { return v.NoDevice }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html#cfn-ec2-spotfleet-blockdevicemapping-virtualname
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html#cfn-ec2-spotfleet-blockdevicemapping-virtualname
 func (o SpotFleetBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -5056,19 +4776,19 @@ func (o SpotFleetClassicLoadBalancersConfigPtrOutput) ClassicLoadBalancers() Spo
 	}).(SpotFleetClassicLoadBalancerArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html
 type SpotFleetEbsBlockDevice struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-deleteontermination
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-deleteontermination
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-encrypted
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-encrypted
 	Encrypted *bool `pulumi:"encrypted"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-iops
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-iops
 	Iops *int `pulumi:"iops"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-snapshotid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-snapshotid
 	SnapshotId *string `pulumi:"snapshotId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumesize
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-volumesize
 	VolumeSize *int `pulumi:"volumeSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -5083,19 +4803,19 @@ type SpotFleetEbsBlockDeviceInput interface {
 	ToSpotFleetEbsBlockDeviceOutputWithContext(context.Context) SpotFleetEbsBlockDeviceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html
 type SpotFleetEbsBlockDeviceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-deleteontermination
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-deleteontermination
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-encrypted
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-encrypted
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-iops
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-iops
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-snapshotid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-snapshotid
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumesize
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-volumesize
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -5152,7 +4872,7 @@ func (i *spotFleetEbsBlockDevicePtrType) ToSpotFleetEbsBlockDevicePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetEbsBlockDevicePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html
 type SpotFleetEbsBlockDeviceOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetEbsBlockDeviceOutput) ElementType() reflect.Type {
@@ -5177,32 +4897,32 @@ func (o SpotFleetEbsBlockDeviceOutput) ToSpotFleetEbsBlockDevicePtrOutputWithCon
 	}).(SpotFleetEbsBlockDevicePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-deleteontermination
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-deleteontermination
 func (o SpotFleetEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-encrypted
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-encrypted
 func (o SpotFleetEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-iops
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-iops
 func (o SpotFleetEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-snapshotid
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-snapshotid
 func (o SpotFleetEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumesize
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-volumesize
 func (o SpotFleetEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype
 func (o SpotFleetEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -5231,7 +4951,7 @@ func (o SpotFleetEbsBlockDevicePtrOutput) Elem() SpotFleetEbsBlockDeviceOutput {
 	}).(SpotFleetEbsBlockDeviceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-deleteontermination
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-deleteontermination
 func (o SpotFleetEbsBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *bool {
 		if v == nil {
@@ -5241,7 +4961,7 @@ func (o SpotFleetEbsBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-encrypted
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-encrypted
 func (o SpotFleetEbsBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *bool {
 		if v == nil {
@@ -5251,7 +4971,7 @@ func (o SpotFleetEbsBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-iops
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-iops
 func (o SpotFleetEbsBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *int {
 		if v == nil {
@@ -5261,7 +4981,7 @@ func (o SpotFleetEbsBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-snapshotid
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-snapshotid
 func (o SpotFleetEbsBlockDevicePtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *string {
 		if v == nil {
@@ -5271,7 +4991,7 @@ func (o SpotFleetEbsBlockDevicePtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumesize
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-volumesize
 func (o SpotFleetEbsBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *int {
 		if v == nil {
@@ -5281,7 +5001,7 @@ func (o SpotFleetEbsBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype
 func (o SpotFleetEbsBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *string {
 		if v == nil {
@@ -5469,9 +5189,9 @@ func (o SpotFleetFleetLaunchTemplateSpecificationPtrOutput) Version() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-securitygroups.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-groupidentifier.html
 type SpotFleetGroupIdentifier struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-securitygroups.html#cfn-ec2-spotfleet-groupidentifier-groupid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-groupidentifier.html#cfn-ec2-spotfleet-groupidentifier-groupid
 	GroupId string `pulumi:"groupId"`
 }
 
@@ -5486,9 +5206,9 @@ type SpotFleetGroupIdentifierInput interface {
 	ToSpotFleetGroupIdentifierOutputWithContext(context.Context) SpotFleetGroupIdentifierOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-securitygroups.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-groupidentifier.html
 type SpotFleetGroupIdentifierArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-securitygroups.html#cfn-ec2-spotfleet-groupidentifier-groupid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-groupidentifier.html#cfn-ec2-spotfleet-groupidentifier-groupid
 	GroupId pulumi.StringInput `pulumi:"groupId"`
 }
 
@@ -5529,7 +5249,7 @@ func (i SpotFleetGroupIdentifierArray) ToSpotFleetGroupIdentifierArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetGroupIdentifierArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-securitygroups.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-groupidentifier.html
 type SpotFleetGroupIdentifierOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetGroupIdentifierOutput) ElementType() reflect.Type {
@@ -5544,7 +5264,7 @@ func (o SpotFleetGroupIdentifierOutput) ToSpotFleetGroupIdentifierOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-securitygroups.html#cfn-ec2-spotfleet-groupidentifier-groupid
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-groupidentifier.html#cfn-ec2-spotfleet-groupidentifier-groupid
 func (o SpotFleetGroupIdentifierOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetGroupIdentifier) string { return v.GroupId }).(pulumi.StringOutput)
 }
@@ -5569,9 +5289,9 @@ func (o SpotFleetGroupIdentifierArrayOutput) Index(i pulumi.IntInput) SpotFleetG
 	}).(SpotFleetGroupIdentifierOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-iaminstanceprofile.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html
 type SpotFleetIamInstanceProfileSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-iaminstanceprofile.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
 	Arn *string `pulumi:"arn"`
 }
 
@@ -5586,9 +5306,9 @@ type SpotFleetIamInstanceProfileSpecificationInput interface {
 	ToSpotFleetIamInstanceProfileSpecificationOutputWithContext(context.Context) SpotFleetIamInstanceProfileSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-iaminstanceprofile.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html
 type SpotFleetIamInstanceProfileSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-iaminstanceprofile.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -5645,7 +5365,7 @@ func (i *spotFleetIamInstanceProfileSpecificationPtrType) ToSpotFleetIamInstance
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetIamInstanceProfileSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-iaminstanceprofile.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html
 type SpotFleetIamInstanceProfileSpecificationOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetIamInstanceProfileSpecificationOutput) ElementType() reflect.Type {
@@ -5670,7 +5390,7 @@ func (o SpotFleetIamInstanceProfileSpecificationOutput) ToSpotFleetIamInstancePr
 	}).(SpotFleetIamInstanceProfileSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-iaminstanceprofile.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
 func (o SpotFleetIamInstanceProfileSpecificationOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetIamInstanceProfileSpecification) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -5699,7 +5419,7 @@ func (o SpotFleetIamInstanceProfileSpecificationPtrOutput) Elem() SpotFleetIamIn
 	}).(SpotFleetIamInstanceProfileSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-iaminstanceprofile.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html#cfn-ec2-spotfleet-iaminstanceprofilespecification-arn
 func (o SpotFleetIamInstanceProfileSpecificationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetIamInstanceProfileSpecification) *string {
 		if v == nil {
@@ -5809,29 +5529,29 @@ func (o SpotFleetInstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput) SpotFl
 	}).(SpotFleetInstanceIpv6AddressOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html
 type SpotFleetInstanceNetworkInterfaceSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-associatepublicipaddress
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-associatepublicipaddress
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deleteontermination
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deleteontermination
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-description
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-description
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deviceindex
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deviceindex
 	DeviceIndex *int `pulumi:"deviceIndex"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-groups
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-groups
 	Groups []string `pulumi:"groups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresscount
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresscount
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresses
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresses
 	Ipv6Addresses []SpotFleetInstanceIpv6Address `pulumi:"ipv6Addresses"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-networkinterfaceid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-networkinterfaceid
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-privateipaddresses
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-privateipaddresses
 	PrivateIpAddresses []SpotFleetPrivateIpAddressSpecification `pulumi:"privateIpAddresses"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-secondaryprivateipaddresscount
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-secondaryprivateipaddresscount
 	SecondaryPrivateIpAddressCount *int `pulumi:"secondaryPrivateIpAddressCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-subnetid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-subnetid
 	SubnetId *string `pulumi:"subnetId"`
 }
 
@@ -5846,29 +5566,29 @@ type SpotFleetInstanceNetworkInterfaceSpecificationInput interface {
 	ToSpotFleetInstanceNetworkInterfaceSpecificationOutputWithContext(context.Context) SpotFleetInstanceNetworkInterfaceSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html
 type SpotFleetInstanceNetworkInterfaceSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-associatepublicipaddress
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-associatepublicipaddress
 	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deleteontermination
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deleteontermination
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-description
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-description
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deviceindex
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deviceindex
 	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-groups
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-groups
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresscount
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresscount
 	Ipv6AddressCount pulumi.IntPtrInput `pulumi:"ipv6AddressCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresses
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresses
 	Ipv6Addresses SpotFleetInstanceIpv6AddressArrayInput `pulumi:"ipv6Addresses"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-networkinterfaceid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-networkinterfaceid
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-privateipaddresses
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-privateipaddresses
 	PrivateIpAddresses SpotFleetPrivateIpAddressSpecificationArrayInput `pulumi:"privateIpAddresses"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-secondaryprivateipaddresscount
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-secondaryprivateipaddresscount
 	SecondaryPrivateIpAddressCount pulumi.IntPtrInput `pulumi:"secondaryPrivateIpAddressCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-subnetid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-subnetid
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
@@ -5909,7 +5629,7 @@ func (i SpotFleetInstanceNetworkInterfaceSpecificationArray) ToSpotFleetInstance
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceNetworkInterfaceSpecificationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html
 type SpotFleetInstanceNetworkInterfaceSpecificationOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetInstanceNetworkInterfaceSpecificationOutput) ElementType() reflect.Type {
@@ -5924,61 +5644,61 @@ func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) ToSpotFleetInstanc
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-associatepublicipaddress
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-associatepublicipaddress
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deleteontermination
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deleteontermination
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-description
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-description
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deviceindex
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-deviceindex
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) DeviceIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-groups
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-groups
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresscount
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresscount
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresses
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresses
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) Ipv6Addresses() SpotFleetInstanceIpv6AddressArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) []SpotFleetInstanceIpv6Address {
 		return v.Ipv6Addresses
 	}).(SpotFleetInstanceIpv6AddressArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-networkinterfaceid
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-networkinterfaceid
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-privateipaddresses
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-privateipaddresses
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) PrivateIpAddresses() SpotFleetPrivateIpAddressSpecificationArrayOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) []SpotFleetPrivateIpAddressSpecification {
 		return v.PrivateIpAddresses
 	}).(SpotFleetPrivateIpAddressSpecificationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-secondaryprivateipaddresscount
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-secondaryprivateipaddresscount
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-subnetid
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-subnetid
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -6120,8 +5840,6 @@ type SpotFleetLaunchTemplateOverrides struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-instancetype
 	InstanceType *string `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-priority
-	Priority *float64 `pulumi:"priority"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-spotprice
 	SpotPrice *string `pulumi:"spotPrice"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-subnetid
@@ -6147,8 +5865,6 @@ type SpotFleetLaunchTemplateOverridesArgs struct {
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-instancetype
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-priority
-	Priority pulumi.Float64PtrInput `pulumi:"priority"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-spotprice
 	SpotPrice pulumi.StringPtrInput `pulumi:"spotPrice"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-subnetid
@@ -6217,11 +5933,6 @@ func (o SpotFleetLaunchTemplateOverridesOutput) AvailabilityZone() pulumi.String
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-instancetype
 func (o SpotFleetLaunchTemplateOverridesOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-priority
-func (o SpotFleetLaunchTemplateOverridesOutput) Priority() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-spotprice
@@ -6420,11 +6131,11 @@ func (o SpotFleetLoadBalancersConfigPtrOutput) TargetGroupsConfig() SpotFleetTar
 	}).(SpotFleetTargetGroupsConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-privateipaddressspecification.html
 type SpotFleetPrivateIpAddressSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html#cfn-ec2-spotfleet-privateipaddressspecification-primary
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-privateipaddressspecification.html#cfn-ec2-spotfleet-privateipaddressspecification-primary
 	Primary *bool `pulumi:"primary"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html#cfn-ec2-spotfleet-privateipaddressspecification-privateipaddress
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-privateipaddressspecification.html#cfn-ec2-spotfleet-privateipaddressspecification-privateipaddress
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 }
 
@@ -6439,11 +6150,11 @@ type SpotFleetPrivateIpAddressSpecificationInput interface {
 	ToSpotFleetPrivateIpAddressSpecificationOutputWithContext(context.Context) SpotFleetPrivateIpAddressSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-privateipaddressspecification.html
 type SpotFleetPrivateIpAddressSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html#cfn-ec2-spotfleet-privateipaddressspecification-primary
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-privateipaddressspecification.html#cfn-ec2-spotfleet-privateipaddressspecification-primary
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html#cfn-ec2-spotfleet-privateipaddressspecification-privateipaddress
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-privateipaddressspecification.html#cfn-ec2-spotfleet-privateipaddressspecification-privateipaddress
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 }
 
@@ -6484,7 +6195,7 @@ func (i SpotFleetPrivateIpAddressSpecificationArray) ToSpotFleetPrivateIpAddress
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetPrivateIpAddressSpecificationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-privateipaddressspecification.html
 type SpotFleetPrivateIpAddressSpecificationOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetPrivateIpAddressSpecificationOutput) ElementType() reflect.Type {
@@ -6499,12 +6210,12 @@ func (o SpotFleetPrivateIpAddressSpecificationOutput) ToSpotFleetPrivateIpAddres
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html#cfn-ec2-spotfleet-privateipaddressspecification-primary
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-privateipaddressspecification.html#cfn-ec2-spotfleet-privateipaddressspecification-primary
 func (o SpotFleetPrivateIpAddressSpecificationOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetPrivateIpAddressSpecification) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html#cfn-ec2-spotfleet-privateipaddressspecification-privateipaddress
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-privateipaddressspecification.html#cfn-ec2-spotfleet-privateipaddressspecification-privateipaddress
 func (o SpotFleetPrivateIpAddressSpecificationOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetPrivateIpAddressSpecification) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
@@ -6669,41 +6380,41 @@ func (o SpotFleetSpotCapacityRebalancePtrOutput) ReplacementStrategy() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html
 type SpotFleetSpotFleetLaunchSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-blockdevicemappings
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-blockdevicemappings
 	BlockDeviceMappings []SpotFleetBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ebsoptimized
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ebsoptimized
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-iaminstanceprofile
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-iaminstanceprofile
 	IamInstanceProfile *SpotFleetIamInstanceProfileSpecification `pulumi:"iamInstanceProfile"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-imageid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-imageid
 	ImageId string `pulumi:"imageId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-instancetype
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-instancetype
 	InstanceType string `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-kernelid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-kernelid
 	KernelId *string `pulumi:"kernelId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-keyname
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-keyname
 	KeyName *string `pulumi:"keyName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-monitoring
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-monitoring
 	Monitoring *SpotFleetSpotFleetMonitoring `pulumi:"monitoring"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-networkinterfaces
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-networkinterfaces
 	NetworkInterfaces []SpotFleetInstanceNetworkInterfaceSpecification `pulumi:"networkInterfaces"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-placement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-placement
 	Placement *SpotFleetSpotPlacement `pulumi:"placement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ramdiskid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ramdiskid
 	RamdiskId *string `pulumi:"ramdiskId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-securitygroups
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-securitygroups
 	SecurityGroups []SpotFleetGroupIdentifier `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-spotprice
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-spotprice
 	SpotPrice *string `pulumi:"spotPrice"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-subnetid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-subnetid
 	SubnetId *string `pulumi:"subnetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-tagspecifications
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-tagspecifications
 	TagSpecifications []SpotFleetSpotFleetTagSpecification `pulumi:"tagSpecifications"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-userdata
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-userdata
 	UserData *string `pulumi:"userData"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-weightedcapacity
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-weightedcapacity
 	WeightedCapacity *float64 `pulumi:"weightedCapacity"`
 }
 
@@ -6718,41 +6429,41 @@ type SpotFleetSpotFleetLaunchSpecificationInput interface {
 	ToSpotFleetSpotFleetLaunchSpecificationOutputWithContext(context.Context) SpotFleetSpotFleetLaunchSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html
 type SpotFleetSpotFleetLaunchSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-blockdevicemappings
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-blockdevicemappings
 	BlockDeviceMappings SpotFleetBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ebsoptimized
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ebsoptimized
 	EbsOptimized pulumi.BoolPtrInput `pulumi:"ebsOptimized"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-iaminstanceprofile
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-iaminstanceprofile
 	IamInstanceProfile SpotFleetIamInstanceProfileSpecificationPtrInput `pulumi:"iamInstanceProfile"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-imageid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-imageid
 	ImageId pulumi.StringInput `pulumi:"imageId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-instancetype
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-instancetype
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-kernelid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-kernelid
 	KernelId pulumi.StringPtrInput `pulumi:"kernelId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-keyname
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-keyname
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-monitoring
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-monitoring
 	Monitoring SpotFleetSpotFleetMonitoringPtrInput `pulumi:"monitoring"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-networkinterfaces
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-networkinterfaces
 	NetworkInterfaces SpotFleetInstanceNetworkInterfaceSpecificationArrayInput `pulumi:"networkInterfaces"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-placement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-placement
 	Placement SpotFleetSpotPlacementPtrInput `pulumi:"placement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ramdiskid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ramdiskid
 	RamdiskId pulumi.StringPtrInput `pulumi:"ramdiskId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-securitygroups
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-securitygroups
 	SecurityGroups SpotFleetGroupIdentifierArrayInput `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-spotprice
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-spotprice
 	SpotPrice pulumi.StringPtrInput `pulumi:"spotPrice"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-subnetid
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-subnetid
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-tagspecifications
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-tagspecifications
 	TagSpecifications SpotFleetSpotFleetTagSpecificationArrayInput `pulumi:"tagSpecifications"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-userdata
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-userdata
 	UserData pulumi.StringPtrInput `pulumi:"userData"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-weightedcapacity
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-weightedcapacity
 	WeightedCapacity pulumi.Float64PtrInput `pulumi:"weightedCapacity"`
 }
 
@@ -6793,7 +6504,7 @@ func (i SpotFleetSpotFleetLaunchSpecificationArray) ToSpotFleetSpotFleetLaunchSp
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotFleetLaunchSpecificationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html
 type SpotFleetSpotFleetLaunchSpecificationOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetSpotFleetLaunchSpecificationOutput) ElementType() reflect.Type {
@@ -6808,95 +6519,95 @@ func (o SpotFleetSpotFleetLaunchSpecificationOutput) ToSpotFleetSpotFleetLaunchS
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-blockdevicemappings
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-blockdevicemappings
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) BlockDeviceMappings() SpotFleetBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) []SpotFleetBlockDeviceMapping {
 		return v.BlockDeviceMappings
 	}).(SpotFleetBlockDeviceMappingArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ebsoptimized
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ebsoptimized
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) EbsOptimized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-iaminstanceprofile
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-iaminstanceprofile
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) IamInstanceProfile() SpotFleetIamInstanceProfileSpecificationPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *SpotFleetIamInstanceProfileSpecification {
 		return v.IamInstanceProfile
 	}).(SpotFleetIamInstanceProfileSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-imageid
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-imageid
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) string { return v.ImageId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-instancetype
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-instancetype
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-kernelid
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-kernelid
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) KernelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *string { return v.KernelId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-keyname
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-keyname
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-monitoring
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-monitoring
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) Monitoring() SpotFleetSpotFleetMonitoringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *SpotFleetSpotFleetMonitoring { return v.Monitoring }).(SpotFleetSpotFleetMonitoringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-networkinterfaces
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-networkinterfaces
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) NetworkInterfaces() SpotFleetInstanceNetworkInterfaceSpecificationArrayOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) []SpotFleetInstanceNetworkInterfaceSpecification {
 		return v.NetworkInterfaces
 	}).(SpotFleetInstanceNetworkInterfaceSpecificationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-placement
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-placement
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) Placement() SpotFleetSpotPlacementPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *SpotFleetSpotPlacement { return v.Placement }).(SpotFleetSpotPlacementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ramdiskid
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ramdiskid
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) RamdiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *string { return v.RamdiskId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-securitygroups
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-securitygroups
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) SecurityGroups() SpotFleetGroupIdentifierArrayOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) []SpotFleetGroupIdentifier { return v.SecurityGroups }).(SpotFleetGroupIdentifierArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-spotprice
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-spotprice
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) SpotPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-subnetid
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-subnetid
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-tagspecifications
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-tagspecifications
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) TagSpecifications() SpotFleetSpotFleetTagSpecificationArrayOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) []SpotFleetSpotFleetTagSpecification {
 		return v.TagSpecifications
 	}).(SpotFleetSpotFleetTagSpecificationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-userdata
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-userdata
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) UserData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *string { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-weightedcapacity
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-weightedcapacity
 func (o SpotFleetSpotFleetLaunchSpecificationOutput) WeightedCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *float64 { return v.WeightedCapacity }).(pulumi.Float64PtrOutput)
 }
@@ -6921,9 +6632,9 @@ func (o SpotFleetSpotFleetLaunchSpecificationArrayOutput) Index(i pulumi.IntInpu
 	}).(SpotFleetSpotFleetLaunchSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-monitoring.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetmonitoring.html
 type SpotFleetSpotFleetMonitoring struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-monitoring.html#cfn-ec2-spotfleet-spotfleetmonitoring-enabled
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetmonitoring.html#cfn-ec2-spotfleet-spotfleetmonitoring-enabled
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -6938,9 +6649,9 @@ type SpotFleetSpotFleetMonitoringInput interface {
 	ToSpotFleetSpotFleetMonitoringOutputWithContext(context.Context) SpotFleetSpotFleetMonitoringOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-monitoring.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetmonitoring.html
 type SpotFleetSpotFleetMonitoringArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-monitoring.html#cfn-ec2-spotfleet-spotfleetmonitoring-enabled
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetmonitoring.html#cfn-ec2-spotfleet-spotfleetmonitoring-enabled
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -6997,7 +6708,7 @@ func (i *spotFleetSpotFleetMonitoringPtrType) ToSpotFleetSpotFleetMonitoringPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotFleetMonitoringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-monitoring.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetmonitoring.html
 type SpotFleetSpotFleetMonitoringOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetSpotFleetMonitoringOutput) ElementType() reflect.Type {
@@ -7022,7 +6733,7 @@ func (o SpotFleetSpotFleetMonitoringOutput) ToSpotFleetSpotFleetMonitoringPtrOut
 	}).(SpotFleetSpotFleetMonitoringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-monitoring.html#cfn-ec2-spotfleet-spotfleetmonitoring-enabled
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetmonitoring.html#cfn-ec2-spotfleet-spotfleetmonitoring-enabled
 func (o SpotFleetSpotFleetMonitoringOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetMonitoring) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -7051,7 +6762,7 @@ func (o SpotFleetSpotFleetMonitoringPtrOutput) Elem() SpotFleetSpotFleetMonitori
 	}).(SpotFleetSpotFleetMonitoringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-monitoring.html#cfn-ec2-spotfleet-spotfleetmonitoring-enabled
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetmonitoring.html#cfn-ec2-spotfleet-spotfleetmonitoring-enabled
 func (o SpotFleetSpotFleetMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotFleetSpotFleetMonitoring) *bool {
 		if v == nil {
@@ -7065,6 +6776,8 @@ func (o SpotFleetSpotFleetMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 type SpotFleetSpotFleetRequestConfigData struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-allocationstrategy
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-context
+	Context *string `pulumi:"context"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-excesscapacityterminationpolicy
 	ExcessCapacityTerminationPolicy *string `pulumi:"excessCapacityTerminationPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-iamfleetrole
@@ -7120,6 +6833,8 @@ type SpotFleetSpotFleetRequestConfigDataInput interface {
 type SpotFleetSpotFleetRequestConfigDataArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-allocationstrategy
 	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-context
+	Context pulumi.StringPtrInput `pulumi:"context"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-excesscapacityterminationpolicy
 	ExcessCapacityTerminationPolicy pulumi.StringPtrInput `pulumi:"excessCapacityTerminationPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-iamfleetrole
@@ -7241,6 +6956,11 @@ func (o SpotFleetSpotFleetRequestConfigDataOutput) ToSpotFleetSpotFleetRequestCo
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-allocationstrategy
 func (o SpotFleetSpotFleetRequestConfigDataOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-context
+func (o SpotFleetSpotFleetRequestConfigDataOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.Context }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-excesscapacityterminationpolicy
@@ -7377,6 +7097,16 @@ func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) AllocationStrategy() pulum
 			return nil
 		}
 		return v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-context
+func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Context
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7570,11 +7300,11 @@ func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) ValidUntil() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html
 type SpotFleetSpotFleetTagSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html#cfn-ec2-spotfleet-spotfleettagspecification-resourcetype
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html#cfn-ec2-spotfleet-spotfleettagspecification-resourcetype
 	ResourceType *string `pulumi:"resourceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html#cfn-ec2-spotfleet-tags
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html#cfn-ec2-spotfleet-spotfleettagspecification-tags
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -7589,11 +7319,11 @@ type SpotFleetSpotFleetTagSpecificationInput interface {
 	ToSpotFleetSpotFleetTagSpecificationOutputWithContext(context.Context) SpotFleetSpotFleetTagSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html
 type SpotFleetSpotFleetTagSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html#cfn-ec2-spotfleet-spotfleettagspecification-resourcetype
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html#cfn-ec2-spotfleet-spotfleettagspecification-resourcetype
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html#cfn-ec2-spotfleet-tags
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html#cfn-ec2-spotfleet-spotfleettagspecification-tags
 	Tags aws.TagArrayInput `pulumi:"tags"`
 }
 
@@ -7634,7 +7364,7 @@ func (i SpotFleetSpotFleetTagSpecificationArray) ToSpotFleetSpotFleetTagSpecific
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotFleetTagSpecificationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html
 type SpotFleetSpotFleetTagSpecificationOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetSpotFleetTagSpecificationOutput) ElementType() reflect.Type {
@@ -7649,12 +7379,12 @@ func (o SpotFleetSpotFleetTagSpecificationOutput) ToSpotFleetSpotFleetTagSpecifi
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html#cfn-ec2-spotfleet-spotfleettagspecification-resourcetype
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html#cfn-ec2-spotfleet-spotfleettagspecification-resourcetype
 func (o SpotFleetSpotFleetTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html#cfn-ec2-spotfleet-tags
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html#cfn-ec2-spotfleet-spotfleettagspecification-tags
 func (o SpotFleetSpotFleetTagSpecificationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetTagSpecification) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
@@ -7819,13 +7549,13 @@ func (o SpotFleetSpotMaintenanceStrategiesPtrOutput) CapacityRebalance() SpotFle
 	}).(SpotFleetSpotCapacityRebalancePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html
 type SpotFleetSpotPlacement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-availabilityzone
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-availabilityzone
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-groupname
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-groupname
 	GroupName *string `pulumi:"groupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-tenancy
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-tenancy
 	Tenancy *string `pulumi:"tenancy"`
 }
 
@@ -7840,13 +7570,13 @@ type SpotFleetSpotPlacementInput interface {
 	ToSpotFleetSpotPlacementOutputWithContext(context.Context) SpotFleetSpotPlacementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html
 type SpotFleetSpotPlacementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-availabilityzone
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-availabilityzone
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-groupname
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-groupname
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-tenancy
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-tenancy
 	Tenancy pulumi.StringPtrInput `pulumi:"tenancy"`
 }
 
@@ -7903,7 +7633,7 @@ func (i *spotFleetSpotPlacementPtrType) ToSpotFleetSpotPlacementPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotPlacementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html
 type SpotFleetSpotPlacementOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetSpotPlacementOutput) ElementType() reflect.Type {
@@ -7928,17 +7658,17 @@ func (o SpotFleetSpotPlacementOutput) ToSpotFleetSpotPlacementPtrOutputWithConte
 	}).(SpotFleetSpotPlacementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-availabilityzone
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-availabilityzone
 func (o SpotFleetSpotPlacementOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotPlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-groupname
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-groupname
 func (o SpotFleetSpotPlacementOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotPlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-tenancy
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-tenancy
 func (o SpotFleetSpotPlacementOutput) Tenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotPlacement) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
 }
@@ -7967,7 +7697,7 @@ func (o SpotFleetSpotPlacementPtrOutput) Elem() SpotFleetSpotPlacementOutput {
 	}).(SpotFleetSpotPlacementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-availabilityzone
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-availabilityzone
 func (o SpotFleetSpotPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetSpotPlacement) *string {
 		if v == nil {
@@ -7977,7 +7707,7 @@ func (o SpotFleetSpotPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-groupname
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-groupname
 func (o SpotFleetSpotPlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetSpotPlacement) *string {
 		if v == nil {
@@ -7987,7 +7717,7 @@ func (o SpotFleetSpotPlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-tenancy
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-tenancy
 func (o SpotFleetSpotPlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetSpotPlacement) *string {
 		if v == nil {
@@ -8237,9 +7967,147 @@ func (o SpotFleetTargetGroupsConfigPtrOutput) TargetGroups() SpotFleetTargetGrou
 	}).(SpotFleetTargetGroupArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html
+type TransitGatewayConnectTransitGatewayConnectOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html#cfn-ec2-transitgatewayconnect-transitgatewayconnectoptions-protocol
+	Protocol *string `pulumi:"protocol"`
+}
+
+// TransitGatewayConnectTransitGatewayConnectOptionsInput is an input type that accepts TransitGatewayConnectTransitGatewayConnectOptionsArgs and TransitGatewayConnectTransitGatewayConnectOptionsOutput values.
+// You can construct a concrete instance of `TransitGatewayConnectTransitGatewayConnectOptionsInput` via:
+//
+//          TransitGatewayConnectTransitGatewayConnectOptionsArgs{...}
+type TransitGatewayConnectTransitGatewayConnectOptionsInput interface {
+	pulumi.Input
+
+	ToTransitGatewayConnectTransitGatewayConnectOptionsOutput() TransitGatewayConnectTransitGatewayConnectOptionsOutput
+	ToTransitGatewayConnectTransitGatewayConnectOptionsOutputWithContext(context.Context) TransitGatewayConnectTransitGatewayConnectOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html
+type TransitGatewayConnectTransitGatewayConnectOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html#cfn-ec2-transitgatewayconnect-transitgatewayconnectoptions-protocol
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (TransitGatewayConnectTransitGatewayConnectOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayConnectTransitGatewayConnectOptions)(nil)).Elem()
+}
+
+func (i TransitGatewayConnectTransitGatewayConnectOptionsArgs) ToTransitGatewayConnectTransitGatewayConnectOptionsOutput() TransitGatewayConnectTransitGatewayConnectOptionsOutput {
+	return i.ToTransitGatewayConnectTransitGatewayConnectOptionsOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayConnectTransitGatewayConnectOptionsArgs) ToTransitGatewayConnectTransitGatewayConnectOptionsOutputWithContext(ctx context.Context) TransitGatewayConnectTransitGatewayConnectOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectTransitGatewayConnectOptionsOutput)
+}
+
+func (i TransitGatewayConnectTransitGatewayConnectOptionsArgs) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
+	return i.ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayConnectTransitGatewayConnectOptionsArgs) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectTransitGatewayConnectOptionsOutput).ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(ctx)
+}
+
+// TransitGatewayConnectTransitGatewayConnectOptionsPtrInput is an input type that accepts TransitGatewayConnectTransitGatewayConnectOptionsArgs, TransitGatewayConnectTransitGatewayConnectOptionsPtr and TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput values.
+// You can construct a concrete instance of `TransitGatewayConnectTransitGatewayConnectOptionsPtrInput` via:
+//
+//          TransitGatewayConnectTransitGatewayConnectOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type TransitGatewayConnectTransitGatewayConnectOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput
+	ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(context.Context) TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput
+}
+
+type transitGatewayConnectTransitGatewayConnectOptionsPtrType TransitGatewayConnectTransitGatewayConnectOptionsArgs
+
+func TransitGatewayConnectTransitGatewayConnectOptionsPtr(v *TransitGatewayConnectTransitGatewayConnectOptionsArgs) TransitGatewayConnectTransitGatewayConnectOptionsPtrInput {
+	return (*transitGatewayConnectTransitGatewayConnectOptionsPtrType)(v)
+}
+
+func (*transitGatewayConnectTransitGatewayConnectOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayConnectTransitGatewayConnectOptions)(nil)).Elem()
+}
+
+func (i *transitGatewayConnectTransitGatewayConnectOptionsPtrType) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
+	return i.ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *transitGatewayConnectTransitGatewayConnectOptionsPtrType) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html
+type TransitGatewayConnectTransitGatewayConnectOptionsOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayConnectTransitGatewayConnectOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayConnectTransitGatewayConnectOptions)(nil)).Elem()
+}
+
+func (o TransitGatewayConnectTransitGatewayConnectOptionsOutput) ToTransitGatewayConnectTransitGatewayConnectOptionsOutput() TransitGatewayConnectTransitGatewayConnectOptionsOutput {
+	return o
+}
+
+func (o TransitGatewayConnectTransitGatewayConnectOptionsOutput) ToTransitGatewayConnectTransitGatewayConnectOptionsOutputWithContext(ctx context.Context) TransitGatewayConnectTransitGatewayConnectOptionsOutput {
+	return o
+}
+
+func (o TransitGatewayConnectTransitGatewayConnectOptionsOutput) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
+	return o.ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayConnectTransitGatewayConnectOptionsOutput) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayConnectTransitGatewayConnectOptions) *TransitGatewayConnectTransitGatewayConnectOptions {
+		return &v
+	}).(TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html#cfn-ec2-transitgatewayconnect-transitgatewayconnectoptions-protocol
+func (o TransitGatewayConnectTransitGatewayConnectOptionsOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayConnectTransitGatewayConnectOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayConnectTransitGatewayConnectOptions)(nil)).Elem()
+}
+
+func (o TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
+	return o
+}
+
+func (o TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
+	return o
+}
+
+func (o TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput) Elem() TransitGatewayConnectTransitGatewayConnectOptionsOutput {
+	return o.ApplyT(func(v *TransitGatewayConnectTransitGatewayConnectOptions) TransitGatewayConnectTransitGatewayConnectOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayConnectTransitGatewayConnectOptions
+		return ret
+	}).(TransitGatewayConnectTransitGatewayConnectOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html#cfn-ec2-transitgatewayconnect-transitgatewayconnectoptions-protocol
+func (o TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayConnectTransitGatewayConnectOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
-	pulumi.RegisterOutputType(CarrierGatewayTagsOutput{})
-	pulumi.RegisterOutputType(CarrierGatewayTagsPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestOutput{})
 	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetFleetLaunchTemplateConfigRequestOutput{})
@@ -8258,8 +8126,6 @@ func init() {
 	pulumi.RegisterOutputType(EC2FleetTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestOutput{})
 	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestPtrOutput{})
-	pulumi.RegisterOutputType(LocalGatewayRouteTableVPCAssociationTagsOutput{})
-	pulumi.RegisterOutputType(LocalGatewayRouteTableVPCAssociationTagsPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAlternatePathHintOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAlternatePathHintArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisAclRuleOutput{})
@@ -8330,4 +8196,6 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetTargetGroupsConfigOutput{})
 	pulumi.RegisterOutputType(SpotFleetTargetGroupsConfigPtrOutput{})
+	pulumi.RegisterOutputType(TransitGatewayConnectTransitGatewayConnectOptionsOutput{})
+	pulumi.RegisterOutputType(TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput{})
 }

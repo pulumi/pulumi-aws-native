@@ -736,7 +736,7 @@ class ListenerRedirectConfig(dict):
 @pulumi.output_type
 class ListenerRuleAction(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html
     """
     @staticmethod
     def __key_warning(key: str):
@@ -775,15 +775,15 @@ class ListenerRuleAction(dict):
                  redirect_config: Optional['outputs.ListenerRuleRedirectConfig'] = None,
                  target_group_arn: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html
-        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-type
-        :param 'ListenerRuleAuthenticateCognitoConfig' authenticate_cognito_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticatecognitoconfig
-        :param 'ListenerRuleAuthenticateOidcConfig' authenticate_oidc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticateoidcconfig
-        :param 'ListenerRuleFixedResponseConfig' fixed_response_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-fixedresponseconfig
-        :param 'ListenerRuleForwardConfig' forward_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-forwardconfig
-        :param int order: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-order
-        :param 'ListenerRuleRedirectConfig' redirect_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-redirectconfig
-        :param str target_group_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-targetgrouparn
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html
+        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-type
+        :param 'ListenerRuleAuthenticateCognitoConfig' authenticate_cognito_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticatecognitoconfig
+        :param 'ListenerRuleAuthenticateOidcConfig' authenticate_oidc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticateoidcconfig
+        :param 'ListenerRuleFixedResponseConfig' fixed_response_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-fixedresponseconfig
+        :param 'ListenerRuleForwardConfig' forward_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-forwardconfig
+        :param int order: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-order
+        :param 'ListenerRuleRedirectConfig' redirect_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-redirectconfig
+        :param str target_group_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-targetgrouparn
         """
         pulumi.set(__self__, "type", type)
         if authenticate_cognito_config is not None:
@@ -805,7 +805,7 @@ class ListenerRuleAction(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-type
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-type
         """
         return pulumi.get(self, "type")
 
@@ -813,7 +813,7 @@ class ListenerRuleAction(dict):
     @pulumi.getter(name="authenticateCognitoConfig")
     def authenticate_cognito_config(self) -> Optional['outputs.ListenerRuleAuthenticateCognitoConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticatecognitoconfig
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticatecognitoconfig
         """
         return pulumi.get(self, "authenticate_cognito_config")
 
@@ -821,7 +821,7 @@ class ListenerRuleAction(dict):
     @pulumi.getter(name="authenticateOidcConfig")
     def authenticate_oidc_config(self) -> Optional['outputs.ListenerRuleAuthenticateOidcConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticateoidcconfig
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticateoidcconfig
         """
         return pulumi.get(self, "authenticate_oidc_config")
 
@@ -829,7 +829,7 @@ class ListenerRuleAction(dict):
     @pulumi.getter(name="fixedResponseConfig")
     def fixed_response_config(self) -> Optional['outputs.ListenerRuleFixedResponseConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-fixedresponseconfig
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-fixedresponseconfig
         """
         return pulumi.get(self, "fixed_response_config")
 
@@ -837,7 +837,7 @@ class ListenerRuleAction(dict):
     @pulumi.getter(name="forwardConfig")
     def forward_config(self) -> Optional['outputs.ListenerRuleForwardConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-forwardconfig
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-forwardconfig
         """
         return pulumi.get(self, "forward_config")
 
@@ -845,7 +845,7 @@ class ListenerRuleAction(dict):
     @pulumi.getter
     def order(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-order
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-order
         """
         return pulumi.get(self, "order")
 
@@ -853,7 +853,7 @@ class ListenerRuleAction(dict):
     @pulumi.getter(name="redirectConfig")
     def redirect_config(self) -> Optional['outputs.ListenerRuleRedirectConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-redirectconfig
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-redirectconfig
         """
         return pulumi.get(self, "redirect_config")
 
@@ -861,7 +861,7 @@ class ListenerRuleAction(dict):
     @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-targetgrouparn
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-targetgrouparn
         """
         return pulumi.get(self, "target_group_arn")
 
@@ -1025,6 +1025,8 @@ class ListenerRuleAuthenticateOidcConfig(dict):
             suggest = "session_cookie_name"
         elif key == "sessionTimeout":
             suggest = "session_timeout"
+        elif key == "useExistingClientSecret":
+            suggest = "use_existing_client_secret"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ListenerRuleAuthenticateOidcConfig. Access the value via the '{suggest}' property getter instead.")
@@ -1048,7 +1050,8 @@ class ListenerRuleAuthenticateOidcConfig(dict):
                  on_unauthenticated_request: Optional[str] = None,
                  scope: Optional[str] = None,
                  session_cookie_name: Optional[str] = None,
-                 session_timeout: Optional[int] = None):
+                 session_timeout: Optional[int] = None,
+                 use_existing_client_secret: Optional[bool] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html
         :param str authorization_endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-authorizationendpoint
@@ -1062,6 +1065,7 @@ class ListenerRuleAuthenticateOidcConfig(dict):
         :param str scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-scope
         :param str session_cookie_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-sessioncookiename
         :param int session_timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-sessiontimeout
+        :param bool use_existing_client_secret: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-useexistingclientsecret
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "client_id", client_id)
@@ -1079,6 +1083,8 @@ class ListenerRuleAuthenticateOidcConfig(dict):
             pulumi.set(__self__, "session_cookie_name", session_cookie_name)
         if session_timeout is not None:
             pulumi.set(__self__, "session_timeout", session_timeout)
+        if use_existing_client_secret is not None:
+            pulumi.set(__self__, "use_existing_client_secret", use_existing_client_secret)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -1167,6 +1173,14 @@ class ListenerRuleAuthenticateOidcConfig(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-sessiontimeout
         """
         return pulumi.get(self, "session_timeout")
+
+    @property
+    @pulumi.getter(name="useExistingClientSecret")
+    def use_existing_client_secret(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-useexistingclientsecret
+        """
+        return pulumi.get(self, "use_existing_client_secret")
 
 
 @pulumi.output_type
@@ -1571,7 +1585,7 @@ class ListenerRuleRedirectConfig(dict):
 @pulumi.output_type
 class ListenerRuleRuleCondition(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1610,15 +1624,15 @@ class ListenerRuleRuleCondition(dict):
                  source_ip_config: Optional['outputs.ListenerRuleSourceIpConfig'] = None,
                  values: Optional[Sequence[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html
-        :param str field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-field
-        :param 'ListenerRuleHostHeaderConfig' host_header_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
-        :param 'ListenerRuleHttpHeaderConfig' http_header_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig
-        :param 'ListenerRuleHttpRequestMethodConfig' http_request_method_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig
-        :param 'ListenerRulePathPatternConfig' path_pattern_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig
-        :param 'ListenerRuleQueryStringConfig' query_string_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
-        :param 'ListenerRuleSourceIpConfig' source_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig
-        :param Sequence[str] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-values
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html
+        :param str field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-field
+        :param 'ListenerRuleHostHeaderConfig' host_header_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
+        :param 'ListenerRuleHttpHeaderConfig' http_header_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig
+        :param 'ListenerRuleHttpRequestMethodConfig' http_request_method_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig
+        :param 'ListenerRulePathPatternConfig' path_pattern_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig
+        :param 'ListenerRuleQueryStringConfig' query_string_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
+        :param 'ListenerRuleSourceIpConfig' source_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig
+        :param Sequence[str] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-values
         """
         if field is not None:
             pulumi.set(__self__, "field", field)
@@ -1641,7 +1655,7 @@ class ListenerRuleRuleCondition(dict):
     @pulumi.getter
     def field(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-field
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-field
         """
         return pulumi.get(self, "field")
 
@@ -1649,7 +1663,7 @@ class ListenerRuleRuleCondition(dict):
     @pulumi.getter(name="hostHeaderConfig")
     def host_header_config(self) -> Optional['outputs.ListenerRuleHostHeaderConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
         """
         return pulumi.get(self, "host_header_config")
 
@@ -1657,7 +1671,7 @@ class ListenerRuleRuleCondition(dict):
     @pulumi.getter(name="httpHeaderConfig")
     def http_header_config(self) -> Optional['outputs.ListenerRuleHttpHeaderConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httpheaderconfig
         """
         return pulumi.get(self, "http_header_config")
 
@@ -1665,7 +1679,7 @@ class ListenerRuleRuleCondition(dict):
     @pulumi.getter(name="httpRequestMethodConfig")
     def http_request_method_config(self) -> Optional['outputs.ListenerRuleHttpRequestMethodConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-httprequestmethodconfig
         """
         return pulumi.get(self, "http_request_method_config")
 
@@ -1673,7 +1687,7 @@ class ListenerRuleRuleCondition(dict):
     @pulumi.getter(name="pathPatternConfig")
     def path_pattern_config(self) -> Optional['outputs.ListenerRulePathPatternConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-pathpatternconfig
         """
         return pulumi.get(self, "path_pattern_config")
 
@@ -1681,7 +1695,7 @@ class ListenerRuleRuleCondition(dict):
     @pulumi.getter(name="queryStringConfig")
     def query_string_config(self) -> Optional['outputs.ListenerRuleQueryStringConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-querystringconfig
         """
         return pulumi.get(self, "query_string_config")
 
@@ -1689,7 +1703,7 @@ class ListenerRuleRuleCondition(dict):
     @pulumi.getter(name="sourceIpConfig")
     def source_ip_config(self) -> Optional['outputs.ListenerRuleSourceIpConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-sourceipconfig
         """
         return pulumi.get(self, "source_ip_config")
 
@@ -1697,7 +1711,7 @@ class ListenerRuleRuleCondition(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-values
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-values
         """
         return pulumi.get(self, "values")
 

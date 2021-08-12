@@ -6,9 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./logGroup";
+export * from "./queryDefinition";
+export * from "./resourcePolicy";
 
 // Import resources to register:
 import { LogGroup } from "./logGroup";
+import { QueryDefinition } from "./queryDefinition";
+import { ResourcePolicy } from "./resourcePolicy";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,6 +20,10 @@ const _module = {
         switch (type) {
             case "aws-native:Logs:LogGroup":
                 return new LogGroup(name, <any>undefined, { urn })
+            case "aws-native:Logs:QueryDefinition":
+                return new QueryDefinition(name, <any>undefined, { urn })
+            case "aws-native:Logs:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

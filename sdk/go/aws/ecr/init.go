@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:ECR:RegistryPolicy":
+		r = &RegistryPolicy{}
+	case "aws-native:ECR:ReplicationConfiguration":
+		r = &ReplicationConfiguration{}
 	case "aws-native:ECR:Repository":
 		r = &Repository{}
 	default:

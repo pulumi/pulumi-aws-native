@@ -5,9 +5,16 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .account_audit_configuration import *
 from .authorizer import *
 from .certificate import *
+from .custom_metric import *
+from .dimension import *
+from .domain_configuration import *
+from .mitigation_action import *
 from .provisioning_template import *
+from .scheduled_audit import *
+from .security_profile import *
 from .topic_rule import *
 from .topic_rule_destination import *
 from ._inputs import *

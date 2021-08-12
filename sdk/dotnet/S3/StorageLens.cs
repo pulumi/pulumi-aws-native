@@ -15,14 +15,14 @@ namespace Pulumi.AwsNative.S3
     [AwsNativeResourceType("aws-native:S3:StorageLens")]
     public partial class StorageLens : Pulumi.CustomResource
     {
-        [Output("storageLensArn")]
-        public Output<string> StorageLensArn { get; private set; } = null!;
-
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
         /// </summary>
         [Output("storageLensConfiguration")]
         public Output<Outputs.StorageLensStorageLensConfiguration> StorageLensConfiguration { get; private set; } = null!;
+
+        [Output("storageLensConfigurationStorageLensArn")]
+        public Output<string> StorageLensConfigurationStorageLensArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags

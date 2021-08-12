@@ -129,6 +129,7 @@ class Resource(pulumi.CustomResource):
             if rest_api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__.__dict__["rest_api_id"] = rest_api_id
+            __props__.__dict__["resource_id"] = None
         super(Resource, __self__).__init__(
             'aws-native:ApiGateway:Resource',
             resource_name,
@@ -153,6 +154,7 @@ class Resource(pulumi.CustomResource):
 
         __props__.__dict__["parent_id"] = None
         __props__.__dict__["path_part"] = None
+        __props__.__dict__["resource_id"] = None
         __props__.__dict__["rest_api_id"] = None
         return Resource(resource_name, opts=opts, __props__=__props__)
 
@@ -171,6 +173,11 @@ class Resource(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
         """
         return pulumi.get(self, "path_part")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="restApiId")

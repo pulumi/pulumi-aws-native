@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername
         /// </summary>
-        public readonly string? TimerName;
+        public readonly string TimerName;
 
         [OutputConstructor]
         private DetectorModelSetTimer(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 
             int? seconds,
 
-            string? timerName)
+            string timerName)
         {
             DurationExpression = durationExpression;
             Seconds = seconds;

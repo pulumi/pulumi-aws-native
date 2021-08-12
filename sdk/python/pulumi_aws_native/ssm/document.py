@@ -7,8 +7,10 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._inputs import *
 
 __all__ = ['DocumentArgs', 'Document']
 
@@ -16,23 +18,43 @@ __all__ = ['DocumentArgs', 'Document']
 class DocumentArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[Union[Any, str]],
+                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
+                 document_format: Optional[pulumi.Input[str]] = None,
                  document_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 requires: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentDocumentRequiresArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_type: Optional[pulumi.Input[str]] = None,
+                 version_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Document resource.
         :param pulumi.Input[Union[Any, str]] content: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
+        :param pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]] attachments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+        :param pulumi.Input[str] document_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
         :param pulumi.Input[str] document_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
+        :param pulumi.Input[Sequence[pulumi.Input['DocumentDocumentRequiresArgs']]] requires: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
+        :param pulumi.Input[str] target_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+        :param pulumi.Input[str] version_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
         """
         pulumi.set(__self__, "content", content)
+        if attachments is not None:
+            pulumi.set(__self__, "attachments", attachments)
+        if document_format is not None:
+            pulumi.set(__self__, "document_format", document_format)
         if document_type is not None:
             pulumi.set(__self__, "document_type", document_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if requires is not None:
+            pulumi.set(__self__, "requires", requires)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
+        if version_name is not None:
+            pulumi.set(__self__, "version_name", version_name)
 
     @property
     @pulumi.getter
@@ -45,6 +67,30 @@ class DocumentArgs:
     @content.setter
     def content(self, value: pulumi.Input[Union[Any, str]]):
         pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+        """
+        return pulumi.get(self, "attachments")
+
+    @attachments.setter
+    def attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]):
+        pulumi.set(self, "attachments", value)
+
+    @property
+    @pulumi.getter(name="documentFormat")
+    def document_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
+        """
+        return pulumi.get(self, "document_format")
+
+    @document_format.setter
+    def document_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_format", value)
 
     @property
     @pulumi.getter(name="documentType")
@@ -72,6 +118,18 @@ class DocumentArgs:
 
     @property
     @pulumi.getter
+    def requires(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentDocumentRequiresArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
+        """
+        return pulumi.get(self, "requires")
+
+    @requires.setter
+    def requires(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentDocumentRequiresArgs']]]]):
+        pulumi.set(self, "requires", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
@@ -82,26 +140,60 @@ class DocumentArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_type", value)
+
+    @property
+    @pulumi.getter(name="versionName")
+    def version_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+        """
+        return pulumi.get(self, "version_name")
+
+    @version_name.setter
+    def version_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_name", value)
+
 
 class Document(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]]] = None,
                  content: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 document_format: Optional[pulumi.Input[str]] = None,
                  document_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentDocumentRequiresArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 target_type: Optional[pulumi.Input[str]] = None,
+                 version_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]] attachments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
         :param pulumi.Input[Union[Any, str]] content: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
+        :param pulumi.Input[str] document_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
         :param pulumi.Input[str] document_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentDocumentRequiresArgs']]]] requires: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
+        :param pulumi.Input[str] target_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+        :param pulumi.Input[str] version_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
         """
         ...
     @overload
@@ -127,10 +219,15 @@ class Document(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]]] = None,
                  content: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 document_format: Optional[pulumi.Input[str]] = None,
                  document_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentDocumentRequiresArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 target_type: Optional[pulumi.Input[str]] = None,
+                 version_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -143,12 +240,17 @@ class Document(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DocumentArgs.__new__(DocumentArgs)
 
+            __props__.__dict__["attachments"] = attachments
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__.__dict__["content"] = content
+            __props__.__dict__["document_format"] = document_format
             __props__.__dict__["document_type"] = document_type
             __props__.__dict__["name"] = name
+            __props__.__dict__["requires"] = requires
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_type"] = target_type
+            __props__.__dict__["version_name"] = version_name
         super(Document, __self__).__init__(
             'aws-native:SSM:Document',
             resource_name,
@@ -171,11 +273,24 @@ class Document(pulumi.CustomResource):
 
         __props__ = DocumentArgs.__new__(DocumentArgs)
 
+        __props__.__dict__["attachments"] = None
         __props__.__dict__["content"] = None
+        __props__.__dict__["document_format"] = None
         __props__.__dict__["document_type"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["requires"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["target_type"] = None
+        __props__.__dict__["version_name"] = None
         return Document(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def attachments(self) -> pulumi.Output[Optional[Sequence['outputs.DocumentAttachmentsSource']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+        """
+        return pulumi.get(self, "attachments")
 
     @property
     @pulumi.getter
@@ -184,6 +299,14 @@ class Document(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
         """
         return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="documentFormat")
+    def document_format(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
+        """
+        return pulumi.get(self, "document_format")
 
     @property
     @pulumi.getter(name="documentType")
@@ -203,9 +326,33 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def requires(self) -> pulumi.Output[Optional[Sequence['outputs.DocumentDocumentRequires']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
+        """
+        return pulumi.get(self, "requires")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+        """
+        return pulumi.get(self, "target_type")
+
+    @property
+    @pulumi.getter(name="versionName")
+    def version_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+        """
+        return pulumi.get(self, "version_name")
 

@@ -18,7 +18,7 @@ __all__ = ['GameServerGroupArgs', 'GameServerGroup']
 class GameServerGroupArgs:
     def __init__(__self__, *,
                  game_server_group_name: pulumi.Input[str],
-                 instance_definitions: pulumi.Input['GameServerGroupInstanceDefinitionsArgs'],
+                 instance_definitions: pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]],
                  launch_template: pulumi.Input['GameServerGroupLaunchTemplateArgs'],
                  role_arn: pulumi.Input[str],
                  auto_scaling_policy: Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']] = None,
@@ -27,12 +27,12 @@ class GameServerGroupArgs:
                  game_server_protection_policy: Optional[pulumi.Input[str]] = None,
                  max_size: Optional[pulumi.Input[float]] = None,
                  min_size: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input['GameServerGroupTagsArgs']] = None,
-                 vpc_subnets: Optional[pulumi.Input['GameServerGroupVpcSubnetsArgs']] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a GameServerGroup resource.
         :param pulumi.Input[str] game_server_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
-        :param pulumi.Input['GameServerGroupInstanceDefinitionsArgs'] instance_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+        :param pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]] instance_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
         :param pulumi.Input['GameServerGroupLaunchTemplateArgs'] launch_template: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
         :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
         :param pulumi.Input['GameServerGroupAutoScalingPolicyArgs'] auto_scaling_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
@@ -41,8 +41,8 @@ class GameServerGroupArgs:
         :param pulumi.Input[str] game_server_protection_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
         :param pulumi.Input[float] max_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
         :param pulumi.Input[float] min_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
-        :param pulumi.Input['GameServerGroupTagsArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
-        :param pulumi.Input['GameServerGroupVpcSubnetsArgs'] vpc_subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
         """
         pulumi.set(__self__, "game_server_group_name", game_server_group_name)
         pulumi.set(__self__, "instance_definitions", instance_definitions)
@@ -79,14 +79,14 @@ class GameServerGroupArgs:
 
     @property
     @pulumi.getter(name="instanceDefinitions")
-    def instance_definitions(self) -> pulumi.Input['GameServerGroupInstanceDefinitionsArgs']:
+    def instance_definitions(self) -> pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
         """
         return pulumi.get(self, "instance_definitions")
 
     @instance_definitions.setter
-    def instance_definitions(self, value: pulumi.Input['GameServerGroupInstanceDefinitionsArgs']):
+    def instance_definitions(self, value: pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]]):
         pulumi.set(self, "instance_definitions", value)
 
     @property
@@ -187,26 +187,26 @@ class GameServerGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['GameServerGroupTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['GameServerGroupTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="vpcSubnets")
-    def vpc_subnets(self) -> Optional[pulumi.Input['GameServerGroupVpcSubnetsArgs']]:
+    def vpc_subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
         """
         return pulumi.get(self, "vpc_subnets")
 
     @vpc_subnets.setter
-    def vpc_subnets(self, value: Optional[pulumi.Input['GameServerGroupVpcSubnetsArgs']]):
+    def vpc_subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "vpc_subnets", value)
 
 
@@ -220,13 +220,13 @@ class GameServerGroup(pulumi.CustomResource):
                  delete_option: Optional[pulumi.Input[str]] = None,
                  game_server_group_name: Optional[pulumi.Input[str]] = None,
                  game_server_protection_policy: Optional[pulumi.Input[str]] = None,
-                 instance_definitions: Optional[pulumi.Input[pulumi.InputType['GameServerGroupInstanceDefinitionsArgs']]] = None,
+                 instance_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupInstanceDefinitionArgs']]]]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['GameServerGroupLaunchTemplateArgs']]] = None,
                  max_size: Optional[pulumi.Input[float]] = None,
                  min_size: Optional[pulumi.Input[float]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['GameServerGroupTagsArgs']]] = None,
-                 vpc_subnets: Optional[pulumi.Input[pulumi.InputType['GameServerGroupVpcSubnetsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html
@@ -238,13 +238,13 @@ class GameServerGroup(pulumi.CustomResource):
         :param pulumi.Input[str] delete_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
         :param pulumi.Input[str] game_server_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
         :param pulumi.Input[str] game_server_protection_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
-        :param pulumi.Input[pulumi.InputType['GameServerGroupInstanceDefinitionsArgs']] instance_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupInstanceDefinitionArgs']]]] instance_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
         :param pulumi.Input[pulumi.InputType['GameServerGroupLaunchTemplateArgs']] launch_template: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
         :param pulumi.Input[float] max_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
         :param pulumi.Input[float] min_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
         :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
-        :param pulumi.Input[pulumi.InputType['GameServerGroupTagsArgs']] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
-        :param pulumi.Input[pulumi.InputType['GameServerGroupVpcSubnetsArgs']] vpc_subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
         """
         ...
     @overload
@@ -275,13 +275,13 @@ class GameServerGroup(pulumi.CustomResource):
                  delete_option: Optional[pulumi.Input[str]] = None,
                  game_server_group_name: Optional[pulumi.Input[str]] = None,
                  game_server_protection_policy: Optional[pulumi.Input[str]] = None,
-                 instance_definitions: Optional[pulumi.Input[pulumi.InputType['GameServerGroupInstanceDefinitionsArgs']]] = None,
+                 instance_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupInstanceDefinitionArgs']]]]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['GameServerGroupLaunchTemplateArgs']]] = None,
                  max_size: Optional[pulumi.Input[float]] = None,
                  min_size: Optional[pulumi.Input[float]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['GameServerGroupTagsArgs']]] = None,
-                 vpc_subnets: Optional[pulumi.Input[pulumi.InputType['GameServerGroupVpcSubnetsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -406,7 +406,7 @@ class GameServerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceDefinitions")
-    def instance_definitions(self) -> pulumi.Output['outputs.GameServerGroupInstanceDefinitions']:
+    def instance_definitions(self) -> pulumi.Output[Sequence['outputs.GameServerGroupInstanceDefinition']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
         """
@@ -446,7 +446,7 @@ class GameServerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.GameServerGroupTags']]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
         """
@@ -454,7 +454,7 @@ class GameServerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSubnets")
-    def vpc_subnets(self) -> pulumi.Output[Optional['outputs.GameServerGroupVpcSubnets']]:
+    def vpc_subnets(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
         """

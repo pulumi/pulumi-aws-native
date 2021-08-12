@@ -10,6 +10,2488 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html
+type ConfigAntennaDownlinkConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html#cfn-groundstation-config-antennadownlinkconfig-spectrumconfig
+	SpectrumConfig *ConfigSpectrumConfig `pulumi:"spectrumConfig"`
+}
+
+// ConfigAntennaDownlinkConfigInput is an input type that accepts ConfigAntennaDownlinkConfigArgs and ConfigAntennaDownlinkConfigOutput values.
+// You can construct a concrete instance of `ConfigAntennaDownlinkConfigInput` via:
+//
+//          ConfigAntennaDownlinkConfigArgs{...}
+type ConfigAntennaDownlinkConfigInput interface {
+	pulumi.Input
+
+	ToConfigAntennaDownlinkConfigOutput() ConfigAntennaDownlinkConfigOutput
+	ToConfigAntennaDownlinkConfigOutputWithContext(context.Context) ConfigAntennaDownlinkConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html
+type ConfigAntennaDownlinkConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html#cfn-groundstation-config-antennadownlinkconfig-spectrumconfig
+	SpectrumConfig ConfigSpectrumConfigPtrInput `pulumi:"spectrumConfig"`
+}
+
+func (ConfigAntennaDownlinkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigAntennaDownlinkConfig)(nil)).Elem()
+}
+
+func (i ConfigAntennaDownlinkConfigArgs) ToConfigAntennaDownlinkConfigOutput() ConfigAntennaDownlinkConfigOutput {
+	return i.ToConfigAntennaDownlinkConfigOutputWithContext(context.Background())
+}
+
+func (i ConfigAntennaDownlinkConfigArgs) ToConfigAntennaDownlinkConfigOutputWithContext(ctx context.Context) ConfigAntennaDownlinkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaDownlinkConfigOutput)
+}
+
+func (i ConfigAntennaDownlinkConfigArgs) ToConfigAntennaDownlinkConfigPtrOutput() ConfigAntennaDownlinkConfigPtrOutput {
+	return i.ToConfigAntennaDownlinkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigAntennaDownlinkConfigArgs) ToConfigAntennaDownlinkConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaDownlinkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaDownlinkConfigOutput).ToConfigAntennaDownlinkConfigPtrOutputWithContext(ctx)
+}
+
+// ConfigAntennaDownlinkConfigPtrInput is an input type that accepts ConfigAntennaDownlinkConfigArgs, ConfigAntennaDownlinkConfigPtr and ConfigAntennaDownlinkConfigPtrOutput values.
+// You can construct a concrete instance of `ConfigAntennaDownlinkConfigPtrInput` via:
+//
+//          ConfigAntennaDownlinkConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigAntennaDownlinkConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfigAntennaDownlinkConfigPtrOutput() ConfigAntennaDownlinkConfigPtrOutput
+	ToConfigAntennaDownlinkConfigPtrOutputWithContext(context.Context) ConfigAntennaDownlinkConfigPtrOutput
+}
+
+type configAntennaDownlinkConfigPtrType ConfigAntennaDownlinkConfigArgs
+
+func ConfigAntennaDownlinkConfigPtr(v *ConfigAntennaDownlinkConfigArgs) ConfigAntennaDownlinkConfigPtrInput {
+	return (*configAntennaDownlinkConfigPtrType)(v)
+}
+
+func (*configAntennaDownlinkConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigAntennaDownlinkConfig)(nil)).Elem()
+}
+
+func (i *configAntennaDownlinkConfigPtrType) ToConfigAntennaDownlinkConfigPtrOutput() ConfigAntennaDownlinkConfigPtrOutput {
+	return i.ToConfigAntennaDownlinkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configAntennaDownlinkConfigPtrType) ToConfigAntennaDownlinkConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaDownlinkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaDownlinkConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html
+type ConfigAntennaDownlinkConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfigAntennaDownlinkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigAntennaDownlinkConfig)(nil)).Elem()
+}
+
+func (o ConfigAntennaDownlinkConfigOutput) ToConfigAntennaDownlinkConfigOutput() ConfigAntennaDownlinkConfigOutput {
+	return o
+}
+
+func (o ConfigAntennaDownlinkConfigOutput) ToConfigAntennaDownlinkConfigOutputWithContext(ctx context.Context) ConfigAntennaDownlinkConfigOutput {
+	return o
+}
+
+func (o ConfigAntennaDownlinkConfigOutput) ToConfigAntennaDownlinkConfigPtrOutput() ConfigAntennaDownlinkConfigPtrOutput {
+	return o.ToConfigAntennaDownlinkConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigAntennaDownlinkConfigOutput) ToConfigAntennaDownlinkConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaDownlinkConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigAntennaDownlinkConfig) *ConfigAntennaDownlinkConfig {
+		return &v
+	}).(ConfigAntennaDownlinkConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html#cfn-groundstation-config-antennadownlinkconfig-spectrumconfig
+func (o ConfigAntennaDownlinkConfigOutput) SpectrumConfig() ConfigSpectrumConfigPtrOutput {
+	return o.ApplyT(func(v ConfigAntennaDownlinkConfig) *ConfigSpectrumConfig { return v.SpectrumConfig }).(ConfigSpectrumConfigPtrOutput)
+}
+
+type ConfigAntennaDownlinkConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigAntennaDownlinkConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigAntennaDownlinkConfig)(nil)).Elem()
+}
+
+func (o ConfigAntennaDownlinkConfigPtrOutput) ToConfigAntennaDownlinkConfigPtrOutput() ConfigAntennaDownlinkConfigPtrOutput {
+	return o
+}
+
+func (o ConfigAntennaDownlinkConfigPtrOutput) ToConfigAntennaDownlinkConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaDownlinkConfigPtrOutput {
+	return o
+}
+
+func (o ConfigAntennaDownlinkConfigPtrOutput) Elem() ConfigAntennaDownlinkConfigOutput {
+	return o.ApplyT(func(v *ConfigAntennaDownlinkConfig) ConfigAntennaDownlinkConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigAntennaDownlinkConfig
+		return ret
+	}).(ConfigAntennaDownlinkConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html#cfn-groundstation-config-antennadownlinkconfig-spectrumconfig
+func (o ConfigAntennaDownlinkConfigPtrOutput) SpectrumConfig() ConfigSpectrumConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigAntennaDownlinkConfig) *ConfigSpectrumConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SpectrumConfig
+	}).(ConfigSpectrumConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html
+type ConfigAntennaDownlinkDemodDecodeConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-decodeconfig
+	DecodeConfig *ConfigDecodeConfig `pulumi:"decodeConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-demodulationconfig
+	DemodulationConfig *ConfigDemodulationConfig `pulumi:"demodulationConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-spectrumconfig
+	SpectrumConfig *ConfigSpectrumConfig `pulumi:"spectrumConfig"`
+}
+
+// ConfigAntennaDownlinkDemodDecodeConfigInput is an input type that accepts ConfigAntennaDownlinkDemodDecodeConfigArgs and ConfigAntennaDownlinkDemodDecodeConfigOutput values.
+// You can construct a concrete instance of `ConfigAntennaDownlinkDemodDecodeConfigInput` via:
+//
+//          ConfigAntennaDownlinkDemodDecodeConfigArgs{...}
+type ConfigAntennaDownlinkDemodDecodeConfigInput interface {
+	pulumi.Input
+
+	ToConfigAntennaDownlinkDemodDecodeConfigOutput() ConfigAntennaDownlinkDemodDecodeConfigOutput
+	ToConfigAntennaDownlinkDemodDecodeConfigOutputWithContext(context.Context) ConfigAntennaDownlinkDemodDecodeConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html
+type ConfigAntennaDownlinkDemodDecodeConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-decodeconfig
+	DecodeConfig ConfigDecodeConfigPtrInput `pulumi:"decodeConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-demodulationconfig
+	DemodulationConfig ConfigDemodulationConfigPtrInput `pulumi:"demodulationConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-spectrumconfig
+	SpectrumConfig ConfigSpectrumConfigPtrInput `pulumi:"spectrumConfig"`
+}
+
+func (ConfigAntennaDownlinkDemodDecodeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigAntennaDownlinkDemodDecodeConfig)(nil)).Elem()
+}
+
+func (i ConfigAntennaDownlinkDemodDecodeConfigArgs) ToConfigAntennaDownlinkDemodDecodeConfigOutput() ConfigAntennaDownlinkDemodDecodeConfigOutput {
+	return i.ToConfigAntennaDownlinkDemodDecodeConfigOutputWithContext(context.Background())
+}
+
+func (i ConfigAntennaDownlinkDemodDecodeConfigArgs) ToConfigAntennaDownlinkDemodDecodeConfigOutputWithContext(ctx context.Context) ConfigAntennaDownlinkDemodDecodeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaDownlinkDemodDecodeConfigOutput)
+}
+
+func (i ConfigAntennaDownlinkDemodDecodeConfigArgs) ToConfigAntennaDownlinkDemodDecodeConfigPtrOutput() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
+	return i.ToConfigAntennaDownlinkDemodDecodeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigAntennaDownlinkDemodDecodeConfigArgs) ToConfigAntennaDownlinkDemodDecodeConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaDownlinkDemodDecodeConfigOutput).ToConfigAntennaDownlinkDemodDecodeConfigPtrOutputWithContext(ctx)
+}
+
+// ConfigAntennaDownlinkDemodDecodeConfigPtrInput is an input type that accepts ConfigAntennaDownlinkDemodDecodeConfigArgs, ConfigAntennaDownlinkDemodDecodeConfigPtr and ConfigAntennaDownlinkDemodDecodeConfigPtrOutput values.
+// You can construct a concrete instance of `ConfigAntennaDownlinkDemodDecodeConfigPtrInput` via:
+//
+//          ConfigAntennaDownlinkDemodDecodeConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigAntennaDownlinkDemodDecodeConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfigAntennaDownlinkDemodDecodeConfigPtrOutput() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput
+	ToConfigAntennaDownlinkDemodDecodeConfigPtrOutputWithContext(context.Context) ConfigAntennaDownlinkDemodDecodeConfigPtrOutput
+}
+
+type configAntennaDownlinkDemodDecodeConfigPtrType ConfigAntennaDownlinkDemodDecodeConfigArgs
+
+func ConfigAntennaDownlinkDemodDecodeConfigPtr(v *ConfigAntennaDownlinkDemodDecodeConfigArgs) ConfigAntennaDownlinkDemodDecodeConfigPtrInput {
+	return (*configAntennaDownlinkDemodDecodeConfigPtrType)(v)
+}
+
+func (*configAntennaDownlinkDemodDecodeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigAntennaDownlinkDemodDecodeConfig)(nil)).Elem()
+}
+
+func (i *configAntennaDownlinkDemodDecodeConfigPtrType) ToConfigAntennaDownlinkDemodDecodeConfigPtrOutput() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
+	return i.ToConfigAntennaDownlinkDemodDecodeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configAntennaDownlinkDemodDecodeConfigPtrType) ToConfigAntennaDownlinkDemodDecodeConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html
+type ConfigAntennaDownlinkDemodDecodeConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfigAntennaDownlinkDemodDecodeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigAntennaDownlinkDemodDecodeConfig)(nil)).Elem()
+}
+
+func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) ToConfigAntennaDownlinkDemodDecodeConfigOutput() ConfigAntennaDownlinkDemodDecodeConfigOutput {
+	return o
+}
+
+func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) ToConfigAntennaDownlinkDemodDecodeConfigOutputWithContext(ctx context.Context) ConfigAntennaDownlinkDemodDecodeConfigOutput {
+	return o
+}
+
+func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) ToConfigAntennaDownlinkDemodDecodeConfigPtrOutput() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
+	return o.ToConfigAntennaDownlinkDemodDecodeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) ToConfigAntennaDownlinkDemodDecodeConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigAntennaDownlinkDemodDecodeConfig) *ConfigAntennaDownlinkDemodDecodeConfig {
+		return &v
+	}).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-decodeconfig
+func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) DecodeConfig() ConfigDecodeConfigPtrOutput {
+	return o.ApplyT(func(v ConfigAntennaDownlinkDemodDecodeConfig) *ConfigDecodeConfig { return v.DecodeConfig }).(ConfigDecodeConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-demodulationconfig
+func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) DemodulationConfig() ConfigDemodulationConfigPtrOutput {
+	return o.ApplyT(func(v ConfigAntennaDownlinkDemodDecodeConfig) *ConfigDemodulationConfig { return v.DemodulationConfig }).(ConfigDemodulationConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-spectrumconfig
+func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) SpectrumConfig() ConfigSpectrumConfigPtrOutput {
+	return o.ApplyT(func(v ConfigAntennaDownlinkDemodDecodeConfig) *ConfigSpectrumConfig { return v.SpectrumConfig }).(ConfigSpectrumConfigPtrOutput)
+}
+
+type ConfigAntennaDownlinkDemodDecodeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigAntennaDownlinkDemodDecodeConfig)(nil)).Elem()
+}
+
+func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) ToConfigAntennaDownlinkDemodDecodeConfigPtrOutput() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
+	return o
+}
+
+func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) ToConfigAntennaDownlinkDemodDecodeConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
+	return o
+}
+
+func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) Elem() ConfigAntennaDownlinkDemodDecodeConfigOutput {
+	return o.ApplyT(func(v *ConfigAntennaDownlinkDemodDecodeConfig) ConfigAntennaDownlinkDemodDecodeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigAntennaDownlinkDemodDecodeConfig
+		return ret
+	}).(ConfigAntennaDownlinkDemodDecodeConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-decodeconfig
+func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) DecodeConfig() ConfigDecodeConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigAntennaDownlinkDemodDecodeConfig) *ConfigDecodeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DecodeConfig
+	}).(ConfigDecodeConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-demodulationconfig
+func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) DemodulationConfig() ConfigDemodulationConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigAntennaDownlinkDemodDecodeConfig) *ConfigDemodulationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DemodulationConfig
+	}).(ConfigDemodulationConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-spectrumconfig
+func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) SpectrumConfig() ConfigSpectrumConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigAntennaDownlinkDemodDecodeConfig) *ConfigSpectrumConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SpectrumConfig
+	}).(ConfigSpectrumConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html
+type ConfigAntennaUplinkConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-spectrumconfig
+	SpectrumConfig *ConfigUplinkSpectrumConfig `pulumi:"spectrumConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-targeteirp
+	TargetEirp *ConfigEirp `pulumi:"targetEirp"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-transmitdisabled
+	TransmitDisabled *bool `pulumi:"transmitDisabled"`
+}
+
+// ConfigAntennaUplinkConfigInput is an input type that accepts ConfigAntennaUplinkConfigArgs and ConfigAntennaUplinkConfigOutput values.
+// You can construct a concrete instance of `ConfigAntennaUplinkConfigInput` via:
+//
+//          ConfigAntennaUplinkConfigArgs{...}
+type ConfigAntennaUplinkConfigInput interface {
+	pulumi.Input
+
+	ToConfigAntennaUplinkConfigOutput() ConfigAntennaUplinkConfigOutput
+	ToConfigAntennaUplinkConfigOutputWithContext(context.Context) ConfigAntennaUplinkConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html
+type ConfigAntennaUplinkConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-spectrumconfig
+	SpectrumConfig ConfigUplinkSpectrumConfigPtrInput `pulumi:"spectrumConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-targeteirp
+	TargetEirp ConfigEirpPtrInput `pulumi:"targetEirp"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-transmitdisabled
+	TransmitDisabled pulumi.BoolPtrInput `pulumi:"transmitDisabled"`
+}
+
+func (ConfigAntennaUplinkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigAntennaUplinkConfig)(nil)).Elem()
+}
+
+func (i ConfigAntennaUplinkConfigArgs) ToConfigAntennaUplinkConfigOutput() ConfigAntennaUplinkConfigOutput {
+	return i.ToConfigAntennaUplinkConfigOutputWithContext(context.Background())
+}
+
+func (i ConfigAntennaUplinkConfigArgs) ToConfigAntennaUplinkConfigOutputWithContext(ctx context.Context) ConfigAntennaUplinkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaUplinkConfigOutput)
+}
+
+func (i ConfigAntennaUplinkConfigArgs) ToConfigAntennaUplinkConfigPtrOutput() ConfigAntennaUplinkConfigPtrOutput {
+	return i.ToConfigAntennaUplinkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigAntennaUplinkConfigArgs) ToConfigAntennaUplinkConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaUplinkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaUplinkConfigOutput).ToConfigAntennaUplinkConfigPtrOutputWithContext(ctx)
+}
+
+// ConfigAntennaUplinkConfigPtrInput is an input type that accepts ConfigAntennaUplinkConfigArgs, ConfigAntennaUplinkConfigPtr and ConfigAntennaUplinkConfigPtrOutput values.
+// You can construct a concrete instance of `ConfigAntennaUplinkConfigPtrInput` via:
+//
+//          ConfigAntennaUplinkConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigAntennaUplinkConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfigAntennaUplinkConfigPtrOutput() ConfigAntennaUplinkConfigPtrOutput
+	ToConfigAntennaUplinkConfigPtrOutputWithContext(context.Context) ConfigAntennaUplinkConfigPtrOutput
+}
+
+type configAntennaUplinkConfigPtrType ConfigAntennaUplinkConfigArgs
+
+func ConfigAntennaUplinkConfigPtr(v *ConfigAntennaUplinkConfigArgs) ConfigAntennaUplinkConfigPtrInput {
+	return (*configAntennaUplinkConfigPtrType)(v)
+}
+
+func (*configAntennaUplinkConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigAntennaUplinkConfig)(nil)).Elem()
+}
+
+func (i *configAntennaUplinkConfigPtrType) ToConfigAntennaUplinkConfigPtrOutput() ConfigAntennaUplinkConfigPtrOutput {
+	return i.ToConfigAntennaUplinkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configAntennaUplinkConfigPtrType) ToConfigAntennaUplinkConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaUplinkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaUplinkConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html
+type ConfigAntennaUplinkConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfigAntennaUplinkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigAntennaUplinkConfig)(nil)).Elem()
+}
+
+func (o ConfigAntennaUplinkConfigOutput) ToConfigAntennaUplinkConfigOutput() ConfigAntennaUplinkConfigOutput {
+	return o
+}
+
+func (o ConfigAntennaUplinkConfigOutput) ToConfigAntennaUplinkConfigOutputWithContext(ctx context.Context) ConfigAntennaUplinkConfigOutput {
+	return o
+}
+
+func (o ConfigAntennaUplinkConfigOutput) ToConfigAntennaUplinkConfigPtrOutput() ConfigAntennaUplinkConfigPtrOutput {
+	return o.ToConfigAntennaUplinkConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigAntennaUplinkConfigOutput) ToConfigAntennaUplinkConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaUplinkConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigAntennaUplinkConfig) *ConfigAntennaUplinkConfig {
+		return &v
+	}).(ConfigAntennaUplinkConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-spectrumconfig
+func (o ConfigAntennaUplinkConfigOutput) SpectrumConfig() ConfigUplinkSpectrumConfigPtrOutput {
+	return o.ApplyT(func(v ConfigAntennaUplinkConfig) *ConfigUplinkSpectrumConfig { return v.SpectrumConfig }).(ConfigUplinkSpectrumConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-targeteirp
+func (o ConfigAntennaUplinkConfigOutput) TargetEirp() ConfigEirpPtrOutput {
+	return o.ApplyT(func(v ConfigAntennaUplinkConfig) *ConfigEirp { return v.TargetEirp }).(ConfigEirpPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-transmitdisabled
+func (o ConfigAntennaUplinkConfigOutput) TransmitDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigAntennaUplinkConfig) *bool { return v.TransmitDisabled }).(pulumi.BoolPtrOutput)
+}
+
+type ConfigAntennaUplinkConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigAntennaUplinkConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigAntennaUplinkConfig)(nil)).Elem()
+}
+
+func (o ConfigAntennaUplinkConfigPtrOutput) ToConfigAntennaUplinkConfigPtrOutput() ConfigAntennaUplinkConfigPtrOutput {
+	return o
+}
+
+func (o ConfigAntennaUplinkConfigPtrOutput) ToConfigAntennaUplinkConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaUplinkConfigPtrOutput {
+	return o
+}
+
+func (o ConfigAntennaUplinkConfigPtrOutput) Elem() ConfigAntennaUplinkConfigOutput {
+	return o.ApplyT(func(v *ConfigAntennaUplinkConfig) ConfigAntennaUplinkConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigAntennaUplinkConfig
+		return ret
+	}).(ConfigAntennaUplinkConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-spectrumconfig
+func (o ConfigAntennaUplinkConfigPtrOutput) SpectrumConfig() ConfigUplinkSpectrumConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigAntennaUplinkConfig) *ConfigUplinkSpectrumConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SpectrumConfig
+	}).(ConfigUplinkSpectrumConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-targeteirp
+func (o ConfigAntennaUplinkConfigPtrOutput) TargetEirp() ConfigEirpPtrOutput {
+	return o.ApplyT(func(v *ConfigAntennaUplinkConfig) *ConfigEirp {
+		if v == nil {
+			return nil
+		}
+		return v.TargetEirp
+	}).(ConfigEirpPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-transmitdisabled
+func (o ConfigAntennaUplinkConfigPtrOutput) TransmitDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigAntennaUplinkConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TransmitDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html
+type ConfigConfigData struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkconfig
+	AntennaDownlinkConfig *ConfigAntennaDownlinkConfig `pulumi:"antennaDownlinkConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkdemoddecodeconfig
+	AntennaDownlinkDemodDecodeConfig *ConfigAntennaDownlinkDemodDecodeConfig `pulumi:"antennaDownlinkDemodDecodeConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennauplinkconfig
+	AntennaUplinkConfig *ConfigAntennaUplinkConfig `pulumi:"antennaUplinkConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-dataflowendpointconfig
+	DataflowEndpointConfig *ConfigDataflowEndpointConfig `pulumi:"dataflowEndpointConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-s3recordingconfig
+	S3RecordingConfig *ConfigS3RecordingConfig `pulumi:"s3RecordingConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-trackingconfig
+	TrackingConfig *ConfigTrackingConfig `pulumi:"trackingConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-uplinkechoconfig
+	UplinkEchoConfig *ConfigUplinkEchoConfig `pulumi:"uplinkEchoConfig"`
+}
+
+// ConfigConfigDataInput is an input type that accepts ConfigConfigDataArgs and ConfigConfigDataOutput values.
+// You can construct a concrete instance of `ConfigConfigDataInput` via:
+//
+//          ConfigConfigDataArgs{...}
+type ConfigConfigDataInput interface {
+	pulumi.Input
+
+	ToConfigConfigDataOutput() ConfigConfigDataOutput
+	ToConfigConfigDataOutputWithContext(context.Context) ConfigConfigDataOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html
+type ConfigConfigDataArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkconfig
+	AntennaDownlinkConfig ConfigAntennaDownlinkConfigPtrInput `pulumi:"antennaDownlinkConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkdemoddecodeconfig
+	AntennaDownlinkDemodDecodeConfig ConfigAntennaDownlinkDemodDecodeConfigPtrInput `pulumi:"antennaDownlinkDemodDecodeConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennauplinkconfig
+	AntennaUplinkConfig ConfigAntennaUplinkConfigPtrInput `pulumi:"antennaUplinkConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-dataflowendpointconfig
+	DataflowEndpointConfig ConfigDataflowEndpointConfigPtrInput `pulumi:"dataflowEndpointConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-s3recordingconfig
+	S3RecordingConfig ConfigS3RecordingConfigPtrInput `pulumi:"s3RecordingConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-trackingconfig
+	TrackingConfig ConfigTrackingConfigPtrInput `pulumi:"trackingConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-uplinkechoconfig
+	UplinkEchoConfig ConfigUplinkEchoConfigPtrInput `pulumi:"uplinkEchoConfig"`
+}
+
+func (ConfigConfigDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigConfigData)(nil)).Elem()
+}
+
+func (i ConfigConfigDataArgs) ToConfigConfigDataOutput() ConfigConfigDataOutput {
+	return i.ToConfigConfigDataOutputWithContext(context.Background())
+}
+
+func (i ConfigConfigDataArgs) ToConfigConfigDataOutputWithContext(ctx context.Context) ConfigConfigDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigConfigDataOutput)
+}
+
+func (i ConfigConfigDataArgs) ToConfigConfigDataPtrOutput() ConfigConfigDataPtrOutput {
+	return i.ToConfigConfigDataPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigConfigDataArgs) ToConfigConfigDataPtrOutputWithContext(ctx context.Context) ConfigConfigDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigConfigDataOutput).ToConfigConfigDataPtrOutputWithContext(ctx)
+}
+
+// ConfigConfigDataPtrInput is an input type that accepts ConfigConfigDataArgs, ConfigConfigDataPtr and ConfigConfigDataPtrOutput values.
+// You can construct a concrete instance of `ConfigConfigDataPtrInput` via:
+//
+//          ConfigConfigDataArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigConfigDataPtrInput interface {
+	pulumi.Input
+
+	ToConfigConfigDataPtrOutput() ConfigConfigDataPtrOutput
+	ToConfigConfigDataPtrOutputWithContext(context.Context) ConfigConfigDataPtrOutput
+}
+
+type configConfigDataPtrType ConfigConfigDataArgs
+
+func ConfigConfigDataPtr(v *ConfigConfigDataArgs) ConfigConfigDataPtrInput {
+	return (*configConfigDataPtrType)(v)
+}
+
+func (*configConfigDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigConfigData)(nil)).Elem()
+}
+
+func (i *configConfigDataPtrType) ToConfigConfigDataPtrOutput() ConfigConfigDataPtrOutput {
+	return i.ToConfigConfigDataPtrOutputWithContext(context.Background())
+}
+
+func (i *configConfigDataPtrType) ToConfigConfigDataPtrOutputWithContext(ctx context.Context) ConfigConfigDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigConfigDataPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html
+type ConfigConfigDataOutput struct{ *pulumi.OutputState }
+
+func (ConfigConfigDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigConfigData)(nil)).Elem()
+}
+
+func (o ConfigConfigDataOutput) ToConfigConfigDataOutput() ConfigConfigDataOutput {
+	return o
+}
+
+func (o ConfigConfigDataOutput) ToConfigConfigDataOutputWithContext(ctx context.Context) ConfigConfigDataOutput {
+	return o
+}
+
+func (o ConfigConfigDataOutput) ToConfigConfigDataPtrOutput() ConfigConfigDataPtrOutput {
+	return o.ToConfigConfigDataPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigConfigDataOutput) ToConfigConfigDataPtrOutputWithContext(ctx context.Context) ConfigConfigDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigConfigData) *ConfigConfigData {
+		return &v
+	}).(ConfigConfigDataPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkconfig
+func (o ConfigConfigDataOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfigPtrOutput {
+	return o.ApplyT(func(v ConfigConfigData) *ConfigAntennaDownlinkConfig { return v.AntennaDownlinkConfig }).(ConfigAntennaDownlinkConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkdemoddecodeconfig
+func (o ConfigConfigDataOutput) AntennaDownlinkDemodDecodeConfig() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
+	return o.ApplyT(func(v ConfigConfigData) *ConfigAntennaDownlinkDemodDecodeConfig {
+		return v.AntennaDownlinkDemodDecodeConfig
+	}).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennauplinkconfig
+func (o ConfigConfigDataOutput) AntennaUplinkConfig() ConfigAntennaUplinkConfigPtrOutput {
+	return o.ApplyT(func(v ConfigConfigData) *ConfigAntennaUplinkConfig { return v.AntennaUplinkConfig }).(ConfigAntennaUplinkConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-dataflowendpointconfig
+func (o ConfigConfigDataOutput) DataflowEndpointConfig() ConfigDataflowEndpointConfigPtrOutput {
+	return o.ApplyT(func(v ConfigConfigData) *ConfigDataflowEndpointConfig { return v.DataflowEndpointConfig }).(ConfigDataflowEndpointConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-s3recordingconfig
+func (o ConfigConfigDataOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutput {
+	return o.ApplyT(func(v ConfigConfigData) *ConfigS3RecordingConfig { return v.S3RecordingConfig }).(ConfigS3RecordingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-trackingconfig
+func (o ConfigConfigDataOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
+	return o.ApplyT(func(v ConfigConfigData) *ConfigTrackingConfig { return v.TrackingConfig }).(ConfigTrackingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-uplinkechoconfig
+func (o ConfigConfigDataOutput) UplinkEchoConfig() ConfigUplinkEchoConfigPtrOutput {
+	return o.ApplyT(func(v ConfigConfigData) *ConfigUplinkEchoConfig { return v.UplinkEchoConfig }).(ConfigUplinkEchoConfigPtrOutput)
+}
+
+type ConfigConfigDataPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigConfigDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigConfigData)(nil)).Elem()
+}
+
+func (o ConfigConfigDataPtrOutput) ToConfigConfigDataPtrOutput() ConfigConfigDataPtrOutput {
+	return o
+}
+
+func (o ConfigConfigDataPtrOutput) ToConfigConfigDataPtrOutputWithContext(ctx context.Context) ConfigConfigDataPtrOutput {
+	return o
+}
+
+func (o ConfigConfigDataPtrOutput) Elem() ConfigConfigDataOutput {
+	return o.ApplyT(func(v *ConfigConfigData) ConfigConfigData {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigConfigData
+		return ret
+	}).(ConfigConfigDataOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkconfig
+func (o ConfigConfigDataPtrOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigConfigData) *ConfigAntennaDownlinkConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AntennaDownlinkConfig
+	}).(ConfigAntennaDownlinkConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkdemoddecodeconfig
+func (o ConfigConfigDataPtrOutput) AntennaDownlinkDemodDecodeConfig() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigConfigData) *ConfigAntennaDownlinkDemodDecodeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AntennaDownlinkDemodDecodeConfig
+	}).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennauplinkconfig
+func (o ConfigConfigDataPtrOutput) AntennaUplinkConfig() ConfigAntennaUplinkConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigConfigData) *ConfigAntennaUplinkConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AntennaUplinkConfig
+	}).(ConfigAntennaUplinkConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-dataflowendpointconfig
+func (o ConfigConfigDataPtrOutput) DataflowEndpointConfig() ConfigDataflowEndpointConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigConfigData) *ConfigDataflowEndpointConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DataflowEndpointConfig
+	}).(ConfigDataflowEndpointConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-s3recordingconfig
+func (o ConfigConfigDataPtrOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigConfigData) *ConfigS3RecordingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.S3RecordingConfig
+	}).(ConfigS3RecordingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-trackingconfig
+func (o ConfigConfigDataPtrOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigConfigData) *ConfigTrackingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TrackingConfig
+	}).(ConfigTrackingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-uplinkechoconfig
+func (o ConfigConfigDataPtrOutput) UplinkEchoConfig() ConfigUplinkEchoConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigConfigData) *ConfigUplinkEchoConfig {
+		if v == nil {
+			return nil
+		}
+		return v.UplinkEchoConfig
+	}).(ConfigUplinkEchoConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html
+type ConfigDataflowEndpointConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointname
+	DataflowEndpointName *string `pulumi:"dataflowEndpointName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointregion
+	DataflowEndpointRegion *string `pulumi:"dataflowEndpointRegion"`
+}
+
+// ConfigDataflowEndpointConfigInput is an input type that accepts ConfigDataflowEndpointConfigArgs and ConfigDataflowEndpointConfigOutput values.
+// You can construct a concrete instance of `ConfigDataflowEndpointConfigInput` via:
+//
+//          ConfigDataflowEndpointConfigArgs{...}
+type ConfigDataflowEndpointConfigInput interface {
+	pulumi.Input
+
+	ToConfigDataflowEndpointConfigOutput() ConfigDataflowEndpointConfigOutput
+	ToConfigDataflowEndpointConfigOutputWithContext(context.Context) ConfigDataflowEndpointConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html
+type ConfigDataflowEndpointConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointname
+	DataflowEndpointName pulumi.StringPtrInput `pulumi:"dataflowEndpointName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointregion
+	DataflowEndpointRegion pulumi.StringPtrInput `pulumi:"dataflowEndpointRegion"`
+}
+
+func (ConfigDataflowEndpointConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigDataflowEndpointConfig)(nil)).Elem()
+}
+
+func (i ConfigDataflowEndpointConfigArgs) ToConfigDataflowEndpointConfigOutput() ConfigDataflowEndpointConfigOutput {
+	return i.ToConfigDataflowEndpointConfigOutputWithContext(context.Background())
+}
+
+func (i ConfigDataflowEndpointConfigArgs) ToConfigDataflowEndpointConfigOutputWithContext(ctx context.Context) ConfigDataflowEndpointConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigDataflowEndpointConfigOutput)
+}
+
+func (i ConfigDataflowEndpointConfigArgs) ToConfigDataflowEndpointConfigPtrOutput() ConfigDataflowEndpointConfigPtrOutput {
+	return i.ToConfigDataflowEndpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigDataflowEndpointConfigArgs) ToConfigDataflowEndpointConfigPtrOutputWithContext(ctx context.Context) ConfigDataflowEndpointConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigDataflowEndpointConfigOutput).ToConfigDataflowEndpointConfigPtrOutputWithContext(ctx)
+}
+
+// ConfigDataflowEndpointConfigPtrInput is an input type that accepts ConfigDataflowEndpointConfigArgs, ConfigDataflowEndpointConfigPtr and ConfigDataflowEndpointConfigPtrOutput values.
+// You can construct a concrete instance of `ConfigDataflowEndpointConfigPtrInput` via:
+//
+//          ConfigDataflowEndpointConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigDataflowEndpointConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfigDataflowEndpointConfigPtrOutput() ConfigDataflowEndpointConfigPtrOutput
+	ToConfigDataflowEndpointConfigPtrOutputWithContext(context.Context) ConfigDataflowEndpointConfigPtrOutput
+}
+
+type configDataflowEndpointConfigPtrType ConfigDataflowEndpointConfigArgs
+
+func ConfigDataflowEndpointConfigPtr(v *ConfigDataflowEndpointConfigArgs) ConfigDataflowEndpointConfigPtrInput {
+	return (*configDataflowEndpointConfigPtrType)(v)
+}
+
+func (*configDataflowEndpointConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigDataflowEndpointConfig)(nil)).Elem()
+}
+
+func (i *configDataflowEndpointConfigPtrType) ToConfigDataflowEndpointConfigPtrOutput() ConfigDataflowEndpointConfigPtrOutput {
+	return i.ToConfigDataflowEndpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configDataflowEndpointConfigPtrType) ToConfigDataflowEndpointConfigPtrOutputWithContext(ctx context.Context) ConfigDataflowEndpointConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigDataflowEndpointConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html
+type ConfigDataflowEndpointConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfigDataflowEndpointConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigDataflowEndpointConfig)(nil)).Elem()
+}
+
+func (o ConfigDataflowEndpointConfigOutput) ToConfigDataflowEndpointConfigOutput() ConfigDataflowEndpointConfigOutput {
+	return o
+}
+
+func (o ConfigDataflowEndpointConfigOutput) ToConfigDataflowEndpointConfigOutputWithContext(ctx context.Context) ConfigDataflowEndpointConfigOutput {
+	return o
+}
+
+func (o ConfigDataflowEndpointConfigOutput) ToConfigDataflowEndpointConfigPtrOutput() ConfigDataflowEndpointConfigPtrOutput {
+	return o.ToConfigDataflowEndpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigDataflowEndpointConfigOutput) ToConfigDataflowEndpointConfigPtrOutputWithContext(ctx context.Context) ConfigDataflowEndpointConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigDataflowEndpointConfig) *ConfigDataflowEndpointConfig {
+		return &v
+	}).(ConfigDataflowEndpointConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointname
+func (o ConfigDataflowEndpointConfigOutput) DataflowEndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigDataflowEndpointConfig) *string { return v.DataflowEndpointName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointregion
+func (o ConfigDataflowEndpointConfigOutput) DataflowEndpointRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigDataflowEndpointConfig) *string { return v.DataflowEndpointRegion }).(pulumi.StringPtrOutput)
+}
+
+type ConfigDataflowEndpointConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigDataflowEndpointConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigDataflowEndpointConfig)(nil)).Elem()
+}
+
+func (o ConfigDataflowEndpointConfigPtrOutput) ToConfigDataflowEndpointConfigPtrOutput() ConfigDataflowEndpointConfigPtrOutput {
+	return o
+}
+
+func (o ConfigDataflowEndpointConfigPtrOutput) ToConfigDataflowEndpointConfigPtrOutputWithContext(ctx context.Context) ConfigDataflowEndpointConfigPtrOutput {
+	return o
+}
+
+func (o ConfigDataflowEndpointConfigPtrOutput) Elem() ConfigDataflowEndpointConfigOutput {
+	return o.ApplyT(func(v *ConfigDataflowEndpointConfig) ConfigDataflowEndpointConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigDataflowEndpointConfig
+		return ret
+	}).(ConfigDataflowEndpointConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointname
+func (o ConfigDataflowEndpointConfigPtrOutput) DataflowEndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigDataflowEndpointConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataflowEndpointName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointregion
+func (o ConfigDataflowEndpointConfigPtrOutput) DataflowEndpointRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigDataflowEndpointConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataflowEndpointRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html
+type ConfigDecodeConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html#cfn-groundstation-config-decodeconfig-unvalidatedjson
+	UnvalidatedJSON *string `pulumi:"unvalidatedJSON"`
+}
+
+// ConfigDecodeConfigInput is an input type that accepts ConfigDecodeConfigArgs and ConfigDecodeConfigOutput values.
+// You can construct a concrete instance of `ConfigDecodeConfigInput` via:
+//
+//          ConfigDecodeConfigArgs{...}
+type ConfigDecodeConfigInput interface {
+	pulumi.Input
+
+	ToConfigDecodeConfigOutput() ConfigDecodeConfigOutput
+	ToConfigDecodeConfigOutputWithContext(context.Context) ConfigDecodeConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html
+type ConfigDecodeConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html#cfn-groundstation-config-decodeconfig-unvalidatedjson
+	UnvalidatedJSON pulumi.StringPtrInput `pulumi:"unvalidatedJSON"`
+}
+
+func (ConfigDecodeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigDecodeConfig)(nil)).Elem()
+}
+
+func (i ConfigDecodeConfigArgs) ToConfigDecodeConfigOutput() ConfigDecodeConfigOutput {
+	return i.ToConfigDecodeConfigOutputWithContext(context.Background())
+}
+
+func (i ConfigDecodeConfigArgs) ToConfigDecodeConfigOutputWithContext(ctx context.Context) ConfigDecodeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigDecodeConfigOutput)
+}
+
+func (i ConfigDecodeConfigArgs) ToConfigDecodeConfigPtrOutput() ConfigDecodeConfigPtrOutput {
+	return i.ToConfigDecodeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigDecodeConfigArgs) ToConfigDecodeConfigPtrOutputWithContext(ctx context.Context) ConfigDecodeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigDecodeConfigOutput).ToConfigDecodeConfigPtrOutputWithContext(ctx)
+}
+
+// ConfigDecodeConfigPtrInput is an input type that accepts ConfigDecodeConfigArgs, ConfigDecodeConfigPtr and ConfigDecodeConfigPtrOutput values.
+// You can construct a concrete instance of `ConfigDecodeConfigPtrInput` via:
+//
+//          ConfigDecodeConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigDecodeConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfigDecodeConfigPtrOutput() ConfigDecodeConfigPtrOutput
+	ToConfigDecodeConfigPtrOutputWithContext(context.Context) ConfigDecodeConfigPtrOutput
+}
+
+type configDecodeConfigPtrType ConfigDecodeConfigArgs
+
+func ConfigDecodeConfigPtr(v *ConfigDecodeConfigArgs) ConfigDecodeConfigPtrInput {
+	return (*configDecodeConfigPtrType)(v)
+}
+
+func (*configDecodeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigDecodeConfig)(nil)).Elem()
+}
+
+func (i *configDecodeConfigPtrType) ToConfigDecodeConfigPtrOutput() ConfigDecodeConfigPtrOutput {
+	return i.ToConfigDecodeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configDecodeConfigPtrType) ToConfigDecodeConfigPtrOutputWithContext(ctx context.Context) ConfigDecodeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigDecodeConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html
+type ConfigDecodeConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfigDecodeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigDecodeConfig)(nil)).Elem()
+}
+
+func (o ConfigDecodeConfigOutput) ToConfigDecodeConfigOutput() ConfigDecodeConfigOutput {
+	return o
+}
+
+func (o ConfigDecodeConfigOutput) ToConfigDecodeConfigOutputWithContext(ctx context.Context) ConfigDecodeConfigOutput {
+	return o
+}
+
+func (o ConfigDecodeConfigOutput) ToConfigDecodeConfigPtrOutput() ConfigDecodeConfigPtrOutput {
+	return o.ToConfigDecodeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigDecodeConfigOutput) ToConfigDecodeConfigPtrOutputWithContext(ctx context.Context) ConfigDecodeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigDecodeConfig) *ConfigDecodeConfig {
+		return &v
+	}).(ConfigDecodeConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html#cfn-groundstation-config-decodeconfig-unvalidatedjson
+func (o ConfigDecodeConfigOutput) UnvalidatedJSON() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigDecodeConfig) *string { return v.UnvalidatedJSON }).(pulumi.StringPtrOutput)
+}
+
+type ConfigDecodeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigDecodeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigDecodeConfig)(nil)).Elem()
+}
+
+func (o ConfigDecodeConfigPtrOutput) ToConfigDecodeConfigPtrOutput() ConfigDecodeConfigPtrOutput {
+	return o
+}
+
+func (o ConfigDecodeConfigPtrOutput) ToConfigDecodeConfigPtrOutputWithContext(ctx context.Context) ConfigDecodeConfigPtrOutput {
+	return o
+}
+
+func (o ConfigDecodeConfigPtrOutput) Elem() ConfigDecodeConfigOutput {
+	return o.ApplyT(func(v *ConfigDecodeConfig) ConfigDecodeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigDecodeConfig
+		return ret
+	}).(ConfigDecodeConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html#cfn-groundstation-config-decodeconfig-unvalidatedjson
+func (o ConfigDecodeConfigPtrOutput) UnvalidatedJSON() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigDecodeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UnvalidatedJSON
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html
+type ConfigDemodulationConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html#cfn-groundstation-config-demodulationconfig-unvalidatedjson
+	UnvalidatedJSON *string `pulumi:"unvalidatedJSON"`
+}
+
+// ConfigDemodulationConfigInput is an input type that accepts ConfigDemodulationConfigArgs and ConfigDemodulationConfigOutput values.
+// You can construct a concrete instance of `ConfigDemodulationConfigInput` via:
+//
+//          ConfigDemodulationConfigArgs{...}
+type ConfigDemodulationConfigInput interface {
+	pulumi.Input
+
+	ToConfigDemodulationConfigOutput() ConfigDemodulationConfigOutput
+	ToConfigDemodulationConfigOutputWithContext(context.Context) ConfigDemodulationConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html
+type ConfigDemodulationConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html#cfn-groundstation-config-demodulationconfig-unvalidatedjson
+	UnvalidatedJSON pulumi.StringPtrInput `pulumi:"unvalidatedJSON"`
+}
+
+func (ConfigDemodulationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigDemodulationConfig)(nil)).Elem()
+}
+
+func (i ConfigDemodulationConfigArgs) ToConfigDemodulationConfigOutput() ConfigDemodulationConfigOutput {
+	return i.ToConfigDemodulationConfigOutputWithContext(context.Background())
+}
+
+func (i ConfigDemodulationConfigArgs) ToConfigDemodulationConfigOutputWithContext(ctx context.Context) ConfigDemodulationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigDemodulationConfigOutput)
+}
+
+func (i ConfigDemodulationConfigArgs) ToConfigDemodulationConfigPtrOutput() ConfigDemodulationConfigPtrOutput {
+	return i.ToConfigDemodulationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigDemodulationConfigArgs) ToConfigDemodulationConfigPtrOutputWithContext(ctx context.Context) ConfigDemodulationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigDemodulationConfigOutput).ToConfigDemodulationConfigPtrOutputWithContext(ctx)
+}
+
+// ConfigDemodulationConfigPtrInput is an input type that accepts ConfigDemodulationConfigArgs, ConfigDemodulationConfigPtr and ConfigDemodulationConfigPtrOutput values.
+// You can construct a concrete instance of `ConfigDemodulationConfigPtrInput` via:
+//
+//          ConfigDemodulationConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigDemodulationConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfigDemodulationConfigPtrOutput() ConfigDemodulationConfigPtrOutput
+	ToConfigDemodulationConfigPtrOutputWithContext(context.Context) ConfigDemodulationConfigPtrOutput
+}
+
+type configDemodulationConfigPtrType ConfigDemodulationConfigArgs
+
+func ConfigDemodulationConfigPtr(v *ConfigDemodulationConfigArgs) ConfigDemodulationConfigPtrInput {
+	return (*configDemodulationConfigPtrType)(v)
+}
+
+func (*configDemodulationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigDemodulationConfig)(nil)).Elem()
+}
+
+func (i *configDemodulationConfigPtrType) ToConfigDemodulationConfigPtrOutput() ConfigDemodulationConfigPtrOutput {
+	return i.ToConfigDemodulationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configDemodulationConfigPtrType) ToConfigDemodulationConfigPtrOutputWithContext(ctx context.Context) ConfigDemodulationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigDemodulationConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html
+type ConfigDemodulationConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfigDemodulationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigDemodulationConfig)(nil)).Elem()
+}
+
+func (o ConfigDemodulationConfigOutput) ToConfigDemodulationConfigOutput() ConfigDemodulationConfigOutput {
+	return o
+}
+
+func (o ConfigDemodulationConfigOutput) ToConfigDemodulationConfigOutputWithContext(ctx context.Context) ConfigDemodulationConfigOutput {
+	return o
+}
+
+func (o ConfigDemodulationConfigOutput) ToConfigDemodulationConfigPtrOutput() ConfigDemodulationConfigPtrOutput {
+	return o.ToConfigDemodulationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigDemodulationConfigOutput) ToConfigDemodulationConfigPtrOutputWithContext(ctx context.Context) ConfigDemodulationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigDemodulationConfig) *ConfigDemodulationConfig {
+		return &v
+	}).(ConfigDemodulationConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html#cfn-groundstation-config-demodulationconfig-unvalidatedjson
+func (o ConfigDemodulationConfigOutput) UnvalidatedJSON() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigDemodulationConfig) *string { return v.UnvalidatedJSON }).(pulumi.StringPtrOutput)
+}
+
+type ConfigDemodulationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigDemodulationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigDemodulationConfig)(nil)).Elem()
+}
+
+func (o ConfigDemodulationConfigPtrOutput) ToConfigDemodulationConfigPtrOutput() ConfigDemodulationConfigPtrOutput {
+	return o
+}
+
+func (o ConfigDemodulationConfigPtrOutput) ToConfigDemodulationConfigPtrOutputWithContext(ctx context.Context) ConfigDemodulationConfigPtrOutput {
+	return o
+}
+
+func (o ConfigDemodulationConfigPtrOutput) Elem() ConfigDemodulationConfigOutput {
+	return o.ApplyT(func(v *ConfigDemodulationConfig) ConfigDemodulationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigDemodulationConfig
+		return ret
+	}).(ConfigDemodulationConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html#cfn-groundstation-config-demodulationconfig-unvalidatedjson
+func (o ConfigDemodulationConfigPtrOutput) UnvalidatedJSON() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigDemodulationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UnvalidatedJSON
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html
+type ConfigEirp struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-units
+	Units *string `pulumi:"units"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-value
+	Value *float64 `pulumi:"value"`
+}
+
+// ConfigEirpInput is an input type that accepts ConfigEirpArgs and ConfigEirpOutput values.
+// You can construct a concrete instance of `ConfigEirpInput` via:
+//
+//          ConfigEirpArgs{...}
+type ConfigEirpInput interface {
+	pulumi.Input
+
+	ToConfigEirpOutput() ConfigEirpOutput
+	ToConfigEirpOutputWithContext(context.Context) ConfigEirpOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html
+type ConfigEirpArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-units
+	Units pulumi.StringPtrInput `pulumi:"units"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-value
+	Value pulumi.Float64PtrInput `pulumi:"value"`
+}
+
+func (ConfigEirpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigEirp)(nil)).Elem()
+}
+
+func (i ConfigEirpArgs) ToConfigEirpOutput() ConfigEirpOutput {
+	return i.ToConfigEirpOutputWithContext(context.Background())
+}
+
+func (i ConfigEirpArgs) ToConfigEirpOutputWithContext(ctx context.Context) ConfigEirpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigEirpOutput)
+}
+
+func (i ConfigEirpArgs) ToConfigEirpPtrOutput() ConfigEirpPtrOutput {
+	return i.ToConfigEirpPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigEirpArgs) ToConfigEirpPtrOutputWithContext(ctx context.Context) ConfigEirpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigEirpOutput).ToConfigEirpPtrOutputWithContext(ctx)
+}
+
+// ConfigEirpPtrInput is an input type that accepts ConfigEirpArgs, ConfigEirpPtr and ConfigEirpPtrOutput values.
+// You can construct a concrete instance of `ConfigEirpPtrInput` via:
+//
+//          ConfigEirpArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigEirpPtrInput interface {
+	pulumi.Input
+
+	ToConfigEirpPtrOutput() ConfigEirpPtrOutput
+	ToConfigEirpPtrOutputWithContext(context.Context) ConfigEirpPtrOutput
+}
+
+type configEirpPtrType ConfigEirpArgs
+
+func ConfigEirpPtr(v *ConfigEirpArgs) ConfigEirpPtrInput {
+	return (*configEirpPtrType)(v)
+}
+
+func (*configEirpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigEirp)(nil)).Elem()
+}
+
+func (i *configEirpPtrType) ToConfigEirpPtrOutput() ConfigEirpPtrOutput {
+	return i.ToConfigEirpPtrOutputWithContext(context.Background())
+}
+
+func (i *configEirpPtrType) ToConfigEirpPtrOutputWithContext(ctx context.Context) ConfigEirpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigEirpPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html
+type ConfigEirpOutput struct{ *pulumi.OutputState }
+
+func (ConfigEirpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigEirp)(nil)).Elem()
+}
+
+func (o ConfigEirpOutput) ToConfigEirpOutput() ConfigEirpOutput {
+	return o
+}
+
+func (o ConfigEirpOutput) ToConfigEirpOutputWithContext(ctx context.Context) ConfigEirpOutput {
+	return o
+}
+
+func (o ConfigEirpOutput) ToConfigEirpPtrOutput() ConfigEirpPtrOutput {
+	return o.ToConfigEirpPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigEirpOutput) ToConfigEirpPtrOutputWithContext(ctx context.Context) ConfigEirpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigEirp) *ConfigEirp {
+		return &v
+	}).(ConfigEirpPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-units
+func (o ConfigEirpOutput) Units() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigEirp) *string { return v.Units }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-value
+func (o ConfigEirpOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConfigEirp) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
+}
+
+type ConfigEirpPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigEirpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigEirp)(nil)).Elem()
+}
+
+func (o ConfigEirpPtrOutput) ToConfigEirpPtrOutput() ConfigEirpPtrOutput {
+	return o
+}
+
+func (o ConfigEirpPtrOutput) ToConfigEirpPtrOutputWithContext(ctx context.Context) ConfigEirpPtrOutput {
+	return o
+}
+
+func (o ConfigEirpPtrOutput) Elem() ConfigEirpOutput {
+	return o.ApplyT(func(v *ConfigEirp) ConfigEirp {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigEirp
+		return ret
+	}).(ConfigEirpOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-units
+func (o ConfigEirpPtrOutput) Units() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigEirp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Units
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-value
+func (o ConfigEirpPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConfigEirp) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html
+type ConfigFrequency struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-units
+	Units *string `pulumi:"units"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-value
+	Value *float64 `pulumi:"value"`
+}
+
+// ConfigFrequencyInput is an input type that accepts ConfigFrequencyArgs and ConfigFrequencyOutput values.
+// You can construct a concrete instance of `ConfigFrequencyInput` via:
+//
+//          ConfigFrequencyArgs{...}
+type ConfigFrequencyInput interface {
+	pulumi.Input
+
+	ToConfigFrequencyOutput() ConfigFrequencyOutput
+	ToConfigFrequencyOutputWithContext(context.Context) ConfigFrequencyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html
+type ConfigFrequencyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-units
+	Units pulumi.StringPtrInput `pulumi:"units"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-value
+	Value pulumi.Float64PtrInput `pulumi:"value"`
+}
+
+func (ConfigFrequencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigFrequency)(nil)).Elem()
+}
+
+func (i ConfigFrequencyArgs) ToConfigFrequencyOutput() ConfigFrequencyOutput {
+	return i.ToConfigFrequencyOutputWithContext(context.Background())
+}
+
+func (i ConfigFrequencyArgs) ToConfigFrequencyOutputWithContext(ctx context.Context) ConfigFrequencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigFrequencyOutput)
+}
+
+func (i ConfigFrequencyArgs) ToConfigFrequencyPtrOutput() ConfigFrequencyPtrOutput {
+	return i.ToConfigFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigFrequencyArgs) ToConfigFrequencyPtrOutputWithContext(ctx context.Context) ConfigFrequencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigFrequencyOutput).ToConfigFrequencyPtrOutputWithContext(ctx)
+}
+
+// ConfigFrequencyPtrInput is an input type that accepts ConfigFrequencyArgs, ConfigFrequencyPtr and ConfigFrequencyPtrOutput values.
+// You can construct a concrete instance of `ConfigFrequencyPtrInput` via:
+//
+//          ConfigFrequencyArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigFrequencyPtrInput interface {
+	pulumi.Input
+
+	ToConfigFrequencyPtrOutput() ConfigFrequencyPtrOutput
+	ToConfigFrequencyPtrOutputWithContext(context.Context) ConfigFrequencyPtrOutput
+}
+
+type configFrequencyPtrType ConfigFrequencyArgs
+
+func ConfigFrequencyPtr(v *ConfigFrequencyArgs) ConfigFrequencyPtrInput {
+	return (*configFrequencyPtrType)(v)
+}
+
+func (*configFrequencyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigFrequency)(nil)).Elem()
+}
+
+func (i *configFrequencyPtrType) ToConfigFrequencyPtrOutput() ConfigFrequencyPtrOutput {
+	return i.ToConfigFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (i *configFrequencyPtrType) ToConfigFrequencyPtrOutputWithContext(ctx context.Context) ConfigFrequencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigFrequencyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html
+type ConfigFrequencyOutput struct{ *pulumi.OutputState }
+
+func (ConfigFrequencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigFrequency)(nil)).Elem()
+}
+
+func (o ConfigFrequencyOutput) ToConfigFrequencyOutput() ConfigFrequencyOutput {
+	return o
+}
+
+func (o ConfigFrequencyOutput) ToConfigFrequencyOutputWithContext(ctx context.Context) ConfigFrequencyOutput {
+	return o
+}
+
+func (o ConfigFrequencyOutput) ToConfigFrequencyPtrOutput() ConfigFrequencyPtrOutput {
+	return o.ToConfigFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigFrequencyOutput) ToConfigFrequencyPtrOutputWithContext(ctx context.Context) ConfigFrequencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigFrequency) *ConfigFrequency {
+		return &v
+	}).(ConfigFrequencyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-units
+func (o ConfigFrequencyOutput) Units() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigFrequency) *string { return v.Units }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-value
+func (o ConfigFrequencyOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConfigFrequency) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
+}
+
+type ConfigFrequencyPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigFrequencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigFrequency)(nil)).Elem()
+}
+
+func (o ConfigFrequencyPtrOutput) ToConfigFrequencyPtrOutput() ConfigFrequencyPtrOutput {
+	return o
+}
+
+func (o ConfigFrequencyPtrOutput) ToConfigFrequencyPtrOutputWithContext(ctx context.Context) ConfigFrequencyPtrOutput {
+	return o
+}
+
+func (o ConfigFrequencyPtrOutput) Elem() ConfigFrequencyOutput {
+	return o.ApplyT(func(v *ConfigFrequency) ConfigFrequency {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigFrequency
+		return ret
+	}).(ConfigFrequencyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-units
+func (o ConfigFrequencyPtrOutput) Units() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigFrequency) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Units
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-value
+func (o ConfigFrequencyPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConfigFrequency) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html
+type ConfigFrequencyBandwidth struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-units
+	Units *string `pulumi:"units"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-value
+	Value *float64 `pulumi:"value"`
+}
+
+// ConfigFrequencyBandwidthInput is an input type that accepts ConfigFrequencyBandwidthArgs and ConfigFrequencyBandwidthOutput values.
+// You can construct a concrete instance of `ConfigFrequencyBandwidthInput` via:
+//
+//          ConfigFrequencyBandwidthArgs{...}
+type ConfigFrequencyBandwidthInput interface {
+	pulumi.Input
+
+	ToConfigFrequencyBandwidthOutput() ConfigFrequencyBandwidthOutput
+	ToConfigFrequencyBandwidthOutputWithContext(context.Context) ConfigFrequencyBandwidthOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html
+type ConfigFrequencyBandwidthArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-units
+	Units pulumi.StringPtrInput `pulumi:"units"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-value
+	Value pulumi.Float64PtrInput `pulumi:"value"`
+}
+
+func (ConfigFrequencyBandwidthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigFrequencyBandwidth)(nil)).Elem()
+}
+
+func (i ConfigFrequencyBandwidthArgs) ToConfigFrequencyBandwidthOutput() ConfigFrequencyBandwidthOutput {
+	return i.ToConfigFrequencyBandwidthOutputWithContext(context.Background())
+}
+
+func (i ConfigFrequencyBandwidthArgs) ToConfigFrequencyBandwidthOutputWithContext(ctx context.Context) ConfigFrequencyBandwidthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigFrequencyBandwidthOutput)
+}
+
+func (i ConfigFrequencyBandwidthArgs) ToConfigFrequencyBandwidthPtrOutput() ConfigFrequencyBandwidthPtrOutput {
+	return i.ToConfigFrequencyBandwidthPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigFrequencyBandwidthArgs) ToConfigFrequencyBandwidthPtrOutputWithContext(ctx context.Context) ConfigFrequencyBandwidthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigFrequencyBandwidthOutput).ToConfigFrequencyBandwidthPtrOutputWithContext(ctx)
+}
+
+// ConfigFrequencyBandwidthPtrInput is an input type that accepts ConfigFrequencyBandwidthArgs, ConfigFrequencyBandwidthPtr and ConfigFrequencyBandwidthPtrOutput values.
+// You can construct a concrete instance of `ConfigFrequencyBandwidthPtrInput` via:
+//
+//          ConfigFrequencyBandwidthArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigFrequencyBandwidthPtrInput interface {
+	pulumi.Input
+
+	ToConfigFrequencyBandwidthPtrOutput() ConfigFrequencyBandwidthPtrOutput
+	ToConfigFrequencyBandwidthPtrOutputWithContext(context.Context) ConfigFrequencyBandwidthPtrOutput
+}
+
+type configFrequencyBandwidthPtrType ConfigFrequencyBandwidthArgs
+
+func ConfigFrequencyBandwidthPtr(v *ConfigFrequencyBandwidthArgs) ConfigFrequencyBandwidthPtrInput {
+	return (*configFrequencyBandwidthPtrType)(v)
+}
+
+func (*configFrequencyBandwidthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigFrequencyBandwidth)(nil)).Elem()
+}
+
+func (i *configFrequencyBandwidthPtrType) ToConfigFrequencyBandwidthPtrOutput() ConfigFrequencyBandwidthPtrOutput {
+	return i.ToConfigFrequencyBandwidthPtrOutputWithContext(context.Background())
+}
+
+func (i *configFrequencyBandwidthPtrType) ToConfigFrequencyBandwidthPtrOutputWithContext(ctx context.Context) ConfigFrequencyBandwidthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigFrequencyBandwidthPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html
+type ConfigFrequencyBandwidthOutput struct{ *pulumi.OutputState }
+
+func (ConfigFrequencyBandwidthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigFrequencyBandwidth)(nil)).Elem()
+}
+
+func (o ConfigFrequencyBandwidthOutput) ToConfigFrequencyBandwidthOutput() ConfigFrequencyBandwidthOutput {
+	return o
+}
+
+func (o ConfigFrequencyBandwidthOutput) ToConfigFrequencyBandwidthOutputWithContext(ctx context.Context) ConfigFrequencyBandwidthOutput {
+	return o
+}
+
+func (o ConfigFrequencyBandwidthOutput) ToConfigFrequencyBandwidthPtrOutput() ConfigFrequencyBandwidthPtrOutput {
+	return o.ToConfigFrequencyBandwidthPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigFrequencyBandwidthOutput) ToConfigFrequencyBandwidthPtrOutputWithContext(ctx context.Context) ConfigFrequencyBandwidthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigFrequencyBandwidth) *ConfigFrequencyBandwidth {
+		return &v
+	}).(ConfigFrequencyBandwidthPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-units
+func (o ConfigFrequencyBandwidthOutput) Units() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigFrequencyBandwidth) *string { return v.Units }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-value
+func (o ConfigFrequencyBandwidthOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConfigFrequencyBandwidth) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
+}
+
+type ConfigFrequencyBandwidthPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigFrequencyBandwidthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigFrequencyBandwidth)(nil)).Elem()
+}
+
+func (o ConfigFrequencyBandwidthPtrOutput) ToConfigFrequencyBandwidthPtrOutput() ConfigFrequencyBandwidthPtrOutput {
+	return o
+}
+
+func (o ConfigFrequencyBandwidthPtrOutput) ToConfigFrequencyBandwidthPtrOutputWithContext(ctx context.Context) ConfigFrequencyBandwidthPtrOutput {
+	return o
+}
+
+func (o ConfigFrequencyBandwidthPtrOutput) Elem() ConfigFrequencyBandwidthOutput {
+	return o.ApplyT(func(v *ConfigFrequencyBandwidth) ConfigFrequencyBandwidth {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigFrequencyBandwidth
+		return ret
+	}).(ConfigFrequencyBandwidthOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-units
+func (o ConfigFrequencyBandwidthPtrOutput) Units() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigFrequencyBandwidth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Units
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-value
+func (o ConfigFrequencyBandwidthPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConfigFrequencyBandwidth) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html
+type ConfigS3RecordingConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-bucketarn
+	BucketArn *string `pulumi:"bucketArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-prefix
+	Prefix *string `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-rolearn
+	RoleArn *string `pulumi:"roleArn"`
+}
+
+// ConfigS3RecordingConfigInput is an input type that accepts ConfigS3RecordingConfigArgs and ConfigS3RecordingConfigOutput values.
+// You can construct a concrete instance of `ConfigS3RecordingConfigInput` via:
+//
+//          ConfigS3RecordingConfigArgs{...}
+type ConfigS3RecordingConfigInput interface {
+	pulumi.Input
+
+	ToConfigS3RecordingConfigOutput() ConfigS3RecordingConfigOutput
+	ToConfigS3RecordingConfigOutputWithContext(context.Context) ConfigS3RecordingConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html
+type ConfigS3RecordingConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-bucketarn
+	BucketArn pulumi.StringPtrInput `pulumi:"bucketArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-prefix
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-rolearn
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+}
+
+func (ConfigS3RecordingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigS3RecordingConfig)(nil)).Elem()
+}
+
+func (i ConfigS3RecordingConfigArgs) ToConfigS3RecordingConfigOutput() ConfigS3RecordingConfigOutput {
+	return i.ToConfigS3RecordingConfigOutputWithContext(context.Background())
+}
+
+func (i ConfigS3RecordingConfigArgs) ToConfigS3RecordingConfigOutputWithContext(ctx context.Context) ConfigS3RecordingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigS3RecordingConfigOutput)
+}
+
+func (i ConfigS3RecordingConfigArgs) ToConfigS3RecordingConfigPtrOutput() ConfigS3RecordingConfigPtrOutput {
+	return i.ToConfigS3RecordingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigS3RecordingConfigArgs) ToConfigS3RecordingConfigPtrOutputWithContext(ctx context.Context) ConfigS3RecordingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigS3RecordingConfigOutput).ToConfigS3RecordingConfigPtrOutputWithContext(ctx)
+}
+
+// ConfigS3RecordingConfigPtrInput is an input type that accepts ConfigS3RecordingConfigArgs, ConfigS3RecordingConfigPtr and ConfigS3RecordingConfigPtrOutput values.
+// You can construct a concrete instance of `ConfigS3RecordingConfigPtrInput` via:
+//
+//          ConfigS3RecordingConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigS3RecordingConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfigS3RecordingConfigPtrOutput() ConfigS3RecordingConfigPtrOutput
+	ToConfigS3RecordingConfigPtrOutputWithContext(context.Context) ConfigS3RecordingConfigPtrOutput
+}
+
+type configS3RecordingConfigPtrType ConfigS3RecordingConfigArgs
+
+func ConfigS3RecordingConfigPtr(v *ConfigS3RecordingConfigArgs) ConfigS3RecordingConfigPtrInput {
+	return (*configS3RecordingConfigPtrType)(v)
+}
+
+func (*configS3RecordingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigS3RecordingConfig)(nil)).Elem()
+}
+
+func (i *configS3RecordingConfigPtrType) ToConfigS3RecordingConfigPtrOutput() ConfigS3RecordingConfigPtrOutput {
+	return i.ToConfigS3RecordingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configS3RecordingConfigPtrType) ToConfigS3RecordingConfigPtrOutputWithContext(ctx context.Context) ConfigS3RecordingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigS3RecordingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html
+type ConfigS3RecordingConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfigS3RecordingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigS3RecordingConfig)(nil)).Elem()
+}
+
+func (o ConfigS3RecordingConfigOutput) ToConfigS3RecordingConfigOutput() ConfigS3RecordingConfigOutput {
+	return o
+}
+
+func (o ConfigS3RecordingConfigOutput) ToConfigS3RecordingConfigOutputWithContext(ctx context.Context) ConfigS3RecordingConfigOutput {
+	return o
+}
+
+func (o ConfigS3RecordingConfigOutput) ToConfigS3RecordingConfigPtrOutput() ConfigS3RecordingConfigPtrOutput {
+	return o.ToConfigS3RecordingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigS3RecordingConfigOutput) ToConfigS3RecordingConfigPtrOutputWithContext(ctx context.Context) ConfigS3RecordingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigS3RecordingConfig) *ConfigS3RecordingConfig {
+		return &v
+	}).(ConfigS3RecordingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-bucketarn
+func (o ConfigS3RecordingConfigOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigS3RecordingConfig) *string { return v.BucketArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-prefix
+func (o ConfigS3RecordingConfigOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigS3RecordingConfig) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-rolearn
+func (o ConfigS3RecordingConfigOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigS3RecordingConfig) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+type ConfigS3RecordingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigS3RecordingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigS3RecordingConfig)(nil)).Elem()
+}
+
+func (o ConfigS3RecordingConfigPtrOutput) ToConfigS3RecordingConfigPtrOutput() ConfigS3RecordingConfigPtrOutput {
+	return o
+}
+
+func (o ConfigS3RecordingConfigPtrOutput) ToConfigS3RecordingConfigPtrOutputWithContext(ctx context.Context) ConfigS3RecordingConfigPtrOutput {
+	return o
+}
+
+func (o ConfigS3RecordingConfigPtrOutput) Elem() ConfigS3RecordingConfigOutput {
+	return o.ApplyT(func(v *ConfigS3RecordingConfig) ConfigS3RecordingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigS3RecordingConfig
+		return ret
+	}).(ConfigS3RecordingConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-bucketarn
+func (o ConfigS3RecordingConfigPtrOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigS3RecordingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-prefix
+func (o ConfigS3RecordingConfigPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigS3RecordingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-rolearn
+func (o ConfigS3RecordingConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigS3RecordingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html
+type ConfigSpectrumConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-bandwidth
+	Bandwidth *ConfigFrequencyBandwidth `pulumi:"bandwidth"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-centerfrequency
+	CenterFrequency *ConfigFrequency `pulumi:"centerFrequency"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-polarization
+	Polarization *string `pulumi:"polarization"`
+}
+
+// ConfigSpectrumConfigInput is an input type that accepts ConfigSpectrumConfigArgs and ConfigSpectrumConfigOutput values.
+// You can construct a concrete instance of `ConfigSpectrumConfigInput` via:
+//
+//          ConfigSpectrumConfigArgs{...}
+type ConfigSpectrumConfigInput interface {
+	pulumi.Input
+
+	ToConfigSpectrumConfigOutput() ConfigSpectrumConfigOutput
+	ToConfigSpectrumConfigOutputWithContext(context.Context) ConfigSpectrumConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html
+type ConfigSpectrumConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-bandwidth
+	Bandwidth ConfigFrequencyBandwidthPtrInput `pulumi:"bandwidth"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-centerfrequency
+	CenterFrequency ConfigFrequencyPtrInput `pulumi:"centerFrequency"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-polarization
+	Polarization pulumi.StringPtrInput `pulumi:"polarization"`
+}
+
+func (ConfigSpectrumConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigSpectrumConfig)(nil)).Elem()
+}
+
+func (i ConfigSpectrumConfigArgs) ToConfigSpectrumConfigOutput() ConfigSpectrumConfigOutput {
+	return i.ToConfigSpectrumConfigOutputWithContext(context.Background())
+}
+
+func (i ConfigSpectrumConfigArgs) ToConfigSpectrumConfigOutputWithContext(ctx context.Context) ConfigSpectrumConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigSpectrumConfigOutput)
+}
+
+func (i ConfigSpectrumConfigArgs) ToConfigSpectrumConfigPtrOutput() ConfigSpectrumConfigPtrOutput {
+	return i.ToConfigSpectrumConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigSpectrumConfigArgs) ToConfigSpectrumConfigPtrOutputWithContext(ctx context.Context) ConfigSpectrumConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigSpectrumConfigOutput).ToConfigSpectrumConfigPtrOutputWithContext(ctx)
+}
+
+// ConfigSpectrumConfigPtrInput is an input type that accepts ConfigSpectrumConfigArgs, ConfigSpectrumConfigPtr and ConfigSpectrumConfigPtrOutput values.
+// You can construct a concrete instance of `ConfigSpectrumConfigPtrInput` via:
+//
+//          ConfigSpectrumConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigSpectrumConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfigSpectrumConfigPtrOutput() ConfigSpectrumConfigPtrOutput
+	ToConfigSpectrumConfigPtrOutputWithContext(context.Context) ConfigSpectrumConfigPtrOutput
+}
+
+type configSpectrumConfigPtrType ConfigSpectrumConfigArgs
+
+func ConfigSpectrumConfigPtr(v *ConfigSpectrumConfigArgs) ConfigSpectrumConfigPtrInput {
+	return (*configSpectrumConfigPtrType)(v)
+}
+
+func (*configSpectrumConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigSpectrumConfig)(nil)).Elem()
+}
+
+func (i *configSpectrumConfigPtrType) ToConfigSpectrumConfigPtrOutput() ConfigSpectrumConfigPtrOutput {
+	return i.ToConfigSpectrumConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configSpectrumConfigPtrType) ToConfigSpectrumConfigPtrOutputWithContext(ctx context.Context) ConfigSpectrumConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigSpectrumConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html
+type ConfigSpectrumConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfigSpectrumConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigSpectrumConfig)(nil)).Elem()
+}
+
+func (o ConfigSpectrumConfigOutput) ToConfigSpectrumConfigOutput() ConfigSpectrumConfigOutput {
+	return o
+}
+
+func (o ConfigSpectrumConfigOutput) ToConfigSpectrumConfigOutputWithContext(ctx context.Context) ConfigSpectrumConfigOutput {
+	return o
+}
+
+func (o ConfigSpectrumConfigOutput) ToConfigSpectrumConfigPtrOutput() ConfigSpectrumConfigPtrOutput {
+	return o.ToConfigSpectrumConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigSpectrumConfigOutput) ToConfigSpectrumConfigPtrOutputWithContext(ctx context.Context) ConfigSpectrumConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigSpectrumConfig) *ConfigSpectrumConfig {
+		return &v
+	}).(ConfigSpectrumConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-bandwidth
+func (o ConfigSpectrumConfigOutput) Bandwidth() ConfigFrequencyBandwidthPtrOutput {
+	return o.ApplyT(func(v ConfigSpectrumConfig) *ConfigFrequencyBandwidth { return v.Bandwidth }).(ConfigFrequencyBandwidthPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-centerfrequency
+func (o ConfigSpectrumConfigOutput) CenterFrequency() ConfigFrequencyPtrOutput {
+	return o.ApplyT(func(v ConfigSpectrumConfig) *ConfigFrequency { return v.CenterFrequency }).(ConfigFrequencyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-polarization
+func (o ConfigSpectrumConfigOutput) Polarization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigSpectrumConfig) *string { return v.Polarization }).(pulumi.StringPtrOutput)
+}
+
+type ConfigSpectrumConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigSpectrumConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigSpectrumConfig)(nil)).Elem()
+}
+
+func (o ConfigSpectrumConfigPtrOutput) ToConfigSpectrumConfigPtrOutput() ConfigSpectrumConfigPtrOutput {
+	return o
+}
+
+func (o ConfigSpectrumConfigPtrOutput) ToConfigSpectrumConfigPtrOutputWithContext(ctx context.Context) ConfigSpectrumConfigPtrOutput {
+	return o
+}
+
+func (o ConfigSpectrumConfigPtrOutput) Elem() ConfigSpectrumConfigOutput {
+	return o.ApplyT(func(v *ConfigSpectrumConfig) ConfigSpectrumConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigSpectrumConfig
+		return ret
+	}).(ConfigSpectrumConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-bandwidth
+func (o ConfigSpectrumConfigPtrOutput) Bandwidth() ConfigFrequencyBandwidthPtrOutput {
+	return o.ApplyT(func(v *ConfigSpectrumConfig) *ConfigFrequencyBandwidth {
+		if v == nil {
+			return nil
+		}
+		return v.Bandwidth
+	}).(ConfigFrequencyBandwidthPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-centerfrequency
+func (o ConfigSpectrumConfigPtrOutput) CenterFrequency() ConfigFrequencyPtrOutput {
+	return o.ApplyT(func(v *ConfigSpectrumConfig) *ConfigFrequency {
+		if v == nil {
+			return nil
+		}
+		return v.CenterFrequency
+	}).(ConfigFrequencyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-polarization
+func (o ConfigSpectrumConfigPtrOutput) Polarization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigSpectrumConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Polarization
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html
+type ConfigTrackingConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html#cfn-groundstation-config-trackingconfig-autotrack
+	Autotrack *string `pulumi:"autotrack"`
+}
+
+// ConfigTrackingConfigInput is an input type that accepts ConfigTrackingConfigArgs and ConfigTrackingConfigOutput values.
+// You can construct a concrete instance of `ConfigTrackingConfigInput` via:
+//
+//          ConfigTrackingConfigArgs{...}
+type ConfigTrackingConfigInput interface {
+	pulumi.Input
+
+	ToConfigTrackingConfigOutput() ConfigTrackingConfigOutput
+	ToConfigTrackingConfigOutputWithContext(context.Context) ConfigTrackingConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html
+type ConfigTrackingConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html#cfn-groundstation-config-trackingconfig-autotrack
+	Autotrack pulumi.StringPtrInput `pulumi:"autotrack"`
+}
+
+func (ConfigTrackingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigTrackingConfig)(nil)).Elem()
+}
+
+func (i ConfigTrackingConfigArgs) ToConfigTrackingConfigOutput() ConfigTrackingConfigOutput {
+	return i.ToConfigTrackingConfigOutputWithContext(context.Background())
+}
+
+func (i ConfigTrackingConfigArgs) ToConfigTrackingConfigOutputWithContext(ctx context.Context) ConfigTrackingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigTrackingConfigOutput)
+}
+
+func (i ConfigTrackingConfigArgs) ToConfigTrackingConfigPtrOutput() ConfigTrackingConfigPtrOutput {
+	return i.ToConfigTrackingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigTrackingConfigArgs) ToConfigTrackingConfigPtrOutputWithContext(ctx context.Context) ConfigTrackingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigTrackingConfigOutput).ToConfigTrackingConfigPtrOutputWithContext(ctx)
+}
+
+// ConfigTrackingConfigPtrInput is an input type that accepts ConfigTrackingConfigArgs, ConfigTrackingConfigPtr and ConfigTrackingConfigPtrOutput values.
+// You can construct a concrete instance of `ConfigTrackingConfigPtrInput` via:
+//
+//          ConfigTrackingConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigTrackingConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfigTrackingConfigPtrOutput() ConfigTrackingConfigPtrOutput
+	ToConfigTrackingConfigPtrOutputWithContext(context.Context) ConfigTrackingConfigPtrOutput
+}
+
+type configTrackingConfigPtrType ConfigTrackingConfigArgs
+
+func ConfigTrackingConfigPtr(v *ConfigTrackingConfigArgs) ConfigTrackingConfigPtrInput {
+	return (*configTrackingConfigPtrType)(v)
+}
+
+func (*configTrackingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigTrackingConfig)(nil)).Elem()
+}
+
+func (i *configTrackingConfigPtrType) ToConfigTrackingConfigPtrOutput() ConfigTrackingConfigPtrOutput {
+	return i.ToConfigTrackingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configTrackingConfigPtrType) ToConfigTrackingConfigPtrOutputWithContext(ctx context.Context) ConfigTrackingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigTrackingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html
+type ConfigTrackingConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfigTrackingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigTrackingConfig)(nil)).Elem()
+}
+
+func (o ConfigTrackingConfigOutput) ToConfigTrackingConfigOutput() ConfigTrackingConfigOutput {
+	return o
+}
+
+func (o ConfigTrackingConfigOutput) ToConfigTrackingConfigOutputWithContext(ctx context.Context) ConfigTrackingConfigOutput {
+	return o
+}
+
+func (o ConfigTrackingConfigOutput) ToConfigTrackingConfigPtrOutput() ConfigTrackingConfigPtrOutput {
+	return o.ToConfigTrackingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigTrackingConfigOutput) ToConfigTrackingConfigPtrOutputWithContext(ctx context.Context) ConfigTrackingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigTrackingConfig) *ConfigTrackingConfig {
+		return &v
+	}).(ConfigTrackingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html#cfn-groundstation-config-trackingconfig-autotrack
+func (o ConfigTrackingConfigOutput) Autotrack() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigTrackingConfig) *string { return v.Autotrack }).(pulumi.StringPtrOutput)
+}
+
+type ConfigTrackingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigTrackingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigTrackingConfig)(nil)).Elem()
+}
+
+func (o ConfigTrackingConfigPtrOutput) ToConfigTrackingConfigPtrOutput() ConfigTrackingConfigPtrOutput {
+	return o
+}
+
+func (o ConfigTrackingConfigPtrOutput) ToConfigTrackingConfigPtrOutputWithContext(ctx context.Context) ConfigTrackingConfigPtrOutput {
+	return o
+}
+
+func (o ConfigTrackingConfigPtrOutput) Elem() ConfigTrackingConfigOutput {
+	return o.ApplyT(func(v *ConfigTrackingConfig) ConfigTrackingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigTrackingConfig
+		return ret
+	}).(ConfigTrackingConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html#cfn-groundstation-config-trackingconfig-autotrack
+func (o ConfigTrackingConfigPtrOutput) Autotrack() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigTrackingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Autotrack
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html
+type ConfigUplinkEchoConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-antennauplinkconfigarn
+	AntennaUplinkConfigArn *string `pulumi:"antennaUplinkConfigArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-enabled
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ConfigUplinkEchoConfigInput is an input type that accepts ConfigUplinkEchoConfigArgs and ConfigUplinkEchoConfigOutput values.
+// You can construct a concrete instance of `ConfigUplinkEchoConfigInput` via:
+//
+//          ConfigUplinkEchoConfigArgs{...}
+type ConfigUplinkEchoConfigInput interface {
+	pulumi.Input
+
+	ToConfigUplinkEchoConfigOutput() ConfigUplinkEchoConfigOutput
+	ToConfigUplinkEchoConfigOutputWithContext(context.Context) ConfigUplinkEchoConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html
+type ConfigUplinkEchoConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-antennauplinkconfigarn
+	AntennaUplinkConfigArn pulumi.StringPtrInput `pulumi:"antennaUplinkConfigArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ConfigUplinkEchoConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigUplinkEchoConfig)(nil)).Elem()
+}
+
+func (i ConfigUplinkEchoConfigArgs) ToConfigUplinkEchoConfigOutput() ConfigUplinkEchoConfigOutput {
+	return i.ToConfigUplinkEchoConfigOutputWithContext(context.Background())
+}
+
+func (i ConfigUplinkEchoConfigArgs) ToConfigUplinkEchoConfigOutputWithContext(ctx context.Context) ConfigUplinkEchoConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigUplinkEchoConfigOutput)
+}
+
+func (i ConfigUplinkEchoConfigArgs) ToConfigUplinkEchoConfigPtrOutput() ConfigUplinkEchoConfigPtrOutput {
+	return i.ToConfigUplinkEchoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigUplinkEchoConfigArgs) ToConfigUplinkEchoConfigPtrOutputWithContext(ctx context.Context) ConfigUplinkEchoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigUplinkEchoConfigOutput).ToConfigUplinkEchoConfigPtrOutputWithContext(ctx)
+}
+
+// ConfigUplinkEchoConfigPtrInput is an input type that accepts ConfigUplinkEchoConfigArgs, ConfigUplinkEchoConfigPtr and ConfigUplinkEchoConfigPtrOutput values.
+// You can construct a concrete instance of `ConfigUplinkEchoConfigPtrInput` via:
+//
+//          ConfigUplinkEchoConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigUplinkEchoConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfigUplinkEchoConfigPtrOutput() ConfigUplinkEchoConfigPtrOutput
+	ToConfigUplinkEchoConfigPtrOutputWithContext(context.Context) ConfigUplinkEchoConfigPtrOutput
+}
+
+type configUplinkEchoConfigPtrType ConfigUplinkEchoConfigArgs
+
+func ConfigUplinkEchoConfigPtr(v *ConfigUplinkEchoConfigArgs) ConfigUplinkEchoConfigPtrInput {
+	return (*configUplinkEchoConfigPtrType)(v)
+}
+
+func (*configUplinkEchoConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigUplinkEchoConfig)(nil)).Elem()
+}
+
+func (i *configUplinkEchoConfigPtrType) ToConfigUplinkEchoConfigPtrOutput() ConfigUplinkEchoConfigPtrOutput {
+	return i.ToConfigUplinkEchoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configUplinkEchoConfigPtrType) ToConfigUplinkEchoConfigPtrOutputWithContext(ctx context.Context) ConfigUplinkEchoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigUplinkEchoConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html
+type ConfigUplinkEchoConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfigUplinkEchoConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigUplinkEchoConfig)(nil)).Elem()
+}
+
+func (o ConfigUplinkEchoConfigOutput) ToConfigUplinkEchoConfigOutput() ConfigUplinkEchoConfigOutput {
+	return o
+}
+
+func (o ConfigUplinkEchoConfigOutput) ToConfigUplinkEchoConfigOutputWithContext(ctx context.Context) ConfigUplinkEchoConfigOutput {
+	return o
+}
+
+func (o ConfigUplinkEchoConfigOutput) ToConfigUplinkEchoConfigPtrOutput() ConfigUplinkEchoConfigPtrOutput {
+	return o.ToConfigUplinkEchoConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigUplinkEchoConfigOutput) ToConfigUplinkEchoConfigPtrOutputWithContext(ctx context.Context) ConfigUplinkEchoConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigUplinkEchoConfig) *ConfigUplinkEchoConfig {
+		return &v
+	}).(ConfigUplinkEchoConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-antennauplinkconfigarn
+func (o ConfigUplinkEchoConfigOutput) AntennaUplinkConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigUplinkEchoConfig) *string { return v.AntennaUplinkConfigArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-enabled
+func (o ConfigUplinkEchoConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigUplinkEchoConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ConfigUplinkEchoConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigUplinkEchoConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigUplinkEchoConfig)(nil)).Elem()
+}
+
+func (o ConfigUplinkEchoConfigPtrOutput) ToConfigUplinkEchoConfigPtrOutput() ConfigUplinkEchoConfigPtrOutput {
+	return o
+}
+
+func (o ConfigUplinkEchoConfigPtrOutput) ToConfigUplinkEchoConfigPtrOutputWithContext(ctx context.Context) ConfigUplinkEchoConfigPtrOutput {
+	return o
+}
+
+func (o ConfigUplinkEchoConfigPtrOutput) Elem() ConfigUplinkEchoConfigOutput {
+	return o.ApplyT(func(v *ConfigUplinkEchoConfig) ConfigUplinkEchoConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigUplinkEchoConfig
+		return ret
+	}).(ConfigUplinkEchoConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-antennauplinkconfigarn
+func (o ConfigUplinkEchoConfigPtrOutput) AntennaUplinkConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigUplinkEchoConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AntennaUplinkConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-enabled
+func (o ConfigUplinkEchoConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigUplinkEchoConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html
+type ConfigUplinkSpectrumConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-centerfrequency
+	CenterFrequency *ConfigFrequency `pulumi:"centerFrequency"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-polarization
+	Polarization *string `pulumi:"polarization"`
+}
+
+// ConfigUplinkSpectrumConfigInput is an input type that accepts ConfigUplinkSpectrumConfigArgs and ConfigUplinkSpectrumConfigOutput values.
+// You can construct a concrete instance of `ConfigUplinkSpectrumConfigInput` via:
+//
+//          ConfigUplinkSpectrumConfigArgs{...}
+type ConfigUplinkSpectrumConfigInput interface {
+	pulumi.Input
+
+	ToConfigUplinkSpectrumConfigOutput() ConfigUplinkSpectrumConfigOutput
+	ToConfigUplinkSpectrumConfigOutputWithContext(context.Context) ConfigUplinkSpectrumConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html
+type ConfigUplinkSpectrumConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-centerfrequency
+	CenterFrequency ConfigFrequencyPtrInput `pulumi:"centerFrequency"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-polarization
+	Polarization pulumi.StringPtrInput `pulumi:"polarization"`
+}
+
+func (ConfigUplinkSpectrumConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigUplinkSpectrumConfig)(nil)).Elem()
+}
+
+func (i ConfigUplinkSpectrumConfigArgs) ToConfigUplinkSpectrumConfigOutput() ConfigUplinkSpectrumConfigOutput {
+	return i.ToConfigUplinkSpectrumConfigOutputWithContext(context.Background())
+}
+
+func (i ConfigUplinkSpectrumConfigArgs) ToConfigUplinkSpectrumConfigOutputWithContext(ctx context.Context) ConfigUplinkSpectrumConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigUplinkSpectrumConfigOutput)
+}
+
+func (i ConfigUplinkSpectrumConfigArgs) ToConfigUplinkSpectrumConfigPtrOutput() ConfigUplinkSpectrumConfigPtrOutput {
+	return i.ToConfigUplinkSpectrumConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigUplinkSpectrumConfigArgs) ToConfigUplinkSpectrumConfigPtrOutputWithContext(ctx context.Context) ConfigUplinkSpectrumConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigUplinkSpectrumConfigOutput).ToConfigUplinkSpectrumConfigPtrOutputWithContext(ctx)
+}
+
+// ConfigUplinkSpectrumConfigPtrInput is an input type that accepts ConfigUplinkSpectrumConfigArgs, ConfigUplinkSpectrumConfigPtr and ConfigUplinkSpectrumConfigPtrOutput values.
+// You can construct a concrete instance of `ConfigUplinkSpectrumConfigPtrInput` via:
+//
+//          ConfigUplinkSpectrumConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigUplinkSpectrumConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfigUplinkSpectrumConfigPtrOutput() ConfigUplinkSpectrumConfigPtrOutput
+	ToConfigUplinkSpectrumConfigPtrOutputWithContext(context.Context) ConfigUplinkSpectrumConfigPtrOutput
+}
+
+type configUplinkSpectrumConfigPtrType ConfigUplinkSpectrumConfigArgs
+
+func ConfigUplinkSpectrumConfigPtr(v *ConfigUplinkSpectrumConfigArgs) ConfigUplinkSpectrumConfigPtrInput {
+	return (*configUplinkSpectrumConfigPtrType)(v)
+}
+
+func (*configUplinkSpectrumConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigUplinkSpectrumConfig)(nil)).Elem()
+}
+
+func (i *configUplinkSpectrumConfigPtrType) ToConfigUplinkSpectrumConfigPtrOutput() ConfigUplinkSpectrumConfigPtrOutput {
+	return i.ToConfigUplinkSpectrumConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configUplinkSpectrumConfigPtrType) ToConfigUplinkSpectrumConfigPtrOutputWithContext(ctx context.Context) ConfigUplinkSpectrumConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigUplinkSpectrumConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html
+type ConfigUplinkSpectrumConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfigUplinkSpectrumConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigUplinkSpectrumConfig)(nil)).Elem()
+}
+
+func (o ConfigUplinkSpectrumConfigOutput) ToConfigUplinkSpectrumConfigOutput() ConfigUplinkSpectrumConfigOutput {
+	return o
+}
+
+func (o ConfigUplinkSpectrumConfigOutput) ToConfigUplinkSpectrumConfigOutputWithContext(ctx context.Context) ConfigUplinkSpectrumConfigOutput {
+	return o
+}
+
+func (o ConfigUplinkSpectrumConfigOutput) ToConfigUplinkSpectrumConfigPtrOutput() ConfigUplinkSpectrumConfigPtrOutput {
+	return o.ToConfigUplinkSpectrumConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigUplinkSpectrumConfigOutput) ToConfigUplinkSpectrumConfigPtrOutputWithContext(ctx context.Context) ConfigUplinkSpectrumConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigUplinkSpectrumConfig) *ConfigUplinkSpectrumConfig {
+		return &v
+	}).(ConfigUplinkSpectrumConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-centerfrequency
+func (o ConfigUplinkSpectrumConfigOutput) CenterFrequency() ConfigFrequencyPtrOutput {
+	return o.ApplyT(func(v ConfigUplinkSpectrumConfig) *ConfigFrequency { return v.CenterFrequency }).(ConfigFrequencyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-polarization
+func (o ConfigUplinkSpectrumConfigOutput) Polarization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigUplinkSpectrumConfig) *string { return v.Polarization }).(pulumi.StringPtrOutput)
+}
+
+type ConfigUplinkSpectrumConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigUplinkSpectrumConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigUplinkSpectrumConfig)(nil)).Elem()
+}
+
+func (o ConfigUplinkSpectrumConfigPtrOutput) ToConfigUplinkSpectrumConfigPtrOutput() ConfigUplinkSpectrumConfigPtrOutput {
+	return o
+}
+
+func (o ConfigUplinkSpectrumConfigPtrOutput) ToConfigUplinkSpectrumConfigPtrOutputWithContext(ctx context.Context) ConfigUplinkSpectrumConfigPtrOutput {
+	return o
+}
+
+func (o ConfigUplinkSpectrumConfigPtrOutput) Elem() ConfigUplinkSpectrumConfigOutput {
+	return o.ApplyT(func(v *ConfigUplinkSpectrumConfig) ConfigUplinkSpectrumConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigUplinkSpectrumConfig
+		return ret
+	}).(ConfigUplinkSpectrumConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-centerfrequency
+func (o ConfigUplinkSpectrumConfigPtrOutput) CenterFrequency() ConfigFrequencyPtrOutput {
+	return o.ApplyT(func(v *ConfigUplinkSpectrumConfig) *ConfigFrequency {
+		if v == nil {
+			return nil
+		}
+		return v.CenterFrequency
+	}).(ConfigFrequencyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-polarization
+func (o ConfigUplinkSpectrumConfigPtrOutput) Polarization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigUplinkSpectrumConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Polarization
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html
 type DataflowEndpointGroupDataflowEndpoint struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-address
@@ -18,8 +2500,6 @@ type DataflowEndpointGroupDataflowEndpoint struct {
 	Mtu *int `pulumi:"mtu"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
-	Status *string `pulumi:"status"`
 }
 
 // DataflowEndpointGroupDataflowEndpointInput is an input type that accepts DataflowEndpointGroupDataflowEndpointArgs and DataflowEndpointGroupDataflowEndpointOutput values.
@@ -41,8 +2521,6 @@ type DataflowEndpointGroupDataflowEndpointArgs struct {
 	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
-	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (DataflowEndpointGroupDataflowEndpointArgs) ElementType() reflect.Type {
@@ -138,11 +2616,6 @@ func (o DataflowEndpointGroupDataflowEndpointOutput) Name() pulumi.StringPtrOutp
 	return o.ApplyT(func(v DataflowEndpointGroupDataflowEndpoint) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
-func (o DataflowEndpointGroupDataflowEndpointOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataflowEndpointGroupDataflowEndpoint) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
 type DataflowEndpointGroupDataflowEndpointPtrOutput struct{ *pulumi.OutputState }
 
 func (DataflowEndpointGroupDataflowEndpointPtrOutput) ElementType() reflect.Type {
@@ -194,16 +2667,6 @@ func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Name() pulumi.StringPtrO
 			return nil
 		}
 		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
-func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataflowEndpointGroupDataflowEndpoint) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -765,6 +3228,36 @@ func (o MissionProfileDataflowEdgeArrayOutput) Index(i pulumi.IntInput) MissionP
 }
 
 func init() {
+	pulumi.RegisterOutputType(ConfigAntennaDownlinkConfigOutput{})
+	pulumi.RegisterOutputType(ConfigAntennaDownlinkConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfigAntennaDownlinkDemodDecodeConfigOutput{})
+	pulumi.RegisterOutputType(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfigAntennaUplinkConfigOutput{})
+	pulumi.RegisterOutputType(ConfigAntennaUplinkConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfigConfigDataOutput{})
+	pulumi.RegisterOutputType(ConfigConfigDataPtrOutput{})
+	pulumi.RegisterOutputType(ConfigDataflowEndpointConfigOutput{})
+	pulumi.RegisterOutputType(ConfigDataflowEndpointConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfigDecodeConfigOutput{})
+	pulumi.RegisterOutputType(ConfigDecodeConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfigDemodulationConfigOutput{})
+	pulumi.RegisterOutputType(ConfigDemodulationConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfigEirpOutput{})
+	pulumi.RegisterOutputType(ConfigEirpPtrOutput{})
+	pulumi.RegisterOutputType(ConfigFrequencyOutput{})
+	pulumi.RegisterOutputType(ConfigFrequencyPtrOutput{})
+	pulumi.RegisterOutputType(ConfigFrequencyBandwidthOutput{})
+	pulumi.RegisterOutputType(ConfigFrequencyBandwidthPtrOutput{})
+	pulumi.RegisterOutputType(ConfigS3RecordingConfigOutput{})
+	pulumi.RegisterOutputType(ConfigS3RecordingConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfigSpectrumConfigOutput{})
+	pulumi.RegisterOutputType(ConfigSpectrumConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfigTrackingConfigOutput{})
+	pulumi.RegisterOutputType(ConfigTrackingConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfigUplinkEchoConfigOutput{})
+	pulumi.RegisterOutputType(ConfigUplinkEchoConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfigUplinkSpectrumConfigOutput{})
+	pulumi.RegisterOutputType(ConfigUplinkSpectrumConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupDataflowEndpointOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupDataflowEndpointPtrOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupEndpointDetailsOutput{})

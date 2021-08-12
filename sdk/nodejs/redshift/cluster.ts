@@ -83,20 +83,25 @@ export class Cluster extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
      */
     public readonly encrypted!: pulumi.Output<boolean | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
+     */
+    public readonly endpoint!: pulumi.Output<outputs.Redshift.ClusterEndpoint | undefined>;
     public /*out*/ readonly endpointAddress!: pulumi.Output<string>;
     public /*out*/ readonly endpointPort!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertidentifier
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
      */
     public readonly hsmClientCertificateIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-HsmConfigurationIdentifier
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
      */
     public readonly hsmConfigurationIdentifier!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
      */
     public readonly iamRoles!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
      */
@@ -118,7 +123,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly nodeType!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
      */
     public readonly numberOfNodes!: pulumi.Output<number | undefined>;
     /**
@@ -192,6 +197,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["dBName"] = args ? args.dBName : undefined;
             inputs["elasticIp"] = args ? args.elasticIp : undefined;
             inputs["encrypted"] = args ? args.encrypted : undefined;
+            inputs["endpoint"] = args ? args.endpoint : undefined;
             inputs["hsmClientCertificateIdentifier"] = args ? args.hsmClientCertificateIdentifier : undefined;
             inputs["hsmConfigurationIdentifier"] = args ? args.hsmConfigurationIdentifier : undefined;
             inputs["iamRoles"] = args ? args.iamRoles : undefined;
@@ -211,6 +217,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             inputs["endpointAddress"] = undefined /*out*/;
             inputs["endpointPort"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
             inputs["allowVersionUpgrade"] = undefined /*out*/;
             inputs["automatedSnapshotRetentionPeriod"] = undefined /*out*/;
@@ -224,11 +231,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["dBName"] = undefined /*out*/;
             inputs["elasticIp"] = undefined /*out*/;
             inputs["encrypted"] = undefined /*out*/;
+            inputs["endpoint"] = undefined /*out*/;
             inputs["endpointAddress"] = undefined /*out*/;
             inputs["endpointPort"] = undefined /*out*/;
             inputs["hsmClientCertificateIdentifier"] = undefined /*out*/;
             inputs["hsmConfigurationIdentifier"] = undefined /*out*/;
             inputs["iamRoles"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
             inputs["kmsKeyId"] = undefined /*out*/;
             inputs["loggingProperties"] = undefined /*out*/;
             inputs["masterUserPassword"] = undefined /*out*/;
@@ -304,11 +313,15 @@ export interface ClusterArgs {
      */
     encrypted?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertidentifier
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
+     */
+    endpoint?: pulumi.Input<inputs.Redshift.ClusterEndpointArgs>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
      */
     hsmClientCertificateIdentifier?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-HsmConfigurationIdentifier
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
      */
     hsmConfigurationIdentifier?: pulumi.Input<string>;
     /**
@@ -336,7 +349,7 @@ export interface ClusterArgs {
      */
     nodeType: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
      */
     numberOfNodes?: pulumi.Input<number>;
     /**

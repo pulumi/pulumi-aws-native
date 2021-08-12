@@ -7,4 +7,7 @@ import typing
 # Export this package's modules as members:
 from .channel import *
 from .playback_key_pair import *
+from .recording_configuration import *
 from .stream_key import *
+from ._inputs import *
+from . import outputs

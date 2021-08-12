@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules
         /// </summary>
-        public readonly Outputs.RuleGroupStatefulRules? StatefulRules;
+        public readonly ImmutableArray<Outputs.RuleGroupStatefulRule> StatefulRules;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
             string? rulesString,
 
-            Outputs.RuleGroupStatefulRules? statefulRules,
+            ImmutableArray<Outputs.RuleGroupStatefulRule> statefulRules,
 
             Outputs.RuleGroupStatelessRulesAndCustomActions? statelessRulesAndCustomActions)
         {

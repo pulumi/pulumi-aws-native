@@ -20,6 +20,8 @@ type StackSet struct {
 	AdministrationRoleARN pulumi.StringPtrOutput `pulumi:"administrationRoleARN"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
 	AutoDeployment StackSetAutoDeploymentPtrOutput `pulumi:"autoDeployment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+	CallAs pulumi.StringPtrOutput `pulumi:"callAs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
 	Capabilities pulumi.StringArrayOutput `pulumi:"capabilities"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
@@ -94,6 +96,8 @@ type stackSetArgs struct {
 	AdministrationRoleARN *string `pulumi:"administrationRoleARN"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
 	AutoDeployment *StackSetAutoDeployment `pulumi:"autoDeployment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+	CallAs *string `pulumi:"callAs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
 	Capabilities []string `pulumi:"capabilities"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
@@ -124,6 +128,8 @@ type StackSetArgs struct {
 	AdministrationRoleARN pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
 	AutoDeployment StackSetAutoDeploymentPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+	CallAs pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
 	Capabilities pulumi.StringArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description

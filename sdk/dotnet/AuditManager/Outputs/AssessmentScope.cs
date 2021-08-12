@@ -19,17 +19,17 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
         /// </summary>
-        public readonly Outputs.AssessmentAWSAccounts? AwsAccounts;
+        public readonly ImmutableArray<Outputs.AssessmentAWSAccount> AwsAccounts;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
         /// </summary>
-        public readonly Outputs.AssessmentAWSServices? AwsServices;
+        public readonly ImmutableArray<Outputs.AssessmentAWSService> AwsServices;
 
         [OutputConstructor]
         private AssessmentScope(
-            Outputs.AssessmentAWSAccounts? awsAccounts,
+            ImmutableArray<Outputs.AssessmentAWSAccount> awsAccounts,
 
-            Outputs.AssessmentAWSServices? awsServices)
+            ImmutableArray<Outputs.AssessmentAWSService> awsServices)
         {
             AwsAccounts = awsAccounts;
             AwsServices = awsServices;

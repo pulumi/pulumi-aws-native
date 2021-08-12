@@ -17,23 +17,38 @@ __all__ = ['DeviceFleetArgs', 'DeviceFleet']
 @pulumi.input_type
 class DeviceFleetArgs:
     def __init__(__self__, *,
+                 device_fleet_name: pulumi.Input[str],
                  output_config: pulumi.Input['DeviceFleetEdgeOutputConfigArgs'],
                  role_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['_root_inputs.TagArgs']] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeviceFleet resource.
+        :param pulumi.Input[str] device_fleet_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-devicefleetname
         :param pulumi.Input['DeviceFleetEdgeOutputConfigArgs'] output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
         :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
-        :param pulumi.Input['_root_inputs.TagArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
         """
+        pulumi.set(__self__, "device_fleet_name", device_fleet_name)
         pulumi.set(__self__, "output_config", output_config)
         pulumi.set(__self__, "role_arn", role_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="deviceFleetName")
+    def device_fleet_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-devicefleetname
+        """
+        return pulumi.get(self, "device_fleet_name")
+
+    @device_fleet_name.setter
+    def device_fleet_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_fleet_name", value)
 
     @property
     @pulumi.getter(name="outputConfig")
@@ -73,14 +88,14 @@ class DeviceFleetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['_root_inputs.TagArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['_root_inputs.TagArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -90,9 +105,10 @@ class DeviceFleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 device_fleet_name: Optional[pulumi.Input[str]] = None,
                  output_config: Optional[pulumi.Input[pulumi.InputType['DeviceFleetEdgeOutputConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html
@@ -100,9 +116,10 @@ class DeviceFleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
+        :param pulumi.Input[str] device_fleet_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-devicefleetname
         :param pulumi.Input[pulumi.InputType['DeviceFleetEdgeOutputConfigArgs']] output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
         :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
-        :param pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
         """
         ...
     @overload
@@ -129,9 +146,10 @@ class DeviceFleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 device_fleet_name: Optional[pulumi.Input[str]] = None,
                  output_config: Optional[pulumi.Input[pulumi.InputType['DeviceFleetEdgeOutputConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -145,6 +163,9 @@ class DeviceFleet(pulumi.CustomResource):
             __props__ = DeviceFleetArgs.__new__(DeviceFleetArgs)
 
             __props__.__dict__["description"] = description
+            if device_fleet_name is None and not opts.urn:
+                raise TypeError("Missing required property 'device_fleet_name'")
+            __props__.__dict__["device_fleet_name"] = device_fleet_name
             if output_config is None and not opts.urn:
                 raise TypeError("Missing required property 'output_config'")
             __props__.__dict__["output_config"] = output_config
@@ -152,7 +173,6 @@ class DeviceFleet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["device_fleet_name"] = None
         super(DeviceFleet, __self__).__init__(
             'aws-native:SageMaker:DeviceFleet',
             resource_name,
@@ -193,6 +213,9 @@ class DeviceFleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deviceFleetName")
     def device_fleet_name(self) -> pulumi.Output[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-devicefleetname
+        """
         return pulumi.get(self, "device_fleet_name")
 
     @property
@@ -213,7 +236,7 @@ class DeviceFleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['_root_outputs.Tag']]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
         """

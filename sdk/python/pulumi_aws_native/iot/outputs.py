@@ -10,15 +10,34 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'AuthorizerTags',
-    'AuthorizerTokenSigningPublicKeys',
+    'AccountAuditConfigurationAuditCheckConfiguration',
+    'AccountAuditConfigurationAuditCheckConfigurations',
+    'AccountAuditConfigurationAuditNotificationTarget',
+    'AccountAuditConfigurationAuditNotificationTargetConfigurations',
+    'DomainConfigurationAuthorizerConfig',
+    'DomainConfigurationServerCertificateSummary',
+    'MitigationActionActionParams',
+    'MitigationActionAddThingsToThingGroupParams',
+    'MitigationActionEnableIoTLoggingParams',
+    'MitigationActionPublishFindingToSnsParams',
+    'MitigationActionReplaceDefaultPolicyVersionParams',
+    'MitigationActionUpdateCACertificateParams',
+    'MitigationActionUpdateDeviceCertificateParams',
     'ProvisioningTemplateProvisioningHook',
-    'ProvisioningTemplateTags',
+    'SecurityProfileAlertTarget',
+    'SecurityProfileBehavior',
+    'SecurityProfileBehaviorCriteria',
+    'SecurityProfileMachineLearningDetectionConfig',
+    'SecurityProfileMetricDimension',
+    'SecurityProfileMetricToRetain',
+    'SecurityProfileMetricValue',
+    'SecurityProfileStatisticalThreshold',
     'TopicRuleAction',
     'TopicRuleAssetPropertyTimestamp',
     'TopicRuleAssetPropertyValue',
     'TopicRuleAssetPropertyVariant',
     'TopicRuleCloudwatchAlarmAction',
+    'TopicRuleCloudwatchLogsAction',
     'TopicRuleCloudwatchMetricAction',
     'TopicRuleDestinationHttpUrlDestinationSummary',
     'TopicRuleDestinationVpcDestinationProperties',
@@ -32,6 +51,7 @@ __all__ = [
     'TopicRuleIotAnalyticsAction',
     'TopicRuleIotEventsAction',
     'TopicRuleIotSiteWiseAction',
+    'TopicRuleKafkaAction',
     'TopicRuleKinesisAction',
     'TopicRuleLambdaAction',
     'TopicRulePutAssetPropertyValueEntry',
@@ -42,42 +62,803 @@ __all__ = [
     'TopicRuleSnsAction',
     'TopicRuleSqsAction',
     'TopicRuleStepFunctionsAction',
+    'TopicRuleTimestreamAction',
+    'TopicRuleTimestreamDimension',
+    'TopicRuleTimestreamTimestamp',
     'TopicRuleTopicRulePayload',
 ]
 
 @pulumi.output_type
-class AuthorizerTags(dict):
+class AccountAuditConfigurationAuditCheckConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html
     """
     def __init__(__self__, *,
-                 tags: Optional[Sequence[Any]] = None):
+                 enabled: Optional[bool] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html
-        :param Sequence[Any] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html#cfn-iot-authorizer-tags-tags
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html
+        :param bool enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfiguration-enabled
         """
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence[Any]]:
+    def enabled(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tags.html#cfn-iot-authorizer-tags-tags
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfiguration-enabled
         """
-        return pulumi.get(self, "tags")
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
-class AuthorizerTokenSigningPublicKeys(dict):
+class AccountAuditConfigurationAuditCheckConfigurations(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tokensigningpublickeys.html
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticatedCognitoRoleOverlyPermissiveCheck":
+            suggest = "authenticated_cognito_role_overly_permissive_check"
+        elif key == "caCertificateExpiringCheck":
+            suggest = "ca_certificate_expiring_check"
+        elif key == "caCertificateKeyQualityCheck":
+            suggest = "ca_certificate_key_quality_check"
+        elif key == "conflictingClientIdsCheck":
+            suggest = "conflicting_client_ids_check"
+        elif key == "deviceCertificateExpiringCheck":
+            suggest = "device_certificate_expiring_check"
+        elif key == "deviceCertificateKeyQualityCheck":
+            suggest = "device_certificate_key_quality_check"
+        elif key == "deviceCertificateSharedCheck":
+            suggest = "device_certificate_shared_check"
+        elif key == "iotPolicyOverlyPermissiveCheck":
+            suggest = "iot_policy_overly_permissive_check"
+        elif key == "iotRoleAliasAllowsAccessToUnusedServicesCheck":
+            suggest = "iot_role_alias_allows_access_to_unused_services_check"
+        elif key == "iotRoleAliasOverlyPermissiveCheck":
+            suggest = "iot_role_alias_overly_permissive_check"
+        elif key == "loggingDisabledCheck":
+            suggest = "logging_disabled_check"
+        elif key == "revokedCaCertificateStillActiveCheck":
+            suggest = "revoked_ca_certificate_still_active_check"
+        elif key == "revokedDeviceCertificateStillActiveCheck":
+            suggest = "revoked_device_certificate_still_active_check"
+        elif key == "unauthenticatedCognitoRoleOverlyPermissiveCheck":
+            suggest = "unauthenticated_cognito_role_overly_permissive_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountAuditConfigurationAuditCheckConfigurations. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountAuditConfigurationAuditCheckConfigurations.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountAuditConfigurationAuditCheckConfigurations.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authenticated_cognito_role_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 ca_certificate_expiring_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 ca_certificate_key_quality_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 conflicting_client_ids_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 device_certificate_expiring_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 device_certificate_key_quality_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 device_certificate_shared_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 iot_policy_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 iot_role_alias_allows_access_to_unused_services_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 iot_role_alias_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 logging_disabled_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 revoked_ca_certificate_still_active_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 revoked_device_certificate_still_active_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 unauthenticated_cognito_role_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-authorizer-tokensigningpublickeys.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' authenticated_cognito_role_overly_permissive_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-authenticatedcognitoroleoverlypermissivecheck
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' ca_certificate_expiring_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificateexpiringcheck
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' ca_certificate_key_quality_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificatekeyqualitycheck
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' conflicting_client_ids_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-conflictingclientidscheck
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' device_certificate_expiring_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificateexpiringcheck
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' device_certificate_key_quality_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatekeyqualitycheck
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' device_certificate_shared_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatesharedcheck
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' iot_policy_overly_permissive_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotpolicyoverlypermissivecheck
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' iot_role_alias_allows_access_to_unused_services_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasallowsaccesstounusedservicescheck
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' iot_role_alias_overly_permissive_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasoverlypermissivecheck
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' logging_disabled_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-loggingdisabledcheck
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' revoked_ca_certificate_still_active_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokedcacertificatestillactivecheck
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' revoked_device_certificate_still_active_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokeddevicecertificatestillactivecheck
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' unauthenticated_cognito_role_overly_permissive_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-unauthenticatedcognitoroleoverlypermissivecheck
         """
-        pass
+        if authenticated_cognito_role_overly_permissive_check is not None:
+            pulumi.set(__self__, "authenticated_cognito_role_overly_permissive_check", authenticated_cognito_role_overly_permissive_check)
+        if ca_certificate_expiring_check is not None:
+            pulumi.set(__self__, "ca_certificate_expiring_check", ca_certificate_expiring_check)
+        if ca_certificate_key_quality_check is not None:
+            pulumi.set(__self__, "ca_certificate_key_quality_check", ca_certificate_key_quality_check)
+        if conflicting_client_ids_check is not None:
+            pulumi.set(__self__, "conflicting_client_ids_check", conflicting_client_ids_check)
+        if device_certificate_expiring_check is not None:
+            pulumi.set(__self__, "device_certificate_expiring_check", device_certificate_expiring_check)
+        if device_certificate_key_quality_check is not None:
+            pulumi.set(__self__, "device_certificate_key_quality_check", device_certificate_key_quality_check)
+        if device_certificate_shared_check is not None:
+            pulumi.set(__self__, "device_certificate_shared_check", device_certificate_shared_check)
+        if iot_policy_overly_permissive_check is not None:
+            pulumi.set(__self__, "iot_policy_overly_permissive_check", iot_policy_overly_permissive_check)
+        if iot_role_alias_allows_access_to_unused_services_check is not None:
+            pulumi.set(__self__, "iot_role_alias_allows_access_to_unused_services_check", iot_role_alias_allows_access_to_unused_services_check)
+        if iot_role_alias_overly_permissive_check is not None:
+            pulumi.set(__self__, "iot_role_alias_overly_permissive_check", iot_role_alias_overly_permissive_check)
+        if logging_disabled_check is not None:
+            pulumi.set(__self__, "logging_disabled_check", logging_disabled_check)
+        if revoked_ca_certificate_still_active_check is not None:
+            pulumi.set(__self__, "revoked_ca_certificate_still_active_check", revoked_ca_certificate_still_active_check)
+        if revoked_device_certificate_still_active_check is not None:
+            pulumi.set(__self__, "revoked_device_certificate_still_active_check", revoked_device_certificate_still_active_check)
+        if unauthenticated_cognito_role_overly_permissive_check is not None:
+            pulumi.set(__self__, "unauthenticated_cognito_role_overly_permissive_check", unauthenticated_cognito_role_overly_permissive_check)
+
+    @property
+    @pulumi.getter(name="authenticatedCognitoRoleOverlyPermissiveCheck")
+    def authenticated_cognito_role_overly_permissive_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-authenticatedcognitoroleoverlypermissivecheck
+        """
+        return pulumi.get(self, "authenticated_cognito_role_overly_permissive_check")
+
+    @property
+    @pulumi.getter(name="caCertificateExpiringCheck")
+    def ca_certificate_expiring_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificateexpiringcheck
+        """
+        return pulumi.get(self, "ca_certificate_expiring_check")
+
+    @property
+    @pulumi.getter(name="caCertificateKeyQualityCheck")
+    def ca_certificate_key_quality_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificatekeyqualitycheck
+        """
+        return pulumi.get(self, "ca_certificate_key_quality_check")
+
+    @property
+    @pulumi.getter(name="conflictingClientIdsCheck")
+    def conflicting_client_ids_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-conflictingclientidscheck
+        """
+        return pulumi.get(self, "conflicting_client_ids_check")
+
+    @property
+    @pulumi.getter(name="deviceCertificateExpiringCheck")
+    def device_certificate_expiring_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificateexpiringcheck
+        """
+        return pulumi.get(self, "device_certificate_expiring_check")
+
+    @property
+    @pulumi.getter(name="deviceCertificateKeyQualityCheck")
+    def device_certificate_key_quality_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatekeyqualitycheck
+        """
+        return pulumi.get(self, "device_certificate_key_quality_check")
+
+    @property
+    @pulumi.getter(name="deviceCertificateSharedCheck")
+    def device_certificate_shared_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatesharedcheck
+        """
+        return pulumi.get(self, "device_certificate_shared_check")
+
+    @property
+    @pulumi.getter(name="iotPolicyOverlyPermissiveCheck")
+    def iot_policy_overly_permissive_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotpolicyoverlypermissivecheck
+        """
+        return pulumi.get(self, "iot_policy_overly_permissive_check")
+
+    @property
+    @pulumi.getter(name="iotRoleAliasAllowsAccessToUnusedServicesCheck")
+    def iot_role_alias_allows_access_to_unused_services_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasallowsaccesstounusedservicescheck
+        """
+        return pulumi.get(self, "iot_role_alias_allows_access_to_unused_services_check")
+
+    @property
+    @pulumi.getter(name="iotRoleAliasOverlyPermissiveCheck")
+    def iot_role_alias_overly_permissive_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasoverlypermissivecheck
+        """
+        return pulumi.get(self, "iot_role_alias_overly_permissive_check")
+
+    @property
+    @pulumi.getter(name="loggingDisabledCheck")
+    def logging_disabled_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-loggingdisabledcheck
+        """
+        return pulumi.get(self, "logging_disabled_check")
+
+    @property
+    @pulumi.getter(name="revokedCaCertificateStillActiveCheck")
+    def revoked_ca_certificate_still_active_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokedcacertificatestillactivecheck
+        """
+        return pulumi.get(self, "revoked_ca_certificate_still_active_check")
+
+    @property
+    @pulumi.getter(name="revokedDeviceCertificateStillActiveCheck")
+    def revoked_device_certificate_still_active_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokeddevicecertificatestillactivecheck
+        """
+        return pulumi.get(self, "revoked_device_certificate_still_active_check")
+
+    @property
+    @pulumi.getter(name="unauthenticatedCognitoRoleOverlyPermissiveCheck")
+    def unauthenticated_cognito_role_overly_permissive_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-unauthenticatedcognitoroleoverlypermissivecheck
+        """
+        return pulumi.get(self, "unauthenticated_cognito_role_overly_permissive_check")
+
+
+@pulumi.output_type
+class AccountAuditConfigurationAuditNotificationTarget(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "targetArn":
+            suggest = "target_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountAuditConfigurationAuditNotificationTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountAuditConfigurationAuditNotificationTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountAuditConfigurationAuditNotificationTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 role_arn: Optional[str] = None,
+                 target_arn: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html
+        :param bool enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-enabled
+        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-rolearn
+        :param str target_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-targetarn
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if target_arn is not None:
+            pulumi.set(__self__, "target_arn", target_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="targetArn")
+    def target_arn(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-targetarn
+        """
+        return pulumi.get(self, "target_arn")
+
+
+@pulumi.output_type
+class AccountAuditConfigurationAuditNotificationTargetConfigurations(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html
+    """
+    def __init__(__self__, *,
+                 sns: Optional['outputs.AccountAuditConfigurationAuditNotificationTarget'] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html
+        :param 'AccountAuditConfigurationAuditNotificationTarget' sns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations-sns
+        """
+        if sns is not None:
+            pulumi.set(__self__, "sns", sns)
+
+    @property
+    @pulumi.getter
+    def sns(self) -> Optional['outputs.AccountAuditConfigurationAuditNotificationTarget']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations-sns
+        """
+        return pulumi.get(self, "sns")
+
+
+@pulumi.output_type
+class DomainConfigurationAuthorizerConfig(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowAuthorizerOverride":
+            suggest = "allow_authorizer_override"
+        elif key == "defaultAuthorizerName":
+            suggest = "default_authorizer_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainConfigurationAuthorizerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainConfigurationAuthorizerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainConfigurationAuthorizerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_authorizer_override: Optional[bool] = None,
+                 default_authorizer_name: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html
+        :param bool allow_authorizer_override: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-allowauthorizeroverride
+        :param str default_authorizer_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-defaultauthorizername
+        """
+        if allow_authorizer_override is not None:
+            pulumi.set(__self__, "allow_authorizer_override", allow_authorizer_override)
+        if default_authorizer_name is not None:
+            pulumi.set(__self__, "default_authorizer_name", default_authorizer_name)
+
+    @property
+    @pulumi.getter(name="allowAuthorizerOverride")
+    def allow_authorizer_override(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-allowauthorizeroverride
+        """
+        return pulumi.get(self, "allow_authorizer_override")
+
+    @property
+    @pulumi.getter(name="defaultAuthorizerName")
+    def default_authorizer_name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-defaultauthorizername
+        """
+        return pulumi.get(self, "default_authorizer_name")
+
+
+@pulumi.output_type
+class DomainConfigurationServerCertificateSummary(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverCertificateArn":
+            suggest = "server_certificate_arn"
+        elif key == "serverCertificateStatus":
+            suggest = "server_certificate_status"
+        elif key == "serverCertificateStatusDetail":
+            suggest = "server_certificate_status_detail"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainConfigurationServerCertificateSummary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainConfigurationServerCertificateSummary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainConfigurationServerCertificateSummary.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server_certificate_arn: Optional[str] = None,
+                 server_certificate_status: Optional[str] = None,
+                 server_certificate_status_detail: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html
+        :param str server_certificate_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatearn
+        :param str server_certificate_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatestatus
+        :param str server_certificate_status_detail: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatestatusdetail
+        """
+        if server_certificate_arn is not None:
+            pulumi.set(__self__, "server_certificate_arn", server_certificate_arn)
+        if server_certificate_status is not None:
+            pulumi.set(__self__, "server_certificate_status", server_certificate_status)
+        if server_certificate_status_detail is not None:
+            pulumi.set(__self__, "server_certificate_status_detail", server_certificate_status_detail)
+
+    @property
+    @pulumi.getter(name="serverCertificateArn")
+    def server_certificate_arn(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatearn
+        """
+        return pulumi.get(self, "server_certificate_arn")
+
+    @property
+    @pulumi.getter(name="serverCertificateStatus")
+    def server_certificate_status(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatestatus
+        """
+        return pulumi.get(self, "server_certificate_status")
+
+    @property
+    @pulumi.getter(name="serverCertificateStatusDetail")
+    def server_certificate_status_detail(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatestatusdetail
+        """
+        return pulumi.get(self, "server_certificate_status_detail")
+
+
+@pulumi.output_type
+class MitigationActionActionParams(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addThingsToThingGroupParams":
+            suggest = "add_things_to_thing_group_params"
+        elif key == "enableIoTLoggingParams":
+            suggest = "enable_io_t_logging_params"
+        elif key == "publishFindingToSnsParams":
+            suggest = "publish_finding_to_sns_params"
+        elif key == "replaceDefaultPolicyVersionParams":
+            suggest = "replace_default_policy_version_params"
+        elif key == "updateCACertificateParams":
+            suggest = "update_ca_certificate_params"
+        elif key == "updateDeviceCertificateParams":
+            suggest = "update_device_certificate_params"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MitigationActionActionParams. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MitigationActionActionParams.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MitigationActionActionParams.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 add_things_to_thing_group_params: Optional['outputs.MitigationActionAddThingsToThingGroupParams'] = None,
+                 enable_io_t_logging_params: Optional['outputs.MitigationActionEnableIoTLoggingParams'] = None,
+                 publish_finding_to_sns_params: Optional['outputs.MitigationActionPublishFindingToSnsParams'] = None,
+                 replace_default_policy_version_params: Optional['outputs.MitigationActionReplaceDefaultPolicyVersionParams'] = None,
+                 update_ca_certificate_params: Optional['outputs.MitigationActionUpdateCACertificateParams'] = None,
+                 update_device_certificate_params: Optional['outputs.MitigationActionUpdateDeviceCertificateParams'] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html
+        :param 'MitigationActionAddThingsToThingGroupParams' add_things_to_thing_group_params: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-addthingstothinggroupparams
+        :param 'MitigationActionEnableIoTLoggingParams' enable_io_t_logging_params: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-enableiotloggingparams
+        :param 'MitigationActionPublishFindingToSnsParams' publish_finding_to_sns_params: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-publishfindingtosnsparams
+        :param 'MitigationActionReplaceDefaultPolicyVersionParams' replace_default_policy_version_params: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-replacedefaultpolicyversionparams
+        :param 'MitigationActionUpdateCACertificateParams' update_ca_certificate_params: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatecacertificateparams
+        :param 'MitigationActionUpdateDeviceCertificateParams' update_device_certificate_params: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatedevicecertificateparams
+        """
+        if add_things_to_thing_group_params is not None:
+            pulumi.set(__self__, "add_things_to_thing_group_params", add_things_to_thing_group_params)
+        if enable_io_t_logging_params is not None:
+            pulumi.set(__self__, "enable_io_t_logging_params", enable_io_t_logging_params)
+        if publish_finding_to_sns_params is not None:
+            pulumi.set(__self__, "publish_finding_to_sns_params", publish_finding_to_sns_params)
+        if replace_default_policy_version_params is not None:
+            pulumi.set(__self__, "replace_default_policy_version_params", replace_default_policy_version_params)
+        if update_ca_certificate_params is not None:
+            pulumi.set(__self__, "update_ca_certificate_params", update_ca_certificate_params)
+        if update_device_certificate_params is not None:
+            pulumi.set(__self__, "update_device_certificate_params", update_device_certificate_params)
+
+    @property
+    @pulumi.getter(name="addThingsToThingGroupParams")
+    def add_things_to_thing_group_params(self) -> Optional['outputs.MitigationActionAddThingsToThingGroupParams']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-addthingstothinggroupparams
+        """
+        return pulumi.get(self, "add_things_to_thing_group_params")
+
+    @property
+    @pulumi.getter(name="enableIoTLoggingParams")
+    def enable_io_t_logging_params(self) -> Optional['outputs.MitigationActionEnableIoTLoggingParams']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-enableiotloggingparams
+        """
+        return pulumi.get(self, "enable_io_t_logging_params")
+
+    @property
+    @pulumi.getter(name="publishFindingToSnsParams")
+    def publish_finding_to_sns_params(self) -> Optional['outputs.MitigationActionPublishFindingToSnsParams']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-publishfindingtosnsparams
+        """
+        return pulumi.get(self, "publish_finding_to_sns_params")
+
+    @property
+    @pulumi.getter(name="replaceDefaultPolicyVersionParams")
+    def replace_default_policy_version_params(self) -> Optional['outputs.MitigationActionReplaceDefaultPolicyVersionParams']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-replacedefaultpolicyversionparams
+        """
+        return pulumi.get(self, "replace_default_policy_version_params")
+
+    @property
+    @pulumi.getter(name="updateCACertificateParams")
+    def update_ca_certificate_params(self) -> Optional['outputs.MitigationActionUpdateCACertificateParams']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatecacertificateparams
+        """
+        return pulumi.get(self, "update_ca_certificate_params")
+
+    @property
+    @pulumi.getter(name="updateDeviceCertificateParams")
+    def update_device_certificate_params(self) -> Optional['outputs.MitigationActionUpdateDeviceCertificateParams']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatedevicecertificateparams
+        """
+        return pulumi.get(self, "update_device_certificate_params")
+
+
+@pulumi.output_type
+class MitigationActionAddThingsToThingGroupParams(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thingGroupNames":
+            suggest = "thing_group_names"
+        elif key == "overrideDynamicGroups":
+            suggest = "override_dynamic_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MitigationActionAddThingsToThingGroupParams. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MitigationActionAddThingsToThingGroupParams.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MitigationActionAddThingsToThingGroupParams.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 thing_group_names: Sequence[str],
+                 override_dynamic_groups: Optional[bool] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html
+        :param Sequence[str] thing_group_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-thinggroupnames
+        :param bool override_dynamic_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-overridedynamicgroups
+        """
+        pulumi.set(__self__, "thing_group_names", thing_group_names)
+        if override_dynamic_groups is not None:
+            pulumi.set(__self__, "override_dynamic_groups", override_dynamic_groups)
+
+    @property
+    @pulumi.getter(name="thingGroupNames")
+    def thing_group_names(self) -> Sequence[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-thinggroupnames
+        """
+        return pulumi.get(self, "thing_group_names")
+
+    @property
+    @pulumi.getter(name="overrideDynamicGroups")
+    def override_dynamic_groups(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-overridedynamicgroups
+        """
+        return pulumi.get(self, "override_dynamic_groups")
+
+
+@pulumi.output_type
+class MitigationActionEnableIoTLoggingParams(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logLevel":
+            suggest = "log_level"
+        elif key == "roleArnForLogging":
+            suggest = "role_arn_for_logging"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MitigationActionEnableIoTLoggingParams. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MitigationActionEnableIoTLoggingParams.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MitigationActionEnableIoTLoggingParams.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_level: str,
+                 role_arn_for_logging: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html
+        :param str log_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-loglevel
+        :param str role_arn_for_logging: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-rolearnforlogging
+        """
+        pulumi.set(__self__, "log_level", log_level)
+        pulumi.set(__self__, "role_arn_for_logging", role_arn_for_logging)
+
+    @property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-loglevel
+        """
+        return pulumi.get(self, "log_level")
+
+    @property
+    @pulumi.getter(name="roleArnForLogging")
+    def role_arn_for_logging(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-rolearnforlogging
+        """
+        return pulumi.get(self, "role_arn_for_logging")
+
+
+@pulumi.output_type
+class MitigationActionPublishFindingToSnsParams(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MitigationActionPublishFindingToSnsParams. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MitigationActionPublishFindingToSnsParams.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MitigationActionPublishFindingToSnsParams.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 topic_arn: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html
+        :param str topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html#cfn-iot-mitigationaction-publishfindingtosnsparams-topicarn
+        """
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html#cfn-iot-mitigationaction-publishfindingtosnsparams-topicarn
+        """
+        return pulumi.get(self, "topic_arn")
+
+
+@pulumi.output_type
+class MitigationActionReplaceDefaultPolicyVersionParams(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "templateName":
+            suggest = "template_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MitigationActionReplaceDefaultPolicyVersionParams. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MitigationActionReplaceDefaultPolicyVersionParams.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MitigationActionReplaceDefaultPolicyVersionParams.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 template_name: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html
+        :param str template_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html#cfn-iot-mitigationaction-replacedefaultpolicyversionparams-templatename
+        """
+        pulumi.set(__self__, "template_name", template_name)
+
+    @property
+    @pulumi.getter(name="templateName")
+    def template_name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html#cfn-iot-mitigationaction-replacedefaultpolicyversionparams-templatename
+        """
+        return pulumi.get(self, "template_name")
+
+
+@pulumi.output_type
+class MitigationActionUpdateCACertificateParams(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html
+    """
+    def __init__(__self__, *,
+                 action: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html
+        :param str action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html#cfn-iot-mitigationaction-updatecacertificateparams-action
+        """
+        pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html#cfn-iot-mitigationaction-updatecacertificateparams-action
+        """
+        return pulumi.get(self, "action")
+
+
+@pulumi.output_type
+class MitigationActionUpdateDeviceCertificateParams(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html
+    """
+    def __init__(__self__, *,
+                 action: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html
+        :param str action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html#cfn-iot-mitigationaction-updatedevicecertificateparams-action
+        """
+        pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html#cfn-iot-mitigationaction-updatedevicecertificateparams-action
+        """
+        return pulumi.get(self, "action")
 
 
 @pulumi.output_type
@@ -135,26 +916,514 @@ class ProvisioningTemplateProvisioningHook(dict):
 
 
 @pulumi.output_type
-class ProvisioningTemplateTags(dict):
+class SecurityProfileAlertTarget(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertTargetArn":
+            suggest = "alert_target_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfileAlertTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfileAlertTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfileAlertTarget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 tags: Optional[Sequence[Any]] = None):
+                 alert_target_arn: str,
+                 role_arn: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html
-        :param Sequence[Any] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html#cfn-iot-provisioningtemplate-tags-tags
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html
+        :param str alert_target_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-alerttargetarn
+        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-rolearn
         """
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+        pulumi.set(__self__, "alert_target_arn", alert_target_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="alertTargetArn")
+    def alert_target_arn(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-alerttargetarn
+        """
+        return pulumi.get(self, "alert_target_arn")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class SecurityProfileBehavior(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricDimension":
+            suggest = "metric_dimension"
+        elif key == "suppressAlerts":
+            suggest = "suppress_alerts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfileBehavior. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfileBehavior.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfileBehavior.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 criteria: Optional['outputs.SecurityProfileBehaviorCriteria'] = None,
+                 metric: Optional[str] = None,
+                 metric_dimension: Optional['outputs.SecurityProfileMetricDimension'] = None,
+                 suppress_alerts: Optional[bool] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html
+        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-name
+        :param 'SecurityProfileBehaviorCriteria' criteria: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-criteria
+        :param str metric: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metric
+        :param 'SecurityProfileMetricDimension' metric_dimension: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metricdimension
+        :param bool suppress_alerts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-suppressalerts
+        """
+        pulumi.set(__self__, "name", name)
+        if criteria is not None:
+            pulumi.set(__self__, "criteria", criteria)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if metric_dimension is not None:
+            pulumi.set(__self__, "metric_dimension", metric_dimension)
+        if suppress_alerts is not None:
+            pulumi.set(__self__, "suppress_alerts", suppress_alerts)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence[Any]]:
+    def name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-tags.html#cfn-iot-provisioningtemplate-tags-tags
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-name
         """
-        return pulumi.get(self, "tags")
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> Optional['outputs.SecurityProfileBehaviorCriteria']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-criteria
+        """
+        return pulumi.get(self, "criteria")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metric
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter(name="metricDimension")
+    def metric_dimension(self) -> Optional['outputs.SecurityProfileMetricDimension']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metricdimension
+        """
+        return pulumi.get(self, "metric_dimension")
+
+    @property
+    @pulumi.getter(name="suppressAlerts")
+    def suppress_alerts(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-suppressalerts
+        """
+        return pulumi.get(self, "suppress_alerts")
+
+
+@pulumi.output_type
+class SecurityProfileBehaviorCriteria(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "comparisonOperator":
+            suggest = "comparison_operator"
+        elif key == "consecutiveDatapointsToAlarm":
+            suggest = "consecutive_datapoints_to_alarm"
+        elif key == "consecutiveDatapointsToClear":
+            suggest = "consecutive_datapoints_to_clear"
+        elif key == "durationSeconds":
+            suggest = "duration_seconds"
+        elif key == "mlDetectionConfig":
+            suggest = "ml_detection_config"
+        elif key == "statisticalThreshold":
+            suggest = "statistical_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfileBehaviorCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfileBehaviorCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfileBehaviorCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comparison_operator: Optional[str] = None,
+                 consecutive_datapoints_to_alarm: Optional[int] = None,
+                 consecutive_datapoints_to_clear: Optional[int] = None,
+                 duration_seconds: Optional[int] = None,
+                 ml_detection_config: Optional['outputs.SecurityProfileMachineLearningDetectionConfig'] = None,
+                 statistical_threshold: Optional['outputs.SecurityProfileStatisticalThreshold'] = None,
+                 value: Optional['outputs.SecurityProfileMetricValue'] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html
+        :param str comparison_operator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-comparisonoperator
+        :param int consecutive_datapoints_to_alarm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoalarm
+        :param int consecutive_datapoints_to_clear: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoclear
+        :param int duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-durationseconds
+        :param 'SecurityProfileMachineLearningDetectionConfig' ml_detection_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-mldetectionconfig
+        :param 'SecurityProfileStatisticalThreshold' statistical_threshold: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-statisticalthreshold
+        :param 'SecurityProfileMetricValue' value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-value
+        """
+        if comparison_operator is not None:
+            pulumi.set(__self__, "comparison_operator", comparison_operator)
+        if consecutive_datapoints_to_alarm is not None:
+            pulumi.set(__self__, "consecutive_datapoints_to_alarm", consecutive_datapoints_to_alarm)
+        if consecutive_datapoints_to_clear is not None:
+            pulumi.set(__self__, "consecutive_datapoints_to_clear", consecutive_datapoints_to_clear)
+        if duration_seconds is not None:
+            pulumi.set(__self__, "duration_seconds", duration_seconds)
+        if ml_detection_config is not None:
+            pulumi.set(__self__, "ml_detection_config", ml_detection_config)
+        if statistical_threshold is not None:
+            pulumi.set(__self__, "statistical_threshold", statistical_threshold)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-comparisonoperator
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @property
+    @pulumi.getter(name="consecutiveDatapointsToAlarm")
+    def consecutive_datapoints_to_alarm(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoalarm
+        """
+        return pulumi.get(self, "consecutive_datapoints_to_alarm")
+
+    @property
+    @pulumi.getter(name="consecutiveDatapointsToClear")
+    def consecutive_datapoints_to_clear(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoclear
+        """
+        return pulumi.get(self, "consecutive_datapoints_to_clear")
+
+    @property
+    @pulumi.getter(name="durationSeconds")
+    def duration_seconds(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-durationseconds
+        """
+        return pulumi.get(self, "duration_seconds")
+
+    @property
+    @pulumi.getter(name="mlDetectionConfig")
+    def ml_detection_config(self) -> Optional['outputs.SecurityProfileMachineLearningDetectionConfig']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-mldetectionconfig
+        """
+        return pulumi.get(self, "ml_detection_config")
+
+    @property
+    @pulumi.getter(name="statisticalThreshold")
+    def statistical_threshold(self) -> Optional['outputs.SecurityProfileStatisticalThreshold']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-statisticalthreshold
+        """
+        return pulumi.get(self, "statistical_threshold")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional['outputs.SecurityProfileMetricValue']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SecurityProfileMachineLearningDetectionConfig(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confidenceLevel":
+            suggest = "confidence_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfileMachineLearningDetectionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfileMachineLearningDetectionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfileMachineLearningDetectionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 confidence_level: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html
+        :param str confidence_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html#cfn-iot-securityprofile-machinelearningdetectionconfig-confidencelevel
+        """
+        if confidence_level is not None:
+            pulumi.set(__self__, "confidence_level", confidence_level)
+
+    @property
+    @pulumi.getter(name="confidenceLevel")
+    def confidence_level(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html#cfn-iot-securityprofile-machinelearningdetectionconfig-confidencelevel
+        """
+        return pulumi.get(self, "confidence_level")
+
+
+@pulumi.output_type
+class SecurityProfileMetricDimension(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dimensionName":
+            suggest = "dimension_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfileMetricDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfileMetricDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfileMetricDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimension_name: str,
+                 operator: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html
+        :param str dimension_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-dimensionname
+        :param str operator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-operator
+        """
+        pulumi.set(__self__, "dimension_name", dimension_name)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="dimensionName")
+    def dimension_name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-dimensionname
+        """
+        return pulumi.get(self, "dimension_name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-operator
+        """
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class SecurityProfileMetricToRetain(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricDimension":
+            suggest = "metric_dimension"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfileMetricToRetain. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfileMetricToRetain.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfileMetricToRetain.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric: str,
+                 metric_dimension: Optional['outputs.SecurityProfileMetricDimension'] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html
+        :param str metric: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metric
+        :param 'SecurityProfileMetricDimension' metric_dimension: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metricdimension
+        """
+        pulumi.set(__self__, "metric", metric)
+        if metric_dimension is not None:
+            pulumi.set(__self__, "metric_dimension", metric_dimension)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metric
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter(name="metricDimension")
+    def metric_dimension(self) -> Optional['outputs.SecurityProfileMetricDimension']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metricdimension
+        """
+        return pulumi.get(self, "metric_dimension")
+
+
+@pulumi.output_type
+class SecurityProfileMetricValue(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html
+    """
+    def __init__(__self__, *,
+                 cidrs: Optional[Sequence[str]] = None,
+                 count: Optional[str] = None,
+                 number: Optional[float] = None,
+                 numbers: Optional[Sequence[float]] = None,
+                 ports: Optional[Sequence[int]] = None,
+                 strings: Optional[Sequence[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html
+        :param Sequence[str] cidrs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-cidrs
+        :param str count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-count
+        :param float number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-number
+        :param Sequence[float] numbers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-numbers
+        :param Sequence[int] ports: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-ports
+        :param Sequence[str] strings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-strings
+        """
+        if cidrs is not None:
+            pulumi.set(__self__, "cidrs", cidrs)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if number is not None:
+            pulumi.set(__self__, "number", number)
+        if numbers is not None:
+            pulumi.set(__self__, "numbers", numbers)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if strings is not None:
+            pulumi.set(__self__, "strings", strings)
+
+    @property
+    @pulumi.getter
+    def cidrs(self) -> Optional[Sequence[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-cidrs
+        """
+        return pulumi.get(self, "cidrs")
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-count
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def number(self) -> Optional[float]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-number
+        """
+        return pulumi.get(self, "number")
+
+    @property
+    @pulumi.getter
+    def numbers(self) -> Optional[Sequence[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-numbers
+        """
+        return pulumi.get(self, "numbers")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[Sequence[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-ports
+        """
+        return pulumi.get(self, "ports")
+
+    @property
+    @pulumi.getter
+    def strings(self) -> Optional[Sequence[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-strings
+        """
+        return pulumi.get(self, "strings")
+
+
+@pulumi.output_type
+class SecurityProfileStatisticalThreshold(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html
+    """
+    def __init__(__self__, *,
+                 statistic: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html
+        :param str statistic: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html#cfn-iot-securityprofile-statisticalthreshold-statistic
+        """
+        if statistic is not None:
+            pulumi.set(__self__, "statistic", statistic)
+
+    @property
+    @pulumi.getter
+    def statistic(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html#cfn-iot-securityprofile-statisticalthreshold-statistic
+        """
+        return pulumi.get(self, "statistic")
 
 
 @pulumi.output_type
@@ -167,6 +1436,8 @@ class TopicRuleAction(dict):
         suggest = None
         if key == "cloudwatchAlarm":
             suggest = "cloudwatch_alarm"
+        elif key == "cloudwatchLogs":
+            suggest = "cloudwatch_logs"
         elif key == "cloudwatchMetric":
             suggest = "cloudwatch_metric"
         elif key == "dynamoDB":
@@ -197,6 +1468,7 @@ class TopicRuleAction(dict):
 
     def __init__(__self__, *,
                  cloudwatch_alarm: Optional['outputs.TopicRuleCloudwatchAlarmAction'] = None,
+                 cloudwatch_logs: Optional['outputs.TopicRuleCloudwatchLogsAction'] = None,
                  cloudwatch_metric: Optional['outputs.TopicRuleCloudwatchMetricAction'] = None,
                  dynamo_db: Optional['outputs.TopicRuleDynamoDBAction'] = None,
                  dynamo_d_bv2: Optional['outputs.TopicRuleDynamoDBv2Action'] = None,
@@ -206,16 +1478,19 @@ class TopicRuleAction(dict):
                  iot_analytics: Optional['outputs.TopicRuleIotAnalyticsAction'] = None,
                  iot_events: Optional['outputs.TopicRuleIotEventsAction'] = None,
                  iot_site_wise: Optional['outputs.TopicRuleIotSiteWiseAction'] = None,
+                 kafka: Optional['outputs.TopicRuleKafkaAction'] = None,
                  kinesis: Optional['outputs.TopicRuleKinesisAction'] = None,
                  lambda_: Optional['outputs.TopicRuleLambdaAction'] = None,
                  republish: Optional['outputs.TopicRuleRepublishAction'] = None,
                  s3: Optional['outputs.TopicRuleS3Action'] = None,
                  sns: Optional['outputs.TopicRuleSnsAction'] = None,
                  sqs: Optional['outputs.TopicRuleSqsAction'] = None,
-                 step_functions: Optional['outputs.TopicRuleStepFunctionsAction'] = None):
+                 step_functions: Optional['outputs.TopicRuleStepFunctionsAction'] = None,
+                 timestream: Optional['outputs.TopicRuleTimestreamAction'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html
         :param 'TopicRuleCloudwatchAlarmAction' cloudwatch_alarm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm
+        :param 'TopicRuleCloudwatchLogsAction' cloudwatch_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchlogs
         :param 'TopicRuleCloudwatchMetricAction' cloudwatch_metric: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchmetric
         :param 'TopicRuleDynamoDBAction' dynamo_db: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodb
         :param 'TopicRuleDynamoDBv2Action' dynamo_d_bv2: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodbv2
@@ -225,6 +1500,7 @@ class TopicRuleAction(dict):
         :param 'TopicRuleIotAnalyticsAction' iot_analytics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
         :param 'TopicRuleIotEventsAction' iot_events: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents
         :param 'TopicRuleIotSiteWiseAction' iot_site_wise: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise
+        :param 'TopicRuleKafkaAction' kafka: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kafka
         :param 'TopicRuleKinesisAction' kinesis: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
         :param 'TopicRuleLambdaAction' lambda_: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-lambda
         :param 'TopicRuleRepublishAction' republish: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-republish
@@ -232,9 +1508,12 @@ class TopicRuleAction(dict):
         :param 'TopicRuleSnsAction' sns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sns
         :param 'TopicRuleSqsAction' sqs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs
         :param 'TopicRuleStepFunctionsAction' step_functions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
+        :param 'TopicRuleTimestreamAction' timestream: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-timestream
         """
         if cloudwatch_alarm is not None:
             pulumi.set(__self__, "cloudwatch_alarm", cloudwatch_alarm)
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if cloudwatch_metric is not None:
             pulumi.set(__self__, "cloudwatch_metric", cloudwatch_metric)
         if dynamo_db is not None:
@@ -253,6 +1532,8 @@ class TopicRuleAction(dict):
             pulumi.set(__self__, "iot_events", iot_events)
         if iot_site_wise is not None:
             pulumi.set(__self__, "iot_site_wise", iot_site_wise)
+        if kafka is not None:
+            pulumi.set(__self__, "kafka", kafka)
         if kinesis is not None:
             pulumi.set(__self__, "kinesis", kinesis)
         if lambda_ is not None:
@@ -267,6 +1548,8 @@ class TopicRuleAction(dict):
             pulumi.set(__self__, "sqs", sqs)
         if step_functions is not None:
             pulumi.set(__self__, "step_functions", step_functions)
+        if timestream is not None:
+            pulumi.set(__self__, "timestream", timestream)
 
     @property
     @pulumi.getter(name="cloudwatchAlarm")
@@ -275,6 +1558,14 @@ class TopicRuleAction(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm
         """
         return pulumi.get(self, "cloudwatch_alarm")
+
+    @property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> Optional['outputs.TopicRuleCloudwatchLogsAction']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchlogs
+        """
+        return pulumi.get(self, "cloudwatch_logs")
 
     @property
     @pulumi.getter(name="cloudwatchMetric")
@@ -350,6 +1641,14 @@ class TopicRuleAction(dict):
 
     @property
     @pulumi.getter
+    def kafka(self) -> Optional['outputs.TopicRuleKafkaAction']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kafka
+        """
+        return pulumi.get(self, "kafka")
+
+    @property
+    @pulumi.getter
     def kinesis(self) -> Optional['outputs.TopicRuleKinesisAction']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
@@ -403,6 +1702,14 @@ class TopicRuleAction(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
         """
         return pulumi.get(self, "step_functions")
+
+    @property
+    @pulumi.getter
+    def timestream(self) -> Optional['outputs.TopicRuleTimestreamAction']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-timestream
+        """
+        return pulumi.get(self, "timestream")
 
 
 @pulumi.output_type
@@ -661,6 +1968,58 @@ class TopicRuleCloudwatchAlarmAction(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statevalue
         """
         return pulumi.get(self, "state_value")
+
+
+@pulumi.output_type
+class TopicRuleCloudwatchLogsAction(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleCloudwatchLogsAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleCloudwatchLogsAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleCloudwatchLogsAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name: str,
+                 role_arn: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html
+        :param str log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-loggroupname
+        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-rolearn
+        """
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-loggroupname
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-rolearn
+        """
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type
@@ -1187,6 +2546,8 @@ class TopicRuleFirehoseAction(dict):
             suggest = "delivery_stream_name"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "batchMode":
+            suggest = "batch_mode"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TopicRuleFirehoseAction. Access the value via the '{suggest}' property getter instead.")
@@ -1202,15 +2563,19 @@ class TopicRuleFirehoseAction(dict):
     def __init__(__self__, *,
                  delivery_stream_name: str,
                  role_arn: str,
+                 batch_mode: Optional[bool] = None,
                  separator: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html
         :param str delivery_stream_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-deliverystreamname
         :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-rolearn
+        :param bool batch_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-batchmode
         :param str separator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-separator
         """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
         if separator is not None:
             pulumi.set(__self__, "separator", separator)
 
@@ -1229,6 +2594,14 @@ class TopicRuleFirehoseAction(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-rolearn
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-batchmode
+        """
+        return pulumi.get(self, "batch_mode")
 
     @property
     @pulumi.getter
@@ -1382,6 +2755,8 @@ class TopicRuleIotAnalyticsAction(dict):
             suggest = "channel_name"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "batchMode":
+            suggest = "batch_mode"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TopicRuleIotAnalyticsAction. Access the value via the '{suggest}' property getter instead.")
@@ -1396,14 +2771,18 @@ class TopicRuleIotAnalyticsAction(dict):
 
     def __init__(__self__, *,
                  channel_name: str,
-                 role_arn: str):
+                 role_arn: str,
+                 batch_mode: Optional[bool] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html
         :param str channel_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-channelname
         :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-rolearn
+        :param bool batch_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-batchmode
         """
         pulumi.set(__self__, "channel_name", channel_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1421,6 +2800,14 @@ class TopicRuleIotAnalyticsAction(dict):
         """
         return pulumi.get(self, "role_arn")
 
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-batchmode
+        """
+        return pulumi.get(self, "batch_mode")
+
 
 @pulumi.output_type
 class TopicRuleIotEventsAction(dict):
@@ -1434,6 +2821,8 @@ class TopicRuleIotEventsAction(dict):
             suggest = "input_name"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "batchMode":
+            suggest = "batch_mode"
         elif key == "messageId":
             suggest = "message_id"
 
@@ -1451,15 +2840,19 @@ class TopicRuleIotEventsAction(dict):
     def __init__(__self__, *,
                  input_name: str,
                  role_arn: str,
+                 batch_mode: Optional[bool] = None,
                  message_id: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html
         :param str input_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-inputname
         :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-rolearn
+        :param bool batch_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-batchmode
         :param str message_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-messageid
         """
         pulumi.set(__self__, "input_name", input_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
         if message_id is not None:
             pulumi.set(__self__, "message_id", message_id)
 
@@ -1478,6 +2871,14 @@ class TopicRuleIotEventsAction(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-rolearn
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-batchmode
+        """
+        return pulumi.get(self, "batch_mode")
 
     @property
     @pulumi.getter(name="messageId")
@@ -1538,6 +2939,93 @@ class TopicRuleIotSiteWiseAction(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-rolearn
         """
         return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class TopicRuleKafkaAction(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientProperties":
+            suggest = "client_properties"
+        elif key == "destinationArn":
+            suggest = "destination_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleKafkaAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleKafkaAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleKafkaAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_properties: Mapping[str, str],
+                 destination_arn: str,
+                 topic: str,
+                 key: Optional[str] = None,
+                 partition: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html
+        :param Mapping[str, str] client_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-clientproperties
+        :param str destination_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-destinationarn
+        :param str topic: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-topic
+        :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-key
+        :param str partition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-partition
+        """
+        pulumi.set(__self__, "client_properties", client_properties)
+        pulumi.set(__self__, "destination_arn", destination_arn)
+        pulumi.set(__self__, "topic", topic)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
+
+    @property
+    @pulumi.getter(name="clientProperties")
+    def client_properties(self) -> Mapping[str, str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-clientproperties
+        """
+        return pulumi.get(self, "client_properties")
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-destinationarn
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-topic
+        """
+        return pulumi.get(self, "topic")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-key
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-partition
+        """
+        return pulumi.get(self, "partition")
 
 
 @pulumi.output_type
@@ -1854,6 +3342,8 @@ class TopicRuleS3Action(dict):
             suggest = "bucket_name"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "cannedAcl":
+            suggest = "canned_acl"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TopicRuleS3Action. Access the value via the '{suggest}' property getter instead.")
@@ -1869,16 +3359,20 @@ class TopicRuleS3Action(dict):
     def __init__(__self__, *,
                  bucket_name: str,
                  key: str,
-                 role_arn: str):
+                 role_arn: str,
+                 canned_acl: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html
         :param str bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-bucketname
         :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-key
         :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-rolearn
+        :param str canned_acl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-cannedacl
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "role_arn", role_arn)
+        if canned_acl is not None:
+            pulumi.set(__self__, "canned_acl", canned_acl)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -1903,6 +3397,14 @@ class TopicRuleS3Action(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-rolearn
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="cannedAcl")
+    def canned_acl(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-cannedacl
+        """
+        return pulumi.get(self, "canned_acl")
 
 
 @pulumi.output_type
@@ -2169,6 +3671,174 @@ class TopicRuleStepFunctionsAction(dict):
 
 
 @pulumi.output_type
+class TopicRuleTimestreamAction(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "batchMode":
+            suggest = "batch_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleTimestreamAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleTimestreamAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleTimestreamAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 dimensions: Sequence['outputs.TopicRuleTimestreamDimension'],
+                 role_arn: str,
+                 table_name: str,
+                 batch_mode: Optional[bool] = None,
+                 timestamp: Optional['outputs.TopicRuleTimestreamTimestamp'] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html
+        :param str database_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-databasename
+        :param Sequence['TopicRuleTimestreamDimension'] dimensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-dimensions
+        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-rolearn
+        :param str table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-tablename
+        :param bool batch_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-batchmode
+        :param 'TopicRuleTimestreamTimestamp' timestamp: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-timestamp
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "table_name", table_name)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
+        if timestamp is not None:
+            pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-databasename
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Sequence['outputs.TopicRuleTimestreamDimension']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-dimensions
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-tablename
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-batchmode
+        """
+        return pulumi.get(self, "batch_mode")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> Optional['outputs.TopicRuleTimestreamTimestamp']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-timestamp
+        """
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
+class TopicRuleTimestreamDimension(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html
+        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html#cfn-iot-topicrule-timestreamdimension-name
+        :param str value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html#cfn-iot-topicrule-timestreamdimension-value
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html#cfn-iot-topicrule-timestreamdimension-name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html#cfn-iot-topicrule-timestreamdimension-value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TopicRuleTimestreamTimestamp(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html
+    """
+    def __init__(__self__, *,
+                 unit: str,
+                 value: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html
+        :param str unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-unit
+        :param str value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-value
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-unit
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class TopicRuleTopicRulePayload(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html
@@ -2176,12 +3846,12 @@ class TopicRuleTopicRulePayload(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ruleDisabled":
-            suggest = "rule_disabled"
-        elif key == "awsIotSqlVersion":
+        if key == "awsIotSqlVersion":
             suggest = "aws_iot_sql_version"
         elif key == "errorAction":
             suggest = "error_action"
+        elif key == "ruleDisabled":
+            suggest = "rule_disabled"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TopicRuleTopicRulePayload. Access the value via the '{suggest}' property getter instead.")
@@ -2196,22 +3866,21 @@ class TopicRuleTopicRulePayload(dict):
 
     def __init__(__self__, *,
                  actions: Sequence['outputs.TopicRuleAction'],
-                 rule_disabled: bool,
                  sql: str,
                  aws_iot_sql_version: Optional[str] = None,
                  description: Optional[str] = None,
-                 error_action: Optional['outputs.TopicRuleAction'] = None):
+                 error_action: Optional['outputs.TopicRuleAction'] = None,
+                 rule_disabled: Optional[bool] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html
         :param Sequence['TopicRuleAction'] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
-        :param bool rule_disabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
         :param str sql: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql
         :param str aws_iot_sql_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion
         :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description
         :param 'TopicRuleAction' error_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
+        :param bool rule_disabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
         """
         pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "rule_disabled", rule_disabled)
         pulumi.set(__self__, "sql", sql)
         if aws_iot_sql_version is not None:
             pulumi.set(__self__, "aws_iot_sql_version", aws_iot_sql_version)
@@ -2219,6 +3888,8 @@ class TopicRuleTopicRulePayload(dict):
             pulumi.set(__self__, "description", description)
         if error_action is not None:
             pulumi.set(__self__, "error_action", error_action)
+        if rule_disabled is not None:
+            pulumi.set(__self__, "rule_disabled", rule_disabled)
 
     @property
     @pulumi.getter
@@ -2227,14 +3898,6 @@ class TopicRuleTopicRulePayload(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
         """
         return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter(name="ruleDisabled")
-    def rule_disabled(self) -> bool:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
-        """
-        return pulumi.get(self, "rule_disabled")
 
     @property
     @pulumi.getter
@@ -2267,5 +3930,13 @@ class TopicRuleTopicRulePayload(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
         """
         return pulumi.get(self, "error_action")
+
+    @property
+    @pulumi.getter(name="ruleDisabled")
+    def rule_disabled(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
+        """
+        return pulumi.get(self, "rule_disabled")
 
 

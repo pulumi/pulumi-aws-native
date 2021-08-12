@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -17,9 +16,10 @@ type ConfigurationAggregator struct {
 	pulumi.CustomResourceState
 
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-accountaggregationsources
-	AccountAggregationSources ConfigurationAggregatorAccountAggregationSourceArrayOutput `pulumi:"accountAggregationSources"`
+	AccountAggregationSources  ConfigurationAggregatorAccountAggregationSourceArrayOutput `pulumi:"accountAggregationSources"`
+	ConfigurationAggregatorArn pulumi.StringOutput                                        `pulumi:"configurationAggregatorArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
-	ConfigurationAggregatorName pulumi.StringOutput `pulumi:"configurationAggregatorName"`
+	ConfigurationAggregatorName pulumi.StringPtrOutput `pulumi:"configurationAggregatorName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrOutput `pulumi:"organizationAggregationSource"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-tags
@@ -30,12 +30,9 @@ type ConfigurationAggregator struct {
 func NewConfigurationAggregator(ctx *pulumi.Context,
 	name string, args *ConfigurationAggregatorArgs, opts ...pulumi.ResourceOption) (*ConfigurationAggregator, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ConfigurationAggregatorArgs{}
 	}
 
-	if args.ConfigurationAggregatorName == nil {
-		return nil, errors.New("invalid value for required argument 'ConfigurationAggregatorName'")
-	}
 	var resource ConfigurationAggregator
 	err := ctx.RegisterResource("aws-native:Configuration:ConfigurationAggregator", name, args, &resource, opts...)
 	if err != nil {
@@ -71,7 +68,7 @@ type configurationAggregatorArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-accountaggregationsources
 	AccountAggregationSources []ConfigurationAggregatorAccountAggregationSource `pulumi:"accountAggregationSources"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
-	ConfigurationAggregatorName string `pulumi:"configurationAggregatorName"`
+	ConfigurationAggregatorName *string `pulumi:"configurationAggregatorName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-tags
@@ -83,7 +80,7 @@ type ConfigurationAggregatorArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-accountaggregationsources
 	AccountAggregationSources ConfigurationAggregatorAccountAggregationSourceArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
-	ConfigurationAggregatorName pulumi.StringInput
+	ConfigurationAggregatorName pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-tags

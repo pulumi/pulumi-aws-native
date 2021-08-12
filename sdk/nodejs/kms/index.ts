@@ -7,10 +7,12 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./alias";
 export * from "./key";
+export * from "./replicaKey";
 
 // Import resources to register:
 import { Alias } from "./alias";
 import { Key } from "./key";
+import { ReplicaKey } from "./replicaKey";
 
 const _module = {
     version: utilities.getVersion(),
@@ -20,6 +22,8 @@ const _module = {
                 return new Alias(name, <any>undefined, { urn })
             case "aws-native:KMS:Key":
                 return new Key(name, <any>undefined, { urn })
+            case "aws-native:KMS:ReplicaKey":
+                return new ReplicaKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

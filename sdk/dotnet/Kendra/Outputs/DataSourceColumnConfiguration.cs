@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
         /// </summary>
-        public readonly Outputs.DataSourceChangeDetectingColumns ChangeDetectingColumns;
+        public readonly ImmutableArray<string> ChangeDetectingColumns;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentdatacolumnname
         /// </summary>
@@ -35,11 +35,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceToIndexFieldMappingList? FieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
 
         [OutputConstructor]
         private DataSourceColumnConfiguration(
-            Outputs.DataSourceChangeDetectingColumns changeDetectingColumns,
+            ImmutableArray<string> changeDetectingColumns,
 
             string documentDataColumnName,
 
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             string? documentTitleColumnName,
 
-            Outputs.DataSourceDataSourceToIndexFieldMappingList? fieldMappings)
+            ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings)
         {
             ChangeDetectingColumns = changeDetectingColumns;
             DocumentDataColumnName = documentDataColumnName;

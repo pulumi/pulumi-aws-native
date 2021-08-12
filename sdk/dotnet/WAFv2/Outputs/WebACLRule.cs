@@ -33,9 +33,13 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-rulelabels
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebACLLabel> RuleLabels;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
         /// </summary>
-        public readonly Outputs.WebACLStatementOne Statement;
+        public readonly Outputs.WebACLStatement Statement;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
         /// </summary>
@@ -51,7 +55,9 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             int priority,
 
-            Outputs.WebACLStatementOne statement,
+            ImmutableArray<Outputs.WebACLLabel> ruleLabels,
+
+            Outputs.WebACLStatement statement,
 
             Outputs.WebACLVisibilityConfig visibilityConfig)
         {
@@ -59,6 +65,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
             Name = name;
             OverrideAction = overrideAction;
             Priority = priority;
+            RuleLabels = ruleLabels;
             Statement = statement;
             VisibilityConfig = visibilityConfig;
         }

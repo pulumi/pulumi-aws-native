@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.IoT.Inputs
     public sealed class TopicRuleIotEventsActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-batchmode
+        /// </summary>
+        [Input("batchMode")]
+        public Input<bool>? BatchMode { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-inputname
         /// </summary>
         [Input("inputName", required: true)]

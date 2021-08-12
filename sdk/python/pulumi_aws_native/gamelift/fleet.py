@@ -15,53 +15,47 @@ __all__ = ['FleetArgs', 'Fleet']
 @pulumi.input_type
 class FleetArgs:
     def __init__(__self__, *,
-                 e_c2_instance_type: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  build_id: Optional[pulumi.Input[str]] = None,
                  certificate_configuration: Optional[pulumi.Input['FleetCertificateConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  desired_ec2_instances: Optional[pulumi.Input[int]] = None,
                  e_c2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]]] = None,
+                 e_c2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
-                 log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  new_game_session_protection_policy: Optional[pulumi.Input[str]] = None,
                  peer_vpc_aws_account_id: Optional[pulumi.Input[str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']] = None,
                  runtime_configuration: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']] = None,
-                 script_id: Optional[pulumi.Input[str]] = None,
-                 server_launch_parameters: Optional[pulumi.Input[str]] = None,
-                 server_launch_path: Optional[pulumi.Input[str]] = None):
+                 script_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Fleet resource.
-        :param pulumi.Input[str] e_c2_instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
         :param pulumi.Input[str] build_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid
         :param pulumi.Input['FleetCertificateConfigurationArgs'] certificate_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-certificateconfiguration
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
         :param pulumi.Input[int] desired_ec2_instances: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
         :param pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]] e_c2_inbound_permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
+        :param pulumi.Input[str] e_c2_instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
         :param pulumi.Input[str] fleet_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
         :param pulumi.Input[str] instance_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolearn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
+        :param pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]] locations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
         :param pulumi.Input[int] max_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-metricgroups
         :param pulumi.Input[int] min_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
         :param pulumi.Input[str] new_game_session_protection_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy
         :param pulumi.Input[str] peer_vpc_aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcawsaccountid
         :param pulumi.Input[str] peer_vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcid
         :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-resourcecreationlimitpolicy
         :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-runtimeconfiguration
         :param pulumi.Input[str] script_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid
-        :param pulumi.Input[str] server_launch_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters
-        :param pulumi.Input[str] server_launch_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath
         """
-        pulumi.set(__self__, "e_c2_instance_type", e_c2_instance_type)
-        pulumi.set(__self__, "name", name)
         if build_id is not None:
             pulumi.set(__self__, "build_id", build_id)
         if certificate_configuration is not None:
@@ -72,18 +66,22 @@ class FleetArgs:
             pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
         if e_c2_inbound_permissions is not None:
             pulumi.set(__self__, "e_c2_inbound_permissions", e_c2_inbound_permissions)
+        if e_c2_instance_type is not None:
+            pulumi.set(__self__, "e_c2_instance_type", e_c2_instance_type)
         if fleet_type is not None:
             pulumi.set(__self__, "fleet_type", fleet_type)
         if instance_role_arn is not None:
             pulumi.set(__self__, "instance_role_arn", instance_role_arn)
-        if log_paths is not None:
-            pulumi.set(__self__, "log_paths", log_paths)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
         if max_size is not None:
             pulumi.set(__self__, "max_size", max_size)
         if metric_groups is not None:
             pulumi.set(__self__, "metric_groups", metric_groups)
         if min_size is not None:
             pulumi.set(__self__, "min_size", min_size)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if new_game_session_protection_policy is not None:
             pulumi.set(__self__, "new_game_session_protection_policy", new_game_session_protection_policy)
         if peer_vpc_aws_account_id is not None:
@@ -96,34 +94,6 @@ class FleetArgs:
             pulumi.set(__self__, "runtime_configuration", runtime_configuration)
         if script_id is not None:
             pulumi.set(__self__, "script_id", script_id)
-        if server_launch_parameters is not None:
-            pulumi.set(__self__, "server_launch_parameters", server_launch_parameters)
-        if server_launch_path is not None:
-            pulumi.set(__self__, "server_launch_path", server_launch_path)
-
-    @property
-    @pulumi.getter(name="eC2InstanceType")
-    def e_c2_instance_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
-        """
-        return pulumi.get(self, "e_c2_instance_type")
-
-    @e_c2_instance_type.setter
-    def e_c2_instance_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "e_c2_instance_type", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="buildId")
@@ -186,6 +156,18 @@ class FleetArgs:
         pulumi.set(self, "e_c2_inbound_permissions", value)
 
     @property
+    @pulumi.getter(name="eC2InstanceType")
+    def e_c2_instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
+        """
+        return pulumi.get(self, "e_c2_instance_type")
+
+    @e_c2_instance_type.setter
+    def e_c2_instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "e_c2_instance_type", value)
+
+    @property
     @pulumi.getter(name="fleetType")
     def fleet_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -210,16 +192,16 @@ class FleetArgs:
         pulumi.set(self, "instance_role_arn", value)
 
     @property
-    @pulumi.getter(name="logPaths")
-    def log_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
         """
-        return pulumi.get(self, "log_paths")
+        return pulumi.get(self, "locations")
 
-    @log_paths.setter
-    def log_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "log_paths", value)
+    @locations.setter
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]]]):
+        pulumi.set(self, "locations", value)
 
     @property
     @pulumi.getter(name="maxSize")
@@ -256,6 +238,18 @@ class FleetArgs:
     @min_size.setter
     def min_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_size", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="newGameSessionProtectionPolicy")
@@ -329,30 +323,6 @@ class FleetArgs:
     def script_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "script_id", value)
 
-    @property
-    @pulumi.getter(name="serverLaunchParameters")
-    def server_launch_parameters(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters
-        """
-        return pulumi.get(self, "server_launch_parameters")
-
-    @server_launch_parameters.setter
-    def server_launch_parameters(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "server_launch_parameters", value)
-
-    @property
-    @pulumi.getter(name="serverLaunchPath")
-    def server_launch_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath
-        """
-        return pulumi.get(self, "server_launch_path")
-
-    @server_launch_path.setter
-    def server_launch_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "server_launch_path", value)
-
 
 class Fleet(pulumi.CustomResource):
     @overload
@@ -367,7 +337,7 @@ class Fleet(pulumi.CustomResource):
                  e_c2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
-                 log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
@@ -378,8 +348,6 @@ class Fleet(pulumi.CustomResource):
                  resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']]] = None,
                  runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
-                 server_launch_parameters: Optional[pulumi.Input[str]] = None,
-                 server_launch_path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
@@ -394,7 +362,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] e_c2_instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
         :param pulumi.Input[str] fleet_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
         :param pulumi.Input[str] instance_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolearn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]] locations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
         :param pulumi.Input[int] max_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-metricgroups
         :param pulumi.Input[int] min_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
@@ -405,14 +373,12 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']] resource_creation_limit_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-resourcecreationlimitpolicy
         :param pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']] runtime_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-runtimeconfiguration
         :param pulumi.Input[str] script_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid
-        :param pulumi.Input[str] server_launch_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters
-        :param pulumi.Input[str] server_launch_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FleetArgs,
+                 args: Optional[FleetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
@@ -440,7 +406,7 @@ class Fleet(pulumi.CustomResource):
                  e_c2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
-                 log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
@@ -451,8 +417,6 @@ class Fleet(pulumi.CustomResource):
                  resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']]] = None,
                  runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
-                 server_launch_parameters: Optional[pulumi.Input[str]] = None,
-                 server_launch_path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -470,17 +434,13 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["desired_ec2_instances"] = desired_ec2_instances
             __props__.__dict__["e_c2_inbound_permissions"] = e_c2_inbound_permissions
-            if e_c2_instance_type is None and not opts.urn:
-                raise TypeError("Missing required property 'e_c2_instance_type'")
             __props__.__dict__["e_c2_instance_type"] = e_c2_instance_type
             __props__.__dict__["fleet_type"] = fleet_type
             __props__.__dict__["instance_role_arn"] = instance_role_arn
-            __props__.__dict__["log_paths"] = log_paths
+            __props__.__dict__["locations"] = locations
             __props__.__dict__["max_size"] = max_size
             __props__.__dict__["metric_groups"] = metric_groups
             __props__.__dict__["min_size"] = min_size
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["new_game_session_protection_policy"] = new_game_session_protection_policy
             __props__.__dict__["peer_vpc_aws_account_id"] = peer_vpc_aws_account_id
@@ -488,8 +448,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["resource_creation_limit_policy"] = resource_creation_limit_policy
             __props__.__dict__["runtime_configuration"] = runtime_configuration
             __props__.__dict__["script_id"] = script_id
-            __props__.__dict__["server_launch_parameters"] = server_launch_parameters
-            __props__.__dict__["server_launch_path"] = server_launch_path
+            __props__.__dict__["fleet_id"] = None
         super(Fleet, __self__).__init__(
             'aws-native:GameLift:Fleet',
             resource_name,
@@ -518,9 +477,10 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["desired_ec2_instances"] = None
         __props__.__dict__["e_c2_inbound_permissions"] = None
         __props__.__dict__["e_c2_instance_type"] = None
+        __props__.__dict__["fleet_id"] = None
         __props__.__dict__["fleet_type"] = None
         __props__.__dict__["instance_role_arn"] = None
-        __props__.__dict__["log_paths"] = None
+        __props__.__dict__["locations"] = None
         __props__.__dict__["max_size"] = None
         __props__.__dict__["metric_groups"] = None
         __props__.__dict__["min_size"] = None
@@ -531,8 +491,6 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["resource_creation_limit_policy"] = None
         __props__.__dict__["runtime_configuration"] = None
         __props__.__dict__["script_id"] = None
-        __props__.__dict__["server_launch_parameters"] = None
-        __props__.__dict__["server_launch_path"] = None
         return Fleet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -577,11 +535,16 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eC2InstanceType")
-    def e_c2_instance_type(self) -> pulumi.Output[str]:
+    def e_c2_instance_type(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
         """
         return pulumi.get(self, "e_c2_instance_type")
+
+    @property
+    @pulumi.getter(name="fleetId")
+    def fleet_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "fleet_id")
 
     @property
     @pulumi.getter(name="fleetType")
@@ -600,12 +563,12 @@ class Fleet(pulumi.CustomResource):
         return pulumi.get(self, "instance_role_arn")
 
     @property
-    @pulumi.getter(name="logPaths")
-    def log_paths(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    @pulumi.getter
+    def locations(self) -> pulumi.Output[Optional[Sequence['outputs.FleetLocationConfiguration']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
         """
-        return pulumi.get(self, "log_paths")
+        return pulumi.get(self, "locations")
 
     @property
     @pulumi.getter(name="maxSize")
@@ -633,7 +596,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
         """
@@ -686,20 +649,4 @@ class Fleet(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid
         """
         return pulumi.get(self, "script_id")
-
-    @property
-    @pulumi.getter(name="serverLaunchParameters")
-    def server_launch_parameters(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters
-        """
-        return pulumi.get(self, "server_launch_parameters")
-
-    @property
-    @pulumi.getter(name="serverLaunchPath")
-    def server_launch_path(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath
-        """
-        return pulumi.get(self, "server_launch_path")
 

@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
         /// </summary>
-        public readonly bool RuleDisabled;
+        public readonly bool? RuleDisabled;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
             Outputs.TopicRuleAction? errorAction,
 
-            bool ruleDisabled,
+            bool? ruleDisabled,
 
             string sql)
         {

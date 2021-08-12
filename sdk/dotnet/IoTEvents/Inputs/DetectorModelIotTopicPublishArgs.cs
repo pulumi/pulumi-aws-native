@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic
         /// </summary>
-        [Input("mqttTopic")]
-        public Input<string>? MqttTopic { get; set; }
+        [Input("mqttTopic", required: true)]
+        public Input<string> MqttTopic { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-payload

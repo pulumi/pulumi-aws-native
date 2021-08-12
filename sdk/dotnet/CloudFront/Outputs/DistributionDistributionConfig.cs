@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Aliases;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cnames
+        /// </summary>
+        public readonly ImmutableArray<string> CNAMEs;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionCacheBehavior> CacheBehaviors;
@@ -32,6 +36,10 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionCustomErrorResponse> CustomErrorResponses;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customorigin
+        /// </summary>
+        public readonly Outputs.DistributionLegacyCustomOrigin? CustomOrigin;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultcachebehavior
         /// </summary>
@@ -73,6 +81,10 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionRestrictions? Restrictions;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-s3origin
+        /// </summary>
+        public readonly Outputs.DistributionLegacyS3Origin? S3Origin;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate
         /// </summary>
         public readonly Outputs.DistributionViewerCertificate? ViewerCertificate;
@@ -85,11 +97,15 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         private DistributionDistributionConfig(
             ImmutableArray<string> aliases,
 
+            ImmutableArray<string> cNAMEs,
+
             ImmutableArray<Outputs.DistributionCacheBehavior> cacheBehaviors,
 
             string? comment,
 
             ImmutableArray<Outputs.DistributionCustomErrorResponse> customErrorResponses,
+
+            Outputs.DistributionLegacyCustomOrigin? customOrigin,
 
             Outputs.DistributionDefaultCacheBehavior? defaultCacheBehavior,
 
@@ -111,14 +127,18 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             Outputs.DistributionRestrictions? restrictions,
 
+            Outputs.DistributionLegacyS3Origin? s3Origin,
+
             Outputs.DistributionViewerCertificate? viewerCertificate,
 
             string? webACLId)
         {
             Aliases = aliases;
+            CNAMEs = cNAMEs;
             CacheBehaviors = cacheBehaviors;
             Comment = comment;
             CustomErrorResponses = customErrorResponses;
+            CustomOrigin = customOrigin;
             DefaultCacheBehavior = defaultCacheBehavior;
             DefaultRootObject = defaultRootObject;
             Enabled = enabled;
@@ -129,6 +149,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             Origins = origins;
             PriceClass = priceClass;
             Restrictions = restrictions;
+            S3Origin = s3Origin;
             ViewerCertificate = viewerCertificate;
             WebACLId = webACLId;
         }

@@ -16,12 +16,14 @@ type StateMachine struct {
 	pulumi.CustomResourceState
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition
+	Definition StateMachineDefinitionPtrOutput `pulumi:"definition"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
 	DefinitionS3Location StateMachineS3LocationPtrOutput `pulumi:"definitionS3Location"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
 	DefinitionString pulumi.StringPtrOutput `pulumi:"definitionString"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
-	DefinitionSubstitutions StateMachineDefinitionSubstitutionsPtrOutput `pulumi:"definitionSubstitutions"`
+	DefinitionSubstitutions pulumi.StringMapOutput `pulumi:"definitionSubstitutions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
 	LoggingConfiguration StateMachineLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	Name                 pulumi.StringOutput                       `pulumi:"name"`
@@ -79,12 +81,14 @@ func (StateMachineState) ElementType() reflect.Type {
 }
 
 type stateMachineArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition
+	Definition *StateMachineDefinition `pulumi:"definition"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
 	DefinitionS3Location *StateMachineS3Location `pulumi:"definitionS3Location"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
 	DefinitionString *string `pulumi:"definitionString"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
-	DefinitionSubstitutions *StateMachineDefinitionSubstitutions `pulumi:"definitionSubstitutions"`
+	DefinitionSubstitutions map[string]string `pulumi:"definitionSubstitutions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
 	LoggingConfiguration *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
@@ -101,12 +105,14 @@ type stateMachineArgs struct {
 
 // The set of arguments for constructing a StateMachine resource.
 type StateMachineArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition
+	Definition StateMachineDefinitionPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
 	DefinitionS3Location StateMachineS3LocationPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
 	DefinitionString pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
-	DefinitionSubstitutions StateMachineDefinitionSubstitutionsPtrInput
+	DefinitionSubstitutions pulumi.StringMapInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
 	LoggingConfiguration StateMachineLoggingConfigurationPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn

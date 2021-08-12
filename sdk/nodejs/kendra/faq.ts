@@ -64,7 +64,7 @@ export class Faq extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
      */
-    public readonly tags!: pulumi.Output<outputs.Kendra.FaqTagList | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Faq resource with the given unique name, arguments, and options.
@@ -147,5 +147,5 @@ export interface FaqArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
      */
-    tags?: pulumi.Input<inputs.Kendra.FaqTagListArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

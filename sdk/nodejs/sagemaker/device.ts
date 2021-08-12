@@ -39,11 +39,14 @@ export class Device extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
      */
     public readonly device!: pulumi.Output<any | string | undefined>;
-    public /*out*/ readonly deviceFleetName!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+     */
+    public readonly deviceFleetName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
      */
-    public readonly tags!: pulumi.Output<outputs.Tag | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -52,13 +55,16 @@ export class Device extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.deviceFleetName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'deviceFleetName'");
+            }
             inputs["device"] = args ? args.device : undefined;
+            inputs["deviceFleetName"] = args ? args.deviceFleetName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["deviceFleetName"] = undefined /*out*/;
         } else {
             inputs["device"] = undefined /*out*/;
             inputs["deviceFleetName"] = undefined /*out*/;
@@ -80,7 +86,11 @@ export interface DeviceArgs {
      */
     device?: pulumi.Input<any | string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+     */
+    deviceFleetName: pulumi.Input<string>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
      */
-    tags?: pulumi.Input<inputs.TagArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

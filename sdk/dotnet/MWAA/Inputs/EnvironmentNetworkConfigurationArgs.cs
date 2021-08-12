@@ -15,17 +15,29 @@ namespace Pulumi.AwsNative.MWAA.Inputs
     /// </summary>
     public sealed class EnvironmentNetworkConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("securityGroupIds")]
+        private InputList<string>? _securityGroupIds;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
         /// </summary>
-        [Input("securityGroupIds")]
-        public Input<Inputs.EnvironmentSecurityGroupListArgs>? SecurityGroupIds { get; set; }
+        public InputList<string> SecurityGroupIds
+        {
+            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
+            set => _securityGroupIds = value;
+        }
+
+        [Input("subnetIds")]
+        private InputList<string>? _subnetIds;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
         /// </summary>
-        [Input("subnetIds")]
-        public Input<Inputs.EnvironmentSubnetListArgs>? SubnetIds { get; set; }
+        public InputList<string> SubnetIds
+        {
+            get => _subnetIds ?? (_subnetIds = new InputList<string>());
+            set => _subnetIds = value;
+        }
 
         public EnvironmentNetworkConfigurationArgs()
         {

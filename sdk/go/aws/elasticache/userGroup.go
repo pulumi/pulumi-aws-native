@@ -17,14 +17,12 @@ type UserGroup struct {
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
-	Engine              pulumi.StringOutput                    `pulumi:"engine"`
-	PendingChanges      UserGroupUserGroupPendingChangesOutput `pulumi:"pendingChanges"`
-	ReplicationGroupIds UserGroupReplicationGroupIdListOutput  `pulumi:"replicationGroupIds"`
-	Status              pulumi.StringOutput                    `pulumi:"status"`
+	Engine pulumi.StringOutput `pulumi:"engine"`
+	Status pulumi.StringOutput `pulumi:"status"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
 	UserGroupId pulumi.StringOutput `pulumi:"userGroupId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
-	UserIds UserGroupUserIdListPtrOutput `pulumi:"userIds"`
+	UserIds pulumi.StringArrayOutput `pulumi:"userIds"`
 }
 
 // NewUserGroup registers a new resource with the given unique name, arguments, and options.
@@ -77,7 +75,7 @@ type userGroupArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
 	UserGroupId string `pulumi:"userGroupId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
-	UserIds *UserGroupUserIdList `pulumi:"userIds"`
+	UserIds []string `pulumi:"userIds"`
 }
 
 // The set of arguments for constructing a UserGroup resource.
@@ -87,7 +85,7 @@ type UserGroupArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
 	UserGroupId pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
-	UserIds UserGroupUserIdListPtrInput
+	UserIds pulumi.StringArrayInput
 }
 
 func (UserGroupArgs) ElementType() reflect.Type {

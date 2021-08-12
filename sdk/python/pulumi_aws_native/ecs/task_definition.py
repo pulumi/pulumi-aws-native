@@ -19,6 +19,7 @@ class TaskDefinitionArgs:
     def __init__(__self__, *,
                  container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionContainerDefinitionArgs']]]] = None,
                  cpu: Optional[pulumi.Input[str]] = None,
+                 ephemeral_storage: Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]] = None,
@@ -36,6 +37,7 @@ class TaskDefinitionArgs:
         The set of arguments for constructing a TaskDefinition resource.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionContainerDefinitionArgs']]] container_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
         :param pulumi.Input[str] cpu: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
+        :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
         :param pulumi.Input[str] execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
         :param pulumi.Input[str] family: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]] inference_accelerators: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
@@ -54,6 +56,8 @@ class TaskDefinitionArgs:
             pulumi.set(__self__, "container_definitions", container_definitions)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if family is not None:
@@ -104,6 +108,18 @@ class TaskDefinitionArgs:
     @cpu.setter
     def cpu(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @ephemeral_storage.setter
+    def ephemeral_storage(self, value: Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']]):
+        pulumi.set(self, "ephemeral_storage", value)
 
     @property
     @pulumi.getter(name="executionRoleArn")
@@ -269,6 +285,7 @@ class TaskDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionContainerDefinitionArgs']]]]] = None,
                  cpu: Optional[pulumi.Input[str]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]]] = None,
@@ -290,6 +307,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionContainerDefinitionArgs']]]] container_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
         :param pulumi.Input[str] cpu: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
+        :param pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']] ephemeral_storage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
         :param pulumi.Input[str] execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
         :param pulumi.Input[str] family: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]] inference_accelerators: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
@@ -330,6 +348,7 @@ class TaskDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionContainerDefinitionArgs']]]]] = None,
                  cpu: Optional[pulumi.Input[str]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]]] = None,
@@ -357,6 +376,7 @@ class TaskDefinition(pulumi.CustomResource):
 
             __props__.__dict__["container_definitions"] = container_definitions
             __props__.__dict__["cpu"] = cpu
+            __props__.__dict__["ephemeral_storage"] = ephemeral_storage
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["family"] = family
             __props__.__dict__["inference_accelerators"] = inference_accelerators
@@ -395,6 +415,7 @@ class TaskDefinition(pulumi.CustomResource):
 
         __props__.__dict__["container_definitions"] = None
         __props__.__dict__["cpu"] = None
+        __props__.__dict__["ephemeral_storage"] = None
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["family"] = None
         __props__.__dict__["inference_accelerators"] = None
@@ -426,6 +447,14 @@ class TaskDefinition(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
         """
         return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> pulumi.Output[Optional['outputs.TaskDefinitionEphemeralStorage']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
+        """
+        return pulumi.get(self, "ephemeral_storage")
 
     @property
     @pulumi.getter(name="executionRoleArn")

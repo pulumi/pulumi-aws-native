@@ -9,6 +9,21 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ConfigAntennaDownlinkConfigArgs',
+    'ConfigAntennaDownlinkDemodDecodeConfigArgs',
+    'ConfigAntennaUplinkConfigArgs',
+    'ConfigConfigDataArgs',
+    'ConfigDataflowEndpointConfigArgs',
+    'ConfigDecodeConfigArgs',
+    'ConfigDemodulationConfigArgs',
+    'ConfigEirpArgs',
+    'ConfigFrequencyBandwidthArgs',
+    'ConfigFrequencyArgs',
+    'ConfigS3RecordingConfigArgs',
+    'ConfigSpectrumConfigArgs',
+    'ConfigTrackingConfigArgs',
+    'ConfigUplinkEchoConfigArgs',
+    'ConfigUplinkSpectrumConfigArgs',
     'DataflowEndpointGroupDataflowEndpointArgs',
     'DataflowEndpointGroupEndpointDetailsArgs',
     'DataflowEndpointGroupSecurityDetailsArgs',
@@ -17,18 +32,696 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class ConfigAntennaDownlinkConfigArgs:
+    def __init__(__self__, *,
+                 spectrum_config: Optional[pulumi.Input['ConfigSpectrumConfigArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html
+        :param pulumi.Input['ConfigSpectrumConfigArgs'] spectrum_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html#cfn-groundstation-config-antennadownlinkconfig-spectrumconfig
+        """
+        if spectrum_config is not None:
+            pulumi.set(__self__, "spectrum_config", spectrum_config)
+
+    @property
+    @pulumi.getter(name="spectrumConfig")
+    def spectrum_config(self) -> Optional[pulumi.Input['ConfigSpectrumConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html#cfn-groundstation-config-antennadownlinkconfig-spectrumconfig
+        """
+        return pulumi.get(self, "spectrum_config")
+
+    @spectrum_config.setter
+    def spectrum_config(self, value: Optional[pulumi.Input['ConfigSpectrumConfigArgs']]):
+        pulumi.set(self, "spectrum_config", value)
+
+
+@pulumi.input_type
+class ConfigAntennaDownlinkDemodDecodeConfigArgs:
+    def __init__(__self__, *,
+                 decode_config: Optional[pulumi.Input['ConfigDecodeConfigArgs']] = None,
+                 demodulation_config: Optional[pulumi.Input['ConfigDemodulationConfigArgs']] = None,
+                 spectrum_config: Optional[pulumi.Input['ConfigSpectrumConfigArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html
+        :param pulumi.Input['ConfigDecodeConfigArgs'] decode_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-decodeconfig
+        :param pulumi.Input['ConfigDemodulationConfigArgs'] demodulation_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-demodulationconfig
+        :param pulumi.Input['ConfigSpectrumConfigArgs'] spectrum_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-spectrumconfig
+        """
+        if decode_config is not None:
+            pulumi.set(__self__, "decode_config", decode_config)
+        if demodulation_config is not None:
+            pulumi.set(__self__, "demodulation_config", demodulation_config)
+        if spectrum_config is not None:
+            pulumi.set(__self__, "spectrum_config", spectrum_config)
+
+    @property
+    @pulumi.getter(name="decodeConfig")
+    def decode_config(self) -> Optional[pulumi.Input['ConfigDecodeConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-decodeconfig
+        """
+        return pulumi.get(self, "decode_config")
+
+    @decode_config.setter
+    def decode_config(self, value: Optional[pulumi.Input['ConfigDecodeConfigArgs']]):
+        pulumi.set(self, "decode_config", value)
+
+    @property
+    @pulumi.getter(name="demodulationConfig")
+    def demodulation_config(self) -> Optional[pulumi.Input['ConfigDemodulationConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-demodulationconfig
+        """
+        return pulumi.get(self, "demodulation_config")
+
+    @demodulation_config.setter
+    def demodulation_config(self, value: Optional[pulumi.Input['ConfigDemodulationConfigArgs']]):
+        pulumi.set(self, "demodulation_config", value)
+
+    @property
+    @pulumi.getter(name="spectrumConfig")
+    def spectrum_config(self) -> Optional[pulumi.Input['ConfigSpectrumConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html#cfn-groundstation-config-antennadownlinkdemoddecodeconfig-spectrumconfig
+        """
+        return pulumi.get(self, "spectrum_config")
+
+    @spectrum_config.setter
+    def spectrum_config(self, value: Optional[pulumi.Input['ConfigSpectrumConfigArgs']]):
+        pulumi.set(self, "spectrum_config", value)
+
+
+@pulumi.input_type
+class ConfigAntennaUplinkConfigArgs:
+    def __init__(__self__, *,
+                 spectrum_config: Optional[pulumi.Input['ConfigUplinkSpectrumConfigArgs']] = None,
+                 target_eirp: Optional[pulumi.Input['ConfigEirpArgs']] = None,
+                 transmit_disabled: Optional[pulumi.Input[bool]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html
+        :param pulumi.Input['ConfigUplinkSpectrumConfigArgs'] spectrum_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-spectrumconfig
+        :param pulumi.Input['ConfigEirpArgs'] target_eirp: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-targeteirp
+        :param pulumi.Input[bool] transmit_disabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-transmitdisabled
+        """
+        if spectrum_config is not None:
+            pulumi.set(__self__, "spectrum_config", spectrum_config)
+        if target_eirp is not None:
+            pulumi.set(__self__, "target_eirp", target_eirp)
+        if transmit_disabled is not None:
+            pulumi.set(__self__, "transmit_disabled", transmit_disabled)
+
+    @property
+    @pulumi.getter(name="spectrumConfig")
+    def spectrum_config(self) -> Optional[pulumi.Input['ConfigUplinkSpectrumConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-spectrumconfig
+        """
+        return pulumi.get(self, "spectrum_config")
+
+    @spectrum_config.setter
+    def spectrum_config(self, value: Optional[pulumi.Input['ConfigUplinkSpectrumConfigArgs']]):
+        pulumi.set(self, "spectrum_config", value)
+
+    @property
+    @pulumi.getter(name="targetEirp")
+    def target_eirp(self) -> Optional[pulumi.Input['ConfigEirpArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-targeteirp
+        """
+        return pulumi.get(self, "target_eirp")
+
+    @target_eirp.setter
+    def target_eirp(self, value: Optional[pulumi.Input['ConfigEirpArgs']]):
+        pulumi.set(self, "target_eirp", value)
+
+    @property
+    @pulumi.getter(name="transmitDisabled")
+    def transmit_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html#cfn-groundstation-config-antennauplinkconfig-transmitdisabled
+        """
+        return pulumi.get(self, "transmit_disabled")
+
+    @transmit_disabled.setter
+    def transmit_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "transmit_disabled", value)
+
+
+@pulumi.input_type
+class ConfigConfigDataArgs:
+    def __init__(__self__, *,
+                 antenna_downlink_config: Optional[pulumi.Input['ConfigAntennaDownlinkConfigArgs']] = None,
+                 antenna_downlink_demod_decode_config: Optional[pulumi.Input['ConfigAntennaDownlinkDemodDecodeConfigArgs']] = None,
+                 antenna_uplink_config: Optional[pulumi.Input['ConfigAntennaUplinkConfigArgs']] = None,
+                 dataflow_endpoint_config: Optional[pulumi.Input['ConfigDataflowEndpointConfigArgs']] = None,
+                 s3_recording_config: Optional[pulumi.Input['ConfigS3RecordingConfigArgs']] = None,
+                 tracking_config: Optional[pulumi.Input['ConfigTrackingConfigArgs']] = None,
+                 uplink_echo_config: Optional[pulumi.Input['ConfigUplinkEchoConfigArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html
+        :param pulumi.Input['ConfigAntennaDownlinkConfigArgs'] antenna_downlink_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkconfig
+        :param pulumi.Input['ConfigAntennaDownlinkDemodDecodeConfigArgs'] antenna_downlink_demod_decode_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkdemoddecodeconfig
+        :param pulumi.Input['ConfigAntennaUplinkConfigArgs'] antenna_uplink_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennauplinkconfig
+        :param pulumi.Input['ConfigDataflowEndpointConfigArgs'] dataflow_endpoint_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-dataflowendpointconfig
+        :param pulumi.Input['ConfigS3RecordingConfigArgs'] s3_recording_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-s3recordingconfig
+        :param pulumi.Input['ConfigTrackingConfigArgs'] tracking_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-trackingconfig
+        :param pulumi.Input['ConfigUplinkEchoConfigArgs'] uplink_echo_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-uplinkechoconfig
+        """
+        if antenna_downlink_config is not None:
+            pulumi.set(__self__, "antenna_downlink_config", antenna_downlink_config)
+        if antenna_downlink_demod_decode_config is not None:
+            pulumi.set(__self__, "antenna_downlink_demod_decode_config", antenna_downlink_demod_decode_config)
+        if antenna_uplink_config is not None:
+            pulumi.set(__self__, "antenna_uplink_config", antenna_uplink_config)
+        if dataflow_endpoint_config is not None:
+            pulumi.set(__self__, "dataflow_endpoint_config", dataflow_endpoint_config)
+        if s3_recording_config is not None:
+            pulumi.set(__self__, "s3_recording_config", s3_recording_config)
+        if tracking_config is not None:
+            pulumi.set(__self__, "tracking_config", tracking_config)
+        if uplink_echo_config is not None:
+            pulumi.set(__self__, "uplink_echo_config", uplink_echo_config)
+
+    @property
+    @pulumi.getter(name="antennaDownlinkConfig")
+    def antenna_downlink_config(self) -> Optional[pulumi.Input['ConfigAntennaDownlinkConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkconfig
+        """
+        return pulumi.get(self, "antenna_downlink_config")
+
+    @antenna_downlink_config.setter
+    def antenna_downlink_config(self, value: Optional[pulumi.Input['ConfigAntennaDownlinkConfigArgs']]):
+        pulumi.set(self, "antenna_downlink_config", value)
+
+    @property
+    @pulumi.getter(name="antennaDownlinkDemodDecodeConfig")
+    def antenna_downlink_demod_decode_config(self) -> Optional[pulumi.Input['ConfigAntennaDownlinkDemodDecodeConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkdemoddecodeconfig
+        """
+        return pulumi.get(self, "antenna_downlink_demod_decode_config")
+
+    @antenna_downlink_demod_decode_config.setter
+    def antenna_downlink_demod_decode_config(self, value: Optional[pulumi.Input['ConfigAntennaDownlinkDemodDecodeConfigArgs']]):
+        pulumi.set(self, "antenna_downlink_demod_decode_config", value)
+
+    @property
+    @pulumi.getter(name="antennaUplinkConfig")
+    def antenna_uplink_config(self) -> Optional[pulumi.Input['ConfigAntennaUplinkConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennauplinkconfig
+        """
+        return pulumi.get(self, "antenna_uplink_config")
+
+    @antenna_uplink_config.setter
+    def antenna_uplink_config(self, value: Optional[pulumi.Input['ConfigAntennaUplinkConfigArgs']]):
+        pulumi.set(self, "antenna_uplink_config", value)
+
+    @property
+    @pulumi.getter(name="dataflowEndpointConfig")
+    def dataflow_endpoint_config(self) -> Optional[pulumi.Input['ConfigDataflowEndpointConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-dataflowendpointconfig
+        """
+        return pulumi.get(self, "dataflow_endpoint_config")
+
+    @dataflow_endpoint_config.setter
+    def dataflow_endpoint_config(self, value: Optional[pulumi.Input['ConfigDataflowEndpointConfigArgs']]):
+        pulumi.set(self, "dataflow_endpoint_config", value)
+
+    @property
+    @pulumi.getter(name="s3RecordingConfig")
+    def s3_recording_config(self) -> Optional[pulumi.Input['ConfigS3RecordingConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-s3recordingconfig
+        """
+        return pulumi.get(self, "s3_recording_config")
+
+    @s3_recording_config.setter
+    def s3_recording_config(self, value: Optional[pulumi.Input['ConfigS3RecordingConfigArgs']]):
+        pulumi.set(self, "s3_recording_config", value)
+
+    @property
+    @pulumi.getter(name="trackingConfig")
+    def tracking_config(self) -> Optional[pulumi.Input['ConfigTrackingConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-trackingconfig
+        """
+        return pulumi.get(self, "tracking_config")
+
+    @tracking_config.setter
+    def tracking_config(self, value: Optional[pulumi.Input['ConfigTrackingConfigArgs']]):
+        pulumi.set(self, "tracking_config", value)
+
+    @property
+    @pulumi.getter(name="uplinkEchoConfig")
+    def uplink_echo_config(self) -> Optional[pulumi.Input['ConfigUplinkEchoConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-uplinkechoconfig
+        """
+        return pulumi.get(self, "uplink_echo_config")
+
+    @uplink_echo_config.setter
+    def uplink_echo_config(self, value: Optional[pulumi.Input['ConfigUplinkEchoConfigArgs']]):
+        pulumi.set(self, "uplink_echo_config", value)
+
+
+@pulumi.input_type
+class ConfigDataflowEndpointConfigArgs:
+    def __init__(__self__, *,
+                 dataflow_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 dataflow_endpoint_region: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html
+        :param pulumi.Input[str] dataflow_endpoint_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointname
+        :param pulumi.Input[str] dataflow_endpoint_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointregion
+        """
+        if dataflow_endpoint_name is not None:
+            pulumi.set(__self__, "dataflow_endpoint_name", dataflow_endpoint_name)
+        if dataflow_endpoint_region is not None:
+            pulumi.set(__self__, "dataflow_endpoint_region", dataflow_endpoint_region)
+
+    @property
+    @pulumi.getter(name="dataflowEndpointName")
+    def dataflow_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointname
+        """
+        return pulumi.get(self, "dataflow_endpoint_name")
+
+    @dataflow_endpoint_name.setter
+    def dataflow_endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dataflow_endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="dataflowEndpointRegion")
+    def dataflow_endpoint_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html#cfn-groundstation-config-dataflowendpointconfig-dataflowendpointregion
+        """
+        return pulumi.get(self, "dataflow_endpoint_region")
+
+    @dataflow_endpoint_region.setter
+    def dataflow_endpoint_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dataflow_endpoint_region", value)
+
+
+@pulumi.input_type
+class ConfigDecodeConfigArgs:
+    def __init__(__self__, *,
+                 unvalidated_json: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html
+        :param pulumi.Input[str] unvalidated_json: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html#cfn-groundstation-config-decodeconfig-unvalidatedjson
+        """
+        if unvalidated_json is not None:
+            pulumi.set(__self__, "unvalidated_json", unvalidated_json)
+
+    @property
+    @pulumi.getter(name="unvalidatedJSON")
+    def unvalidated_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html#cfn-groundstation-config-decodeconfig-unvalidatedjson
+        """
+        return pulumi.get(self, "unvalidated_json")
+
+    @unvalidated_json.setter
+    def unvalidated_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unvalidated_json", value)
+
+
+@pulumi.input_type
+class ConfigDemodulationConfigArgs:
+    def __init__(__self__, *,
+                 unvalidated_json: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html
+        :param pulumi.Input[str] unvalidated_json: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html#cfn-groundstation-config-demodulationconfig-unvalidatedjson
+        """
+        if unvalidated_json is not None:
+            pulumi.set(__self__, "unvalidated_json", unvalidated_json)
+
+    @property
+    @pulumi.getter(name="unvalidatedJSON")
+    def unvalidated_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html#cfn-groundstation-config-demodulationconfig-unvalidatedjson
+        """
+        return pulumi.get(self, "unvalidated_json")
+
+    @unvalidated_json.setter
+    def unvalidated_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unvalidated_json", value)
+
+
+@pulumi.input_type
+class ConfigEirpArgs:
+    def __init__(__self__, *,
+                 units: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html
+        :param pulumi.Input[str] units: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-units
+        :param pulumi.Input[float] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-value
+        """
+        if units is not None:
+            pulumi.set(__self__, "units", units)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-units
+        """
+        return pulumi.get(self, "units")
+
+    @units.setter
+    def units(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "units", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html#cfn-groundstation-config-eirp-value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ConfigFrequencyBandwidthArgs:
+    def __init__(__self__, *,
+                 units: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html
+        :param pulumi.Input[str] units: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-units
+        :param pulumi.Input[float] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-value
+        """
+        if units is not None:
+            pulumi.set(__self__, "units", units)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-units
+        """
+        return pulumi.get(self, "units")
+
+    @units.setter
+    def units(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "units", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html#cfn-groundstation-config-frequencybandwidth-value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ConfigFrequencyArgs:
+    def __init__(__self__, *,
+                 units: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html
+        :param pulumi.Input[str] units: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-units
+        :param pulumi.Input[float] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-value
+        """
+        if units is not None:
+            pulumi.set(__self__, "units", units)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-units
+        """
+        return pulumi.get(self, "units")
+
+    @units.setter
+    def units(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "units", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html#cfn-groundstation-config-frequency-value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ConfigS3RecordingConfigArgs:
+    def __init__(__self__, *,
+                 bucket_arn: Optional[pulumi.Input[str]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html
+        :param pulumi.Input[str] bucket_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-bucketarn
+        :param pulumi.Input[str] prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-prefix
+        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-rolearn
+        """
+        if bucket_arn is not None:
+            pulumi.set(__self__, "bucket_arn", bucket_arn)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-bucketarn
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @bucket_arn.setter
+    def bucket_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_arn", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-prefix
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-rolearn
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class ConfigSpectrumConfigArgs:
+    def __init__(__self__, *,
+                 bandwidth: Optional[pulumi.Input['ConfigFrequencyBandwidthArgs']] = None,
+                 center_frequency: Optional[pulumi.Input['ConfigFrequencyArgs']] = None,
+                 polarization: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html
+        :param pulumi.Input['ConfigFrequencyBandwidthArgs'] bandwidth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-bandwidth
+        :param pulumi.Input['ConfigFrequencyArgs'] center_frequency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-centerfrequency
+        :param pulumi.Input[str] polarization: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-polarization
+        """
+        if bandwidth is not None:
+            pulumi.set(__self__, "bandwidth", bandwidth)
+        if center_frequency is not None:
+            pulumi.set(__self__, "center_frequency", center_frequency)
+        if polarization is not None:
+            pulumi.set(__self__, "polarization", polarization)
+
+    @property
+    @pulumi.getter
+    def bandwidth(self) -> Optional[pulumi.Input['ConfigFrequencyBandwidthArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-bandwidth
+        """
+        return pulumi.get(self, "bandwidth")
+
+    @bandwidth.setter
+    def bandwidth(self, value: Optional[pulumi.Input['ConfigFrequencyBandwidthArgs']]):
+        pulumi.set(self, "bandwidth", value)
+
+    @property
+    @pulumi.getter(name="centerFrequency")
+    def center_frequency(self) -> Optional[pulumi.Input['ConfigFrequencyArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-centerfrequency
+        """
+        return pulumi.get(self, "center_frequency")
+
+    @center_frequency.setter
+    def center_frequency(self, value: Optional[pulumi.Input['ConfigFrequencyArgs']]):
+        pulumi.set(self, "center_frequency", value)
+
+    @property
+    @pulumi.getter
+    def polarization(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-polarization
+        """
+        return pulumi.get(self, "polarization")
+
+    @polarization.setter
+    def polarization(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "polarization", value)
+
+
+@pulumi.input_type
+class ConfigTrackingConfigArgs:
+    def __init__(__self__, *,
+                 autotrack: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html
+        :param pulumi.Input[str] autotrack: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html#cfn-groundstation-config-trackingconfig-autotrack
+        """
+        if autotrack is not None:
+            pulumi.set(__self__, "autotrack", autotrack)
+
+    @property
+    @pulumi.getter
+    def autotrack(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html#cfn-groundstation-config-trackingconfig-autotrack
+        """
+        return pulumi.get(self, "autotrack")
+
+    @autotrack.setter
+    def autotrack(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "autotrack", value)
+
+
+@pulumi.input_type
+class ConfigUplinkEchoConfigArgs:
+    def __init__(__self__, *,
+                 antenna_uplink_config_arn: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html
+        :param pulumi.Input[str] antenna_uplink_config_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-antennauplinkconfigarn
+        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-enabled
+        """
+        if antenna_uplink_config_arn is not None:
+            pulumi.set(__self__, "antenna_uplink_config_arn", antenna_uplink_config_arn)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="antennaUplinkConfigArn")
+    def antenna_uplink_config_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-antennauplinkconfigarn
+        """
+        return pulumi.get(self, "antenna_uplink_config_arn")
+
+    @antenna_uplink_config_arn.setter
+    def antenna_uplink_config_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "antenna_uplink_config_arn", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html#cfn-groundstation-config-uplinkechoconfig-enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class ConfigUplinkSpectrumConfigArgs:
+    def __init__(__self__, *,
+                 center_frequency: Optional[pulumi.Input['ConfigFrequencyArgs']] = None,
+                 polarization: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html
+        :param pulumi.Input['ConfigFrequencyArgs'] center_frequency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-centerfrequency
+        :param pulumi.Input[str] polarization: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-polarization
+        """
+        if center_frequency is not None:
+            pulumi.set(__self__, "center_frequency", center_frequency)
+        if polarization is not None:
+            pulumi.set(__self__, "polarization", polarization)
+
+    @property
+    @pulumi.getter(name="centerFrequency")
+    def center_frequency(self) -> Optional[pulumi.Input['ConfigFrequencyArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-centerfrequency
+        """
+        return pulumi.get(self, "center_frequency")
+
+    @center_frequency.setter
+    def center_frequency(self, value: Optional[pulumi.Input['ConfigFrequencyArgs']]):
+        pulumi.set(self, "center_frequency", value)
+
+    @property
+    @pulumi.getter
+    def polarization(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkspectrumconfig.html#cfn-groundstation-config-uplinkspectrumconfig-polarization
+        """
+        return pulumi.get(self, "polarization")
+
+    @polarization.setter
+    def polarization(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "polarization", value)
+
+
+@pulumi.input_type
 class DataflowEndpointGroupDataflowEndpointArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input['DataflowEndpointGroupSocketAddressArgs']] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html
         :param pulumi.Input['DataflowEndpointGroupSocketAddressArgs'] address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-address
         :param pulumi.Input[int] mtu: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-mtu
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-name
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -36,8 +729,6 @@ class DataflowEndpointGroupDataflowEndpointArgs:
             pulumi.set(__self__, "mtu", mtu)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -74,18 +765,6 @@ class DataflowEndpointGroupDataflowEndpointArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

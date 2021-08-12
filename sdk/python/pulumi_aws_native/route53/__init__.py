@@ -5,7 +5,9 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .dnssec import *
 from .health_check import *
 from .hosted_zone import *
+from .key_signing_key import *
 from ._inputs import *
 from . import outputs

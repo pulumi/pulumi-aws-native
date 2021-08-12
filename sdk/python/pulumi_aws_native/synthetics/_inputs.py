@@ -9,16 +9,57 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CanaryBaseScreenshotArgs',
     'CanaryCodeArgs',
     'CanaryRunConfigArgs',
     'CanaryScheduleArgs',
     'CanaryVPCConfigArgs',
+    'CanaryVisualReferenceArgs',
 ]
+
+@pulumi.input_type
+class CanaryBaseScreenshotArgs:
+    def __init__(__self__, *,
+                 screenshot_name: pulumi.Input[str],
+                 ignore_coordinates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html
+        :param pulumi.Input[str] screenshot_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ignore_coordinates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates
+        """
+        pulumi.set(__self__, "screenshot_name", screenshot_name)
+        if ignore_coordinates is not None:
+            pulumi.set(__self__, "ignore_coordinates", ignore_coordinates)
+
+    @property
+    @pulumi.getter(name="screenshotName")
+    def screenshot_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname
+        """
+        return pulumi.get(self, "screenshot_name")
+
+    @screenshot_name.setter
+    def screenshot_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "screenshot_name", value)
+
+    @property
+    @pulumi.getter(name="ignoreCoordinates")
+    def ignore_coordinates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates
+        """
+        return pulumi.get(self, "ignore_coordinates")
+
+    @ignore_coordinates.setter
+    def ignore_coordinates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ignore_coordinates", value)
+
 
 @pulumi.input_type
 class CanaryCodeArgs:
     def __init__(__self__, *,
-                 handler: Optional[pulumi.Input[str]] = None,
+                 handler: pulumi.Input[str],
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_object_version: Optional[pulumi.Input[str]] = None,
@@ -31,8 +72,7 @@ class CanaryCodeArgs:
         :param pulumi.Input[str] s3_object_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3objectversion
         :param pulumi.Input[str] script: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script
         """
-        if handler is not None:
-            pulumi.set(__self__, "handler", handler)
+        pulumi.set(__self__, "handler", handler)
         if s3_bucket is not None:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
@@ -44,14 +84,14 @@ class CanaryCodeArgs:
 
     @property
     @pulumi.getter
-    def handler(self) -> Optional[pulumi.Input[str]]:
+    def handler(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
         """
         return pulumi.get(self, "handler")
 
     @handler.setter
-    def handler(self, value: Optional[pulumi.Input[str]]):
+    def handler(self, value: pulumi.Input[str]):
         pulumi.set(self, "handler", value)
 
     @property
@@ -106,36 +146,25 @@ class CanaryCodeArgs:
 @pulumi.input_type
 class CanaryRunConfigArgs:
     def __init__(__self__, *,
-                 timeout_in_seconds: pulumi.Input[int],
                  active_tracing: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 memory_in_mb: Optional[pulumi.Input[int]] = None):
+                 memory_in_mb: Optional[pulumi.Input[int]] = None,
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html
-        :param pulumi.Input[int] timeout_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
         :param pulumi.Input[bool] active_tracing: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
         :param pulumi.Input[int] memory_in_mb: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+        :param pulumi.Input[int] timeout_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
         """
-        pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
         if active_tracing is not None:
             pulumi.set(__self__, "active_tracing", active_tracing)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if memory_in_mb is not None:
             pulumi.set(__self__, "memory_in_mb", memory_in_mb)
-
-    @property
-    @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
-        """
-        return pulumi.get(self, "timeout_in_seconds")
-
-    @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: pulumi.Input[int]):
-        pulumi.set(self, "timeout_in_seconds", value)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter(name="activeTracing")
@@ -172,6 +201,18 @@ class CanaryRunConfigArgs:
     @memory_in_mb.setter
     def memory_in_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "memory_in_mb", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_seconds", value)
 
 
 @pulumi.input_type
@@ -265,5 +306,44 @@ class CanaryVPCConfigArgs:
     @vpc_id.setter
     def vpc_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_id", value)
+
+
+@pulumi.input_type
+class CanaryVisualReferenceArgs:
+    def __init__(__self__, *,
+                 base_canary_run_id: pulumi.Input[str],
+                 base_screenshots: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html
+        :param pulumi.Input[str] base_canary_run_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+        :param pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]] base_screenshots: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+        """
+        pulumi.set(__self__, "base_canary_run_id", base_canary_run_id)
+        if base_screenshots is not None:
+            pulumi.set(__self__, "base_screenshots", base_screenshots)
+
+    @property
+    @pulumi.getter(name="baseCanaryRunId")
+    def base_canary_run_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+        """
+        return pulumi.get(self, "base_canary_run_id")
+
+    @base_canary_run_id.setter
+    def base_canary_run_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "base_canary_run_id", value)
+
+    @property
+    @pulumi.getter(name="baseScreenshots")
+    def base_screenshots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+        """
+        return pulumi.get(self, "base_screenshots")
+
+    @base_screenshots.setter
+    def base_screenshots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]]):
+        pulumi.set(self, "base_screenshots", value)
 
 

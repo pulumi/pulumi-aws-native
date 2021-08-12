@@ -25,7 +25,7 @@ type Project struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-rolearn
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
-	Sample pulumi.AnyOutput `pulumi:"sample"`
+	Sample ProjectSamplePtrOutput `pulumi:"sample"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -90,7 +90,7 @@ type projectArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-rolearn
 	RoleArn string `pulumi:"roleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
-	Sample interface{} `pulumi:"sample"`
+	Sample *ProjectSample `pulumi:"sample"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -106,7 +106,7 @@ type ProjectArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-rolearn
 	RoleArn pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
-	Sample pulumi.Input
+	Sample ProjectSamplePtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
 	Tags aws.TagArrayInput
 }

@@ -5,10 +5,18 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./firewallDomainList";
+export * from "./firewallRuleGroup";
+export * from "./firewallRuleGroupAssociation";
+export * from "./resolverDNSSECConfig";
 export * from "./resolverQueryLoggingConfig";
 export * from "./resolverQueryLoggingConfigAssociation";
 
 // Import resources to register:
+import { FirewallDomainList } from "./firewallDomainList";
+import { FirewallRuleGroup } from "./firewallRuleGroup";
+import { FirewallRuleGroupAssociation } from "./firewallRuleGroupAssociation";
+import { ResolverDNSSECConfig } from "./resolverDNSSECConfig";
 import { ResolverQueryLoggingConfig } from "./resolverQueryLoggingConfig";
 import { ResolverQueryLoggingConfigAssociation } from "./resolverQueryLoggingConfigAssociation";
 
@@ -16,6 +24,14 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:Route53Resolver:FirewallDomainList":
+                return new FirewallDomainList(name, <any>undefined, { urn })
+            case "aws-native:Route53Resolver:FirewallRuleGroup":
+                return new FirewallRuleGroup(name, <any>undefined, { urn })
+            case "aws-native:Route53Resolver:FirewallRuleGroupAssociation":
+                return new FirewallRuleGroupAssociation(name, <any>undefined, { urn })
+            case "aws-native:Route53Resolver:ResolverDNSSECConfig":
+                return new ResolverDNSSECConfig(name, <any>undefined, { urn })
             case "aws-native:Route53Resolver:ResolverQueryLoggingConfig":
                 return new ResolverQueryLoggingConfig(name, <any>undefined, { urn })
             case "aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation":

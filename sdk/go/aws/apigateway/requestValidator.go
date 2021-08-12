@@ -16,7 +16,8 @@ type RequestValidator struct {
 	pulumi.CustomResourceState
 
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name               pulumi.StringPtrOutput `pulumi:"name"`
+	RequestValidatorId pulumi.StringOutput    `pulumi:"requestValidatorId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody

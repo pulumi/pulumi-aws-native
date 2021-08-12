@@ -38,9 +38,17 @@ export class CertificateAuthority extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly certificateSigningRequest!: pulumi.Output<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
+     */
+    public readonly csrExtensions!: pulumi.Output<outputs.ACMPCA.CertificateAuthorityCsrExtensions | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
      */
     public readonly keyAlgorithm!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
+     */
+    public readonly keyStorageSecurityStandard!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
      */
@@ -85,7 +93,9 @@ export class CertificateAuthority extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            inputs["csrExtensions"] = args ? args.csrExtensions : undefined;
             inputs["keyAlgorithm"] = args ? args.keyAlgorithm : undefined;
+            inputs["keyStorageSecurityStandard"] = args ? args.keyStorageSecurityStandard : undefined;
             inputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
             inputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
             inputs["subject"] = args ? args.subject : undefined;
@@ -96,7 +106,9 @@ export class CertificateAuthority extends pulumi.CustomResource {
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["certificateSigningRequest"] = undefined /*out*/;
+            inputs["csrExtensions"] = undefined /*out*/;
             inputs["keyAlgorithm"] = undefined /*out*/;
+            inputs["keyStorageSecurityStandard"] = undefined /*out*/;
             inputs["revocationConfiguration"] = undefined /*out*/;
             inputs["signingAlgorithm"] = undefined /*out*/;
             inputs["subject"] = undefined /*out*/;
@@ -115,9 +127,17 @@ export class CertificateAuthority extends pulumi.CustomResource {
  */
 export interface CertificateAuthorityArgs {
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
+     */
+    csrExtensions?: pulumi.Input<inputs.ACMPCA.CertificateAuthorityCsrExtensionsArgs>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
      */
     keyAlgorithm: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
+     */
+    keyStorageSecurityStandard?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
      */

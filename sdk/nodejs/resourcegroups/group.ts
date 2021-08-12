@@ -37,6 +37,10 @@ export class Group extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
+     */
+    public readonly configuration!: pulumi.Output<outputs.ResourceGroups.GroupConfigurationItem[] | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-description
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -48,6 +52,10 @@ export class Group extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resourcequery
      */
     public readonly resourceQuery!: pulumi.Output<outputs.ResourceGroups.GroupResourceQuery | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resources
+     */
+    public readonly resources!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags
      */
@@ -67,16 +75,20 @@ export class Group extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            inputs["configuration"] = args ? args.configuration : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceQuery"] = args ? args.resourceQuery : undefined;
+            inputs["resources"] = args ? args.resources : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
+            inputs["configuration"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["resourceQuery"] = undefined /*out*/;
+            inputs["resources"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -91,6 +103,10 @@ export class Group extends pulumi.CustomResource {
  */
 export interface GroupArgs {
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
+     */
+    configuration?: pulumi.Input<pulumi.Input<inputs.ResourceGroups.GroupConfigurationItemArgs>[]>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-description
      */
     description?: pulumi.Input<string>;
@@ -102,6 +118,10 @@ export interface GroupArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resourcequery
      */
     resourceQuery?: pulumi.Input<inputs.ResourceGroups.GroupResourceQueryArgs>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resources
+     */
+    resources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags
      */

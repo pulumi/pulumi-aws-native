@@ -12,6 +12,7 @@ __all__ = [
     'TableBillingModeArgs',
     'TableClusteringKeyColumnArgs',
     'TableColumnArgs',
+    'TableEncryptionSpecificationArgs',
     'TableProvisionedThroughputArgs',
 ]
 
@@ -129,6 +130,45 @@ class TableColumnArgs:
     @column_type.setter
     def column_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "column_type", value)
+
+
+@pulumi.input_type
+class TableEncryptionSpecificationArgs:
+    def __init__(__self__, *,
+                 encryption_type: pulumi.Input[str],
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html
+        :param pulumi.Input[str] encryption_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-encryptiontype
+        :param pulumi.Input[str] kms_key_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-kmskeyidentifier
+        """
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        if kms_key_identifier is not None:
+            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-encryptiontype
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "encryption_type", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-kmskeyidentifier
+        """
+        return pulumi.get(self, "kms_key_identifier")
+
+    @kms_key_identifier.setter
+    def kms_key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_identifier", value)
 
 
 @pulumi.input_type

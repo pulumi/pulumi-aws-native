@@ -48,9 +48,6 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Output("logging")]
         public Output<Union<System.Text.Json.JsonElement, string>?> Logging { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 

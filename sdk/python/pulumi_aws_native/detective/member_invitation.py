@@ -16,17 +16,21 @@ class MemberInvitationArgs:
                  graph_arn: pulumi.Input[str],
                  member_email_address: pulumi.Input[str],
                  member_id: pulumi.Input[str],
+                 disable_email_notification: Optional[pulumi.Input[bool]] = None,
                  message: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MemberInvitation resource.
         :param pulumi.Input[str] graph_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
         :param pulumi.Input[str] member_email_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
         :param pulumi.Input[str] member_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
+        :param pulumi.Input[bool] disable_email_notification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
         :param pulumi.Input[str] message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
         """
         pulumi.set(__self__, "graph_arn", graph_arn)
         pulumi.set(__self__, "member_email_address", member_email_address)
         pulumi.set(__self__, "member_id", member_id)
+        if disable_email_notification is not None:
+            pulumi.set(__self__, "disable_email_notification", disable_email_notification)
         if message is not None:
             pulumi.set(__self__, "message", message)
 
@@ -67,6 +71,18 @@ class MemberInvitationArgs:
         pulumi.set(self, "member_id", value)
 
     @property
+    @pulumi.getter(name="disableEmailNotification")
+    def disable_email_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+        """
+        return pulumi.get(self, "disable_email_notification")
+
+    @disable_email_notification.setter
+    def disable_email_notification(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_email_notification", value)
+
+    @property
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
         """
@@ -84,6 +100,7 @@ class MemberInvitation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 disable_email_notification: Optional[pulumi.Input[bool]] = None,
                  graph_arn: Optional[pulumi.Input[str]] = None,
                  member_email_address: Optional[pulumi.Input[str]] = None,
                  member_id: Optional[pulumi.Input[str]] = None,
@@ -94,6 +111,7 @@ class MemberInvitation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] disable_email_notification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
         :param pulumi.Input[str] graph_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
         :param pulumi.Input[str] member_email_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
         :param pulumi.Input[str] member_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
@@ -123,6 +141,7 @@ class MemberInvitation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 disable_email_notification: Optional[pulumi.Input[bool]] = None,
                  graph_arn: Optional[pulumi.Input[str]] = None,
                  member_email_address: Optional[pulumi.Input[str]] = None,
                  member_id: Optional[pulumi.Input[str]] = None,
@@ -139,6 +158,7 @@ class MemberInvitation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MemberInvitationArgs.__new__(MemberInvitationArgs)
 
+            __props__.__dict__["disable_email_notification"] = disable_email_notification
             if graph_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'graph_arn'")
             __props__.__dict__["graph_arn"] = graph_arn
@@ -171,11 +191,20 @@ class MemberInvitation(pulumi.CustomResource):
 
         __props__ = MemberInvitationArgs.__new__(MemberInvitationArgs)
 
+        __props__.__dict__["disable_email_notification"] = None
         __props__.__dict__["graph_arn"] = None
         __props__.__dict__["member_email_address"] = None
         __props__.__dict__["member_id"] = None
         __props__.__dict__["message"] = None
         return MemberInvitation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="disableEmailNotification")
+    def disable_email_notification(self) -> pulumi.Output[Optional[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+        """
+        return pulumi.get(self, "disable_email_notification")
 
     @property
     @pulumi.getter(name="graphArn")

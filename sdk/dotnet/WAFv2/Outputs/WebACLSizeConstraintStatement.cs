@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
         /// </summary>
-        public readonly int Size;
+        public readonly double Size;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.WebACLFieldToMatch fieldToMatch,
 
-            int size,
+            double size,
 
             ImmutableArray<Outputs.WebACLTextTransformation> textTransformations)
         {

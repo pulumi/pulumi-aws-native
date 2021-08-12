@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-cannedacl
+        /// </summary>
+        [Input("cannedAcl")]
+        public Input<string>? CannedAcl { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-key
         /// </summary>
         [Input("key", required: true)]

@@ -18,11 +18,14 @@ type WebACL struct {
 
 	Arn      pulumi.StringOutput `pulumi:"arn"`
 	Capacity pulumi.IntOutput    `pulumi:"capacity"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
+	CustomResponseBodies WebACLCustomResponseBodyMapOutput `pulumi:"customResponseBodies"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
 	DefaultAction WebACLDefaultActionOutput `pulumi:"defaultAction"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Id          pulumi.StringOutput    `pulumi:"id"`
+	Description    pulumi.StringPtrOutput `pulumi:"description"`
+	Id             pulumi.StringOutput    `pulumi:"id"`
+	LabelNamespace pulumi.StringOutput    `pulumi:"labelNamespace"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
@@ -83,6 +86,8 @@ func (WebACLState) ElementType() reflect.Type {
 }
 
 type webACLArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
+	CustomResponseBodies map[string]WebACLCustomResponseBody `pulumi:"customResponseBodies"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
 	DefaultAction WebACLDefaultAction `pulumi:"defaultAction"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
@@ -101,6 +106,8 @@ type webACLArgs struct {
 
 // The set of arguments for constructing a WebACL resource.
 type WebACLArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
+	CustomResponseBodies WebACLCustomResponseBodyMapInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
 	DefaultAction WebACLDefaultActionInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description

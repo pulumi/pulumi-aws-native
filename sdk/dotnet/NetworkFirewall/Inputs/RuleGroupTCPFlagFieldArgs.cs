@@ -15,17 +15,29 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class RuleGroupTCPFlagFieldArgs : Pulumi.ResourceArgs
     {
+        [Input("flags", required: true)]
+        private InputList<string>? _flags;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-flags
         /// </summary>
-        [Input("flags", required: true)]
-        public Input<Inputs.RuleGroupFlagsArgs> Flags { get; set; } = null!;
+        public InputList<string> Flags
+        {
+            get => _flags ?? (_flags = new InputList<string>());
+            set => _flags = value;
+        }
+
+        [Input("masks")]
+        private InputList<string>? _masks;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-masks
         /// </summary>
-        [Input("masks")]
-        public Input<Inputs.RuleGroupFlagsArgs>? Masks { get; set; }
+        public InputList<string> Masks
+        {
+            get => _masks ?? (_masks = new InputList<string>());
+            set => _masks = value;
+        }
 
         public RuleGroupTCPFlagFieldArgs()
         {

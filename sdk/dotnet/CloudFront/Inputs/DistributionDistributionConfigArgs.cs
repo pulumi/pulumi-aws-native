@@ -27,6 +27,18 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
             set => _aliases = value;
         }
 
+        [Input("cNAMEs")]
+        private InputList<string>? _cNAMEs;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cnames
+        /// </summary>
+        public InputList<string> CNAMEs
+        {
+            get => _cNAMEs ?? (_cNAMEs = new InputList<string>());
+            set => _cNAMEs = value;
+        }
+
         [Input("cacheBehaviors")]
         private InputList<Inputs.DistributionCacheBehaviorArgs>? _cacheBehaviors;
 
@@ -56,6 +68,12 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
             get => _customErrorResponses ?? (_customErrorResponses = new InputList<Inputs.DistributionCustomErrorResponseArgs>());
             set => _customErrorResponses = value;
         }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customorigin
+        /// </summary>
+        [Input("customOrigin")]
+        public Input<Inputs.DistributionLegacyCustomOriginArgs>? CustomOrigin { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultcachebehavior
@@ -122,6 +140,12 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// </summary>
         [Input("restrictions")]
         public Input<Inputs.DistributionRestrictionsArgs>? Restrictions { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-s3origin
+        /// </summary>
+        [Input("s3Origin")]
+        public Input<Inputs.DistributionLegacyS3OriginArgs>? S3Origin { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate

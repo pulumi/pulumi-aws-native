@@ -45,6 +45,10 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionForwardedValues? ForwardedValues;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-functionassociations
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DistributionFunctionAssociation> FunctionAssociations;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionLambdaFunctionAssociation> LambdaFunctionAssociations;
@@ -105,6 +109,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             Outputs.DistributionForwardedValues? forwardedValues,
 
+            ImmutableArray<Outputs.DistributionFunctionAssociation> functionAssociations,
+
             ImmutableArray<Outputs.DistributionLambdaFunctionAssociation> lambdaFunctionAssociations,
 
             double? maxTTL,
@@ -134,6 +140,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             DefaultTTL = defaultTTL;
             FieldLevelEncryptionId = fieldLevelEncryptionId;
             ForwardedValues = forwardedValues;
+            FunctionAssociations = functionAssociations;
             LambdaFunctionAssociations = lambdaFunctionAssociations;
             MaxTTL = maxTTL;
             MinTTL = minTTL;

@@ -27,11 +27,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceInclusionsExclusionsStrings? ExcludeAttachmentFilePatterns;
+        public readonly ImmutableArray<string> ExcludeAttachmentFilePatterns;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceInclusionsExclusionsStrings? IncludeAttachmentFilePatterns;
+        public readonly ImmutableArray<string> IncludeAttachmentFilePatterns;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
         /// </summary>
-        public readonly Outputs.DataSourceSalesforceStandardObjectConfigurationList? StandardObjectConfigurations;
+        public readonly ImmutableArray<Outputs.DataSourceSalesforceStandardObjectConfiguration> StandardObjectConfigurations;
 
         [OutputConstructor]
         private DataSourceSalesforceConfiguration(
@@ -59,9 +59,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             bool? crawlAttachments,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? excludeAttachmentFilePatterns,
+            ImmutableArray<string> excludeAttachmentFilePatterns,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? includeAttachmentFilePatterns,
+            ImmutableArray<string> includeAttachmentFilePatterns,
 
             Outputs.DataSourceSalesforceKnowledgeArticleConfiguration? knowledgeArticleConfiguration,
 
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Outputs.DataSourceSalesforceStandardObjectAttachmentConfiguration? standardObjectAttachmentConfiguration,
 
-            Outputs.DataSourceSalesforceStandardObjectConfigurationList? standardObjectConfigurations)
+            ImmutableArray<Outputs.DataSourceSalesforceStandardObjectConfiguration> standardObjectConfigurations)
         {
             ChatterFeedConfiguration = chatterFeedConfiguration;
             CrawlAttachments = crawlAttachments;

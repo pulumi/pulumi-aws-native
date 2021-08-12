@@ -15,6 +15,7 @@ import (
 type SpotFleet struct {
 	pulumi.CustomResourceState
 
+	Id pulumi.StringOutput `pulumi:"id"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
 	SpotFleetRequestConfigData SpotFleetSpotFleetRequestConfigDataOutput `pulumi:"spotFleetRequestConfigData"`
 }

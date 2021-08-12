@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Detective
     public partial class MemberInvitation : Pulumi.CustomResource
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+        /// </summary>
+        [Output("disableEmailNotification")]
+        public Output<bool?> DisableEmailNotification { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
         /// </summary>
         [Output("graphArn")]
@@ -84,6 +90,12 @@ namespace Pulumi.AwsNative.Detective
 
     public sealed class MemberInvitationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+        /// </summary>
+        [Input("disableEmailNotification")]
+        public Input<bool>? DisableEmailNotification { get; set; }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
         /// </summary>

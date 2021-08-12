@@ -25,9 +25,8 @@ type InfrastructureConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
 	KeyPair pulumi.StringPtrOutput `pulumi:"keyPair"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
-	Logging pulumi.AnyOutput `pulumi:"logging"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
-	Name pulumi.StringOutput `pulumi:"name"`
+	Logging pulumi.AnyOutput    `pulumi:"logging"`
+	Name    pulumi.StringOutput `pulumi:"name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids

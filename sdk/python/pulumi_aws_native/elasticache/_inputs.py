@@ -9,55 +9,160 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'UserGroupUserIdListArgs',
-    'UserPasswordListArgs',
+    'GlobalReplicationGroupGlobalReplicationGroupMemberArgs',
+    'GlobalReplicationGroupRegionalConfigurationArgs',
+    'GlobalReplicationGroupReshardingConfigurationArgs',
 ]
 
 @pulumi.input_type
-class UserGroupUserIdListArgs:
+class GlobalReplicationGroupGlobalReplicationGroupMemberArgs:
     def __init__(__self__, *,
-                 user_id_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 replication_group_id: Optional[pulumi.Input[str]] = None,
+                 replication_group_region: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_id_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html#cfn-elasticache-usergroup-useridlist-useridlist
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html
+        :param pulumi.Input[str] replication_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
+        :param pulumi.Input[str] replication_group_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
+        :param pulumi.Input[str] role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
         """
-        if user_id_list is not None:
-            pulumi.set(__self__, "user_id_list", user_id_list)
+        if replication_group_id is not None:
+            pulumi.set(__self__, "replication_group_id", replication_group_id)
+        if replication_group_region is not None:
+            pulumi.set(__self__, "replication_group_region", replication_group_region)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
 
     @property
-    @pulumi.getter(name="userIdList")
-    def user_id_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="replicationGroupId")
+    def replication_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html#cfn-elasticache-usergroup-useridlist-useridlist
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
         """
-        return pulumi.get(self, "user_id_list")
+        return pulumi.get(self, "replication_group_id")
 
-    @user_id_list.setter
-    def user_id_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "user_id_list", value)
+    @replication_group_id.setter
+    def replication_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_group_id", value)
+
+    @property
+    @pulumi.getter(name="replicationGroupRegion")
+    def replication_group_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
+        """
+        return pulumi.get(self, "replication_group_region")
+
+    @replication_group_region.setter
+    def replication_group_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_group_region", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
 
 
 @pulumi.input_type
-class UserPasswordListArgs:
+class GlobalReplicationGroupRegionalConfigurationArgs:
     def __init__(__self__, *,
-                 password_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 replication_group_id: Optional[pulumi.Input[str]] = None,
+                 replication_group_region: Optional[pulumi.Input[str]] = None,
+                 resharding_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] password_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html
+        :param pulumi.Input[str] replication_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
+        :param pulumi.Input[str] replication_group_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]] resharding_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
         """
-        if password_list is not None:
-            pulumi.set(__self__, "password_list", password_list)
+        if replication_group_id is not None:
+            pulumi.set(__self__, "replication_group_id", replication_group_id)
+        if replication_group_region is not None:
+            pulumi.set(__self__, "replication_group_region", replication_group_region)
+        if resharding_configurations is not None:
+            pulumi.set(__self__, "resharding_configurations", resharding_configurations)
 
     @property
-    @pulumi.getter(name="passwordList")
-    def password_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="replicationGroupId")
+    def replication_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
         """
-        return pulumi.get(self, "password_list")
+        return pulumi.get(self, "replication_group_id")
 
-    @password_list.setter
-    def password_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "password_list", value)
+    @replication_group_id.setter
+    def replication_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_group_id", value)
+
+    @property
+    @pulumi.getter(name="replicationGroupRegion")
+    def replication_group_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
+        """
+        return pulumi.get(self, "replication_group_region")
+
+    @replication_group_region.setter
+    def replication_group_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_group_region", value)
+
+    @property
+    @pulumi.getter(name="reshardingConfigurations")
+    def resharding_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
+        """
+        return pulumi.get(self, "resharding_configurations")
+
+    @resharding_configurations.setter
+    def resharding_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]]]):
+        pulumi.set(self, "resharding_configurations", value)
+
+
+@pulumi.input_type
+class GlobalReplicationGroupReshardingConfigurationArgs:
+    def __init__(__self__, *,
+                 node_group_id: Optional[pulumi.Input[str]] = None,
+                 preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html
+        :param pulumi.Input[str] node_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-nodegroupid
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-preferredavailabilityzones
+        """
+        if node_group_id is not None:
+            pulumi.set(__self__, "node_group_id", node_group_id)
+        if preferred_availability_zones is not None:
+            pulumi.set(__self__, "preferred_availability_zones", preferred_availability_zones)
+
+    @property
+    @pulumi.getter(name="nodeGroupId")
+    def node_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-nodegroupid
+        """
+        return pulumi.get(self, "node_group_id")
+
+    @node_group_id.setter
+    def node_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_group_id", value)
+
+    @property
+    @pulumi.getter(name="preferredAvailabilityZones")
+    def preferred_availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-preferredavailabilityzones
+        """
+        return pulumi.get(self, "preferred_availability_zones")
+
+    @preferred_availability_zones.setter
+    def preferred_availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "preferred_availability_zones", value)
 
 

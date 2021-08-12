@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.KMS
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
         /// </summary>
         [Output("keyPolicy")]
-        public Output<object> KeyPolicy { get; private set; } = null!;
+        public Output<Union<System.Text.Json.JsonElement, string>> KeyPolicy { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
@@ -56,6 +56,12 @@ namespace Pulumi.AwsNative.KMS
         /// </summary>
         [Output("keyUsage")]
         public Output<string?> KeyUsage { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
+        /// </summary>
+        [Output("multiRegion")]
+        public Output<bool?> MultiRegion { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
@@ -136,7 +142,7 @@ namespace Pulumi.AwsNative.KMS
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
         /// </summary>
         [Input("keyPolicy", required: true)]
-        public Input<object> KeyPolicy { get; set; } = null!;
+        public InputUnion<System.Text.Json.JsonElement, string> KeyPolicy { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
@@ -149,6 +155,12 @@ namespace Pulumi.AwsNative.KMS
         /// </summary>
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
+        /// </summary>
+        [Input("multiRegion")]
+        public Input<bool>? MultiRegion { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays

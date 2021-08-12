@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename
         /// </summary>
-        public readonly string? InitialStateName;
+        public readonly string InitialStateName;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 
         [OutputConstructor]
         private DetectorModelDetectorModelDefinition(
-            string? initialStateName,
+            string initialStateName,
 
             ImmutableArray<Outputs.DetectorModelState> states)
         {

@@ -18,14 +18,14 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-contentexpression
         /// </summary>
-        [Input("contentExpression")]
-        public Input<string>? ContentExpression { get; set; }
+        [Input("contentExpression", required: true)]
+        public Input<string> ContentExpression { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-type
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public DetectorModelPayloadArgs()
         {

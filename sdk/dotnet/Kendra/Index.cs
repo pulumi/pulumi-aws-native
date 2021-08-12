@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Kendra
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
         /// </summary>
         [Output("documentMetadataConfigurations")]
-        public Output<Outputs.IndexDocumentMetadataConfigurationList?> DocumentMetadataConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IndexDocumentMetadataConfiguration>> DocumentMetadataConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Kendra
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.IndexTagList?> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Kendra
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
         /// </summary>
         [Output("userTokenConfigurations")]
-        public Output<Outputs.IndexUserTokenConfigurationList?> UserTokenConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IndexUserTokenConfiguration>> UserTokenConfigurations { get; private set; } = null!;
 
 
         /// <summary>
@@ -138,11 +138,17 @@ namespace Pulumi.AwsNative.Kendra
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("documentMetadataConfigurations")]
+        private InputList<Inputs.IndexDocumentMetadataConfigurationArgs>? _documentMetadataConfigurations;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
         /// </summary>
-        [Input("documentMetadataConfigurations")]
-        public Input<Inputs.IndexDocumentMetadataConfigurationListArgs>? DocumentMetadataConfigurations { get; set; }
+        public InputList<Inputs.IndexDocumentMetadataConfigurationArgs> DocumentMetadataConfigurations
+        {
+            get => _documentMetadataConfigurations ?? (_documentMetadataConfigurations = new InputList<Inputs.IndexDocumentMetadataConfigurationArgs>());
+            set => _documentMetadataConfigurations = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
@@ -168,11 +174,17 @@ namespace Pulumi.AwsNative.Kendra
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.IndexServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
 
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.IndexTagListArgs>? Tags { get; set; }
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
@@ -180,11 +192,17 @@ namespace Pulumi.AwsNative.Kendra
         [Input("userContextPolicy")]
         public Input<string>? UserContextPolicy { get; set; }
 
+        [Input("userTokenConfigurations")]
+        private InputList<Inputs.IndexUserTokenConfigurationArgs>? _userTokenConfigurations;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
         /// </summary>
-        [Input("userTokenConfigurations")]
-        public Input<Inputs.IndexUserTokenConfigurationListArgs>? UserTokenConfigurations { get; set; }
+        public InputList<Inputs.IndexUserTokenConfigurationArgs> UserTokenConfigurations
+        {
+            get => _userTokenConfigurations ?? (_userTokenConfigurations = new InputList<Inputs.IndexUserTokenConfigurationArgs>());
+            set => _userTokenConfigurations = value;
+        }
 
         public IndexArgs()
         {

@@ -19,6 +19,8 @@ type TaskDefinition struct {
 	ContainerDefinitions TaskDefinitionContainerDefinitionArrayOutput `pulumi:"containerDefinitions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
 	Cpu pulumi.StringPtrOutput `pulumi:"cpu"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
+	EphemeralStorage TaskDefinitionEphemeralStoragePtrOutput `pulumi:"ephemeralStorage"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
@@ -91,6 +93,8 @@ type taskDefinitionArgs struct {
 	ContainerDefinitions []TaskDefinitionContainerDefinition `pulumi:"containerDefinitions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
 	Cpu *string `pulumi:"cpu"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
+	EphemeralStorage *TaskDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
@@ -125,6 +129,8 @@ type TaskDefinitionArgs struct {
 	ContainerDefinitions TaskDefinitionContainerDefinitionArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
 	Cpu pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
+	EphemeralStorage TaskDefinitionEphemeralStoragePtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
 	ExecutionRoleArn pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family

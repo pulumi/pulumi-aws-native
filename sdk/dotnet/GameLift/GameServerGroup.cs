@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.GameLift
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
         /// </summary>
         [Output("instanceDefinitions")]
-        public Output<Outputs.GameServerGroupInstanceDefinitions> InstanceDefinitions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GameServerGroupInstanceDefinition>> InstanceDefinitions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
@@ -85,13 +85,13 @@ namespace Pulumi.AwsNative.GameLift
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.GameServerGroupTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
         /// </summary>
         [Output("vpcSubnets")]
-        public Output<Outputs.GameServerGroupVpcSubnets?> VpcSubnets { get; private set; } = null!;
+        public Output<ImmutableArray<string>> VpcSubnets { get; private set; } = null!;
 
 
         /// <summary>
@@ -168,11 +168,17 @@ namespace Pulumi.AwsNative.GameLift
         [Input("gameServerProtectionPolicy")]
         public Input<string>? GameServerProtectionPolicy { get; set; }
 
+        [Input("instanceDefinitions", required: true)]
+        private InputList<Inputs.GameServerGroupInstanceDefinitionArgs>? _instanceDefinitions;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
         /// </summary>
-        [Input("instanceDefinitions", required: true)]
-        public Input<Inputs.GameServerGroupInstanceDefinitionsArgs> InstanceDefinitions { get; set; } = null!;
+        public InputList<Inputs.GameServerGroupInstanceDefinitionArgs> InstanceDefinitions
+        {
+            get => _instanceDefinitions ?? (_instanceDefinitions = new InputList<Inputs.GameServerGroupInstanceDefinitionArgs>());
+            set => _instanceDefinitions = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
@@ -198,17 +204,29 @@ namespace Pulumi.AwsNative.GameLift
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.GameServerGroupTagsArgs>? Tags { get; set; }
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
+
+        [Input("vpcSubnets")]
+        private InputList<string>? _vpcSubnets;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
         /// </summary>
-        [Input("vpcSubnets")]
-        public Input<Inputs.GameServerGroupVpcSubnetsArgs>? VpcSubnets { get; set; }
+        public InputList<string> VpcSubnets
+        {
+            get => _vpcSubnets ?? (_vpcSubnets = new InputList<string>());
+            set => _vpcSubnets = value;
+        }
 
         public GameServerGroupArgs()
         {

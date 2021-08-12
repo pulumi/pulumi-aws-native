@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataCatalog{}
 	case "aws-native:Athena:NamedQuery":
 		r = &NamedQuery{}
+	case "aws-native:Athena:PreparedStatement":
+		r = &PreparedStatement{}
 	case "aws-native:Athena:WorkGroup":
 		r = &WorkGroup{}
 	default:

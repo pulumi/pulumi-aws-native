@@ -39,11 +39,23 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
+        [Input("ruleLabels")]
+        private InputList<Inputs.WebACLLabelArgs>? _ruleLabels;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-rulelabels
+        /// </summary>
+        public InputList<Inputs.WebACLLabelArgs> RuleLabels
+        {
+            get => _ruleLabels ?? (_ruleLabels = new InputList<Inputs.WebACLLabelArgs>());
+            set => _ruleLabels = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
         /// </summary>
         [Input("statement", required: true)]
-        public Input<Inputs.WebACLStatementOneArgs> Statement { get; set; } = null!;
+        public Input<Inputs.WebACLStatementArgs> Statement { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig

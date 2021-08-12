@@ -49,7 +49,10 @@ namespace Pulumi.AwsNative.GameLift
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
         /// </summary>
         [Output("eC2InstanceType")]
-        public Output<string> EC2InstanceType { get; private set; } = null!;
+        public Output<string?> EC2InstanceType { get; private set; } = null!;
+
+        [Output("fleetId")]
+        public Output<string> FleetId { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
@@ -64,10 +67,10 @@ namespace Pulumi.AwsNative.GameLift
         public Output<string?> InstanceRoleARN { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
         /// </summary>
-        [Output("logPaths")]
-        public Output<ImmutableArray<string>> LogPaths { get; private set; } = null!;
+        [Output("locations")]
+        public Output<ImmutableArray<Outputs.FleetLocationConfiguration>> Locations { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
@@ -91,7 +94,7 @@ namespace Pulumi.AwsNative.GameLift
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy
@@ -129,18 +132,6 @@ namespace Pulumi.AwsNative.GameLift
         [Output("scriptId")]
         public Output<string?> ScriptId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters
-        /// </summary>
-        [Output("serverLaunchParameters")]
-        public Output<string?> ServerLaunchParameters { get; private set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath
-        /// </summary>
-        [Output("serverLaunchPath")]
-        public Output<string?> ServerLaunchPath { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a Fleet resource with the given unique name, arguments, and options.
@@ -149,7 +140,7 @@ namespace Pulumi.AwsNative.GameLift
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Fleet(string name, FleetArgs args, CustomResourceOptions? options = null)
+        public Fleet(string name, FleetArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:GameLift:Fleet", name, args ?? new FleetArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -225,8 +216,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
         /// </summary>
-        [Input("eC2InstanceType", required: true)]
-        public Input<string> EC2InstanceType { get; set; } = null!;
+        [Input("eC2InstanceType")]
+        public Input<string>? EC2InstanceType { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
@@ -240,16 +231,16 @@ namespace Pulumi.AwsNative.GameLift
         [Input("instanceRoleARN")]
         public Input<string>? InstanceRoleARN { get; set; }
 
-        [Input("logPaths")]
-        private InputList<string>? _logPaths;
+        [Input("locations")]
+        private InputList<Inputs.FleetLocationConfigurationArgs>? _locations;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
         /// </summary>
-        public InputList<string> LogPaths
+        public InputList<Inputs.FleetLocationConfigurationArgs> Locations
         {
-            get => _logPaths ?? (_logPaths = new InputList<string>());
-            set => _logPaths = value;
+            get => _locations ?? (_locations = new InputList<Inputs.FleetLocationConfigurationArgs>());
+            set => _locations = value;
         }
 
         /// <summary>
@@ -279,8 +270,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy
@@ -317,18 +308,6 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("scriptId")]
         public Input<string>? ScriptId { get; set; }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters
-        /// </summary>
-        [Input("serverLaunchParameters")]
-        public Input<string>? ServerLaunchParameters { get; set; }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath
-        /// </summary>
-        [Input("serverLaunchPath")]
-        public Input<string>? ServerLaunchPath { get; set; }
 
         public FleetArgs()
         {

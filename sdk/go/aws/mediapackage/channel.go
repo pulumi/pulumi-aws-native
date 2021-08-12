@@ -19,9 +19,12 @@ type Channel struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	HlsIngest   ChannelHlsIngestOutput `pulumi:"hlsIngest"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+	EgressAccessLogs ChannelLogConfigurationPtrOutput `pulumi:"egressAccessLogs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
 	Id pulumi.StringOutput `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+	IngressAccessLogs ChannelLogConfigurationPtrOutput `pulumi:"ingressAccessLogs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -70,8 +73,12 @@ func (ChannelState) ElementType() reflect.Type {
 type channelArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
 	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+	EgressAccessLogs *ChannelLogConfiguration `pulumi:"egressAccessLogs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
 	Id string `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+	IngressAccessLogs *ChannelLogConfiguration `pulumi:"ingressAccessLogs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -80,8 +87,12 @@ type channelArgs struct {
 type ChannelArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
 	Description pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+	EgressAccessLogs ChannelLogConfigurationPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
 	Id pulumi.StringInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+	IngressAccessLogs ChannelLogConfigurationPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
 	Tags aws.TagArrayInput
 }

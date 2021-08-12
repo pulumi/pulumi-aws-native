@@ -15,8 +15,8 @@ import (
 type InstanceAccessControlAttributeConfiguration struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
-	InstanceAccessControlAttributeConfiguration pulumi.AnyOutput `pulumi:"instanceAccessControlAttributeConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
+	AccessControlAttributes InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput `pulumi:"accessControlAttributes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 }
@@ -28,9 +28,6 @@ func NewInstanceAccessControlAttributeConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.InstanceAccessControlAttributeConfiguration == nil {
-		return nil, errors.New("invalid value for required argument 'InstanceAccessControlAttributeConfiguration'")
-	}
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
@@ -66,16 +63,16 @@ func (InstanceAccessControlAttributeConfigurationState) ElementType() reflect.Ty
 }
 
 type instanceAccessControlAttributeConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
-	InstanceAccessControlAttributeConfiguration interface{} `pulumi:"instanceAccessControlAttributeConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
+	AccessControlAttributes []InstanceAccessControlAttributeConfigurationAccessControlAttribute `pulumi:"accessControlAttributes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
 	InstanceArn string `pulumi:"instanceArn"`
 }
 
 // The set of arguments for constructing a InstanceAccessControlAttributeConfiguration resource.
 type InstanceAccessControlAttributeConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
-	InstanceAccessControlAttributeConfiguration pulumi.Input
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
+	AccessControlAttributes InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
 	InstanceArn pulumi.StringInput
 }

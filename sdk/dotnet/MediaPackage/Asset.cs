@@ -21,9 +21,6 @@ namespace Pulumi.AwsNative.MediaPackage
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
-        /// </summary>
         [Output("egressEndpoints")]
         public Output<ImmutableArray<Outputs.AssetEgressEndpoint>> EgressEndpoints { get; private set; } = null!;
 
@@ -108,18 +105,6 @@ namespace Pulumi.AwsNative.MediaPackage
 
     public sealed class AssetArgs : Pulumi.ResourceArgs
     {
-        [Input("egressEndpoints")]
-        private InputList<Inputs.AssetEgressEndpointArgs>? _egressEndpoints;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
-        /// </summary>
-        public InputList<Inputs.AssetEgressEndpointArgs> EgressEndpoints
-        {
-            get => _egressEndpoints ?? (_egressEndpoints = new InputList<Inputs.AssetEgressEndpointArgs>());
-            set => _egressEndpoints = value;
-        }
-
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
         /// </summary>

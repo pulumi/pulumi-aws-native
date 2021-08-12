@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html#cfn-networkfirewall-rulegroup-ipset-definition
         /// </summary>
-        public readonly Outputs.RuleGroupVariableDefinitionList? Definition;
+        public readonly ImmutableArray<string> Definition;
 
         [OutputConstructor]
-        private RuleGroupIPSet(Outputs.RuleGroupVariableDefinitionList? definition)
+        private RuleGroupIPSet(ImmutableArray<string> definition)
         {
             Definition = definition;
         }

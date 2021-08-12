@@ -37,6 +37,12 @@ namespace Pulumi.AwsNative.SSM
         public Output<string?> AutomationTargetParameterName { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
+        /// </summary>
+        [Output("calendarNames")]
+        public Output<ImmutableArray<string>> CalendarNames { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
         /// </summary>
         [Output("complianceSeverity")]
@@ -82,7 +88,7 @@ namespace Pulumi.AwsNative.SSM
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.AssociationParameterValues>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Union<System.Text.Json.JsonElement, string>>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
@@ -171,6 +177,18 @@ namespace Pulumi.AwsNative.SSM
         [Input("automationTargetParameterName")]
         public Input<string>? AutomationTargetParameterName { get; set; }
 
+        [Input("calendarNames")]
+        private InputList<string>? _calendarNames;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
+        /// </summary>
+        public InputList<string> CalendarNames
+        {
+            get => _calendarNames ?? (_calendarNames = new InputList<string>());
+            set => _calendarNames = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
         /// </summary>
@@ -214,14 +232,14 @@ namespace Pulumi.AwsNative.SSM
         public Input<Inputs.AssociationInstanceAssociationOutputLocationArgs>? OutputLocation { get; set; }
 
         [Input("parameters")]
-        private InputMap<Inputs.AssociationParameterValuesArgs>? _parameters;
+        private InputMap<Union<System.Text.Json.JsonElement, string>>? _parameters;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
         /// </summary>
-        public InputMap<Inputs.AssociationParameterValuesArgs> Parameters
+        public InputMap<Union<System.Text.Json.JsonElement, string>> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<Inputs.AssociationParameterValuesArgs>());
+            get => _parameters ?? (_parameters = new InputMap<Union<System.Text.Json.JsonElement, string>>());
             set => _parameters = value;
         }
 

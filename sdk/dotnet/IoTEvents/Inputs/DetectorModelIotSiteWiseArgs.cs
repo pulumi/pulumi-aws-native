@@ -42,8 +42,8 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
         /// </summary>
-        [Input("propertyValue")]
-        public Input<Inputs.DetectorModelAssetPropertyValueArgs>? PropertyValue { get; set; }
+        [Input("propertyValue", required: true)]
+        public Input<Inputs.DetectorModelAssetPropertyValueArgs> PropertyValue { get; set; } = null!;
 
         public DetectorModelIotSiteWiseArgs()
         {

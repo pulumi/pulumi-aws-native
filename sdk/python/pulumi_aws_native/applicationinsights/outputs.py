@@ -177,10 +177,10 @@ class ApplicationComponentMonitoringSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "componentARN":
-            suggest = "component_arn"
-        elif key == "componentConfigurationMode":
+        if key == "componentConfigurationMode":
             suggest = "component_configuration_mode"
+        elif key == "componentARN":
+            suggest = "component_arn"
         elif key == "componentName":
             suggest = "component_name"
         elif key == "customComponentConfiguration":
@@ -200,33 +200,47 @@ class ApplicationComponentMonitoringSetting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 component_configuration_mode: str,
+                 tier: str,
                  component_arn: Optional[str] = None,
-                 component_configuration_mode: Optional[str] = None,
                  component_name: Optional[str] = None,
                  custom_component_configuration: Optional['outputs.ApplicationComponentConfiguration'] = None,
-                 default_overwrite_component_configuration: Optional['outputs.ApplicationComponentConfiguration'] = None,
-                 tier: Optional[str] = None):
+                 default_overwrite_component_configuration: Optional['outputs.ApplicationComponentConfiguration'] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html
-        :param str component_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
         :param str component_configuration_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
+        :param str tier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
+        :param str component_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
         :param str component_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
         :param 'ApplicationComponentConfiguration' custom_component_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-customcomponentconfiguration
         :param 'ApplicationComponentConfiguration' default_overwrite_component_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration
-        :param str tier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
         """
+        pulumi.set(__self__, "component_configuration_mode", component_configuration_mode)
+        pulumi.set(__self__, "tier", tier)
         if component_arn is not None:
             pulumi.set(__self__, "component_arn", component_arn)
-        if component_configuration_mode is not None:
-            pulumi.set(__self__, "component_configuration_mode", component_configuration_mode)
         if component_name is not None:
             pulumi.set(__self__, "component_name", component_name)
         if custom_component_configuration is not None:
             pulumi.set(__self__, "custom_component_configuration", custom_component_configuration)
         if default_overwrite_component_configuration is not None:
             pulumi.set(__self__, "default_overwrite_component_configuration", default_overwrite_component_configuration)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter(name="componentConfigurationMode")
+    def component_configuration_mode(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
+        """
+        return pulumi.get(self, "component_configuration_mode")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
+        """
+        return pulumi.get(self, "tier")
 
     @property
     @pulumi.getter(name="componentARN")
@@ -235,14 +249,6 @@ class ApplicationComponentMonitoringSetting(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
         """
         return pulumi.get(self, "component_arn")
-
-    @property
-    @pulumi.getter(name="componentConfigurationMode")
-    def component_configuration_mode(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
-        """
-        return pulumi.get(self, "component_configuration_mode")
 
     @property
     @pulumi.getter(name="componentName")
@@ -267,14 +273,6 @@ class ApplicationComponentMonitoringSetting(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration
         """
         return pulumi.get(self, "default_overwrite_component_configuration")
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
-        """
-        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

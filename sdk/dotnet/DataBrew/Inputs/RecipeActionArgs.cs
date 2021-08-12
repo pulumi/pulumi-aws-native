@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
         /// </summary>
         [Input("parameters")]
-        public Input<object>? Parameters { get; set; }
+        public Input<Inputs.RecipeParameterMapArgs>? Parameters { get; set; }
 
         public RecipeActionArgs()
         {

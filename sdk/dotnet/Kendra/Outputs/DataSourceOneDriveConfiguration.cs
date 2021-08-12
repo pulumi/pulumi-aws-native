@@ -23,15 +23,15 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-exclusionpatterns
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceInclusionsExclusionsStrings? ExclusionPatterns;
+        public readonly ImmutableArray<string> ExclusionPatterns;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-fieldmappings
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceToIndexFieldMappingList? FieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-inclusionpatterns
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceInclusionsExclusionsStrings? InclusionPatterns;
+        public readonly ImmutableArray<string> InclusionPatterns;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-onedriveusers
         /// </summary>
@@ -49,11 +49,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         private DataSourceOneDriveConfiguration(
             bool? disableLocalGroups,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? exclusionPatterns,
+            ImmutableArray<string> exclusionPatterns,
 
-            Outputs.DataSourceDataSourceToIndexFieldMappingList? fieldMappings,
+            ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? inclusionPatterns,
+            ImmutableArray<string> inclusionPatterns,
 
             Outputs.DataSourceOneDriveUsers oneDriveUsers,
 

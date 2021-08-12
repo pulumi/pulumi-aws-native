@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -234,146 +233,6 @@ func (o AssessmentAWSAccountArrayOutput) Index(i pulumi.IntInput) AssessmentAWSA
 	}).(AssessmentAWSAccountOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html
-type AssessmentAWSAccounts struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
-	AWSAccounts []AssessmentAWSAccount `pulumi:"aWSAccounts"`
-}
-
-// AssessmentAWSAccountsInput is an input type that accepts AssessmentAWSAccountsArgs and AssessmentAWSAccountsOutput values.
-// You can construct a concrete instance of `AssessmentAWSAccountsInput` via:
-//
-//          AssessmentAWSAccountsArgs{...}
-type AssessmentAWSAccountsInput interface {
-	pulumi.Input
-
-	ToAssessmentAWSAccountsOutput() AssessmentAWSAccountsOutput
-	ToAssessmentAWSAccountsOutputWithContext(context.Context) AssessmentAWSAccountsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html
-type AssessmentAWSAccountsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
-	AWSAccounts AssessmentAWSAccountArrayInput `pulumi:"aWSAccounts"`
-}
-
-func (AssessmentAWSAccountsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAWSAccounts)(nil)).Elem()
-}
-
-func (i AssessmentAWSAccountsArgs) ToAssessmentAWSAccountsOutput() AssessmentAWSAccountsOutput {
-	return i.ToAssessmentAWSAccountsOutputWithContext(context.Background())
-}
-
-func (i AssessmentAWSAccountsArgs) ToAssessmentAWSAccountsOutputWithContext(ctx context.Context) AssessmentAWSAccountsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSAccountsOutput)
-}
-
-func (i AssessmentAWSAccountsArgs) ToAssessmentAWSAccountsPtrOutput() AssessmentAWSAccountsPtrOutput {
-	return i.ToAssessmentAWSAccountsPtrOutputWithContext(context.Background())
-}
-
-func (i AssessmentAWSAccountsArgs) ToAssessmentAWSAccountsPtrOutputWithContext(ctx context.Context) AssessmentAWSAccountsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSAccountsOutput).ToAssessmentAWSAccountsPtrOutputWithContext(ctx)
-}
-
-// AssessmentAWSAccountsPtrInput is an input type that accepts AssessmentAWSAccountsArgs, AssessmentAWSAccountsPtr and AssessmentAWSAccountsPtrOutput values.
-// You can construct a concrete instance of `AssessmentAWSAccountsPtrInput` via:
-//
-//          AssessmentAWSAccountsArgs{...}
-//
-//  or:
-//
-//          nil
-type AssessmentAWSAccountsPtrInput interface {
-	pulumi.Input
-
-	ToAssessmentAWSAccountsPtrOutput() AssessmentAWSAccountsPtrOutput
-	ToAssessmentAWSAccountsPtrOutputWithContext(context.Context) AssessmentAWSAccountsPtrOutput
-}
-
-type assessmentAWSAccountsPtrType AssessmentAWSAccountsArgs
-
-func AssessmentAWSAccountsPtr(v *AssessmentAWSAccountsArgs) AssessmentAWSAccountsPtrInput {
-	return (*assessmentAWSAccountsPtrType)(v)
-}
-
-func (*assessmentAWSAccountsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentAWSAccounts)(nil)).Elem()
-}
-
-func (i *assessmentAWSAccountsPtrType) ToAssessmentAWSAccountsPtrOutput() AssessmentAWSAccountsPtrOutput {
-	return i.ToAssessmentAWSAccountsPtrOutputWithContext(context.Background())
-}
-
-func (i *assessmentAWSAccountsPtrType) ToAssessmentAWSAccountsPtrOutputWithContext(ctx context.Context) AssessmentAWSAccountsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSAccountsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html
-type AssessmentAWSAccountsOutput struct{ *pulumi.OutputState }
-
-func (AssessmentAWSAccountsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAWSAccounts)(nil)).Elem()
-}
-
-func (o AssessmentAWSAccountsOutput) ToAssessmentAWSAccountsOutput() AssessmentAWSAccountsOutput {
-	return o
-}
-
-func (o AssessmentAWSAccountsOutput) ToAssessmentAWSAccountsOutputWithContext(ctx context.Context) AssessmentAWSAccountsOutput {
-	return o
-}
-
-func (o AssessmentAWSAccountsOutput) ToAssessmentAWSAccountsPtrOutput() AssessmentAWSAccountsPtrOutput {
-	return o.ToAssessmentAWSAccountsPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentAWSAccountsOutput) ToAssessmentAWSAccountsPtrOutputWithContext(ctx context.Context) AssessmentAWSAccountsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentAWSAccounts) *AssessmentAWSAccounts {
-		return &v
-	}).(AssessmentAWSAccountsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
-func (o AssessmentAWSAccountsOutput) AWSAccounts() AssessmentAWSAccountArrayOutput {
-	return o.ApplyT(func(v AssessmentAWSAccounts) []AssessmentAWSAccount { return v.AWSAccounts }).(AssessmentAWSAccountArrayOutput)
-}
-
-type AssessmentAWSAccountsPtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentAWSAccountsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentAWSAccounts)(nil)).Elem()
-}
-
-func (o AssessmentAWSAccountsPtrOutput) ToAssessmentAWSAccountsPtrOutput() AssessmentAWSAccountsPtrOutput {
-	return o
-}
-
-func (o AssessmentAWSAccountsPtrOutput) ToAssessmentAWSAccountsPtrOutputWithContext(ctx context.Context) AssessmentAWSAccountsPtrOutput {
-	return o
-}
-
-func (o AssessmentAWSAccountsPtrOutput) Elem() AssessmentAWSAccountsOutput {
-	return o.ApplyT(func(v *AssessmentAWSAccounts) AssessmentAWSAccounts {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentAWSAccounts
-		return ret
-	}).(AssessmentAWSAccountsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
-func (o AssessmentAWSAccountsPtrOutput) AWSAccounts() AssessmentAWSAccountArrayOutput {
-	return o.ApplyT(func(v *AssessmentAWSAccounts) []AssessmentAWSAccount {
-		if v == nil {
-			return nil
-		}
-		return v.AWSAccounts
-	}).(AssessmentAWSAccountArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
 type AssessmentAWSService struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
@@ -472,146 +331,6 @@ func (o AssessmentAWSServiceArrayOutput) Index(i pulumi.IntInput) AssessmentAWSS
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentAWSService {
 		return vs[0].([]AssessmentAWSService)[vs[1].(int)]
 	}).(AssessmentAWSServiceOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html
-type AssessmentAWSServices struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
-	AWSServices []AssessmentAWSService `pulumi:"aWSServices"`
-}
-
-// AssessmentAWSServicesInput is an input type that accepts AssessmentAWSServicesArgs and AssessmentAWSServicesOutput values.
-// You can construct a concrete instance of `AssessmentAWSServicesInput` via:
-//
-//          AssessmentAWSServicesArgs{...}
-type AssessmentAWSServicesInput interface {
-	pulumi.Input
-
-	ToAssessmentAWSServicesOutput() AssessmentAWSServicesOutput
-	ToAssessmentAWSServicesOutputWithContext(context.Context) AssessmentAWSServicesOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html
-type AssessmentAWSServicesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
-	AWSServices AssessmentAWSServiceArrayInput `pulumi:"aWSServices"`
-}
-
-func (AssessmentAWSServicesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAWSServices)(nil)).Elem()
-}
-
-func (i AssessmentAWSServicesArgs) ToAssessmentAWSServicesOutput() AssessmentAWSServicesOutput {
-	return i.ToAssessmentAWSServicesOutputWithContext(context.Background())
-}
-
-func (i AssessmentAWSServicesArgs) ToAssessmentAWSServicesOutputWithContext(ctx context.Context) AssessmentAWSServicesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSServicesOutput)
-}
-
-func (i AssessmentAWSServicesArgs) ToAssessmentAWSServicesPtrOutput() AssessmentAWSServicesPtrOutput {
-	return i.ToAssessmentAWSServicesPtrOutputWithContext(context.Background())
-}
-
-func (i AssessmentAWSServicesArgs) ToAssessmentAWSServicesPtrOutputWithContext(ctx context.Context) AssessmentAWSServicesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSServicesOutput).ToAssessmentAWSServicesPtrOutputWithContext(ctx)
-}
-
-// AssessmentAWSServicesPtrInput is an input type that accepts AssessmentAWSServicesArgs, AssessmentAWSServicesPtr and AssessmentAWSServicesPtrOutput values.
-// You can construct a concrete instance of `AssessmentAWSServicesPtrInput` via:
-//
-//          AssessmentAWSServicesArgs{...}
-//
-//  or:
-//
-//          nil
-type AssessmentAWSServicesPtrInput interface {
-	pulumi.Input
-
-	ToAssessmentAWSServicesPtrOutput() AssessmentAWSServicesPtrOutput
-	ToAssessmentAWSServicesPtrOutputWithContext(context.Context) AssessmentAWSServicesPtrOutput
-}
-
-type assessmentAWSServicesPtrType AssessmentAWSServicesArgs
-
-func AssessmentAWSServicesPtr(v *AssessmentAWSServicesArgs) AssessmentAWSServicesPtrInput {
-	return (*assessmentAWSServicesPtrType)(v)
-}
-
-func (*assessmentAWSServicesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentAWSServices)(nil)).Elem()
-}
-
-func (i *assessmentAWSServicesPtrType) ToAssessmentAWSServicesPtrOutput() AssessmentAWSServicesPtrOutput {
-	return i.ToAssessmentAWSServicesPtrOutputWithContext(context.Background())
-}
-
-func (i *assessmentAWSServicesPtrType) ToAssessmentAWSServicesPtrOutputWithContext(ctx context.Context) AssessmentAWSServicesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSServicesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html
-type AssessmentAWSServicesOutput struct{ *pulumi.OutputState }
-
-func (AssessmentAWSServicesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAWSServices)(nil)).Elem()
-}
-
-func (o AssessmentAWSServicesOutput) ToAssessmentAWSServicesOutput() AssessmentAWSServicesOutput {
-	return o
-}
-
-func (o AssessmentAWSServicesOutput) ToAssessmentAWSServicesOutputWithContext(ctx context.Context) AssessmentAWSServicesOutput {
-	return o
-}
-
-func (o AssessmentAWSServicesOutput) ToAssessmentAWSServicesPtrOutput() AssessmentAWSServicesPtrOutput {
-	return o.ToAssessmentAWSServicesPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentAWSServicesOutput) ToAssessmentAWSServicesPtrOutputWithContext(ctx context.Context) AssessmentAWSServicesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentAWSServices) *AssessmentAWSServices {
-		return &v
-	}).(AssessmentAWSServicesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
-func (o AssessmentAWSServicesOutput) AWSServices() AssessmentAWSServiceArrayOutput {
-	return o.ApplyT(func(v AssessmentAWSServices) []AssessmentAWSService { return v.AWSServices }).(AssessmentAWSServiceArrayOutput)
-}
-
-type AssessmentAWSServicesPtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentAWSServicesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentAWSServices)(nil)).Elem()
-}
-
-func (o AssessmentAWSServicesPtrOutput) ToAssessmentAWSServicesPtrOutput() AssessmentAWSServicesPtrOutput {
-	return o
-}
-
-func (o AssessmentAWSServicesPtrOutput) ToAssessmentAWSServicesPtrOutputWithContext(ctx context.Context) AssessmentAWSServicesPtrOutput {
-	return o
-}
-
-func (o AssessmentAWSServicesPtrOutput) Elem() AssessmentAWSServicesOutput {
-	return o.ApplyT(func(v *AssessmentAWSServices) AssessmentAWSServices {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentAWSServices
-		return ret
-	}).(AssessmentAWSServicesOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
-func (o AssessmentAWSServicesPtrOutput) AWSServices() AssessmentAWSServiceArrayOutput {
-	return o.ApplyT(func(v *AssessmentAWSServices) []AssessmentAWSService {
-		if v == nil {
-			return nil
-		}
-		return v.AWSServices
-	}).(AssessmentAWSServiceArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html
@@ -963,146 +682,6 @@ func (o AssessmentDelegationArrayOutput) Index(i pulumi.IntInput) AssessmentDele
 	}).(AssessmentDelegationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html
-type AssessmentDelegations struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html#cfn-auditmanager-assessment-delegations-delegations
-	Delegations []AssessmentDelegation `pulumi:"delegations"`
-}
-
-// AssessmentDelegationsInput is an input type that accepts AssessmentDelegationsArgs and AssessmentDelegationsOutput values.
-// You can construct a concrete instance of `AssessmentDelegationsInput` via:
-//
-//          AssessmentDelegationsArgs{...}
-type AssessmentDelegationsInput interface {
-	pulumi.Input
-
-	ToAssessmentDelegationsOutput() AssessmentDelegationsOutput
-	ToAssessmentDelegationsOutputWithContext(context.Context) AssessmentDelegationsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html
-type AssessmentDelegationsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html#cfn-auditmanager-assessment-delegations-delegations
-	Delegations AssessmentDelegationArrayInput `pulumi:"delegations"`
-}
-
-func (AssessmentDelegationsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentDelegations)(nil)).Elem()
-}
-
-func (i AssessmentDelegationsArgs) ToAssessmentDelegationsOutput() AssessmentDelegationsOutput {
-	return i.ToAssessmentDelegationsOutputWithContext(context.Background())
-}
-
-func (i AssessmentDelegationsArgs) ToAssessmentDelegationsOutputWithContext(ctx context.Context) AssessmentDelegationsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentDelegationsOutput)
-}
-
-func (i AssessmentDelegationsArgs) ToAssessmentDelegationsPtrOutput() AssessmentDelegationsPtrOutput {
-	return i.ToAssessmentDelegationsPtrOutputWithContext(context.Background())
-}
-
-func (i AssessmentDelegationsArgs) ToAssessmentDelegationsPtrOutputWithContext(ctx context.Context) AssessmentDelegationsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentDelegationsOutput).ToAssessmentDelegationsPtrOutputWithContext(ctx)
-}
-
-// AssessmentDelegationsPtrInput is an input type that accepts AssessmentDelegationsArgs, AssessmentDelegationsPtr and AssessmentDelegationsPtrOutput values.
-// You can construct a concrete instance of `AssessmentDelegationsPtrInput` via:
-//
-//          AssessmentDelegationsArgs{...}
-//
-//  or:
-//
-//          nil
-type AssessmentDelegationsPtrInput interface {
-	pulumi.Input
-
-	ToAssessmentDelegationsPtrOutput() AssessmentDelegationsPtrOutput
-	ToAssessmentDelegationsPtrOutputWithContext(context.Context) AssessmentDelegationsPtrOutput
-}
-
-type assessmentDelegationsPtrType AssessmentDelegationsArgs
-
-func AssessmentDelegationsPtr(v *AssessmentDelegationsArgs) AssessmentDelegationsPtrInput {
-	return (*assessmentDelegationsPtrType)(v)
-}
-
-func (*assessmentDelegationsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentDelegations)(nil)).Elem()
-}
-
-func (i *assessmentDelegationsPtrType) ToAssessmentDelegationsPtrOutput() AssessmentDelegationsPtrOutput {
-	return i.ToAssessmentDelegationsPtrOutputWithContext(context.Background())
-}
-
-func (i *assessmentDelegationsPtrType) ToAssessmentDelegationsPtrOutputWithContext(ctx context.Context) AssessmentDelegationsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentDelegationsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html
-type AssessmentDelegationsOutput struct{ *pulumi.OutputState }
-
-func (AssessmentDelegationsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentDelegations)(nil)).Elem()
-}
-
-func (o AssessmentDelegationsOutput) ToAssessmentDelegationsOutput() AssessmentDelegationsOutput {
-	return o
-}
-
-func (o AssessmentDelegationsOutput) ToAssessmentDelegationsOutputWithContext(ctx context.Context) AssessmentDelegationsOutput {
-	return o
-}
-
-func (o AssessmentDelegationsOutput) ToAssessmentDelegationsPtrOutput() AssessmentDelegationsPtrOutput {
-	return o.ToAssessmentDelegationsPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentDelegationsOutput) ToAssessmentDelegationsPtrOutputWithContext(ctx context.Context) AssessmentDelegationsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentDelegations) *AssessmentDelegations {
-		return &v
-	}).(AssessmentDelegationsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html#cfn-auditmanager-assessment-delegations-delegations
-func (o AssessmentDelegationsOutput) Delegations() AssessmentDelegationArrayOutput {
-	return o.ApplyT(func(v AssessmentDelegations) []AssessmentDelegation { return v.Delegations }).(AssessmentDelegationArrayOutput)
-}
-
-type AssessmentDelegationsPtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentDelegationsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentDelegations)(nil)).Elem()
-}
-
-func (o AssessmentDelegationsPtrOutput) ToAssessmentDelegationsPtrOutput() AssessmentDelegationsPtrOutput {
-	return o
-}
-
-func (o AssessmentDelegationsPtrOutput) ToAssessmentDelegationsPtrOutputWithContext(ctx context.Context) AssessmentDelegationsPtrOutput {
-	return o
-}
-
-func (o AssessmentDelegationsPtrOutput) Elem() AssessmentDelegationsOutput {
-	return o.ApplyT(func(v *AssessmentDelegations) AssessmentDelegations {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentDelegations
-		return ret
-	}).(AssessmentDelegationsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html#cfn-auditmanager-assessment-delegations-delegations
-func (o AssessmentDelegationsPtrOutput) Delegations() AssessmentDelegationArrayOutput {
-	return o.ApplyT(func(v *AssessmentDelegations) []AssessmentDelegation {
-		if v == nil {
-			return nil
-		}
-		return v.Delegations
-	}).(AssessmentDelegationArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
 type AssessmentRole struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn
@@ -1212,152 +791,12 @@ func (o AssessmentRoleArrayOutput) Index(i pulumi.IntInput) AssessmentRoleOutput
 	}).(AssessmentRoleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html
-type AssessmentRoles struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html#cfn-auditmanager-assessment-roles-roles
-	Roles []AssessmentRole `pulumi:"roles"`
-}
-
-// AssessmentRolesInput is an input type that accepts AssessmentRolesArgs and AssessmentRolesOutput values.
-// You can construct a concrete instance of `AssessmentRolesInput` via:
-//
-//          AssessmentRolesArgs{...}
-type AssessmentRolesInput interface {
-	pulumi.Input
-
-	ToAssessmentRolesOutput() AssessmentRolesOutput
-	ToAssessmentRolesOutputWithContext(context.Context) AssessmentRolesOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html
-type AssessmentRolesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html#cfn-auditmanager-assessment-roles-roles
-	Roles AssessmentRoleArrayInput `pulumi:"roles"`
-}
-
-func (AssessmentRolesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentRoles)(nil)).Elem()
-}
-
-func (i AssessmentRolesArgs) ToAssessmentRolesOutput() AssessmentRolesOutput {
-	return i.ToAssessmentRolesOutputWithContext(context.Background())
-}
-
-func (i AssessmentRolesArgs) ToAssessmentRolesOutputWithContext(ctx context.Context) AssessmentRolesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentRolesOutput)
-}
-
-func (i AssessmentRolesArgs) ToAssessmentRolesPtrOutput() AssessmentRolesPtrOutput {
-	return i.ToAssessmentRolesPtrOutputWithContext(context.Background())
-}
-
-func (i AssessmentRolesArgs) ToAssessmentRolesPtrOutputWithContext(ctx context.Context) AssessmentRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentRolesOutput).ToAssessmentRolesPtrOutputWithContext(ctx)
-}
-
-// AssessmentRolesPtrInput is an input type that accepts AssessmentRolesArgs, AssessmentRolesPtr and AssessmentRolesPtrOutput values.
-// You can construct a concrete instance of `AssessmentRolesPtrInput` via:
-//
-//          AssessmentRolesArgs{...}
-//
-//  or:
-//
-//          nil
-type AssessmentRolesPtrInput interface {
-	pulumi.Input
-
-	ToAssessmentRolesPtrOutput() AssessmentRolesPtrOutput
-	ToAssessmentRolesPtrOutputWithContext(context.Context) AssessmentRolesPtrOutput
-}
-
-type assessmentRolesPtrType AssessmentRolesArgs
-
-func AssessmentRolesPtr(v *AssessmentRolesArgs) AssessmentRolesPtrInput {
-	return (*assessmentRolesPtrType)(v)
-}
-
-func (*assessmentRolesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentRoles)(nil)).Elem()
-}
-
-func (i *assessmentRolesPtrType) ToAssessmentRolesPtrOutput() AssessmentRolesPtrOutput {
-	return i.ToAssessmentRolesPtrOutputWithContext(context.Background())
-}
-
-func (i *assessmentRolesPtrType) ToAssessmentRolesPtrOutputWithContext(ctx context.Context) AssessmentRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentRolesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html
-type AssessmentRolesOutput struct{ *pulumi.OutputState }
-
-func (AssessmentRolesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentRoles)(nil)).Elem()
-}
-
-func (o AssessmentRolesOutput) ToAssessmentRolesOutput() AssessmentRolesOutput {
-	return o
-}
-
-func (o AssessmentRolesOutput) ToAssessmentRolesOutputWithContext(ctx context.Context) AssessmentRolesOutput {
-	return o
-}
-
-func (o AssessmentRolesOutput) ToAssessmentRolesPtrOutput() AssessmentRolesPtrOutput {
-	return o.ToAssessmentRolesPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentRolesOutput) ToAssessmentRolesPtrOutputWithContext(ctx context.Context) AssessmentRolesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentRoles) *AssessmentRoles {
-		return &v
-	}).(AssessmentRolesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html#cfn-auditmanager-assessment-roles-roles
-func (o AssessmentRolesOutput) Roles() AssessmentRoleArrayOutput {
-	return o.ApplyT(func(v AssessmentRoles) []AssessmentRole { return v.Roles }).(AssessmentRoleArrayOutput)
-}
-
-type AssessmentRolesPtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentRolesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentRoles)(nil)).Elem()
-}
-
-func (o AssessmentRolesPtrOutput) ToAssessmentRolesPtrOutput() AssessmentRolesPtrOutput {
-	return o
-}
-
-func (o AssessmentRolesPtrOutput) ToAssessmentRolesPtrOutputWithContext(ctx context.Context) AssessmentRolesPtrOutput {
-	return o
-}
-
-func (o AssessmentRolesPtrOutput) Elem() AssessmentRolesOutput {
-	return o.ApplyT(func(v *AssessmentRoles) AssessmentRoles {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentRoles
-		return ret
-	}).(AssessmentRolesOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html#cfn-auditmanager-assessment-roles-roles
-func (o AssessmentRolesPtrOutput) Roles() AssessmentRoleArrayOutput {
-	return o.ApplyT(func(v *AssessmentRoles) []AssessmentRole {
-		if v == nil {
-			return nil
-		}
-		return v.Roles
-	}).(AssessmentRoleArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
 type AssessmentScope struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
-	AwsAccounts *AssessmentAWSAccounts `pulumi:"awsAccounts"`
+	AwsAccounts []AssessmentAWSAccount `pulumi:"awsAccounts"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
-	AwsServices *AssessmentAWSServices `pulumi:"awsServices"`
+	AwsServices []AssessmentAWSService `pulumi:"awsServices"`
 }
 
 // AssessmentScopeInput is an input type that accepts AssessmentScopeArgs and AssessmentScopeOutput values.
@@ -1374,9 +813,9 @@ type AssessmentScopeInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
 type AssessmentScopeArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
-	AwsAccounts AssessmentAWSAccountsPtrInput `pulumi:"awsAccounts"`
+	AwsAccounts AssessmentAWSAccountArrayInput `pulumi:"awsAccounts"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
-	AwsServices AssessmentAWSServicesPtrInput `pulumi:"awsServices"`
+	AwsServices AssessmentAWSServiceArrayInput `pulumi:"awsServices"`
 }
 
 func (AssessmentScopeArgs) ElementType() reflect.Type {
@@ -1458,13 +897,13 @@ func (o AssessmentScopeOutput) ToAssessmentScopePtrOutputWithContext(ctx context
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
-func (o AssessmentScopeOutput) AwsAccounts() AssessmentAWSAccountsPtrOutput {
-	return o.ApplyT(func(v AssessmentScope) *AssessmentAWSAccounts { return v.AwsAccounts }).(AssessmentAWSAccountsPtrOutput)
+func (o AssessmentScopeOutput) AwsAccounts() AssessmentAWSAccountArrayOutput {
+	return o.ApplyT(func(v AssessmentScope) []AssessmentAWSAccount { return v.AwsAccounts }).(AssessmentAWSAccountArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
-func (o AssessmentScopeOutput) AwsServices() AssessmentAWSServicesPtrOutput {
-	return o.ApplyT(func(v AssessmentScope) *AssessmentAWSServices { return v.AwsServices }).(AssessmentAWSServicesPtrOutput)
+func (o AssessmentScopeOutput) AwsServices() AssessmentAWSServiceArrayOutput {
+	return o.ApplyT(func(v AssessmentScope) []AssessmentAWSService { return v.AwsServices }).(AssessmentAWSServiceArrayOutput)
 }
 
 type AssessmentScopePtrOutput struct{ *pulumi.OutputState }
@@ -1492,187 +931,37 @@ func (o AssessmentScopePtrOutput) Elem() AssessmentScopeOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
-func (o AssessmentScopePtrOutput) AwsAccounts() AssessmentAWSAccountsPtrOutput {
-	return o.ApplyT(func(v *AssessmentScope) *AssessmentAWSAccounts {
+func (o AssessmentScopePtrOutput) AwsAccounts() AssessmentAWSAccountArrayOutput {
+	return o.ApplyT(func(v *AssessmentScope) []AssessmentAWSAccount {
 		if v == nil {
 			return nil
 		}
 		return v.AwsAccounts
-	}).(AssessmentAWSAccountsPtrOutput)
+	}).(AssessmentAWSAccountArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
-func (o AssessmentScopePtrOutput) AwsServices() AssessmentAWSServicesPtrOutput {
-	return o.ApplyT(func(v *AssessmentScope) *AssessmentAWSServices {
+func (o AssessmentScopePtrOutput) AwsServices() AssessmentAWSServiceArrayOutput {
+	return o.ApplyT(func(v *AssessmentScope) []AssessmentAWSService {
 		if v == nil {
 			return nil
 		}
 		return v.AwsServices
-	}).(AssessmentAWSServicesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html
-type AssessmentTags struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html#cfn-auditmanager-assessment-tags-tags
-	Tags []aws.Tag `pulumi:"tags"`
-}
-
-// AssessmentTagsInput is an input type that accepts AssessmentTagsArgs and AssessmentTagsOutput values.
-// You can construct a concrete instance of `AssessmentTagsInput` via:
-//
-//          AssessmentTagsArgs{...}
-type AssessmentTagsInput interface {
-	pulumi.Input
-
-	ToAssessmentTagsOutput() AssessmentTagsOutput
-	ToAssessmentTagsOutputWithContext(context.Context) AssessmentTagsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html
-type AssessmentTagsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html#cfn-auditmanager-assessment-tags-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
-}
-
-func (AssessmentTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentTags)(nil)).Elem()
-}
-
-func (i AssessmentTagsArgs) ToAssessmentTagsOutput() AssessmentTagsOutput {
-	return i.ToAssessmentTagsOutputWithContext(context.Background())
-}
-
-func (i AssessmentTagsArgs) ToAssessmentTagsOutputWithContext(ctx context.Context) AssessmentTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTagsOutput)
-}
-
-func (i AssessmentTagsArgs) ToAssessmentTagsPtrOutput() AssessmentTagsPtrOutput {
-	return i.ToAssessmentTagsPtrOutputWithContext(context.Background())
-}
-
-func (i AssessmentTagsArgs) ToAssessmentTagsPtrOutputWithContext(ctx context.Context) AssessmentTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTagsOutput).ToAssessmentTagsPtrOutputWithContext(ctx)
-}
-
-// AssessmentTagsPtrInput is an input type that accepts AssessmentTagsArgs, AssessmentTagsPtr and AssessmentTagsPtrOutput values.
-// You can construct a concrete instance of `AssessmentTagsPtrInput` via:
-//
-//          AssessmentTagsArgs{...}
-//
-//  or:
-//
-//          nil
-type AssessmentTagsPtrInput interface {
-	pulumi.Input
-
-	ToAssessmentTagsPtrOutput() AssessmentTagsPtrOutput
-	ToAssessmentTagsPtrOutputWithContext(context.Context) AssessmentTagsPtrOutput
-}
-
-type assessmentTagsPtrType AssessmentTagsArgs
-
-func AssessmentTagsPtr(v *AssessmentTagsArgs) AssessmentTagsPtrInput {
-	return (*assessmentTagsPtrType)(v)
-}
-
-func (*assessmentTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentTags)(nil)).Elem()
-}
-
-func (i *assessmentTagsPtrType) ToAssessmentTagsPtrOutput() AssessmentTagsPtrOutput {
-	return i.ToAssessmentTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *assessmentTagsPtrType) ToAssessmentTagsPtrOutputWithContext(ctx context.Context) AssessmentTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html
-type AssessmentTagsOutput struct{ *pulumi.OutputState }
-
-func (AssessmentTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentTags)(nil)).Elem()
-}
-
-func (o AssessmentTagsOutput) ToAssessmentTagsOutput() AssessmentTagsOutput {
-	return o
-}
-
-func (o AssessmentTagsOutput) ToAssessmentTagsOutputWithContext(ctx context.Context) AssessmentTagsOutput {
-	return o
-}
-
-func (o AssessmentTagsOutput) ToAssessmentTagsPtrOutput() AssessmentTagsPtrOutput {
-	return o.ToAssessmentTagsPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentTagsOutput) ToAssessmentTagsPtrOutputWithContext(ctx context.Context) AssessmentTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentTags) *AssessmentTags {
-		return &v
-	}).(AssessmentTagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html#cfn-auditmanager-assessment-tags-tags
-func (o AssessmentTagsOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v AssessmentTags) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
-}
-
-type AssessmentTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentTags)(nil)).Elem()
-}
-
-func (o AssessmentTagsPtrOutput) ToAssessmentTagsPtrOutput() AssessmentTagsPtrOutput {
-	return o
-}
-
-func (o AssessmentTagsPtrOutput) ToAssessmentTagsPtrOutputWithContext(ctx context.Context) AssessmentTagsPtrOutput {
-	return o
-}
-
-func (o AssessmentTagsPtrOutput) Elem() AssessmentTagsOutput {
-	return o.ApplyT(func(v *AssessmentTags) AssessmentTags {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentTags
-		return ret
-	}).(AssessmentTagsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html#cfn-auditmanager-assessment-tags-tags
-func (o AssessmentTagsPtrOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v *AssessmentTags) []aws.Tag {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(aws.TagArrayOutput)
+	}).(AssessmentAWSServiceArrayOutput)
 }
 
 func init() {
 	pulumi.RegisterOutputType(AssessmentAWSAccountOutput{})
 	pulumi.RegisterOutputType(AssessmentAWSAccountPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentAWSAccountArrayOutput{})
-	pulumi.RegisterOutputType(AssessmentAWSAccountsOutput{})
-	pulumi.RegisterOutputType(AssessmentAWSAccountsPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentAWSServiceOutput{})
 	pulumi.RegisterOutputType(AssessmentAWSServiceArrayOutput{})
-	pulumi.RegisterOutputType(AssessmentAWSServicesOutput{})
-	pulumi.RegisterOutputType(AssessmentAWSServicesPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentAssessmentReportsDestinationOutput{})
 	pulumi.RegisterOutputType(AssessmentAssessmentReportsDestinationPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentDelegationOutput{})
 	pulumi.RegisterOutputType(AssessmentDelegationArrayOutput{})
-	pulumi.RegisterOutputType(AssessmentDelegationsOutput{})
-	pulumi.RegisterOutputType(AssessmentDelegationsPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentRoleOutput{})
 	pulumi.RegisterOutputType(AssessmentRoleArrayOutput{})
-	pulumi.RegisterOutputType(AssessmentRolesOutput{})
-	pulumi.RegisterOutputType(AssessmentRolesPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentScopeOutput{})
 	pulumi.RegisterOutputType(AssessmentScopePtrOutput{})
-	pulumi.RegisterOutputType(AssessmentTagsOutput{})
-	pulumi.RegisterOutputType(AssessmentTagsPtrOutput{})
 }

@@ -11,7 +11,7 @@ from . import outputs
 
 __all__ = [
     'StateMachineCloudWatchLogsLogGroup',
-    'StateMachineDefinitionSubstitutions',
+    'StateMachineDefinition',
     'StateMachineLogDestination',
     'StateMachineLoggingConfiguration',
     'StateMachineS3Location',
@@ -60,13 +60,13 @@ class StateMachineCloudWatchLogsLogGroup(dict):
 
 
 @pulumi.output_type
-class StateMachineDefinitionSubstitutions(dict):
+class StateMachineDefinition(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definitionsubstitutions.html
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definition.html
     """
     def __init__(__self__):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definitionsubstitutions.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definition.html
         """
         pass
 

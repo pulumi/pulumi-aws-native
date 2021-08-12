@@ -113,7 +113,6 @@ class DataflowEndpointGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["id"] = None
-            __props__.__dict__["status"] = None
         super(DataflowEndpointGroup, __self__).__init__(
             'aws-native:GroundStation:DataflowEndpointGroup',
             resource_name,
@@ -139,7 +138,6 @@ class DataflowEndpointGroup(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["endpoint_details"] = None
         __props__.__dict__["id"] = None
-        __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         return DataflowEndpointGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -160,11 +158,6 @@ class DataflowEndpointGroup(pulumi.CustomResource):
     @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter

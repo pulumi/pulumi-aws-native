@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("device")]
         public Output<Union<System.Text.Json.JsonElement, string>?> DeviceValue { get; private set; } = null!;
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+        /// </summary>
         [Output("deviceFleetName")]
         public Output<string> DeviceFleetName { get; private set; } = null!;
 
@@ -28,7 +31,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
         /// </summary>
         [Output("tags")]
-        public Output<Pulumi.AwsNative.Outputs.Tag?> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -38,7 +41,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Device(string name, DeviceArgs? args = null, CustomResourceOptions? options = null)
+        public Device(string name, DeviceArgs args, CustomResourceOptions? options = null)
             : base("aws-native:SageMaker:Device", name, args ?? new DeviceArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -82,10 +85,22 @@ namespace Pulumi.AwsNative.SageMaker
         public InputUnion<System.Text.Json.JsonElement, string>? DeviceValue { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+        /// </summary>
+        [Input("deviceFleetName", required: true)]
+        public Input<string> DeviceFleetName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
         /// </summary>
-        [Input("tags")]
-        public Input<Pulumi.AwsNative.Inputs.TagArgs>? Tags { get; set; }
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public DeviceArgs()
         {

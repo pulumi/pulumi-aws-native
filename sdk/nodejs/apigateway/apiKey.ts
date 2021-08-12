@@ -35,6 +35,7 @@ export class ApiKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApiKey.__pulumiType;
     }
 
+    public /*out*/ readonly aPIKeyId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-customerid
      */
@@ -87,7 +88,9 @@ export class ApiKey extends pulumi.CustomResource {
             inputs["stageKeys"] = args ? args.stageKeys : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
+            inputs["aPIKeyId"] = undefined /*out*/;
         } else {
+            inputs["aPIKeyId"] = undefined /*out*/;
             inputs["customerId"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;

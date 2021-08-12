@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
         /// </summary>
         public readonly string? ComponentArn;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-parameters
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ImageRecipeComponentParameter> Parameters;
 
         [OutputConstructor]
-        private ImageRecipeComponentConfiguration(string? componentArn)
+        private ImageRecipeComponentConfiguration(
+            string? componentArn,
+
+            ImmutableArray<Outputs.ImageRecipeComponentParameter> parameters)
         {
             ComponentArn = componentArn;
+            Parameters = parameters;
         }
     }
 }

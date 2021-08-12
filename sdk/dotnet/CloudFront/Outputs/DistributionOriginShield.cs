@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-enabled
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-originshieldregion
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
         [OutputConstructor]
         private DistributionOriginShield(
-            bool enabled,
+            bool? enabled,
 
             string? originShieldRegion)
         {

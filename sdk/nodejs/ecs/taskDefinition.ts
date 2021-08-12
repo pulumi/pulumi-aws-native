@@ -44,6 +44,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly cpu!: pulumi.Output<string | undefined>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
+     */
+    public readonly ephemeralStorage!: pulumi.Output<outputs.ECS.TaskDefinitionEphemeralStorage | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
      */
     public readonly executionRoleArn!: pulumi.Output<string | undefined>;
@@ -110,6 +114,7 @@ export class TaskDefinition extends pulumi.CustomResource {
         if (!opts.id) {
             inputs["containerDefinitions"] = args ? args.containerDefinitions : undefined;
             inputs["cpu"] = args ? args.cpu : undefined;
+            inputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
             inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             inputs["family"] = args ? args.family : undefined;
             inputs["inferenceAccelerators"] = args ? args.inferenceAccelerators : undefined;
@@ -127,6 +132,7 @@ export class TaskDefinition extends pulumi.CustomResource {
         } else {
             inputs["containerDefinitions"] = undefined /*out*/;
             inputs["cpu"] = undefined /*out*/;
+            inputs["ephemeralStorage"] = undefined /*out*/;
             inputs["executionRoleArn"] = undefined /*out*/;
             inputs["family"] = undefined /*out*/;
             inputs["inferenceAccelerators"] = undefined /*out*/;
@@ -161,6 +167,10 @@ export interface TaskDefinitionArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
      */
     cpu?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
+     */
+    ephemeralStorage?: pulumi.Input<inputs.ECS.TaskDefinitionEphemeralStorageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
      */

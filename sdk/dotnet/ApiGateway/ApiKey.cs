@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [AwsNativeResourceType("aws-native:ApiGateway:ApiKey")]
     public partial class ApiKey : Pulumi.CustomResource
     {
+        [Output("aPIKeyId")]
+        public Output<string> APIKeyId { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-customerid
         /// </summary>

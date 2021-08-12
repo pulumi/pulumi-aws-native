@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
         /// </summary>
         [Input("value", required: true)]
-        public Input<int> Value { get; set; } = null!;
+        public Input<double> Value { get; set; } = null!;
 
         public CertificateValidityArgs()
         {

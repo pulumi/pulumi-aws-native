@@ -31,15 +31,15 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-exclusionpatterns
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceInclusionsExclusionsStrings? ExclusionPatterns;
+        public readonly ImmutableArray<string> ExclusionPatterns;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-fieldmappings
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceToIndexFieldMappingList? FieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-inclusionpatterns
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceInclusionsExclusionsStrings? InclusionPatterns;
+        public readonly ImmutableArray<string> InclusionPatterns;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-secretarn
         /// </summary>
@@ -69,11 +69,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             string? documentTitleFieldName,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? exclusionPatterns,
+            ImmutableArray<string> exclusionPatterns,
 
-            Outputs.DataSourceDataSourceToIndexFieldMappingList? fieldMappings,
+            ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? inclusionPatterns,
+            ImmutableArray<string> inclusionPatterns,
 
             string secretArn,
 

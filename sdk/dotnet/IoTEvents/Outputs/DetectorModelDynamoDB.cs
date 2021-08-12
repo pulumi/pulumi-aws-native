@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyfield
         /// </summary>
-        public readonly string? HashKeyField;
+        public readonly string HashKeyField;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeytype
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyvalue
         /// </summary>
-        public readonly string? HashKeyValue;
+        public readonly string HashKeyValue;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-operation
         /// </summary>
@@ -55,15 +55,15 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename
         /// </summary>
-        public readonly string? TableName;
+        public readonly string TableName;
 
         [OutputConstructor]
         private DetectorModelDynamoDB(
-            string? hashKeyField,
+            string hashKeyField,
 
             string? hashKeyType,
 
-            string? hashKeyValue,
+            string hashKeyValue,
 
             string? operation,
 
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 
             string? rangeKeyValue,
 
-            string? tableName)
+            string tableName)
         {
             HashKeyField = hashKeyField;
             HashKeyType = hashKeyType;

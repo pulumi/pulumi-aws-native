@@ -37,6 +37,12 @@ namespace Pulumi.AwsNative.ECS
         public Output<ImmutableArray<Outputs.ClusterClusterSettings>> ClusterSettings { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-configuration
+        /// </summary>
+        [Output("configuration")]
+        public Output<Outputs.ClusterClusterConfiguration?> Configuration { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
         /// </summary>
         [Output("defaultCapacityProviderStrategy")]
@@ -122,6 +128,12 @@ namespace Pulumi.AwsNative.ECS
             get => _clusterSettings ?? (_clusterSettings = new InputList<Inputs.ClusterClusterSettingsArgs>());
             set => _clusterSettings = value;
         }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-configuration
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.ClusterClusterConfigurationArgs>? Configuration { get; set; }
 
         [Input("defaultCapacityProviderStrategy")]
         private InputList<Inputs.ClusterCapacityProviderStrategyItemArgs>? _defaultCapacityProviderStrategy;

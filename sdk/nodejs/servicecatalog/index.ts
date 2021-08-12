@@ -6,9 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cloudFormationProvisionedProduct";
+export * from "./serviceAction";
+export * from "./serviceActionAssociation";
 
 // Import resources to register:
 import { CloudFormationProvisionedProduct } from "./cloudFormationProvisionedProduct";
+import { ServiceAction } from "./serviceAction";
+import { ServiceActionAssociation } from "./serviceActionAssociation";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,6 +20,10 @@ const _module = {
         switch (type) {
             case "aws-native:ServiceCatalog:CloudFormationProvisionedProduct":
                 return new CloudFormationProvisionedProduct(name, <any>undefined, { urn })
+            case "aws-native:ServiceCatalog:ServiceAction":
+                return new ServiceAction(name, <any>undefined, { urn })
+            case "aws-native:ServiceCatalog:ServiceActionAssociation":
+                return new ServiceActionAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

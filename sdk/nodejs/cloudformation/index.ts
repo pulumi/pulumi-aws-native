@@ -7,12 +7,22 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./moduleDefaultVersion";
 export * from "./moduleVersion";
+export * from "./publicTypeVersion";
+export * from "./publisher";
+export * from "./resourceDefaultVersion";
+export * from "./resourceVersion";
 export * from "./stackSet";
+export * from "./typeActivation";
 
 // Import resources to register:
 import { ModuleDefaultVersion } from "./moduleDefaultVersion";
 import { ModuleVersion } from "./moduleVersion";
+import { PublicTypeVersion } from "./publicTypeVersion";
+import { Publisher } from "./publisher";
+import { ResourceDefaultVersion } from "./resourceDefaultVersion";
+import { ResourceVersion } from "./resourceVersion";
 import { StackSet } from "./stackSet";
+import { TypeActivation } from "./typeActivation";
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,8 +32,18 @@ const _module = {
                 return new ModuleDefaultVersion(name, <any>undefined, { urn })
             case "aws-native:CloudFormation:ModuleVersion":
                 return new ModuleVersion(name, <any>undefined, { urn })
+            case "aws-native:CloudFormation:PublicTypeVersion":
+                return new PublicTypeVersion(name, <any>undefined, { urn })
+            case "aws-native:CloudFormation:Publisher":
+                return new Publisher(name, <any>undefined, { urn })
+            case "aws-native:CloudFormation:ResourceDefaultVersion":
+                return new ResourceDefaultVersion(name, <any>undefined, { urn })
+            case "aws-native:CloudFormation:ResourceVersion":
+                return new ResourceVersion(name, <any>undefined, { urn })
             case "aws-native:CloudFormation:StackSet":
                 return new StackSet(name, <any>undefined, { urn })
+            case "aws-native:CloudFormation:TypeActivation":
+                return new TypeActivation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

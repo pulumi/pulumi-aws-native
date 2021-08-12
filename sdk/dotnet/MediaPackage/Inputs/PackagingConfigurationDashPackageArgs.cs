@@ -33,6 +33,12 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("encryption")]
         public Input<Inputs.PackagingConfigurationDashEncryptionArgs>? Encryption { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
+        /// </summary>
+        [Input("includeEncoderConfigurationInSegments")]
+        public Input<bool>? IncludeEncoderConfigurationInSegments { get; set; }
+
         [Input("periodTriggers")]
         private InputList<string>? _periodTriggers;
 

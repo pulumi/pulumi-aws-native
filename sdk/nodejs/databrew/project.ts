@@ -54,7 +54,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
      */
-    public readonly sample!: pulumi.Output<any | string | undefined>;
+    public readonly sample!: pulumi.Output<outputs.DataBrew.ProjectSample | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
      */
@@ -127,7 +127,7 @@ export interface ProjectArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
      */
-    sample?: pulumi.Input<any | string>;
+    sample?: pulumi.Input<inputs.DataBrew.ProjectSampleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
      */

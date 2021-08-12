@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
         /// </summary>
-        public readonly object? Parameters;
+        public readonly Outputs.RecipeParameterMap? Parameters;
 
         [OutputConstructor]
         private RecipeAction(
             string operation,
 
-            object? parameters)
+            Outputs.RecipeParameterMap? parameters)
         {
             Operation = operation;
             Parameters = parameters;

@@ -36,9 +36,17 @@ export class Document extends pulumi.CustomResource {
     }
 
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+     */
+    public readonly attachments!: pulumi.Output<outputs.SSM.DocumentAttachmentsSource[] | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
      */
     public readonly content!: pulumi.Output<any | string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
+     */
+    public readonly documentFormat!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
      */
@@ -48,9 +56,21 @@ export class Document extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
+     */
+    public readonly requires!: pulumi.Output<outputs.SSM.DocumentDocumentRequires[] | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+     */
+    public readonly targetType!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+     */
+    public readonly versionName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Document resource with the given unique name, arguments, and options.
@@ -66,15 +86,25 @@ export class Document extends pulumi.CustomResource {
             if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
+            inputs["attachments"] = args ? args.attachments : undefined;
             inputs["content"] = args ? args.content : undefined;
+            inputs["documentFormat"] = args ? args.documentFormat : undefined;
             inputs["documentType"] = args ? args.documentType : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["requires"] = args ? args.requires : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetType"] = args ? args.targetType : undefined;
+            inputs["versionName"] = args ? args.versionName : undefined;
         } else {
+            inputs["attachments"] = undefined /*out*/;
             inputs["content"] = undefined /*out*/;
+            inputs["documentFormat"] = undefined /*out*/;
             inputs["documentType"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["requires"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["targetType"] = undefined /*out*/;
+            inputs["versionName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -88,9 +118,17 @@ export class Document extends pulumi.CustomResource {
  */
 export interface DocumentArgs {
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+     */
+    attachments?: pulumi.Input<pulumi.Input<inputs.SSM.DocumentAttachmentsSourceArgs>[]>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
      */
     content: pulumi.Input<any | string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
+     */
+    documentFormat?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
      */
@@ -100,7 +138,19 @@ export interface DocumentArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
+     */
+    requires?: pulumi.Input<pulumi.Input<inputs.SSM.DocumentDocumentRequiresArgs>[]>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+     */
+    targetType?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+     */
+    versionName?: pulumi.Input<string>;
 }

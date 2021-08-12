@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<Inputs.DataSourceDatabaseConfigurationArgs>? DatabaseConfiguration { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-googledriveconfiguration
+        /// </summary>
+        [Input("googleDriveConfiguration")]
+        public Input<Inputs.DataSourceGoogleDriveConfigurationArgs>? GoogleDriveConfiguration { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
         /// </summary>
         [Input("oneDriveConfiguration")]

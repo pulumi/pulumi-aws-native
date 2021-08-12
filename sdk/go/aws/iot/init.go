@@ -21,12 +21,26 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:IoT:AccountAuditConfiguration":
+		r = &AccountAuditConfiguration{}
 	case "aws-native:IoT:Authorizer":
 		r = &Authorizer{}
 	case "aws-native:IoT:Certificate":
 		r = &Certificate{}
+	case "aws-native:IoT:CustomMetric":
+		r = &CustomMetric{}
+	case "aws-native:IoT:Dimension":
+		r = &Dimension{}
+	case "aws-native:IoT:DomainConfiguration":
+		r = &DomainConfiguration{}
+	case "aws-native:IoT:MitigationAction":
+		r = &MitigationAction{}
 	case "aws-native:IoT:ProvisioningTemplate":
 		r = &ProvisioningTemplate{}
+	case "aws-native:IoT:ScheduledAudit":
+		r = &ScheduledAudit{}
+	case "aws-native:IoT:SecurityProfile":
+		r = &SecurityProfile{}
 	case "aws-native:IoT:TopicRule":
 		r = &TopicRule{}
 	case "aws-native:IoT:TopicRuleDestination":

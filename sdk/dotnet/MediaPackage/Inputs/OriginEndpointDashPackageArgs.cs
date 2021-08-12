@@ -105,6 +105,18 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("suggestedPresentationDelaySeconds")]
         public Input<int>? SuggestedPresentationDelaySeconds { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
+        /// </summary>
+        [Input("utcTiming")]
+        public Input<string>? UtcTiming { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
+        /// </summary>
+        [Input("utcTimingUri")]
+        public Input<string>? UtcTimingUri { get; set; }
+
         public OriginEndpointDashPackageArgs()
         {
         }

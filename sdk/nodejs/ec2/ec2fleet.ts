@@ -36,9 +36,14 @@ export class EC2Fleet extends pulumi.CustomResource {
     }
 
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
+     */
+    public readonly context!: pulumi.Output<string | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
      */
     public readonly excessCapacityTerminationPolicy!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly fleetId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
      */
@@ -97,6 +102,7 @@ export class EC2Fleet extends pulumi.CustomResource {
             if ((!args || args.targetCapacitySpecification === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetCapacitySpecification'");
             }
+            inputs["context"] = args ? args.context : undefined;
             inputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
             inputs["launchTemplateConfigs"] = args ? args.launchTemplateConfigs : undefined;
             inputs["onDemandOptions"] = args ? args.onDemandOptions : undefined;
@@ -108,8 +114,11 @@ export class EC2Fleet extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["validFrom"] = args ? args.validFrom : undefined;
             inputs["validUntil"] = args ? args.validUntil : undefined;
+            inputs["fleetId"] = undefined /*out*/;
         } else {
+            inputs["context"] = undefined /*out*/;
             inputs["excessCapacityTerminationPolicy"] = undefined /*out*/;
+            inputs["fleetId"] = undefined /*out*/;
             inputs["launchTemplateConfigs"] = undefined /*out*/;
             inputs["onDemandOptions"] = undefined /*out*/;
             inputs["replaceUnhealthyInstances"] = undefined /*out*/;
@@ -132,6 +141,10 @@ export class EC2Fleet extends pulumi.CustomResource {
  * The set of arguments for constructing a EC2Fleet resource.
  */
 export interface EC2FleetArgs {
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
+     */
+    context?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
      */

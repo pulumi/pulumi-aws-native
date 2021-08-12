@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:ImageBuilder:Component":
 		r = &Component{}
+	case "aws-native:ImageBuilder:ContainerRecipe":
+		r = &ContainerRecipe{}
 	case "aws-native:ImageBuilder:DistributionConfiguration":
 		r = &DistributionConfiguration{}
 	case "aws-native:ImageBuilder:Image":

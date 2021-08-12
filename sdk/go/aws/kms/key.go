@@ -30,6 +30,8 @@ type Key struct {
 	KeySpec pulumi.StringPtrOutput `pulumi:"keySpec"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
 	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
+	MultiRegion pulumi.BoolPtrOutput `pulumi:"multiRegion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
 	PendingWindowInDays pulumi.IntPtrOutput `pulumi:"pendingWindowInDays"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
@@ -90,6 +92,8 @@ type keyArgs struct {
 	KeySpec *string `pulumi:"keySpec"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
 	KeyUsage *string `pulumi:"keyUsage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
+	MultiRegion *bool `pulumi:"multiRegion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
 	PendingWindowInDays *int `pulumi:"pendingWindowInDays"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
@@ -110,6 +114,8 @@ type KeyArgs struct {
 	KeySpec pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
 	KeyUsage pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
+	MultiRegion pulumi.BoolPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
 	PendingWindowInDays pulumi.IntPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,11 +26,13 @@ type WorkGroup struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
-	Tags WorkGroupTagsPtrOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
-	WorkGroupConfiguration WorkGroupWorkGroupConfigurationPtrOutput `pulumi:"workGroupConfiguration"`
+	WorkGroupConfiguration                                    WorkGroupWorkGroupConfigurationPtrOutput `pulumi:"workGroupConfiguration"`
+	WorkGroupConfigurationEngineVersionEffectiveEngineVersion pulumi.StringOutput                      `pulumi:"workGroupConfigurationEngineVersionEffectiveEngineVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
-	WorkGroupConfigurationUpdates WorkGroupWorkGroupConfigurationUpdatesPtrOutput `pulumi:"workGroupConfigurationUpdates"`
+	WorkGroupConfigurationUpdates                                    WorkGroupWorkGroupConfigurationUpdatesPtrOutput `pulumi:"workGroupConfigurationUpdates"`
+	WorkGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion pulumi.StringOutput                             `pulumi:"workGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion"`
 }
 
 // NewWorkGroup registers a new resource with the given unique name, arguments, and options.
@@ -83,7 +86,7 @@ type workGroupArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
 	State *string `pulumi:"state"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
-	Tags *WorkGroupTags `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
 	WorkGroupConfiguration *WorkGroupWorkGroupConfiguration `pulumi:"workGroupConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
@@ -101,7 +104,7 @@ type WorkGroupArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
 	State pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
-	Tags WorkGroupTagsPtrInput
+	Tags aws.TagArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
 	WorkGroupConfiguration WorkGroupWorkGroupConfigurationPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates

@@ -152,6 +152,8 @@ class ListenerRule(pulumi.CustomResource):
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
+            __props__.__dict__["is_default"] = None
+            __props__.__dict__["rule_arn"] = None
         super(ListenerRule, __self__).__init__(
             'aws-native:ElasticLoadBalancingV2:ListenerRule',
             resource_name,
@@ -176,8 +178,10 @@ class ListenerRule(pulumi.CustomResource):
 
         __props__.__dict__["actions"] = None
         __props__.__dict__["conditions"] = None
+        __props__.__dict__["is_default"] = None
         __props__.__dict__["listener_arn"] = None
         __props__.__dict__["priority"] = None
+        __props__.__dict__["rule_arn"] = None
         return ListenerRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -197,6 +201,11 @@ class ListenerRule(pulumi.CustomResource):
         return pulumi.get(self, "conditions")
 
     @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "is_default")
+
+    @property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Output[str]:
         """
@@ -211,4 +220,9 @@ class ListenerRule(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="ruleArn")
+    def rule_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "rule_arn")
 

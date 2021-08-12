@@ -10,6 +10,165 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html
+type ClusterEndpoint struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-address
+	Address *string `pulumi:"address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-port
+	Port *string `pulumi:"port"`
+}
+
+// ClusterEndpointInput is an input type that accepts ClusterEndpointArgs and ClusterEndpointOutput values.
+// You can construct a concrete instance of `ClusterEndpointInput` via:
+//
+//          ClusterEndpointArgs{...}
+type ClusterEndpointInput interface {
+	pulumi.Input
+
+	ToClusterEndpointOutput() ClusterEndpointOutput
+	ToClusterEndpointOutputWithContext(context.Context) ClusterEndpointOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html
+type ClusterEndpointArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-address
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-port
+	Port pulumi.StringPtrInput `pulumi:"port"`
+}
+
+func (ClusterEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEndpoint)(nil)).Elem()
+}
+
+func (i ClusterEndpointArgs) ToClusterEndpointOutput() ClusterEndpointOutput {
+	return i.ToClusterEndpointOutputWithContext(context.Background())
+}
+
+func (i ClusterEndpointArgs) ToClusterEndpointOutputWithContext(ctx context.Context) ClusterEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointOutput)
+}
+
+func (i ClusterEndpointArgs) ToClusterEndpointPtrOutput() ClusterEndpointPtrOutput {
+	return i.ToClusterEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterEndpointArgs) ToClusterEndpointPtrOutputWithContext(ctx context.Context) ClusterEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointOutput).ToClusterEndpointPtrOutputWithContext(ctx)
+}
+
+// ClusterEndpointPtrInput is an input type that accepts ClusterEndpointArgs, ClusterEndpointPtr and ClusterEndpointPtrOutput values.
+// You can construct a concrete instance of `ClusterEndpointPtrInput` via:
+//
+//          ClusterEndpointArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterEndpointPtrInput interface {
+	pulumi.Input
+
+	ToClusterEndpointPtrOutput() ClusterEndpointPtrOutput
+	ToClusterEndpointPtrOutputWithContext(context.Context) ClusterEndpointPtrOutput
+}
+
+type clusterEndpointPtrType ClusterEndpointArgs
+
+func ClusterEndpointPtr(v *ClusterEndpointArgs) ClusterEndpointPtrInput {
+	return (*clusterEndpointPtrType)(v)
+}
+
+func (*clusterEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEndpoint)(nil)).Elem()
+}
+
+func (i *clusterEndpointPtrType) ToClusterEndpointPtrOutput() ClusterEndpointPtrOutput {
+	return i.ToClusterEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterEndpointPtrType) ToClusterEndpointPtrOutputWithContext(ctx context.Context) ClusterEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html
+type ClusterEndpointOutput struct{ *pulumi.OutputState }
+
+func (ClusterEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEndpoint)(nil)).Elem()
+}
+
+func (o ClusterEndpointOutput) ToClusterEndpointOutput() ClusterEndpointOutput {
+	return o
+}
+
+func (o ClusterEndpointOutput) ToClusterEndpointOutputWithContext(ctx context.Context) ClusterEndpointOutput {
+	return o
+}
+
+func (o ClusterEndpointOutput) ToClusterEndpointPtrOutput() ClusterEndpointPtrOutput {
+	return o.ToClusterEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterEndpointOutput) ToClusterEndpointPtrOutputWithContext(ctx context.Context) ClusterEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEndpoint) *ClusterEndpoint {
+		return &v
+	}).(ClusterEndpointPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-address
+func (o ClusterEndpointOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-port
+func (o ClusterEndpointOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterEndpoint) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+type ClusterEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEndpoint)(nil)).Elem()
+}
+
+func (o ClusterEndpointPtrOutput) ToClusterEndpointPtrOutput() ClusterEndpointPtrOutput {
+	return o
+}
+
+func (o ClusterEndpointPtrOutput) ToClusterEndpointPtrOutputWithContext(ctx context.Context) ClusterEndpointPtrOutput {
+	return o
+}
+
+func (o ClusterEndpointPtrOutput) Elem() ClusterEndpointOutput {
+	return o.ApplyT(func(v *ClusterEndpoint) ClusterEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterEndpoint
+		return ret
+	}).(ClusterEndpointOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-address
+func (o ClusterEndpointPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-port
+func (o ClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html
 type ClusterLoggingProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-bucketname
@@ -170,6 +329,8 @@ func (o ClusterLoggingPropertiesPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput 
 }
 
 func init() {
+	pulumi.RegisterOutputType(ClusterEndpointOutput{})
+	pulumi.RegisterOutputType(ClusterEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPropertiesOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPropertiesPtrOutput{})
 }

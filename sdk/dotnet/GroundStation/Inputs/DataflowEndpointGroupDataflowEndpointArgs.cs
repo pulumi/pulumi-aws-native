@@ -33,12 +33,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-status
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
-
         public DataflowEndpointGroupDataflowEndpointArgs()
         {
         }

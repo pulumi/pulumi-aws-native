@@ -60,6 +60,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly enableECSManagedTags!: pulumi.Output<boolean | undefined>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
+     */
+    public readonly enableExecuteCommand!: pulumi.Output<boolean | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
      */
     public readonly healthCheckGracePeriodSeconds!: pulumi.Output<number | undefined>;
@@ -100,10 +104,7 @@ export class Service extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
      */
     public readonly schedulingStrategy!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
-     */
-    public readonly serviceArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly serviceArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
      */
@@ -138,6 +139,7 @@ export class Service extends pulumi.CustomResource {
             inputs["deploymentController"] = args ? args.deploymentController : undefined;
             inputs["desiredCount"] = args ? args.desiredCount : undefined;
             inputs["enableECSManagedTags"] = args ? args.enableECSManagedTags : undefined;
+            inputs["enableExecuteCommand"] = args ? args.enableExecuteCommand : undefined;
             inputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
             inputs["launchType"] = args ? args.launchType : undefined;
             inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
@@ -148,12 +150,12 @@ export class Service extends pulumi.CustomResource {
             inputs["propagateTags"] = args ? args.propagateTags : undefined;
             inputs["role"] = args ? args.role : undefined;
             inputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
-            inputs["serviceArn"] = args ? args.serviceArn : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["taskDefinition"] = args ? args.taskDefinition : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["serviceArn"] = undefined /*out*/;
         } else {
             inputs["capacityProviderStrategy"] = undefined /*out*/;
             inputs["cluster"] = undefined /*out*/;
@@ -161,6 +163,7 @@ export class Service extends pulumi.CustomResource {
             inputs["deploymentController"] = undefined /*out*/;
             inputs["desiredCount"] = undefined /*out*/;
             inputs["enableECSManagedTags"] = undefined /*out*/;
+            inputs["enableExecuteCommand"] = undefined /*out*/;
             inputs["healthCheckGracePeriodSeconds"] = undefined /*out*/;
             inputs["launchType"] = undefined /*out*/;
             inputs["loadBalancers"] = undefined /*out*/;
@@ -214,6 +217,10 @@ export interface ServiceArgs {
      */
     enableECSManagedTags?: pulumi.Input<boolean>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
+     */
+    enableExecuteCommand?: pulumi.Input<boolean>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
      */
     healthCheckGracePeriodSeconds?: pulumi.Input<number>;
@@ -253,10 +260,6 @@ export interface ServiceArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
      */
     schedulingStrategy?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
-     */
-    serviceArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
      */

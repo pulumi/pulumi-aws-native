@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./carrierGateway";
 export * from "./ec2fleet";
+export * from "./egressOnlyInternetGateway";
+export * from "./enclaveCertificateIamRoleAssociation";
 export * from "./flowLog";
 export * from "./gatewayRouteTableAssociation";
 export * from "./localGatewayRoute";
@@ -16,10 +18,18 @@ export * from "./networkInsightsPath";
 export * from "./prefixList";
 export * from "./spotFleet";
 export * from "./transitGateway";
+export * from "./transitGatewayConnect";
+export * from "./transitGatewayMulticastDomain";
+export * from "./transitGatewayMulticastDomainAssociation";
+export * from "./transitGatewayMulticastGroupMember";
+export * from "./transitGatewayMulticastGroupSource";
+export * from "./transitGatewayPeeringAttachment";
 
 // Import resources to register:
 import { CarrierGateway } from "./carrierGateway";
 import { EC2Fleet } from "./ec2fleet";
+import { EgressOnlyInternetGateway } from "./egressOnlyInternetGateway";
+import { EnclaveCertificateIamRoleAssociation } from "./enclaveCertificateIamRoleAssociation";
 import { FlowLog } from "./flowLog";
 import { GatewayRouteTableAssociation } from "./gatewayRouteTableAssociation";
 import { LocalGatewayRoute } from "./localGatewayRoute";
@@ -29,6 +39,12 @@ import { NetworkInsightsPath } from "./networkInsightsPath";
 import { PrefixList } from "./prefixList";
 import { SpotFleet } from "./spotFleet";
 import { TransitGateway } from "./transitGateway";
+import { TransitGatewayConnect } from "./transitGatewayConnect";
+import { TransitGatewayMulticastDomain } from "./transitGatewayMulticastDomain";
+import { TransitGatewayMulticastDomainAssociation } from "./transitGatewayMulticastDomainAssociation";
+import { TransitGatewayMulticastGroupMember } from "./transitGatewayMulticastGroupMember";
+import { TransitGatewayMulticastGroupSource } from "./transitGatewayMulticastGroupSource";
+import { TransitGatewayPeeringAttachment } from "./transitGatewayPeeringAttachment";
 
 const _module = {
     version: utilities.getVersion(),
@@ -38,6 +54,10 @@ const _module = {
                 return new CarrierGateway(name, <any>undefined, { urn })
             case "aws-native:EC2:EC2Fleet":
                 return new EC2Fleet(name, <any>undefined, { urn })
+            case "aws-native:EC2:EgressOnlyInternetGateway":
+                return new EgressOnlyInternetGateway(name, <any>undefined, { urn })
+            case "aws-native:EC2:EnclaveCertificateIamRoleAssociation":
+                return new EnclaveCertificateIamRoleAssociation(name, <any>undefined, { urn })
             case "aws-native:EC2:FlowLog":
                 return new FlowLog(name, <any>undefined, { urn })
             case "aws-native:EC2:GatewayRouteTableAssociation":
@@ -56,6 +76,18 @@ const _module = {
                 return new SpotFleet(name, <any>undefined, { urn })
             case "aws-native:EC2:TransitGateway":
                 return new TransitGateway(name, <any>undefined, { urn })
+            case "aws-native:EC2:TransitGatewayConnect":
+                return new TransitGatewayConnect(name, <any>undefined, { urn })
+            case "aws-native:EC2:TransitGatewayMulticastDomain":
+                return new TransitGatewayMulticastDomain(name, <any>undefined, { urn })
+            case "aws-native:EC2:TransitGatewayMulticastDomainAssociation":
+                return new TransitGatewayMulticastDomainAssociation(name, <any>undefined, { urn })
+            case "aws-native:EC2:TransitGatewayMulticastGroupMember":
+                return new TransitGatewayMulticastGroupMember(name, <any>undefined, { urn })
+            case "aws-native:EC2:TransitGatewayMulticastGroupSource":
+                return new TransitGatewayMulticastGroupSource(name, <any>undefined, { urn })
+            case "aws-native:EC2:TransitGatewayPeeringAttachment":
+                return new TransitGatewayPeeringAttachment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

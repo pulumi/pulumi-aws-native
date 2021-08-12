@@ -19,17 +19,17 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-flags
         /// </summary>
-        public readonly Outputs.RuleGroupFlags Flags;
+        public readonly ImmutableArray<string> Flags;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-masks
         /// </summary>
-        public readonly Outputs.RuleGroupFlags? Masks;
+        public readonly ImmutableArray<string> Masks;
 
         [OutputConstructor]
         private RuleGroupTCPFlagField(
-            Outputs.RuleGroupFlags flags,
+            ImmutableArray<string> flags,
 
-            Outputs.RuleGroupFlags? masks)
+            ImmutableArray<string> masks)
         {
             Flags = flags;
             Masks = masks;

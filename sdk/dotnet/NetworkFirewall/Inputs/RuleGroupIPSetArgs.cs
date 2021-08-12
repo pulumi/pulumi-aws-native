@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class RuleGroupIPSetArgs : Pulumi.ResourceArgs
     {
+        [Input("definition")]
+        private InputList<string>? _definition;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html#cfn-networkfirewall-rulegroup-ipset-definition
         /// </summary>
-        [Input("definition")]
-        public Input<Inputs.RuleGroupVariableDefinitionListArgs>? Definition { get; set; }
+        public InputList<string> Definition
+        {
+            get => _definition ?? (_definition = new InputList<string>());
+            set => _definition = value;
+        }
 
         public RuleGroupIPSetArgs()
         {

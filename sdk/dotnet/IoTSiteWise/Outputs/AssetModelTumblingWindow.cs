@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval
         /// </summary>
         public readonly string Interval;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-offset
+        /// </summary>
+        public readonly string? Offset;
 
         [OutputConstructor]
-        private AssetModelTumblingWindow(string interval)
+        private AssetModelTumblingWindow(
+            string interval,
+
+            string? offset)
         {
             Interval = interval;
+            Offset = offset;
         }
     }
 }

@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
         /// </summary>
-        public readonly object SpekeKeyProvider;
+        public readonly Outputs.PackagingConfigurationSpekeKeyProvider SpekeKeyProvider;
 
         [OutputConstructor]
-        private PackagingConfigurationCmafEncryption(object spekeKeyProvider)
+        private PackagingConfigurationCmafEncryption(Outputs.PackagingConfigurationSpekeKeyProvider spekeKeyProvider)
         {
             SpekeKeyProvider = spekeKeyProvider;
         }

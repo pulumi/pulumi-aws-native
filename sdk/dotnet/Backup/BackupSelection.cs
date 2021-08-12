@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Backup
         [Output("backupSelection")]
         public Output<Outputs.BackupSelectionBackupSelectionResourceType> BackupSelectionValue { get; private set; } = null!;
 
+        [Output("id")]
+        public Output<string> Id { get; private set; } = null!;
+
         [Output("selectionId")]
         public Output<string> SelectionId { get; private set; } = null!;
 

@@ -21,6 +21,8 @@ class CertificateAuthorityArgs:
                  signing_algorithm: pulumi.Input[str],
                  subject: pulumi.Input['CertificateAuthoritySubjectArgs'],
                  type: pulumi.Input[str],
+                 csr_extensions: Optional[pulumi.Input['CertificateAuthorityCsrExtensionsArgs']] = None,
+                 key_storage_security_standard: Optional[pulumi.Input[str]] = None,
                  revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -29,6 +31,8 @@ class CertificateAuthorityArgs:
         :param pulumi.Input[str] signing_algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
         :param pulumi.Input['CertificateAuthoritySubjectArgs'] subject: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
         :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
+        :param pulumi.Input['CertificateAuthorityCsrExtensionsArgs'] csr_extensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
+        :param pulumi.Input[str] key_storage_security_standard: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
         """
@@ -36,6 +40,10 @@ class CertificateAuthorityArgs:
         pulumi.set(__self__, "signing_algorithm", signing_algorithm)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "type", type)
+        if csr_extensions is not None:
+            pulumi.set(__self__, "csr_extensions", csr_extensions)
+        if key_storage_security_standard is not None:
+            pulumi.set(__self__, "key_storage_security_standard", key_storage_security_standard)
         if revocation_configuration is not None:
             pulumi.set(__self__, "revocation_configuration", revocation_configuration)
         if tags is not None:
@@ -90,6 +98,30 @@ class CertificateAuthorityArgs:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="csrExtensions")
+    def csr_extensions(self) -> Optional[pulumi.Input['CertificateAuthorityCsrExtensionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
+        """
+        return pulumi.get(self, "csr_extensions")
+
+    @csr_extensions.setter
+    def csr_extensions(self, value: Optional[pulumi.Input['CertificateAuthorityCsrExtensionsArgs']]):
+        pulumi.set(self, "csr_extensions", value)
+
+    @property
+    @pulumi.getter(name="keyStorageSecurityStandard")
+    def key_storage_security_standard(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
+        """
+        return pulumi.get(self, "key_storage_security_standard")
+
+    @key_storage_security_standard.setter
+    def key_storage_security_standard(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_storage_security_standard", value)
+
+    @property
     @pulumi.getter(name="revocationConfiguration")
     def revocation_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']]:
         """
@@ -119,7 +151,9 @@ class CertificateAuthority(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 csr_extensions: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityCsrExtensionsArgs']]] = None,
                  key_algorithm: Optional[pulumi.Input[str]] = None,
+                 key_storage_security_standard: Optional[pulumi.Input[str]] = None,
                  revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
                  subject: Optional[pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']]] = None,
@@ -131,7 +165,9 @@ class CertificateAuthority(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CertificateAuthorityCsrExtensionsArgs']] csr_extensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
         :param pulumi.Input[str] key_algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
+        :param pulumi.Input[str] key_storage_security_standard: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
         :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']] revocation_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
         :param pulumi.Input[str] signing_algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
         :param pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']] subject: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
@@ -162,7 +198,9 @@ class CertificateAuthority(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 csr_extensions: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityCsrExtensionsArgs']]] = None,
                  key_algorithm: Optional[pulumi.Input[str]] = None,
+                 key_storage_security_standard: Optional[pulumi.Input[str]] = None,
                  revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
                  subject: Optional[pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']]] = None,
@@ -180,9 +218,11 @@ class CertificateAuthority(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateAuthorityArgs.__new__(CertificateAuthorityArgs)
 
+            __props__.__dict__["csr_extensions"] = csr_extensions
             if key_algorithm is None and not opts.urn:
                 raise TypeError("Missing required property 'key_algorithm'")
             __props__.__dict__["key_algorithm"] = key_algorithm
+            __props__.__dict__["key_storage_security_standard"] = key_storage_security_standard
             __props__.__dict__["revocation_configuration"] = revocation_configuration
             if signing_algorithm is None and not opts.urn:
                 raise TypeError("Missing required property 'signing_algorithm'")
@@ -220,7 +260,9 @@ class CertificateAuthority(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["certificate_signing_request"] = None
+        __props__.__dict__["csr_extensions"] = None
         __props__.__dict__["key_algorithm"] = None
+        __props__.__dict__["key_storage_security_standard"] = None
         __props__.__dict__["revocation_configuration"] = None
         __props__.__dict__["signing_algorithm"] = None
         __props__.__dict__["subject"] = None
@@ -239,12 +281,28 @@ class CertificateAuthority(pulumi.CustomResource):
         return pulumi.get(self, "certificate_signing_request")
 
     @property
+    @pulumi.getter(name="csrExtensions")
+    def csr_extensions(self) -> pulumi.Output[Optional['outputs.CertificateAuthorityCsrExtensions']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
+        """
+        return pulumi.get(self, "csr_extensions")
+
+    @property
     @pulumi.getter(name="keyAlgorithm")
     def key_algorithm(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
         """
         return pulumi.get(self, "key_algorithm")
+
+    @property
+    @pulumi.getter(name="keyStorageSecurityStandard")
+    def key_storage_security_standard(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
+        """
+        return pulumi.get(self, "key_storage_security_standard")
 
     @property
     @pulumi.getter(name="revocationConfiguration")

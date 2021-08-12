@@ -27,8 +27,7 @@ type ResourceDataSync struct {
 	S3Destination ResourceDataSyncS3DestinationPtrOutput `pulumi:"s3Destination"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
 	SyncFormat pulumi.StringPtrOutput `pulumi:"syncFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
-	SyncName pulumi.StringOutput `pulumi:"syncName"`
+	SyncName   pulumi.StringOutput    `pulumi:"syncName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
 	SyncSource ResourceDataSyncSyncSourcePtrOutput `pulumi:"syncSource"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype

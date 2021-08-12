@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.GroundStation
         [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
-
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
         /// </summary>

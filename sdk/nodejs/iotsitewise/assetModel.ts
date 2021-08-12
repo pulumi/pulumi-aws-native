@@ -37,6 +37,10 @@ export class AssetModel extends pulumi.CustomResource {
 
     public /*out*/ readonly assetModelArn!: pulumi.Output<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
+     */
+    public readonly assetModelCompositeModels!: pulumi.Output<outputs.IoTSiteWise.AssetModelAssetModelCompositeModel[] | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
      */
     public readonly assetModelDescription!: pulumi.Output<string | undefined>;
@@ -72,6 +76,7 @@ export class AssetModel extends pulumi.CustomResource {
             if ((!args || args.assetModelName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'assetModelName'");
             }
+            inputs["assetModelCompositeModels"] = args ? args.assetModelCompositeModels : undefined;
             inputs["assetModelDescription"] = args ? args.assetModelDescription : undefined;
             inputs["assetModelHierarchies"] = args ? args.assetModelHierarchies : undefined;
             inputs["assetModelName"] = args ? args.assetModelName : undefined;
@@ -81,6 +86,7 @@ export class AssetModel extends pulumi.CustomResource {
             inputs["assetModelId"] = undefined /*out*/;
         } else {
             inputs["assetModelArn"] = undefined /*out*/;
+            inputs["assetModelCompositeModels"] = undefined /*out*/;
             inputs["assetModelDescription"] = undefined /*out*/;
             inputs["assetModelHierarchies"] = undefined /*out*/;
             inputs["assetModelId"] = undefined /*out*/;
@@ -99,6 +105,10 @@ export class AssetModel extends pulumi.CustomResource {
  * The set of arguments for constructing a AssetModel resource.
  */
 export interface AssetModelArgs {
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
+     */
+    assetModelCompositeModels?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetModelAssetModelCompositeModelArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
      */

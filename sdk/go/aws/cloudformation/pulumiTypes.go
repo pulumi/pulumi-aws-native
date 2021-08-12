@@ -10,6 +10,165 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html
+type ResourceVersionLoggingConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
+	LogGroupName *string `pulumi:"logGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
+	LogRoleArn *string `pulumi:"logRoleArn"`
+}
+
+// ResourceVersionLoggingConfigInput is an input type that accepts ResourceVersionLoggingConfigArgs and ResourceVersionLoggingConfigOutput values.
+// You can construct a concrete instance of `ResourceVersionLoggingConfigInput` via:
+//
+//          ResourceVersionLoggingConfigArgs{...}
+type ResourceVersionLoggingConfigInput interface {
+	pulumi.Input
+
+	ToResourceVersionLoggingConfigOutput() ResourceVersionLoggingConfigOutput
+	ToResourceVersionLoggingConfigOutputWithContext(context.Context) ResourceVersionLoggingConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html
+type ResourceVersionLoggingConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
+	LogRoleArn pulumi.StringPtrInput `pulumi:"logRoleArn"`
+}
+
+func (ResourceVersionLoggingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceVersionLoggingConfig)(nil)).Elem()
+}
+
+func (i ResourceVersionLoggingConfigArgs) ToResourceVersionLoggingConfigOutput() ResourceVersionLoggingConfigOutput {
+	return i.ToResourceVersionLoggingConfigOutputWithContext(context.Background())
+}
+
+func (i ResourceVersionLoggingConfigArgs) ToResourceVersionLoggingConfigOutputWithContext(ctx context.Context) ResourceVersionLoggingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceVersionLoggingConfigOutput)
+}
+
+func (i ResourceVersionLoggingConfigArgs) ToResourceVersionLoggingConfigPtrOutput() ResourceVersionLoggingConfigPtrOutput {
+	return i.ToResourceVersionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceVersionLoggingConfigArgs) ToResourceVersionLoggingConfigPtrOutputWithContext(ctx context.Context) ResourceVersionLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceVersionLoggingConfigOutput).ToResourceVersionLoggingConfigPtrOutputWithContext(ctx)
+}
+
+// ResourceVersionLoggingConfigPtrInput is an input type that accepts ResourceVersionLoggingConfigArgs, ResourceVersionLoggingConfigPtr and ResourceVersionLoggingConfigPtrOutput values.
+// You can construct a concrete instance of `ResourceVersionLoggingConfigPtrInput` via:
+//
+//          ResourceVersionLoggingConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceVersionLoggingConfigPtrInput interface {
+	pulumi.Input
+
+	ToResourceVersionLoggingConfigPtrOutput() ResourceVersionLoggingConfigPtrOutput
+	ToResourceVersionLoggingConfigPtrOutputWithContext(context.Context) ResourceVersionLoggingConfigPtrOutput
+}
+
+type resourceVersionLoggingConfigPtrType ResourceVersionLoggingConfigArgs
+
+func ResourceVersionLoggingConfigPtr(v *ResourceVersionLoggingConfigArgs) ResourceVersionLoggingConfigPtrInput {
+	return (*resourceVersionLoggingConfigPtrType)(v)
+}
+
+func (*resourceVersionLoggingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceVersionLoggingConfig)(nil)).Elem()
+}
+
+func (i *resourceVersionLoggingConfigPtrType) ToResourceVersionLoggingConfigPtrOutput() ResourceVersionLoggingConfigPtrOutput {
+	return i.ToResourceVersionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceVersionLoggingConfigPtrType) ToResourceVersionLoggingConfigPtrOutputWithContext(ctx context.Context) ResourceVersionLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceVersionLoggingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html
+type ResourceVersionLoggingConfigOutput struct{ *pulumi.OutputState }
+
+func (ResourceVersionLoggingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceVersionLoggingConfig)(nil)).Elem()
+}
+
+func (o ResourceVersionLoggingConfigOutput) ToResourceVersionLoggingConfigOutput() ResourceVersionLoggingConfigOutput {
+	return o
+}
+
+func (o ResourceVersionLoggingConfigOutput) ToResourceVersionLoggingConfigOutputWithContext(ctx context.Context) ResourceVersionLoggingConfigOutput {
+	return o
+}
+
+func (o ResourceVersionLoggingConfigOutput) ToResourceVersionLoggingConfigPtrOutput() ResourceVersionLoggingConfigPtrOutput {
+	return o.ToResourceVersionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceVersionLoggingConfigOutput) ToResourceVersionLoggingConfigPtrOutputWithContext(ctx context.Context) ResourceVersionLoggingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceVersionLoggingConfig) *ResourceVersionLoggingConfig {
+		return &v
+	}).(ResourceVersionLoggingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
+func (o ResourceVersionLoggingConfigOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceVersionLoggingConfig) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
+func (o ResourceVersionLoggingConfigOutput) LogRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceVersionLoggingConfig) *string { return v.LogRoleArn }).(pulumi.StringPtrOutput)
+}
+
+type ResourceVersionLoggingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceVersionLoggingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceVersionLoggingConfig)(nil)).Elem()
+}
+
+func (o ResourceVersionLoggingConfigPtrOutput) ToResourceVersionLoggingConfigPtrOutput() ResourceVersionLoggingConfigPtrOutput {
+	return o
+}
+
+func (o ResourceVersionLoggingConfigPtrOutput) ToResourceVersionLoggingConfigPtrOutputWithContext(ctx context.Context) ResourceVersionLoggingConfigPtrOutput {
+	return o
+}
+
+func (o ResourceVersionLoggingConfigPtrOutput) Elem() ResourceVersionLoggingConfigOutput {
+	return o.ApplyT(func(v *ResourceVersionLoggingConfig) ResourceVersionLoggingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceVersionLoggingConfig
+		return ret
+	}).(ResourceVersionLoggingConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
+func (o ResourceVersionLoggingConfigPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceVersionLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
+func (o ResourceVersionLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceVersionLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html
 type StackSetAutoDeployment struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
@@ -243,6 +402,8 @@ type StackSetOperationPreferences struct {
 	MaxConcurrentCount *int `pulumi:"maxConcurrentCount"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
 	MaxConcurrentPercentage *int `pulumi:"maxConcurrentPercentage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
+	RegionConcurrencyType *string `pulumi:"regionConcurrencyType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
 	RegionOrder []string `pulumi:"regionOrder"`
 }
@@ -268,6 +429,8 @@ type StackSetOperationPreferencesArgs struct {
 	MaxConcurrentCount pulumi.IntPtrInput `pulumi:"maxConcurrentCount"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
 	MaxConcurrentPercentage pulumi.IntPtrInput `pulumi:"maxConcurrentPercentage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
+	RegionConcurrencyType pulumi.StringPtrInput `pulumi:"regionConcurrencyType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
 	RegionOrder pulumi.StringArrayInput `pulumi:"regionOrder"`
 }
@@ -370,6 +533,11 @@ func (o StackSetOperationPreferencesOutput) MaxConcurrentPercentage() pulumi.Int
 	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.MaxConcurrentPercentage }).(pulumi.IntPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
+func (o StackSetOperationPreferencesOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) *string { return v.RegionConcurrencyType }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
 func (o StackSetOperationPreferencesOutput) RegionOrder() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StackSetOperationPreferences) []string { return v.RegionOrder }).(pulumi.StringArrayOutput)
@@ -437,6 +605,16 @@ func (o StackSetOperationPreferencesPtrOutput) MaxConcurrentPercentage() pulumi.
 		}
 		return v.MaxConcurrentPercentage
 	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
+func (o StackSetOperationPreferencesPtrOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegionConcurrencyType
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
@@ -676,7 +854,168 @@ func (o StackSetStackInstancesArrayOutput) Index(i pulumi.IntInput) StackSetStac
 	}).(StackSetStackInstancesOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html
+type TypeActivationLoggingConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
+	LogGroupName *string `pulumi:"logGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
+	LogRoleArn *string `pulumi:"logRoleArn"`
+}
+
+// TypeActivationLoggingConfigInput is an input type that accepts TypeActivationLoggingConfigArgs and TypeActivationLoggingConfigOutput values.
+// You can construct a concrete instance of `TypeActivationLoggingConfigInput` via:
+//
+//          TypeActivationLoggingConfigArgs{...}
+type TypeActivationLoggingConfigInput interface {
+	pulumi.Input
+
+	ToTypeActivationLoggingConfigOutput() TypeActivationLoggingConfigOutput
+	ToTypeActivationLoggingConfigOutputWithContext(context.Context) TypeActivationLoggingConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html
+type TypeActivationLoggingConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
+	LogRoleArn pulumi.StringPtrInput `pulumi:"logRoleArn"`
+}
+
+func (TypeActivationLoggingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TypeActivationLoggingConfig)(nil)).Elem()
+}
+
+func (i TypeActivationLoggingConfigArgs) ToTypeActivationLoggingConfigOutput() TypeActivationLoggingConfigOutput {
+	return i.ToTypeActivationLoggingConfigOutputWithContext(context.Background())
+}
+
+func (i TypeActivationLoggingConfigArgs) ToTypeActivationLoggingConfigOutputWithContext(ctx context.Context) TypeActivationLoggingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TypeActivationLoggingConfigOutput)
+}
+
+func (i TypeActivationLoggingConfigArgs) ToTypeActivationLoggingConfigPtrOutput() TypeActivationLoggingConfigPtrOutput {
+	return i.ToTypeActivationLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TypeActivationLoggingConfigArgs) ToTypeActivationLoggingConfigPtrOutputWithContext(ctx context.Context) TypeActivationLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TypeActivationLoggingConfigOutput).ToTypeActivationLoggingConfigPtrOutputWithContext(ctx)
+}
+
+// TypeActivationLoggingConfigPtrInput is an input type that accepts TypeActivationLoggingConfigArgs, TypeActivationLoggingConfigPtr and TypeActivationLoggingConfigPtrOutput values.
+// You can construct a concrete instance of `TypeActivationLoggingConfigPtrInput` via:
+//
+//          TypeActivationLoggingConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type TypeActivationLoggingConfigPtrInput interface {
+	pulumi.Input
+
+	ToTypeActivationLoggingConfigPtrOutput() TypeActivationLoggingConfigPtrOutput
+	ToTypeActivationLoggingConfigPtrOutputWithContext(context.Context) TypeActivationLoggingConfigPtrOutput
+}
+
+type typeActivationLoggingConfigPtrType TypeActivationLoggingConfigArgs
+
+func TypeActivationLoggingConfigPtr(v *TypeActivationLoggingConfigArgs) TypeActivationLoggingConfigPtrInput {
+	return (*typeActivationLoggingConfigPtrType)(v)
+}
+
+func (*typeActivationLoggingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TypeActivationLoggingConfig)(nil)).Elem()
+}
+
+func (i *typeActivationLoggingConfigPtrType) ToTypeActivationLoggingConfigPtrOutput() TypeActivationLoggingConfigPtrOutput {
+	return i.ToTypeActivationLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *typeActivationLoggingConfigPtrType) ToTypeActivationLoggingConfigPtrOutputWithContext(ctx context.Context) TypeActivationLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TypeActivationLoggingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html
+type TypeActivationLoggingConfigOutput struct{ *pulumi.OutputState }
+
+func (TypeActivationLoggingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TypeActivationLoggingConfig)(nil)).Elem()
+}
+
+func (o TypeActivationLoggingConfigOutput) ToTypeActivationLoggingConfigOutput() TypeActivationLoggingConfigOutput {
+	return o
+}
+
+func (o TypeActivationLoggingConfigOutput) ToTypeActivationLoggingConfigOutputWithContext(ctx context.Context) TypeActivationLoggingConfigOutput {
+	return o
+}
+
+func (o TypeActivationLoggingConfigOutput) ToTypeActivationLoggingConfigPtrOutput() TypeActivationLoggingConfigPtrOutput {
+	return o.ToTypeActivationLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TypeActivationLoggingConfigOutput) ToTypeActivationLoggingConfigPtrOutputWithContext(ctx context.Context) TypeActivationLoggingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TypeActivationLoggingConfig) *TypeActivationLoggingConfig {
+		return &v
+	}).(TypeActivationLoggingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
+func (o TypeActivationLoggingConfigOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TypeActivationLoggingConfig) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
+func (o TypeActivationLoggingConfigOutput) LogRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TypeActivationLoggingConfig) *string { return v.LogRoleArn }).(pulumi.StringPtrOutput)
+}
+
+type TypeActivationLoggingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TypeActivationLoggingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TypeActivationLoggingConfig)(nil)).Elem()
+}
+
+func (o TypeActivationLoggingConfigPtrOutput) ToTypeActivationLoggingConfigPtrOutput() TypeActivationLoggingConfigPtrOutput {
+	return o
+}
+
+func (o TypeActivationLoggingConfigPtrOutput) ToTypeActivationLoggingConfigPtrOutputWithContext(ctx context.Context) TypeActivationLoggingConfigPtrOutput {
+	return o
+}
+
+func (o TypeActivationLoggingConfigPtrOutput) Elem() TypeActivationLoggingConfigOutput {
+	return o.ApplyT(func(v *TypeActivationLoggingConfig) TypeActivationLoggingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TypeActivationLoggingConfig
+		return ret
+	}).(TypeActivationLoggingConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
+func (o TypeActivationLoggingConfigPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TypeActivationLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
+func (o TypeActivationLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TypeActivationLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(ResourceVersionLoggingConfigOutput{})
+	pulumi.RegisterOutputType(ResourceVersionLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(StackSetAutoDeploymentOutput{})
 	pulumi.RegisterOutputType(StackSetAutoDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(StackSetDeploymentTargetsOutput{})
@@ -686,4 +1025,6 @@ func init() {
 	pulumi.RegisterOutputType(StackSetParameterArrayOutput{})
 	pulumi.RegisterOutputType(StackSetStackInstancesOutput{})
 	pulumi.RegisterOutputType(StackSetStackInstancesArrayOutput{})
+	pulumi.RegisterOutputType(TypeActivationLoggingConfigOutput{})
+	pulumi.RegisterOutputType(TypeActivationLoggingConfigPtrOutput{})
 }

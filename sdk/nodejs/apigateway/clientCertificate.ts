@@ -35,6 +35,7 @@ export class ClientCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClientCertificate.__pulumiType;
     }
 
+    public /*out*/ readonly clientCertificateId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html#cfn-apigateway-clientcertificate-description
      */
@@ -57,7 +58,9 @@ export class ClientCertificate extends pulumi.CustomResource {
         if (!opts.id) {
             inputs["description"] = args ? args.description : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["clientCertificateId"] = undefined /*out*/;
         } else {
+            inputs["clientCertificateId"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }

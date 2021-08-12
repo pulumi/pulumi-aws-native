@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
         /// </summary>
         [Output("modelPackageGroupPolicy")]
-        public Output<object?> ModelPackageGroupPolicy { get; private set; } = null!;
+        public Output<Union<System.Text.Json.JsonElement, string>?> ModelPackageGroupPolicy { get; private set; } = null!;
 
         [Output("modelPackageGroupStatus")]
         public Output<string> ModelPackageGroupStatus { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
         /// </summary>
         [Input("modelPackageGroupPolicy")]
-        public Input<object>? ModelPackageGroupPolicy { get; set; }
+        public InputUnion<System.Text.Json.JsonElement, string>? ModelPackageGroupPolicy { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

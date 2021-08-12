@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-deliverystreamname
         /// </summary>
-        public readonly string? DeliveryStreamName;
+        public readonly string DeliveryStreamName;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-payload
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 
         [OutputConstructor]
         private DetectorModelFirehose(
-            string? deliveryStreamName,
+            string deliveryStreamName,
 
             Outputs.DetectorModelPayload? payload,
 

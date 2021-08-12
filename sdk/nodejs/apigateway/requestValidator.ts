@@ -38,6 +38,7 @@ export class RequestValidator extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly requestValidatorId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
      */
@@ -69,8 +70,10 @@ export class RequestValidator extends pulumi.CustomResource {
             inputs["restApiId"] = args ? args.restApiId : undefined;
             inputs["validateRequestBody"] = args ? args.validateRequestBody : undefined;
             inputs["validateRequestParameters"] = args ? args.validateRequestParameters : undefined;
+            inputs["requestValidatorId"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
+            inputs["requestValidatorId"] = undefined /*out*/;
             inputs["restApiId"] = undefined /*out*/;
             inputs["validateRequestBody"] = undefined /*out*/;
             inputs["validateRequestParameters"] = undefined /*out*/;

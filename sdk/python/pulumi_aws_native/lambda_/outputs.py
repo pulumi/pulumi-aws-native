@@ -605,19 +605,21 @@ class FunctionVpcConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 security_group_ids: Sequence[str],
-                 subnet_ids: Sequence[str]):
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 subnet_ids: Optional[Sequence[str]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
         :param Sequence[str] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-securitygroupids
         :param Sequence[str] subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-subnetids
         """
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Sequence[str]:
+    def security_group_ids(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-securitygroupids
         """
@@ -625,7 +627,7 @@ class FunctionVpcConfig(dict):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
+    def subnet_ids(self) -> Optional[Sequence[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-subnetids
         """

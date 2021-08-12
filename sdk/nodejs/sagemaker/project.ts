@@ -47,7 +47,6 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly projectName!: pulumi.Output<string>;
     public /*out*/ readonly projectStatus!: pulumi.Output<string>;
-    public /*out*/ readonly serviceCatalogProvisionedProductDetails!: pulumi.Output<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
      */
@@ -82,7 +81,6 @@ export class Project extends pulumi.CustomResource {
             inputs["projectArn"] = undefined /*out*/;
             inputs["projectId"] = undefined /*out*/;
             inputs["projectStatus"] = undefined /*out*/;
-            inputs["serviceCatalogProvisionedProductDetails"] = undefined /*out*/;
         } else {
             inputs["creationTime"] = undefined /*out*/;
             inputs["projectArn"] = undefined /*out*/;
@@ -90,7 +88,6 @@ export class Project extends pulumi.CustomResource {
             inputs["projectId"] = undefined /*out*/;
             inputs["projectName"] = undefined /*out*/;
             inputs["projectStatus"] = undefined /*out*/;
-            inputs["serviceCatalogProvisionedProductDetails"] = undefined /*out*/;
             inputs["serviceCatalogProvisioningDetails"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }

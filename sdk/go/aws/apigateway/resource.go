@@ -18,7 +18,8 @@ type Resource struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
-	PathPart pulumi.StringOutput `pulumi:"pathPart"`
+	PathPart   pulumi.StringOutput `pulumi:"pathPart"`
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }

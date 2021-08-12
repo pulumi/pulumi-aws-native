@@ -20,8 +20,7 @@ type DistributionConfiguration struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-distributions
 	Distributions DistributionConfigurationDistributionArrayOutput `pulumi:"distributions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-name
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name          pulumi.StringOutput                              `pulumi:"name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }

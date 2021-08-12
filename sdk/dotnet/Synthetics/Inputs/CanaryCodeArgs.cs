@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
         /// </summary>
-        [Input("handler")]
-        public Input<string>? Handler { get; set; }
+        [Input("handler", required: true)]
+        public Input<string> Handler { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket

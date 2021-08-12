@@ -10,10 +10,119 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html
+type CanaryBaseScreenshot struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates
+	IgnoreCoordinates []string `pulumi:"ignoreCoordinates"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname
+	ScreenshotName string `pulumi:"screenshotName"`
+}
+
+// CanaryBaseScreenshotInput is an input type that accepts CanaryBaseScreenshotArgs and CanaryBaseScreenshotOutput values.
+// You can construct a concrete instance of `CanaryBaseScreenshotInput` via:
+//
+//          CanaryBaseScreenshotArgs{...}
+type CanaryBaseScreenshotInput interface {
+	pulumi.Input
+
+	ToCanaryBaseScreenshotOutput() CanaryBaseScreenshotOutput
+	ToCanaryBaseScreenshotOutputWithContext(context.Context) CanaryBaseScreenshotOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html
+type CanaryBaseScreenshotArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates
+	IgnoreCoordinates pulumi.StringArrayInput `pulumi:"ignoreCoordinates"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname
+	ScreenshotName pulumi.StringInput `pulumi:"screenshotName"`
+}
+
+func (CanaryBaseScreenshotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryBaseScreenshot)(nil)).Elem()
+}
+
+func (i CanaryBaseScreenshotArgs) ToCanaryBaseScreenshotOutput() CanaryBaseScreenshotOutput {
+	return i.ToCanaryBaseScreenshotOutputWithContext(context.Background())
+}
+
+func (i CanaryBaseScreenshotArgs) ToCanaryBaseScreenshotOutputWithContext(ctx context.Context) CanaryBaseScreenshotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryBaseScreenshotOutput)
+}
+
+// CanaryBaseScreenshotArrayInput is an input type that accepts CanaryBaseScreenshotArray and CanaryBaseScreenshotArrayOutput values.
+// You can construct a concrete instance of `CanaryBaseScreenshotArrayInput` via:
+//
+//          CanaryBaseScreenshotArray{ CanaryBaseScreenshotArgs{...} }
+type CanaryBaseScreenshotArrayInput interface {
+	pulumi.Input
+
+	ToCanaryBaseScreenshotArrayOutput() CanaryBaseScreenshotArrayOutput
+	ToCanaryBaseScreenshotArrayOutputWithContext(context.Context) CanaryBaseScreenshotArrayOutput
+}
+
+type CanaryBaseScreenshotArray []CanaryBaseScreenshotInput
+
+func (CanaryBaseScreenshotArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryBaseScreenshot)(nil)).Elem()
+}
+
+func (i CanaryBaseScreenshotArray) ToCanaryBaseScreenshotArrayOutput() CanaryBaseScreenshotArrayOutput {
+	return i.ToCanaryBaseScreenshotArrayOutputWithContext(context.Background())
+}
+
+func (i CanaryBaseScreenshotArray) ToCanaryBaseScreenshotArrayOutputWithContext(ctx context.Context) CanaryBaseScreenshotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryBaseScreenshotArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html
+type CanaryBaseScreenshotOutput struct{ *pulumi.OutputState }
+
+func (CanaryBaseScreenshotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryBaseScreenshot)(nil)).Elem()
+}
+
+func (o CanaryBaseScreenshotOutput) ToCanaryBaseScreenshotOutput() CanaryBaseScreenshotOutput {
+	return o
+}
+
+func (o CanaryBaseScreenshotOutput) ToCanaryBaseScreenshotOutputWithContext(ctx context.Context) CanaryBaseScreenshotOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates
+func (o CanaryBaseScreenshotOutput) IgnoreCoordinates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CanaryBaseScreenshot) []string { return v.IgnoreCoordinates }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname
+func (o CanaryBaseScreenshotOutput) ScreenshotName() pulumi.StringOutput {
+	return o.ApplyT(func(v CanaryBaseScreenshot) string { return v.ScreenshotName }).(pulumi.StringOutput)
+}
+
+type CanaryBaseScreenshotArrayOutput struct{ *pulumi.OutputState }
+
+func (CanaryBaseScreenshotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryBaseScreenshot)(nil)).Elem()
+}
+
+func (o CanaryBaseScreenshotArrayOutput) ToCanaryBaseScreenshotArrayOutput() CanaryBaseScreenshotArrayOutput {
+	return o
+}
+
+func (o CanaryBaseScreenshotArrayOutput) ToCanaryBaseScreenshotArrayOutputWithContext(ctx context.Context) CanaryBaseScreenshotArrayOutput {
+	return o
+}
+
+func (o CanaryBaseScreenshotArrayOutput) Index(i pulumi.IntInput) CanaryBaseScreenshotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CanaryBaseScreenshot {
+		return vs[0].([]CanaryBaseScreenshot)[vs[1].(int)]
+	}).(CanaryBaseScreenshotOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html
 type CanaryCode struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
-	Handler *string `pulumi:"handler"`
+	Handler string `pulumi:"handler"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
 	S3Bucket *string `pulumi:"s3Bucket"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3key
@@ -38,7 +147,7 @@ type CanaryCodeInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html
 type CanaryCodeArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
-	Handler pulumi.StringPtrInput `pulumi:"handler"`
+	Handler pulumi.StringInput `pulumi:"handler"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
 	S3Bucket pulumi.StringPtrInput `pulumi:"s3Bucket"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3key
@@ -128,8 +237,8 @@ func (o CanaryCodeOutput) ToCanaryCodePtrOutputWithContext(ctx context.Context) 
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
-func (o CanaryCodeOutput) Handler() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CanaryCode) *string { return v.Handler }).(pulumi.StringPtrOutput)
+func (o CanaryCodeOutput) Handler() pulumi.StringOutput {
+	return o.ApplyT(func(v CanaryCode) string { return v.Handler }).(pulumi.StringOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
@@ -182,7 +291,7 @@ func (o CanaryCodePtrOutput) Handler() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Handler
+		return &v.Handler
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -235,7 +344,7 @@ type CanaryRunConfig struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
 	MemoryInMB *int `pulumi:"memoryInMB"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
-	TimeoutInSeconds int `pulumi:"timeoutInSeconds"`
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
 }
 
 // CanaryRunConfigInput is an input type that accepts CanaryRunConfigArgs and CanaryRunConfigOutput values.
@@ -258,7 +367,7 @@ type CanaryRunConfigArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
 	MemoryInMB pulumi.IntPtrInput `pulumi:"memoryInMB"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
-	TimeoutInSeconds pulumi.IntInput `pulumi:"timeoutInSeconds"`
+	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
 }
 
 func (CanaryRunConfigArgs) ElementType() reflect.Type {
@@ -355,8 +464,8 @@ func (o CanaryRunConfigOutput) MemoryInMB() pulumi.IntPtrOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
-func (o CanaryRunConfigOutput) TimeoutInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v CanaryRunConfig) int { return v.TimeoutInSeconds }).(pulumi.IntOutput)
+func (o CanaryRunConfigOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CanaryRunConfig) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
 type CanaryRunConfigPtrOutput struct{ *pulumi.OutputState }
@@ -419,7 +528,7 @@ func (o CanaryRunConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.TimeoutInSeconds
+		return v.TimeoutInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -760,7 +869,168 @@ func (o CanaryVPCConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html
+type CanaryVisualReference struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+	BaseCanaryRunId string `pulumi:"baseCanaryRunId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+	BaseScreenshots []CanaryBaseScreenshot `pulumi:"baseScreenshots"`
+}
+
+// CanaryVisualReferenceInput is an input type that accepts CanaryVisualReferenceArgs and CanaryVisualReferenceOutput values.
+// You can construct a concrete instance of `CanaryVisualReferenceInput` via:
+//
+//          CanaryVisualReferenceArgs{...}
+type CanaryVisualReferenceInput interface {
+	pulumi.Input
+
+	ToCanaryVisualReferenceOutput() CanaryVisualReferenceOutput
+	ToCanaryVisualReferenceOutputWithContext(context.Context) CanaryVisualReferenceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html
+type CanaryVisualReferenceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+	BaseCanaryRunId pulumi.StringInput `pulumi:"baseCanaryRunId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+	BaseScreenshots CanaryBaseScreenshotArrayInput `pulumi:"baseScreenshots"`
+}
+
+func (CanaryVisualReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryVisualReference)(nil)).Elem()
+}
+
+func (i CanaryVisualReferenceArgs) ToCanaryVisualReferenceOutput() CanaryVisualReferenceOutput {
+	return i.ToCanaryVisualReferenceOutputWithContext(context.Background())
+}
+
+func (i CanaryVisualReferenceArgs) ToCanaryVisualReferenceOutputWithContext(ctx context.Context) CanaryVisualReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryVisualReferenceOutput)
+}
+
+func (i CanaryVisualReferenceArgs) ToCanaryVisualReferencePtrOutput() CanaryVisualReferencePtrOutput {
+	return i.ToCanaryVisualReferencePtrOutputWithContext(context.Background())
+}
+
+func (i CanaryVisualReferenceArgs) ToCanaryVisualReferencePtrOutputWithContext(ctx context.Context) CanaryVisualReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryVisualReferenceOutput).ToCanaryVisualReferencePtrOutputWithContext(ctx)
+}
+
+// CanaryVisualReferencePtrInput is an input type that accepts CanaryVisualReferenceArgs, CanaryVisualReferencePtr and CanaryVisualReferencePtrOutput values.
+// You can construct a concrete instance of `CanaryVisualReferencePtrInput` via:
+//
+//          CanaryVisualReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type CanaryVisualReferencePtrInput interface {
+	pulumi.Input
+
+	ToCanaryVisualReferencePtrOutput() CanaryVisualReferencePtrOutput
+	ToCanaryVisualReferencePtrOutputWithContext(context.Context) CanaryVisualReferencePtrOutput
+}
+
+type canaryVisualReferencePtrType CanaryVisualReferenceArgs
+
+func CanaryVisualReferencePtr(v *CanaryVisualReferenceArgs) CanaryVisualReferencePtrInput {
+	return (*canaryVisualReferencePtrType)(v)
+}
+
+func (*canaryVisualReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryVisualReference)(nil)).Elem()
+}
+
+func (i *canaryVisualReferencePtrType) ToCanaryVisualReferencePtrOutput() CanaryVisualReferencePtrOutput {
+	return i.ToCanaryVisualReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *canaryVisualReferencePtrType) ToCanaryVisualReferencePtrOutputWithContext(ctx context.Context) CanaryVisualReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryVisualReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html
+type CanaryVisualReferenceOutput struct{ *pulumi.OutputState }
+
+func (CanaryVisualReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryVisualReference)(nil)).Elem()
+}
+
+func (o CanaryVisualReferenceOutput) ToCanaryVisualReferenceOutput() CanaryVisualReferenceOutput {
+	return o
+}
+
+func (o CanaryVisualReferenceOutput) ToCanaryVisualReferenceOutputWithContext(ctx context.Context) CanaryVisualReferenceOutput {
+	return o
+}
+
+func (o CanaryVisualReferenceOutput) ToCanaryVisualReferencePtrOutput() CanaryVisualReferencePtrOutput {
+	return o.ToCanaryVisualReferencePtrOutputWithContext(context.Background())
+}
+
+func (o CanaryVisualReferenceOutput) ToCanaryVisualReferencePtrOutputWithContext(ctx context.Context) CanaryVisualReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryVisualReference) *CanaryVisualReference {
+		return &v
+	}).(CanaryVisualReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+func (o CanaryVisualReferenceOutput) BaseCanaryRunId() pulumi.StringOutput {
+	return o.ApplyT(func(v CanaryVisualReference) string { return v.BaseCanaryRunId }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+func (o CanaryVisualReferenceOutput) BaseScreenshots() CanaryBaseScreenshotArrayOutput {
+	return o.ApplyT(func(v CanaryVisualReference) []CanaryBaseScreenshot { return v.BaseScreenshots }).(CanaryBaseScreenshotArrayOutput)
+}
+
+type CanaryVisualReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (CanaryVisualReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryVisualReference)(nil)).Elem()
+}
+
+func (o CanaryVisualReferencePtrOutput) ToCanaryVisualReferencePtrOutput() CanaryVisualReferencePtrOutput {
+	return o
+}
+
+func (o CanaryVisualReferencePtrOutput) ToCanaryVisualReferencePtrOutputWithContext(ctx context.Context) CanaryVisualReferencePtrOutput {
+	return o
+}
+
+func (o CanaryVisualReferencePtrOutput) Elem() CanaryVisualReferenceOutput {
+	return o.ApplyT(func(v *CanaryVisualReference) CanaryVisualReference {
+		if v != nil {
+			return *v
+		}
+		var ret CanaryVisualReference
+		return ret
+	}).(CanaryVisualReferenceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+func (o CanaryVisualReferencePtrOutput) BaseCanaryRunId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CanaryVisualReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BaseCanaryRunId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+func (o CanaryVisualReferencePtrOutput) BaseScreenshots() CanaryBaseScreenshotArrayOutput {
+	return o.ApplyT(func(v *CanaryVisualReference) []CanaryBaseScreenshot {
+		if v == nil {
+			return nil
+		}
+		return v.BaseScreenshots
+	}).(CanaryBaseScreenshotArrayOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(CanaryBaseScreenshotOutput{})
+	pulumi.RegisterOutputType(CanaryBaseScreenshotArrayOutput{})
 	pulumi.RegisterOutputType(CanaryCodeOutput{})
 	pulumi.RegisterOutputType(CanaryCodePtrOutput{})
 	pulumi.RegisterOutputType(CanaryRunConfigOutput{})
@@ -769,4 +1039,6 @@ func init() {
 	pulumi.RegisterOutputType(CanarySchedulePtrOutput{})
 	pulumi.RegisterOutputType(CanaryVPCConfigOutput{})
 	pulumi.RegisterOutputType(CanaryVPCConfigPtrOutput{})
+	pulumi.RegisterOutputType(CanaryVisualReferenceOutput{})
+	pulumi.RegisterOutputType(CanaryVisualReferencePtrOutput{})
 }

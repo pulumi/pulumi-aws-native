@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WAFv2
         public Output<int> Capacity { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
+        /// </summary>
+        [Output("customResponseBodies")]
+        public Output<ImmutableDictionary<string, Outputs.WebACLCustomResponseBody>?> CustomResponseBodies { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
         /// </summary>
         [Output("defaultAction")]
@@ -35,6 +41,9 @@ namespace Pulumi.AwsNative.WAFv2
 
         [Output("id")]
         public Output<string> Id { get; private set; } = null!;
+
+        [Output("labelNamespace")]
+        public Output<string> LabelNamespace { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
@@ -111,6 +120,18 @@ namespace Pulumi.AwsNative.WAFv2
 
     public sealed class WebACLArgs : Pulumi.ResourceArgs
     {
+        [Input("customResponseBodies")]
+        private InputMap<Inputs.WebACLCustomResponseBodyArgs>? _customResponseBodies;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
+        /// </summary>
+        public InputMap<Inputs.WebACLCustomResponseBodyArgs> CustomResponseBodies
+        {
+            get => _customResponseBodies ?? (_customResponseBodies = new InputMap<Inputs.WebACLCustomResponseBodyArgs>());
+            set => _customResponseBodies = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
         /// </summary>

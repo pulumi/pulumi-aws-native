@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.GroundStation
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
         /// </summary>
         [Output("configData")]
-        public Output<Union<System.Text.Json.JsonElement, string>> ConfigData { get; private set; } = null!;
+        public Output<Outputs.ConfigConfigData> ConfigData { get; private set; } = null!;
 
         [Output("id")]
         public Output<string> Id { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.GroundStation
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
         /// </summary>
         [Input("configData", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> ConfigData { get; set; } = null!;
+        public Input<Inputs.ConfigConfigDataArgs> ConfigData { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name

@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.ResourceGroups
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
+        /// </summary>
+        [Output("configuration")]
+        public Output<ImmutableArray<Outputs.GroupConfigurationItem>> Configuration { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-description
         /// </summary>
         [Output("description")]
@@ -35,6 +41,12 @@ namespace Pulumi.AwsNative.ResourceGroups
         /// </summary>
         [Output("resourceQuery")]
         public Output<Outputs.GroupResourceQuery?> ResourceQuery { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resources
+        /// </summary>
+        [Output("resources")]
+        public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags
@@ -87,6 +99,18 @@ namespace Pulumi.AwsNative.ResourceGroups
 
     public sealed class GroupArgs : Pulumi.ResourceArgs
     {
+        [Input("configuration")]
+        private InputList<Inputs.GroupConfigurationItemArgs>? _configuration;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
+        /// </summary>
+        public InputList<Inputs.GroupConfigurationItemArgs> Configuration
+        {
+            get => _configuration ?? (_configuration = new InputList<Inputs.GroupConfigurationItemArgs>());
+            set => _configuration = value;
+        }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-description
         /// </summary>
@@ -104,6 +128,18 @@ namespace Pulumi.AwsNative.ResourceGroups
         /// </summary>
         [Input("resourceQuery")]
         public Input<Inputs.GroupResourceQueryArgs>? ResourceQuery { get; set; }
+
+        [Input("resources")]
+        private InputList<string>? _resources;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resources
+        /// </summary>
+        public InputList<string> Resources
+        {
+            get => _resources ?? (_resources = new InputList<string>());
+            set => _resources = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

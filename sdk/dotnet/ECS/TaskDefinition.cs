@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.ECS
         public Output<string?> Cpu { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
+        /// </summary>
+        [Output("ephemeralStorage")]
+        public Output<Outputs.TaskDefinitionEphemeralStorage?> EphemeralStorage { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
         /// </summary>
         [Output("executionRoleArn")]
@@ -170,6 +176,12 @@ namespace Pulumi.AwsNative.ECS
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
+        /// </summary>
+        [Input("ephemeralStorage")]
+        public Input<Inputs.TaskDefinitionEphemeralStorageArgs>? EphemeralStorage { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn

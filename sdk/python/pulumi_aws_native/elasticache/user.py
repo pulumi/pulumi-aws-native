@@ -7,8 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['UserArgs', 'User']
 
@@ -20,7 +18,7 @@ class UserArgs:
                  user_name: pulumi.Input[str],
                  access_string: Optional[pulumi.Input[str]] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
-                 passwords: Optional[pulumi.Input['UserPasswordListArgs']] = None):
+                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
@@ -28,7 +26,7 @@ class UserArgs:
         :param pulumi.Input[str] user_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
         :param pulumi.Input[str] access_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
         :param pulumi.Input[bool] no_password_required: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
-        :param pulumi.Input['UserPasswordListArgs'] passwords: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
         """
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "user_id", user_id)
@@ -102,14 +100,14 @@ class UserArgs:
 
     @property
     @pulumi.getter
-    def passwords(self) -> Optional[pulumi.Input['UserPasswordListArgs']]:
+    def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
         """
         return pulumi.get(self, "passwords")
 
     @passwords.setter
-    def passwords(self, value: Optional[pulumi.Input['UserPasswordListArgs']]):
+    def passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "passwords", value)
 
 
@@ -121,7 +119,7 @@ class User(pulumi.CustomResource):
                  access_string: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
-                 passwords: Optional[pulumi.Input[pulumi.InputType['UserPasswordListArgs']]] = None,
+                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -133,7 +131,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] access_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
         :param pulumi.Input[str] engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
         :param pulumi.Input[bool] no_password_required: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
-        :param pulumi.Input[pulumi.InputType['UserPasswordListArgs']] passwords: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
         :param pulumi.Input[str] user_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
         :param pulumi.Input[str] user_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
         """
@@ -164,7 +162,7 @@ class User(pulumi.CustomResource):
                  access_string: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
-                 passwords: Optional[pulumi.Input[pulumi.InputType['UserPasswordListArgs']]] = None,
+                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -192,9 +190,7 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["arn"] = None
-            __props__.__dict__["authentication"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["user_group_ids"] = None
         super(User, __self__).__init__(
             'aws-native:ElastiCache:User',
             resource_name,
@@ -219,12 +215,10 @@ class User(pulumi.CustomResource):
 
         __props__.__dict__["access_string"] = None
         __props__.__dict__["arn"] = None
-        __props__.__dict__["authentication"] = None
         __props__.__dict__["engine"] = None
         __props__.__dict__["no_password_required"] = None
         __props__.__dict__["passwords"] = None
         __props__.__dict__["status"] = None
-        __props__.__dict__["user_group_ids"] = None
         __props__.__dict__["user_id"] = None
         __props__.__dict__["user_name"] = None
         return User(resource_name, opts=opts, __props__=__props__)
@@ -244,11 +238,6 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authentication(self) -> pulumi.Output['outputs.UserAuthentication']:
-        return pulumi.get(self, "authentication")
-
-    @property
-    @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
@@ -265,7 +254,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def passwords(self) -> pulumi.Output[Optional['outputs.UserPasswordList']]:
+    def passwords(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
         """
@@ -275,11 +264,6 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="userGroupIds")
-    def user_group_ids(self) -> pulumi.Output['outputs.UserUserGroupIdList']:
-        return pulumi.get(self, "user_group_ids")
 
     @property
     @pulumi.getter(name="userId")

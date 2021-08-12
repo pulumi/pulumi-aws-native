@@ -108,6 +108,7 @@ class ClientCertificate(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["client_certificate_id"] = None
         super(ClientCertificate, __self__).__init__(
             'aws-native:ApiGateway:ClientCertificate',
             resource_name,
@@ -130,9 +131,15 @@ class ClientCertificate(pulumi.CustomResource):
 
         __props__ = ClientCertificateArgs.__new__(ClientCertificateArgs)
 
+        __props__.__dict__["client_certificate_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["tags"] = None
         return ClientCertificate(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="clientCertificateId")
+    def client_certificate_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "client_certificate_id")
 
     @property
     @pulumi.getter

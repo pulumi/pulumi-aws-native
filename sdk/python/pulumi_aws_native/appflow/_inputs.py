@@ -51,6 +51,7 @@ __all__ = [
     'FlowGoogleAnalyticsSourcePropertiesArgs',
     'FlowIncrementalPullConfigArgs',
     'FlowInforNexusSourcePropertiesArgs',
+    'FlowLookoutMetricsDestinationPropertiesArgs',
     'FlowMarketoSourcePropertiesArgs',
     'FlowPrefixConfigArgs',
     'FlowRedshiftDestinationPropertiesArgs',
@@ -73,6 +74,7 @@ __all__ = [
     'FlowUpsolverDestinationPropertiesArgs',
     'FlowUpsolverS3OutputFormatConfigArgs',
     'FlowVeevaSourcePropertiesArgs',
+    'FlowZendeskDestinationPropertiesArgs',
     'FlowZendeskSourcePropertiesArgs',
 ]
 
@@ -2036,22 +2038,28 @@ class FlowDatadogSourcePropertiesArgs:
 class FlowDestinationConnectorPropertiesArgs:
     def __init__(__self__, *,
                  event_bridge: Optional[pulumi.Input['FlowEventBridgeDestinationPropertiesArgs']] = None,
+                 lookout_metrics: Optional[pulumi.Input['FlowLookoutMetricsDestinationPropertiesArgs']] = None,
                  redshift: Optional[pulumi.Input['FlowRedshiftDestinationPropertiesArgs']] = None,
                  s3: Optional[pulumi.Input['FlowS3DestinationPropertiesArgs']] = None,
                  salesforce: Optional[pulumi.Input['FlowSalesforceDestinationPropertiesArgs']] = None,
                  snowflake: Optional[pulumi.Input['FlowSnowflakeDestinationPropertiesArgs']] = None,
-                 upsolver: Optional[pulumi.Input['FlowUpsolverDestinationPropertiesArgs']] = None):
+                 upsolver: Optional[pulumi.Input['FlowUpsolverDestinationPropertiesArgs']] = None,
+                 zendesk: Optional[pulumi.Input['FlowZendeskDestinationPropertiesArgs']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html
         :param pulumi.Input['FlowEventBridgeDestinationPropertiesArgs'] event_bridge: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
+        :param pulumi.Input['FlowLookoutMetricsDestinationPropertiesArgs'] lookout_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
         :param pulumi.Input['FlowRedshiftDestinationPropertiesArgs'] redshift: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
         :param pulumi.Input['FlowS3DestinationPropertiesArgs'] s3: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
         :param pulumi.Input['FlowSalesforceDestinationPropertiesArgs'] salesforce: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce
         :param pulumi.Input['FlowSnowflakeDestinationPropertiesArgs'] snowflake: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake
         :param pulumi.Input['FlowUpsolverDestinationPropertiesArgs'] upsolver: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
+        :param pulumi.Input['FlowZendeskDestinationPropertiesArgs'] zendesk: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
         """
         if event_bridge is not None:
             pulumi.set(__self__, "event_bridge", event_bridge)
+        if lookout_metrics is not None:
+            pulumi.set(__self__, "lookout_metrics", lookout_metrics)
         if redshift is not None:
             pulumi.set(__self__, "redshift", redshift)
         if s3 is not None:
@@ -2062,6 +2070,8 @@ class FlowDestinationConnectorPropertiesArgs:
             pulumi.set(__self__, "snowflake", snowflake)
         if upsolver is not None:
             pulumi.set(__self__, "upsolver", upsolver)
+        if zendesk is not None:
+            pulumi.set(__self__, "zendesk", zendesk)
 
     @property
     @pulumi.getter(name="eventBridge")
@@ -2074,6 +2084,18 @@ class FlowDestinationConnectorPropertiesArgs:
     @event_bridge.setter
     def event_bridge(self, value: Optional[pulumi.Input['FlowEventBridgeDestinationPropertiesArgs']]):
         pulumi.set(self, "event_bridge", value)
+
+    @property
+    @pulumi.getter(name="lookoutMetrics")
+    def lookout_metrics(self) -> Optional[pulumi.Input['FlowLookoutMetricsDestinationPropertiesArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
+        """
+        return pulumi.get(self, "lookout_metrics")
+
+    @lookout_metrics.setter
+    def lookout_metrics(self, value: Optional[pulumi.Input['FlowLookoutMetricsDestinationPropertiesArgs']]):
+        pulumi.set(self, "lookout_metrics", value)
 
     @property
     @pulumi.getter
@@ -2134,6 +2156,18 @@ class FlowDestinationConnectorPropertiesArgs:
     @upsolver.setter
     def upsolver(self, value: Optional[pulumi.Input['FlowUpsolverDestinationPropertiesArgs']]):
         pulumi.set(self, "upsolver", value)
+
+    @property
+    @pulumi.getter
+    def zendesk(self) -> Optional[pulumi.Input['FlowZendeskDestinationPropertiesArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
+        """
+        return pulumi.get(self, "zendesk")
+
+    @zendesk.setter
+    def zendesk(self, value: Optional[pulumi.Input['FlowZendeskDestinationPropertiesArgs']]):
+        pulumi.set(self, "zendesk", value)
 
 
 @pulumi.input_type
@@ -2375,6 +2409,30 @@ class FlowInforNexusSourcePropertiesArgs:
 
     @object.setter
     def object(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object", value)
+
+
+@pulumi.input_type
+class FlowLookoutMetricsDestinationPropertiesArgs:
+    def __init__(__self__, *,
+                 object: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html
+        :param pulumi.Input[str] object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html#cfn-appflow-flow-lookoutmetricsdestinationproperties-object
+        """
+        if object is not None:
+            pulumi.set(__self__, "object", object)
+
+    @property
+    @pulumi.getter
+    def object(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html#cfn-appflow-flow-lookoutmetricsdestinationproperties-object
+        """
+        return pulumi.get(self, "object")
+
+    @object.setter
+    def object(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "object", value)
 
 
@@ -2664,15 +2722,23 @@ class FlowS3SourcePropertiesArgs:
 class FlowSalesforceDestinationPropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str],
-                 error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None):
+                 error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None,
+                 id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 write_operation_type: Optional[pulumi.Input[str]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html
         :param pulumi.Input[str] object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
         :param pulumi.Input['FlowErrorHandlingConfigArgs'] error_handling_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-errorhandlingconfig
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
+        :param pulumi.Input[str] write_operation_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype
         """
         pulumi.set(__self__, "object", object)
         if error_handling_config is not None:
             pulumi.set(__self__, "error_handling_config", error_handling_config)
+        if id_field_names is not None:
+            pulumi.set(__self__, "id_field_names", id_field_names)
+        if write_operation_type is not None:
+            pulumi.set(__self__, "write_operation_type", write_operation_type)
 
     @property
     @pulumi.getter
@@ -2697,6 +2763,30 @@ class FlowSalesforceDestinationPropertiesArgs:
     @error_handling_config.setter
     def error_handling_config(self, value: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]):
         pulumi.set(self, "error_handling_config", value)
+
+    @property
+    @pulumi.getter(name="idFieldNames")
+    def id_field_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
+        """
+        return pulumi.get(self, "id_field_names")
+
+    @id_field_names.setter
+    def id_field_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "id_field_names", value)
+
+    @property
+    @pulumi.getter(name="writeOperationType")
+    def write_operation_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype
+        """
+        return pulumi.get(self, "write_operation_type")
+
+    @write_operation_type.setter
+    def write_operation_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "write_operation_type", value)
 
 
 @pulumi.input_type
@@ -3598,6 +3688,77 @@ class FlowVeevaSourcePropertiesArgs:
     @object.setter
     def object(self, value: pulumi.Input[str]):
         pulumi.set(self, "object", value)
+
+
+@pulumi.input_type
+class FlowZendeskDestinationPropertiesArgs:
+    def __init__(__self__, *,
+                 object: pulumi.Input[str],
+                 error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None,
+                 id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 write_operation_type: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html
+        :param pulumi.Input[str] object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-object
+        :param pulumi.Input['FlowErrorHandlingConfigArgs'] error_handling_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-errorhandlingconfig
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-idfieldnames
+        :param pulumi.Input[str] write_operation_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-writeoperationtype
+        """
+        pulumi.set(__self__, "object", object)
+        if error_handling_config is not None:
+            pulumi.set(__self__, "error_handling_config", error_handling_config)
+        if id_field_names is not None:
+            pulumi.set(__self__, "id_field_names", id_field_names)
+        if write_operation_type is not None:
+            pulumi.set(__self__, "write_operation_type", write_operation_type)
+
+    @property
+    @pulumi.getter
+    def object(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-object
+        """
+        return pulumi.get(self, "object")
+
+    @object.setter
+    def object(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object", value)
+
+    @property
+    @pulumi.getter(name="errorHandlingConfig")
+    def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-errorhandlingconfig
+        """
+        return pulumi.get(self, "error_handling_config")
+
+    @error_handling_config.setter
+    def error_handling_config(self, value: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]):
+        pulumi.set(self, "error_handling_config", value)
+
+    @property
+    @pulumi.getter(name="idFieldNames")
+    def id_field_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-idfieldnames
+        """
+        return pulumi.get(self, "id_field_names")
+
+    @id_field_names.setter
+    def id_field_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "id_field_names", value)
+
+    @property
+    @pulumi.getter(name="writeOperationType")
+    def write_operation_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-writeoperationtype
+        """
+        return pulumi.get(self, "write_operation_type")
+
+    @write_operation_type.setter
+    def write_operation_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "write_operation_type", value)
 
 
 @pulumi.input_type

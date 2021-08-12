@@ -15,17 +15,29 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
     /// </summary>
     public sealed class AssessmentScopeArgs : Pulumi.ResourceArgs
     {
+        [Input("awsAccounts")]
+        private InputList<Inputs.AssessmentAWSAccountArgs>? _awsAccounts;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
         /// </summary>
-        [Input("awsAccounts")]
-        public Input<Inputs.AssessmentAWSAccountsArgs>? AwsAccounts { get; set; }
+        public InputList<Inputs.AssessmentAWSAccountArgs> AwsAccounts
+        {
+            get => _awsAccounts ?? (_awsAccounts = new InputList<Inputs.AssessmentAWSAccountArgs>());
+            set => _awsAccounts = value;
+        }
+
+        [Input("awsServices")]
+        private InputList<Inputs.AssessmentAWSServiceArgs>? _awsServices;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
         /// </summary>
-        [Input("awsServices")]
-        public Input<Inputs.AssessmentAWSServicesArgs>? AwsServices { get; set; }
+        public InputList<Inputs.AssessmentAWSServiceArgs> AwsServices
+        {
+            get => _awsServices ?? (_awsServices = new InputList<Inputs.AssessmentAWSServiceArgs>());
+            set => _awsServices = value;
+        }
 
         public AssessmentScopeArgs()
         {

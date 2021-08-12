@@ -21,11 +21,17 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         [Input("generatedRulesType", required: true)]
         public Input<string> GeneratedRulesType { get; set; } = null!;
 
+        [Input("targetTypes", required: true)]
+        private InputList<string>? _targetTypes;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
         /// </summary>
-        [Input("targetTypes", required: true)]
-        public Input<Inputs.RuleGroupTargetTypesArgs> TargetTypes { get; set; } = null!;
+        public InputList<string> TargetTypes
+        {
+            get => _targetTypes ?? (_targetTypes = new InputList<string>());
+            set => _targetTypes = value;
+        }
 
         [Input("targets", required: true)]
         private InputList<string>? _targets;

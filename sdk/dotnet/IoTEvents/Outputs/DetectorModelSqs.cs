@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl
         /// </summary>
-        public readonly string? QueueUrl;
+        public readonly string QueueUrl;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-usebase64
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         private DetectorModelSqs(
             Outputs.DetectorModelPayload? payload,
 
-            string? queueUrl,
+            string queueUrl,
 
             bool? useBase64)
         {

@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
         /// </summary>
-        public readonly Outputs.MonitoringScheduleMonitoringInputs MonitoringInputs;
+        public readonly ImmutableArray<Outputs.MonitoringScheduleMonitoringInput> MonitoringInputs;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
         /// </summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.MonitoringScheduleMonitoringAppSpecification monitoringAppSpecification,
 
-            Outputs.MonitoringScheduleMonitoringInputs monitoringInputs,
+            ImmutableArray<Outputs.MonitoringScheduleMonitoringInput> monitoringInputs,
 
             Outputs.MonitoringScheduleMonitoringOutputConfig monitoringOutputConfig,
 

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic
         /// </summary>
-        public readonly string? MqttTopic;
+        public readonly string MqttTopic;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-payload
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 
         [OutputConstructor]
         private DetectorModelIotTopicPublish(
-            string? mqttTopic,
+            string mqttTopic,
 
             Outputs.DetectorModelPayload? payload)
         {

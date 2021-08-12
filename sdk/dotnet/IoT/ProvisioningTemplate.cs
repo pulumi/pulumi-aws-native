@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.IoT
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.ProvisioningTemplateTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("templateArn")]
         public Output<string> TemplateArn { get; private set; } = null!;
@@ -129,11 +129,17 @@ namespace Pulumi.AwsNative.IoT
         [Input("provisioningRoleArn", required: true)]
         public Input<string> ProvisioningRoleArn { get; set; } = null!;
 
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.ProvisioningTemplateTagsArgs>? Tags { get; set; }
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody

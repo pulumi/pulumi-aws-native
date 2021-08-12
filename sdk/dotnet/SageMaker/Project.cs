@@ -39,9 +39,6 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("projectStatus")]
         public Output<string> ProjectStatus { get; private set; } = null!;
 
-        [Output("serviceCatalogProvisionedProductDetails")]
-        public Output<Union<System.Text.Json.JsonElement, string>> ServiceCatalogProvisionedProductDetails { get; private set; } = null!;
-
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
         /// </summary>

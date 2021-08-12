@@ -40,6 +40,7 @@ export class Table extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-databasename
      */
     public readonly databaseName!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-retentionproperties
      */
@@ -72,9 +73,11 @@ export class Table extends pulumi.CustomResource {
             inputs["tableName"] = args ? args.tableName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["databaseName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["retentionProperties"] = undefined /*out*/;
             inputs["tableName"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;

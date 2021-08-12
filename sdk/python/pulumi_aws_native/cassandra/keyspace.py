@@ -7,19 +7,25 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['KeyspaceArgs', 'Keyspace']
 
 @pulumi.input_type
 class KeyspaceArgs:
     def __init__(__self__, *,
-                 keyspace_name: Optional[pulumi.Input[str]] = None):
+                 keyspace_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Keyspace resource.
         :param pulumi.Input[str] keyspace_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
         """
         if keyspace_name is not None:
             pulumi.set(__self__, "keyspace_name", keyspace_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="keyspaceName")
@@ -33,6 +39,18 @@ class KeyspaceArgs:
     def keyspace_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "keyspace_name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Keyspace(pulumi.CustomResource):
     @overload
@@ -40,6 +58,7 @@ class Keyspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
@@ -47,6 +66,7 @@ class Keyspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] keyspace_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
         """
         ...
     @overload
@@ -73,6 +93,7 @@ class Keyspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -86,6 +107,7 @@ class Keyspace(pulumi.CustomResource):
             __props__ = KeyspaceArgs.__new__(KeyspaceArgs)
 
             __props__.__dict__["keyspace_name"] = keyspace_name
+            __props__.__dict__["tags"] = tags
         super(Keyspace, __self__).__init__(
             'aws-native:Cassandra:Keyspace',
             resource_name,
@@ -109,6 +131,7 @@ class Keyspace(pulumi.CustomResource):
         __props__ = KeyspaceArgs.__new__(KeyspaceArgs)
 
         __props__.__dict__["keyspace_name"] = None
+        __props__.__dict__["tags"] = None
         return Keyspace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -118,4 +141,12 @@ class Keyspace(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
         """
         return pulumi.get(self, "keyspace_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
+        """
+        return pulumi.get(self, "tags")
 

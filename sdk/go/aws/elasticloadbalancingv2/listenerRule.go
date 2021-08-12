@@ -19,10 +19,12 @@ type ListenerRule struct {
 	Actions ListenerRuleActionArrayOutput `pulumi:"actions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
 	Conditions ListenerRuleRuleConditionArrayOutput `pulumi:"conditions"`
+	IsDefault  pulumi.BoolOutput                    `pulumi:"isDefault"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
 	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
-	Priority pulumi.IntOutput `pulumi:"priority"`
+	Priority pulumi.IntOutput    `pulumi:"priority"`
+	RuleArn  pulumi.StringOutput `pulumi:"ruleArn"`
 }
 
 // NewListenerRule registers a new resource with the given unique name, arguments, and options.

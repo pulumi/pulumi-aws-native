@@ -22,12 +22,6 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
         public Input<bool>? AllowCheckIn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-checkoutrules
-        /// </summary>
-        [Input("checkoutRules")]
-        public Input<Inputs.LicenseRuleListArgs>? CheckoutRules { get; set; }
-
-        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-maxcount
         /// </summary>
         [Input("maxCount")]

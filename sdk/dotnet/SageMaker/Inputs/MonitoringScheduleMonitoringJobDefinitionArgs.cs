@@ -33,11 +33,17 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("monitoringAppSpecification", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringAppSpecificationArgs> MonitoringAppSpecification { get; set; } = null!;
 
+        [Input("monitoringInputs", required: true)]
+        private InputList<Inputs.MonitoringScheduleMonitoringInputArgs>? _monitoringInputs;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
         /// </summary>
-        [Input("monitoringInputs", required: true)]
-        public Input<Inputs.MonitoringScheduleMonitoringInputsArgs> MonitoringInputs { get; set; } = null!;
+        public InputList<Inputs.MonitoringScheduleMonitoringInputArgs> MonitoringInputs
+        {
+            get => _monitoringInputs ?? (_monitoringInputs = new InputList<Inputs.MonitoringScheduleMonitoringInputArgs>());
+            set => _monitoringInputs = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig

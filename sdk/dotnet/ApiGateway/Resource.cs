@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("pathPart")]
         public Output<string> PathPart { get; private set; } = null!;
 
+        [Output("resourceId")]
+        public Output<string> ResourceId { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
         /// </summary>

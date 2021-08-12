@@ -55,6 +55,10 @@ export class MetricStream extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
+     */
+    public readonly outputFormat!: pulumi.Output<string>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -78,6 +82,9 @@ export class MetricStream extends pulumi.CustomResource {
             if ((!args || args.firehoseArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firehoseArn'");
             }
+            if ((!args || args.outputFormat === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'outputFormat'");
+            }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
@@ -85,6 +92,7 @@ export class MetricStream extends pulumi.CustomResource {
             inputs["firehoseArn"] = args ? args.firehoseArn : undefined;
             inputs["includeFilters"] = args ? args.includeFilters : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["outputFormat"] = args ? args.outputFormat : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -99,6 +107,7 @@ export class MetricStream extends pulumi.CustomResource {
             inputs["includeFilters"] = undefined /*out*/;
             inputs["lastUpdateDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["outputFormat"] = undefined /*out*/;
             inputs["roleArn"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -130,6 +139,10 @@ export interface MetricStreamArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
      */
     name?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
+     */
+    outputFormat: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
      */

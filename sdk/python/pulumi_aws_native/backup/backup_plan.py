@@ -16,11 +16,11 @@ __all__ = ['BackupPlanArgs', 'BackupPlan']
 class BackupPlanArgs:
     def __init__(__self__, *,
                  backup_plan: pulumi.Input['BackupPlanBackupPlanResourceTypeArgs'],
-                 backup_plan_tags: Optional[pulumi.Input[Union[Any, str]]] = None):
+                 backup_plan_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BackupPlan resource.
         :param pulumi.Input['BackupPlanBackupPlanResourceTypeArgs'] backup_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-        :param pulumi.Input[Union[Any, str]] backup_plan_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_plan_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
         """
         pulumi.set(__self__, "backup_plan", backup_plan)
         if backup_plan_tags is not None:
@@ -40,14 +40,14 @@ class BackupPlanArgs:
 
     @property
     @pulumi.getter(name="backupPlanTags")
-    def backup_plan_tags(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+    def backup_plan_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
         """
         return pulumi.get(self, "backup_plan_tags")
 
     @backup_plan_tags.setter
-    def backup_plan_tags(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def backup_plan_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "backup_plan_tags", value)
 
 
@@ -57,7 +57,7 @@ class BackupPlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_plan: Optional[pulumi.Input[pulumi.InputType['BackupPlanBackupPlanResourceTypeArgs']]] = None,
-                 backup_plan_tags: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 backup_plan_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
@@ -65,7 +65,7 @@ class BackupPlan(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BackupPlanBackupPlanResourceTypeArgs']] backup_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-        :param pulumi.Input[Union[Any, str]] backup_plan_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_plan_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
         """
         ...
     @overload
@@ -92,7 +92,7 @@ class BackupPlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_plan: Optional[pulumi.Input[pulumi.InputType['BackupPlanBackupPlanResourceTypeArgs']]] = None,
-                 backup_plan_tags: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 backup_plan_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -161,7 +161,7 @@ class BackupPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupPlanTags")
-    def backup_plan_tags(self) -> pulumi.Output[Optional[str]]:
+    def backup_plan_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
         """

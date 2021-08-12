@@ -17,6 +17,8 @@ type AssetModel struct {
 	pulumi.CustomResourceState
 
 	AssetModelArn pulumi.StringOutput `pulumi:"assetModelArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
+	AssetModelCompositeModels AssetModelAssetModelCompositeModelArrayOutput `pulumi:"assetModelCompositeModels"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
 	AssetModelDescription pulumi.StringPtrOutput `pulumi:"assetModelDescription"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
@@ -72,6 +74,8 @@ func (AssetModelState) ElementType() reflect.Type {
 }
 
 type assetModelArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
+	AssetModelCompositeModels []AssetModelAssetModelCompositeModel `pulumi:"assetModelCompositeModels"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
 	AssetModelDescription *string `pulumi:"assetModelDescription"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
@@ -86,6 +90,8 @@ type assetModelArgs struct {
 
 // The set of arguments for constructing a AssetModel resource.
 type AssetModelArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
+	AssetModelCompositeModels AssetModelAssetModelCompositeModelArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
 	AssetModelDescription pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies

@@ -19,6 +19,7 @@ type Table struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-databasename
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	Name         pulumi.StringOutput `pulumi:"name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-retentionproperties
 	RetentionProperties pulumi.AnyOutput `pulumi:"retentionProperties"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-tablename

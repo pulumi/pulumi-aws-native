@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-deliverystreamname
         /// </summary>
-        [Input("deliveryStreamName")]
-        public Input<string>? DeliveryStreamName { get; set; }
+        [Input("deliveryStreamName", required: true)]
+        public Input<string> DeliveryStreamName { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-payload

@@ -10,895 +10,358 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html
-type UserAuthentication struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-passwordcount
-	PasswordCount *int `pulumi:"passwordCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-type
-	Type *string `pulumi:"type"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html
+type GlobalReplicationGroupGlobalReplicationGroupMember struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
+	ReplicationGroupId *string `pulumi:"replicationGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
+	ReplicationGroupRegion *string `pulumi:"replicationGroupRegion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
+	Role *string `pulumi:"role"`
 }
 
-// UserAuthenticationInput is an input type that accepts UserAuthenticationArgs and UserAuthenticationOutput values.
-// You can construct a concrete instance of `UserAuthenticationInput` via:
+// GlobalReplicationGroupGlobalReplicationGroupMemberInput is an input type that accepts GlobalReplicationGroupGlobalReplicationGroupMemberArgs and GlobalReplicationGroupGlobalReplicationGroupMemberOutput values.
+// You can construct a concrete instance of `GlobalReplicationGroupGlobalReplicationGroupMemberInput` via:
 //
-//          UserAuthenticationArgs{...}
-type UserAuthenticationInput interface {
+//          GlobalReplicationGroupGlobalReplicationGroupMemberArgs{...}
+type GlobalReplicationGroupGlobalReplicationGroupMemberInput interface {
 	pulumi.Input
 
-	ToUserAuthenticationOutput() UserAuthenticationOutput
-	ToUserAuthenticationOutputWithContext(context.Context) UserAuthenticationOutput
+	ToGlobalReplicationGroupGlobalReplicationGroupMemberOutput() GlobalReplicationGroupGlobalReplicationGroupMemberOutput
+	ToGlobalReplicationGroupGlobalReplicationGroupMemberOutputWithContext(context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html
-type UserAuthenticationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-passwordcount
-	PasswordCount pulumi.IntPtrInput `pulumi:"passwordCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html
+type GlobalReplicationGroupGlobalReplicationGroupMemberArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
+	ReplicationGroupId pulumi.StringPtrInput `pulumi:"replicationGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
+	ReplicationGroupRegion pulumi.StringPtrInput `pulumi:"replicationGroupRegion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
+	Role pulumi.StringPtrInput `pulumi:"role"`
 }
 
-func (UserAuthenticationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAuthentication)(nil)).Elem()
+func (GlobalReplicationGroupGlobalReplicationGroupMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReplicationGroupGlobalReplicationGroupMember)(nil)).Elem()
 }
 
-func (i UserAuthenticationArgs) ToUserAuthenticationOutput() UserAuthenticationOutput {
-	return i.ToUserAuthenticationOutputWithContext(context.Background())
+func (i GlobalReplicationGroupGlobalReplicationGroupMemberArgs) ToGlobalReplicationGroupGlobalReplicationGroupMemberOutput() GlobalReplicationGroupGlobalReplicationGroupMemberOutput {
+	return i.ToGlobalReplicationGroupGlobalReplicationGroupMemberOutputWithContext(context.Background())
 }
 
-func (i UserAuthenticationArgs) ToUserAuthenticationOutputWithContext(ctx context.Context) UserAuthenticationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAuthenticationOutput)
+func (i GlobalReplicationGroupGlobalReplicationGroupMemberArgs) ToGlobalReplicationGroupGlobalReplicationGroupMemberOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupGlobalReplicationGroupMemberOutput)
 }
 
-func (i UserAuthenticationArgs) ToUserAuthenticationPtrOutput() UserAuthenticationPtrOutput {
-	return i.ToUserAuthenticationPtrOutputWithContext(context.Background())
-}
-
-func (i UserAuthenticationArgs) ToUserAuthenticationPtrOutputWithContext(ctx context.Context) UserAuthenticationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAuthenticationOutput).ToUserAuthenticationPtrOutputWithContext(ctx)
-}
-
-// UserAuthenticationPtrInput is an input type that accepts UserAuthenticationArgs, UserAuthenticationPtr and UserAuthenticationPtrOutput values.
-// You can construct a concrete instance of `UserAuthenticationPtrInput` via:
+// GlobalReplicationGroupGlobalReplicationGroupMemberArrayInput is an input type that accepts GlobalReplicationGroupGlobalReplicationGroupMemberArray and GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput values.
+// You can construct a concrete instance of `GlobalReplicationGroupGlobalReplicationGroupMemberArrayInput` via:
 //
-//          UserAuthenticationArgs{...}
-//
-//  or:
-//
-//          nil
-type UserAuthenticationPtrInput interface {
+//          GlobalReplicationGroupGlobalReplicationGroupMemberArray{ GlobalReplicationGroupGlobalReplicationGroupMemberArgs{...} }
+type GlobalReplicationGroupGlobalReplicationGroupMemberArrayInput interface {
 	pulumi.Input
 
-	ToUserAuthenticationPtrOutput() UserAuthenticationPtrOutput
-	ToUserAuthenticationPtrOutputWithContext(context.Context) UserAuthenticationPtrOutput
+	ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput() GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput
+	ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutputWithContext(context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput
 }
 
-type userAuthenticationPtrType UserAuthenticationArgs
+type GlobalReplicationGroupGlobalReplicationGroupMemberArray []GlobalReplicationGroupGlobalReplicationGroupMemberInput
 
-func UserAuthenticationPtr(v *UserAuthenticationArgs) UserAuthenticationPtrInput {
-	return (*userAuthenticationPtrType)(v)
+func (GlobalReplicationGroupGlobalReplicationGroupMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalReplicationGroupGlobalReplicationGroupMember)(nil)).Elem()
 }
 
-func (*userAuthenticationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserAuthentication)(nil)).Elem()
+func (i GlobalReplicationGroupGlobalReplicationGroupMemberArray) ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput() GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput {
+	return i.ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutputWithContext(context.Background())
 }
 
-func (i *userAuthenticationPtrType) ToUserAuthenticationPtrOutput() UserAuthenticationPtrOutput {
-	return i.ToUserAuthenticationPtrOutputWithContext(context.Background())
+func (i GlobalReplicationGroupGlobalReplicationGroupMemberArray) ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput)
 }
 
-func (i *userAuthenticationPtrType) ToUserAuthenticationPtrOutputWithContext(ctx context.Context) UserAuthenticationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAuthenticationPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html
+type GlobalReplicationGroupGlobalReplicationGroupMemberOutput struct{ *pulumi.OutputState }
+
+func (GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReplicationGroupGlobalReplicationGroupMember)(nil)).Elem()
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html
-type UserAuthenticationOutput struct{ *pulumi.OutputState }
-
-func (UserAuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAuthentication)(nil)).Elem()
-}
-
-func (o UserAuthenticationOutput) ToUserAuthenticationOutput() UserAuthenticationOutput {
+func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberOutput() GlobalReplicationGroupGlobalReplicationGroupMemberOutput {
 	return o
 }
 
-func (o UserAuthenticationOutput) ToUserAuthenticationOutputWithContext(ctx context.Context) UserAuthenticationOutput {
+func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberOutput {
 	return o
 }
 
-func (o UserAuthenticationOutput) ToUserAuthenticationPtrOutput() UserAuthenticationPtrOutput {
-	return o.ToUserAuthenticationPtrOutputWithContext(context.Background())
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
+func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ReplicationGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupGlobalReplicationGroupMember) *string { return v.ReplicationGroupId }).(pulumi.StringPtrOutput)
 }
 
-func (o UserAuthenticationOutput) ToUserAuthenticationPtrOutputWithContext(ctx context.Context) UserAuthenticationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAuthentication) *UserAuthentication {
-		return &v
-	}).(UserAuthenticationPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
+func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ReplicationGroupRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupGlobalReplicationGroupMember) *string { return v.ReplicationGroupRegion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-passwordcount
-func (o UserAuthenticationOutput) PasswordCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v UserAuthentication) *int { return v.PasswordCount }).(pulumi.IntPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
+func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupGlobalReplicationGroupMember) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-type
-func (o UserAuthenticationOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAuthentication) *string { return v.Type }).(pulumi.StringPtrOutput)
+type GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalReplicationGroupGlobalReplicationGroupMember)(nil)).Elem()
 }
 
-type UserAuthenticationPtrOutput struct{ *pulumi.OutputState }
-
-func (UserAuthenticationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserAuthentication)(nil)).Elem()
-}
-
-func (o UserAuthenticationPtrOutput) ToUserAuthenticationPtrOutput() UserAuthenticationPtrOutput {
+func (o GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput() GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput {
 	return o
 }
 
-func (o UserAuthenticationPtrOutput) ToUserAuthenticationPtrOutputWithContext(ctx context.Context) UserAuthenticationPtrOutput {
+func (o GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput {
 	return o
 }
 
-func (o UserAuthenticationPtrOutput) Elem() UserAuthenticationOutput {
-	return o.ApplyT(func(v *UserAuthentication) UserAuthentication {
-		if v != nil {
-			return *v
-		}
-		var ret UserAuthentication
-		return ret
-	}).(UserAuthenticationOutput)
+func (o GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput) Index(i pulumi.IntInput) GlobalReplicationGroupGlobalReplicationGroupMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalReplicationGroupGlobalReplicationGroupMember {
+		return vs[0].([]GlobalReplicationGroupGlobalReplicationGroupMember)[vs[1].(int)]
+	}).(GlobalReplicationGroupGlobalReplicationGroupMemberOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-passwordcount
-func (o UserAuthenticationPtrOutput) PasswordCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *UserAuthentication) *int {
-		if v == nil {
-			return nil
-		}
-		return v.PasswordCount
-	}).(pulumi.IntPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html
+type GlobalReplicationGroupRegionalConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
+	ReplicationGroupId *string `pulumi:"replicationGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
+	ReplicationGroupRegion *string `pulumi:"replicationGroupRegion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
+	ReshardingConfigurations []GlobalReplicationGroupReshardingConfiguration `pulumi:"reshardingConfigurations"`
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-type
-func (o UserAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserAuthentication) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-replicationgroupidlist.html
-type UserGroupReplicationGroupIdList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-replicationgroupidlist.html#cfn-elasticache-usergroup-replicationgroupidlist-replicationgroupidlist
-	ReplicationGroupIdList []string `pulumi:"replicationGroupIdList"`
-}
-
-// UserGroupReplicationGroupIdListInput is an input type that accepts UserGroupReplicationGroupIdListArgs and UserGroupReplicationGroupIdListOutput values.
-// You can construct a concrete instance of `UserGroupReplicationGroupIdListInput` via:
+// GlobalReplicationGroupRegionalConfigurationInput is an input type that accepts GlobalReplicationGroupRegionalConfigurationArgs and GlobalReplicationGroupRegionalConfigurationOutput values.
+// You can construct a concrete instance of `GlobalReplicationGroupRegionalConfigurationInput` via:
 //
-//          UserGroupReplicationGroupIdListArgs{...}
-type UserGroupReplicationGroupIdListInput interface {
+//          GlobalReplicationGroupRegionalConfigurationArgs{...}
+type GlobalReplicationGroupRegionalConfigurationInput interface {
 	pulumi.Input
 
-	ToUserGroupReplicationGroupIdListOutput() UserGroupReplicationGroupIdListOutput
-	ToUserGroupReplicationGroupIdListOutputWithContext(context.Context) UserGroupReplicationGroupIdListOutput
+	ToGlobalReplicationGroupRegionalConfigurationOutput() GlobalReplicationGroupRegionalConfigurationOutput
+	ToGlobalReplicationGroupRegionalConfigurationOutputWithContext(context.Context) GlobalReplicationGroupRegionalConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-replicationgroupidlist.html
-type UserGroupReplicationGroupIdListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-replicationgroupidlist.html#cfn-elasticache-usergroup-replicationgroupidlist-replicationgroupidlist
-	ReplicationGroupIdList pulumi.StringArrayInput `pulumi:"replicationGroupIdList"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html
+type GlobalReplicationGroupRegionalConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
+	ReplicationGroupId pulumi.StringPtrInput `pulumi:"replicationGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
+	ReplicationGroupRegion pulumi.StringPtrInput `pulumi:"replicationGroupRegion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
+	ReshardingConfigurations GlobalReplicationGroupReshardingConfigurationArrayInput `pulumi:"reshardingConfigurations"`
 }
 
-func (UserGroupReplicationGroupIdListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGroupReplicationGroupIdList)(nil)).Elem()
+func (GlobalReplicationGroupRegionalConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReplicationGroupRegionalConfiguration)(nil)).Elem()
 }
 
-func (i UserGroupReplicationGroupIdListArgs) ToUserGroupReplicationGroupIdListOutput() UserGroupReplicationGroupIdListOutput {
-	return i.ToUserGroupReplicationGroupIdListOutputWithContext(context.Background())
+func (i GlobalReplicationGroupRegionalConfigurationArgs) ToGlobalReplicationGroupRegionalConfigurationOutput() GlobalReplicationGroupRegionalConfigurationOutput {
+	return i.ToGlobalReplicationGroupRegionalConfigurationOutputWithContext(context.Background())
 }
 
-func (i UserGroupReplicationGroupIdListArgs) ToUserGroupReplicationGroupIdListOutputWithContext(ctx context.Context) UserGroupReplicationGroupIdListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserGroupReplicationGroupIdListOutput)
+func (i GlobalReplicationGroupRegionalConfigurationArgs) ToGlobalReplicationGroupRegionalConfigurationOutputWithContext(ctx context.Context) GlobalReplicationGroupRegionalConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupRegionalConfigurationOutput)
 }
 
-func (i UserGroupReplicationGroupIdListArgs) ToUserGroupReplicationGroupIdListPtrOutput() UserGroupReplicationGroupIdListPtrOutput {
-	return i.ToUserGroupReplicationGroupIdListPtrOutputWithContext(context.Background())
-}
-
-func (i UserGroupReplicationGroupIdListArgs) ToUserGroupReplicationGroupIdListPtrOutputWithContext(ctx context.Context) UserGroupReplicationGroupIdListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserGroupReplicationGroupIdListOutput).ToUserGroupReplicationGroupIdListPtrOutputWithContext(ctx)
-}
-
-// UserGroupReplicationGroupIdListPtrInput is an input type that accepts UserGroupReplicationGroupIdListArgs, UserGroupReplicationGroupIdListPtr and UserGroupReplicationGroupIdListPtrOutput values.
-// You can construct a concrete instance of `UserGroupReplicationGroupIdListPtrInput` via:
+// GlobalReplicationGroupRegionalConfigurationArrayInput is an input type that accepts GlobalReplicationGroupRegionalConfigurationArray and GlobalReplicationGroupRegionalConfigurationArrayOutput values.
+// You can construct a concrete instance of `GlobalReplicationGroupRegionalConfigurationArrayInput` via:
 //
-//          UserGroupReplicationGroupIdListArgs{...}
-//
-//  or:
-//
-//          nil
-type UserGroupReplicationGroupIdListPtrInput interface {
+//          GlobalReplicationGroupRegionalConfigurationArray{ GlobalReplicationGroupRegionalConfigurationArgs{...} }
+type GlobalReplicationGroupRegionalConfigurationArrayInput interface {
 	pulumi.Input
 
-	ToUserGroupReplicationGroupIdListPtrOutput() UserGroupReplicationGroupIdListPtrOutput
-	ToUserGroupReplicationGroupIdListPtrOutputWithContext(context.Context) UserGroupReplicationGroupIdListPtrOutput
+	ToGlobalReplicationGroupRegionalConfigurationArrayOutput() GlobalReplicationGroupRegionalConfigurationArrayOutput
+	ToGlobalReplicationGroupRegionalConfigurationArrayOutputWithContext(context.Context) GlobalReplicationGroupRegionalConfigurationArrayOutput
 }
 
-type userGroupReplicationGroupIdListPtrType UserGroupReplicationGroupIdListArgs
+type GlobalReplicationGroupRegionalConfigurationArray []GlobalReplicationGroupRegionalConfigurationInput
 
-func UserGroupReplicationGroupIdListPtr(v *UserGroupReplicationGroupIdListArgs) UserGroupReplicationGroupIdListPtrInput {
-	return (*userGroupReplicationGroupIdListPtrType)(v)
+func (GlobalReplicationGroupRegionalConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalReplicationGroupRegionalConfiguration)(nil)).Elem()
 }
 
-func (*userGroupReplicationGroupIdListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserGroupReplicationGroupIdList)(nil)).Elem()
+func (i GlobalReplicationGroupRegionalConfigurationArray) ToGlobalReplicationGroupRegionalConfigurationArrayOutput() GlobalReplicationGroupRegionalConfigurationArrayOutput {
+	return i.ToGlobalReplicationGroupRegionalConfigurationArrayOutputWithContext(context.Background())
 }
 
-func (i *userGroupReplicationGroupIdListPtrType) ToUserGroupReplicationGroupIdListPtrOutput() UserGroupReplicationGroupIdListPtrOutput {
-	return i.ToUserGroupReplicationGroupIdListPtrOutputWithContext(context.Background())
+func (i GlobalReplicationGroupRegionalConfigurationArray) ToGlobalReplicationGroupRegionalConfigurationArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupRegionalConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupRegionalConfigurationArrayOutput)
 }
 
-func (i *userGroupReplicationGroupIdListPtrType) ToUserGroupReplicationGroupIdListPtrOutputWithContext(ctx context.Context) UserGroupReplicationGroupIdListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserGroupReplicationGroupIdListPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html
+type GlobalReplicationGroupRegionalConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GlobalReplicationGroupRegionalConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReplicationGroupRegionalConfiguration)(nil)).Elem()
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-replicationgroupidlist.html
-type UserGroupReplicationGroupIdListOutput struct{ *pulumi.OutputState }
-
-func (UserGroupReplicationGroupIdListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGroupReplicationGroupIdList)(nil)).Elem()
-}
-
-func (o UserGroupReplicationGroupIdListOutput) ToUserGroupReplicationGroupIdListOutput() UserGroupReplicationGroupIdListOutput {
+func (o GlobalReplicationGroupRegionalConfigurationOutput) ToGlobalReplicationGroupRegionalConfigurationOutput() GlobalReplicationGroupRegionalConfigurationOutput {
 	return o
 }
 
-func (o UserGroupReplicationGroupIdListOutput) ToUserGroupReplicationGroupIdListOutputWithContext(ctx context.Context) UserGroupReplicationGroupIdListOutput {
+func (o GlobalReplicationGroupRegionalConfigurationOutput) ToGlobalReplicationGroupRegionalConfigurationOutputWithContext(ctx context.Context) GlobalReplicationGroupRegionalConfigurationOutput {
 	return o
 }
 
-func (o UserGroupReplicationGroupIdListOutput) ToUserGroupReplicationGroupIdListPtrOutput() UserGroupReplicationGroupIdListPtrOutput {
-	return o.ToUserGroupReplicationGroupIdListPtrOutputWithContext(context.Background())
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
+func (o GlobalReplicationGroupRegionalConfigurationOutput) ReplicationGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupRegionalConfiguration) *string { return v.ReplicationGroupId }).(pulumi.StringPtrOutput)
 }
 
-func (o UserGroupReplicationGroupIdListOutput) ToUserGroupReplicationGroupIdListPtrOutputWithContext(ctx context.Context) UserGroupReplicationGroupIdListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserGroupReplicationGroupIdList) *UserGroupReplicationGroupIdList {
-		return &v
-	}).(UserGroupReplicationGroupIdListPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
+func (o GlobalReplicationGroupRegionalConfigurationOutput) ReplicationGroupRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupRegionalConfiguration) *string { return v.ReplicationGroupRegion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-replicationgroupidlist.html#cfn-elasticache-usergroup-replicationgroupidlist-replicationgroupidlist
-func (o UserGroupReplicationGroupIdListOutput) ReplicationGroupIdList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v UserGroupReplicationGroupIdList) []string { return v.ReplicationGroupIdList }).(pulumi.StringArrayOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
+func (o GlobalReplicationGroupRegionalConfigurationOutput) ReshardingConfigurations() GlobalReplicationGroupReshardingConfigurationArrayOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupRegionalConfiguration) []GlobalReplicationGroupReshardingConfiguration {
+		return v.ReshardingConfigurations
+	}).(GlobalReplicationGroupReshardingConfigurationArrayOutput)
 }
 
-type UserGroupReplicationGroupIdListPtrOutput struct{ *pulumi.OutputState }
+type GlobalReplicationGroupRegionalConfigurationArrayOutput struct{ *pulumi.OutputState }
 
-func (UserGroupReplicationGroupIdListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserGroupReplicationGroupIdList)(nil)).Elem()
+func (GlobalReplicationGroupRegionalConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalReplicationGroupRegionalConfiguration)(nil)).Elem()
 }
 
-func (o UserGroupReplicationGroupIdListPtrOutput) ToUserGroupReplicationGroupIdListPtrOutput() UserGroupReplicationGroupIdListPtrOutput {
+func (o GlobalReplicationGroupRegionalConfigurationArrayOutput) ToGlobalReplicationGroupRegionalConfigurationArrayOutput() GlobalReplicationGroupRegionalConfigurationArrayOutput {
 	return o
 }
 
-func (o UserGroupReplicationGroupIdListPtrOutput) ToUserGroupReplicationGroupIdListPtrOutputWithContext(ctx context.Context) UserGroupReplicationGroupIdListPtrOutput {
+func (o GlobalReplicationGroupRegionalConfigurationArrayOutput) ToGlobalReplicationGroupRegionalConfigurationArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupRegionalConfigurationArrayOutput {
 	return o
 }
 
-func (o UserGroupReplicationGroupIdListPtrOutput) Elem() UserGroupReplicationGroupIdListOutput {
-	return o.ApplyT(func(v *UserGroupReplicationGroupIdList) UserGroupReplicationGroupIdList {
-		if v != nil {
-			return *v
-		}
-		var ret UserGroupReplicationGroupIdList
-		return ret
-	}).(UserGroupReplicationGroupIdListOutput)
+func (o GlobalReplicationGroupRegionalConfigurationArrayOutput) Index(i pulumi.IntInput) GlobalReplicationGroupRegionalConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalReplicationGroupRegionalConfiguration {
+		return vs[0].([]GlobalReplicationGroupRegionalConfiguration)[vs[1].(int)]
+	}).(GlobalReplicationGroupRegionalConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-replicationgroupidlist.html#cfn-elasticache-usergroup-replicationgroupidlist-replicationgroupidlist
-func (o UserGroupReplicationGroupIdListPtrOutput) ReplicationGroupIdList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *UserGroupReplicationGroupIdList) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ReplicationGroupIdList
-	}).(pulumi.StringArrayOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html
+type GlobalReplicationGroupReshardingConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-nodegroupid
+	NodeGroupId *string `pulumi:"nodeGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-preferredavailabilityzones
+	PreferredAvailabilityZones []string `pulumi:"preferredAvailabilityZones"`
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html
-type UserGroupUserGroupPendingChanges struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoadd
-	UserIdsToAdd []string `pulumi:"userIdsToAdd"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoremove
-	UserIdsToRemove []string `pulumi:"userIdsToRemove"`
-}
-
-// UserGroupUserGroupPendingChangesInput is an input type that accepts UserGroupUserGroupPendingChangesArgs and UserGroupUserGroupPendingChangesOutput values.
-// You can construct a concrete instance of `UserGroupUserGroupPendingChangesInput` via:
+// GlobalReplicationGroupReshardingConfigurationInput is an input type that accepts GlobalReplicationGroupReshardingConfigurationArgs and GlobalReplicationGroupReshardingConfigurationOutput values.
+// You can construct a concrete instance of `GlobalReplicationGroupReshardingConfigurationInput` via:
 //
-//          UserGroupUserGroupPendingChangesArgs{...}
-type UserGroupUserGroupPendingChangesInput interface {
+//          GlobalReplicationGroupReshardingConfigurationArgs{...}
+type GlobalReplicationGroupReshardingConfigurationInput interface {
 	pulumi.Input
 
-	ToUserGroupUserGroupPendingChangesOutput() UserGroupUserGroupPendingChangesOutput
-	ToUserGroupUserGroupPendingChangesOutputWithContext(context.Context) UserGroupUserGroupPendingChangesOutput
+	ToGlobalReplicationGroupReshardingConfigurationOutput() GlobalReplicationGroupReshardingConfigurationOutput
+	ToGlobalReplicationGroupReshardingConfigurationOutputWithContext(context.Context) GlobalReplicationGroupReshardingConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html
-type UserGroupUserGroupPendingChangesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoadd
-	UserIdsToAdd pulumi.StringArrayInput `pulumi:"userIdsToAdd"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoremove
-	UserIdsToRemove pulumi.StringArrayInput `pulumi:"userIdsToRemove"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html
+type GlobalReplicationGroupReshardingConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-nodegroupid
+	NodeGroupId pulumi.StringPtrInput `pulumi:"nodeGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-preferredavailabilityzones
+	PreferredAvailabilityZones pulumi.StringArrayInput `pulumi:"preferredAvailabilityZones"`
 }
 
-func (UserGroupUserGroupPendingChangesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGroupUserGroupPendingChanges)(nil)).Elem()
+func (GlobalReplicationGroupReshardingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReplicationGroupReshardingConfiguration)(nil)).Elem()
 }
 
-func (i UserGroupUserGroupPendingChangesArgs) ToUserGroupUserGroupPendingChangesOutput() UserGroupUserGroupPendingChangesOutput {
-	return i.ToUserGroupUserGroupPendingChangesOutputWithContext(context.Background())
+func (i GlobalReplicationGroupReshardingConfigurationArgs) ToGlobalReplicationGroupReshardingConfigurationOutput() GlobalReplicationGroupReshardingConfigurationOutput {
+	return i.ToGlobalReplicationGroupReshardingConfigurationOutputWithContext(context.Background())
 }
 
-func (i UserGroupUserGroupPendingChangesArgs) ToUserGroupUserGroupPendingChangesOutputWithContext(ctx context.Context) UserGroupUserGroupPendingChangesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserGroupUserGroupPendingChangesOutput)
+func (i GlobalReplicationGroupReshardingConfigurationArgs) ToGlobalReplicationGroupReshardingConfigurationOutputWithContext(ctx context.Context) GlobalReplicationGroupReshardingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupReshardingConfigurationOutput)
 }
 
-func (i UserGroupUserGroupPendingChangesArgs) ToUserGroupUserGroupPendingChangesPtrOutput() UserGroupUserGroupPendingChangesPtrOutput {
-	return i.ToUserGroupUserGroupPendingChangesPtrOutputWithContext(context.Background())
-}
-
-func (i UserGroupUserGroupPendingChangesArgs) ToUserGroupUserGroupPendingChangesPtrOutputWithContext(ctx context.Context) UserGroupUserGroupPendingChangesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserGroupUserGroupPendingChangesOutput).ToUserGroupUserGroupPendingChangesPtrOutputWithContext(ctx)
-}
-
-// UserGroupUserGroupPendingChangesPtrInput is an input type that accepts UserGroupUserGroupPendingChangesArgs, UserGroupUserGroupPendingChangesPtr and UserGroupUserGroupPendingChangesPtrOutput values.
-// You can construct a concrete instance of `UserGroupUserGroupPendingChangesPtrInput` via:
+// GlobalReplicationGroupReshardingConfigurationArrayInput is an input type that accepts GlobalReplicationGroupReshardingConfigurationArray and GlobalReplicationGroupReshardingConfigurationArrayOutput values.
+// You can construct a concrete instance of `GlobalReplicationGroupReshardingConfigurationArrayInput` via:
 //
-//          UserGroupUserGroupPendingChangesArgs{...}
-//
-//  or:
-//
-//          nil
-type UserGroupUserGroupPendingChangesPtrInput interface {
+//          GlobalReplicationGroupReshardingConfigurationArray{ GlobalReplicationGroupReshardingConfigurationArgs{...} }
+type GlobalReplicationGroupReshardingConfigurationArrayInput interface {
 	pulumi.Input
 
-	ToUserGroupUserGroupPendingChangesPtrOutput() UserGroupUserGroupPendingChangesPtrOutput
-	ToUserGroupUserGroupPendingChangesPtrOutputWithContext(context.Context) UserGroupUserGroupPendingChangesPtrOutput
+	ToGlobalReplicationGroupReshardingConfigurationArrayOutput() GlobalReplicationGroupReshardingConfigurationArrayOutput
+	ToGlobalReplicationGroupReshardingConfigurationArrayOutputWithContext(context.Context) GlobalReplicationGroupReshardingConfigurationArrayOutput
 }
 
-type userGroupUserGroupPendingChangesPtrType UserGroupUserGroupPendingChangesArgs
+type GlobalReplicationGroupReshardingConfigurationArray []GlobalReplicationGroupReshardingConfigurationInput
 
-func UserGroupUserGroupPendingChangesPtr(v *UserGroupUserGroupPendingChangesArgs) UserGroupUserGroupPendingChangesPtrInput {
-	return (*userGroupUserGroupPendingChangesPtrType)(v)
+func (GlobalReplicationGroupReshardingConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalReplicationGroupReshardingConfiguration)(nil)).Elem()
 }
 
-func (*userGroupUserGroupPendingChangesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserGroupUserGroupPendingChanges)(nil)).Elem()
+func (i GlobalReplicationGroupReshardingConfigurationArray) ToGlobalReplicationGroupReshardingConfigurationArrayOutput() GlobalReplicationGroupReshardingConfigurationArrayOutput {
+	return i.ToGlobalReplicationGroupReshardingConfigurationArrayOutputWithContext(context.Background())
 }
 
-func (i *userGroupUserGroupPendingChangesPtrType) ToUserGroupUserGroupPendingChangesPtrOutput() UserGroupUserGroupPendingChangesPtrOutput {
-	return i.ToUserGroupUserGroupPendingChangesPtrOutputWithContext(context.Background())
+func (i GlobalReplicationGroupReshardingConfigurationArray) ToGlobalReplicationGroupReshardingConfigurationArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupReshardingConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupReshardingConfigurationArrayOutput)
 }
 
-func (i *userGroupUserGroupPendingChangesPtrType) ToUserGroupUserGroupPendingChangesPtrOutputWithContext(ctx context.Context) UserGroupUserGroupPendingChangesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserGroupUserGroupPendingChangesPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html
+type GlobalReplicationGroupReshardingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GlobalReplicationGroupReshardingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReplicationGroupReshardingConfiguration)(nil)).Elem()
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html
-type UserGroupUserGroupPendingChangesOutput struct{ *pulumi.OutputState }
-
-func (UserGroupUserGroupPendingChangesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGroupUserGroupPendingChanges)(nil)).Elem()
-}
-
-func (o UserGroupUserGroupPendingChangesOutput) ToUserGroupUserGroupPendingChangesOutput() UserGroupUserGroupPendingChangesOutput {
+func (o GlobalReplicationGroupReshardingConfigurationOutput) ToGlobalReplicationGroupReshardingConfigurationOutput() GlobalReplicationGroupReshardingConfigurationOutput {
 	return o
 }
 
-func (o UserGroupUserGroupPendingChangesOutput) ToUserGroupUserGroupPendingChangesOutputWithContext(ctx context.Context) UserGroupUserGroupPendingChangesOutput {
+func (o GlobalReplicationGroupReshardingConfigurationOutput) ToGlobalReplicationGroupReshardingConfigurationOutputWithContext(ctx context.Context) GlobalReplicationGroupReshardingConfigurationOutput {
 	return o
 }
 
-func (o UserGroupUserGroupPendingChangesOutput) ToUserGroupUserGroupPendingChangesPtrOutput() UserGroupUserGroupPendingChangesPtrOutput {
-	return o.ToUserGroupUserGroupPendingChangesPtrOutputWithContext(context.Background())
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-nodegroupid
+func (o GlobalReplicationGroupReshardingConfigurationOutput) NodeGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupReshardingConfiguration) *string { return v.NodeGroupId }).(pulumi.StringPtrOutput)
 }
 
-func (o UserGroupUserGroupPendingChangesOutput) ToUserGroupUserGroupPendingChangesPtrOutputWithContext(ctx context.Context) UserGroupUserGroupPendingChangesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserGroupUserGroupPendingChanges) *UserGroupUserGroupPendingChanges {
-		return &v
-	}).(UserGroupUserGroupPendingChangesPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-preferredavailabilityzones
+func (o GlobalReplicationGroupReshardingConfigurationOutput) PreferredAvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupReshardingConfiguration) []string { return v.PreferredAvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoadd
-func (o UserGroupUserGroupPendingChangesOutput) UserIdsToAdd() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v UserGroupUserGroupPendingChanges) []string { return v.UserIdsToAdd }).(pulumi.StringArrayOutput)
+type GlobalReplicationGroupReshardingConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GlobalReplicationGroupReshardingConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalReplicationGroupReshardingConfiguration)(nil)).Elem()
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoremove
-func (o UserGroupUserGroupPendingChangesOutput) UserIdsToRemove() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v UserGroupUserGroupPendingChanges) []string { return v.UserIdsToRemove }).(pulumi.StringArrayOutput)
-}
-
-type UserGroupUserGroupPendingChangesPtrOutput struct{ *pulumi.OutputState }
-
-func (UserGroupUserGroupPendingChangesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserGroupUserGroupPendingChanges)(nil)).Elem()
-}
-
-func (o UserGroupUserGroupPendingChangesPtrOutput) ToUserGroupUserGroupPendingChangesPtrOutput() UserGroupUserGroupPendingChangesPtrOutput {
+func (o GlobalReplicationGroupReshardingConfigurationArrayOutput) ToGlobalReplicationGroupReshardingConfigurationArrayOutput() GlobalReplicationGroupReshardingConfigurationArrayOutput {
 	return o
 }
 
-func (o UserGroupUserGroupPendingChangesPtrOutput) ToUserGroupUserGroupPendingChangesPtrOutputWithContext(ctx context.Context) UserGroupUserGroupPendingChangesPtrOutput {
+func (o GlobalReplicationGroupReshardingConfigurationArrayOutput) ToGlobalReplicationGroupReshardingConfigurationArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupReshardingConfigurationArrayOutput {
 	return o
 }
 
-func (o UserGroupUserGroupPendingChangesPtrOutput) Elem() UserGroupUserGroupPendingChangesOutput {
-	return o.ApplyT(func(v *UserGroupUserGroupPendingChanges) UserGroupUserGroupPendingChanges {
-		if v != nil {
-			return *v
-		}
-		var ret UserGroupUserGroupPendingChanges
-		return ret
-	}).(UserGroupUserGroupPendingChangesOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoadd
-func (o UserGroupUserGroupPendingChangesPtrOutput) UserIdsToAdd() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *UserGroupUserGroupPendingChanges) []string {
-		if v == nil {
-			return nil
-		}
-		return v.UserIdsToAdd
-	}).(pulumi.StringArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoremove
-func (o UserGroupUserGroupPendingChangesPtrOutput) UserIdsToRemove() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *UserGroupUserGroupPendingChanges) []string {
-		if v == nil {
-			return nil
-		}
-		return v.UserIdsToRemove
-	}).(pulumi.StringArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html
-type UserGroupUserIdList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html#cfn-elasticache-usergroup-useridlist-useridlist
-	UserIdList []string `pulumi:"userIdList"`
-}
-
-// UserGroupUserIdListInput is an input type that accepts UserGroupUserIdListArgs and UserGroupUserIdListOutput values.
-// You can construct a concrete instance of `UserGroupUserIdListInput` via:
-//
-//          UserGroupUserIdListArgs{...}
-type UserGroupUserIdListInput interface {
-	pulumi.Input
-
-	ToUserGroupUserIdListOutput() UserGroupUserIdListOutput
-	ToUserGroupUserIdListOutputWithContext(context.Context) UserGroupUserIdListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html
-type UserGroupUserIdListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html#cfn-elasticache-usergroup-useridlist-useridlist
-	UserIdList pulumi.StringArrayInput `pulumi:"userIdList"`
-}
-
-func (UserGroupUserIdListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGroupUserIdList)(nil)).Elem()
-}
-
-func (i UserGroupUserIdListArgs) ToUserGroupUserIdListOutput() UserGroupUserIdListOutput {
-	return i.ToUserGroupUserIdListOutputWithContext(context.Background())
-}
-
-func (i UserGroupUserIdListArgs) ToUserGroupUserIdListOutputWithContext(ctx context.Context) UserGroupUserIdListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserGroupUserIdListOutput)
-}
-
-func (i UserGroupUserIdListArgs) ToUserGroupUserIdListPtrOutput() UserGroupUserIdListPtrOutput {
-	return i.ToUserGroupUserIdListPtrOutputWithContext(context.Background())
-}
-
-func (i UserGroupUserIdListArgs) ToUserGroupUserIdListPtrOutputWithContext(ctx context.Context) UserGroupUserIdListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserGroupUserIdListOutput).ToUserGroupUserIdListPtrOutputWithContext(ctx)
-}
-
-// UserGroupUserIdListPtrInput is an input type that accepts UserGroupUserIdListArgs, UserGroupUserIdListPtr and UserGroupUserIdListPtrOutput values.
-// You can construct a concrete instance of `UserGroupUserIdListPtrInput` via:
-//
-//          UserGroupUserIdListArgs{...}
-//
-//  or:
-//
-//          nil
-type UserGroupUserIdListPtrInput interface {
-	pulumi.Input
-
-	ToUserGroupUserIdListPtrOutput() UserGroupUserIdListPtrOutput
-	ToUserGroupUserIdListPtrOutputWithContext(context.Context) UserGroupUserIdListPtrOutput
-}
-
-type userGroupUserIdListPtrType UserGroupUserIdListArgs
-
-func UserGroupUserIdListPtr(v *UserGroupUserIdListArgs) UserGroupUserIdListPtrInput {
-	return (*userGroupUserIdListPtrType)(v)
-}
-
-func (*userGroupUserIdListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserGroupUserIdList)(nil)).Elem()
-}
-
-func (i *userGroupUserIdListPtrType) ToUserGroupUserIdListPtrOutput() UserGroupUserIdListPtrOutput {
-	return i.ToUserGroupUserIdListPtrOutputWithContext(context.Background())
-}
-
-func (i *userGroupUserIdListPtrType) ToUserGroupUserIdListPtrOutputWithContext(ctx context.Context) UserGroupUserIdListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserGroupUserIdListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html
-type UserGroupUserIdListOutput struct{ *pulumi.OutputState }
-
-func (UserGroupUserIdListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserGroupUserIdList)(nil)).Elem()
-}
-
-func (o UserGroupUserIdListOutput) ToUserGroupUserIdListOutput() UserGroupUserIdListOutput {
-	return o
-}
-
-func (o UserGroupUserIdListOutput) ToUserGroupUserIdListOutputWithContext(ctx context.Context) UserGroupUserIdListOutput {
-	return o
-}
-
-func (o UserGroupUserIdListOutput) ToUserGroupUserIdListPtrOutput() UserGroupUserIdListPtrOutput {
-	return o.ToUserGroupUserIdListPtrOutputWithContext(context.Background())
-}
-
-func (o UserGroupUserIdListOutput) ToUserGroupUserIdListPtrOutputWithContext(ctx context.Context) UserGroupUserIdListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserGroupUserIdList) *UserGroupUserIdList {
-		return &v
-	}).(UserGroupUserIdListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html#cfn-elasticache-usergroup-useridlist-useridlist
-func (o UserGroupUserIdListOutput) UserIdList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v UserGroupUserIdList) []string { return v.UserIdList }).(pulumi.StringArrayOutput)
-}
-
-type UserGroupUserIdListPtrOutput struct{ *pulumi.OutputState }
-
-func (UserGroupUserIdListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserGroupUserIdList)(nil)).Elem()
-}
-
-func (o UserGroupUserIdListPtrOutput) ToUserGroupUserIdListPtrOutput() UserGroupUserIdListPtrOutput {
-	return o
-}
-
-func (o UserGroupUserIdListPtrOutput) ToUserGroupUserIdListPtrOutputWithContext(ctx context.Context) UserGroupUserIdListPtrOutput {
-	return o
-}
-
-func (o UserGroupUserIdListPtrOutput) Elem() UserGroupUserIdListOutput {
-	return o.ApplyT(func(v *UserGroupUserIdList) UserGroupUserIdList {
-		if v != nil {
-			return *v
-		}
-		var ret UserGroupUserIdList
-		return ret
-	}).(UserGroupUserIdListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html#cfn-elasticache-usergroup-useridlist-useridlist
-func (o UserGroupUserIdListPtrOutput) UserIdList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *UserGroupUserIdList) []string {
-		if v == nil {
-			return nil
-		}
-		return v.UserIdList
-	}).(pulumi.StringArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html
-type UserPasswordList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist
-	PasswordList []string `pulumi:"passwordList"`
-}
-
-// UserPasswordListInput is an input type that accepts UserPasswordListArgs and UserPasswordListOutput values.
-// You can construct a concrete instance of `UserPasswordListInput` via:
-//
-//          UserPasswordListArgs{...}
-type UserPasswordListInput interface {
-	pulumi.Input
-
-	ToUserPasswordListOutput() UserPasswordListOutput
-	ToUserPasswordListOutputWithContext(context.Context) UserPasswordListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html
-type UserPasswordListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist
-	PasswordList pulumi.StringArrayInput `pulumi:"passwordList"`
-}
-
-func (UserPasswordListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPasswordList)(nil)).Elem()
-}
-
-func (i UserPasswordListArgs) ToUserPasswordListOutput() UserPasswordListOutput {
-	return i.ToUserPasswordListOutputWithContext(context.Background())
-}
-
-func (i UserPasswordListArgs) ToUserPasswordListOutputWithContext(ctx context.Context) UserPasswordListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPasswordListOutput)
-}
-
-func (i UserPasswordListArgs) ToUserPasswordListPtrOutput() UserPasswordListPtrOutput {
-	return i.ToUserPasswordListPtrOutputWithContext(context.Background())
-}
-
-func (i UserPasswordListArgs) ToUserPasswordListPtrOutputWithContext(ctx context.Context) UserPasswordListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPasswordListOutput).ToUserPasswordListPtrOutputWithContext(ctx)
-}
-
-// UserPasswordListPtrInput is an input type that accepts UserPasswordListArgs, UserPasswordListPtr and UserPasswordListPtrOutput values.
-// You can construct a concrete instance of `UserPasswordListPtrInput` via:
-//
-//          UserPasswordListArgs{...}
-//
-//  or:
-//
-//          nil
-type UserPasswordListPtrInput interface {
-	pulumi.Input
-
-	ToUserPasswordListPtrOutput() UserPasswordListPtrOutput
-	ToUserPasswordListPtrOutputWithContext(context.Context) UserPasswordListPtrOutput
-}
-
-type userPasswordListPtrType UserPasswordListArgs
-
-func UserPasswordListPtr(v *UserPasswordListArgs) UserPasswordListPtrInput {
-	return (*userPasswordListPtrType)(v)
-}
-
-func (*userPasswordListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPasswordList)(nil)).Elem()
-}
-
-func (i *userPasswordListPtrType) ToUserPasswordListPtrOutput() UserPasswordListPtrOutput {
-	return i.ToUserPasswordListPtrOutputWithContext(context.Background())
-}
-
-func (i *userPasswordListPtrType) ToUserPasswordListPtrOutputWithContext(ctx context.Context) UserPasswordListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPasswordListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html
-type UserPasswordListOutput struct{ *pulumi.OutputState }
-
-func (UserPasswordListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPasswordList)(nil)).Elem()
-}
-
-func (o UserPasswordListOutput) ToUserPasswordListOutput() UserPasswordListOutput {
-	return o
-}
-
-func (o UserPasswordListOutput) ToUserPasswordListOutputWithContext(ctx context.Context) UserPasswordListOutput {
-	return o
-}
-
-func (o UserPasswordListOutput) ToUserPasswordListPtrOutput() UserPasswordListPtrOutput {
-	return o.ToUserPasswordListPtrOutputWithContext(context.Background())
-}
-
-func (o UserPasswordListOutput) ToUserPasswordListPtrOutputWithContext(ctx context.Context) UserPasswordListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPasswordList) *UserPasswordList {
-		return &v
-	}).(UserPasswordListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist
-func (o UserPasswordListOutput) PasswordList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v UserPasswordList) []string { return v.PasswordList }).(pulumi.StringArrayOutput)
-}
-
-type UserPasswordListPtrOutput struct{ *pulumi.OutputState }
-
-func (UserPasswordListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPasswordList)(nil)).Elem()
-}
-
-func (o UserPasswordListPtrOutput) ToUserPasswordListPtrOutput() UserPasswordListPtrOutput {
-	return o
-}
-
-func (o UserPasswordListPtrOutput) ToUserPasswordListPtrOutputWithContext(ctx context.Context) UserPasswordListPtrOutput {
-	return o
-}
-
-func (o UserPasswordListPtrOutput) Elem() UserPasswordListOutput {
-	return o.ApplyT(func(v *UserPasswordList) UserPasswordList {
-		if v != nil {
-			return *v
-		}
-		var ret UserPasswordList
-		return ret
-	}).(UserPasswordListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist
-func (o UserPasswordListPtrOutput) PasswordList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *UserPasswordList) []string {
-		if v == nil {
-			return nil
-		}
-		return v.PasswordList
-	}).(pulumi.StringArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html
-type UserUserGroupIdList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html#cfn-elasticache-user-usergroupidlist-usergroupidlist
-	UserGroupIdList []string `pulumi:"userGroupIdList"`
-}
-
-// UserUserGroupIdListInput is an input type that accepts UserUserGroupIdListArgs and UserUserGroupIdListOutput values.
-// You can construct a concrete instance of `UserUserGroupIdListInput` via:
-//
-//          UserUserGroupIdListArgs{...}
-type UserUserGroupIdListInput interface {
-	pulumi.Input
-
-	ToUserUserGroupIdListOutput() UserUserGroupIdListOutput
-	ToUserUserGroupIdListOutputWithContext(context.Context) UserUserGroupIdListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html
-type UserUserGroupIdListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html#cfn-elasticache-user-usergroupidlist-usergroupidlist
-	UserGroupIdList pulumi.StringArrayInput `pulumi:"userGroupIdList"`
-}
-
-func (UserUserGroupIdListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserUserGroupIdList)(nil)).Elem()
-}
-
-func (i UserUserGroupIdListArgs) ToUserUserGroupIdListOutput() UserUserGroupIdListOutput {
-	return i.ToUserUserGroupIdListOutputWithContext(context.Background())
-}
-
-func (i UserUserGroupIdListArgs) ToUserUserGroupIdListOutputWithContext(ctx context.Context) UserUserGroupIdListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserUserGroupIdListOutput)
-}
-
-func (i UserUserGroupIdListArgs) ToUserUserGroupIdListPtrOutput() UserUserGroupIdListPtrOutput {
-	return i.ToUserUserGroupIdListPtrOutputWithContext(context.Background())
-}
-
-func (i UserUserGroupIdListArgs) ToUserUserGroupIdListPtrOutputWithContext(ctx context.Context) UserUserGroupIdListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserUserGroupIdListOutput).ToUserUserGroupIdListPtrOutputWithContext(ctx)
-}
-
-// UserUserGroupIdListPtrInput is an input type that accepts UserUserGroupIdListArgs, UserUserGroupIdListPtr and UserUserGroupIdListPtrOutput values.
-// You can construct a concrete instance of `UserUserGroupIdListPtrInput` via:
-//
-//          UserUserGroupIdListArgs{...}
-//
-//  or:
-//
-//          nil
-type UserUserGroupIdListPtrInput interface {
-	pulumi.Input
-
-	ToUserUserGroupIdListPtrOutput() UserUserGroupIdListPtrOutput
-	ToUserUserGroupIdListPtrOutputWithContext(context.Context) UserUserGroupIdListPtrOutput
-}
-
-type userUserGroupIdListPtrType UserUserGroupIdListArgs
-
-func UserUserGroupIdListPtr(v *UserUserGroupIdListArgs) UserUserGroupIdListPtrInput {
-	return (*userUserGroupIdListPtrType)(v)
-}
-
-func (*userUserGroupIdListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserUserGroupIdList)(nil)).Elem()
-}
-
-func (i *userUserGroupIdListPtrType) ToUserUserGroupIdListPtrOutput() UserUserGroupIdListPtrOutput {
-	return i.ToUserUserGroupIdListPtrOutputWithContext(context.Background())
-}
-
-func (i *userUserGroupIdListPtrType) ToUserUserGroupIdListPtrOutputWithContext(ctx context.Context) UserUserGroupIdListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserUserGroupIdListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html
-type UserUserGroupIdListOutput struct{ *pulumi.OutputState }
-
-func (UserUserGroupIdListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserUserGroupIdList)(nil)).Elem()
-}
-
-func (o UserUserGroupIdListOutput) ToUserUserGroupIdListOutput() UserUserGroupIdListOutput {
-	return o
-}
-
-func (o UserUserGroupIdListOutput) ToUserUserGroupIdListOutputWithContext(ctx context.Context) UserUserGroupIdListOutput {
-	return o
-}
-
-func (o UserUserGroupIdListOutput) ToUserUserGroupIdListPtrOutput() UserUserGroupIdListPtrOutput {
-	return o.ToUserUserGroupIdListPtrOutputWithContext(context.Background())
-}
-
-func (o UserUserGroupIdListOutput) ToUserUserGroupIdListPtrOutputWithContext(ctx context.Context) UserUserGroupIdListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserUserGroupIdList) *UserUserGroupIdList {
-		return &v
-	}).(UserUserGroupIdListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html#cfn-elasticache-user-usergroupidlist-usergroupidlist
-func (o UserUserGroupIdListOutput) UserGroupIdList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v UserUserGroupIdList) []string { return v.UserGroupIdList }).(pulumi.StringArrayOutput)
-}
-
-type UserUserGroupIdListPtrOutput struct{ *pulumi.OutputState }
-
-func (UserUserGroupIdListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserUserGroupIdList)(nil)).Elem()
-}
-
-func (o UserUserGroupIdListPtrOutput) ToUserUserGroupIdListPtrOutput() UserUserGroupIdListPtrOutput {
-	return o
-}
-
-func (o UserUserGroupIdListPtrOutput) ToUserUserGroupIdListPtrOutputWithContext(ctx context.Context) UserUserGroupIdListPtrOutput {
-	return o
-}
-
-func (o UserUserGroupIdListPtrOutput) Elem() UserUserGroupIdListOutput {
-	return o.ApplyT(func(v *UserUserGroupIdList) UserUserGroupIdList {
-		if v != nil {
-			return *v
-		}
-		var ret UserUserGroupIdList
-		return ret
-	}).(UserUserGroupIdListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html#cfn-elasticache-user-usergroupidlist-usergroupidlist
-func (o UserUserGroupIdListPtrOutput) UserGroupIdList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *UserUserGroupIdList) []string {
-		if v == nil {
-			return nil
-		}
-		return v.UserGroupIdList
-	}).(pulumi.StringArrayOutput)
+func (o GlobalReplicationGroupReshardingConfigurationArrayOutput) Index(i pulumi.IntInput) GlobalReplicationGroupReshardingConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalReplicationGroupReshardingConfiguration {
+		return vs[0].([]GlobalReplicationGroupReshardingConfiguration)[vs[1].(int)]
+	}).(GlobalReplicationGroupReshardingConfigurationOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(UserAuthenticationOutput{})
-	pulumi.RegisterOutputType(UserAuthenticationPtrOutput{})
-	pulumi.RegisterOutputType(UserGroupReplicationGroupIdListOutput{})
-	pulumi.RegisterOutputType(UserGroupReplicationGroupIdListPtrOutput{})
-	pulumi.RegisterOutputType(UserGroupUserGroupPendingChangesOutput{})
-	pulumi.RegisterOutputType(UserGroupUserGroupPendingChangesPtrOutput{})
-	pulumi.RegisterOutputType(UserGroupUserIdListOutput{})
-	pulumi.RegisterOutputType(UserGroupUserIdListPtrOutput{})
-	pulumi.RegisterOutputType(UserPasswordListOutput{})
-	pulumi.RegisterOutputType(UserPasswordListPtrOutput{})
-	pulumi.RegisterOutputType(UserUserGroupIdListOutput{})
-	pulumi.RegisterOutputType(UserUserGroupIdListPtrOutput{})
+	pulumi.RegisterOutputType(GlobalReplicationGroupGlobalReplicationGroupMemberOutput{})
+	pulumi.RegisterOutputType(GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput{})
+	pulumi.RegisterOutputType(GlobalReplicationGroupRegionalConfigurationOutput{})
+	pulumi.RegisterOutputType(GlobalReplicationGroupRegionalConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GlobalReplicationGroupReshardingConfigurationOutput{})
+	pulumi.RegisterOutputType(GlobalReplicationGroupReshardingConfigurationArrayOutput{})
 }

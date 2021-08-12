@@ -19,23 +19,23 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? Allow;
+        public readonly Outputs.WebACLAllowAction? Allow;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? Block;
+        public readonly Outputs.WebACLBlockAction? Block;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? Count;
+        public readonly Outputs.WebACLCountAction? Count;
 
         [OutputConstructor]
         private WebACLRuleAction(
-            Union<System.Text.Json.JsonElement, string>? allow,
+            Outputs.WebACLAllowAction? allow,
 
-            Union<System.Text.Json.JsonElement, string>? block,
+            Outputs.WebACLBlockAction? block,
 
-            Union<System.Text.Json.JsonElement, string>? count)
+            Outputs.WebACLCountAction? count)
         {
             Allow = allow;
             Block = block;

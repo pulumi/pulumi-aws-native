@@ -119,271 +119,144 @@ func (o AssetEgressEndpointArrayOutput) Index(i pulumi.IntInput) AssetEgressEndp
 	}).(AssetEgressEndpointOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html
-type ChannelHlsIngest struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html#cfn-mediapackage-channel-hlsingest-ingestendpoints
-	IngestEndpoints []ChannelIngestEndpoint `pulumi:"ingestEndpoints"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html
+type ChannelLogConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
+	LogGroupName *string `pulumi:"logGroupName"`
 }
 
-// ChannelHlsIngestInput is an input type that accepts ChannelHlsIngestArgs and ChannelHlsIngestOutput values.
-// You can construct a concrete instance of `ChannelHlsIngestInput` via:
+// ChannelLogConfigurationInput is an input type that accepts ChannelLogConfigurationArgs and ChannelLogConfigurationOutput values.
+// You can construct a concrete instance of `ChannelLogConfigurationInput` via:
 //
-//          ChannelHlsIngestArgs{...}
-type ChannelHlsIngestInput interface {
+//          ChannelLogConfigurationArgs{...}
+type ChannelLogConfigurationInput interface {
 	pulumi.Input
 
-	ToChannelHlsIngestOutput() ChannelHlsIngestOutput
-	ToChannelHlsIngestOutputWithContext(context.Context) ChannelHlsIngestOutput
+	ToChannelLogConfigurationOutput() ChannelLogConfigurationOutput
+	ToChannelLogConfigurationOutputWithContext(context.Context) ChannelLogConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html
-type ChannelHlsIngestArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html#cfn-mediapackage-channel-hlsingest-ingestendpoints
-	IngestEndpoints ChannelIngestEndpointArrayInput `pulumi:"ingestEndpoints"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html
+type ChannelLogConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
 }
 
-func (ChannelHlsIngestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelHlsIngest)(nil)).Elem()
+func (ChannelLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLogConfiguration)(nil)).Elem()
 }
 
-func (i ChannelHlsIngestArgs) ToChannelHlsIngestOutput() ChannelHlsIngestOutput {
-	return i.ToChannelHlsIngestOutputWithContext(context.Background())
+func (i ChannelLogConfigurationArgs) ToChannelLogConfigurationOutput() ChannelLogConfigurationOutput {
+	return i.ToChannelLogConfigurationOutputWithContext(context.Background())
 }
 
-func (i ChannelHlsIngestArgs) ToChannelHlsIngestOutputWithContext(ctx context.Context) ChannelHlsIngestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestOutput)
+func (i ChannelLogConfigurationArgs) ToChannelLogConfigurationOutputWithContext(ctx context.Context) ChannelLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogConfigurationOutput)
 }
 
-func (i ChannelHlsIngestArgs) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
-	return i.ToChannelHlsIngestPtrOutputWithContext(context.Background())
+func (i ChannelLogConfigurationArgs) ToChannelLogConfigurationPtrOutput() ChannelLogConfigurationPtrOutput {
+	return i.ToChannelLogConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i ChannelHlsIngestArgs) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestOutput).ToChannelHlsIngestPtrOutputWithContext(ctx)
+func (i ChannelLogConfigurationArgs) ToChannelLogConfigurationPtrOutputWithContext(ctx context.Context) ChannelLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogConfigurationOutput).ToChannelLogConfigurationPtrOutputWithContext(ctx)
 }
 
-// ChannelHlsIngestPtrInput is an input type that accepts ChannelHlsIngestArgs, ChannelHlsIngestPtr and ChannelHlsIngestPtrOutput values.
-// You can construct a concrete instance of `ChannelHlsIngestPtrInput` via:
+// ChannelLogConfigurationPtrInput is an input type that accepts ChannelLogConfigurationArgs, ChannelLogConfigurationPtr and ChannelLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelLogConfigurationPtrInput` via:
 //
-//          ChannelHlsIngestArgs{...}
+//          ChannelLogConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type ChannelHlsIngestPtrInput interface {
+type ChannelLogConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput
-	ToChannelHlsIngestPtrOutputWithContext(context.Context) ChannelHlsIngestPtrOutput
+	ToChannelLogConfigurationPtrOutput() ChannelLogConfigurationPtrOutput
+	ToChannelLogConfigurationPtrOutputWithContext(context.Context) ChannelLogConfigurationPtrOutput
 }
 
-type channelHlsIngestPtrType ChannelHlsIngestArgs
+type channelLogConfigurationPtrType ChannelLogConfigurationArgs
 
-func ChannelHlsIngestPtr(v *ChannelHlsIngestArgs) ChannelHlsIngestPtrInput {
-	return (*channelHlsIngestPtrType)(v)
+func ChannelLogConfigurationPtr(v *ChannelLogConfigurationArgs) ChannelLogConfigurationPtrInput {
+	return (*channelLogConfigurationPtrType)(v)
 }
 
-func (*channelHlsIngestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelHlsIngest)(nil)).Elem()
+func (*channelLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLogConfiguration)(nil)).Elem()
 }
 
-func (i *channelHlsIngestPtrType) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
-	return i.ToChannelHlsIngestPtrOutputWithContext(context.Background())
+func (i *channelLogConfigurationPtrType) ToChannelLogConfigurationPtrOutput() ChannelLogConfigurationPtrOutput {
+	return i.ToChannelLogConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *channelHlsIngestPtrType) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestPtrOutput)
+func (i *channelLogConfigurationPtrType) ToChannelLogConfigurationPtrOutputWithContext(ctx context.Context) ChannelLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html
-type ChannelHlsIngestOutput struct{ *pulumi.OutputState }
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html
+type ChannelLogConfigurationOutput struct{ *pulumi.OutputState }
 
-func (ChannelHlsIngestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelHlsIngest)(nil)).Elem()
+func (ChannelLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLogConfiguration)(nil)).Elem()
 }
 
-func (o ChannelHlsIngestOutput) ToChannelHlsIngestOutput() ChannelHlsIngestOutput {
+func (o ChannelLogConfigurationOutput) ToChannelLogConfigurationOutput() ChannelLogConfigurationOutput {
 	return o
 }
 
-func (o ChannelHlsIngestOutput) ToChannelHlsIngestOutputWithContext(ctx context.Context) ChannelHlsIngestOutput {
+func (o ChannelLogConfigurationOutput) ToChannelLogConfigurationOutputWithContext(ctx context.Context) ChannelLogConfigurationOutput {
 	return o
 }
 
-func (o ChannelHlsIngestOutput) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
-	return o.ToChannelHlsIngestPtrOutputWithContext(context.Background())
+func (o ChannelLogConfigurationOutput) ToChannelLogConfigurationPtrOutput() ChannelLogConfigurationPtrOutput {
+	return o.ToChannelLogConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o ChannelHlsIngestOutput) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsIngest) *ChannelHlsIngest {
+func (o ChannelLogConfigurationOutput) ToChannelLogConfigurationPtrOutputWithContext(ctx context.Context) ChannelLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelLogConfiguration) *ChannelLogConfiguration {
 		return &v
-	}).(ChannelHlsIngestPtrOutput)
+	}).(ChannelLogConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html#cfn-mediapackage-channel-hlsingest-ingestendpoints
-func (o ChannelHlsIngestOutput) IngestEndpoints() ChannelIngestEndpointArrayOutput {
-	return o.ApplyT(func(v ChannelHlsIngest) []ChannelIngestEndpoint { return v.IngestEndpoints }).(ChannelIngestEndpointArrayOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
+func (o ChannelLogConfigurationOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelLogConfiguration) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
 
-type ChannelHlsIngestPtrOutput struct{ *pulumi.OutputState }
+type ChannelLogConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (ChannelHlsIngestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelHlsIngest)(nil)).Elem()
+func (ChannelLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLogConfiguration)(nil)).Elem()
 }
 
-func (o ChannelHlsIngestPtrOutput) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
+func (o ChannelLogConfigurationPtrOutput) ToChannelLogConfigurationPtrOutput() ChannelLogConfigurationPtrOutput {
 	return o
 }
 
-func (o ChannelHlsIngestPtrOutput) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
+func (o ChannelLogConfigurationPtrOutput) ToChannelLogConfigurationPtrOutputWithContext(ctx context.Context) ChannelLogConfigurationPtrOutput {
 	return o
 }
 
-func (o ChannelHlsIngestPtrOutput) Elem() ChannelHlsIngestOutput {
-	return o.ApplyT(func(v *ChannelHlsIngest) ChannelHlsIngest {
+func (o ChannelLogConfigurationPtrOutput) Elem() ChannelLogConfigurationOutput {
+	return o.ApplyT(func(v *ChannelLogConfiguration) ChannelLogConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret ChannelHlsIngest
+		var ret ChannelLogConfiguration
 		return ret
-	}).(ChannelHlsIngestOutput)
+	}).(ChannelLogConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html#cfn-mediapackage-channel-hlsingest-ingestendpoints
-func (o ChannelHlsIngestPtrOutput) IngestEndpoints() ChannelIngestEndpointArrayOutput {
-	return o.ApplyT(func(v *ChannelHlsIngest) []ChannelIngestEndpoint {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
+func (o ChannelLogConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelLogConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return v.IngestEndpoints
-	}).(ChannelIngestEndpointArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html
-type ChannelIngestEndpoint struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-id
-	Id *string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-password
-	Password *string `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-url
-	Url *string `pulumi:"url"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-username
-	Username *string `pulumi:"username"`
-}
-
-// ChannelIngestEndpointInput is an input type that accepts ChannelIngestEndpointArgs and ChannelIngestEndpointOutput values.
-// You can construct a concrete instance of `ChannelIngestEndpointInput` via:
-//
-//          ChannelIngestEndpointArgs{...}
-type ChannelIngestEndpointInput interface {
-	pulumi.Input
-
-	ToChannelIngestEndpointOutput() ChannelIngestEndpointOutput
-	ToChannelIngestEndpointOutputWithContext(context.Context) ChannelIngestEndpointOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html
-type ChannelIngestEndpointArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-password
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-url
-	Url pulumi.StringPtrInput `pulumi:"url"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-username
-	Username pulumi.StringPtrInput `pulumi:"username"`
-}
-
-func (ChannelIngestEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelIngestEndpoint)(nil)).Elem()
-}
-
-func (i ChannelIngestEndpointArgs) ToChannelIngestEndpointOutput() ChannelIngestEndpointOutput {
-	return i.ToChannelIngestEndpointOutputWithContext(context.Background())
-}
-
-func (i ChannelIngestEndpointArgs) ToChannelIngestEndpointOutputWithContext(ctx context.Context) ChannelIngestEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelIngestEndpointOutput)
-}
-
-// ChannelIngestEndpointArrayInput is an input type that accepts ChannelIngestEndpointArray and ChannelIngestEndpointArrayOutput values.
-// You can construct a concrete instance of `ChannelIngestEndpointArrayInput` via:
-//
-//          ChannelIngestEndpointArray{ ChannelIngestEndpointArgs{...} }
-type ChannelIngestEndpointArrayInput interface {
-	pulumi.Input
-
-	ToChannelIngestEndpointArrayOutput() ChannelIngestEndpointArrayOutput
-	ToChannelIngestEndpointArrayOutputWithContext(context.Context) ChannelIngestEndpointArrayOutput
-}
-
-type ChannelIngestEndpointArray []ChannelIngestEndpointInput
-
-func (ChannelIngestEndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelIngestEndpoint)(nil)).Elem()
-}
-
-func (i ChannelIngestEndpointArray) ToChannelIngestEndpointArrayOutput() ChannelIngestEndpointArrayOutput {
-	return i.ToChannelIngestEndpointArrayOutputWithContext(context.Background())
-}
-
-func (i ChannelIngestEndpointArray) ToChannelIngestEndpointArrayOutputWithContext(ctx context.Context) ChannelIngestEndpointArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelIngestEndpointArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html
-type ChannelIngestEndpointOutput struct{ *pulumi.OutputState }
-
-func (ChannelIngestEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelIngestEndpoint)(nil)).Elem()
-}
-
-func (o ChannelIngestEndpointOutput) ToChannelIngestEndpointOutput() ChannelIngestEndpointOutput {
-	return o
-}
-
-func (o ChannelIngestEndpointOutput) ToChannelIngestEndpointOutputWithContext(ctx context.Context) ChannelIngestEndpointOutput {
-	return o
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-id
-func (o ChannelIngestEndpointOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-password
-func (o ChannelIngestEndpointOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-url
-func (o ChannelIngestEndpointOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Url }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html#cfn-mediapackage-channel-ingestendpoint-username
-func (o ChannelIngestEndpointOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Username }).(pulumi.StringPtrOutput)
-}
-
-type ChannelIngestEndpointArrayOutput struct{ *pulumi.OutputState }
-
-func (ChannelIngestEndpointArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelIngestEndpoint)(nil)).Elem()
-}
-
-func (o ChannelIngestEndpointArrayOutput) ToChannelIngestEndpointArrayOutput() ChannelIngestEndpointArrayOutput {
-	return o
-}
-
-func (o ChannelIngestEndpointArrayOutput) ToChannelIngestEndpointArrayOutputWithContext(ctx context.Context) ChannelIngestEndpointArrayOutput {
-	return o
-}
-
-func (o ChannelIngestEndpointArrayOutput) Index(i pulumi.IntInput) ChannelIngestEndpointOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelIngestEndpoint {
-		return vs[0].([]ChannelIngestEndpoint)[vs[1].(int)]
-	}).(ChannelIngestEndpointOutput)
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html
@@ -547,6 +420,8 @@ func (o OriginEndpointAuthorizationPtrOutput) SecretsRoleArn() pulumi.StringPtrO
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html
 type OriginEndpointCmafEncryption struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
+	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
 	KeyRotationIntervalSeconds *int `pulumi:"keyRotationIntervalSeconds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
@@ -566,6 +441,8 @@ type OriginEndpointCmafEncryptionInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html
 type OriginEndpointCmafEncryptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
+	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
 	KeyRotationIntervalSeconds pulumi.IntPtrInput `pulumi:"keyRotationIntervalSeconds"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
@@ -650,6 +527,11 @@ func (o OriginEndpointCmafEncryptionOutput) ToOriginEndpointCmafEncryptionPtrOut
 	}).(OriginEndpointCmafEncryptionPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
+func (o OriginEndpointCmafEncryptionOutput) ConstantInitializationVector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointCmafEncryption) *string { return v.ConstantInitializationVector }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
 func (o OriginEndpointCmafEncryptionOutput) KeyRotationIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointCmafEncryption) *int { return v.KeyRotationIntervalSeconds }).(pulumi.IntPtrOutput)
@@ -682,6 +564,16 @@ func (o OriginEndpointCmafEncryptionPtrOutput) Elem() OriginEndpointCmafEncrypti
 		var ret OriginEndpointCmafEncryption
 		return ret
 	}).(OriginEndpointCmafEncryptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
+func (o OriginEndpointCmafEncryptionPtrOutput) ConstantInitializationVector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointCmafEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConstantInitializationVector
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
@@ -1107,6 +999,10 @@ type OriginEndpointDashPackage struct {
 	StreamSelection *OriginEndpointStreamSelection `pulumi:"streamSelection"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
 	SuggestedPresentationDelaySeconds *int `pulumi:"suggestedPresentationDelaySeconds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
+	UtcTiming *string `pulumi:"utcTiming"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
+	UtcTimingUri *string `pulumi:"utcTimingUri"`
 }
 
 // OriginEndpointDashPackageInput is an input type that accepts OriginEndpointDashPackageArgs and OriginEndpointDashPackageOutput values.
@@ -1148,6 +1044,10 @@ type OriginEndpointDashPackageArgs struct {
 	StreamSelection OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
 	SuggestedPresentationDelaySeconds pulumi.IntPtrInput `pulumi:"suggestedPresentationDelaySeconds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
+	UtcTiming pulumi.StringPtrInput `pulumi:"utcTiming"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
+	UtcTimingUri pulumi.StringPtrInput `pulumi:"utcTimingUri"`
 }
 
 func (OriginEndpointDashPackageArgs) ElementType() reflect.Type {
@@ -1291,6 +1191,16 @@ func (o OriginEndpointDashPackageOutput) StreamSelection() OriginEndpointStreamS
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
 func (o OriginEndpointDashPackageOutput) SuggestedPresentationDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *int { return v.SuggestedPresentationDelaySeconds }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
+func (o OriginEndpointDashPackageOutput) UtcTiming() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.UtcTiming }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
+func (o OriginEndpointDashPackageOutput) UtcTimingUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.UtcTimingUri }).(pulumi.StringPtrOutput)
 }
 
 type OriginEndpointDashPackagePtrOutput struct{ *pulumi.OutputState }
@@ -1445,6 +1355,26 @@ func (o OriginEndpointDashPackagePtrOutput) SuggestedPresentationDelaySeconds() 
 		}
 		return v.SuggestedPresentationDelaySeconds
 	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
+func (o OriginEndpointDashPackagePtrOutput) UtcTiming() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UtcTiming
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
+func (o OriginEndpointDashPackagePtrOutput) UtcTimingUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UtcTimingUri
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html
@@ -2908,7 +2838,7 @@ func (o OriginEndpointStreamSelectionPtrOutput) StreamOrder() pulumi.StringPtrOu
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html
 type PackagingConfigurationCmafEncryption struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
-	SpekeKeyProvider interface{} `pulumi:"spekeKeyProvider"`
+	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
 // PackagingConfigurationCmafEncryptionInput is an input type that accepts PackagingConfigurationCmafEncryptionArgs and PackagingConfigurationCmafEncryptionOutput values.
@@ -2925,7 +2855,7 @@ type PackagingConfigurationCmafEncryptionInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html
 type PackagingConfigurationCmafEncryptionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
-	SpekeKeyProvider pulumi.Input `pulumi:"spekeKeyProvider"`
+	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
 func (PackagingConfigurationCmafEncryptionArgs) ElementType() reflect.Type {
@@ -3007,8 +2937,10 @@ func (o PackagingConfigurationCmafEncryptionOutput) ToPackagingConfigurationCmaf
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
-func (o PackagingConfigurationCmafEncryptionOutput) SpekeKeyProvider() pulumi.AnyOutput {
-	return o.ApplyT(func(v PackagingConfigurationCmafEncryption) interface{} { return v.SpekeKeyProvider }).(pulumi.AnyOutput)
+func (o PackagingConfigurationCmafEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
+	return o.ApplyT(func(v PackagingConfigurationCmafEncryption) PackagingConfigurationSpekeKeyProvider {
+		return v.SpekeKeyProvider
+	}).(PackagingConfigurationSpekeKeyProviderOutput)
 }
 
 type PackagingConfigurationCmafEncryptionPtrOutput struct{ *pulumi.OutputState }
@@ -3036,13 +2968,13 @@ func (o PackagingConfigurationCmafEncryptionPtrOutput) Elem() PackagingConfigura
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
-func (o PackagingConfigurationCmafEncryptionPtrOutput) SpekeKeyProvider() pulumi.AnyOutput {
-	return o.ApplyT(func(v *PackagingConfigurationCmafEncryption) interface{} {
+func (o PackagingConfigurationCmafEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationCmafEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
 			return nil
 		}
-		return v.SpekeKeyProvider
-	}).(pulumi.AnyOutput)
+		return &v.SpekeKeyProvider
+	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html
@@ -3051,6 +2983,8 @@ type PackagingConfigurationCmafPackage struct {
 	Encryption *PackagingConfigurationCmafEncryption `pulumi:"encryption"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
 	HlsManifests []PackagingConfigurationHlsManifest `pulumi:"hlsManifests"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
+	IncludeEncoderConfigurationInSegments *bool `pulumi:"includeEncoderConfigurationInSegments"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
 	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
 }
@@ -3072,6 +3006,8 @@ type PackagingConfigurationCmafPackageArgs struct {
 	Encryption PackagingConfigurationCmafEncryptionPtrInput `pulumi:"encryption"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
 	HlsManifests PackagingConfigurationHlsManifestArrayInput `pulumi:"hlsManifests"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
+	IncludeEncoderConfigurationInSegments pulumi.BoolPtrInput `pulumi:"includeEncoderConfigurationInSegments"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
 	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
 }
@@ -3164,6 +3100,11 @@ func (o PackagingConfigurationCmafPackageOutput) HlsManifests() PackagingConfigu
 	return o.ApplyT(func(v PackagingConfigurationCmafPackage) []PackagingConfigurationHlsManifest { return v.HlsManifests }).(PackagingConfigurationHlsManifestArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
+func (o PackagingConfigurationCmafPackageOutput) IncludeEncoderConfigurationInSegments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PackagingConfigurationCmafPackage) *bool { return v.IncludeEncoderConfigurationInSegments }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
 func (o PackagingConfigurationCmafPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationCmafPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
@@ -3213,6 +3154,16 @@ func (o PackagingConfigurationCmafPackagePtrOutput) HlsManifests() PackagingConf
 	}).(PackagingConfigurationHlsManifestArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
+func (o PackagingConfigurationCmafPackagePtrOutput) IncludeEncoderConfigurationInSegments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationCmafPackage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeEncoderConfigurationInSegments
+	}).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
 func (o PackagingConfigurationCmafPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationCmafPackage) *int {
@@ -3226,7 +3177,7 @@ func (o PackagingConfigurationCmafPackagePtrOutput) SegmentDurationSeconds() pul
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html
 type PackagingConfigurationDashEncryption struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
-	SpekeKeyProvider interface{} `pulumi:"spekeKeyProvider"`
+	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
 // PackagingConfigurationDashEncryptionInput is an input type that accepts PackagingConfigurationDashEncryptionArgs and PackagingConfigurationDashEncryptionOutput values.
@@ -3243,7 +3194,7 @@ type PackagingConfigurationDashEncryptionInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html
 type PackagingConfigurationDashEncryptionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
-	SpekeKeyProvider pulumi.Input `pulumi:"spekeKeyProvider"`
+	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
 func (PackagingConfigurationDashEncryptionArgs) ElementType() reflect.Type {
@@ -3325,8 +3276,10 @@ func (o PackagingConfigurationDashEncryptionOutput) ToPackagingConfigurationDash
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
-func (o PackagingConfigurationDashEncryptionOutput) SpekeKeyProvider() pulumi.AnyOutput {
-	return o.ApplyT(func(v PackagingConfigurationDashEncryption) interface{} { return v.SpekeKeyProvider }).(pulumi.AnyOutput)
+func (o PackagingConfigurationDashEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
+	return o.ApplyT(func(v PackagingConfigurationDashEncryption) PackagingConfigurationSpekeKeyProvider {
+		return v.SpekeKeyProvider
+	}).(PackagingConfigurationSpekeKeyProviderOutput)
 }
 
 type PackagingConfigurationDashEncryptionPtrOutput struct{ *pulumi.OutputState }
@@ -3354,13 +3307,13 @@ func (o PackagingConfigurationDashEncryptionPtrOutput) Elem() PackagingConfigura
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
-func (o PackagingConfigurationDashEncryptionPtrOutput) SpekeKeyProvider() pulumi.AnyOutput {
-	return o.ApplyT(func(v *PackagingConfigurationDashEncryption) interface{} {
+func (o PackagingConfigurationDashEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationDashEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
 			return nil
 		}
-		return v.SpekeKeyProvider
-	}).(pulumi.AnyOutput)
+		return &v.SpekeKeyProvider
+	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html
@@ -3507,6 +3460,8 @@ type PackagingConfigurationDashPackage struct {
 	DashManifests []PackagingConfigurationDashManifest `pulumi:"dashManifests"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
 	Encryption *PackagingConfigurationDashEncryption `pulumi:"encryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
+	IncludeEncoderConfigurationInSegments *bool `pulumi:"includeEncoderConfigurationInSegments"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
 	PeriodTriggers []string `pulumi:"periodTriggers"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
@@ -3532,6 +3487,8 @@ type PackagingConfigurationDashPackageArgs struct {
 	DashManifests PackagingConfigurationDashManifestArrayInput `pulumi:"dashManifests"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
 	Encryption PackagingConfigurationDashEncryptionPtrInput `pulumi:"encryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
+	IncludeEncoderConfigurationInSegments pulumi.BoolPtrInput `pulumi:"includeEncoderConfigurationInSegments"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
 	PeriodTriggers pulumi.StringArrayInput `pulumi:"periodTriggers"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
@@ -3628,6 +3585,11 @@ func (o PackagingConfigurationDashPackageOutput) Encryption() PackagingConfigura
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) *PackagingConfigurationDashEncryption { return v.Encryption }).(PackagingConfigurationDashEncryptionPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
+func (o PackagingConfigurationDashPackageOutput) IncludeEncoderConfigurationInSegments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PackagingConfigurationDashPackage) *bool { return v.IncludeEncoderConfigurationInSegments }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
 func (o PackagingConfigurationDashPackageOutput) PeriodTriggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) []string { return v.PeriodTriggers }).(pulumi.StringArrayOutput)
@@ -3687,6 +3649,16 @@ func (o PackagingConfigurationDashPackagePtrOutput) Encryption() PackagingConfig
 	}).(PackagingConfigurationDashEncryptionPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
+func (o PackagingConfigurationDashPackagePtrOutput) IncludeEncoderConfigurationInSegments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationDashPackage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeEncoderConfigurationInSegments
+	}).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
 func (o PackagingConfigurationDashPackagePtrOutput) PeriodTriggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashPackage) []string {
@@ -3724,7 +3696,7 @@ type PackagingConfigurationHlsEncryption struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
 	EncryptionMethod *string `pulumi:"encryptionMethod"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
-	SpekeKeyProvider interface{} `pulumi:"spekeKeyProvider"`
+	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
 // PackagingConfigurationHlsEncryptionInput is an input type that accepts PackagingConfigurationHlsEncryptionArgs and PackagingConfigurationHlsEncryptionOutput values.
@@ -3745,7 +3717,7 @@ type PackagingConfigurationHlsEncryptionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
 	EncryptionMethod pulumi.StringPtrInput `pulumi:"encryptionMethod"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
-	SpekeKeyProvider pulumi.Input `pulumi:"spekeKeyProvider"`
+	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
 func (PackagingConfigurationHlsEncryptionArgs) ElementType() reflect.Type {
@@ -3837,8 +3809,10 @@ func (o PackagingConfigurationHlsEncryptionOutput) EncryptionMethod() pulumi.Str
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
-func (o PackagingConfigurationHlsEncryptionOutput) SpekeKeyProvider() pulumi.AnyOutput {
-	return o.ApplyT(func(v PackagingConfigurationHlsEncryption) interface{} { return v.SpekeKeyProvider }).(pulumi.AnyOutput)
+func (o PackagingConfigurationHlsEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
+	return o.ApplyT(func(v PackagingConfigurationHlsEncryption) PackagingConfigurationSpekeKeyProvider {
+		return v.SpekeKeyProvider
+	}).(PackagingConfigurationSpekeKeyProviderOutput)
 }
 
 type PackagingConfigurationHlsEncryptionPtrOutput struct{ *pulumi.OutputState }
@@ -3886,13 +3860,13 @@ func (o PackagingConfigurationHlsEncryptionPtrOutput) EncryptionMethod() pulumi.
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
-func (o PackagingConfigurationHlsEncryptionPtrOutput) SpekeKeyProvider() pulumi.AnyOutput {
-	return o.ApplyT(func(v *PackagingConfigurationHlsEncryption) interface{} {
+func (o PackagingConfigurationHlsEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationHlsEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
 			return nil
 		}
-		return v.SpekeKeyProvider
-	}).(pulumi.AnyOutput)
+		return &v.SpekeKeyProvider
+	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html
@@ -4242,7 +4216,7 @@ func (o PackagingConfigurationHlsPackagePtrOutput) UseAudioRenditionGroup() pulu
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html
 type PackagingConfigurationMssEncryption struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
-	SpekeKeyProvider interface{} `pulumi:"spekeKeyProvider"`
+	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
 // PackagingConfigurationMssEncryptionInput is an input type that accepts PackagingConfigurationMssEncryptionArgs and PackagingConfigurationMssEncryptionOutput values.
@@ -4259,7 +4233,7 @@ type PackagingConfigurationMssEncryptionInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html
 type PackagingConfigurationMssEncryptionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
-	SpekeKeyProvider pulumi.Input `pulumi:"spekeKeyProvider"`
+	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
 func (PackagingConfigurationMssEncryptionArgs) ElementType() reflect.Type {
@@ -4341,8 +4315,10 @@ func (o PackagingConfigurationMssEncryptionOutput) ToPackagingConfigurationMssEn
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
-func (o PackagingConfigurationMssEncryptionOutput) SpekeKeyProvider() pulumi.AnyOutput {
-	return o.ApplyT(func(v PackagingConfigurationMssEncryption) interface{} { return v.SpekeKeyProvider }).(pulumi.AnyOutput)
+func (o PackagingConfigurationMssEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
+	return o.ApplyT(func(v PackagingConfigurationMssEncryption) PackagingConfigurationSpekeKeyProvider {
+		return v.SpekeKeyProvider
+	}).(PackagingConfigurationSpekeKeyProviderOutput)
 }
 
 type PackagingConfigurationMssEncryptionPtrOutput struct{ *pulumi.OutputState }
@@ -4370,13 +4346,13 @@ func (o PackagingConfigurationMssEncryptionPtrOutput) Elem() PackagingConfigurat
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
-func (o PackagingConfigurationMssEncryptionPtrOutput) SpekeKeyProvider() pulumi.AnyOutput {
-	return o.ApplyT(func(v *PackagingConfigurationMssEncryption) interface{} {
+func (o PackagingConfigurationMssEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationMssEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
 			return nil
 		}
-		return v.SpekeKeyProvider
-	}).(pulumi.AnyOutput)
+		return &v.SpekeKeyProvider
+	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html
@@ -4711,6 +4687,47 @@ func (i PackagingConfigurationSpekeKeyProviderArgs) ToPackagingConfigurationSpek
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationSpekeKeyProviderOutput)
 }
 
+func (i PackagingConfigurationSpekeKeyProviderArgs) ToPackagingConfigurationSpekeKeyProviderPtrOutput() PackagingConfigurationSpekeKeyProviderPtrOutput {
+	return i.ToPackagingConfigurationSpekeKeyProviderPtrOutputWithContext(context.Background())
+}
+
+func (i PackagingConfigurationSpekeKeyProviderArgs) ToPackagingConfigurationSpekeKeyProviderPtrOutputWithContext(ctx context.Context) PackagingConfigurationSpekeKeyProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationSpekeKeyProviderOutput).ToPackagingConfigurationSpekeKeyProviderPtrOutputWithContext(ctx)
+}
+
+// PackagingConfigurationSpekeKeyProviderPtrInput is an input type that accepts PackagingConfigurationSpekeKeyProviderArgs, PackagingConfigurationSpekeKeyProviderPtr and PackagingConfigurationSpekeKeyProviderPtrOutput values.
+// You can construct a concrete instance of `PackagingConfigurationSpekeKeyProviderPtrInput` via:
+//
+//          PackagingConfigurationSpekeKeyProviderArgs{...}
+//
+//  or:
+//
+//          nil
+type PackagingConfigurationSpekeKeyProviderPtrInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationSpekeKeyProviderPtrOutput() PackagingConfigurationSpekeKeyProviderPtrOutput
+	ToPackagingConfigurationSpekeKeyProviderPtrOutputWithContext(context.Context) PackagingConfigurationSpekeKeyProviderPtrOutput
+}
+
+type packagingConfigurationSpekeKeyProviderPtrType PackagingConfigurationSpekeKeyProviderArgs
+
+func PackagingConfigurationSpekeKeyProviderPtr(v *PackagingConfigurationSpekeKeyProviderArgs) PackagingConfigurationSpekeKeyProviderPtrInput {
+	return (*packagingConfigurationSpekeKeyProviderPtrType)(v)
+}
+
+func (*packagingConfigurationSpekeKeyProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackagingConfigurationSpekeKeyProvider)(nil)).Elem()
+}
+
+func (i *packagingConfigurationSpekeKeyProviderPtrType) ToPackagingConfigurationSpekeKeyProviderPtrOutput() PackagingConfigurationSpekeKeyProviderPtrOutput {
+	return i.ToPackagingConfigurationSpekeKeyProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *packagingConfigurationSpekeKeyProviderPtrType) ToPackagingConfigurationSpekeKeyProviderPtrOutputWithContext(ctx context.Context) PackagingConfigurationSpekeKeyProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationSpekeKeyProviderPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html
 type PackagingConfigurationSpekeKeyProviderOutput struct{ *pulumi.OutputState }
 
@@ -4726,6 +4743,16 @@ func (o PackagingConfigurationSpekeKeyProviderOutput) ToPackagingConfigurationSp
 	return o
 }
 
+func (o PackagingConfigurationSpekeKeyProviderOutput) ToPackagingConfigurationSpekeKeyProviderPtrOutput() PackagingConfigurationSpekeKeyProviderPtrOutput {
+	return o.ToPackagingConfigurationSpekeKeyProviderPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationSpekeKeyProviderOutput) ToPackagingConfigurationSpekeKeyProviderPtrOutputWithContext(ctx context.Context) PackagingConfigurationSpekeKeyProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationSpekeKeyProvider) *PackagingConfigurationSpekeKeyProvider {
+		return &v
+	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-rolearn
 func (o PackagingConfigurationSpekeKeyProviderOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PackagingConfigurationSpekeKeyProvider) string { return v.RoleArn }).(pulumi.StringOutput)
@@ -4739,6 +4766,60 @@ func (o PackagingConfigurationSpekeKeyProviderOutput) SystemIds() pulumi.StringA
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-url
 func (o PackagingConfigurationSpekeKeyProviderOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v PackagingConfigurationSpekeKeyProvider) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type PackagingConfigurationSpekeKeyProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationSpekeKeyProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackagingConfigurationSpekeKeyProvider)(nil)).Elem()
+}
+
+func (o PackagingConfigurationSpekeKeyProviderPtrOutput) ToPackagingConfigurationSpekeKeyProviderPtrOutput() PackagingConfigurationSpekeKeyProviderPtrOutput {
+	return o
+}
+
+func (o PackagingConfigurationSpekeKeyProviderPtrOutput) ToPackagingConfigurationSpekeKeyProviderPtrOutputWithContext(ctx context.Context) PackagingConfigurationSpekeKeyProviderPtrOutput {
+	return o
+}
+
+func (o PackagingConfigurationSpekeKeyProviderPtrOutput) Elem() PackagingConfigurationSpekeKeyProviderOutput {
+	return o.ApplyT(func(v *PackagingConfigurationSpekeKeyProvider) PackagingConfigurationSpekeKeyProvider {
+		if v != nil {
+			return *v
+		}
+		var ret PackagingConfigurationSpekeKeyProvider
+		return ret
+	}).(PackagingConfigurationSpekeKeyProviderOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-rolearn
+func (o PackagingConfigurationSpekeKeyProviderPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationSpekeKeyProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-systemids
+func (o PackagingConfigurationSpekeKeyProviderPtrOutput) SystemIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PackagingConfigurationSpekeKeyProvider) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SystemIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-url
+func (o PackagingConfigurationSpekeKeyProviderPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationSpekeKeyProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html
@@ -5078,13 +5159,151 @@ func (o PackagingGroupAuthorizationPtrOutput) SecretsRoleArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html
+type PackagingGroupLogConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname
+	LogGroupName *string `pulumi:"logGroupName"`
+}
+
+// PackagingGroupLogConfigurationInput is an input type that accepts PackagingGroupLogConfigurationArgs and PackagingGroupLogConfigurationOutput values.
+// You can construct a concrete instance of `PackagingGroupLogConfigurationInput` via:
+//
+//          PackagingGroupLogConfigurationArgs{...}
+type PackagingGroupLogConfigurationInput interface {
+	pulumi.Input
+
+	ToPackagingGroupLogConfigurationOutput() PackagingGroupLogConfigurationOutput
+	ToPackagingGroupLogConfigurationOutputWithContext(context.Context) PackagingGroupLogConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html
+type PackagingGroupLogConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+}
+
+func (PackagingGroupLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingGroupLogConfiguration)(nil)).Elem()
+}
+
+func (i PackagingGroupLogConfigurationArgs) ToPackagingGroupLogConfigurationOutput() PackagingGroupLogConfigurationOutput {
+	return i.ToPackagingGroupLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i PackagingGroupLogConfigurationArgs) ToPackagingGroupLogConfigurationOutputWithContext(ctx context.Context) PackagingGroupLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagingGroupLogConfigurationOutput)
+}
+
+func (i PackagingGroupLogConfigurationArgs) ToPackagingGroupLogConfigurationPtrOutput() PackagingGroupLogConfigurationPtrOutput {
+	return i.ToPackagingGroupLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PackagingGroupLogConfigurationArgs) ToPackagingGroupLogConfigurationPtrOutputWithContext(ctx context.Context) PackagingGroupLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagingGroupLogConfigurationOutput).ToPackagingGroupLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// PackagingGroupLogConfigurationPtrInput is an input type that accepts PackagingGroupLogConfigurationArgs, PackagingGroupLogConfigurationPtr and PackagingGroupLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `PackagingGroupLogConfigurationPtrInput` via:
+//
+//          PackagingGroupLogConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type PackagingGroupLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPackagingGroupLogConfigurationPtrOutput() PackagingGroupLogConfigurationPtrOutput
+	ToPackagingGroupLogConfigurationPtrOutputWithContext(context.Context) PackagingGroupLogConfigurationPtrOutput
+}
+
+type packagingGroupLogConfigurationPtrType PackagingGroupLogConfigurationArgs
+
+func PackagingGroupLogConfigurationPtr(v *PackagingGroupLogConfigurationArgs) PackagingGroupLogConfigurationPtrInput {
+	return (*packagingGroupLogConfigurationPtrType)(v)
+}
+
+func (*packagingGroupLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackagingGroupLogConfiguration)(nil)).Elem()
+}
+
+func (i *packagingGroupLogConfigurationPtrType) ToPackagingGroupLogConfigurationPtrOutput() PackagingGroupLogConfigurationPtrOutput {
+	return i.ToPackagingGroupLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *packagingGroupLogConfigurationPtrType) ToPackagingGroupLogConfigurationPtrOutputWithContext(ctx context.Context) PackagingGroupLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagingGroupLogConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html
+type PackagingGroupLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PackagingGroupLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingGroupLogConfiguration)(nil)).Elem()
+}
+
+func (o PackagingGroupLogConfigurationOutput) ToPackagingGroupLogConfigurationOutput() PackagingGroupLogConfigurationOutput {
+	return o
+}
+
+func (o PackagingGroupLogConfigurationOutput) ToPackagingGroupLogConfigurationOutputWithContext(ctx context.Context) PackagingGroupLogConfigurationOutput {
+	return o
+}
+
+func (o PackagingGroupLogConfigurationOutput) ToPackagingGroupLogConfigurationPtrOutput() PackagingGroupLogConfigurationPtrOutput {
+	return o.ToPackagingGroupLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingGroupLogConfigurationOutput) ToPackagingGroupLogConfigurationPtrOutputWithContext(ctx context.Context) PackagingGroupLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingGroupLogConfiguration) *PackagingGroupLogConfiguration {
+		return &v
+	}).(PackagingGroupLogConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname
+func (o PackagingGroupLogConfigurationOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PackagingGroupLogConfiguration) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+type PackagingGroupLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PackagingGroupLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackagingGroupLogConfiguration)(nil)).Elem()
+}
+
+func (o PackagingGroupLogConfigurationPtrOutput) ToPackagingGroupLogConfigurationPtrOutput() PackagingGroupLogConfigurationPtrOutput {
+	return o
+}
+
+func (o PackagingGroupLogConfigurationPtrOutput) ToPackagingGroupLogConfigurationPtrOutputWithContext(ctx context.Context) PackagingGroupLogConfigurationPtrOutput {
+	return o
+}
+
+func (o PackagingGroupLogConfigurationPtrOutput) Elem() PackagingGroupLogConfigurationOutput {
+	return o.ApplyT(func(v *PackagingGroupLogConfiguration) PackagingGroupLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PackagingGroupLogConfiguration
+		return ret
+	}).(PackagingGroupLogConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname
+func (o PackagingGroupLogConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackagingGroupLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssetEgressEndpointOutput{})
 	pulumi.RegisterOutputType(AssetEgressEndpointArrayOutput{})
-	pulumi.RegisterOutputType(ChannelHlsIngestOutput{})
-	pulumi.RegisterOutputType(ChannelHlsIngestPtrOutput{})
-	pulumi.RegisterOutputType(ChannelIngestEndpointOutput{})
-	pulumi.RegisterOutputType(ChannelIngestEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ChannelLogConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointAuthorizationOutput{})
 	pulumi.RegisterOutputType(OriginEndpointAuthorizationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointCmafEncryptionOutput{})
@@ -5132,8 +5351,11 @@ func init() {
 	pulumi.RegisterOutputType(PackagingConfigurationMssPackageOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationMssPackagePtrOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationSpekeKeyProviderOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationSpekeKeyProviderPtrOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationStreamSelectionOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationStreamSelectionPtrOutput{})
 	pulumi.RegisterOutputType(PackagingGroupAuthorizationOutput{})
 	pulumi.RegisterOutputType(PackagingGroupAuthorizationPtrOutput{})
+	pulumi.RegisterOutputType(PackagingGroupLogConfigurationOutput{})
+	pulumi.RegisterOutputType(PackagingGroupLogConfigurationPtrOutput{})
 }

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Timestream
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html#cfn-timestream-table-retentionproperties
         /// </summary>

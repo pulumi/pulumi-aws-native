@@ -8,20 +8,14 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
     'AssessmentAWSAccount',
-    'AssessmentAWSAccounts',
     'AssessmentAWSService',
-    'AssessmentAWSServices',
     'AssessmentAssessmentReportsDestination',
     'AssessmentDelegation',
-    'AssessmentDelegations',
     'AssessmentRole',
-    'AssessmentRoles',
     'AssessmentScope',
-    'AssessmentTags',
 ]
 
 @pulumi.output_type
@@ -89,46 +83,6 @@ class AssessmentAWSAccount(dict):
 
 
 @pulumi.output_type
-class AssessmentAWSAccounts(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "aWSAccounts":
-            suggest = "a_ws_accounts"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssessmentAWSAccounts. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AssessmentAWSAccounts.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AssessmentAWSAccounts.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 a_ws_accounts: Optional[Sequence['outputs.AssessmentAWSAccount']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html
-        :param Sequence['AssessmentAWSAccount'] a_ws_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
-        """
-        if a_ws_accounts is not None:
-            pulumi.set(__self__, "a_ws_accounts", a_ws_accounts)
-
-    @property
-    @pulumi.getter(name="aWSAccounts")
-    def a_ws_accounts(self) -> Optional[Sequence['outputs.AssessmentAWSAccount']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccounts.html#cfn-auditmanager-assessment-awsaccounts-awsaccounts
-        """
-        return pulumi.get(self, "a_ws_accounts")
-
-
-@pulumi.output_type
 class AssessmentAWSService(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
@@ -166,46 +120,6 @@ class AssessmentAWSService(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
         """
         return pulumi.get(self, "service_name")
-
-
-@pulumi.output_type
-class AssessmentAWSServices(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "aWSServices":
-            suggest = "a_ws_services"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssessmentAWSServices. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AssessmentAWSServices.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AssessmentAWSServices.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 a_ws_services: Optional[Sequence['outputs.AssessmentAWSService']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html
-        :param Sequence['AssessmentAWSService'] a_ws_services: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
-        """
-        if a_ws_services is not None:
-            pulumi.set(__self__, "a_ws_services", a_ws_services)
-
-    @property
-    @pulumi.getter(name="aWSServices")
-    def a_ws_services(self) -> Optional[Sequence['outputs.AssessmentAWSService']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservices.html#cfn-auditmanager-assessment-awsservices-awsservices
-        """
-        return pulumi.get(self, "a_ws_services")
 
 
 @pulumi.output_type
@@ -435,29 +349,6 @@ class AssessmentDelegation(dict):
 
 
 @pulumi.output_type
-class AssessmentDelegations(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html
-    """
-    def __init__(__self__, *,
-                 delegations: Optional[Sequence['outputs.AssessmentDelegation']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html
-        :param Sequence['AssessmentDelegation'] delegations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html#cfn-auditmanager-assessment-delegations-delegations
-        """
-        if delegations is not None:
-            pulumi.set(__self__, "delegations", delegations)
-
-    @property
-    @pulumi.getter
-    def delegations(self) -> Optional[Sequence['outputs.AssessmentDelegation']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegations.html#cfn-auditmanager-assessment-delegations-delegations
-        """
-        return pulumi.get(self, "delegations")
-
-
-@pulumi.output_type
 class AssessmentRole(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
@@ -512,29 +403,6 @@ class AssessmentRole(dict):
 
 
 @pulumi.output_type
-class AssessmentRoles(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html
-    """
-    def __init__(__self__, *,
-                 roles: Optional[Sequence['outputs.AssessmentRole']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html
-        :param Sequence['AssessmentRole'] roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html#cfn-auditmanager-assessment-roles-roles
-        """
-        if roles is not None:
-            pulumi.set(__self__, "roles", roles)
-
-    @property
-    @pulumi.getter
-    def roles(self) -> Optional[Sequence['outputs.AssessmentRole']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-roles.html#cfn-auditmanager-assessment-roles-roles
-        """
-        return pulumi.get(self, "roles")
-
-
-@pulumi.output_type
 class AssessmentScope(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
@@ -559,12 +427,12 @@ class AssessmentScope(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aws_accounts: Optional['outputs.AssessmentAWSAccounts'] = None,
-                 aws_services: Optional['outputs.AssessmentAWSServices'] = None):
+                 aws_accounts: Optional[Sequence['outputs.AssessmentAWSAccount']] = None,
+                 aws_services: Optional[Sequence['outputs.AssessmentAWSService']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
-        :param 'AssessmentAWSAccounts' aws_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
-        :param 'AssessmentAWSServices' aws_services: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
+        :param Sequence['AssessmentAWSAccount'] aws_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
+        :param Sequence['AssessmentAWSService'] aws_services: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
         """
         if aws_accounts is not None:
             pulumi.set(__self__, "aws_accounts", aws_accounts)
@@ -573,7 +441,7 @@ class AssessmentScope(dict):
 
     @property
     @pulumi.getter(name="awsAccounts")
-    def aws_accounts(self) -> Optional['outputs.AssessmentAWSAccounts']:
+    def aws_accounts(self) -> Optional[Sequence['outputs.AssessmentAWSAccount']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
         """
@@ -581,33 +449,10 @@ class AssessmentScope(dict):
 
     @property
     @pulumi.getter(name="awsServices")
-    def aws_services(self) -> Optional['outputs.AssessmentAWSServices']:
+    def aws_services(self) -> Optional[Sequence['outputs.AssessmentAWSService']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
         """
         return pulumi.get(self, "aws_services")
-
-
-@pulumi.output_type
-class AssessmentTags(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html
-    """
-    def __init__(__self__, *,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html
-        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html#cfn-auditmanager-assessment-tags-tags
-        """
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-tags.html#cfn-auditmanager-assessment-tags-tags
-        """
-        return pulumi.get(self, "tags")
 
 

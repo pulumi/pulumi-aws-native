@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.FlowEventBridgeDestinationProperties? EventBridge;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
+        /// </summary>
+        public readonly Outputs.FlowLookoutMetricsDestinationProperties? LookoutMetrics;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
         /// </summary>
         public readonly Outputs.FlowRedshiftDestinationProperties? Redshift;
@@ -40,10 +44,16 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
         /// </summary>
         public readonly Outputs.FlowUpsolverDestinationProperties? Upsolver;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
+        /// </summary>
+        public readonly Outputs.FlowZendeskDestinationProperties? Zendesk;
 
         [OutputConstructor]
         private FlowDestinationConnectorProperties(
             Outputs.FlowEventBridgeDestinationProperties? eventBridge,
+
+            Outputs.FlowLookoutMetricsDestinationProperties? lookoutMetrics,
 
             Outputs.FlowRedshiftDestinationProperties? redshift,
 
@@ -53,14 +63,18 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.FlowSnowflakeDestinationProperties? snowflake,
 
-            Outputs.FlowUpsolverDestinationProperties? upsolver)
+            Outputs.FlowUpsolverDestinationProperties? upsolver,
+
+            Outputs.FlowZendeskDestinationProperties? zendesk)
         {
             EventBridge = eventBridge;
+            LookoutMetrics = lookoutMetrics;
             Redshift = redshift;
             S3 = s3;
             Salesforce = salesforce;
             Snowflake = snowflake;
             Upsolver = upsolver;
+            Zendesk = zendesk;
         }
     }
 }

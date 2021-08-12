@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CarrierGateway{}
 	case "aws-native:EC2:EC2Fleet":
 		r = &EC2Fleet{}
+	case "aws-native:EC2:EgressOnlyInternetGateway":
+		r = &EgressOnlyInternetGateway{}
+	case "aws-native:EC2:EnclaveCertificateIamRoleAssociation":
+		r = &EnclaveCertificateIamRoleAssociation{}
 	case "aws-native:EC2:FlowLog":
 		r = &FlowLog{}
 	case "aws-native:EC2:GatewayRouteTableAssociation":
@@ -43,6 +47,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpotFleet{}
 	case "aws-native:EC2:TransitGateway":
 		r = &TransitGateway{}
+	case "aws-native:EC2:TransitGatewayConnect":
+		r = &TransitGatewayConnect{}
+	case "aws-native:EC2:TransitGatewayMulticastDomain":
+		r = &TransitGatewayMulticastDomain{}
+	case "aws-native:EC2:TransitGatewayMulticastDomainAssociation":
+		r = &TransitGatewayMulticastDomainAssociation{}
+	case "aws-native:EC2:TransitGatewayMulticastGroupMember":
+		r = &TransitGatewayMulticastGroupMember{}
+	case "aws-native:EC2:TransitGatewayMulticastGroupSource":
+		r = &TransitGatewayMulticastGroupSource{}
+	case "aws-native:EC2:TransitGatewayPeeringAttachment":
+		r = &TransitGatewayPeeringAttachment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

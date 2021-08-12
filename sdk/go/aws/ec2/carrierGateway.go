@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ type CarrierGateway struct {
 	OwnerId          pulumi.StringOutput `pulumi:"ownerId"`
 	State            pulumi.StringOutput `pulumi:"state"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
-	Tags CarrierGatewayTagsPtrOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -67,7 +68,7 @@ func (CarrierGatewayState) ElementType() reflect.Type {
 
 type carrierGatewayArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
-	Tags *CarrierGatewayTags `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
 	VpcId string `pulumi:"vpcId"`
 }
@@ -75,7 +76,7 @@ type carrierGatewayArgs struct {
 // The set of arguments for constructing a CarrierGateway resource.
 type CarrierGatewayArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
-	Tags CarrierGatewayTagsPtrInput
+	Tags aws.TagArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
 	VpcId pulumi.StringInput
 }

@@ -23,25 +23,25 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition
         /// </summary>
-        public readonly string? Condition;
+        public readonly string Condition;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname
         /// </summary>
-        public readonly string? EventName;
+        public readonly string EventName;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate
         /// </summary>
-        public readonly string? NextState;
+        public readonly string NextState;
 
         [OutputConstructor]
         private DetectorModelTransitionEvent(
             ImmutableArray<Outputs.DetectorModelAction> actions,
 
-            string? condition,
+            string condition,
 
-            string? eventName,
+            string eventName,
 
-            string? nextState)
+            string nextState)
         {
             Actions = actions;
             Condition = condition;

@@ -150,106 +150,6 @@ func (o AssociationInstanceAssociationOutputLocationPtrOutput) S3Location() Asso
 	}).(AssociationS3OutputLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html
-type AssociationParameterValues struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
-	ParameterValues []string `pulumi:"parameterValues"`
-}
-
-// AssociationParameterValuesInput is an input type that accepts AssociationParameterValuesArgs and AssociationParameterValuesOutput values.
-// You can construct a concrete instance of `AssociationParameterValuesInput` via:
-//
-//          AssociationParameterValuesArgs{...}
-type AssociationParameterValuesInput interface {
-	pulumi.Input
-
-	ToAssociationParameterValuesOutput() AssociationParameterValuesOutput
-	ToAssociationParameterValuesOutputWithContext(context.Context) AssociationParameterValuesOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html
-type AssociationParameterValuesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
-	ParameterValues pulumi.StringArrayInput `pulumi:"parameterValues"`
-}
-
-func (AssociationParameterValuesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssociationParameterValues)(nil)).Elem()
-}
-
-func (i AssociationParameterValuesArgs) ToAssociationParameterValuesOutput() AssociationParameterValuesOutput {
-	return i.ToAssociationParameterValuesOutputWithContext(context.Background())
-}
-
-func (i AssociationParameterValuesArgs) ToAssociationParameterValuesOutputWithContext(ctx context.Context) AssociationParameterValuesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssociationParameterValuesOutput)
-}
-
-// AssociationParameterValuesMapInput is an input type that accepts AssociationParameterValuesMap and AssociationParameterValuesMapOutput values.
-// You can construct a concrete instance of `AssociationParameterValuesMapInput` via:
-//
-//          AssociationParameterValuesMap{ "key": AssociationParameterValuesArgs{...} }
-type AssociationParameterValuesMapInput interface {
-	pulumi.Input
-
-	ToAssociationParameterValuesMapOutput() AssociationParameterValuesMapOutput
-	ToAssociationParameterValuesMapOutputWithContext(context.Context) AssociationParameterValuesMapOutput
-}
-
-type AssociationParameterValuesMap map[string]AssociationParameterValuesInput
-
-func (AssociationParameterValuesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AssociationParameterValues)(nil)).Elem()
-}
-
-func (i AssociationParameterValuesMap) ToAssociationParameterValuesMapOutput() AssociationParameterValuesMapOutput {
-	return i.ToAssociationParameterValuesMapOutputWithContext(context.Background())
-}
-
-func (i AssociationParameterValuesMap) ToAssociationParameterValuesMapOutputWithContext(ctx context.Context) AssociationParameterValuesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssociationParameterValuesMapOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html
-type AssociationParameterValuesOutput struct{ *pulumi.OutputState }
-
-func (AssociationParameterValuesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssociationParameterValues)(nil)).Elem()
-}
-
-func (o AssociationParameterValuesOutput) ToAssociationParameterValuesOutput() AssociationParameterValuesOutput {
-	return o
-}
-
-func (o AssociationParameterValuesOutput) ToAssociationParameterValuesOutputWithContext(ctx context.Context) AssociationParameterValuesOutput {
-	return o
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
-func (o AssociationParameterValuesOutput) ParameterValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AssociationParameterValues) []string { return v.ParameterValues }).(pulumi.StringArrayOutput)
-}
-
-type AssociationParameterValuesMapOutput struct{ *pulumi.OutputState }
-
-func (AssociationParameterValuesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AssociationParameterValues)(nil)).Elem()
-}
-
-func (o AssociationParameterValuesMapOutput) ToAssociationParameterValuesMapOutput() AssociationParameterValuesMapOutput {
-	return o
-}
-
-func (o AssociationParameterValuesMapOutput) ToAssociationParameterValuesMapOutputWithContext(ctx context.Context) AssociationParameterValuesMapOutput {
-	return o
-}
-
-func (o AssociationParameterValuesMapOutput) MapIndex(k pulumi.StringInput) AssociationParameterValuesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AssociationParameterValues {
-		return vs[0].(map[string]AssociationParameterValues)[vs[1].(string)]
-	}).(AssociationParameterValuesOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html
 type AssociationS3OutputLocation struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname
@@ -535,6 +435,233 @@ func (o AssociationTargetArrayOutput) Index(i pulumi.IntInput) AssociationTarget
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssociationTarget {
 		return vs[0].([]AssociationTarget)[vs[1].(int)]
 	}).(AssociationTargetOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html
+type DocumentAttachmentsSource struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-key
+	Key *string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-values
+	Values []string `pulumi:"values"`
+}
+
+// DocumentAttachmentsSourceInput is an input type that accepts DocumentAttachmentsSourceArgs and DocumentAttachmentsSourceOutput values.
+// You can construct a concrete instance of `DocumentAttachmentsSourceInput` via:
+//
+//          DocumentAttachmentsSourceArgs{...}
+type DocumentAttachmentsSourceInput interface {
+	pulumi.Input
+
+	ToDocumentAttachmentsSourceOutput() DocumentAttachmentsSourceOutput
+	ToDocumentAttachmentsSourceOutputWithContext(context.Context) DocumentAttachmentsSourceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html
+type DocumentAttachmentsSourceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-key
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-values
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (DocumentAttachmentsSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentAttachmentsSource)(nil)).Elem()
+}
+
+func (i DocumentAttachmentsSourceArgs) ToDocumentAttachmentsSourceOutput() DocumentAttachmentsSourceOutput {
+	return i.ToDocumentAttachmentsSourceOutputWithContext(context.Background())
+}
+
+func (i DocumentAttachmentsSourceArgs) ToDocumentAttachmentsSourceOutputWithContext(ctx context.Context) DocumentAttachmentsSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentAttachmentsSourceOutput)
+}
+
+// DocumentAttachmentsSourceArrayInput is an input type that accepts DocumentAttachmentsSourceArray and DocumentAttachmentsSourceArrayOutput values.
+// You can construct a concrete instance of `DocumentAttachmentsSourceArrayInput` via:
+//
+//          DocumentAttachmentsSourceArray{ DocumentAttachmentsSourceArgs{...} }
+type DocumentAttachmentsSourceArrayInput interface {
+	pulumi.Input
+
+	ToDocumentAttachmentsSourceArrayOutput() DocumentAttachmentsSourceArrayOutput
+	ToDocumentAttachmentsSourceArrayOutputWithContext(context.Context) DocumentAttachmentsSourceArrayOutput
+}
+
+type DocumentAttachmentsSourceArray []DocumentAttachmentsSourceInput
+
+func (DocumentAttachmentsSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentAttachmentsSource)(nil)).Elem()
+}
+
+func (i DocumentAttachmentsSourceArray) ToDocumentAttachmentsSourceArrayOutput() DocumentAttachmentsSourceArrayOutput {
+	return i.ToDocumentAttachmentsSourceArrayOutputWithContext(context.Background())
+}
+
+func (i DocumentAttachmentsSourceArray) ToDocumentAttachmentsSourceArrayOutputWithContext(ctx context.Context) DocumentAttachmentsSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentAttachmentsSourceArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html
+type DocumentAttachmentsSourceOutput struct{ *pulumi.OutputState }
+
+func (DocumentAttachmentsSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentAttachmentsSource)(nil)).Elem()
+}
+
+func (o DocumentAttachmentsSourceOutput) ToDocumentAttachmentsSourceOutput() DocumentAttachmentsSourceOutput {
+	return o
+}
+
+func (o DocumentAttachmentsSourceOutput) ToDocumentAttachmentsSourceOutputWithContext(ctx context.Context) DocumentAttachmentsSourceOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-key
+func (o DocumentAttachmentsSourceOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentAttachmentsSource) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-name
+func (o DocumentAttachmentsSourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentAttachmentsSource) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-values
+func (o DocumentAttachmentsSourceOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DocumentAttachmentsSource) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type DocumentAttachmentsSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (DocumentAttachmentsSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentAttachmentsSource)(nil)).Elem()
+}
+
+func (o DocumentAttachmentsSourceArrayOutput) ToDocumentAttachmentsSourceArrayOutput() DocumentAttachmentsSourceArrayOutput {
+	return o
+}
+
+func (o DocumentAttachmentsSourceArrayOutput) ToDocumentAttachmentsSourceArrayOutputWithContext(ctx context.Context) DocumentAttachmentsSourceArrayOutput {
+	return o
+}
+
+func (o DocumentAttachmentsSourceArrayOutput) Index(i pulumi.IntInput) DocumentAttachmentsSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DocumentAttachmentsSource {
+		return vs[0].([]DocumentAttachmentsSource)[vs[1].(int)]
+	}).(DocumentAttachmentsSourceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html
+type DocumentDocumentRequires struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-version
+	Version *string `pulumi:"version"`
+}
+
+// DocumentDocumentRequiresInput is an input type that accepts DocumentDocumentRequiresArgs and DocumentDocumentRequiresOutput values.
+// You can construct a concrete instance of `DocumentDocumentRequiresInput` via:
+//
+//          DocumentDocumentRequiresArgs{...}
+type DocumentDocumentRequiresInput interface {
+	pulumi.Input
+
+	ToDocumentDocumentRequiresOutput() DocumentDocumentRequiresOutput
+	ToDocumentDocumentRequiresOutputWithContext(context.Context) DocumentDocumentRequiresOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html
+type DocumentDocumentRequiresArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-version
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (DocumentDocumentRequiresArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentDocumentRequires)(nil)).Elem()
+}
+
+func (i DocumentDocumentRequiresArgs) ToDocumentDocumentRequiresOutput() DocumentDocumentRequiresOutput {
+	return i.ToDocumentDocumentRequiresOutputWithContext(context.Background())
+}
+
+func (i DocumentDocumentRequiresArgs) ToDocumentDocumentRequiresOutputWithContext(ctx context.Context) DocumentDocumentRequiresOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentDocumentRequiresOutput)
+}
+
+// DocumentDocumentRequiresArrayInput is an input type that accepts DocumentDocumentRequiresArray and DocumentDocumentRequiresArrayOutput values.
+// You can construct a concrete instance of `DocumentDocumentRequiresArrayInput` via:
+//
+//          DocumentDocumentRequiresArray{ DocumentDocumentRequiresArgs{...} }
+type DocumentDocumentRequiresArrayInput interface {
+	pulumi.Input
+
+	ToDocumentDocumentRequiresArrayOutput() DocumentDocumentRequiresArrayOutput
+	ToDocumentDocumentRequiresArrayOutputWithContext(context.Context) DocumentDocumentRequiresArrayOutput
+}
+
+type DocumentDocumentRequiresArray []DocumentDocumentRequiresInput
+
+func (DocumentDocumentRequiresArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentDocumentRequires)(nil)).Elem()
+}
+
+func (i DocumentDocumentRequiresArray) ToDocumentDocumentRequiresArrayOutput() DocumentDocumentRequiresArrayOutput {
+	return i.ToDocumentDocumentRequiresArrayOutputWithContext(context.Background())
+}
+
+func (i DocumentDocumentRequiresArray) ToDocumentDocumentRequiresArrayOutputWithContext(ctx context.Context) DocumentDocumentRequiresArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentDocumentRequiresArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html
+type DocumentDocumentRequiresOutput struct{ *pulumi.OutputState }
+
+func (DocumentDocumentRequiresOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentDocumentRequires)(nil)).Elem()
+}
+
+func (o DocumentDocumentRequiresOutput) ToDocumentDocumentRequiresOutput() DocumentDocumentRequiresOutput {
+	return o
+}
+
+func (o DocumentDocumentRequiresOutput) ToDocumentDocumentRequiresOutputWithContext(ctx context.Context) DocumentDocumentRequiresOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-name
+func (o DocumentDocumentRequiresOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentDocumentRequires) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-version
+func (o DocumentDocumentRequiresOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentDocumentRequires) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type DocumentDocumentRequiresArrayOutput struct{ *pulumi.OutputState }
+
+func (DocumentDocumentRequiresArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentDocumentRequires)(nil)).Elem()
+}
+
+func (o DocumentDocumentRequiresArrayOutput) ToDocumentDocumentRequiresArrayOutput() DocumentDocumentRequiresArrayOutput {
+	return o
+}
+
+func (o DocumentDocumentRequiresArrayOutput) ToDocumentDocumentRequiresArrayOutputWithContext(ctx context.Context) DocumentDocumentRequiresArrayOutput {
+	return o
+}
+
+func (o DocumentDocumentRequiresArrayOutput) Index(i pulumi.IntInput) DocumentDocumentRequiresOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DocumentDocumentRequires {
+		return vs[0].([]DocumentDocumentRequires)[vs[1].(int)]
+	}).(DocumentDocumentRequiresOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html
@@ -1114,12 +1241,14 @@ func (o ResourceDataSyncSyncSourcePtrOutput) SourceType() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(AssociationInstanceAssociationOutputLocationOutput{})
 	pulumi.RegisterOutputType(AssociationInstanceAssociationOutputLocationPtrOutput{})
-	pulumi.RegisterOutputType(AssociationParameterValuesOutput{})
-	pulumi.RegisterOutputType(AssociationParameterValuesMapOutput{})
 	pulumi.RegisterOutputType(AssociationS3OutputLocationOutput{})
 	pulumi.RegisterOutputType(AssociationS3OutputLocationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationTargetOutput{})
 	pulumi.RegisterOutputType(AssociationTargetArrayOutput{})
+	pulumi.RegisterOutputType(DocumentAttachmentsSourceOutput{})
+	pulumi.RegisterOutputType(DocumentAttachmentsSourceArrayOutput{})
+	pulumi.RegisterOutputType(DocumentDocumentRequiresOutput{})
+	pulumi.RegisterOutputType(DocumentDocumentRequiresArrayOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncAwsOrganizationsSourceOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncAwsOrganizationsSourcePtrOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationOutput{})

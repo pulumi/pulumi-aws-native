@@ -15,15 +15,16 @@ import (
 type ImageRecipe struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+	AdditionalInstanceConfiguration ImageRecipeAdditionalInstanceConfigurationPtrOutput `pulumi:"additionalInstanceConfiguration"`
+	Arn                             pulumi.StringOutput                                 `pulumi:"arn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
 	BlockDeviceMappings ImageRecipeInstanceBlockDeviceMappingArrayOutput `pulumi:"blockDeviceMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
 	Components ImageRecipeComponentConfigurationArrayOutput `pulumi:"components"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
 	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
@@ -85,6 +86,8 @@ func (ImageRecipeState) ElementType() reflect.Type {
 }
 
 type imageRecipeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+	AdditionalInstanceConfiguration *ImageRecipeAdditionalInstanceConfiguration `pulumi:"additionalInstanceConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
 	BlockDeviceMappings []ImageRecipeInstanceBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
@@ -105,6 +108,8 @@ type imageRecipeArgs struct {
 
 // The set of arguments for constructing a ImageRecipe resource.
 type ImageRecipeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+	AdditionalInstanceConfiguration ImageRecipeAdditionalInstanceConfigurationPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
 	BlockDeviceMappings ImageRecipeInstanceBlockDeviceMappingArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components

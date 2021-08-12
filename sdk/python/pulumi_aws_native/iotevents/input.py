@@ -17,7 +17,7 @@ __all__ = ['InputArgs', 'Input']
 @pulumi.input_type
 class InputArgs:
     def __init__(__self__, *,
-                 input_definition: Optional[pulumi.Input['InputInputDefinitionArgs']] = None,
+                 input_definition: pulumi.Input['InputInputDefinitionArgs'],
                  input_description: Optional[pulumi.Input[str]] = None,
                  input_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -28,8 +28,7 @@ class InputArgs:
         :param pulumi.Input[str] input_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputname
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-tags
         """
-        if input_definition is not None:
-            pulumi.set(__self__, "input_definition", input_definition)
+        pulumi.set(__self__, "input_definition", input_definition)
         if input_description is not None:
             pulumi.set(__self__, "input_description", input_description)
         if input_name is not None:
@@ -39,14 +38,14 @@ class InputArgs:
 
     @property
     @pulumi.getter(name="inputDefinition")
-    def input_definition(self) -> Optional[pulumi.Input['InputInputDefinitionArgs']]:
+    def input_definition(self) -> pulumi.Input['InputInputDefinitionArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
         """
         return pulumi.get(self, "input_definition")
 
     @input_definition.setter
-    def input_definition(self, value: Optional[pulumi.Input['InputInputDefinitionArgs']]):
+    def input_definition(self, value: pulumi.Input['InputInputDefinitionArgs']):
         pulumi.set(self, "input_definition", value)
 
     @property
@@ -110,7 +109,7 @@ class Input(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[InputArgs] = None,
+                 args: InputArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html
@@ -146,6 +145,8 @@ class Input(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InputArgs.__new__(InputArgs)
 
+            if input_definition is None and not opts.urn:
+                raise TypeError("Missing required property 'input_definition'")
             __props__.__dict__["input_definition"] = input_definition
             __props__.__dict__["input_description"] = input_description
             __props__.__dict__["input_name"] = input_name
@@ -180,7 +181,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputDefinition")
-    def input_definition(self) -> pulumi.Output[Optional['outputs.InputInputDefinition']]:
+    def input_definition(self) -> pulumi.Output['outputs.InputInputDefinition']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
         """

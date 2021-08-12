@@ -42,8 +42,8 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
         /// </summary>
-        [Input("timeoutInSeconds", required: true)]
-        public Input<int> TimeoutInSeconds { get; set; } = null!;
+        [Input("timeoutInSeconds")]
+        public Input<int>? TimeoutInSeconds { get; set; }
 
         public CanaryRunConfigArgs()
         {

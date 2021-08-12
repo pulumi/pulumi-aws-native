@@ -8,11 +8,13 @@ import * as utilities from "../utilities";
 export * from "./configurationAggregator";
 export * from "./conformancePack";
 export * from "./organizationConformancePack";
+export * from "./storedQuery";
 
 // Import resources to register:
 import { ConfigurationAggregator } from "./configurationAggregator";
 import { ConformancePack } from "./conformancePack";
 import { OrganizationConformancePack } from "./organizationConformancePack";
+import { StoredQuery } from "./storedQuery";
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +26,8 @@ const _module = {
                 return new ConformancePack(name, <any>undefined, { urn })
             case "aws-native:Configuration:OrganizationConformancePack":
                 return new OrganizationConformancePack(name, <any>undefined, { urn })
+            case "aws-native:Configuration:StoredQuery":
+                return new StoredQuery(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

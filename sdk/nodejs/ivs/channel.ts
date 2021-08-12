@@ -51,6 +51,10 @@ export class Channel extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string | undefined>;
     public /*out*/ readonly playbackUrl!: pulumi.Output<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-recordingconfigurationarn
+     */
+    public readonly recordingConfigurationArn!: pulumi.Output<string | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -73,6 +77,7 @@ export class Channel extends pulumi.CustomResource {
             inputs["authorized"] = args ? args.authorized : undefined;
             inputs["latencyMode"] = args ? args.latencyMode : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["recordingConfigurationArn"] = args ? args.recordingConfigurationArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -85,6 +90,7 @@ export class Channel extends pulumi.CustomResource {
             inputs["latencyMode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["playbackUrl"] = undefined /*out*/;
+            inputs["recordingConfigurationArn"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -111,6 +117,10 @@ export interface ChannelArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
      */
     name?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-recordingconfigurationarn
+     */
+    recordingConfigurationArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
      */

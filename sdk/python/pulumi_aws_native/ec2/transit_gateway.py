@@ -16,28 +16,36 @@ __all__ = ['TransitGatewayArgs', 'TransitGateway']
 class TransitGatewayArgs:
     def __init__(__self__, *,
                  amazon_side_asn: Optional[pulumi.Input[int]] = None,
+                 association_default_route_table_id: Optional[pulumi.Input[str]] = None,
                  auto_accept_shared_attachments: Optional[pulumi.Input[str]] = None,
                  default_route_table_association: Optional[pulumi.Input[str]] = None,
                  default_route_table_propagation: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
                  multicast_support: Optional[pulumi.Input[str]] = None,
+                 propagation_default_route_table_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TransitGateway resource.
         :param pulumi.Input[int] amazon_side_asn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-amazonsideasn
+        :param pulumi.Input[str] association_default_route_table_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-associationdefaultroutetableid
         :param pulumi.Input[str] auto_accept_shared_attachments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-autoacceptsharedattachments
         :param pulumi.Input[str] default_route_table_association: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetableassociation
         :param pulumi.Input[str] default_route_table_propagation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetablepropagation
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-description
         :param pulumi.Input[str] dns_support: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-dnssupport
         :param pulumi.Input[str] multicast_support: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-multicastsupport
+        :param pulumi.Input[str] propagation_default_route_table_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-propagationdefaultroutetableid
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-transitgatewaycidrblocks
         :param pulumi.Input[str] vpn_ecmp_support: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-vpnecmpsupport
         """
         if amazon_side_asn is not None:
             pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
+        if association_default_route_table_id is not None:
+            pulumi.set(__self__, "association_default_route_table_id", association_default_route_table_id)
         if auto_accept_shared_attachments is not None:
             pulumi.set(__self__, "auto_accept_shared_attachments", auto_accept_shared_attachments)
         if default_route_table_association is not None:
@@ -50,8 +58,12 @@ class TransitGatewayArgs:
             pulumi.set(__self__, "dns_support", dns_support)
         if multicast_support is not None:
             pulumi.set(__self__, "multicast_support", multicast_support)
+        if propagation_default_route_table_id is not None:
+            pulumi.set(__self__, "propagation_default_route_table_id", propagation_default_route_table_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if transit_gateway_cidr_blocks is not None:
+            pulumi.set(__self__, "transit_gateway_cidr_blocks", transit_gateway_cidr_blocks)
         if vpn_ecmp_support is not None:
             pulumi.set(__self__, "vpn_ecmp_support", vpn_ecmp_support)
 
@@ -66,6 +78,18 @@ class TransitGatewayArgs:
     @amazon_side_asn.setter
     def amazon_side_asn(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "amazon_side_asn", value)
+
+    @property
+    @pulumi.getter(name="associationDefaultRouteTableId")
+    def association_default_route_table_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-associationdefaultroutetableid
+        """
+        return pulumi.get(self, "association_default_route_table_id")
+
+    @association_default_route_table_id.setter
+    def association_default_route_table_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "association_default_route_table_id", value)
 
     @property
     @pulumi.getter(name="autoAcceptSharedAttachments")
@@ -140,6 +164,18 @@ class TransitGatewayArgs:
         pulumi.set(self, "multicast_support", value)
 
     @property
+    @pulumi.getter(name="propagationDefaultRouteTableId")
+    def propagation_default_route_table_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-propagationdefaultroutetableid
+        """
+        return pulumi.get(self, "propagation_default_route_table_id")
+
+    @propagation_default_route_table_id.setter
+    def propagation_default_route_table_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "propagation_default_route_table_id", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -150,6 +186,18 @@ class TransitGatewayArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayCidrBlocks")
+    def transit_gateway_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-transitgatewaycidrblocks
+        """
+        return pulumi.get(self, "transit_gateway_cidr_blocks")
+
+    @transit_gateway_cidr_blocks.setter
+    def transit_gateway_cidr_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transit_gateway_cidr_blocks", value)
 
     @property
     @pulumi.getter(name="vpnEcmpSupport")
@@ -170,13 +218,16 @@ class TransitGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amazon_side_asn: Optional[pulumi.Input[int]] = None,
+                 association_default_route_table_id: Optional[pulumi.Input[str]] = None,
                  auto_accept_shared_attachments: Optional[pulumi.Input[str]] = None,
                  default_route_table_association: Optional[pulumi.Input[str]] = None,
                  default_route_table_propagation: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
                  multicast_support: Optional[pulumi.Input[str]] = None,
+                 propagation_default_route_table_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -185,13 +236,16 @@ class TransitGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] amazon_side_asn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-amazonsideasn
+        :param pulumi.Input[str] association_default_route_table_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-associationdefaultroutetableid
         :param pulumi.Input[str] auto_accept_shared_attachments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-autoacceptsharedattachments
         :param pulumi.Input[str] default_route_table_association: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetableassociation
         :param pulumi.Input[str] default_route_table_propagation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetablepropagation
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-description
         :param pulumi.Input[str] dns_support: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-dnssupport
         :param pulumi.Input[str] multicast_support: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-multicastsupport
+        :param pulumi.Input[str] propagation_default_route_table_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-propagationdefaultroutetableid
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-transitgatewaycidrblocks
         :param pulumi.Input[str] vpn_ecmp_support: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-vpnecmpsupport
         """
         ...
@@ -219,13 +273,16 @@ class TransitGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amazon_side_asn: Optional[pulumi.Input[int]] = None,
+                 association_default_route_table_id: Optional[pulumi.Input[str]] = None,
                  auto_accept_shared_attachments: Optional[pulumi.Input[str]] = None,
                  default_route_table_association: Optional[pulumi.Input[str]] = None,
                  default_route_table_propagation: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
                  multicast_support: Optional[pulumi.Input[str]] = None,
+                 propagation_default_route_table_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -240,14 +297,18 @@ class TransitGateway(pulumi.CustomResource):
             __props__ = TransitGatewayArgs.__new__(TransitGatewayArgs)
 
             __props__.__dict__["amazon_side_asn"] = amazon_side_asn
+            __props__.__dict__["association_default_route_table_id"] = association_default_route_table_id
             __props__.__dict__["auto_accept_shared_attachments"] = auto_accept_shared_attachments
             __props__.__dict__["default_route_table_association"] = default_route_table_association
             __props__.__dict__["default_route_table_propagation"] = default_route_table_propagation
             __props__.__dict__["description"] = description
             __props__.__dict__["dns_support"] = dns_support
             __props__.__dict__["multicast_support"] = multicast_support
+            __props__.__dict__["propagation_default_route_table_id"] = propagation_default_route_table_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["transit_gateway_cidr_blocks"] = transit_gateway_cidr_blocks
             __props__.__dict__["vpn_ecmp_support"] = vpn_ecmp_support
+            __props__.__dict__["id"] = None
         super(TransitGateway, __self__).__init__(
             'aws-native:EC2:TransitGateway',
             resource_name,
@@ -271,13 +332,17 @@ class TransitGateway(pulumi.CustomResource):
         __props__ = TransitGatewayArgs.__new__(TransitGatewayArgs)
 
         __props__.__dict__["amazon_side_asn"] = None
+        __props__.__dict__["association_default_route_table_id"] = None
         __props__.__dict__["auto_accept_shared_attachments"] = None
         __props__.__dict__["default_route_table_association"] = None
         __props__.__dict__["default_route_table_propagation"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["dns_support"] = None
+        __props__.__dict__["id"] = None
         __props__.__dict__["multicast_support"] = None
+        __props__.__dict__["propagation_default_route_table_id"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["transit_gateway_cidr_blocks"] = None
         __props__.__dict__["vpn_ecmp_support"] = None
         return TransitGateway(resource_name, opts=opts, __props__=__props__)
 
@@ -288,6 +353,14 @@ class TransitGateway(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-amazonsideasn
         """
         return pulumi.get(self, "amazon_side_asn")
+
+    @property
+    @pulumi.getter(name="associationDefaultRouteTableId")
+    def association_default_route_table_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-associationdefaultroutetableid
+        """
+        return pulumi.get(self, "association_default_route_table_id")
 
     @property
     @pulumi.getter(name="autoAcceptSharedAttachments")
@@ -330,6 +403,11 @@ class TransitGateway(pulumi.CustomResource):
         return pulumi.get(self, "dns_support")
 
     @property
+    @pulumi.getter
+    def id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="multicastSupport")
     def multicast_support(self) -> pulumi.Output[Optional[str]]:
         """
@@ -338,12 +416,28 @@ class TransitGateway(pulumi.CustomResource):
         return pulumi.get(self, "multicast_support")
 
     @property
+    @pulumi.getter(name="propagationDefaultRouteTableId")
+    def propagation_default_route_table_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-propagationdefaultroutetableid
+        """
+        return pulumi.get(self, "propagation_default_route_table_id")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="transitGatewayCidrBlocks")
+    def transit_gateway_cidr_blocks(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-transitgatewaycidrblocks
+        """
+        return pulumi.get(self, "transit_gateway_cidr_blocks")
 
     @property
     @pulumi.getter(name="vpnEcmpSupport")

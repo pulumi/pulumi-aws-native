@@ -36,8 +36,8 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename
         /// </summary>
-        [Input("stateName")]
-        public Input<string>? StateName { get; set; }
+        [Input("stateName", required: true)]
+        public Input<string> StateName { get; set; } = null!;
 
         public DetectorModelStateArgs()
         {

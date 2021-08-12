@@ -146,6 +146,115 @@ func (o DBProxyAuthFormatArrayOutput) Index(i pulumi.IntInput) DBProxyAuthFormat
 	}).(DBProxyAuthFormatOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html
+type DBProxyEndpointTagFormat struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-key
+	Key *string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-value
+	Value *string `pulumi:"value"`
+}
+
+// DBProxyEndpointTagFormatInput is an input type that accepts DBProxyEndpointTagFormatArgs and DBProxyEndpointTagFormatOutput values.
+// You can construct a concrete instance of `DBProxyEndpointTagFormatInput` via:
+//
+//          DBProxyEndpointTagFormatArgs{...}
+type DBProxyEndpointTagFormatInput interface {
+	pulumi.Input
+
+	ToDBProxyEndpointTagFormatOutput() DBProxyEndpointTagFormatOutput
+	ToDBProxyEndpointTagFormatOutputWithContext(context.Context) DBProxyEndpointTagFormatOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html
+type DBProxyEndpointTagFormatArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-key
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-value
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DBProxyEndpointTagFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBProxyEndpointTagFormat)(nil)).Elem()
+}
+
+func (i DBProxyEndpointTagFormatArgs) ToDBProxyEndpointTagFormatOutput() DBProxyEndpointTagFormatOutput {
+	return i.ToDBProxyEndpointTagFormatOutputWithContext(context.Background())
+}
+
+func (i DBProxyEndpointTagFormatArgs) ToDBProxyEndpointTagFormatOutputWithContext(ctx context.Context) DBProxyEndpointTagFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBProxyEndpointTagFormatOutput)
+}
+
+// DBProxyEndpointTagFormatArrayInput is an input type that accepts DBProxyEndpointTagFormatArray and DBProxyEndpointTagFormatArrayOutput values.
+// You can construct a concrete instance of `DBProxyEndpointTagFormatArrayInput` via:
+//
+//          DBProxyEndpointTagFormatArray{ DBProxyEndpointTagFormatArgs{...} }
+type DBProxyEndpointTagFormatArrayInput interface {
+	pulumi.Input
+
+	ToDBProxyEndpointTagFormatArrayOutput() DBProxyEndpointTagFormatArrayOutput
+	ToDBProxyEndpointTagFormatArrayOutputWithContext(context.Context) DBProxyEndpointTagFormatArrayOutput
+}
+
+type DBProxyEndpointTagFormatArray []DBProxyEndpointTagFormatInput
+
+func (DBProxyEndpointTagFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBProxyEndpointTagFormat)(nil)).Elem()
+}
+
+func (i DBProxyEndpointTagFormatArray) ToDBProxyEndpointTagFormatArrayOutput() DBProxyEndpointTagFormatArrayOutput {
+	return i.ToDBProxyEndpointTagFormatArrayOutputWithContext(context.Background())
+}
+
+func (i DBProxyEndpointTagFormatArray) ToDBProxyEndpointTagFormatArrayOutputWithContext(ctx context.Context) DBProxyEndpointTagFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBProxyEndpointTagFormatArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html
+type DBProxyEndpointTagFormatOutput struct{ *pulumi.OutputState }
+
+func (DBProxyEndpointTagFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBProxyEndpointTagFormat)(nil)).Elem()
+}
+
+func (o DBProxyEndpointTagFormatOutput) ToDBProxyEndpointTagFormatOutput() DBProxyEndpointTagFormatOutput {
+	return o
+}
+
+func (o DBProxyEndpointTagFormatOutput) ToDBProxyEndpointTagFormatOutputWithContext(ctx context.Context) DBProxyEndpointTagFormatOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-key
+func (o DBProxyEndpointTagFormatOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBProxyEndpointTagFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-value
+func (o DBProxyEndpointTagFormatOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBProxyEndpointTagFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DBProxyEndpointTagFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (DBProxyEndpointTagFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBProxyEndpointTagFormat)(nil)).Elem()
+}
+
+func (o DBProxyEndpointTagFormatArrayOutput) ToDBProxyEndpointTagFormatArrayOutput() DBProxyEndpointTagFormatArrayOutput {
+	return o
+}
+
+func (o DBProxyEndpointTagFormatArrayOutput) ToDBProxyEndpointTagFormatArrayOutputWithContext(ctx context.Context) DBProxyEndpointTagFormatArrayOutput {
+	return o
+}
+
+func (o DBProxyEndpointTagFormatArrayOutput) Index(i pulumi.IntInput) DBProxyEndpointTagFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBProxyEndpointTagFormat {
+		return vs[0].([]DBProxyEndpointTagFormat)[vs[1].(int)]
+	}).(DBProxyEndpointTagFormatOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html
 type DBProxyTagFormat struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-key
@@ -478,6 +587,8 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) Sessio
 func init() {
 	pulumi.RegisterOutputType(DBProxyAuthFormatOutput{})
 	pulumi.RegisterOutputType(DBProxyAuthFormatArrayOutput{})
+	pulumi.RegisterOutputType(DBProxyEndpointTagFormatOutput{})
+	pulumi.RegisterOutputType(DBProxyEndpointTagFormatArrayOutput{})
 	pulumi.RegisterOutputType(DBProxyTagFormatOutput{})
 	pulumi.RegisterOutputType(DBProxyTagFormatArrayOutput{})
 	pulumi.RegisterOutputType(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput{})

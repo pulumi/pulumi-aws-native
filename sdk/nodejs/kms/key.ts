@@ -52,7 +52,7 @@ export class Key extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
      */
-    public readonly keyPolicy!: pulumi.Output<any>;
+    public readonly keyPolicy!: pulumi.Output<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
      */
@@ -61,6 +61,10 @@ export class Key extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
      */
     public readonly keyUsage!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
+     */
+    public readonly multiRegion!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
      */
@@ -90,6 +94,7 @@ export class Key extends pulumi.CustomResource {
             inputs["keyPolicy"] = args ? args.keyPolicy : undefined;
             inputs["keySpec"] = args ? args.keySpec : undefined;
             inputs["keyUsage"] = args ? args.keyUsage : undefined;
+            inputs["multiRegion"] = args ? args.multiRegion : undefined;
             inputs["pendingWindowInDays"] = args ? args.pendingWindowInDays : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -103,6 +108,7 @@ export class Key extends pulumi.CustomResource {
             inputs["keyPolicy"] = undefined /*out*/;
             inputs["keySpec"] = undefined /*out*/;
             inputs["keyUsage"] = undefined /*out*/;
+            inputs["multiRegion"] = undefined /*out*/;
             inputs["pendingWindowInDays"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
@@ -132,7 +138,7 @@ export interface KeyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
      */
-    keyPolicy: any;
+    keyPolicy: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
      */
@@ -141,6 +147,10 @@ export interface KeyArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
      */
     keyUsage?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
+     */
+    multiRegion?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
      */

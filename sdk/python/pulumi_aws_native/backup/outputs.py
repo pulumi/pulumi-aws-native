@@ -154,6 +154,8 @@ class BackupPlanBackupRuleResourceType(dict):
             suggest = "completion_window_minutes"
         elif key == "copyActions":
             suggest = "copy_actions"
+        elif key == "enableContinuousBackup":
+            suggest = "enable_continuous_backup"
         elif key == "recoveryPointTags":
             suggest = "recovery_point_tags"
         elif key == "scheduleExpression":
@@ -177,8 +179,9 @@ class BackupPlanBackupRuleResourceType(dict):
                  target_backup_vault: str,
                  completion_window_minutes: Optional[float] = None,
                  copy_actions: Optional[Sequence['outputs.BackupPlanCopyActionResourceType']] = None,
+                 enable_continuous_backup: Optional[bool] = None,
                  lifecycle: Optional['outputs.BackupPlanLifecycleResourceType'] = None,
-                 recovery_point_tags: Optional[str] = None,
+                 recovery_point_tags: Optional[Mapping[str, str]] = None,
                  schedule_expression: Optional[str] = None,
                  start_window_minutes: Optional[float] = None):
         """
@@ -187,8 +190,9 @@ class BackupPlanBackupRuleResourceType(dict):
         :param str target_backup_vault: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault
         :param float completion_window_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-completionwindowminutes
         :param Sequence['BackupPlanCopyActionResourceType'] copy_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
+        :param bool enable_continuous_backup: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-enablecontinuousbackup
         :param 'BackupPlanLifecycleResourceType' lifecycle: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
-        :param Union[Any, str] recovery_point_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
+        :param Mapping[str, str] recovery_point_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
         :param str schedule_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
         :param float start_window_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-startwindowminutes
         """
@@ -198,6 +202,8 @@ class BackupPlanBackupRuleResourceType(dict):
             pulumi.set(__self__, "completion_window_minutes", completion_window_minutes)
         if copy_actions is not None:
             pulumi.set(__self__, "copy_actions", copy_actions)
+        if enable_continuous_backup is not None:
+            pulumi.set(__self__, "enable_continuous_backup", enable_continuous_backup)
         if lifecycle is not None:
             pulumi.set(__self__, "lifecycle", lifecycle)
         if recovery_point_tags is not None:
@@ -240,6 +246,14 @@ class BackupPlanBackupRuleResourceType(dict):
         return pulumi.get(self, "copy_actions")
 
     @property
+    @pulumi.getter(name="enableContinuousBackup")
+    def enable_continuous_backup(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-enablecontinuousbackup
+        """
+        return pulumi.get(self, "enable_continuous_backup")
+
+    @property
     @pulumi.getter
     def lifecycle(self) -> Optional['outputs.BackupPlanLifecycleResourceType']:
         """
@@ -249,7 +263,7 @@ class BackupPlanBackupRuleResourceType(dict):
 
     @property
     @pulumi.getter(name="recoveryPointTags")
-    def recovery_point_tags(self) -> Optional[str]:
+    def recovery_point_tags(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
         """

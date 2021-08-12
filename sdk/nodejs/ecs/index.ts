@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./capacityProvider";
 export * from "./cluster";
+export * from "./clusterCapacityProviderAssociations";
 export * from "./primaryTaskSet";
 export * from "./service";
 export * from "./taskDefinition";
@@ -15,6 +16,7 @@ export * from "./taskSet";
 // Import resources to register:
 import { CapacityProvider } from "./capacityProvider";
 import { Cluster } from "./cluster";
+import { ClusterCapacityProviderAssociations } from "./clusterCapacityProviderAssociations";
 import { PrimaryTaskSet } from "./primaryTaskSet";
 import { Service } from "./service";
 import { TaskDefinition } from "./taskDefinition";
@@ -28,6 +30,8 @@ const _module = {
                 return new CapacityProvider(name, <any>undefined, { urn })
             case "aws-native:ECS:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws-native:ECS:ClusterCapacityProviderAssociations":
+                return new ClusterCapacityProviderAssociations(name, <any>undefined, { urn })
             case "aws-native:ECS:PrimaryTaskSet":
                 return new PrimaryTaskSet(name, <any>undefined, { urn })
             case "aws-native:ECS:Service":

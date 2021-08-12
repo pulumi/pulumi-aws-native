@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceConfluenceBlogConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("blogFieldMappings")]
+        private InputList<Inputs.DataSourceConfluenceBlogToIndexFieldMappingArgs>? _blogFieldMappings;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html#cfn-kendra-datasource-confluenceblogconfiguration-blogfieldmappings
         /// </summary>
-        [Input("blogFieldMappings")]
-        public Input<Inputs.DataSourceConfluenceBlogFieldMappingsListArgs>? BlogFieldMappings { get; set; }
+        public InputList<Inputs.DataSourceConfluenceBlogToIndexFieldMappingArgs> BlogFieldMappings
+        {
+            get => _blogFieldMappings ?? (_blogFieldMappings = new InputList<Inputs.DataSourceConfluenceBlogToIndexFieldMappingArgs>());
+            set => _blogFieldMappings = value;
+        }
 
         public DataSourceConfluenceBlogConfigurationArgs()
         {

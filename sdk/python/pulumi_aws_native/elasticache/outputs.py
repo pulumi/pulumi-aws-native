@@ -7,279 +7,199 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
-    'UserAuthentication',
-    'UserGroupReplicationGroupIdList',
-    'UserGroupUserGroupPendingChanges',
-    'UserGroupUserIdList',
-    'UserPasswordList',
-    'UserUserGroupIdList',
+    'GlobalReplicationGroupGlobalReplicationGroupMember',
+    'GlobalReplicationGroupRegionalConfiguration',
+    'GlobalReplicationGroupReshardingConfiguration',
 ]
 
 @pulumi.output_type
-class UserAuthentication(dict):
+class GlobalReplicationGroupGlobalReplicationGroupMember(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "passwordCount":
-            suggest = "password_count"
+        if key == "replicationGroupId":
+            suggest = "replication_group_id"
+        elif key == "replicationGroupRegion":
+            suggest = "replication_group_region"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAuthentication. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in GlobalReplicationGroupGlobalReplicationGroupMember. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        UserAuthentication.__key_warning(key)
+        GlobalReplicationGroupGlobalReplicationGroupMember.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        UserAuthentication.__key_warning(key)
+        GlobalReplicationGroupGlobalReplicationGroupMember.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 password_count: Optional[int] = None,
-                 type: Optional[str] = None):
+                 replication_group_id: Optional[str] = None,
+                 replication_group_region: Optional[str] = None,
+                 role: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html
-        :param int password_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-passwordcount
-        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-type
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html
+        :param str replication_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
+        :param str replication_group_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
+        :param str role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
         """
-        if password_count is not None:
-            pulumi.set(__self__, "password_count", password_count)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        if replication_group_id is not None:
+            pulumi.set(__self__, "replication_group_id", replication_group_id)
+        if replication_group_region is not None:
+            pulumi.set(__self__, "replication_group_region", replication_group_region)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
 
     @property
-    @pulumi.getter(name="passwordCount")
-    def password_count(self) -> Optional[int]:
+    @pulumi.getter(name="replicationGroupId")
+    def replication_group_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-passwordcount
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
         """
-        return pulumi.get(self, "password_count")
+        return pulumi.get(self, "replication_group_id")
+
+    @property
+    @pulumi.getter(name="replicationGroupRegion")
+    def replication_group_region(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
+        """
+        return pulumi.get(self, "replication_group_region")
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def role(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authentication.html#cfn-elasticache-user-authentication-type
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
         """
-        return pulumi.get(self, "type")
+        return pulumi.get(self, "role")
 
 
 @pulumi.output_type
-class UserGroupReplicationGroupIdList(dict):
+class GlobalReplicationGroupRegionalConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-replicationgroupidlist.html
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "replicationGroupIdList":
-            suggest = "replication_group_id_list"
+        if key == "replicationGroupId":
+            suggest = "replication_group_id"
+        elif key == "replicationGroupRegion":
+            suggest = "replication_group_region"
+        elif key == "reshardingConfigurations":
+            suggest = "resharding_configurations"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserGroupReplicationGroupIdList. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in GlobalReplicationGroupRegionalConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        UserGroupReplicationGroupIdList.__key_warning(key)
+        GlobalReplicationGroupRegionalConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        UserGroupReplicationGroupIdList.__key_warning(key)
+        GlobalReplicationGroupRegionalConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 replication_group_id_list: Optional[Sequence[str]] = None):
+                 replication_group_id: Optional[str] = None,
+                 replication_group_region: Optional[str] = None,
+                 resharding_configurations: Optional[Sequence['outputs.GlobalReplicationGroupReshardingConfiguration']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-replicationgroupidlist.html
-        :param Sequence[str] replication_group_id_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-replicationgroupidlist.html#cfn-elasticache-usergroup-replicationgroupidlist-replicationgroupidlist
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html
+        :param str replication_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
+        :param str replication_group_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
+        :param Sequence['GlobalReplicationGroupReshardingConfiguration'] resharding_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
         """
-        if replication_group_id_list is not None:
-            pulumi.set(__self__, "replication_group_id_list", replication_group_id_list)
+        if replication_group_id is not None:
+            pulumi.set(__self__, "replication_group_id", replication_group_id)
+        if replication_group_region is not None:
+            pulumi.set(__self__, "replication_group_region", replication_group_region)
+        if resharding_configurations is not None:
+            pulumi.set(__self__, "resharding_configurations", resharding_configurations)
 
     @property
-    @pulumi.getter(name="replicationGroupIdList")
-    def replication_group_id_list(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="replicationGroupId")
+    def replication_group_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-replicationgroupidlist.html#cfn-elasticache-usergroup-replicationgroupidlist-replicationgroupidlist
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
         """
-        return pulumi.get(self, "replication_group_id_list")
+        return pulumi.get(self, "replication_group_id")
+
+    @property
+    @pulumi.getter(name="replicationGroupRegion")
+    def replication_group_region(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
+        """
+        return pulumi.get(self, "replication_group_region")
+
+    @property
+    @pulumi.getter(name="reshardingConfigurations")
+    def resharding_configurations(self) -> Optional[Sequence['outputs.GlobalReplicationGroupReshardingConfiguration']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
+        """
+        return pulumi.get(self, "resharding_configurations")
 
 
 @pulumi.output_type
-class UserGroupUserGroupPendingChanges(dict):
+class GlobalReplicationGroupReshardingConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "userIdsToAdd":
-            suggest = "user_ids_to_add"
-        elif key == "userIdsToRemove":
-            suggest = "user_ids_to_remove"
+        if key == "nodeGroupId":
+            suggest = "node_group_id"
+        elif key == "preferredAvailabilityZones":
+            suggest = "preferred_availability_zones"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserGroupUserGroupPendingChanges. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in GlobalReplicationGroupReshardingConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        UserGroupUserGroupPendingChanges.__key_warning(key)
+        GlobalReplicationGroupReshardingConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        UserGroupUserGroupPendingChanges.__key_warning(key)
+        GlobalReplicationGroupReshardingConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 user_ids_to_add: Optional[Sequence[str]] = None,
-                 user_ids_to_remove: Optional[Sequence[str]] = None):
+                 node_group_id: Optional[str] = None,
+                 preferred_availability_zones: Optional[Sequence[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html
-        :param Sequence[str] user_ids_to_add: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoadd
-        :param Sequence[str] user_ids_to_remove: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoremove
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html
+        :param str node_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-nodegroupid
+        :param Sequence[str] preferred_availability_zones: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-preferredavailabilityzones
         """
-        if user_ids_to_add is not None:
-            pulumi.set(__self__, "user_ids_to_add", user_ids_to_add)
-        if user_ids_to_remove is not None:
-            pulumi.set(__self__, "user_ids_to_remove", user_ids_to_remove)
+        if node_group_id is not None:
+            pulumi.set(__self__, "node_group_id", node_group_id)
+        if preferred_availability_zones is not None:
+            pulumi.set(__self__, "preferred_availability_zones", preferred_availability_zones)
 
     @property
-    @pulumi.getter(name="userIdsToAdd")
-    def user_ids_to_add(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="nodeGroupId")
+    def node_group_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoadd
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-nodegroupid
         """
-        return pulumi.get(self, "user_ids_to_add")
+        return pulumi.get(self, "node_group_id")
 
     @property
-    @pulumi.getter(name="userIdsToRemove")
-    def user_ids_to_remove(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="preferredAvailabilityZones")
+    def preferred_availability_zones(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-usergrouppendingchanges.html#cfn-elasticache-usergroup-usergrouppendingchanges-useridstoremove
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-preferredavailabilityzones
         """
-        return pulumi.get(self, "user_ids_to_remove")
-
-
-@pulumi.output_type
-class UserGroupUserIdList(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "userIdList":
-            suggest = "user_id_list"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserGroupUserIdList. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserGroupUserIdList.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserGroupUserIdList.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 user_id_list: Optional[Sequence[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html
-        :param Sequence[str] user_id_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html#cfn-elasticache-usergroup-useridlist-useridlist
-        """
-        if user_id_list is not None:
-            pulumi.set(__self__, "user_id_list", user_id_list)
-
-    @property
-    @pulumi.getter(name="userIdList")
-    def user_id_list(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-usergroup-useridlist.html#cfn-elasticache-usergroup-useridlist-useridlist
-        """
-        return pulumi.get(self, "user_id_list")
-
-
-@pulumi.output_type
-class UserPasswordList(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "passwordList":
-            suggest = "password_list"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserPasswordList. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserPasswordList.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserPasswordList.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 password_list: Optional[Sequence[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html
-        :param Sequence[str] password_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist
-        """
-        if password_list is not None:
-            pulumi.set(__self__, "password_list", password_list)
-
-    @property
-    @pulumi.getter(name="passwordList")
-    def password_list(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-passwordlist.html#cfn-elasticache-user-passwordlist-passwordlist
-        """
-        return pulumi.get(self, "password_list")
-
-
-@pulumi.output_type
-class UserUserGroupIdList(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "userGroupIdList":
-            suggest = "user_group_id_list"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserUserGroupIdList. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserUserGroupIdList.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserUserGroupIdList.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 user_group_id_list: Optional[Sequence[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html
-        :param Sequence[str] user_group_id_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html#cfn-elasticache-user-usergroupidlist-usergroupidlist
-        """
-        if user_group_id_list is not None:
-            pulumi.set(__self__, "user_group_id_list", user_group_id_list)
-
-    @property
-    @pulumi.getter(name="userGroupIdList")
-    def user_group_id_list(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-usergroupidlist.html#cfn-elasticache-user-usergroupidlist-usergroupidlist
-        """
-        return pulumi.get(self, "user_group_id_list")
+        return pulumi.get(self, "preferred_availability_zones")
 
 

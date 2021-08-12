@@ -22,10 +22,10 @@ class AssessmentArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input['AssessmentRolesArgs']] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]] = None,
                  scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['AssessmentTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
         :param pulumi.Input['AssessmentAssessmentReportsDestinationArgs'] assessment_reports_destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
@@ -33,10 +33,10 @@ class AssessmentArgs:
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
         :param pulumi.Input[str] framework_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
-        :param pulumi.Input['AssessmentRolesArgs'] roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]] roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
         :param pulumi.Input['AssessmentScopeArgs'] scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
         :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
-        :param pulumi.Input['AssessmentTagsArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
         """
         if assessment_reports_destination is not None:
             pulumi.set(__self__, "assessment_reports_destination", assessment_reports_destination)
@@ -119,14 +119,14 @@ class AssessmentArgs:
 
     @property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input['AssessmentRolesArgs']]:
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input['AssessmentRolesArgs']]):
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]]):
         pulumi.set(self, "roles", value)
 
     @property
@@ -155,14 +155,14 @@ class AssessmentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['AssessmentTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['AssessmentTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -176,10 +176,10 @@ class Assessment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[pulumi.InputType['AssessmentRolesArgs']]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]]] = None,
                  scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArgs']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['AssessmentTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html
@@ -191,10 +191,10 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
         :param pulumi.Input[str] framework_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
-        :param pulumi.Input[pulumi.InputType['AssessmentRolesArgs']] roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]] roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
         :param pulumi.Input[pulumi.InputType['AssessmentScopeArgs']] scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
         :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
-        :param pulumi.Input[pulumi.InputType['AssessmentTagsArgs']] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
         """
         ...
     @overload
@@ -225,10 +225,10 @@ class Assessment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[pulumi.InputType['AssessmentRolesArgs']]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]]] = None,
                  scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArgs']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['AssessmentTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -324,7 +324,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def delegations(self) -> pulumi.Output['outputs.AssessmentDelegations']:
+    def delegations(self) -> pulumi.Output[Sequence['outputs.AssessmentDelegation']]:
         return pulumi.get(self, "delegations")
 
     @property
@@ -337,7 +337,10 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frameworkId")
-    def framework_id(self) -> pulumi.Output[str]:
+    def framework_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
+        """
         return pulumi.get(self, "framework_id")
 
     @property
@@ -350,7 +353,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def roles(self) -> pulumi.Output[Optional['outputs.AssessmentRoles']]:
+    def roles(self) -> pulumi.Output[Optional[Sequence['outputs.AssessmentRole']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
         """
@@ -374,7 +377,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.AssessmentTags']]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
         """

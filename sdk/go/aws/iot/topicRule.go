@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,6 +19,8 @@ type TopicRule struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
 	RuleName pulumi.StringPtrOutput `pulumi:"ruleName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-tags
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
 	TopicRulePayload TopicRuleTopicRulePayloadOutput `pulumi:"topicRulePayload"`
 }
@@ -66,6 +69,8 @@ func (TopicRuleState) ElementType() reflect.Type {
 type topicRuleArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
 	RuleName *string `pulumi:"ruleName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-tags
+	Tags []aws.Tag `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
 	TopicRulePayload TopicRuleTopicRulePayload `pulumi:"topicRulePayload"`
 }
@@ -74,6 +79,8 @@ type topicRuleArgs struct {
 type TopicRuleArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
 	RuleName pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-tags
+	Tags aws.TagArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
 	TopicRulePayload TopicRuleTopicRulePayloadInput
 }

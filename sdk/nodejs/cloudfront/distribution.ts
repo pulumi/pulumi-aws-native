@@ -40,6 +40,7 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly distributionConfig!: pulumi.Output<outputs.CloudFront.DistributionDistributionConfig>;
     public /*out*/ readonly domainName!: pulumi.Output<string>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
      */
@@ -62,9 +63,11 @@ export class Distribution extends pulumi.CustomResource {
             inputs["distributionConfig"] = args ? args.distributionConfig : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["domainName"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
         } else {
             inputs["distributionConfig"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {

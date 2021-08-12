@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceConfluenceAttachmentConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("attachmentFieldMappings")]
+        private InputList<Inputs.DataSourceConfluenceAttachmentToIndexFieldMappingArgs>? _attachmentFieldMappings;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings
         /// </summary>
-        [Input("attachmentFieldMappings")]
-        public Input<Inputs.DataSourceConfluenceAttachmentFieldMappingsListArgs>? AttachmentFieldMappings { get; set; }
+        public InputList<Inputs.DataSourceConfluenceAttachmentToIndexFieldMappingArgs> AttachmentFieldMappings
+        {
+            get => _attachmentFieldMappings ?? (_attachmentFieldMappings = new InputList<Inputs.DataSourceConfluenceAttachmentToIndexFieldMappingArgs>());
+            set => _attachmentFieldMappings = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-crawlattachments

@@ -14,15 +14,14 @@ __all__ = ['ModuleVersionArgs', 'ModuleVersion']
 class ModuleVersionArgs:
     def __init__(__self__, *,
                  module_name: pulumi.Input[str],
-                 module_package: Optional[pulumi.Input[str]] = None):
+                 module_package: pulumi.Input[str]):
         """
         The set of arguments for constructing a ModuleVersion resource.
         :param pulumi.Input[str] module_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
         :param pulumi.Input[str] module_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
         """
         pulumi.set(__self__, "module_name", module_name)
-        if module_package is not None:
-            pulumi.set(__self__, "module_package", module_package)
+        pulumi.set(__self__, "module_package", module_package)
 
     @property
     @pulumi.getter(name="moduleName")
@@ -38,14 +37,14 @@ class ModuleVersionArgs:
 
     @property
     @pulumi.getter(name="modulePackage")
-    def module_package(self) -> Optional[pulumi.Input[str]]:
+    def module_package(self) -> pulumi.Input[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
         """
         return pulumi.get(self, "module_package")
 
     @module_package.setter
-    def module_package(self, value: Optional[pulumi.Input[str]]):
+    def module_package(self, value: pulumi.Input[str]):
         pulumi.set(self, "module_package", value)
 
 
@@ -106,6 +105,8 @@ class ModuleVersion(pulumi.CustomResource):
             if module_name is None and not opts.urn:
                 raise TypeError("Missing required property 'module_name'")
             __props__.__dict__["module_name"] = module_name
+            if module_package is None and not opts.urn:
+                raise TypeError("Missing required property 'module_package'")
             __props__.__dict__["module_package"] = module_package
             __props__.__dict__["arn"] = None
             __props__.__dict__["description"] = None
@@ -179,7 +180,7 @@ class ModuleVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modulePackage")
-    def module_package(self) -> pulumi.Output[Optional[str]]:
+    def module_package(self) -> pulumi.Output[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
         """

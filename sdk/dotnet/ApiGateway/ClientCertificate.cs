@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [AwsNativeResourceType("aws-native:ApiGateway:ClientCertificate")]
     public partial class ClientCertificate : Pulumi.CustomResource
     {
+        [Output("clientCertificateId")]
+        public Output<string> ClientCertificateId { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html#cfn-apigateway-clientcertificate-description
         /// </summary>

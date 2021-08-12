@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
         /// </summary>
-        public readonly Outputs.RuleGroupTargetTypes TargetTypes;
+        public readonly ImmutableArray<string> TargetTypes;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         private RuleGroupRulesSourceList(
             string generatedRulesType,
 
-            Outputs.RuleGroupTargetTypes targetTypes,
+            ImmutableArray<string> targetTypes,
 
             ImmutableArray<string> targets)
         {

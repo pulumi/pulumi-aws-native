@@ -9,12 +9,1209 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DatasetCsvOptionsArgs',
+    'DatasetDataCatalogInputDefinitionArgs',
+    'DatasetDatabaseInputDefinitionArgs',
+    'DatasetDatasetParameterArgs',
+    'DatasetDatetimeOptionsArgs',
+    'DatasetExcelOptionsArgs',
+    'DatasetFilesLimitArgs',
+    'DatasetFilterExpressionArgs',
+    'DatasetFilterValueArgs',
+    'DatasetFormatOptionsArgs',
+    'DatasetInputArgs',
+    'DatasetJsonOptionsArgs',
+    'DatasetPathOptionsArgs',
+    'DatasetPathParameterArgs',
+    'DatasetS3LocationArgs',
+    'JobColumnSelectorArgs',
+    'JobColumnStatisticsConfigurationArgs',
+    'JobCsvOutputOptionsArgs',
+    'JobDataCatalogOutputArgs',
+    'JobDatabaseOutputArgs',
+    'JobDatabaseTableOutputOptionsArgs',
+    'JobJobSampleArgs',
+    'JobOutputFormatOptionsArgs',
+    'JobOutputLocationArgs',
     'JobOutputArgs',
+    'JobParameterMapArgs',
+    'JobProfileConfigurationArgs',
     'JobS3LocationArgs',
+    'JobS3TableOutputOptionsArgs',
+    'JobStatisticOverrideArgs',
+    'JobStatisticsConfigurationArgs',
+    'ProjectSampleArgs',
     'RecipeActionArgs',
     'RecipeConditionExpressionArgs',
+    'RecipeParameterMapArgs',
     'RecipeRecipeStepArgs',
 ]
+
+@pulumi.input_type
+class DatasetCsvOptionsArgs:
+    def __init__(__self__, *,
+                 delimiter: Optional[pulumi.Input[str]] = None,
+                 header_row: Optional[pulumi.Input[bool]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html
+        :param pulumi.Input[str] delimiter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-delimiter
+        :param pulumi.Input[bool] header_row: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-headerrow
+        """
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if header_row is not None:
+            pulumi.set(__self__, "header_row", header_row)
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-delimiter
+        """
+        return pulumi.get(self, "delimiter")
+
+    @delimiter.setter
+    def delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delimiter", value)
+
+    @property
+    @pulumi.getter(name="headerRow")
+    def header_row(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-headerrow
+        """
+        return pulumi.get(self, "header_row")
+
+    @header_row.setter
+    def header_row(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "header_row", value)
+
+
+@pulumi.input_type
+class DatasetDataCatalogInputDefinitionArgs:
+    def __init__(__self__, *,
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None,
+                 temp_directory: Optional[pulumi.Input['DatasetS3LocationArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html
+        :param pulumi.Input[str] catalog_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-catalogid
+        :param pulumi.Input[str] database_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-databasename
+        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tablename
+        :param pulumi.Input['DatasetS3LocationArgs'] temp_directory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tempdirectory
+        """
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+        if temp_directory is not None:
+            pulumi.set(__self__, "temp_directory", temp_directory)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-catalogid
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-databasename
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tablename
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter(name="tempDirectory")
+    def temp_directory(self) -> Optional[pulumi.Input['DatasetS3LocationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tempdirectory
+        """
+        return pulumi.get(self, "temp_directory")
+
+    @temp_directory.setter
+    def temp_directory(self, value: Optional[pulumi.Input['DatasetS3LocationArgs']]):
+        pulumi.set(self, "temp_directory", value)
+
+
+@pulumi.input_type
+class DatasetDatabaseInputDefinitionArgs:
+    def __init__(__self__, *,
+                 database_table_name: Optional[pulumi.Input[str]] = None,
+                 glue_connection_name: Optional[pulumi.Input[str]] = None,
+                 temp_directory: Optional[pulumi.Input['DatasetS3LocationArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html
+        :param pulumi.Input[str] database_table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-databasetablename
+        :param pulumi.Input[str] glue_connection_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-glueconnectionname
+        :param pulumi.Input['DatasetS3LocationArgs'] temp_directory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-tempdirectory
+        """
+        if database_table_name is not None:
+            pulumi.set(__self__, "database_table_name", database_table_name)
+        if glue_connection_name is not None:
+            pulumi.set(__self__, "glue_connection_name", glue_connection_name)
+        if temp_directory is not None:
+            pulumi.set(__self__, "temp_directory", temp_directory)
+
+    @property
+    @pulumi.getter(name="databaseTableName")
+    def database_table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-databasetablename
+        """
+        return pulumi.get(self, "database_table_name")
+
+    @database_table_name.setter
+    def database_table_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_table_name", value)
+
+    @property
+    @pulumi.getter(name="glueConnectionName")
+    def glue_connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-glueconnectionname
+        """
+        return pulumi.get(self, "glue_connection_name")
+
+    @glue_connection_name.setter
+    def glue_connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "glue_connection_name", value)
+
+    @property
+    @pulumi.getter(name="tempDirectory")
+    def temp_directory(self) -> Optional[pulumi.Input['DatasetS3LocationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-tempdirectory
+        """
+        return pulumi.get(self, "temp_directory")
+
+    @temp_directory.setter
+    def temp_directory(self, value: Optional[pulumi.Input['DatasetS3LocationArgs']]):
+        pulumi.set(self, "temp_directory", value)
+
+
+@pulumi.input_type
+class DatasetDatasetParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 create_column: Optional[pulumi.Input[bool]] = None,
+                 datetime_options: Optional[pulumi.Input['DatasetDatetimeOptionsArgs']] = None,
+                 filter: Optional[pulumi.Input['DatasetFilterExpressionArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-name
+        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-type
+        :param pulumi.Input[bool] create_column: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-createcolumn
+        :param pulumi.Input['DatasetDatetimeOptionsArgs'] datetime_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-datetimeoptions
+        :param pulumi.Input['DatasetFilterExpressionArgs'] filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-filter
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if create_column is not None:
+            pulumi.set(__self__, "create_column", create_column)
+        if datetime_options is not None:
+            pulumi.set(__self__, "datetime_options", datetime_options)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="createColumn")
+    def create_column(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-createcolumn
+        """
+        return pulumi.get(self, "create_column")
+
+    @create_column.setter
+    def create_column(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_column", value)
+
+    @property
+    @pulumi.getter(name="datetimeOptions")
+    def datetime_options(self) -> Optional[pulumi.Input['DatasetDatetimeOptionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-datetimeoptions
+        """
+        return pulumi.get(self, "datetime_options")
+
+    @datetime_options.setter
+    def datetime_options(self, value: Optional[pulumi.Input['DatasetDatetimeOptionsArgs']]):
+        pulumi.set(self, "datetime_options", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['DatasetFilterExpressionArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-filter
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['DatasetFilterExpressionArgs']]):
+        pulumi.set(self, "filter", value)
+
+
+@pulumi.input_type
+class DatasetDatetimeOptionsArgs:
+    def __init__(__self__, *,
+                 format: pulumi.Input[str],
+                 locale_code: Optional[pulumi.Input[str]] = None,
+                 timezone_offset: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html
+        :param pulumi.Input[str] format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-format
+        :param pulumi.Input[str] locale_code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode
+        :param pulumi.Input[str] timezone_offset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-timezoneoffset
+        """
+        pulumi.set(__self__, "format", format)
+        if locale_code is not None:
+            pulumi.set(__self__, "locale_code", locale_code)
+        if timezone_offset is not None:
+            pulumi.set(__self__, "timezone_offset", timezone_offset)
+
+    @property
+    @pulumi.getter
+    def format(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-format
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "format", value)
+
+    @property
+    @pulumi.getter(name="localeCode")
+    def locale_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode
+        """
+        return pulumi.get(self, "locale_code")
+
+    @locale_code.setter
+    def locale_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "locale_code", value)
+
+    @property
+    @pulumi.getter(name="timezoneOffset")
+    def timezone_offset(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-timezoneoffset
+        """
+        return pulumi.get(self, "timezone_offset")
+
+    @timezone_offset.setter
+    def timezone_offset(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone_offset", value)
+
+
+@pulumi.input_type
+class DatasetExcelOptionsArgs:
+    def __init__(__self__, *,
+                 header_row: Optional[pulumi.Input[bool]] = None,
+                 sheet_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 sheet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html
+        :param pulumi.Input[bool] header_row: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-headerrow
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] sheet_indexes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetindexes
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sheet_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetnames
+        """
+        if header_row is not None:
+            pulumi.set(__self__, "header_row", header_row)
+        if sheet_indexes is not None:
+            pulumi.set(__self__, "sheet_indexes", sheet_indexes)
+        if sheet_names is not None:
+            pulumi.set(__self__, "sheet_names", sheet_names)
+
+    @property
+    @pulumi.getter(name="headerRow")
+    def header_row(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-headerrow
+        """
+        return pulumi.get(self, "header_row")
+
+    @header_row.setter
+    def header_row(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "header_row", value)
+
+    @property
+    @pulumi.getter(name="sheetIndexes")
+    def sheet_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetindexes
+        """
+        return pulumi.get(self, "sheet_indexes")
+
+    @sheet_indexes.setter
+    def sheet_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "sheet_indexes", value)
+
+    @property
+    @pulumi.getter(name="sheetNames")
+    def sheet_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetnames
+        """
+        return pulumi.get(self, "sheet_names")
+
+    @sheet_names.setter
+    def sheet_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "sheet_names", value)
+
+
+@pulumi.input_type
+class DatasetFilesLimitArgs:
+    def __init__(__self__, *,
+                 max_files: pulumi.Input[int],
+                 order: Optional[pulumi.Input[str]] = None,
+                 ordered_by: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html
+        :param pulumi.Input[int] max_files: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles
+        :param pulumi.Input[str] order: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order
+        :param pulumi.Input[str] ordered_by: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-orderedby
+        """
+        pulumi.set(__self__, "max_files", max_files)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if ordered_by is not None:
+            pulumi.set(__self__, "ordered_by", ordered_by)
+
+    @property
+    @pulumi.getter(name="maxFiles")
+    def max_files(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles
+        """
+        return pulumi.get(self, "max_files")
+
+    @max_files.setter
+    def max_files(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_files", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter(name="orderedBy")
+    def ordered_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-orderedby
+        """
+        return pulumi.get(self, "ordered_by")
+
+    @ordered_by.setter
+    def ordered_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ordered_by", value)
+
+
+@pulumi.input_type
+class DatasetFilterExpressionArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[str],
+                 values_map: pulumi.Input[Sequence[pulumi.Input['DatasetFilterValueArgs']]]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html
+        :param pulumi.Input[str] expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-expression
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetFilterValueArgs']]] values_map: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-valuesmap
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "values_map", values_map)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-expression
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter(name="valuesMap")
+    def values_map(self) -> pulumi.Input[Sequence[pulumi.Input['DatasetFilterValueArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-valuesmap
+        """
+        return pulumi.get(self, "values_map")
+
+    @values_map.setter
+    def values_map(self, value: pulumi.Input[Sequence[pulumi.Input['DatasetFilterValueArgs']]]):
+        pulumi.set(self, "values_map", value)
+
+
+@pulumi.input_type
+class DatasetFilterValueArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str],
+                 value_reference: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html
+        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-value
+        :param pulumi.Input[str] value_reference: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-valuereference
+        """
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_reference", value_reference)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-valuereference
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value_reference", value)
+
+
+@pulumi.input_type
+class DatasetFormatOptionsArgs:
+    def __init__(__self__, *,
+                 csv: Optional[pulumi.Input['DatasetCsvOptionsArgs']] = None,
+                 excel: Optional[pulumi.Input['DatasetExcelOptionsArgs']] = None,
+                 json: Optional[pulumi.Input['DatasetJsonOptionsArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html
+        :param pulumi.Input['DatasetCsvOptionsArgs'] csv: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-csv
+        :param pulumi.Input['DatasetExcelOptionsArgs'] excel: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-excel
+        :param pulumi.Input['DatasetJsonOptionsArgs'] json: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json
+        """
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if excel is not None:
+            pulumi.set(__self__, "excel", excel)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+
+    @property
+    @pulumi.getter
+    def csv(self) -> Optional[pulumi.Input['DatasetCsvOptionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-csv
+        """
+        return pulumi.get(self, "csv")
+
+    @csv.setter
+    def csv(self, value: Optional[pulumi.Input['DatasetCsvOptionsArgs']]):
+        pulumi.set(self, "csv", value)
+
+    @property
+    @pulumi.getter
+    def excel(self) -> Optional[pulumi.Input['DatasetExcelOptionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-excel
+        """
+        return pulumi.get(self, "excel")
+
+    @excel.setter
+    def excel(self, value: Optional[pulumi.Input['DatasetExcelOptionsArgs']]):
+        pulumi.set(self, "excel", value)
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional[pulumi.Input['DatasetJsonOptionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json
+        """
+        return pulumi.get(self, "json")
+
+    @json.setter
+    def json(self, value: Optional[pulumi.Input['DatasetJsonOptionsArgs']]):
+        pulumi.set(self, "json", value)
+
+
+@pulumi.input_type
+class DatasetInputArgs:
+    def __init__(__self__, *,
+                 data_catalog_input_definition: Optional[pulumi.Input['DatasetDataCatalogInputDefinitionArgs']] = None,
+                 database_input_definition: Optional[pulumi.Input['DatasetDatabaseInputDefinitionArgs']] = None,
+                 s3_input_definition: Optional[pulumi.Input['DatasetS3LocationArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html
+        :param pulumi.Input['DatasetDataCatalogInputDefinitionArgs'] data_catalog_input_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-datacataloginputdefinition
+        :param pulumi.Input['DatasetDatabaseInputDefinitionArgs'] database_input_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition
+        :param pulumi.Input['DatasetS3LocationArgs'] s3_input_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition
+        """
+        if data_catalog_input_definition is not None:
+            pulumi.set(__self__, "data_catalog_input_definition", data_catalog_input_definition)
+        if database_input_definition is not None:
+            pulumi.set(__self__, "database_input_definition", database_input_definition)
+        if s3_input_definition is not None:
+            pulumi.set(__self__, "s3_input_definition", s3_input_definition)
+
+    @property
+    @pulumi.getter(name="dataCatalogInputDefinition")
+    def data_catalog_input_definition(self) -> Optional[pulumi.Input['DatasetDataCatalogInputDefinitionArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-datacataloginputdefinition
+        """
+        return pulumi.get(self, "data_catalog_input_definition")
+
+    @data_catalog_input_definition.setter
+    def data_catalog_input_definition(self, value: Optional[pulumi.Input['DatasetDataCatalogInputDefinitionArgs']]):
+        pulumi.set(self, "data_catalog_input_definition", value)
+
+    @property
+    @pulumi.getter(name="databaseInputDefinition")
+    def database_input_definition(self) -> Optional[pulumi.Input['DatasetDatabaseInputDefinitionArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition
+        """
+        return pulumi.get(self, "database_input_definition")
+
+    @database_input_definition.setter
+    def database_input_definition(self, value: Optional[pulumi.Input['DatasetDatabaseInputDefinitionArgs']]):
+        pulumi.set(self, "database_input_definition", value)
+
+    @property
+    @pulumi.getter(name="s3InputDefinition")
+    def s3_input_definition(self) -> Optional[pulumi.Input['DatasetS3LocationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition
+        """
+        return pulumi.get(self, "s3_input_definition")
+
+    @s3_input_definition.setter
+    def s3_input_definition(self, value: Optional[pulumi.Input['DatasetS3LocationArgs']]):
+        pulumi.set(self, "s3_input_definition", value)
+
+
+@pulumi.input_type
+class DatasetJsonOptionsArgs:
+    def __init__(__self__, *,
+                 multi_line: Optional[pulumi.Input[bool]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html
+        :param pulumi.Input[bool] multi_line: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
+        """
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+
+    @property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
+        """
+        return pulumi.get(self, "multi_line")
+
+    @multi_line.setter
+    def multi_line(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multi_line", value)
+
+
+@pulumi.input_type
+class DatasetPathOptionsArgs:
+    def __init__(__self__, *,
+                 files_limit: Optional[pulumi.Input['DatasetFilesLimitArgs']] = None,
+                 last_modified_date_condition: Optional[pulumi.Input['DatasetFilterExpressionArgs']] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html
+        :param pulumi.Input['DatasetFilesLimitArgs'] files_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit
+        :param pulumi.Input['DatasetFilterExpressionArgs'] last_modified_date_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters
+        """
+        if files_limit is not None:
+            pulumi.set(__self__, "files_limit", files_limit)
+        if last_modified_date_condition is not None:
+            pulumi.set(__self__, "last_modified_date_condition", last_modified_date_condition)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="filesLimit")
+    def files_limit(self) -> Optional[pulumi.Input['DatasetFilesLimitArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit
+        """
+        return pulumi.get(self, "files_limit")
+
+    @files_limit.setter
+    def files_limit(self, value: Optional[pulumi.Input['DatasetFilesLimitArgs']]):
+        pulumi.set(self, "files_limit", value)
+
+    @property
+    @pulumi.getter(name="lastModifiedDateCondition")
+    def last_modified_date_condition(self) -> Optional[pulumi.Input['DatasetFilterExpressionArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition
+        """
+        return pulumi.get(self, "last_modified_date_condition")
+
+    @last_modified_date_condition.setter
+    def last_modified_date_condition(self, value: Optional[pulumi.Input['DatasetFilterExpressionArgs']]):
+        pulumi.set(self, "last_modified_date_condition", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class DatasetPathParameterArgs:
+    def __init__(__self__, *,
+                 dataset_parameter: pulumi.Input['DatasetDatasetParameterArgs'],
+                 path_parameter_name: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html
+        :param pulumi.Input['DatasetDatasetParameterArgs'] dataset_parameter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-datasetparameter
+        :param pulumi.Input[str] path_parameter_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-pathparametername
+        """
+        pulumi.set(__self__, "dataset_parameter", dataset_parameter)
+        pulumi.set(__self__, "path_parameter_name", path_parameter_name)
+
+    @property
+    @pulumi.getter(name="datasetParameter")
+    def dataset_parameter(self) -> pulumi.Input['DatasetDatasetParameterArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-datasetparameter
+        """
+        return pulumi.get(self, "dataset_parameter")
+
+    @dataset_parameter.setter
+    def dataset_parameter(self, value: pulumi.Input['DatasetDatasetParameterArgs']):
+        pulumi.set(self, "dataset_parameter", value)
+
+    @property
+    @pulumi.getter(name="pathParameterName")
+    def path_parameter_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-pathparametername
+        """
+        return pulumi.get(self, "path_parameter_name")
+
+    @path_parameter_name.setter
+    def path_parameter_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path_parameter_name", value)
+
+
+@pulumi.input_type
+class DatasetS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html
+        :param pulumi.Input[str] bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucket
+        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-key
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucket
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-key
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+
+@pulumi.input_type
+class JobColumnSelectorArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 regex: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-name
+        :param pulumi.Input[str] regex: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-regex
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-regex
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "regex", value)
+
+
+@pulumi.input_type
+class JobColumnStatisticsConfigurationArgs:
+    def __init__(__self__, *,
+                 statistics: pulumi.Input['JobStatisticsConfigurationArgs'],
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html
+        :param pulumi.Input['JobStatisticsConfigurationArgs'] statistics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics
+        :param pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]] selectors: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors
+        """
+        pulumi.set(__self__, "statistics", statistics)
+        if selectors is not None:
+            pulumi.set(__self__, "selectors", selectors)
+
+    @property
+    @pulumi.getter
+    def statistics(self) -> pulumi.Input['JobStatisticsConfigurationArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics
+        """
+        return pulumi.get(self, "statistics")
+
+    @statistics.setter
+    def statistics(self, value: pulumi.Input['JobStatisticsConfigurationArgs']):
+        pulumi.set(self, "statistics", value)
+
+    @property
+    @pulumi.getter
+    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors
+        """
+        return pulumi.get(self, "selectors")
+
+    @selectors.setter
+    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]):
+        pulumi.set(self, "selectors", value)
+
+
+@pulumi.input_type
+class JobCsvOutputOptionsArgs:
+    def __init__(__self__, *,
+                 delimiter: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html
+        :param pulumi.Input[str] delimiter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html#cfn-databrew-job-csvoutputoptions-delimiter
+        """
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html#cfn-databrew-job-csvoutputoptions-delimiter
+        """
+        return pulumi.get(self, "delimiter")
+
+    @delimiter.setter
+    def delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delimiter", value)
+
+
+@pulumi.input_type
+class JobDataCatalogOutputArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 table_name: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 database_options: Optional[pulumi.Input['JobDatabaseTableOutputOptionsArgs']] = None,
+                 overwrite: Optional[pulumi.Input[bool]] = None,
+                 s3_options: Optional[pulumi.Input['JobS3TableOutputOptionsArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html
+        :param pulumi.Input[str] database_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databasename
+        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-tablename
+        :param pulumi.Input[str] catalog_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-catalogid
+        :param pulumi.Input['JobDatabaseTableOutputOptionsArgs'] database_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databaseoptions
+        :param pulumi.Input[bool] overwrite: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-overwrite
+        :param pulumi.Input['JobS3TableOutputOptionsArgs'] s3_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-s3options
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if database_options is not None:
+            pulumi.set(__self__, "database_options", database_options)
+        if overwrite is not None:
+            pulumi.set(__self__, "overwrite", overwrite)
+        if s3_options is not None:
+            pulumi.set(__self__, "s3_options", s3_options)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databasename
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-tablename
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-catalogid
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="databaseOptions")
+    def database_options(self) -> Optional[pulumi.Input['JobDatabaseTableOutputOptionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databaseoptions
+        """
+        return pulumi.get(self, "database_options")
+
+    @database_options.setter
+    def database_options(self, value: Optional[pulumi.Input['JobDatabaseTableOutputOptionsArgs']]):
+        pulumi.set(self, "database_options", value)
+
+    @property
+    @pulumi.getter
+    def overwrite(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-overwrite
+        """
+        return pulumi.get(self, "overwrite")
+
+    @overwrite.setter
+    def overwrite(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "overwrite", value)
+
+    @property
+    @pulumi.getter(name="s3Options")
+    def s3_options(self) -> Optional[pulumi.Input['JobS3TableOutputOptionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-s3options
+        """
+        return pulumi.get(self, "s3_options")
+
+    @s3_options.setter
+    def s3_options(self, value: Optional[pulumi.Input['JobS3TableOutputOptionsArgs']]):
+        pulumi.set(self, "s3_options", value)
+
+
+@pulumi.input_type
+class JobDatabaseOutputArgs:
+    def __init__(__self__, *,
+                 database_options: pulumi.Input['JobDatabaseTableOutputOptionsArgs'],
+                 glue_connection_name: pulumi.Input[str],
+                 database_output_mode: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html
+        :param pulumi.Input['JobDatabaseTableOutputOptionsArgs'] database_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoptions
+        :param pulumi.Input[str] glue_connection_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-glueconnectionname
+        :param pulumi.Input[str] database_output_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoutputmode
+        """
+        pulumi.set(__self__, "database_options", database_options)
+        pulumi.set(__self__, "glue_connection_name", glue_connection_name)
+        if database_output_mode is not None:
+            pulumi.set(__self__, "database_output_mode", database_output_mode)
+
+    @property
+    @pulumi.getter(name="databaseOptions")
+    def database_options(self) -> pulumi.Input['JobDatabaseTableOutputOptionsArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoptions
+        """
+        return pulumi.get(self, "database_options")
+
+    @database_options.setter
+    def database_options(self, value: pulumi.Input['JobDatabaseTableOutputOptionsArgs']):
+        pulumi.set(self, "database_options", value)
+
+    @property
+    @pulumi.getter(name="glueConnectionName")
+    def glue_connection_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-glueconnectionname
+        """
+        return pulumi.get(self, "glue_connection_name")
+
+    @glue_connection_name.setter
+    def glue_connection_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "glue_connection_name", value)
+
+    @property
+    @pulumi.getter(name="databaseOutputMode")
+    def database_output_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoutputmode
+        """
+        return pulumi.get(self, "database_output_mode")
+
+    @database_output_mode.setter
+    def database_output_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_output_mode", value)
+
+
+@pulumi.input_type
+class JobDatabaseTableOutputOptionsArgs:
+    def __init__(__self__, *,
+                 table_name: pulumi.Input[str],
+                 temp_directory: Optional[pulumi.Input['JobS3LocationArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html
+        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tablename
+        :param pulumi.Input['JobS3LocationArgs'] temp_directory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tempdirectory
+        """
+        pulumi.set(__self__, "table_name", table_name)
+        if temp_directory is not None:
+            pulumi.set(__self__, "temp_directory", temp_directory)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tablename
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter(name="tempDirectory")
+    def temp_directory(self) -> Optional[pulumi.Input['JobS3LocationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tempdirectory
+        """
+        return pulumi.get(self, "temp_directory")
+
+    @temp_directory.setter
+    def temp_directory(self, value: Optional[pulumi.Input['JobS3LocationArgs']]):
+        pulumi.set(self, "temp_directory", value)
+
+
+@pulumi.input_type
+class JobJobSampleArgs:
+    def __init__(__self__, *,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html
+        :param pulumi.Input[str] mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-mode
+        :param pulumi.Input[int] size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-size
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-mode
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-size
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size", value)
+
+
+@pulumi.input_type
+class JobOutputFormatOptionsArgs:
+    def __init__(__self__, *,
+                 csv: Optional[pulumi.Input['JobCsvOutputOptionsArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html
+        :param pulumi.Input['JobCsvOutputOptionsArgs'] csv: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv
+        """
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+
+    @property
+    @pulumi.getter
+    def csv(self) -> Optional[pulumi.Input['JobCsvOutputOptionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv
+        """
+        return pulumi.get(self, "csv")
+
+    @csv.setter
+    def csv(self, value: Optional[pulumi.Input['JobCsvOutputOptionsArgs']]):
+        pulumi.set(self, "csv", value)
+
+
+@pulumi.input_type
+class JobOutputLocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html
+        :param pulumi.Input[str] bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucket
+        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-key
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucket
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-key
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
 
 @pulumi.input_type
 class JobOutputArgs:
@@ -22,6 +1219,7 @@ class JobOutputArgs:
                  location: pulumi.Input['JobS3LocationArgs'],
                  compression_format: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[str]] = None,
+                 format_options: Optional[pulumi.Input['JobOutputFormatOptionsArgs']] = None,
                  overwrite: Optional[pulumi.Input[bool]] = None,
                  partition_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -29,6 +1227,7 @@ class JobOutputArgs:
         :param pulumi.Input['JobS3LocationArgs'] location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
         :param pulumi.Input[str] compression_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-compressionformat
         :param pulumi.Input[str] format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-format
+        :param pulumi.Input['JobOutputFormatOptionsArgs'] format_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-formatoptions
         :param pulumi.Input[bool] overwrite: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-overwrite
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-partitioncolumns
         """
@@ -37,6 +1236,8 @@ class JobOutputArgs:
             pulumi.set(__self__, "compression_format", compression_format)
         if format is not None:
             pulumi.set(__self__, "format", format)
+        if format_options is not None:
+            pulumi.set(__self__, "format_options", format_options)
         if overwrite is not None:
             pulumi.set(__self__, "overwrite", overwrite)
         if partition_columns is not None:
@@ -79,6 +1280,18 @@ class JobOutputArgs:
         pulumi.set(self, "format", value)
 
     @property
+    @pulumi.getter(name="formatOptions")
+    def format_options(self) -> Optional[pulumi.Input['JobOutputFormatOptionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-formatoptions
+        """
+        return pulumi.get(self, "format_options")
+
+    @format_options.setter
+    def format_options(self, value: Optional[pulumi.Input['JobOutputFormatOptionsArgs']]):
+        pulumi.set(self, "format_options", value)
+
+    @property
     @pulumi.getter
     def overwrite(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -101,6 +1314,71 @@ class JobOutputArgs:
     @partition_columns.setter
     def partition_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "partition_columns", value)
+
+
+@pulumi.input_type
+class JobParameterMapArgs:
+    def __init__(__self__):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-parametermap.html
+        """
+        pass
+
+
+@pulumi.input_type
+class JobProfileConfigurationArgs:
+    def __init__(__self__, *,
+                 column_statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]]] = None,
+                 dataset_statistics_configuration: Optional[pulumi.Input['JobStatisticsConfigurationArgs']] = None,
+                 profile_columns: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html
+        :param pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]] column_statistics_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-columnstatisticsconfigurations
+        :param pulumi.Input['JobStatisticsConfigurationArgs'] dataset_statistics_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-datasetstatisticsconfiguration
+        :param pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]] profile_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns
+        """
+        if column_statistics_configurations is not None:
+            pulumi.set(__self__, "column_statistics_configurations", column_statistics_configurations)
+        if dataset_statistics_configuration is not None:
+            pulumi.set(__self__, "dataset_statistics_configuration", dataset_statistics_configuration)
+        if profile_columns is not None:
+            pulumi.set(__self__, "profile_columns", profile_columns)
+
+    @property
+    @pulumi.getter(name="columnStatisticsConfigurations")
+    def column_statistics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-columnstatisticsconfigurations
+        """
+        return pulumi.get(self, "column_statistics_configurations")
+
+    @column_statistics_configurations.setter
+    def column_statistics_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]]]):
+        pulumi.set(self, "column_statistics_configurations", value)
+
+    @property
+    @pulumi.getter(name="datasetStatisticsConfiguration")
+    def dataset_statistics_configuration(self) -> Optional[pulumi.Input['JobStatisticsConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-datasetstatisticsconfiguration
+        """
+        return pulumi.get(self, "dataset_statistics_configuration")
+
+    @dataset_statistics_configuration.setter
+    def dataset_statistics_configuration(self, value: Optional[pulumi.Input['JobStatisticsConfigurationArgs']]):
+        pulumi.set(self, "dataset_statistics_configuration", value)
+
+    @property
+    @pulumi.getter(name="profileColumns")
+    def profile_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns
+        """
+        return pulumi.get(self, "profile_columns")
+
+    @profile_columns.setter
+    def profile_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]):
+        pulumi.set(self, "profile_columns", value)
 
 
 @pulumi.input_type
@@ -143,14 +1421,154 @@ class JobS3LocationArgs:
 
 
 @pulumi.input_type
+class JobS3TableOutputOptionsArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input['JobS3LocationArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html
+        :param pulumi.Input['JobS3LocationArgs'] location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html#cfn-databrew-job-s3tableoutputoptions-location
+        """
+        pulumi.set(__self__, "location", location)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Input['JobS3LocationArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html#cfn-databrew-job-s3tableoutputoptions-location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input['JobS3LocationArgs']):
+        pulumi.set(self, "location", value)
+
+
+@pulumi.input_type
+class JobStatisticOverrideArgs:
+    def __init__(__self__, *,
+                 parameters: pulumi.Input['JobParameterMapArgs'],
+                 statistic: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html
+        :param pulumi.Input['JobParameterMapArgs'] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-parameters
+        :param pulumi.Input[str] statistic: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-statistic
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "statistic", statistic)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input['JobParameterMapArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input['JobParameterMapArgs']):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def statistic(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-statistic
+        """
+        return pulumi.get(self, "statistic")
+
+    @statistic.setter
+    def statistic(self, value: pulumi.Input[str]):
+        pulumi.set(self, "statistic", value)
+
+
+@pulumi.input_type
+class JobStatisticsConfigurationArgs:
+    def __init__(__self__, *,
+                 included_statistics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_statistics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics
+        :param pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]] overrides: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides
+        """
+        if included_statistics is not None:
+            pulumi.set(__self__, "included_statistics", included_statistics)
+        if overrides is not None:
+            pulumi.set(__self__, "overrides", overrides)
+
+    @property
+    @pulumi.getter(name="includedStatistics")
+    def included_statistics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics
+        """
+        return pulumi.get(self, "included_statistics")
+
+    @included_statistics.setter
+    def included_statistics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "included_statistics", value)
+
+    @property
+    @pulumi.getter
+    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides
+        """
+        return pulumi.get(self, "overrides")
+
+    @overrides.setter
+    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]]):
+        pulumi.set(self, "overrides", value)
+
+
+@pulumi.input_type
+class ProjectSampleArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 size: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html
+        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-type
+        :param pulumi.Input[int] size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-size
+        """
+        pulumi.set(__self__, "type", type)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-size
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size", value)
+
+
+@pulumi.input_type
 class RecipeActionArgs:
     def __init__(__self__, *,
                  operation: pulumi.Input[str],
-                 parameters: Optional[Any] = None):
+                 parameters: Optional[pulumi.Input['RecipeParameterMapArgs']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html
         :param pulumi.Input[str] operation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
-        :param Any parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
+        :param pulumi.Input['RecipeParameterMapArgs'] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
         """
         pulumi.set(__self__, "operation", operation)
         if parameters is not None:
@@ -170,14 +1588,14 @@ class RecipeActionArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Any]:
+    def parameters(self) -> Optional[pulumi.Input['RecipeParameterMapArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[Any]):
+    def parameters(self, value: Optional[pulumi.Input['RecipeParameterMapArgs']]):
         pulumi.set(self, "parameters", value)
 
 
@@ -233,6 +1651,15 @@ class RecipeConditionExpressionArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RecipeParameterMapArgs:
+    def __init__(__self__):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-parametermap.html
+        """
+        pass
 
 
 @pulumi.input_type

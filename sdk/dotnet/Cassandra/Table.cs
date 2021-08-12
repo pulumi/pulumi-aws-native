@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Cassandra
         public Output<ImmutableArray<Outputs.TableClusteringKeyColumn>> ClusteringKeyColumns { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
+        /// </summary>
+        [Output("encryptionSpecification")]
+        public Output<Outputs.TableEncryptionSpecification?> EncryptionSpecification { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
         /// </summary>
         [Output("keyspaceName")]
@@ -40,6 +46,12 @@ namespace Pulumi.AwsNative.Cassandra
         public Output<ImmutableArray<Outputs.TableColumn>> PartitionKeyColumns { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+        /// </summary>
+        [Output("pointInTimeRecoveryEnabled")]
+        public Output<bool?> PointInTimeRecoveryEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
         /// </summary>
         [Output("regularColumns")]
@@ -50,6 +62,12 @@ namespace Pulumi.AwsNative.Cassandra
         /// </summary>
         [Output("tableName")]
         public Output<string?> TableName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -115,6 +133,12 @@ namespace Pulumi.AwsNative.Cassandra
         }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
+        /// </summary>
+        [Input("encryptionSpecification")]
+        public Input<Inputs.TableEncryptionSpecificationArgs>? EncryptionSpecification { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
         /// </summary>
         [Input("keyspaceName", required: true)]
@@ -131,6 +155,12 @@ namespace Pulumi.AwsNative.Cassandra
             get => _partitionKeyColumns ?? (_partitionKeyColumns = new InputList<Inputs.TableColumnArgs>());
             set => _partitionKeyColumns = value;
         }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+        /// </summary>
+        [Input("pointInTimeRecoveryEnabled")]
+        public Input<bool>? PointInTimeRecoveryEnabled { get; set; }
 
         [Input("regularColumns")]
         private InputList<Inputs.TableColumnArgs>? _regularColumns;
@@ -149,6 +179,18 @@ namespace Pulumi.AwsNative.Cassandra
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public TableArgs()
         {

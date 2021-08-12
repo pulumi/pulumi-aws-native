@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Backup
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
         /// </summary>
         [Output("backupVaultTags")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> BackupVaultTags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> BackupVaultTags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
@@ -102,11 +102,17 @@ namespace Pulumi.AwsNative.Backup
         [Input("backupVaultName", required: true)]
         public Input<string> BackupVaultName { get; set; } = null!;
 
+        [Input("backupVaultTags")]
+        private InputMap<string>? _backupVaultTags;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
         /// </summary>
-        [Input("backupVaultTags")]
-        public InputUnion<System.Text.Json.JsonElement, string>? BackupVaultTags { get; set; }
+        public InputMap<string> BackupVaultTags
+        {
+            get => _backupVaultTags ?? (_backupVaultTags = new InputMap<string>());
+            set => _backupVaultTags = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn

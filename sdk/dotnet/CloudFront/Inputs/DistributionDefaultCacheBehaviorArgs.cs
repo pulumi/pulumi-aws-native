@@ -69,6 +69,18 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("forwardedValues")]
         public Input<Inputs.DistributionForwardedValuesArgs>? ForwardedValues { get; set; }
 
+        [Input("functionAssociations")]
+        private InputList<Inputs.DistributionFunctionAssociationArgs>? _functionAssociations;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-functionassociations
+        /// </summary>
+        public InputList<Inputs.DistributionFunctionAssociationArgs> FunctionAssociations
+        {
+            get => _functionAssociations ?? (_functionAssociations = new InputList<Inputs.DistributionFunctionAssociationArgs>());
+            set => _functionAssociations = value;
+        }
+
         [Input("lambdaFunctionAssociations")]
         private InputList<Inputs.DistributionLambdaFunctionAssociationArgs>? _lambdaFunctionAssociations;
 

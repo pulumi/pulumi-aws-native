@@ -20,14 +20,18 @@ class JobArgs:
                  name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 data_catalog_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobDataCatalogOutputArgs']]]] = None,
+                 database_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobDatabaseOutputArgs']]]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  encryption_mode: Optional[pulumi.Input[str]] = None,
+                 job_sample: Optional[pulumi.Input['JobJobSampleArgs']] = None,
                  log_subscription: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
-                 output_location: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 output_location: Optional[pulumi.Input['JobOutputLocationArgs']] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobOutputArgs']]]] = None,
+                 profile_configuration: Optional[pulumi.Input['JobProfileConfigurationArgs']] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  recipe: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -37,14 +41,18 @@ class JobArgs:
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-name
         :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-rolearn
         :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-type
+        :param pulumi.Input[Sequence[pulumi.Input['JobDataCatalogOutputArgs']]] data_catalog_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
+        :param pulumi.Input[Sequence[pulumi.Input['JobDatabaseOutputArgs']]] database_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
         :param pulumi.Input[str] dataset_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
         :param pulumi.Input[str] encryption_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionkeyarn
         :param pulumi.Input[str] encryption_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
+        :param pulumi.Input['JobJobSampleArgs'] job_sample: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample
         :param pulumi.Input[str] log_subscription: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
         :param pulumi.Input[int] max_capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxcapacity
         :param pulumi.Input[int] max_retries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxretries
-        :param pulumi.Input[Union[Any, str]] output_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
+        :param pulumi.Input['JobOutputLocationArgs'] output_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
         :param pulumi.Input[Sequence[pulumi.Input['JobOutputArgs']]] outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
+        :param pulumi.Input['JobProfileConfigurationArgs'] profile_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
         :param pulumi.Input[str] project_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
         :param pulumi.Input[Union[Any, str]] recipe: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-recipe
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-tags
@@ -53,12 +61,18 @@ class JobArgs:
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "type", type)
+        if data_catalog_outputs is not None:
+            pulumi.set(__self__, "data_catalog_outputs", data_catalog_outputs)
+        if database_outputs is not None:
+            pulumi.set(__self__, "database_outputs", database_outputs)
         if dataset_name is not None:
             pulumi.set(__self__, "dataset_name", dataset_name)
         if encryption_key_arn is not None:
             pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
         if encryption_mode is not None:
             pulumi.set(__self__, "encryption_mode", encryption_mode)
+        if job_sample is not None:
+            pulumi.set(__self__, "job_sample", job_sample)
         if log_subscription is not None:
             pulumi.set(__self__, "log_subscription", log_subscription)
         if max_capacity is not None:
@@ -69,6 +83,8 @@ class JobArgs:
             pulumi.set(__self__, "output_location", output_location)
         if outputs is not None:
             pulumi.set(__self__, "outputs", outputs)
+        if profile_configuration is not None:
+            pulumi.set(__self__, "profile_configuration", profile_configuration)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
         if recipe is not None:
@@ -115,6 +131,30 @@ class JobArgs:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="dataCatalogOutputs")
+    def data_catalog_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDataCatalogOutputArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
+        """
+        return pulumi.get(self, "data_catalog_outputs")
+
+    @data_catalog_outputs.setter
+    def data_catalog_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDataCatalogOutputArgs']]]]):
+        pulumi.set(self, "data_catalog_outputs", value)
+
+    @property
+    @pulumi.getter(name="databaseOutputs")
+    def database_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDatabaseOutputArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
+        """
+        return pulumi.get(self, "database_outputs")
+
+    @database_outputs.setter
+    def database_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDatabaseOutputArgs']]]]):
+        pulumi.set(self, "database_outputs", value)
+
+    @property
     @pulumi.getter(name="datasetName")
     def dataset_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -149,6 +189,18 @@ class JobArgs:
     @encryption_mode.setter
     def encryption_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encryption_mode", value)
+
+    @property
+    @pulumi.getter(name="jobSample")
+    def job_sample(self) -> Optional[pulumi.Input['JobJobSampleArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample
+        """
+        return pulumi.get(self, "job_sample")
+
+    @job_sample.setter
+    def job_sample(self, value: Optional[pulumi.Input['JobJobSampleArgs']]):
+        pulumi.set(self, "job_sample", value)
 
     @property
     @pulumi.getter(name="logSubscription")
@@ -188,14 +240,14 @@ class JobArgs:
 
     @property
     @pulumi.getter(name="outputLocation")
-    def output_location(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+    def output_location(self) -> Optional[pulumi.Input['JobOutputLocationArgs']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
         """
         return pulumi.get(self, "output_location")
 
     @output_location.setter
-    def output_location(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def output_location(self, value: Optional[pulumi.Input['JobOutputLocationArgs']]):
         pulumi.set(self, "output_location", value)
 
     @property
@@ -209,6 +261,18 @@ class JobArgs:
     @outputs.setter
     def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobOutputArgs']]]]):
         pulumi.set(self, "outputs", value)
+
+    @property
+    @pulumi.getter(name="profileConfiguration")
+    def profile_configuration(self) -> Optional[pulumi.Input['JobProfileConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
+        """
+        return pulumi.get(self, "profile_configuration")
+
+    @profile_configuration.setter
+    def profile_configuration(self, value: Optional[pulumi.Input['JobProfileConfigurationArgs']]):
+        pulumi.set(self, "profile_configuration", value)
 
     @property
     @pulumi.getter(name="projectName")
@@ -264,15 +328,19 @@ class Job(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_catalog_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDataCatalogOutputArgs']]]]] = None,
+                 database_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDatabaseOutputArgs']]]]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  encryption_mode: Optional[pulumi.Input[str]] = None,
+                 job_sample: Optional[pulumi.Input[pulumi.InputType['JobJobSampleArgs']]] = None,
                  log_subscription: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_location: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 output_location: Optional[pulumi.Input[pulumi.InputType['JobOutputLocationArgs']]] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputArgs']]]]] = None,
+                 profile_configuration: Optional[pulumi.Input[pulumi.InputType['JobProfileConfigurationArgs']]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  recipe: Optional[pulumi.Input[Union[Any, str]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -285,15 +353,19 @@ class Job(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDataCatalogOutputArgs']]]] data_catalog_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDatabaseOutputArgs']]]] database_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
         :param pulumi.Input[str] dataset_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
         :param pulumi.Input[str] encryption_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionkeyarn
         :param pulumi.Input[str] encryption_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
+        :param pulumi.Input[pulumi.InputType['JobJobSampleArgs']] job_sample: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample
         :param pulumi.Input[str] log_subscription: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
         :param pulumi.Input[int] max_capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxcapacity
         :param pulumi.Input[int] max_retries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-maxretries
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-name
-        :param pulumi.Input[Union[Any, str]] output_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
+        :param pulumi.Input[pulumi.InputType['JobOutputLocationArgs']] output_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputArgs']]]] outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
+        :param pulumi.Input[pulumi.InputType['JobProfileConfigurationArgs']] profile_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
         :param pulumi.Input[str] project_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
         :param pulumi.Input[Union[Any, str]] recipe: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-recipe
         :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-rolearn
@@ -325,15 +397,19 @@ class Job(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_catalog_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDataCatalogOutputArgs']]]]] = None,
+                 database_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDatabaseOutputArgs']]]]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  encryption_mode: Optional[pulumi.Input[str]] = None,
+                 job_sample: Optional[pulumi.Input[pulumi.InputType['JobJobSampleArgs']]] = None,
                  log_subscription: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_location: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 output_location: Optional[pulumi.Input[pulumi.InputType['JobOutputLocationArgs']]] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputArgs']]]]] = None,
+                 profile_configuration: Optional[pulumi.Input[pulumi.InputType['JobProfileConfigurationArgs']]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  recipe: Optional[pulumi.Input[Union[Any, str]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -352,9 +428,12 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobArgs.__new__(JobArgs)
 
+            __props__.__dict__["data_catalog_outputs"] = data_catalog_outputs
+            __props__.__dict__["database_outputs"] = database_outputs
             __props__.__dict__["dataset_name"] = dataset_name
             __props__.__dict__["encryption_key_arn"] = encryption_key_arn
             __props__.__dict__["encryption_mode"] = encryption_mode
+            __props__.__dict__["job_sample"] = job_sample
             __props__.__dict__["log_subscription"] = log_subscription
             __props__.__dict__["max_capacity"] = max_capacity
             __props__.__dict__["max_retries"] = max_retries
@@ -363,6 +442,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["output_location"] = output_location
             __props__.__dict__["outputs"] = outputs
+            __props__.__dict__["profile_configuration"] = profile_configuration
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["recipe"] = recipe
             if role_arn is None and not opts.urn:
@@ -395,15 +475,19 @@ class Job(pulumi.CustomResource):
 
         __props__ = JobArgs.__new__(JobArgs)
 
+        __props__.__dict__["data_catalog_outputs"] = None
+        __props__.__dict__["database_outputs"] = None
         __props__.__dict__["dataset_name"] = None
         __props__.__dict__["encryption_key_arn"] = None
         __props__.__dict__["encryption_mode"] = None
+        __props__.__dict__["job_sample"] = None
         __props__.__dict__["log_subscription"] = None
         __props__.__dict__["max_capacity"] = None
         __props__.__dict__["max_retries"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["output_location"] = None
         __props__.__dict__["outputs"] = None
+        __props__.__dict__["profile_configuration"] = None
         __props__.__dict__["project_name"] = None
         __props__.__dict__["recipe"] = None
         __props__.__dict__["role_arn"] = None
@@ -411,6 +495,22 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["timeout"] = None
         __props__.__dict__["type"] = None
         return Job(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="dataCatalogOutputs")
+    def data_catalog_outputs(self) -> pulumi.Output[Optional[Sequence['outputs.JobDataCatalogOutput']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
+        """
+        return pulumi.get(self, "data_catalog_outputs")
+
+    @property
+    @pulumi.getter(name="databaseOutputs")
+    def database_outputs(self) -> pulumi.Output[Optional[Sequence['outputs.JobDatabaseOutput']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
+        """
+        return pulumi.get(self, "database_outputs")
 
     @property
     @pulumi.getter(name="datasetName")
@@ -435,6 +535,14 @@ class Job(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
         """
         return pulumi.get(self, "encryption_mode")
+
+    @property
+    @pulumi.getter(name="jobSample")
+    def job_sample(self) -> pulumi.Output[Optional['outputs.JobJobSample']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample
+        """
+        return pulumi.get(self, "job_sample")
 
     @property
     @pulumi.getter(name="logSubscription")
@@ -470,7 +578,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputLocation")
-    def output_location(self) -> pulumi.Output[Optional[str]]:
+    def output_location(self) -> pulumi.Output[Optional['outputs.JobOutputLocation']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
         """
@@ -483,6 +591,14 @@ class Job(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
         """
         return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter(name="profileConfiguration")
+    def profile_configuration(self) -> pulumi.Output[Optional['outputs.JobProfileConfiguration']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
+        """
+        return pulumi.get(self, "profile_configuration")
 
     @property
     @pulumi.getter(name="projectName")

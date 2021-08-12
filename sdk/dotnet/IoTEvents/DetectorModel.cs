@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition
         /// </summary>
         [Output("detectorModelDefinition")]
-        public Output<Outputs.DetectorModelDetectorModelDefinition?> DetectorModelDefinition { get; private set; } = null!;
+        public Output<Outputs.DetectorModelDetectorModelDefinition> DetectorModelDefinition { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn
         /// </summary>
         [Output("roleArn")]
-        public Output<string?> RoleArn { get; private set; } = null!;
+        public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-tags
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public DetectorModel(string name, DetectorModelArgs? args = null, CustomResourceOptions? options = null)
+        public DetectorModel(string name, DetectorModelArgs args, CustomResourceOptions? options = null)
             : base("aws-native:IoTEvents:DetectorModel", name, args ?? new DetectorModelArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -105,8 +105,8 @@ namespace Pulumi.AwsNative.IoTEvents
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition
         /// </summary>
-        [Input("detectorModelDefinition")]
-        public Input<Inputs.DetectorModelDetectorModelDefinitionArgs>? DetectorModelDefinition { get; set; }
+        [Input("detectorModelDefinition", required: true)]
+        public Input<Inputs.DetectorModelDetectorModelDefinitionArgs> DetectorModelDefinition { get; set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription
@@ -135,8 +135,8 @@ namespace Pulumi.AwsNative.IoTEvents
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn
         /// </summary>
-        [Input("roleArn")]
-        public Input<string>? RoleArn { get; set; }
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -291,150 +290,10 @@ func (o DataSourceAclConfigurationPtrOutput) AllowedGroupsColumnName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-changedetectingcolumns.html
-type DataSourceChangeDetectingColumns struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-changedetectingcolumns.html#cfn-kendra-datasource-changedetectingcolumns-changedetectingcolumns
-	ChangeDetectingColumns []string `pulumi:"changeDetectingColumns"`
-}
-
-// DataSourceChangeDetectingColumnsInput is an input type that accepts DataSourceChangeDetectingColumnsArgs and DataSourceChangeDetectingColumnsOutput values.
-// You can construct a concrete instance of `DataSourceChangeDetectingColumnsInput` via:
-//
-//          DataSourceChangeDetectingColumnsArgs{...}
-type DataSourceChangeDetectingColumnsInput interface {
-	pulumi.Input
-
-	ToDataSourceChangeDetectingColumnsOutput() DataSourceChangeDetectingColumnsOutput
-	ToDataSourceChangeDetectingColumnsOutputWithContext(context.Context) DataSourceChangeDetectingColumnsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-changedetectingcolumns.html
-type DataSourceChangeDetectingColumnsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-changedetectingcolumns.html#cfn-kendra-datasource-changedetectingcolumns-changedetectingcolumns
-	ChangeDetectingColumns pulumi.StringArrayInput `pulumi:"changeDetectingColumns"`
-}
-
-func (DataSourceChangeDetectingColumnsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceChangeDetectingColumns)(nil)).Elem()
-}
-
-func (i DataSourceChangeDetectingColumnsArgs) ToDataSourceChangeDetectingColumnsOutput() DataSourceChangeDetectingColumnsOutput {
-	return i.ToDataSourceChangeDetectingColumnsOutputWithContext(context.Background())
-}
-
-func (i DataSourceChangeDetectingColumnsArgs) ToDataSourceChangeDetectingColumnsOutputWithContext(ctx context.Context) DataSourceChangeDetectingColumnsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceChangeDetectingColumnsOutput)
-}
-
-func (i DataSourceChangeDetectingColumnsArgs) ToDataSourceChangeDetectingColumnsPtrOutput() DataSourceChangeDetectingColumnsPtrOutput {
-	return i.ToDataSourceChangeDetectingColumnsPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceChangeDetectingColumnsArgs) ToDataSourceChangeDetectingColumnsPtrOutputWithContext(ctx context.Context) DataSourceChangeDetectingColumnsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceChangeDetectingColumnsOutput).ToDataSourceChangeDetectingColumnsPtrOutputWithContext(ctx)
-}
-
-// DataSourceChangeDetectingColumnsPtrInput is an input type that accepts DataSourceChangeDetectingColumnsArgs, DataSourceChangeDetectingColumnsPtr and DataSourceChangeDetectingColumnsPtrOutput values.
-// You can construct a concrete instance of `DataSourceChangeDetectingColumnsPtrInput` via:
-//
-//          DataSourceChangeDetectingColumnsArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceChangeDetectingColumnsPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceChangeDetectingColumnsPtrOutput() DataSourceChangeDetectingColumnsPtrOutput
-	ToDataSourceChangeDetectingColumnsPtrOutputWithContext(context.Context) DataSourceChangeDetectingColumnsPtrOutput
-}
-
-type dataSourceChangeDetectingColumnsPtrType DataSourceChangeDetectingColumnsArgs
-
-func DataSourceChangeDetectingColumnsPtr(v *DataSourceChangeDetectingColumnsArgs) DataSourceChangeDetectingColumnsPtrInput {
-	return (*dataSourceChangeDetectingColumnsPtrType)(v)
-}
-
-func (*dataSourceChangeDetectingColumnsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceChangeDetectingColumns)(nil)).Elem()
-}
-
-func (i *dataSourceChangeDetectingColumnsPtrType) ToDataSourceChangeDetectingColumnsPtrOutput() DataSourceChangeDetectingColumnsPtrOutput {
-	return i.ToDataSourceChangeDetectingColumnsPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceChangeDetectingColumnsPtrType) ToDataSourceChangeDetectingColumnsPtrOutputWithContext(ctx context.Context) DataSourceChangeDetectingColumnsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceChangeDetectingColumnsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-changedetectingcolumns.html
-type DataSourceChangeDetectingColumnsOutput struct{ *pulumi.OutputState }
-
-func (DataSourceChangeDetectingColumnsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceChangeDetectingColumns)(nil)).Elem()
-}
-
-func (o DataSourceChangeDetectingColumnsOutput) ToDataSourceChangeDetectingColumnsOutput() DataSourceChangeDetectingColumnsOutput {
-	return o
-}
-
-func (o DataSourceChangeDetectingColumnsOutput) ToDataSourceChangeDetectingColumnsOutputWithContext(ctx context.Context) DataSourceChangeDetectingColumnsOutput {
-	return o
-}
-
-func (o DataSourceChangeDetectingColumnsOutput) ToDataSourceChangeDetectingColumnsPtrOutput() DataSourceChangeDetectingColumnsPtrOutput {
-	return o.ToDataSourceChangeDetectingColumnsPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceChangeDetectingColumnsOutput) ToDataSourceChangeDetectingColumnsPtrOutputWithContext(ctx context.Context) DataSourceChangeDetectingColumnsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceChangeDetectingColumns) *DataSourceChangeDetectingColumns {
-		return &v
-	}).(DataSourceChangeDetectingColumnsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-changedetectingcolumns.html#cfn-kendra-datasource-changedetectingcolumns-changedetectingcolumns
-func (o DataSourceChangeDetectingColumnsOutput) ChangeDetectingColumns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DataSourceChangeDetectingColumns) []string { return v.ChangeDetectingColumns }).(pulumi.StringArrayOutput)
-}
-
-type DataSourceChangeDetectingColumnsPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceChangeDetectingColumnsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceChangeDetectingColumns)(nil)).Elem()
-}
-
-func (o DataSourceChangeDetectingColumnsPtrOutput) ToDataSourceChangeDetectingColumnsPtrOutput() DataSourceChangeDetectingColumnsPtrOutput {
-	return o
-}
-
-func (o DataSourceChangeDetectingColumnsPtrOutput) ToDataSourceChangeDetectingColumnsPtrOutputWithContext(ctx context.Context) DataSourceChangeDetectingColumnsPtrOutput {
-	return o
-}
-
-func (o DataSourceChangeDetectingColumnsPtrOutput) Elem() DataSourceChangeDetectingColumnsOutput {
-	return o.ApplyT(func(v *DataSourceChangeDetectingColumns) DataSourceChangeDetectingColumns {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceChangeDetectingColumns
-		return ret
-	}).(DataSourceChangeDetectingColumnsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-changedetectingcolumns.html#cfn-kendra-datasource-changedetectingcolumns-changedetectingcolumns
-func (o DataSourceChangeDetectingColumnsPtrOutput) ChangeDetectingColumns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DataSourceChangeDetectingColumns) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ChangeDetectingColumns
-	}).(pulumi.StringArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html
 type DataSourceColumnConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
-	ChangeDetectingColumns DataSourceChangeDetectingColumns `pulumi:"changeDetectingColumns"`
+	ChangeDetectingColumns []string `pulumi:"changeDetectingColumns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentdatacolumnname
 	DocumentDataColumnName string `pulumi:"documentDataColumnName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentidcolumnname
@@ -442,7 +301,7 @@ type DataSourceColumnConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documenttitlecolumnname
 	DocumentTitleColumnName *string `pulumi:"documentTitleColumnName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
-	FieldMappings *DataSourceDataSourceToIndexFieldMappingList `pulumi:"fieldMappings"`
+	FieldMappings []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
 }
 
 // DataSourceColumnConfigurationInput is an input type that accepts DataSourceColumnConfigurationArgs and DataSourceColumnConfigurationOutput values.
@@ -459,7 +318,7 @@ type DataSourceColumnConfigurationInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html
 type DataSourceColumnConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
-	ChangeDetectingColumns DataSourceChangeDetectingColumnsInput `pulumi:"changeDetectingColumns"`
+	ChangeDetectingColumns pulumi.StringArrayInput `pulumi:"changeDetectingColumns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentdatacolumnname
 	DocumentDataColumnName pulumi.StringInput `pulumi:"documentDataColumnName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentidcolumnname
@@ -467,7 +326,7 @@ type DataSourceColumnConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documenttitlecolumnname
 	DocumentTitleColumnName pulumi.StringPtrInput `pulumi:"documentTitleColumnName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
-	FieldMappings DataSourceDataSourceToIndexFieldMappingListPtrInput `pulumi:"fieldMappings"`
+	FieldMappings DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
 }
 
 func (DataSourceColumnConfigurationArgs) ElementType() reflect.Type {
@@ -549,10 +408,8 @@ func (o DataSourceColumnConfigurationOutput) ToDataSourceColumnConfigurationPtrO
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
-func (o DataSourceColumnConfigurationOutput) ChangeDetectingColumns() DataSourceChangeDetectingColumnsOutput {
-	return o.ApplyT(func(v DataSourceColumnConfiguration) DataSourceChangeDetectingColumns {
-		return v.ChangeDetectingColumns
-	}).(DataSourceChangeDetectingColumnsOutput)
+func (o DataSourceColumnConfigurationOutput) ChangeDetectingColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceColumnConfiguration) []string { return v.ChangeDetectingColumns }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentdatacolumnname
@@ -571,10 +428,10 @@ func (o DataSourceColumnConfigurationOutput) DocumentTitleColumnName() pulumi.St
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
-func (o DataSourceColumnConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v DataSourceColumnConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceColumnConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceColumnConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 type DataSourceColumnConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -602,13 +459,13 @@ func (o DataSourceColumnConfigurationPtrOutput) Elem() DataSourceColumnConfigura
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
-func (o DataSourceColumnConfigurationPtrOutput) ChangeDetectingColumns() DataSourceChangeDetectingColumnsPtrOutput {
-	return o.ApplyT(func(v *DataSourceColumnConfiguration) *DataSourceChangeDetectingColumns {
+func (o DataSourceColumnConfigurationPtrOutput) ChangeDetectingColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceColumnConfiguration) []string {
 		if v == nil {
 			return nil
 		}
-		return &v.ChangeDetectingColumns
-	}).(DataSourceChangeDetectingColumnsPtrOutput)
+		return v.ChangeDetectingColumns
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentdatacolumnname
@@ -642,19 +499,19 @@ func (o DataSourceColumnConfigurationPtrOutput) DocumentTitleColumnName() pulumi
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
-func (o DataSourceColumnConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v *DataSourceColumnConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceColumnConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v *DataSourceColumnConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		if v == nil {
 			return nil
 		}
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html
 type DataSourceConfluenceAttachmentConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings
-	AttachmentFieldMappings *DataSourceConfluenceAttachmentFieldMappingsList `pulumi:"attachmentFieldMappings"`
+	AttachmentFieldMappings []DataSourceConfluenceAttachmentToIndexFieldMapping `pulumi:"attachmentFieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-crawlattachments
 	CrawlAttachments *bool `pulumi:"crawlAttachments"`
 }
@@ -673,7 +530,7 @@ type DataSourceConfluenceAttachmentConfigurationInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html
 type DataSourceConfluenceAttachmentConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings
-	AttachmentFieldMappings DataSourceConfluenceAttachmentFieldMappingsListPtrInput `pulumi:"attachmentFieldMappings"`
+	AttachmentFieldMappings DataSourceConfluenceAttachmentToIndexFieldMappingArrayInput `pulumi:"attachmentFieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-crawlattachments
 	CrawlAttachments pulumi.BoolPtrInput `pulumi:"crawlAttachments"`
 }
@@ -757,10 +614,10 @@ func (o DataSourceConfluenceAttachmentConfigurationOutput) ToDataSourceConfluenc
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings
-func (o DataSourceConfluenceAttachmentConfigurationOutput) AttachmentFieldMappings() DataSourceConfluenceAttachmentFieldMappingsListPtrOutput {
-	return o.ApplyT(func(v DataSourceConfluenceAttachmentConfiguration) *DataSourceConfluenceAttachmentFieldMappingsList {
+func (o DataSourceConfluenceAttachmentConfigurationOutput) AttachmentFieldMappings() DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceConfluenceAttachmentConfiguration) []DataSourceConfluenceAttachmentToIndexFieldMapping {
 		return v.AttachmentFieldMappings
-	}).(DataSourceConfluenceAttachmentFieldMappingsListPtrOutput)
+	}).(DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-crawlattachments
@@ -793,13 +650,13 @@ func (o DataSourceConfluenceAttachmentConfigurationPtrOutput) Elem() DataSourceC
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings
-func (o DataSourceConfluenceAttachmentConfigurationPtrOutput) AttachmentFieldMappings() DataSourceConfluenceAttachmentFieldMappingsListPtrOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceAttachmentConfiguration) *DataSourceConfluenceAttachmentFieldMappingsList {
+func (o DataSourceConfluenceAttachmentConfigurationPtrOutput) AttachmentFieldMappings() DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceAttachmentConfiguration) []DataSourceConfluenceAttachmentToIndexFieldMapping {
 		if v == nil {
 			return nil
 		}
 		return v.AttachmentFieldMappings
-	}).(DataSourceConfluenceAttachmentFieldMappingsListPtrOutput)
+	}).(DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-crawlattachments
@@ -810,148 +667,6 @@ func (o DataSourceConfluenceAttachmentConfigurationPtrOutput) CrawlAttachments()
 		}
 		return v.CrawlAttachments
 	}).(pulumi.BoolPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html
-type DataSourceConfluenceAttachmentFieldMappingsList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html#cfn-kendra-datasource-confluenceattachmentfieldmappingslist-confluenceattachmentfieldmappingslist
-	ConfluenceAttachmentFieldMappingsList []DataSourceConfluenceAttachmentToIndexFieldMapping `pulumi:"confluenceAttachmentFieldMappingsList"`
-}
-
-// DataSourceConfluenceAttachmentFieldMappingsListInput is an input type that accepts DataSourceConfluenceAttachmentFieldMappingsListArgs and DataSourceConfluenceAttachmentFieldMappingsListOutput values.
-// You can construct a concrete instance of `DataSourceConfluenceAttachmentFieldMappingsListInput` via:
-//
-//          DataSourceConfluenceAttachmentFieldMappingsListArgs{...}
-type DataSourceConfluenceAttachmentFieldMappingsListInput interface {
-	pulumi.Input
-
-	ToDataSourceConfluenceAttachmentFieldMappingsListOutput() DataSourceConfluenceAttachmentFieldMappingsListOutput
-	ToDataSourceConfluenceAttachmentFieldMappingsListOutputWithContext(context.Context) DataSourceConfluenceAttachmentFieldMappingsListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html
-type DataSourceConfluenceAttachmentFieldMappingsListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html#cfn-kendra-datasource-confluenceattachmentfieldmappingslist-confluenceattachmentfieldmappingslist
-	ConfluenceAttachmentFieldMappingsList DataSourceConfluenceAttachmentToIndexFieldMappingArrayInput `pulumi:"confluenceAttachmentFieldMappingsList"`
-}
-
-func (DataSourceConfluenceAttachmentFieldMappingsListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceConfluenceAttachmentFieldMappingsList)(nil)).Elem()
-}
-
-func (i DataSourceConfluenceAttachmentFieldMappingsListArgs) ToDataSourceConfluenceAttachmentFieldMappingsListOutput() DataSourceConfluenceAttachmentFieldMappingsListOutput {
-	return i.ToDataSourceConfluenceAttachmentFieldMappingsListOutputWithContext(context.Background())
-}
-
-func (i DataSourceConfluenceAttachmentFieldMappingsListArgs) ToDataSourceConfluenceAttachmentFieldMappingsListOutputWithContext(ctx context.Context) DataSourceConfluenceAttachmentFieldMappingsListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceAttachmentFieldMappingsListOutput)
-}
-
-func (i DataSourceConfluenceAttachmentFieldMappingsListArgs) ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutput() DataSourceConfluenceAttachmentFieldMappingsListPtrOutput {
-	return i.ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceConfluenceAttachmentFieldMappingsListArgs) ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceAttachmentFieldMappingsListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceAttachmentFieldMappingsListOutput).ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutputWithContext(ctx)
-}
-
-// DataSourceConfluenceAttachmentFieldMappingsListPtrInput is an input type that accepts DataSourceConfluenceAttachmentFieldMappingsListArgs, DataSourceConfluenceAttachmentFieldMappingsListPtr and DataSourceConfluenceAttachmentFieldMappingsListPtrOutput values.
-// You can construct a concrete instance of `DataSourceConfluenceAttachmentFieldMappingsListPtrInput` via:
-//
-//          DataSourceConfluenceAttachmentFieldMappingsListArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceConfluenceAttachmentFieldMappingsListPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutput() DataSourceConfluenceAttachmentFieldMappingsListPtrOutput
-	ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutputWithContext(context.Context) DataSourceConfluenceAttachmentFieldMappingsListPtrOutput
-}
-
-type dataSourceConfluenceAttachmentFieldMappingsListPtrType DataSourceConfluenceAttachmentFieldMappingsListArgs
-
-func DataSourceConfluenceAttachmentFieldMappingsListPtr(v *DataSourceConfluenceAttachmentFieldMappingsListArgs) DataSourceConfluenceAttachmentFieldMappingsListPtrInput {
-	return (*dataSourceConfluenceAttachmentFieldMappingsListPtrType)(v)
-}
-
-func (*dataSourceConfluenceAttachmentFieldMappingsListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceConfluenceAttachmentFieldMappingsList)(nil)).Elem()
-}
-
-func (i *dataSourceConfluenceAttachmentFieldMappingsListPtrType) ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutput() DataSourceConfluenceAttachmentFieldMappingsListPtrOutput {
-	return i.ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceConfluenceAttachmentFieldMappingsListPtrType) ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceAttachmentFieldMappingsListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceAttachmentFieldMappingsListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html
-type DataSourceConfluenceAttachmentFieldMappingsListOutput struct{ *pulumi.OutputState }
-
-func (DataSourceConfluenceAttachmentFieldMappingsListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceConfluenceAttachmentFieldMappingsList)(nil)).Elem()
-}
-
-func (o DataSourceConfluenceAttachmentFieldMappingsListOutput) ToDataSourceConfluenceAttachmentFieldMappingsListOutput() DataSourceConfluenceAttachmentFieldMappingsListOutput {
-	return o
-}
-
-func (o DataSourceConfluenceAttachmentFieldMappingsListOutput) ToDataSourceConfluenceAttachmentFieldMappingsListOutputWithContext(ctx context.Context) DataSourceConfluenceAttachmentFieldMappingsListOutput {
-	return o
-}
-
-func (o DataSourceConfluenceAttachmentFieldMappingsListOutput) ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutput() DataSourceConfluenceAttachmentFieldMappingsListPtrOutput {
-	return o.ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceConfluenceAttachmentFieldMappingsListOutput) ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceAttachmentFieldMappingsListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfluenceAttachmentFieldMappingsList) *DataSourceConfluenceAttachmentFieldMappingsList {
-		return &v
-	}).(DataSourceConfluenceAttachmentFieldMappingsListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html#cfn-kendra-datasource-confluenceattachmentfieldmappingslist-confluenceattachmentfieldmappingslist
-func (o DataSourceConfluenceAttachmentFieldMappingsListOutput) ConfluenceAttachmentFieldMappingsList() DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput {
-	return o.ApplyT(func(v DataSourceConfluenceAttachmentFieldMappingsList) []DataSourceConfluenceAttachmentToIndexFieldMapping {
-		return v.ConfluenceAttachmentFieldMappingsList
-	}).(DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput)
-}
-
-type DataSourceConfluenceAttachmentFieldMappingsListPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceConfluenceAttachmentFieldMappingsListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceConfluenceAttachmentFieldMappingsList)(nil)).Elem()
-}
-
-func (o DataSourceConfluenceAttachmentFieldMappingsListPtrOutput) ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutput() DataSourceConfluenceAttachmentFieldMappingsListPtrOutput {
-	return o
-}
-
-func (o DataSourceConfluenceAttachmentFieldMappingsListPtrOutput) ToDataSourceConfluenceAttachmentFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceAttachmentFieldMappingsListPtrOutput {
-	return o
-}
-
-func (o DataSourceConfluenceAttachmentFieldMappingsListPtrOutput) Elem() DataSourceConfluenceAttachmentFieldMappingsListOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceAttachmentFieldMappingsList) DataSourceConfluenceAttachmentFieldMappingsList {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceConfluenceAttachmentFieldMappingsList
-		return ret
-	}).(DataSourceConfluenceAttachmentFieldMappingsListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentfieldmappingslist.html#cfn-kendra-datasource-confluenceattachmentfieldmappingslist-confluenceattachmentfieldmappingslist
-func (o DataSourceConfluenceAttachmentFieldMappingsListPtrOutput) ConfluenceAttachmentFieldMappingsList() DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceAttachmentFieldMappingsList) []DataSourceConfluenceAttachmentToIndexFieldMapping {
-		if v == nil {
-			return nil
-		}
-		return v.ConfluenceAttachmentFieldMappingsList
-	}).(DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html
@@ -1075,7 +790,7 @@ func (o DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput) Index(i pu
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html
 type DataSourceConfluenceBlogConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html#cfn-kendra-datasource-confluenceblogconfiguration-blogfieldmappings
-	BlogFieldMappings *DataSourceConfluenceBlogFieldMappingsList `pulumi:"blogFieldMappings"`
+	BlogFieldMappings []DataSourceConfluenceBlogToIndexFieldMapping `pulumi:"blogFieldMappings"`
 }
 
 // DataSourceConfluenceBlogConfigurationInput is an input type that accepts DataSourceConfluenceBlogConfigurationArgs and DataSourceConfluenceBlogConfigurationOutput values.
@@ -1092,7 +807,7 @@ type DataSourceConfluenceBlogConfigurationInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html
 type DataSourceConfluenceBlogConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html#cfn-kendra-datasource-confluenceblogconfiguration-blogfieldmappings
-	BlogFieldMappings DataSourceConfluenceBlogFieldMappingsListPtrInput `pulumi:"blogFieldMappings"`
+	BlogFieldMappings DataSourceConfluenceBlogToIndexFieldMappingArrayInput `pulumi:"blogFieldMappings"`
 }
 
 func (DataSourceConfluenceBlogConfigurationArgs) ElementType() reflect.Type {
@@ -1174,10 +889,10 @@ func (o DataSourceConfluenceBlogConfigurationOutput) ToDataSourceConfluenceBlogC
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html#cfn-kendra-datasource-confluenceblogconfiguration-blogfieldmappings
-func (o DataSourceConfluenceBlogConfigurationOutput) BlogFieldMappings() DataSourceConfluenceBlogFieldMappingsListPtrOutput {
-	return o.ApplyT(func(v DataSourceConfluenceBlogConfiguration) *DataSourceConfluenceBlogFieldMappingsList {
+func (o DataSourceConfluenceBlogConfigurationOutput) BlogFieldMappings() DataSourceConfluenceBlogToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceConfluenceBlogConfiguration) []DataSourceConfluenceBlogToIndexFieldMapping {
 		return v.BlogFieldMappings
-	}).(DataSourceConfluenceBlogFieldMappingsListPtrOutput)
+	}).(DataSourceConfluenceBlogToIndexFieldMappingArrayOutput)
 }
 
 type DataSourceConfluenceBlogConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1205,154 +920,12 @@ func (o DataSourceConfluenceBlogConfigurationPtrOutput) Elem() DataSourceConflue
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html#cfn-kendra-datasource-confluenceblogconfiguration-blogfieldmappings
-func (o DataSourceConfluenceBlogConfigurationPtrOutput) BlogFieldMappings() DataSourceConfluenceBlogFieldMappingsListPtrOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceBlogConfiguration) *DataSourceConfluenceBlogFieldMappingsList {
+func (o DataSourceConfluenceBlogConfigurationPtrOutput) BlogFieldMappings() DataSourceConfluenceBlogToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceBlogConfiguration) []DataSourceConfluenceBlogToIndexFieldMapping {
 		if v == nil {
 			return nil
 		}
 		return v.BlogFieldMappings
-	}).(DataSourceConfluenceBlogFieldMappingsListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html
-type DataSourceConfluenceBlogFieldMappingsList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html#cfn-kendra-datasource-confluenceblogfieldmappingslist-confluenceblogfieldmappingslist
-	ConfluenceBlogFieldMappingsList []DataSourceConfluenceBlogToIndexFieldMapping `pulumi:"confluenceBlogFieldMappingsList"`
-}
-
-// DataSourceConfluenceBlogFieldMappingsListInput is an input type that accepts DataSourceConfluenceBlogFieldMappingsListArgs and DataSourceConfluenceBlogFieldMappingsListOutput values.
-// You can construct a concrete instance of `DataSourceConfluenceBlogFieldMappingsListInput` via:
-//
-//          DataSourceConfluenceBlogFieldMappingsListArgs{...}
-type DataSourceConfluenceBlogFieldMappingsListInput interface {
-	pulumi.Input
-
-	ToDataSourceConfluenceBlogFieldMappingsListOutput() DataSourceConfluenceBlogFieldMappingsListOutput
-	ToDataSourceConfluenceBlogFieldMappingsListOutputWithContext(context.Context) DataSourceConfluenceBlogFieldMappingsListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html
-type DataSourceConfluenceBlogFieldMappingsListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html#cfn-kendra-datasource-confluenceblogfieldmappingslist-confluenceblogfieldmappingslist
-	ConfluenceBlogFieldMappingsList DataSourceConfluenceBlogToIndexFieldMappingArrayInput `pulumi:"confluenceBlogFieldMappingsList"`
-}
-
-func (DataSourceConfluenceBlogFieldMappingsListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceConfluenceBlogFieldMappingsList)(nil)).Elem()
-}
-
-func (i DataSourceConfluenceBlogFieldMappingsListArgs) ToDataSourceConfluenceBlogFieldMappingsListOutput() DataSourceConfluenceBlogFieldMappingsListOutput {
-	return i.ToDataSourceConfluenceBlogFieldMappingsListOutputWithContext(context.Background())
-}
-
-func (i DataSourceConfluenceBlogFieldMappingsListArgs) ToDataSourceConfluenceBlogFieldMappingsListOutputWithContext(ctx context.Context) DataSourceConfluenceBlogFieldMappingsListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceBlogFieldMappingsListOutput)
-}
-
-func (i DataSourceConfluenceBlogFieldMappingsListArgs) ToDataSourceConfluenceBlogFieldMappingsListPtrOutput() DataSourceConfluenceBlogFieldMappingsListPtrOutput {
-	return i.ToDataSourceConfluenceBlogFieldMappingsListPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceConfluenceBlogFieldMappingsListArgs) ToDataSourceConfluenceBlogFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceBlogFieldMappingsListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceBlogFieldMappingsListOutput).ToDataSourceConfluenceBlogFieldMappingsListPtrOutputWithContext(ctx)
-}
-
-// DataSourceConfluenceBlogFieldMappingsListPtrInput is an input type that accepts DataSourceConfluenceBlogFieldMappingsListArgs, DataSourceConfluenceBlogFieldMappingsListPtr and DataSourceConfluenceBlogFieldMappingsListPtrOutput values.
-// You can construct a concrete instance of `DataSourceConfluenceBlogFieldMappingsListPtrInput` via:
-//
-//          DataSourceConfluenceBlogFieldMappingsListArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceConfluenceBlogFieldMappingsListPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceConfluenceBlogFieldMappingsListPtrOutput() DataSourceConfluenceBlogFieldMappingsListPtrOutput
-	ToDataSourceConfluenceBlogFieldMappingsListPtrOutputWithContext(context.Context) DataSourceConfluenceBlogFieldMappingsListPtrOutput
-}
-
-type dataSourceConfluenceBlogFieldMappingsListPtrType DataSourceConfluenceBlogFieldMappingsListArgs
-
-func DataSourceConfluenceBlogFieldMappingsListPtr(v *DataSourceConfluenceBlogFieldMappingsListArgs) DataSourceConfluenceBlogFieldMappingsListPtrInput {
-	return (*dataSourceConfluenceBlogFieldMappingsListPtrType)(v)
-}
-
-func (*dataSourceConfluenceBlogFieldMappingsListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceConfluenceBlogFieldMappingsList)(nil)).Elem()
-}
-
-func (i *dataSourceConfluenceBlogFieldMappingsListPtrType) ToDataSourceConfluenceBlogFieldMappingsListPtrOutput() DataSourceConfluenceBlogFieldMappingsListPtrOutput {
-	return i.ToDataSourceConfluenceBlogFieldMappingsListPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceConfluenceBlogFieldMappingsListPtrType) ToDataSourceConfluenceBlogFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceBlogFieldMappingsListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceBlogFieldMappingsListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html
-type DataSourceConfluenceBlogFieldMappingsListOutput struct{ *pulumi.OutputState }
-
-func (DataSourceConfluenceBlogFieldMappingsListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceConfluenceBlogFieldMappingsList)(nil)).Elem()
-}
-
-func (o DataSourceConfluenceBlogFieldMappingsListOutput) ToDataSourceConfluenceBlogFieldMappingsListOutput() DataSourceConfluenceBlogFieldMappingsListOutput {
-	return o
-}
-
-func (o DataSourceConfluenceBlogFieldMappingsListOutput) ToDataSourceConfluenceBlogFieldMappingsListOutputWithContext(ctx context.Context) DataSourceConfluenceBlogFieldMappingsListOutput {
-	return o
-}
-
-func (o DataSourceConfluenceBlogFieldMappingsListOutput) ToDataSourceConfluenceBlogFieldMappingsListPtrOutput() DataSourceConfluenceBlogFieldMappingsListPtrOutput {
-	return o.ToDataSourceConfluenceBlogFieldMappingsListPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceConfluenceBlogFieldMappingsListOutput) ToDataSourceConfluenceBlogFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceBlogFieldMappingsListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfluenceBlogFieldMappingsList) *DataSourceConfluenceBlogFieldMappingsList {
-		return &v
-	}).(DataSourceConfluenceBlogFieldMappingsListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html#cfn-kendra-datasource-confluenceblogfieldmappingslist-confluenceblogfieldmappingslist
-func (o DataSourceConfluenceBlogFieldMappingsListOutput) ConfluenceBlogFieldMappingsList() DataSourceConfluenceBlogToIndexFieldMappingArrayOutput {
-	return o.ApplyT(func(v DataSourceConfluenceBlogFieldMappingsList) []DataSourceConfluenceBlogToIndexFieldMapping {
-		return v.ConfluenceBlogFieldMappingsList
-	}).(DataSourceConfluenceBlogToIndexFieldMappingArrayOutput)
-}
-
-type DataSourceConfluenceBlogFieldMappingsListPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceConfluenceBlogFieldMappingsListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceConfluenceBlogFieldMappingsList)(nil)).Elem()
-}
-
-func (o DataSourceConfluenceBlogFieldMappingsListPtrOutput) ToDataSourceConfluenceBlogFieldMappingsListPtrOutput() DataSourceConfluenceBlogFieldMappingsListPtrOutput {
-	return o
-}
-
-func (o DataSourceConfluenceBlogFieldMappingsListPtrOutput) ToDataSourceConfluenceBlogFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceBlogFieldMappingsListPtrOutput {
-	return o
-}
-
-func (o DataSourceConfluenceBlogFieldMappingsListPtrOutput) Elem() DataSourceConfluenceBlogFieldMappingsListOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceBlogFieldMappingsList) DataSourceConfluenceBlogFieldMappingsList {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceConfluenceBlogFieldMappingsList
-		return ret
-	}).(DataSourceConfluenceBlogFieldMappingsListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogfieldmappingslist.html#cfn-kendra-datasource-confluenceblogfieldmappingslist-confluenceblogfieldmappingslist
-func (o DataSourceConfluenceBlogFieldMappingsListPtrOutput) ConfluenceBlogFieldMappingsList() DataSourceConfluenceBlogToIndexFieldMappingArrayOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceBlogFieldMappingsList) []DataSourceConfluenceBlogToIndexFieldMapping {
-		if v == nil {
-			return nil
-		}
-		return v.ConfluenceBlogFieldMappingsList
 	}).(DataSourceConfluenceBlogToIndexFieldMappingArrayOutput)
 }
 
@@ -1481,9 +1054,9 @@ type DataSourceConfluenceConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-blogconfiguration
 	BlogConfiguration *DataSourceConfluenceBlogConfiguration `pulumi:"blogConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns
-	ExclusionPatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"exclusionPatterns"`
+	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns
-	InclusionPatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"inclusionPatterns"`
+	InclusionPatterns []string `pulumi:"inclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-pageconfiguration
 	PageConfiguration *DataSourceConfluencePageConfiguration `pulumi:"pageConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-secretarn
@@ -1516,9 +1089,9 @@ type DataSourceConfluenceConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-blogconfiguration
 	BlogConfiguration DataSourceConfluenceBlogConfigurationPtrInput `pulumi:"blogConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns
-	ExclusionPatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"exclusionPatterns"`
+	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns
-	InclusionPatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"inclusionPatterns"`
+	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-pageconfiguration
 	PageConfiguration DataSourceConfluencePageConfigurationPtrInput `pulumi:"pageConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-secretarn
@@ -1626,17 +1199,13 @@ func (o DataSourceConfluenceConfigurationOutput) BlogConfiguration() DataSourceC
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns
-func (o DataSourceConfluenceConfigurationOutput) ExclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceConfluenceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
-		return v.ExclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+func (o DataSourceConfluenceConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceConfluenceConfiguration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns
-func (o DataSourceConfluenceConfigurationOutput) InclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceConfluenceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
-		return v.InclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+func (o DataSourceConfluenceConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceConfluenceConfiguration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-pageconfiguration
@@ -1720,23 +1289,23 @@ func (o DataSourceConfluenceConfigurationPtrOutput) BlogConfiguration() DataSour
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns
-func (o DataSourceConfluenceConfigurationPtrOutput) ExclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceConfluenceConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.ExclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns
-func (o DataSourceConfluenceConfigurationPtrOutput) InclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceConfluenceConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.InclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-pageconfiguration
@@ -1802,7 +1371,7 @@ func (o DataSourceConfluenceConfigurationPtrOutput) VpcConfiguration() DataSourc
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html
 type DataSourceConfluencePageConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html#cfn-kendra-datasource-confluencepageconfiguration-pagefieldmappings
-	PageFieldMappings *DataSourceConfluencePageFieldMappingsList `pulumi:"pageFieldMappings"`
+	PageFieldMappings []DataSourceConfluencePageToIndexFieldMapping `pulumi:"pageFieldMappings"`
 }
 
 // DataSourceConfluencePageConfigurationInput is an input type that accepts DataSourceConfluencePageConfigurationArgs and DataSourceConfluencePageConfigurationOutput values.
@@ -1819,7 +1388,7 @@ type DataSourceConfluencePageConfigurationInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html
 type DataSourceConfluencePageConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html#cfn-kendra-datasource-confluencepageconfiguration-pagefieldmappings
-	PageFieldMappings DataSourceConfluencePageFieldMappingsListPtrInput `pulumi:"pageFieldMappings"`
+	PageFieldMappings DataSourceConfluencePageToIndexFieldMappingArrayInput `pulumi:"pageFieldMappings"`
 }
 
 func (DataSourceConfluencePageConfigurationArgs) ElementType() reflect.Type {
@@ -1901,10 +1470,10 @@ func (o DataSourceConfluencePageConfigurationOutput) ToDataSourceConfluencePageC
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html#cfn-kendra-datasource-confluencepageconfiguration-pagefieldmappings
-func (o DataSourceConfluencePageConfigurationOutput) PageFieldMappings() DataSourceConfluencePageFieldMappingsListPtrOutput {
-	return o.ApplyT(func(v DataSourceConfluencePageConfiguration) *DataSourceConfluencePageFieldMappingsList {
+func (o DataSourceConfluencePageConfigurationOutput) PageFieldMappings() DataSourceConfluencePageToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceConfluencePageConfiguration) []DataSourceConfluencePageToIndexFieldMapping {
 		return v.PageFieldMappings
-	}).(DataSourceConfluencePageFieldMappingsListPtrOutput)
+	}).(DataSourceConfluencePageToIndexFieldMappingArrayOutput)
 }
 
 type DataSourceConfluencePageConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1932,154 +1501,12 @@ func (o DataSourceConfluencePageConfigurationPtrOutput) Elem() DataSourceConflue
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html#cfn-kendra-datasource-confluencepageconfiguration-pagefieldmappings
-func (o DataSourceConfluencePageConfigurationPtrOutput) PageFieldMappings() DataSourceConfluencePageFieldMappingsListPtrOutput {
-	return o.ApplyT(func(v *DataSourceConfluencePageConfiguration) *DataSourceConfluencePageFieldMappingsList {
+func (o DataSourceConfluencePageConfigurationPtrOutput) PageFieldMappings() DataSourceConfluencePageToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfluencePageConfiguration) []DataSourceConfluencePageToIndexFieldMapping {
 		if v == nil {
 			return nil
 		}
 		return v.PageFieldMappings
-	}).(DataSourceConfluencePageFieldMappingsListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html
-type DataSourceConfluencePageFieldMappingsList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html#cfn-kendra-datasource-confluencepagefieldmappingslist-confluencepagefieldmappingslist
-	ConfluencePageFieldMappingsList []DataSourceConfluencePageToIndexFieldMapping `pulumi:"confluencePageFieldMappingsList"`
-}
-
-// DataSourceConfluencePageFieldMappingsListInput is an input type that accepts DataSourceConfluencePageFieldMappingsListArgs and DataSourceConfluencePageFieldMappingsListOutput values.
-// You can construct a concrete instance of `DataSourceConfluencePageFieldMappingsListInput` via:
-//
-//          DataSourceConfluencePageFieldMappingsListArgs{...}
-type DataSourceConfluencePageFieldMappingsListInput interface {
-	pulumi.Input
-
-	ToDataSourceConfluencePageFieldMappingsListOutput() DataSourceConfluencePageFieldMappingsListOutput
-	ToDataSourceConfluencePageFieldMappingsListOutputWithContext(context.Context) DataSourceConfluencePageFieldMappingsListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html
-type DataSourceConfluencePageFieldMappingsListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html#cfn-kendra-datasource-confluencepagefieldmappingslist-confluencepagefieldmappingslist
-	ConfluencePageFieldMappingsList DataSourceConfluencePageToIndexFieldMappingArrayInput `pulumi:"confluencePageFieldMappingsList"`
-}
-
-func (DataSourceConfluencePageFieldMappingsListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceConfluencePageFieldMappingsList)(nil)).Elem()
-}
-
-func (i DataSourceConfluencePageFieldMappingsListArgs) ToDataSourceConfluencePageFieldMappingsListOutput() DataSourceConfluencePageFieldMappingsListOutput {
-	return i.ToDataSourceConfluencePageFieldMappingsListOutputWithContext(context.Background())
-}
-
-func (i DataSourceConfluencePageFieldMappingsListArgs) ToDataSourceConfluencePageFieldMappingsListOutputWithContext(ctx context.Context) DataSourceConfluencePageFieldMappingsListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluencePageFieldMappingsListOutput)
-}
-
-func (i DataSourceConfluencePageFieldMappingsListArgs) ToDataSourceConfluencePageFieldMappingsListPtrOutput() DataSourceConfluencePageFieldMappingsListPtrOutput {
-	return i.ToDataSourceConfluencePageFieldMappingsListPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceConfluencePageFieldMappingsListArgs) ToDataSourceConfluencePageFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluencePageFieldMappingsListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluencePageFieldMappingsListOutput).ToDataSourceConfluencePageFieldMappingsListPtrOutputWithContext(ctx)
-}
-
-// DataSourceConfluencePageFieldMappingsListPtrInput is an input type that accepts DataSourceConfluencePageFieldMappingsListArgs, DataSourceConfluencePageFieldMappingsListPtr and DataSourceConfluencePageFieldMappingsListPtrOutput values.
-// You can construct a concrete instance of `DataSourceConfluencePageFieldMappingsListPtrInput` via:
-//
-//          DataSourceConfluencePageFieldMappingsListArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceConfluencePageFieldMappingsListPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceConfluencePageFieldMappingsListPtrOutput() DataSourceConfluencePageFieldMappingsListPtrOutput
-	ToDataSourceConfluencePageFieldMappingsListPtrOutputWithContext(context.Context) DataSourceConfluencePageFieldMappingsListPtrOutput
-}
-
-type dataSourceConfluencePageFieldMappingsListPtrType DataSourceConfluencePageFieldMappingsListArgs
-
-func DataSourceConfluencePageFieldMappingsListPtr(v *DataSourceConfluencePageFieldMappingsListArgs) DataSourceConfluencePageFieldMappingsListPtrInput {
-	return (*dataSourceConfluencePageFieldMappingsListPtrType)(v)
-}
-
-func (*dataSourceConfluencePageFieldMappingsListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceConfluencePageFieldMappingsList)(nil)).Elem()
-}
-
-func (i *dataSourceConfluencePageFieldMappingsListPtrType) ToDataSourceConfluencePageFieldMappingsListPtrOutput() DataSourceConfluencePageFieldMappingsListPtrOutput {
-	return i.ToDataSourceConfluencePageFieldMappingsListPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceConfluencePageFieldMappingsListPtrType) ToDataSourceConfluencePageFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluencePageFieldMappingsListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluencePageFieldMappingsListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html
-type DataSourceConfluencePageFieldMappingsListOutput struct{ *pulumi.OutputState }
-
-func (DataSourceConfluencePageFieldMappingsListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceConfluencePageFieldMappingsList)(nil)).Elem()
-}
-
-func (o DataSourceConfluencePageFieldMappingsListOutput) ToDataSourceConfluencePageFieldMappingsListOutput() DataSourceConfluencePageFieldMappingsListOutput {
-	return o
-}
-
-func (o DataSourceConfluencePageFieldMappingsListOutput) ToDataSourceConfluencePageFieldMappingsListOutputWithContext(ctx context.Context) DataSourceConfluencePageFieldMappingsListOutput {
-	return o
-}
-
-func (o DataSourceConfluencePageFieldMappingsListOutput) ToDataSourceConfluencePageFieldMappingsListPtrOutput() DataSourceConfluencePageFieldMappingsListPtrOutput {
-	return o.ToDataSourceConfluencePageFieldMappingsListPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceConfluencePageFieldMappingsListOutput) ToDataSourceConfluencePageFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluencePageFieldMappingsListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfluencePageFieldMappingsList) *DataSourceConfluencePageFieldMappingsList {
-		return &v
-	}).(DataSourceConfluencePageFieldMappingsListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html#cfn-kendra-datasource-confluencepagefieldmappingslist-confluencepagefieldmappingslist
-func (o DataSourceConfluencePageFieldMappingsListOutput) ConfluencePageFieldMappingsList() DataSourceConfluencePageToIndexFieldMappingArrayOutput {
-	return o.ApplyT(func(v DataSourceConfluencePageFieldMappingsList) []DataSourceConfluencePageToIndexFieldMapping {
-		return v.ConfluencePageFieldMappingsList
-	}).(DataSourceConfluencePageToIndexFieldMappingArrayOutput)
-}
-
-type DataSourceConfluencePageFieldMappingsListPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceConfluencePageFieldMappingsListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceConfluencePageFieldMappingsList)(nil)).Elem()
-}
-
-func (o DataSourceConfluencePageFieldMappingsListPtrOutput) ToDataSourceConfluencePageFieldMappingsListPtrOutput() DataSourceConfluencePageFieldMappingsListPtrOutput {
-	return o
-}
-
-func (o DataSourceConfluencePageFieldMappingsListPtrOutput) ToDataSourceConfluencePageFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluencePageFieldMappingsListPtrOutput {
-	return o
-}
-
-func (o DataSourceConfluencePageFieldMappingsListPtrOutput) Elem() DataSourceConfluencePageFieldMappingsListOutput {
-	return o.ApplyT(func(v *DataSourceConfluencePageFieldMappingsList) DataSourceConfluencePageFieldMappingsList {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceConfluencePageFieldMappingsList
-		return ret
-	}).(DataSourceConfluencePageFieldMappingsListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagefieldmappingslist.html#cfn-kendra-datasource-confluencepagefieldmappingslist-confluencepagefieldmappingslist
-func (o DataSourceConfluencePageFieldMappingsListPtrOutput) ConfluencePageFieldMappingsList() DataSourceConfluencePageToIndexFieldMappingArrayOutput {
-	return o.ApplyT(func(v *DataSourceConfluencePageFieldMappingsList) []DataSourceConfluencePageToIndexFieldMapping {
-		if v == nil {
-			return nil
-		}
-		return v.ConfluencePageFieldMappingsList
 	}).(DataSourceConfluencePageToIndexFieldMappingArrayOutput)
 }
 
@@ -2208,11 +1635,11 @@ type DataSourceConfluenceSpaceConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlpersonalspaces
 	CrawlPersonalSpaces *bool `pulumi:"crawlPersonalSpaces"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
-	ExcludeSpaces *DataSourceConfluenceSpaceList `pulumi:"excludeSpaces"`
+	ExcludeSpaces []string `pulumi:"excludeSpaces"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
-	IncludeSpaces *DataSourceConfluenceSpaceList `pulumi:"includeSpaces"`
+	IncludeSpaces []string `pulumi:"includeSpaces"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
-	SpaceFieldMappings *DataSourceConfluenceSpaceFieldMappingsList `pulumi:"spaceFieldMappings"`
+	SpaceFieldMappings []DataSourceConfluenceSpaceToIndexFieldMapping `pulumi:"spaceFieldMappings"`
 }
 
 // DataSourceConfluenceSpaceConfigurationInput is an input type that accepts DataSourceConfluenceSpaceConfigurationArgs and DataSourceConfluenceSpaceConfigurationOutput values.
@@ -2233,11 +1660,11 @@ type DataSourceConfluenceSpaceConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlpersonalspaces
 	CrawlPersonalSpaces pulumi.BoolPtrInput `pulumi:"crawlPersonalSpaces"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
-	ExcludeSpaces DataSourceConfluenceSpaceListPtrInput `pulumi:"excludeSpaces"`
+	ExcludeSpaces pulumi.StringArrayInput `pulumi:"excludeSpaces"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
-	IncludeSpaces DataSourceConfluenceSpaceListPtrInput `pulumi:"includeSpaces"`
+	IncludeSpaces pulumi.StringArrayInput `pulumi:"includeSpaces"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
-	SpaceFieldMappings DataSourceConfluenceSpaceFieldMappingsListPtrInput `pulumi:"spaceFieldMappings"`
+	SpaceFieldMappings DataSourceConfluenceSpaceToIndexFieldMappingArrayInput `pulumi:"spaceFieldMappings"`
 }
 
 func (DataSourceConfluenceSpaceConfigurationArgs) ElementType() reflect.Type {
@@ -2329,20 +1756,20 @@ func (o DataSourceConfluenceSpaceConfigurationOutput) CrawlPersonalSpaces() pulu
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
-func (o DataSourceConfluenceSpaceConfigurationOutput) ExcludeSpaces() DataSourceConfluenceSpaceListPtrOutput {
-	return o.ApplyT(func(v DataSourceConfluenceSpaceConfiguration) *DataSourceConfluenceSpaceList { return v.ExcludeSpaces }).(DataSourceConfluenceSpaceListPtrOutput)
+func (o DataSourceConfluenceSpaceConfigurationOutput) ExcludeSpaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceConfluenceSpaceConfiguration) []string { return v.ExcludeSpaces }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
-func (o DataSourceConfluenceSpaceConfigurationOutput) IncludeSpaces() DataSourceConfluenceSpaceListPtrOutput {
-	return o.ApplyT(func(v DataSourceConfluenceSpaceConfiguration) *DataSourceConfluenceSpaceList { return v.IncludeSpaces }).(DataSourceConfluenceSpaceListPtrOutput)
+func (o DataSourceConfluenceSpaceConfigurationOutput) IncludeSpaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceConfluenceSpaceConfiguration) []string { return v.IncludeSpaces }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
-func (o DataSourceConfluenceSpaceConfigurationOutput) SpaceFieldMappings() DataSourceConfluenceSpaceFieldMappingsListPtrOutput {
-	return o.ApplyT(func(v DataSourceConfluenceSpaceConfiguration) *DataSourceConfluenceSpaceFieldMappingsList {
+func (o DataSourceConfluenceSpaceConfigurationOutput) SpaceFieldMappings() DataSourceConfluenceSpaceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceConfluenceSpaceConfiguration) []DataSourceConfluenceSpaceToIndexFieldMapping {
 		return v.SpaceFieldMappings
-	}).(DataSourceConfluenceSpaceFieldMappingsListPtrOutput)
+	}).(DataSourceConfluenceSpaceToIndexFieldMappingArrayOutput)
 }
 
 type DataSourceConfluenceSpaceConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2390,315 +1817,33 @@ func (o DataSourceConfluenceSpaceConfigurationPtrOutput) CrawlPersonalSpaces() p
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
-func (o DataSourceConfluenceSpaceConfigurationPtrOutput) ExcludeSpaces() DataSourceConfluenceSpaceListPtrOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceSpaceConfiguration) *DataSourceConfluenceSpaceList {
+func (o DataSourceConfluenceSpaceConfigurationPtrOutput) ExcludeSpaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceSpaceConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.ExcludeSpaces
-	}).(DataSourceConfluenceSpaceListPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
-func (o DataSourceConfluenceSpaceConfigurationPtrOutput) IncludeSpaces() DataSourceConfluenceSpaceListPtrOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceSpaceConfiguration) *DataSourceConfluenceSpaceList {
+func (o DataSourceConfluenceSpaceConfigurationPtrOutput) IncludeSpaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceSpaceConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.IncludeSpaces
-	}).(DataSourceConfluenceSpaceListPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
-func (o DataSourceConfluenceSpaceConfigurationPtrOutput) SpaceFieldMappings() DataSourceConfluenceSpaceFieldMappingsListPtrOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceSpaceConfiguration) *DataSourceConfluenceSpaceFieldMappingsList {
+func (o DataSourceConfluenceSpaceConfigurationPtrOutput) SpaceFieldMappings() DataSourceConfluenceSpaceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceSpaceConfiguration) []DataSourceConfluenceSpaceToIndexFieldMapping {
 		if v == nil {
 			return nil
 		}
 		return v.SpaceFieldMappings
-	}).(DataSourceConfluenceSpaceFieldMappingsListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html
-type DataSourceConfluenceSpaceFieldMappingsList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html#cfn-kendra-datasource-confluencespacefieldmappingslist-confluencespacefieldmappingslist
-	ConfluenceSpaceFieldMappingsList []DataSourceConfluenceSpaceToIndexFieldMapping `pulumi:"confluenceSpaceFieldMappingsList"`
-}
-
-// DataSourceConfluenceSpaceFieldMappingsListInput is an input type that accepts DataSourceConfluenceSpaceFieldMappingsListArgs and DataSourceConfluenceSpaceFieldMappingsListOutput values.
-// You can construct a concrete instance of `DataSourceConfluenceSpaceFieldMappingsListInput` via:
-//
-//          DataSourceConfluenceSpaceFieldMappingsListArgs{...}
-type DataSourceConfluenceSpaceFieldMappingsListInput interface {
-	pulumi.Input
-
-	ToDataSourceConfluenceSpaceFieldMappingsListOutput() DataSourceConfluenceSpaceFieldMappingsListOutput
-	ToDataSourceConfluenceSpaceFieldMappingsListOutputWithContext(context.Context) DataSourceConfluenceSpaceFieldMappingsListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html
-type DataSourceConfluenceSpaceFieldMappingsListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html#cfn-kendra-datasource-confluencespacefieldmappingslist-confluencespacefieldmappingslist
-	ConfluenceSpaceFieldMappingsList DataSourceConfluenceSpaceToIndexFieldMappingArrayInput `pulumi:"confluenceSpaceFieldMappingsList"`
-}
-
-func (DataSourceConfluenceSpaceFieldMappingsListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceConfluenceSpaceFieldMappingsList)(nil)).Elem()
-}
-
-func (i DataSourceConfluenceSpaceFieldMappingsListArgs) ToDataSourceConfluenceSpaceFieldMappingsListOutput() DataSourceConfluenceSpaceFieldMappingsListOutput {
-	return i.ToDataSourceConfluenceSpaceFieldMappingsListOutputWithContext(context.Background())
-}
-
-func (i DataSourceConfluenceSpaceFieldMappingsListArgs) ToDataSourceConfluenceSpaceFieldMappingsListOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceFieldMappingsListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceSpaceFieldMappingsListOutput)
-}
-
-func (i DataSourceConfluenceSpaceFieldMappingsListArgs) ToDataSourceConfluenceSpaceFieldMappingsListPtrOutput() DataSourceConfluenceSpaceFieldMappingsListPtrOutput {
-	return i.ToDataSourceConfluenceSpaceFieldMappingsListPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceConfluenceSpaceFieldMappingsListArgs) ToDataSourceConfluenceSpaceFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceFieldMappingsListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceSpaceFieldMappingsListOutput).ToDataSourceConfluenceSpaceFieldMappingsListPtrOutputWithContext(ctx)
-}
-
-// DataSourceConfluenceSpaceFieldMappingsListPtrInput is an input type that accepts DataSourceConfluenceSpaceFieldMappingsListArgs, DataSourceConfluenceSpaceFieldMappingsListPtr and DataSourceConfluenceSpaceFieldMappingsListPtrOutput values.
-// You can construct a concrete instance of `DataSourceConfluenceSpaceFieldMappingsListPtrInput` via:
-//
-//          DataSourceConfluenceSpaceFieldMappingsListArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceConfluenceSpaceFieldMappingsListPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceConfluenceSpaceFieldMappingsListPtrOutput() DataSourceConfluenceSpaceFieldMappingsListPtrOutput
-	ToDataSourceConfluenceSpaceFieldMappingsListPtrOutputWithContext(context.Context) DataSourceConfluenceSpaceFieldMappingsListPtrOutput
-}
-
-type dataSourceConfluenceSpaceFieldMappingsListPtrType DataSourceConfluenceSpaceFieldMappingsListArgs
-
-func DataSourceConfluenceSpaceFieldMappingsListPtr(v *DataSourceConfluenceSpaceFieldMappingsListArgs) DataSourceConfluenceSpaceFieldMappingsListPtrInput {
-	return (*dataSourceConfluenceSpaceFieldMappingsListPtrType)(v)
-}
-
-func (*dataSourceConfluenceSpaceFieldMappingsListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceConfluenceSpaceFieldMappingsList)(nil)).Elem()
-}
-
-func (i *dataSourceConfluenceSpaceFieldMappingsListPtrType) ToDataSourceConfluenceSpaceFieldMappingsListPtrOutput() DataSourceConfluenceSpaceFieldMappingsListPtrOutput {
-	return i.ToDataSourceConfluenceSpaceFieldMappingsListPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceConfluenceSpaceFieldMappingsListPtrType) ToDataSourceConfluenceSpaceFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceFieldMappingsListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceSpaceFieldMappingsListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html
-type DataSourceConfluenceSpaceFieldMappingsListOutput struct{ *pulumi.OutputState }
-
-func (DataSourceConfluenceSpaceFieldMappingsListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceConfluenceSpaceFieldMappingsList)(nil)).Elem()
-}
-
-func (o DataSourceConfluenceSpaceFieldMappingsListOutput) ToDataSourceConfluenceSpaceFieldMappingsListOutput() DataSourceConfluenceSpaceFieldMappingsListOutput {
-	return o
-}
-
-func (o DataSourceConfluenceSpaceFieldMappingsListOutput) ToDataSourceConfluenceSpaceFieldMappingsListOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceFieldMappingsListOutput {
-	return o
-}
-
-func (o DataSourceConfluenceSpaceFieldMappingsListOutput) ToDataSourceConfluenceSpaceFieldMappingsListPtrOutput() DataSourceConfluenceSpaceFieldMappingsListPtrOutput {
-	return o.ToDataSourceConfluenceSpaceFieldMappingsListPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceConfluenceSpaceFieldMappingsListOutput) ToDataSourceConfluenceSpaceFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceFieldMappingsListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfluenceSpaceFieldMappingsList) *DataSourceConfluenceSpaceFieldMappingsList {
-		return &v
-	}).(DataSourceConfluenceSpaceFieldMappingsListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html#cfn-kendra-datasource-confluencespacefieldmappingslist-confluencespacefieldmappingslist
-func (o DataSourceConfluenceSpaceFieldMappingsListOutput) ConfluenceSpaceFieldMappingsList() DataSourceConfluenceSpaceToIndexFieldMappingArrayOutput {
-	return o.ApplyT(func(v DataSourceConfluenceSpaceFieldMappingsList) []DataSourceConfluenceSpaceToIndexFieldMapping {
-		return v.ConfluenceSpaceFieldMappingsList
 	}).(DataSourceConfluenceSpaceToIndexFieldMappingArrayOutput)
-}
-
-type DataSourceConfluenceSpaceFieldMappingsListPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceConfluenceSpaceFieldMappingsListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceConfluenceSpaceFieldMappingsList)(nil)).Elem()
-}
-
-func (o DataSourceConfluenceSpaceFieldMappingsListPtrOutput) ToDataSourceConfluenceSpaceFieldMappingsListPtrOutput() DataSourceConfluenceSpaceFieldMappingsListPtrOutput {
-	return o
-}
-
-func (o DataSourceConfluenceSpaceFieldMappingsListPtrOutput) ToDataSourceConfluenceSpaceFieldMappingsListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceFieldMappingsListPtrOutput {
-	return o
-}
-
-func (o DataSourceConfluenceSpaceFieldMappingsListPtrOutput) Elem() DataSourceConfluenceSpaceFieldMappingsListOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceSpaceFieldMappingsList) DataSourceConfluenceSpaceFieldMappingsList {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceConfluenceSpaceFieldMappingsList
-		return ret
-	}).(DataSourceConfluenceSpaceFieldMappingsListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacefieldmappingslist.html#cfn-kendra-datasource-confluencespacefieldmappingslist-confluencespacefieldmappingslist
-func (o DataSourceConfluenceSpaceFieldMappingsListPtrOutput) ConfluenceSpaceFieldMappingsList() DataSourceConfluenceSpaceToIndexFieldMappingArrayOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceSpaceFieldMappingsList) []DataSourceConfluenceSpaceToIndexFieldMapping {
-		if v == nil {
-			return nil
-		}
-		return v.ConfluenceSpaceFieldMappingsList
-	}).(DataSourceConfluenceSpaceToIndexFieldMappingArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacelist.html
-type DataSourceConfluenceSpaceList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacelist.html#cfn-kendra-datasource-confluencespacelist-confluencespacelist
-	ConfluenceSpaceList []string `pulumi:"confluenceSpaceList"`
-}
-
-// DataSourceConfluenceSpaceListInput is an input type that accepts DataSourceConfluenceSpaceListArgs and DataSourceConfluenceSpaceListOutput values.
-// You can construct a concrete instance of `DataSourceConfluenceSpaceListInput` via:
-//
-//          DataSourceConfluenceSpaceListArgs{...}
-type DataSourceConfluenceSpaceListInput interface {
-	pulumi.Input
-
-	ToDataSourceConfluenceSpaceListOutput() DataSourceConfluenceSpaceListOutput
-	ToDataSourceConfluenceSpaceListOutputWithContext(context.Context) DataSourceConfluenceSpaceListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacelist.html
-type DataSourceConfluenceSpaceListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacelist.html#cfn-kendra-datasource-confluencespacelist-confluencespacelist
-	ConfluenceSpaceList pulumi.StringArrayInput `pulumi:"confluenceSpaceList"`
-}
-
-func (DataSourceConfluenceSpaceListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceConfluenceSpaceList)(nil)).Elem()
-}
-
-func (i DataSourceConfluenceSpaceListArgs) ToDataSourceConfluenceSpaceListOutput() DataSourceConfluenceSpaceListOutput {
-	return i.ToDataSourceConfluenceSpaceListOutputWithContext(context.Background())
-}
-
-func (i DataSourceConfluenceSpaceListArgs) ToDataSourceConfluenceSpaceListOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceSpaceListOutput)
-}
-
-func (i DataSourceConfluenceSpaceListArgs) ToDataSourceConfluenceSpaceListPtrOutput() DataSourceConfluenceSpaceListPtrOutput {
-	return i.ToDataSourceConfluenceSpaceListPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceConfluenceSpaceListArgs) ToDataSourceConfluenceSpaceListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceSpaceListOutput).ToDataSourceConfluenceSpaceListPtrOutputWithContext(ctx)
-}
-
-// DataSourceConfluenceSpaceListPtrInput is an input type that accepts DataSourceConfluenceSpaceListArgs, DataSourceConfluenceSpaceListPtr and DataSourceConfluenceSpaceListPtrOutput values.
-// You can construct a concrete instance of `DataSourceConfluenceSpaceListPtrInput` via:
-//
-//          DataSourceConfluenceSpaceListArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceConfluenceSpaceListPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceConfluenceSpaceListPtrOutput() DataSourceConfluenceSpaceListPtrOutput
-	ToDataSourceConfluenceSpaceListPtrOutputWithContext(context.Context) DataSourceConfluenceSpaceListPtrOutput
-}
-
-type dataSourceConfluenceSpaceListPtrType DataSourceConfluenceSpaceListArgs
-
-func DataSourceConfluenceSpaceListPtr(v *DataSourceConfluenceSpaceListArgs) DataSourceConfluenceSpaceListPtrInput {
-	return (*dataSourceConfluenceSpaceListPtrType)(v)
-}
-
-func (*dataSourceConfluenceSpaceListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceConfluenceSpaceList)(nil)).Elem()
-}
-
-func (i *dataSourceConfluenceSpaceListPtrType) ToDataSourceConfluenceSpaceListPtrOutput() DataSourceConfluenceSpaceListPtrOutput {
-	return i.ToDataSourceConfluenceSpaceListPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceConfluenceSpaceListPtrType) ToDataSourceConfluenceSpaceListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfluenceSpaceListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacelist.html
-type DataSourceConfluenceSpaceListOutput struct{ *pulumi.OutputState }
-
-func (DataSourceConfluenceSpaceListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceConfluenceSpaceList)(nil)).Elem()
-}
-
-func (o DataSourceConfluenceSpaceListOutput) ToDataSourceConfluenceSpaceListOutput() DataSourceConfluenceSpaceListOutput {
-	return o
-}
-
-func (o DataSourceConfluenceSpaceListOutput) ToDataSourceConfluenceSpaceListOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceListOutput {
-	return o
-}
-
-func (o DataSourceConfluenceSpaceListOutput) ToDataSourceConfluenceSpaceListPtrOutput() DataSourceConfluenceSpaceListPtrOutput {
-	return o.ToDataSourceConfluenceSpaceListPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceConfluenceSpaceListOutput) ToDataSourceConfluenceSpaceListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfluenceSpaceList) *DataSourceConfluenceSpaceList {
-		return &v
-	}).(DataSourceConfluenceSpaceListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacelist.html#cfn-kendra-datasource-confluencespacelist-confluencespacelist
-func (o DataSourceConfluenceSpaceListOutput) ConfluenceSpaceList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DataSourceConfluenceSpaceList) []string { return v.ConfluenceSpaceList }).(pulumi.StringArrayOutput)
-}
-
-type DataSourceConfluenceSpaceListPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceConfluenceSpaceListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceConfluenceSpaceList)(nil)).Elem()
-}
-
-func (o DataSourceConfluenceSpaceListPtrOutput) ToDataSourceConfluenceSpaceListPtrOutput() DataSourceConfluenceSpaceListPtrOutput {
-	return o
-}
-
-func (o DataSourceConfluenceSpaceListPtrOutput) ToDataSourceConfluenceSpaceListPtrOutputWithContext(ctx context.Context) DataSourceConfluenceSpaceListPtrOutput {
-	return o
-}
-
-func (o DataSourceConfluenceSpaceListPtrOutput) Elem() DataSourceConfluenceSpaceListOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceSpaceList) DataSourceConfluenceSpaceList {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceConfluenceSpaceList
-		return ret
-	}).(DataSourceConfluenceSpaceListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacelist.html#cfn-kendra-datasource-confluencespacelist-confluencespacelist
-func (o DataSourceConfluenceSpaceListPtrOutput) ConfluenceSpaceList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceSpaceList) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ConfluenceSpaceList
-	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacetoindexfieldmapping.html
@@ -3041,6 +2186,8 @@ type DataSourceDataSourceConfiguration struct {
 	ConfluenceConfiguration *DataSourceConfluenceConfiguration `pulumi:"confluenceConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-databaseconfiguration
 	DatabaseConfiguration *DataSourceDatabaseConfiguration `pulumi:"databaseConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-googledriveconfiguration
+	GoogleDriveConfiguration *DataSourceGoogleDriveConfiguration `pulumi:"googleDriveConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
 	OneDriveConfiguration *DataSourceOneDriveConfiguration `pulumi:"oneDriveConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-s3configuration
@@ -3070,6 +2217,8 @@ type DataSourceDataSourceConfigurationArgs struct {
 	ConfluenceConfiguration DataSourceConfluenceConfigurationPtrInput `pulumi:"confluenceConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-databaseconfiguration
 	DatabaseConfiguration DataSourceDatabaseConfigurationPtrInput `pulumi:"databaseConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-googledriveconfiguration
+	GoogleDriveConfiguration DataSourceGoogleDriveConfigurationPtrInput `pulumi:"googleDriveConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
 	OneDriveConfiguration DataSourceOneDriveConfigurationPtrInput `pulumi:"oneDriveConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-s3configuration
@@ -3174,6 +2323,13 @@ func (o DataSourceDataSourceConfigurationOutput) DatabaseConfiguration() DataSou
 	}).(DataSourceDatabaseConfigurationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-googledriveconfiguration
+func (o DataSourceDataSourceConfigurationOutput) GoogleDriveConfiguration() DataSourceGoogleDriveConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceDataSourceConfiguration) *DataSourceGoogleDriveConfiguration {
+		return v.GoogleDriveConfiguration
+	}).(DataSourceGoogleDriveConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
 func (o DataSourceDataSourceConfigurationOutput) OneDriveConfiguration() DataSourceOneDriveConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceConfiguration) *DataSourceOneDriveConfiguration {
@@ -3253,6 +2409,16 @@ func (o DataSourceDataSourceConfigurationPtrOutput) DatabaseConfiguration() Data
 	}).(DataSourceDatabaseConfigurationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-googledriveconfiguration
+func (o DataSourceDataSourceConfigurationPtrOutput) GoogleDriveConfiguration() DataSourceGoogleDriveConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceDataSourceConfiguration) *DataSourceGoogleDriveConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GoogleDriveConfiguration
+	}).(DataSourceGoogleDriveConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
 func (o DataSourceDataSourceConfigurationPtrOutput) OneDriveConfiguration() DataSourceOneDriveConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceConfiguration) *DataSourceOneDriveConfiguration {
@@ -3301,148 +2467,6 @@ func (o DataSourceDataSourceConfigurationPtrOutput) SharePointConfiguration() Da
 		}
 		return v.SharePointConfiguration
 	}).(DataSourceSharePointConfigurationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceinclusionsexclusionsstrings.html
-type DataSourceDataSourceInclusionsExclusionsStrings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceinclusionsexclusionsstrings.html#cfn-kendra-datasource-datasourceinclusionsexclusionsstrings-datasourceinclusionsexclusionsstrings
-	DataSourceInclusionsExclusionsStrings []string `pulumi:"dataSourceInclusionsExclusionsStrings"`
-}
-
-// DataSourceDataSourceInclusionsExclusionsStringsInput is an input type that accepts DataSourceDataSourceInclusionsExclusionsStringsArgs and DataSourceDataSourceInclusionsExclusionsStringsOutput values.
-// You can construct a concrete instance of `DataSourceDataSourceInclusionsExclusionsStringsInput` via:
-//
-//          DataSourceDataSourceInclusionsExclusionsStringsArgs{...}
-type DataSourceDataSourceInclusionsExclusionsStringsInput interface {
-	pulumi.Input
-
-	ToDataSourceDataSourceInclusionsExclusionsStringsOutput() DataSourceDataSourceInclusionsExclusionsStringsOutput
-	ToDataSourceDataSourceInclusionsExclusionsStringsOutputWithContext(context.Context) DataSourceDataSourceInclusionsExclusionsStringsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceinclusionsexclusionsstrings.html
-type DataSourceDataSourceInclusionsExclusionsStringsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceinclusionsexclusionsstrings.html#cfn-kendra-datasource-datasourceinclusionsexclusionsstrings-datasourceinclusionsexclusionsstrings
-	DataSourceInclusionsExclusionsStrings pulumi.StringArrayInput `pulumi:"dataSourceInclusionsExclusionsStrings"`
-}
-
-func (DataSourceDataSourceInclusionsExclusionsStringsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceDataSourceInclusionsExclusionsStrings)(nil)).Elem()
-}
-
-func (i DataSourceDataSourceInclusionsExclusionsStringsArgs) ToDataSourceDataSourceInclusionsExclusionsStringsOutput() DataSourceDataSourceInclusionsExclusionsStringsOutput {
-	return i.ToDataSourceDataSourceInclusionsExclusionsStringsOutputWithContext(context.Background())
-}
-
-func (i DataSourceDataSourceInclusionsExclusionsStringsArgs) ToDataSourceDataSourceInclusionsExclusionsStringsOutputWithContext(ctx context.Context) DataSourceDataSourceInclusionsExclusionsStringsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceInclusionsExclusionsStringsOutput)
-}
-
-func (i DataSourceDataSourceInclusionsExclusionsStringsArgs) ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutput() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return i.ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceDataSourceInclusionsExclusionsStringsArgs) ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutputWithContext(ctx context.Context) DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceInclusionsExclusionsStringsOutput).ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutputWithContext(ctx)
-}
-
-// DataSourceDataSourceInclusionsExclusionsStringsPtrInput is an input type that accepts DataSourceDataSourceInclusionsExclusionsStringsArgs, DataSourceDataSourceInclusionsExclusionsStringsPtr and DataSourceDataSourceInclusionsExclusionsStringsPtrOutput values.
-// You can construct a concrete instance of `DataSourceDataSourceInclusionsExclusionsStringsPtrInput` via:
-//
-//          DataSourceDataSourceInclusionsExclusionsStringsArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceDataSourceInclusionsExclusionsStringsPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutput() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput
-	ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutputWithContext(context.Context) DataSourceDataSourceInclusionsExclusionsStringsPtrOutput
-}
-
-type dataSourceDataSourceInclusionsExclusionsStringsPtrType DataSourceDataSourceInclusionsExclusionsStringsArgs
-
-func DataSourceDataSourceInclusionsExclusionsStringsPtr(v *DataSourceDataSourceInclusionsExclusionsStringsArgs) DataSourceDataSourceInclusionsExclusionsStringsPtrInput {
-	return (*dataSourceDataSourceInclusionsExclusionsStringsPtrType)(v)
-}
-
-func (*dataSourceDataSourceInclusionsExclusionsStringsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceDataSourceInclusionsExclusionsStrings)(nil)).Elem()
-}
-
-func (i *dataSourceDataSourceInclusionsExclusionsStringsPtrType) ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutput() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return i.ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceDataSourceInclusionsExclusionsStringsPtrType) ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutputWithContext(ctx context.Context) DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceinclusionsexclusionsstrings.html
-type DataSourceDataSourceInclusionsExclusionsStringsOutput struct{ *pulumi.OutputState }
-
-func (DataSourceDataSourceInclusionsExclusionsStringsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceDataSourceInclusionsExclusionsStrings)(nil)).Elem()
-}
-
-func (o DataSourceDataSourceInclusionsExclusionsStringsOutput) ToDataSourceDataSourceInclusionsExclusionsStringsOutput() DataSourceDataSourceInclusionsExclusionsStringsOutput {
-	return o
-}
-
-func (o DataSourceDataSourceInclusionsExclusionsStringsOutput) ToDataSourceDataSourceInclusionsExclusionsStringsOutputWithContext(ctx context.Context) DataSourceDataSourceInclusionsExclusionsStringsOutput {
-	return o
-}
-
-func (o DataSourceDataSourceInclusionsExclusionsStringsOutput) ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutput() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceDataSourceInclusionsExclusionsStringsOutput) ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutputWithContext(ctx context.Context) DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDataSourceInclusionsExclusionsStrings) *DataSourceDataSourceInclusionsExclusionsStrings {
-		return &v
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceinclusionsexclusionsstrings.html#cfn-kendra-datasource-datasourceinclusionsexclusionsstrings-datasourceinclusionsexclusionsstrings
-func (o DataSourceDataSourceInclusionsExclusionsStringsOutput) DataSourceInclusionsExclusionsStrings() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DataSourceDataSourceInclusionsExclusionsStrings) []string {
-		return v.DataSourceInclusionsExclusionsStrings
-	}).(pulumi.StringArrayOutput)
-}
-
-type DataSourceDataSourceInclusionsExclusionsStringsPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceDataSourceInclusionsExclusionsStringsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceDataSourceInclusionsExclusionsStrings)(nil)).Elem()
-}
-
-func (o DataSourceDataSourceInclusionsExclusionsStringsPtrOutput) ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutput() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o
-}
-
-func (o DataSourceDataSourceInclusionsExclusionsStringsPtrOutput) ToDataSourceDataSourceInclusionsExclusionsStringsPtrOutputWithContext(ctx context.Context) DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o
-}
-
-func (o DataSourceDataSourceInclusionsExclusionsStringsPtrOutput) Elem() DataSourceDataSourceInclusionsExclusionsStringsOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceInclusionsExclusionsStrings) DataSourceDataSourceInclusionsExclusionsStrings {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceDataSourceInclusionsExclusionsStrings
-		return ret
-	}).(DataSourceDataSourceInclusionsExclusionsStringsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceinclusionsexclusionsstrings.html#cfn-kendra-datasource-datasourceinclusionsexclusionsstrings-datasourceinclusionsexclusionsstrings
-func (o DataSourceDataSourceInclusionsExclusionsStringsPtrOutput) DataSourceInclusionsExclusionsStrings() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceInclusionsExclusionsStrings) []string {
-		if v == nil {
-			return nil
-		}
-		return v.DataSourceInclusionsExclusionsStrings
-	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmapping.html
@@ -3561,148 +2585,6 @@ func (o DataSourceDataSourceToIndexFieldMappingArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceDataSourceToIndexFieldMapping {
 		return vs[0].([]DataSourceDataSourceToIndexFieldMapping)[vs[1].(int)]
 	}).(DataSourceDataSourceToIndexFieldMappingOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html
-type DataSourceDataSourceToIndexFieldMappingList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html#cfn-kendra-datasource-datasourcetoindexfieldmappinglist-datasourcetoindexfieldmappinglist
-	DataSourceToIndexFieldMappingList []DataSourceDataSourceToIndexFieldMapping `pulumi:"dataSourceToIndexFieldMappingList"`
-}
-
-// DataSourceDataSourceToIndexFieldMappingListInput is an input type that accepts DataSourceDataSourceToIndexFieldMappingListArgs and DataSourceDataSourceToIndexFieldMappingListOutput values.
-// You can construct a concrete instance of `DataSourceDataSourceToIndexFieldMappingListInput` via:
-//
-//          DataSourceDataSourceToIndexFieldMappingListArgs{...}
-type DataSourceDataSourceToIndexFieldMappingListInput interface {
-	pulumi.Input
-
-	ToDataSourceDataSourceToIndexFieldMappingListOutput() DataSourceDataSourceToIndexFieldMappingListOutput
-	ToDataSourceDataSourceToIndexFieldMappingListOutputWithContext(context.Context) DataSourceDataSourceToIndexFieldMappingListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html
-type DataSourceDataSourceToIndexFieldMappingListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html#cfn-kendra-datasource-datasourcetoindexfieldmappinglist-datasourcetoindexfieldmappinglist
-	DataSourceToIndexFieldMappingList DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"dataSourceToIndexFieldMappingList"`
-}
-
-func (DataSourceDataSourceToIndexFieldMappingListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceDataSourceToIndexFieldMappingList)(nil)).Elem()
-}
-
-func (i DataSourceDataSourceToIndexFieldMappingListArgs) ToDataSourceDataSourceToIndexFieldMappingListOutput() DataSourceDataSourceToIndexFieldMappingListOutput {
-	return i.ToDataSourceDataSourceToIndexFieldMappingListOutputWithContext(context.Background())
-}
-
-func (i DataSourceDataSourceToIndexFieldMappingListArgs) ToDataSourceDataSourceToIndexFieldMappingListOutputWithContext(ctx context.Context) DataSourceDataSourceToIndexFieldMappingListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceToIndexFieldMappingListOutput)
-}
-
-func (i DataSourceDataSourceToIndexFieldMappingListArgs) ToDataSourceDataSourceToIndexFieldMappingListPtrOutput() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return i.ToDataSourceDataSourceToIndexFieldMappingListPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceDataSourceToIndexFieldMappingListArgs) ToDataSourceDataSourceToIndexFieldMappingListPtrOutputWithContext(ctx context.Context) DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceToIndexFieldMappingListOutput).ToDataSourceDataSourceToIndexFieldMappingListPtrOutputWithContext(ctx)
-}
-
-// DataSourceDataSourceToIndexFieldMappingListPtrInput is an input type that accepts DataSourceDataSourceToIndexFieldMappingListArgs, DataSourceDataSourceToIndexFieldMappingListPtr and DataSourceDataSourceToIndexFieldMappingListPtrOutput values.
-// You can construct a concrete instance of `DataSourceDataSourceToIndexFieldMappingListPtrInput` via:
-//
-//          DataSourceDataSourceToIndexFieldMappingListArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceDataSourceToIndexFieldMappingListPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceDataSourceToIndexFieldMappingListPtrOutput() DataSourceDataSourceToIndexFieldMappingListPtrOutput
-	ToDataSourceDataSourceToIndexFieldMappingListPtrOutputWithContext(context.Context) DataSourceDataSourceToIndexFieldMappingListPtrOutput
-}
-
-type dataSourceDataSourceToIndexFieldMappingListPtrType DataSourceDataSourceToIndexFieldMappingListArgs
-
-func DataSourceDataSourceToIndexFieldMappingListPtr(v *DataSourceDataSourceToIndexFieldMappingListArgs) DataSourceDataSourceToIndexFieldMappingListPtrInput {
-	return (*dataSourceDataSourceToIndexFieldMappingListPtrType)(v)
-}
-
-func (*dataSourceDataSourceToIndexFieldMappingListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceDataSourceToIndexFieldMappingList)(nil)).Elem()
-}
-
-func (i *dataSourceDataSourceToIndexFieldMappingListPtrType) ToDataSourceDataSourceToIndexFieldMappingListPtrOutput() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return i.ToDataSourceDataSourceToIndexFieldMappingListPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceDataSourceToIndexFieldMappingListPtrType) ToDataSourceDataSourceToIndexFieldMappingListPtrOutputWithContext(ctx context.Context) DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html
-type DataSourceDataSourceToIndexFieldMappingListOutput struct{ *pulumi.OutputState }
-
-func (DataSourceDataSourceToIndexFieldMappingListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceDataSourceToIndexFieldMappingList)(nil)).Elem()
-}
-
-func (o DataSourceDataSourceToIndexFieldMappingListOutput) ToDataSourceDataSourceToIndexFieldMappingListOutput() DataSourceDataSourceToIndexFieldMappingListOutput {
-	return o
-}
-
-func (o DataSourceDataSourceToIndexFieldMappingListOutput) ToDataSourceDataSourceToIndexFieldMappingListOutputWithContext(ctx context.Context) DataSourceDataSourceToIndexFieldMappingListOutput {
-	return o
-}
-
-func (o DataSourceDataSourceToIndexFieldMappingListOutput) ToDataSourceDataSourceToIndexFieldMappingListPtrOutput() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ToDataSourceDataSourceToIndexFieldMappingListPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceDataSourceToIndexFieldMappingListOutput) ToDataSourceDataSourceToIndexFieldMappingListPtrOutputWithContext(ctx context.Context) DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDataSourceToIndexFieldMappingList) *DataSourceDataSourceToIndexFieldMappingList {
-		return &v
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html#cfn-kendra-datasource-datasourcetoindexfieldmappinglist-datasourcetoindexfieldmappinglist
-func (o DataSourceDataSourceToIndexFieldMappingListOutput) DataSourceToIndexFieldMappingList() DataSourceDataSourceToIndexFieldMappingArrayOutput {
-	return o.ApplyT(func(v DataSourceDataSourceToIndexFieldMappingList) []DataSourceDataSourceToIndexFieldMapping {
-		return v.DataSourceToIndexFieldMappingList
-	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
-}
-
-type DataSourceDataSourceToIndexFieldMappingListPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceDataSourceToIndexFieldMappingListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceDataSourceToIndexFieldMappingList)(nil)).Elem()
-}
-
-func (o DataSourceDataSourceToIndexFieldMappingListPtrOutput) ToDataSourceDataSourceToIndexFieldMappingListPtrOutput() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o
-}
-
-func (o DataSourceDataSourceToIndexFieldMappingListPtrOutput) ToDataSourceDataSourceToIndexFieldMappingListPtrOutputWithContext(ctx context.Context) DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o
-}
-
-func (o DataSourceDataSourceToIndexFieldMappingListPtrOutput) Elem() DataSourceDataSourceToIndexFieldMappingListOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceToIndexFieldMappingList) DataSourceDataSourceToIndexFieldMappingList {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceDataSourceToIndexFieldMappingList
-		return ret
-	}).(DataSourceDataSourceToIndexFieldMappingListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmappinglist.html#cfn-kendra-datasource-datasourcetoindexfieldmappinglist-datasourcetoindexfieldmappinglist
-func (o DataSourceDataSourceToIndexFieldMappingListPtrOutput) DataSourceToIndexFieldMappingList() DataSourceDataSourceToIndexFieldMappingArrayOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceToIndexFieldMappingList) []DataSourceDataSourceToIndexFieldMapping {
-		if v == nil {
-			return nil
-		}
-		return v.DataSourceToIndexFieldMappingList
-	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcevpcconfiguration.html
@@ -4243,16 +3125,272 @@ func (o DataSourceDocumentsMetadataConfigurationPtrOutput) S3Prefix() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html
+type DataSourceGoogleDriveConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludemimetypes
+	ExcludeMimeTypes []string `pulumi:"excludeMimeTypes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludeshareddrives
+	ExcludeSharedDrives []string `pulumi:"excludeSharedDrives"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludeuseraccounts
+	ExcludeUserAccounts []string `pulumi:"excludeUserAccounts"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-exclusionpatterns
+	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-fieldmappings
+	FieldMappings []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-inclusionpatterns
+	InclusionPatterns []string `pulumi:"inclusionPatterns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-secretarn
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// DataSourceGoogleDriveConfigurationInput is an input type that accepts DataSourceGoogleDriveConfigurationArgs and DataSourceGoogleDriveConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceGoogleDriveConfigurationInput` via:
+//
+//          DataSourceGoogleDriveConfigurationArgs{...}
+type DataSourceGoogleDriveConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceGoogleDriveConfigurationOutput() DataSourceGoogleDriveConfigurationOutput
+	ToDataSourceGoogleDriveConfigurationOutputWithContext(context.Context) DataSourceGoogleDriveConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html
+type DataSourceGoogleDriveConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludemimetypes
+	ExcludeMimeTypes pulumi.StringArrayInput `pulumi:"excludeMimeTypes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludeshareddrives
+	ExcludeSharedDrives pulumi.StringArrayInput `pulumi:"excludeSharedDrives"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludeuseraccounts
+	ExcludeUserAccounts pulumi.StringArrayInput `pulumi:"excludeUserAccounts"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-exclusionpatterns
+	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-fieldmappings
+	FieldMappings DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-inclusionpatterns
+	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-secretarn
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (DataSourceGoogleDriveConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceGoogleDriveConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceGoogleDriveConfigurationArgs) ToDataSourceGoogleDriveConfigurationOutput() DataSourceGoogleDriveConfigurationOutput {
+	return i.ToDataSourceGoogleDriveConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceGoogleDriveConfigurationArgs) ToDataSourceGoogleDriveConfigurationOutputWithContext(ctx context.Context) DataSourceGoogleDriveConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceGoogleDriveConfigurationOutput)
+}
+
+func (i DataSourceGoogleDriveConfigurationArgs) ToDataSourceGoogleDriveConfigurationPtrOutput() DataSourceGoogleDriveConfigurationPtrOutput {
+	return i.ToDataSourceGoogleDriveConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceGoogleDriveConfigurationArgs) ToDataSourceGoogleDriveConfigurationPtrOutputWithContext(ctx context.Context) DataSourceGoogleDriveConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceGoogleDriveConfigurationOutput).ToDataSourceGoogleDriveConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceGoogleDriveConfigurationPtrInput is an input type that accepts DataSourceGoogleDriveConfigurationArgs, DataSourceGoogleDriveConfigurationPtr and DataSourceGoogleDriveConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceGoogleDriveConfigurationPtrInput` via:
+//
+//          DataSourceGoogleDriveConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DataSourceGoogleDriveConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceGoogleDriveConfigurationPtrOutput() DataSourceGoogleDriveConfigurationPtrOutput
+	ToDataSourceGoogleDriveConfigurationPtrOutputWithContext(context.Context) DataSourceGoogleDriveConfigurationPtrOutput
+}
+
+type dataSourceGoogleDriveConfigurationPtrType DataSourceGoogleDriveConfigurationArgs
+
+func DataSourceGoogleDriveConfigurationPtr(v *DataSourceGoogleDriveConfigurationArgs) DataSourceGoogleDriveConfigurationPtrInput {
+	return (*dataSourceGoogleDriveConfigurationPtrType)(v)
+}
+
+func (*dataSourceGoogleDriveConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceGoogleDriveConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceGoogleDriveConfigurationPtrType) ToDataSourceGoogleDriveConfigurationPtrOutput() DataSourceGoogleDriveConfigurationPtrOutput {
+	return i.ToDataSourceGoogleDriveConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceGoogleDriveConfigurationPtrType) ToDataSourceGoogleDriveConfigurationPtrOutputWithContext(ctx context.Context) DataSourceGoogleDriveConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceGoogleDriveConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html
+type DataSourceGoogleDriveConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceGoogleDriveConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceGoogleDriveConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceGoogleDriveConfigurationOutput) ToDataSourceGoogleDriveConfigurationOutput() DataSourceGoogleDriveConfigurationOutput {
+	return o
+}
+
+func (o DataSourceGoogleDriveConfigurationOutput) ToDataSourceGoogleDriveConfigurationOutputWithContext(ctx context.Context) DataSourceGoogleDriveConfigurationOutput {
+	return o
+}
+
+func (o DataSourceGoogleDriveConfigurationOutput) ToDataSourceGoogleDriveConfigurationPtrOutput() DataSourceGoogleDriveConfigurationPtrOutput {
+	return o.ToDataSourceGoogleDriveConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceGoogleDriveConfigurationOutput) ToDataSourceGoogleDriveConfigurationPtrOutputWithContext(ctx context.Context) DataSourceGoogleDriveConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceGoogleDriveConfiguration) *DataSourceGoogleDriveConfiguration {
+		return &v
+	}).(DataSourceGoogleDriveConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludemimetypes
+func (o DataSourceGoogleDriveConfigurationOutput) ExcludeMimeTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) []string { return v.ExcludeMimeTypes }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludeshareddrives
+func (o DataSourceGoogleDriveConfigurationOutput) ExcludeSharedDrives() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) []string { return v.ExcludeSharedDrives }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludeuseraccounts
+func (o DataSourceGoogleDriveConfigurationOutput) ExcludeUserAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) []string { return v.ExcludeUserAccounts }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-exclusionpatterns
+func (o DataSourceGoogleDriveConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-fieldmappings
+func (o DataSourceGoogleDriveConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) []DataSourceDataSourceToIndexFieldMapping {
+		return v.FieldMappings
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-inclusionpatterns
+func (o DataSourceGoogleDriveConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-secretarn
+func (o DataSourceGoogleDriveConfigurationOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type DataSourceGoogleDriveConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceGoogleDriveConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceGoogleDriveConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceGoogleDriveConfigurationPtrOutput) ToDataSourceGoogleDriveConfigurationPtrOutput() DataSourceGoogleDriveConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceGoogleDriveConfigurationPtrOutput) ToDataSourceGoogleDriveConfigurationPtrOutputWithContext(ctx context.Context) DataSourceGoogleDriveConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceGoogleDriveConfigurationPtrOutput) Elem() DataSourceGoogleDriveConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) DataSourceGoogleDriveConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceGoogleDriveConfiguration
+		return ret
+	}).(DataSourceGoogleDriveConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludemimetypes
+func (o DataSourceGoogleDriveConfigurationPtrOutput) ExcludeMimeTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeMimeTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludeshareddrives
+func (o DataSourceGoogleDriveConfigurationPtrOutput) ExcludeSharedDrives() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeSharedDrives
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-excludeuseraccounts
+func (o DataSourceGoogleDriveConfigurationPtrOutput) ExcludeUserAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeUserAccounts
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-exclusionpatterns
+func (o DataSourceGoogleDriveConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExclusionPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-fieldmappings
+func (o DataSourceGoogleDriveConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) []DataSourceDataSourceToIndexFieldMapping {
+		if v == nil {
+			return nil
+		}
+		return v.FieldMappings
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-inclusionpatterns
+func (o DataSourceGoogleDriveConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InclusionPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html#cfn-kendra-datasource-googledriveconfiguration-secretarn
+func (o DataSourceGoogleDriveConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html
 type DataSourceOneDriveConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-disablelocalgroups
 	DisableLocalGroups *bool `pulumi:"disableLocalGroups"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-exclusionpatterns
-	ExclusionPatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"exclusionPatterns"`
+	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-fieldmappings
-	FieldMappings *DataSourceDataSourceToIndexFieldMappingList `pulumi:"fieldMappings"`
+	FieldMappings []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-inclusionpatterns
-	InclusionPatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"inclusionPatterns"`
+	InclusionPatterns []string `pulumi:"inclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-onedriveusers
 	OneDriveUsers DataSourceOneDriveUsers `pulumi:"oneDriveUsers"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-secretarn
@@ -4277,11 +3415,11 @@ type DataSourceOneDriveConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-disablelocalgroups
 	DisableLocalGroups pulumi.BoolPtrInput `pulumi:"disableLocalGroups"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-exclusionpatterns
-	ExclusionPatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"exclusionPatterns"`
+	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-fieldmappings
-	FieldMappings DataSourceDataSourceToIndexFieldMappingListPtrInput `pulumi:"fieldMappings"`
+	FieldMappings DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-inclusionpatterns
-	InclusionPatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"inclusionPatterns"`
+	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-onedriveusers
 	OneDriveUsers DataSourceOneDriveUsersInput `pulumi:"oneDriveUsers"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-secretarn
@@ -4374,24 +3512,20 @@ func (o DataSourceOneDriveConfigurationOutput) DisableLocalGroups() pulumi.BoolP
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-exclusionpatterns
-func (o DataSourceOneDriveConfigurationOutput) ExclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceOneDriveConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
-		return v.ExclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+func (o DataSourceOneDriveConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceOneDriveConfiguration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-fieldmappings
-func (o DataSourceOneDriveConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v DataSourceOneDriveConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceOneDriveConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceOneDriveConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-inclusionpatterns
-func (o DataSourceOneDriveConfigurationOutput) InclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceOneDriveConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
-		return v.InclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+func (o DataSourceOneDriveConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceOneDriveConfiguration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-onedriveusers
@@ -4444,33 +3578,33 @@ func (o DataSourceOneDriveConfigurationPtrOutput) DisableLocalGroups() pulumi.Bo
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-exclusionpatterns
-func (o DataSourceOneDriveConfigurationPtrOutput) ExclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceOneDriveConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceOneDriveConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceOneDriveConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.ExclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-fieldmappings
-func (o DataSourceOneDriveConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v *DataSourceOneDriveConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceOneDriveConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v *DataSourceOneDriveConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		if v == nil {
 			return nil
 		}
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-inclusionpatterns
-func (o DataSourceOneDriveConfigurationPtrOutput) InclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceOneDriveConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceOneDriveConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceOneDriveConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.InclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-onedriveusers
@@ -4503,150 +3637,10 @@ func (o DataSourceOneDriveConfigurationPtrOutput) TenantDomain() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveuserlist.html
-type DataSourceOneDriveUserList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveuserlist.html#cfn-kendra-datasource-onedriveuserlist-onedriveuserlist
-	OneDriveUserList []string `pulumi:"oneDriveUserList"`
-}
-
-// DataSourceOneDriveUserListInput is an input type that accepts DataSourceOneDriveUserListArgs and DataSourceOneDriveUserListOutput values.
-// You can construct a concrete instance of `DataSourceOneDriveUserListInput` via:
-//
-//          DataSourceOneDriveUserListArgs{...}
-type DataSourceOneDriveUserListInput interface {
-	pulumi.Input
-
-	ToDataSourceOneDriveUserListOutput() DataSourceOneDriveUserListOutput
-	ToDataSourceOneDriveUserListOutputWithContext(context.Context) DataSourceOneDriveUserListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveuserlist.html
-type DataSourceOneDriveUserListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveuserlist.html#cfn-kendra-datasource-onedriveuserlist-onedriveuserlist
-	OneDriveUserList pulumi.StringArrayInput `pulumi:"oneDriveUserList"`
-}
-
-func (DataSourceOneDriveUserListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceOneDriveUserList)(nil)).Elem()
-}
-
-func (i DataSourceOneDriveUserListArgs) ToDataSourceOneDriveUserListOutput() DataSourceOneDriveUserListOutput {
-	return i.ToDataSourceOneDriveUserListOutputWithContext(context.Background())
-}
-
-func (i DataSourceOneDriveUserListArgs) ToDataSourceOneDriveUserListOutputWithContext(ctx context.Context) DataSourceOneDriveUserListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOneDriveUserListOutput)
-}
-
-func (i DataSourceOneDriveUserListArgs) ToDataSourceOneDriveUserListPtrOutput() DataSourceOneDriveUserListPtrOutput {
-	return i.ToDataSourceOneDriveUserListPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceOneDriveUserListArgs) ToDataSourceOneDriveUserListPtrOutputWithContext(ctx context.Context) DataSourceOneDriveUserListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOneDriveUserListOutput).ToDataSourceOneDriveUserListPtrOutputWithContext(ctx)
-}
-
-// DataSourceOneDriveUserListPtrInput is an input type that accepts DataSourceOneDriveUserListArgs, DataSourceOneDriveUserListPtr and DataSourceOneDriveUserListPtrOutput values.
-// You can construct a concrete instance of `DataSourceOneDriveUserListPtrInput` via:
-//
-//          DataSourceOneDriveUserListArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceOneDriveUserListPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceOneDriveUserListPtrOutput() DataSourceOneDriveUserListPtrOutput
-	ToDataSourceOneDriveUserListPtrOutputWithContext(context.Context) DataSourceOneDriveUserListPtrOutput
-}
-
-type dataSourceOneDriveUserListPtrType DataSourceOneDriveUserListArgs
-
-func DataSourceOneDriveUserListPtr(v *DataSourceOneDriveUserListArgs) DataSourceOneDriveUserListPtrInput {
-	return (*dataSourceOneDriveUserListPtrType)(v)
-}
-
-func (*dataSourceOneDriveUserListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceOneDriveUserList)(nil)).Elem()
-}
-
-func (i *dataSourceOneDriveUserListPtrType) ToDataSourceOneDriveUserListPtrOutput() DataSourceOneDriveUserListPtrOutput {
-	return i.ToDataSourceOneDriveUserListPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceOneDriveUserListPtrType) ToDataSourceOneDriveUserListPtrOutputWithContext(ctx context.Context) DataSourceOneDriveUserListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOneDriveUserListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveuserlist.html
-type DataSourceOneDriveUserListOutput struct{ *pulumi.OutputState }
-
-func (DataSourceOneDriveUserListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceOneDriveUserList)(nil)).Elem()
-}
-
-func (o DataSourceOneDriveUserListOutput) ToDataSourceOneDriveUserListOutput() DataSourceOneDriveUserListOutput {
-	return o
-}
-
-func (o DataSourceOneDriveUserListOutput) ToDataSourceOneDriveUserListOutputWithContext(ctx context.Context) DataSourceOneDriveUserListOutput {
-	return o
-}
-
-func (o DataSourceOneDriveUserListOutput) ToDataSourceOneDriveUserListPtrOutput() DataSourceOneDriveUserListPtrOutput {
-	return o.ToDataSourceOneDriveUserListPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceOneDriveUserListOutput) ToDataSourceOneDriveUserListPtrOutputWithContext(ctx context.Context) DataSourceOneDriveUserListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceOneDriveUserList) *DataSourceOneDriveUserList {
-		return &v
-	}).(DataSourceOneDriveUserListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveuserlist.html#cfn-kendra-datasource-onedriveuserlist-onedriveuserlist
-func (o DataSourceOneDriveUserListOutput) OneDriveUserList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DataSourceOneDriveUserList) []string { return v.OneDriveUserList }).(pulumi.StringArrayOutput)
-}
-
-type DataSourceOneDriveUserListPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceOneDriveUserListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceOneDriveUserList)(nil)).Elem()
-}
-
-func (o DataSourceOneDriveUserListPtrOutput) ToDataSourceOneDriveUserListPtrOutput() DataSourceOneDriveUserListPtrOutput {
-	return o
-}
-
-func (o DataSourceOneDriveUserListPtrOutput) ToDataSourceOneDriveUserListPtrOutputWithContext(ctx context.Context) DataSourceOneDriveUserListPtrOutput {
-	return o
-}
-
-func (o DataSourceOneDriveUserListPtrOutput) Elem() DataSourceOneDriveUserListOutput {
-	return o.ApplyT(func(v *DataSourceOneDriveUserList) DataSourceOneDriveUserList {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceOneDriveUserList
-		return ret
-	}).(DataSourceOneDriveUserListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveuserlist.html#cfn-kendra-datasource-onedriveuserlist-onedriveuserlist
-func (o DataSourceOneDriveUserListPtrOutput) OneDriveUserList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DataSourceOneDriveUserList) []string {
-		if v == nil {
-			return nil
-		}
-		return v.OneDriveUserList
-	}).(pulumi.StringArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html
 type DataSourceOneDriveUsers struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
-	OneDriveUserList *DataSourceOneDriveUserList `pulumi:"oneDriveUserList"`
+	OneDriveUserList []string `pulumi:"oneDriveUserList"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path
 	OneDriveUserS3Path *DataSourceS3Path `pulumi:"oneDriveUserS3Path"`
 }
@@ -4665,7 +3659,7 @@ type DataSourceOneDriveUsersInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html
 type DataSourceOneDriveUsersArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
-	OneDriveUserList DataSourceOneDriveUserListPtrInput `pulumi:"oneDriveUserList"`
+	OneDriveUserList pulumi.StringArrayInput `pulumi:"oneDriveUserList"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path
 	OneDriveUserS3Path DataSourceS3PathPtrInput `pulumi:"oneDriveUserS3Path"`
 }
@@ -4749,8 +3743,8 @@ func (o DataSourceOneDriveUsersOutput) ToDataSourceOneDriveUsersPtrOutputWithCon
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
-func (o DataSourceOneDriveUsersOutput) OneDriveUserList() DataSourceOneDriveUserListPtrOutput {
-	return o.ApplyT(func(v DataSourceOneDriveUsers) *DataSourceOneDriveUserList { return v.OneDriveUserList }).(DataSourceOneDriveUserListPtrOutput)
+func (o DataSourceOneDriveUsersOutput) OneDriveUserList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceOneDriveUsers) []string { return v.OneDriveUserList }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path
@@ -4783,13 +3777,13 @@ func (o DataSourceOneDriveUsersPtrOutput) Elem() DataSourceOneDriveUsersOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
-func (o DataSourceOneDriveUsersPtrOutput) OneDriveUserList() DataSourceOneDriveUserListPtrOutput {
-	return o.ApplyT(func(v *DataSourceOneDriveUsers) *DataSourceOneDriveUserList {
+func (o DataSourceOneDriveUsersPtrOutput) OneDriveUserList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceOneDriveUsers) []string {
 		if v == nil {
 			return nil
 		}
 		return v.OneDriveUserList
-	}).(DataSourceOneDriveUserListPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path
@@ -4811,11 +3805,11 @@ type DataSourceS3DataSourceConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-documentsmetadataconfiguration
 	DocumentsMetadataConfiguration *DataSourceDocumentsMetadataConfiguration `pulumi:"documentsMetadataConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
-	ExclusionPatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"exclusionPatterns"`
+	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
-	InclusionPatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"inclusionPatterns"`
+	InclusionPatterns []string `pulumi:"inclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionprefixes
-	InclusionPrefixes *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"inclusionPrefixes"`
+	InclusionPrefixes []string `pulumi:"inclusionPrefixes"`
 }
 
 // DataSourceS3DataSourceConfigurationInput is an input type that accepts DataSourceS3DataSourceConfigurationArgs and DataSourceS3DataSourceConfigurationOutput values.
@@ -4838,11 +3832,11 @@ type DataSourceS3DataSourceConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-documentsmetadataconfiguration
 	DocumentsMetadataConfiguration DataSourceDocumentsMetadataConfigurationPtrInput `pulumi:"documentsMetadataConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
-	ExclusionPatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"exclusionPatterns"`
+	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
-	InclusionPatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"inclusionPatterns"`
+	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionprefixes
-	InclusionPrefixes DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"inclusionPrefixes"`
+	InclusionPrefixes pulumi.StringArrayInput `pulumi:"inclusionPrefixes"`
 }
 
 func (DataSourceS3DataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -4943,24 +3937,18 @@ func (o DataSourceS3DataSourceConfigurationOutput) DocumentsMetadataConfiguratio
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
-func (o DataSourceS3DataSourceConfigurationOutput) ExclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
-		return v.ExclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+func (o DataSourceS3DataSourceConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
-func (o DataSourceS3DataSourceConfigurationOutput) InclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
-		return v.InclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+func (o DataSourceS3DataSourceConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionprefixes
-func (o DataSourceS3DataSourceConfigurationOutput) InclusionPrefixes() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
-		return v.InclusionPrefixes
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+func (o DataSourceS3DataSourceConfigurationOutput) InclusionPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) []string { return v.InclusionPrefixes }).(pulumi.StringArrayOutput)
 }
 
 type DataSourceS3DataSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -5018,33 +4006,33 @@ func (o DataSourceS3DataSourceConfigurationPtrOutput) DocumentsMetadataConfigura
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
-func (o DataSourceS3DataSourceConfigurationPtrOutput) ExclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceS3DataSourceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceS3DataSourceConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceS3DataSourceConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.ExclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
-func (o DataSourceS3DataSourceConfigurationPtrOutput) InclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceS3DataSourceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceS3DataSourceConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceS3DataSourceConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.InclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionprefixes
-func (o DataSourceS3DataSourceConfigurationPtrOutput) InclusionPrefixes() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceS3DataSourceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceS3DataSourceConfigurationPtrOutput) InclusionPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceS3DataSourceConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.InclusionPrefixes
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html
@@ -5213,9 +4201,9 @@ type DataSourceSalesforceChatterFeedConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documenttitlefieldname
 	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings
-	FieldMappings *DataSourceDataSourceToIndexFieldMappingList `pulumi:"fieldMappings"`
+	FieldMappings []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-includefiltertypes
-	IncludeFilterTypes *DataSourceSalesforceChatterFeedIncludeFilterTypes `pulumi:"includeFilterTypes"`
+	IncludeFilterTypes []string `pulumi:"includeFilterTypes"`
 }
 
 // DataSourceSalesforceChatterFeedConfigurationInput is an input type that accepts DataSourceSalesforceChatterFeedConfigurationArgs and DataSourceSalesforceChatterFeedConfigurationOutput values.
@@ -5236,9 +4224,9 @@ type DataSourceSalesforceChatterFeedConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-documenttitlefieldname
 	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings
-	FieldMappings DataSourceDataSourceToIndexFieldMappingListPtrInput `pulumi:"fieldMappings"`
+	FieldMappings DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-includefiltertypes
-	IncludeFilterTypes DataSourceSalesforceChatterFeedIncludeFilterTypesPtrInput `pulumi:"includeFilterTypes"`
+	IncludeFilterTypes pulumi.StringArrayInput `pulumi:"includeFilterTypes"`
 }
 
 func (DataSourceSalesforceChatterFeedConfigurationArgs) ElementType() reflect.Type {
@@ -5330,17 +4318,15 @@ func (o DataSourceSalesforceChatterFeedConfigurationOutput) DocumentTitleFieldNa
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings
-func (o DataSourceSalesforceChatterFeedConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v DataSourceSalesforceChatterFeedConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceSalesforceChatterFeedConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceSalesforceChatterFeedConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-includefiltertypes
-func (o DataSourceSalesforceChatterFeedConfigurationOutput) IncludeFilterTypes() DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput {
-	return o.ApplyT(func(v DataSourceSalesforceChatterFeedConfiguration) *DataSourceSalesforceChatterFeedIncludeFilterTypes {
-		return v.IncludeFilterTypes
-	}).(DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput)
+func (o DataSourceSalesforceChatterFeedConfigurationOutput) IncludeFilterTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceSalesforceChatterFeedConfiguration) []string { return v.IncludeFilterTypes }).(pulumi.StringArrayOutput)
 }
 
 type DataSourceSalesforceChatterFeedConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -5388,164 +4374,22 @@ func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) DocumentTitleFiel
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-fieldmappings
-func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceChatterFeedConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceChatterFeedConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		if v == nil {
 			return nil
 		}
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html#cfn-kendra-datasource-salesforcechatterfeedconfiguration-includefiltertypes
-func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) IncludeFilterTypes() DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceChatterFeedConfiguration) *DataSourceSalesforceChatterFeedIncludeFilterTypes {
+func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) IncludeFilterTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceChatterFeedConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.IncludeFilterTypes
-	}).(DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedincludefiltertypes.html
-type DataSourceSalesforceChatterFeedIncludeFilterTypes struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedincludefiltertypes.html#cfn-kendra-datasource-salesforcechatterfeedincludefiltertypes-salesforcechatterfeedincludefiltertypes
-	SalesforceChatterFeedIncludeFilterTypes []string `pulumi:"salesforceChatterFeedIncludeFilterTypes"`
-}
-
-// DataSourceSalesforceChatterFeedIncludeFilterTypesInput is an input type that accepts DataSourceSalesforceChatterFeedIncludeFilterTypesArgs and DataSourceSalesforceChatterFeedIncludeFilterTypesOutput values.
-// You can construct a concrete instance of `DataSourceSalesforceChatterFeedIncludeFilterTypesInput` via:
-//
-//          DataSourceSalesforceChatterFeedIncludeFilterTypesArgs{...}
-type DataSourceSalesforceChatterFeedIncludeFilterTypesInput interface {
-	pulumi.Input
-
-	ToDataSourceSalesforceChatterFeedIncludeFilterTypesOutput() DataSourceSalesforceChatterFeedIncludeFilterTypesOutput
-	ToDataSourceSalesforceChatterFeedIncludeFilterTypesOutputWithContext(context.Context) DataSourceSalesforceChatterFeedIncludeFilterTypesOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedincludefiltertypes.html
-type DataSourceSalesforceChatterFeedIncludeFilterTypesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedincludefiltertypes.html#cfn-kendra-datasource-salesforcechatterfeedincludefiltertypes-salesforcechatterfeedincludefiltertypes
-	SalesforceChatterFeedIncludeFilterTypes pulumi.StringArrayInput `pulumi:"salesforceChatterFeedIncludeFilterTypes"`
-}
-
-func (DataSourceSalesforceChatterFeedIncludeFilterTypesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceSalesforceChatterFeedIncludeFilterTypes)(nil)).Elem()
-}
-
-func (i DataSourceSalesforceChatterFeedIncludeFilterTypesArgs) ToDataSourceSalesforceChatterFeedIncludeFilterTypesOutput() DataSourceSalesforceChatterFeedIncludeFilterTypesOutput {
-	return i.ToDataSourceSalesforceChatterFeedIncludeFilterTypesOutputWithContext(context.Background())
-}
-
-func (i DataSourceSalesforceChatterFeedIncludeFilterTypesArgs) ToDataSourceSalesforceChatterFeedIncludeFilterTypesOutputWithContext(ctx context.Context) DataSourceSalesforceChatterFeedIncludeFilterTypesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceChatterFeedIncludeFilterTypesOutput)
-}
-
-func (i DataSourceSalesforceChatterFeedIncludeFilterTypesArgs) ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput() DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput {
-	return i.ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceSalesforceChatterFeedIncludeFilterTypesArgs) ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutputWithContext(ctx context.Context) DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceChatterFeedIncludeFilterTypesOutput).ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutputWithContext(ctx)
-}
-
-// DataSourceSalesforceChatterFeedIncludeFilterTypesPtrInput is an input type that accepts DataSourceSalesforceChatterFeedIncludeFilterTypesArgs, DataSourceSalesforceChatterFeedIncludeFilterTypesPtr and DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput values.
-// You can construct a concrete instance of `DataSourceSalesforceChatterFeedIncludeFilterTypesPtrInput` via:
-//
-//          DataSourceSalesforceChatterFeedIncludeFilterTypesArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceSalesforceChatterFeedIncludeFilterTypesPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput() DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput
-	ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutputWithContext(context.Context) DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput
-}
-
-type dataSourceSalesforceChatterFeedIncludeFilterTypesPtrType DataSourceSalesforceChatterFeedIncludeFilterTypesArgs
-
-func DataSourceSalesforceChatterFeedIncludeFilterTypesPtr(v *DataSourceSalesforceChatterFeedIncludeFilterTypesArgs) DataSourceSalesforceChatterFeedIncludeFilterTypesPtrInput {
-	return (*dataSourceSalesforceChatterFeedIncludeFilterTypesPtrType)(v)
-}
-
-func (*dataSourceSalesforceChatterFeedIncludeFilterTypesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceSalesforceChatterFeedIncludeFilterTypes)(nil)).Elem()
-}
-
-func (i *dataSourceSalesforceChatterFeedIncludeFilterTypesPtrType) ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput() DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput {
-	return i.ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceSalesforceChatterFeedIncludeFilterTypesPtrType) ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutputWithContext(ctx context.Context) DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedincludefiltertypes.html
-type DataSourceSalesforceChatterFeedIncludeFilterTypesOutput struct{ *pulumi.OutputState }
-
-func (DataSourceSalesforceChatterFeedIncludeFilterTypesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceSalesforceChatterFeedIncludeFilterTypes)(nil)).Elem()
-}
-
-func (o DataSourceSalesforceChatterFeedIncludeFilterTypesOutput) ToDataSourceSalesforceChatterFeedIncludeFilterTypesOutput() DataSourceSalesforceChatterFeedIncludeFilterTypesOutput {
-	return o
-}
-
-func (o DataSourceSalesforceChatterFeedIncludeFilterTypesOutput) ToDataSourceSalesforceChatterFeedIncludeFilterTypesOutputWithContext(ctx context.Context) DataSourceSalesforceChatterFeedIncludeFilterTypesOutput {
-	return o
-}
-
-func (o DataSourceSalesforceChatterFeedIncludeFilterTypesOutput) ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput() DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput {
-	return o.ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceSalesforceChatterFeedIncludeFilterTypesOutput) ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutputWithContext(ctx context.Context) DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSalesforceChatterFeedIncludeFilterTypes) *DataSourceSalesforceChatterFeedIncludeFilterTypes {
-		return &v
-	}).(DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedincludefiltertypes.html#cfn-kendra-datasource-salesforcechatterfeedincludefiltertypes-salesforcechatterfeedincludefiltertypes
-func (o DataSourceSalesforceChatterFeedIncludeFilterTypesOutput) SalesforceChatterFeedIncludeFilterTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DataSourceSalesforceChatterFeedIncludeFilterTypes) []string {
-		return v.SalesforceChatterFeedIncludeFilterTypes
-	}).(pulumi.StringArrayOutput)
-}
-
-type DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceSalesforceChatterFeedIncludeFilterTypes)(nil)).Elem()
-}
-
-func (o DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput) ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput() DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput {
-	return o
-}
-
-func (o DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput) ToDataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutputWithContext(ctx context.Context) DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput {
-	return o
-}
-
-func (o DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput) Elem() DataSourceSalesforceChatterFeedIncludeFilterTypesOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceChatterFeedIncludeFilterTypes) DataSourceSalesforceChatterFeedIncludeFilterTypes {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceSalesforceChatterFeedIncludeFilterTypes
-		return ret
-	}).(DataSourceSalesforceChatterFeedIncludeFilterTypesOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedincludefiltertypes.html#cfn-kendra-datasource-salesforcechatterfeedincludefiltertypes-salesforcechatterfeedincludefiltertypes
-func (o DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput) SalesforceChatterFeedIncludeFilterTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceChatterFeedIncludeFilterTypes) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SalesforceChatterFeedIncludeFilterTypes
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -5556,9 +4400,9 @@ type DataSourceSalesforceConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-crawlattachments
 	CrawlAttachments *bool `pulumi:"crawlAttachments"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns
-	ExcludeAttachmentFilePatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"excludeAttachmentFilePatterns"`
+	ExcludeAttachmentFilePatterns []string `pulumi:"excludeAttachmentFilePatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns
-	IncludeAttachmentFilePatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"includeAttachmentFilePatterns"`
+	IncludeAttachmentFilePatterns []string `pulumi:"includeAttachmentFilePatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
 	KnowledgeArticleConfiguration *DataSourceSalesforceKnowledgeArticleConfiguration `pulumi:"knowledgeArticleConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-secretarn
@@ -5568,7 +4412,7 @@ type DataSourceSalesforceConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectattachmentconfiguration
 	StandardObjectAttachmentConfiguration *DataSourceSalesforceStandardObjectAttachmentConfiguration `pulumi:"standardObjectAttachmentConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
-	StandardObjectConfigurations *DataSourceSalesforceStandardObjectConfigurationList `pulumi:"standardObjectConfigurations"`
+	StandardObjectConfigurations []DataSourceSalesforceStandardObjectConfiguration `pulumi:"standardObjectConfigurations"`
 }
 
 // DataSourceSalesforceConfigurationInput is an input type that accepts DataSourceSalesforceConfigurationArgs and DataSourceSalesforceConfigurationOutput values.
@@ -5589,9 +4433,9 @@ type DataSourceSalesforceConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-crawlattachments
 	CrawlAttachments pulumi.BoolPtrInput `pulumi:"crawlAttachments"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns
-	ExcludeAttachmentFilePatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"excludeAttachmentFilePatterns"`
+	ExcludeAttachmentFilePatterns pulumi.StringArrayInput `pulumi:"excludeAttachmentFilePatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns
-	IncludeAttachmentFilePatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"includeAttachmentFilePatterns"`
+	IncludeAttachmentFilePatterns pulumi.StringArrayInput `pulumi:"includeAttachmentFilePatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
 	KnowledgeArticleConfiguration DataSourceSalesforceKnowledgeArticleConfigurationPtrInput `pulumi:"knowledgeArticleConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-secretarn
@@ -5601,7 +4445,7 @@ type DataSourceSalesforceConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectattachmentconfiguration
 	StandardObjectAttachmentConfiguration DataSourceSalesforceStandardObjectAttachmentConfigurationPtrInput `pulumi:"standardObjectAttachmentConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
-	StandardObjectConfigurations DataSourceSalesforceStandardObjectConfigurationListPtrInput `pulumi:"standardObjectConfigurations"`
+	StandardObjectConfigurations DataSourceSalesforceStandardObjectConfigurationArrayInput `pulumi:"standardObjectConfigurations"`
 }
 
 func (DataSourceSalesforceConfigurationArgs) ElementType() reflect.Type {
@@ -5695,17 +4539,13 @@ func (o DataSourceSalesforceConfigurationOutput) CrawlAttachments() pulumi.BoolP
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns
-func (o DataSourceSalesforceConfigurationOutput) ExcludeAttachmentFilePatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceSalesforceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
-		return v.ExcludeAttachmentFilePatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+func (o DataSourceSalesforceConfigurationOutput) ExcludeAttachmentFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceSalesforceConfiguration) []string { return v.ExcludeAttachmentFilePatterns }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns
-func (o DataSourceSalesforceConfigurationOutput) IncludeAttachmentFilePatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceSalesforceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
-		return v.IncludeAttachmentFilePatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+func (o DataSourceSalesforceConfigurationOutput) IncludeAttachmentFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceSalesforceConfiguration) []string { return v.IncludeAttachmentFilePatterns }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
@@ -5733,10 +4573,10 @@ func (o DataSourceSalesforceConfigurationOutput) StandardObjectAttachmentConfigu
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
-func (o DataSourceSalesforceConfigurationOutput) StandardObjectConfigurations() DataSourceSalesforceStandardObjectConfigurationListPtrOutput {
-	return o.ApplyT(func(v DataSourceSalesforceConfiguration) *DataSourceSalesforceStandardObjectConfigurationList {
+func (o DataSourceSalesforceConfigurationOutput) StandardObjectConfigurations() DataSourceSalesforceStandardObjectConfigurationArrayOutput {
+	return o.ApplyT(func(v DataSourceSalesforceConfiguration) []DataSourceSalesforceStandardObjectConfiguration {
 		return v.StandardObjectConfigurations
-	}).(DataSourceSalesforceStandardObjectConfigurationListPtrOutput)
+	}).(DataSourceSalesforceStandardObjectConfigurationArrayOutput)
 }
 
 type DataSourceSalesforceConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -5784,23 +4624,23 @@ func (o DataSourceSalesforceConfigurationPtrOutput) CrawlAttachments() pulumi.Bo
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns
-func (o DataSourceSalesforceConfigurationPtrOutput) ExcludeAttachmentFilePatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceSalesforceConfigurationPtrOutput) ExcludeAttachmentFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.ExcludeAttachmentFilePatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns
-func (o DataSourceSalesforceConfigurationPtrOutput) IncludeAttachmentFilePatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceSalesforceConfigurationPtrOutput) IncludeAttachmentFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.IncludeAttachmentFilePatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
@@ -5844,13 +4684,13 @@ func (o DataSourceSalesforceConfigurationPtrOutput) StandardObjectAttachmentConf
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
-func (o DataSourceSalesforceConfigurationPtrOutput) StandardObjectConfigurations() DataSourceSalesforceStandardObjectConfigurationListPtrOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) *DataSourceSalesforceStandardObjectConfigurationList {
+func (o DataSourceSalesforceConfigurationPtrOutput) StandardObjectConfigurations() DataSourceSalesforceStandardObjectConfigurationArrayOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) []DataSourceSalesforceStandardObjectConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.StandardObjectConfigurations
-	}).(DataSourceSalesforceStandardObjectConfigurationListPtrOutput)
+	}).(DataSourceSalesforceStandardObjectConfigurationArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html
@@ -5860,7 +4700,7 @@ type DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-documenttitlefieldname
 	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-fieldmappings
-	FieldMappings *DataSourceDataSourceToIndexFieldMappingList `pulumi:"fieldMappings"`
+	FieldMappings []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-name
 	Name string `pulumi:"name"`
 }
@@ -5883,7 +4723,7 @@ type DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-documenttitlefieldname
 	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-fieldmappings
-	FieldMappings DataSourceDataSourceToIndexFieldMappingListPtrInput `pulumi:"fieldMappings"`
+	FieldMappings DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-name
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -5955,10 +4795,10 @@ func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationOutput) Docum
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-fieldmappings
-func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration-name
@@ -5986,154 +4826,12 @@ func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput) 
 	}).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html
-type DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist-salesforcecustomknowledgearticletypeconfigurationlist
-	SalesforceCustomKnowledgeArticleTypeConfigurationList []DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration `pulumi:"salesforceCustomKnowledgeArticleTypeConfigurationList"`
-}
-
-// DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListInput is an input type that accepts DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs and DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput values.
-// You can construct a concrete instance of `DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListInput` via:
-//
-//          DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs{...}
-type DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListInput interface {
-	pulumi.Input
-
-	ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput
-	ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutputWithContext(context.Context) DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html
-type DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist-salesforcecustomknowledgearticletypeconfigurationlist
-	SalesforceCustomKnowledgeArticleTypeConfigurationList DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayInput `pulumi:"salesforceCustomKnowledgeArticleTypeConfigurationList"`
-}
-
-func (DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList)(nil)).Elem()
-}
-
-func (i DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs) ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput {
-	return i.ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutputWithContext(context.Background())
-}
-
-func (i DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs) ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutputWithContext(ctx context.Context) DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput)
-}
-
-func (i DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs) ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput {
-	return i.ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs) ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutputWithContext(ctx context.Context) DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput).ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutputWithContext(ctx)
-}
-
-// DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrInput is an input type that accepts DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs, DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtr and DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput values.
-// You can construct a concrete instance of `DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrInput` via:
-//
-//          DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput
-	ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutputWithContext(context.Context) DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput
-}
-
-type dataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrType DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs
-
-func DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtr(v *DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs) DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrInput {
-	return (*dataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrType)(v)
-}
-
-func (*dataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList)(nil)).Elem()
-}
-
-func (i *dataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrType) ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput {
-	return i.ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrType) ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutputWithContext(ctx context.Context) DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html
-type DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput struct{ *pulumi.OutputState }
-
-func (DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList)(nil)).Elem()
-}
-
-func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput) ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput {
-	return o
-}
-
-func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput) ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutputWithContext(ctx context.Context) DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput {
-	return o
-}
-
-func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput) ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput {
-	return o.ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput) ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutputWithContext(ctx context.Context) DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList) *DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList {
-		return &v
-	}).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist-salesforcecustomknowledgearticletypeconfigurationlist
-func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput) SalesforceCustomKnowledgeArticleTypeConfigurationList() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput {
-	return o.ApplyT(func(v DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList) []DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration {
-		return v.SalesforceCustomKnowledgeArticleTypeConfigurationList
-	}).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput)
-}
-
-type DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList)(nil)).Elem()
-}
-
-func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput) ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput {
-	return o
-}
-
-func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput) ToDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutputWithContext(ctx context.Context) DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput {
-	return o
-}
-
-func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput) Elem() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList) DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList
-		return ret
-	}).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist.html#cfn-kendra-datasource-salesforcecustomknowledgearticletypeconfigurationlist-salesforcecustomknowledgearticletypeconfigurationlist
-func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput) SalesforceCustomKnowledgeArticleTypeConfigurationList() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList) []DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.SalesforceCustomKnowledgeArticleTypeConfigurationList
-	}).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html
 type DataSourceSalesforceKnowledgeArticleConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
-	CustomKnowledgeArticleTypeConfigurations *DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList `pulumi:"customKnowledgeArticleTypeConfigurations"`
+	CustomKnowledgeArticleTypeConfigurations []DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration `pulumi:"customKnowledgeArticleTypeConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
-	IncludedStates DataSourceSalesforceKnowledgeArticleStateList `pulumi:"includedStates"`
+	IncludedStates []string `pulumi:"includedStates"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration
 	StandardKnowledgeArticleTypeConfiguration *DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration `pulumi:"standardKnowledgeArticleTypeConfiguration"`
 }
@@ -6152,9 +4850,9 @@ type DataSourceSalesforceKnowledgeArticleConfigurationInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html
 type DataSourceSalesforceKnowledgeArticleConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
-	CustomKnowledgeArticleTypeConfigurations DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrInput `pulumi:"customKnowledgeArticleTypeConfigurations"`
+	CustomKnowledgeArticleTypeConfigurations DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayInput `pulumi:"customKnowledgeArticleTypeConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
-	IncludedStates DataSourceSalesforceKnowledgeArticleStateListInput `pulumi:"includedStates"`
+	IncludedStates pulumi.StringArrayInput `pulumi:"includedStates"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration
 	StandardKnowledgeArticleTypeConfiguration DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrInput `pulumi:"standardKnowledgeArticleTypeConfiguration"`
 }
@@ -6238,17 +4936,15 @@ func (o DataSourceSalesforceKnowledgeArticleConfigurationOutput) ToDataSourceSal
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
-func (o DataSourceSalesforceKnowledgeArticleConfigurationOutput) CustomKnowledgeArticleTypeConfigurations() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput {
-	return o.ApplyT(func(v DataSourceSalesforceKnowledgeArticleConfiguration) *DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList {
+func (o DataSourceSalesforceKnowledgeArticleConfigurationOutput) CustomKnowledgeArticleTypeConfigurations() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput {
+	return o.ApplyT(func(v DataSourceSalesforceKnowledgeArticleConfiguration) []DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration {
 		return v.CustomKnowledgeArticleTypeConfigurations
-	}).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput)
+	}).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
-func (o DataSourceSalesforceKnowledgeArticleConfigurationOutput) IncludedStates() DataSourceSalesforceKnowledgeArticleStateListOutput {
-	return o.ApplyT(func(v DataSourceSalesforceKnowledgeArticleConfiguration) DataSourceSalesforceKnowledgeArticleStateList {
-		return v.IncludedStates
-	}).(DataSourceSalesforceKnowledgeArticleStateListOutput)
+func (o DataSourceSalesforceKnowledgeArticleConfigurationOutput) IncludedStates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceSalesforceKnowledgeArticleConfiguration) []string { return v.IncludedStates }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration
@@ -6283,23 +4979,23 @@ func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) Elem() DataS
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
-func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) CustomKnowledgeArticleTypeConfigurations() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceKnowledgeArticleConfiguration) *DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList {
+func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) CustomKnowledgeArticleTypeConfigurations() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceKnowledgeArticleConfiguration) []DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.CustomKnowledgeArticleTypeConfigurations
-	}).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput)
+	}).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
-func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) IncludedStates() DataSourceSalesforceKnowledgeArticleStateListPtrOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceKnowledgeArticleConfiguration) *DataSourceSalesforceKnowledgeArticleStateList {
+func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) IncludedStates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceKnowledgeArticleConfiguration) []string {
 		if v == nil {
 			return nil
 		}
-		return &v.IncludedStates
-	}).(DataSourceSalesforceKnowledgeArticleStateListPtrOutput)
+		return v.IncludedStates
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration
@@ -6312,148 +5008,6 @@ func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) StandardKnow
 	}).(DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticlestatelist.html
-type DataSourceSalesforceKnowledgeArticleStateList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticlestatelist.html#cfn-kendra-datasource-salesforceknowledgearticlestatelist-salesforceknowledgearticlestatelist
-	SalesforceKnowledgeArticleStateList []string `pulumi:"salesforceKnowledgeArticleStateList"`
-}
-
-// DataSourceSalesforceKnowledgeArticleStateListInput is an input type that accepts DataSourceSalesforceKnowledgeArticleStateListArgs and DataSourceSalesforceKnowledgeArticleStateListOutput values.
-// You can construct a concrete instance of `DataSourceSalesforceKnowledgeArticleStateListInput` via:
-//
-//          DataSourceSalesforceKnowledgeArticleStateListArgs{...}
-type DataSourceSalesforceKnowledgeArticleStateListInput interface {
-	pulumi.Input
-
-	ToDataSourceSalesforceKnowledgeArticleStateListOutput() DataSourceSalesforceKnowledgeArticleStateListOutput
-	ToDataSourceSalesforceKnowledgeArticleStateListOutputWithContext(context.Context) DataSourceSalesforceKnowledgeArticleStateListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticlestatelist.html
-type DataSourceSalesforceKnowledgeArticleStateListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticlestatelist.html#cfn-kendra-datasource-salesforceknowledgearticlestatelist-salesforceknowledgearticlestatelist
-	SalesforceKnowledgeArticleStateList pulumi.StringArrayInput `pulumi:"salesforceKnowledgeArticleStateList"`
-}
-
-func (DataSourceSalesforceKnowledgeArticleStateListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceSalesforceKnowledgeArticleStateList)(nil)).Elem()
-}
-
-func (i DataSourceSalesforceKnowledgeArticleStateListArgs) ToDataSourceSalesforceKnowledgeArticleStateListOutput() DataSourceSalesforceKnowledgeArticleStateListOutput {
-	return i.ToDataSourceSalesforceKnowledgeArticleStateListOutputWithContext(context.Background())
-}
-
-func (i DataSourceSalesforceKnowledgeArticleStateListArgs) ToDataSourceSalesforceKnowledgeArticleStateListOutputWithContext(ctx context.Context) DataSourceSalesforceKnowledgeArticleStateListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceKnowledgeArticleStateListOutput)
-}
-
-func (i DataSourceSalesforceKnowledgeArticleStateListArgs) ToDataSourceSalesforceKnowledgeArticleStateListPtrOutput() DataSourceSalesforceKnowledgeArticleStateListPtrOutput {
-	return i.ToDataSourceSalesforceKnowledgeArticleStateListPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceSalesforceKnowledgeArticleStateListArgs) ToDataSourceSalesforceKnowledgeArticleStateListPtrOutputWithContext(ctx context.Context) DataSourceSalesforceKnowledgeArticleStateListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceKnowledgeArticleStateListOutput).ToDataSourceSalesforceKnowledgeArticleStateListPtrOutputWithContext(ctx)
-}
-
-// DataSourceSalesforceKnowledgeArticleStateListPtrInput is an input type that accepts DataSourceSalesforceKnowledgeArticleStateListArgs, DataSourceSalesforceKnowledgeArticleStateListPtr and DataSourceSalesforceKnowledgeArticleStateListPtrOutput values.
-// You can construct a concrete instance of `DataSourceSalesforceKnowledgeArticleStateListPtrInput` via:
-//
-//          DataSourceSalesforceKnowledgeArticleStateListArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceSalesforceKnowledgeArticleStateListPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceSalesforceKnowledgeArticleStateListPtrOutput() DataSourceSalesforceKnowledgeArticleStateListPtrOutput
-	ToDataSourceSalesforceKnowledgeArticleStateListPtrOutputWithContext(context.Context) DataSourceSalesforceKnowledgeArticleStateListPtrOutput
-}
-
-type dataSourceSalesforceKnowledgeArticleStateListPtrType DataSourceSalesforceKnowledgeArticleStateListArgs
-
-func DataSourceSalesforceKnowledgeArticleStateListPtr(v *DataSourceSalesforceKnowledgeArticleStateListArgs) DataSourceSalesforceKnowledgeArticleStateListPtrInput {
-	return (*dataSourceSalesforceKnowledgeArticleStateListPtrType)(v)
-}
-
-func (*dataSourceSalesforceKnowledgeArticleStateListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceSalesforceKnowledgeArticleStateList)(nil)).Elem()
-}
-
-func (i *dataSourceSalesforceKnowledgeArticleStateListPtrType) ToDataSourceSalesforceKnowledgeArticleStateListPtrOutput() DataSourceSalesforceKnowledgeArticleStateListPtrOutput {
-	return i.ToDataSourceSalesforceKnowledgeArticleStateListPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceSalesforceKnowledgeArticleStateListPtrType) ToDataSourceSalesforceKnowledgeArticleStateListPtrOutputWithContext(ctx context.Context) DataSourceSalesforceKnowledgeArticleStateListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceKnowledgeArticleStateListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticlestatelist.html
-type DataSourceSalesforceKnowledgeArticleStateListOutput struct{ *pulumi.OutputState }
-
-func (DataSourceSalesforceKnowledgeArticleStateListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceSalesforceKnowledgeArticleStateList)(nil)).Elem()
-}
-
-func (o DataSourceSalesforceKnowledgeArticleStateListOutput) ToDataSourceSalesforceKnowledgeArticleStateListOutput() DataSourceSalesforceKnowledgeArticleStateListOutput {
-	return o
-}
-
-func (o DataSourceSalesforceKnowledgeArticleStateListOutput) ToDataSourceSalesforceKnowledgeArticleStateListOutputWithContext(ctx context.Context) DataSourceSalesforceKnowledgeArticleStateListOutput {
-	return o
-}
-
-func (o DataSourceSalesforceKnowledgeArticleStateListOutput) ToDataSourceSalesforceKnowledgeArticleStateListPtrOutput() DataSourceSalesforceKnowledgeArticleStateListPtrOutput {
-	return o.ToDataSourceSalesforceKnowledgeArticleStateListPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceSalesforceKnowledgeArticleStateListOutput) ToDataSourceSalesforceKnowledgeArticleStateListPtrOutputWithContext(ctx context.Context) DataSourceSalesforceKnowledgeArticleStateListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSalesforceKnowledgeArticleStateList) *DataSourceSalesforceKnowledgeArticleStateList {
-		return &v
-	}).(DataSourceSalesforceKnowledgeArticleStateListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticlestatelist.html#cfn-kendra-datasource-salesforceknowledgearticlestatelist-salesforceknowledgearticlestatelist
-func (o DataSourceSalesforceKnowledgeArticleStateListOutput) SalesforceKnowledgeArticleStateList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DataSourceSalesforceKnowledgeArticleStateList) []string {
-		return v.SalesforceKnowledgeArticleStateList
-	}).(pulumi.StringArrayOutput)
-}
-
-type DataSourceSalesforceKnowledgeArticleStateListPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceSalesforceKnowledgeArticleStateListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceSalesforceKnowledgeArticleStateList)(nil)).Elem()
-}
-
-func (o DataSourceSalesforceKnowledgeArticleStateListPtrOutput) ToDataSourceSalesforceKnowledgeArticleStateListPtrOutput() DataSourceSalesforceKnowledgeArticleStateListPtrOutput {
-	return o
-}
-
-func (o DataSourceSalesforceKnowledgeArticleStateListPtrOutput) ToDataSourceSalesforceKnowledgeArticleStateListPtrOutputWithContext(ctx context.Context) DataSourceSalesforceKnowledgeArticleStateListPtrOutput {
-	return o
-}
-
-func (o DataSourceSalesforceKnowledgeArticleStateListPtrOutput) Elem() DataSourceSalesforceKnowledgeArticleStateListOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceKnowledgeArticleStateList) DataSourceSalesforceKnowledgeArticleStateList {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceSalesforceKnowledgeArticleStateList
-		return ret
-	}).(DataSourceSalesforceKnowledgeArticleStateListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticlestatelist.html#cfn-kendra-datasource-salesforceknowledgearticlestatelist-salesforceknowledgearticlestatelist
-func (o DataSourceSalesforceKnowledgeArticleStateListPtrOutput) SalesforceKnowledgeArticleStateList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceKnowledgeArticleStateList) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SalesforceKnowledgeArticleStateList
-	}).(pulumi.StringArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html
 type DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-documentdatafieldname
@@ -6461,7 +5015,7 @@ type DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-documenttitlefieldname
 	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-fieldmappings
-	FieldMappings *DataSourceDataSourceToIndexFieldMappingList `pulumi:"fieldMappings"`
+	FieldMappings []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
 }
 
 // DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationInput is an input type that accepts DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs and DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationOutput values.
@@ -6482,7 +5036,7 @@ type DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-documenttitlefieldname
 	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-fieldmappings
-	FieldMappings DataSourceDataSourceToIndexFieldMappingListPtrInput `pulumi:"fieldMappings"`
+	FieldMappings DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
 }
 
 func (DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs) ElementType() reflect.Type {
@@ -6578,10 +5132,10 @@ func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationOutput) Doc
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-fieldmappings
-func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 type DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -6629,13 +5183,13 @@ func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput) 
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html#cfn-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration-fieldmappings
-func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		if v == nil {
 			return nil
 		}
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html
@@ -6643,7 +5197,7 @@ type DataSourceSalesforceStandardObjectAttachmentConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-documenttitlefieldname
 	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-fieldmappings
-	FieldMappings *DataSourceDataSourceToIndexFieldMappingList `pulumi:"fieldMappings"`
+	FieldMappings []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
 }
 
 // DataSourceSalesforceStandardObjectAttachmentConfigurationInput is an input type that accepts DataSourceSalesforceStandardObjectAttachmentConfigurationArgs and DataSourceSalesforceStandardObjectAttachmentConfigurationOutput values.
@@ -6662,7 +5216,7 @@ type DataSourceSalesforceStandardObjectAttachmentConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-documenttitlefieldname
 	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-fieldmappings
-	FieldMappings DataSourceDataSourceToIndexFieldMappingListPtrInput `pulumi:"fieldMappings"`
+	FieldMappings DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
 }
 
 func (DataSourceSalesforceStandardObjectAttachmentConfigurationArgs) ElementType() reflect.Type {
@@ -6751,10 +5305,10 @@ func (o DataSourceSalesforceStandardObjectAttachmentConfigurationOutput) Documen
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-fieldmappings
-func (o DataSourceSalesforceStandardObjectAttachmentConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v DataSourceSalesforceStandardObjectAttachmentConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceSalesforceStandardObjectAttachmentConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceSalesforceStandardObjectAttachmentConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 type DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -6792,13 +5346,13 @@ func (o DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput) Docu
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectattachmentconfiguration-fieldmappings
-func (o DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceStandardObjectAttachmentConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceStandardObjectAttachmentConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		if v == nil {
 			return nil
 		}
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html
@@ -6808,7 +5362,7 @@ type DataSourceSalesforceStandardObjectConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-documenttitlefieldname
 	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-fieldmappings
-	FieldMappings *DataSourceDataSourceToIndexFieldMappingList `pulumi:"fieldMappings"`
+	FieldMappings []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-name
 	Name string `pulumi:"name"`
 }
@@ -6831,7 +5385,7 @@ type DataSourceSalesforceStandardObjectConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-documenttitlefieldname
 	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-fieldmappings
-	FieldMappings DataSourceDataSourceToIndexFieldMappingListPtrInput `pulumi:"fieldMappings"`
+	FieldMappings DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-name
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -6899,10 +5453,10 @@ func (o DataSourceSalesforceStandardObjectConfigurationOutput) DocumentTitleFiel
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-fieldmappings
-func (o DataSourceSalesforceStandardObjectConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v DataSourceSalesforceStandardObjectConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceSalesforceStandardObjectConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceSalesforceStandardObjectConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html#cfn-kendra-datasource-salesforcestandardobjectconfiguration-name
@@ -6928,148 +5482,6 @@ func (o DataSourceSalesforceStandardObjectConfigurationArrayOutput) Index(i pulu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceSalesforceStandardObjectConfiguration {
 		return vs[0].([]DataSourceSalesforceStandardObjectConfiguration)[vs[1].(int)]
 	}).(DataSourceSalesforceStandardObjectConfigurationOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html
-type DataSourceSalesforceStandardObjectConfigurationList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html#cfn-kendra-datasource-salesforcestandardobjectconfigurationlist-salesforcestandardobjectconfigurationlist
-	SalesforceStandardObjectConfigurationList []DataSourceSalesforceStandardObjectConfiguration `pulumi:"salesforceStandardObjectConfigurationList"`
-}
-
-// DataSourceSalesforceStandardObjectConfigurationListInput is an input type that accepts DataSourceSalesforceStandardObjectConfigurationListArgs and DataSourceSalesforceStandardObjectConfigurationListOutput values.
-// You can construct a concrete instance of `DataSourceSalesforceStandardObjectConfigurationListInput` via:
-//
-//          DataSourceSalesforceStandardObjectConfigurationListArgs{...}
-type DataSourceSalesforceStandardObjectConfigurationListInput interface {
-	pulumi.Input
-
-	ToDataSourceSalesforceStandardObjectConfigurationListOutput() DataSourceSalesforceStandardObjectConfigurationListOutput
-	ToDataSourceSalesforceStandardObjectConfigurationListOutputWithContext(context.Context) DataSourceSalesforceStandardObjectConfigurationListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html
-type DataSourceSalesforceStandardObjectConfigurationListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html#cfn-kendra-datasource-salesforcestandardobjectconfigurationlist-salesforcestandardobjectconfigurationlist
-	SalesforceStandardObjectConfigurationList DataSourceSalesforceStandardObjectConfigurationArrayInput `pulumi:"salesforceStandardObjectConfigurationList"`
-}
-
-func (DataSourceSalesforceStandardObjectConfigurationListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceSalesforceStandardObjectConfigurationList)(nil)).Elem()
-}
-
-func (i DataSourceSalesforceStandardObjectConfigurationListArgs) ToDataSourceSalesforceStandardObjectConfigurationListOutput() DataSourceSalesforceStandardObjectConfigurationListOutput {
-	return i.ToDataSourceSalesforceStandardObjectConfigurationListOutputWithContext(context.Background())
-}
-
-func (i DataSourceSalesforceStandardObjectConfigurationListArgs) ToDataSourceSalesforceStandardObjectConfigurationListOutputWithContext(ctx context.Context) DataSourceSalesforceStandardObjectConfigurationListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceStandardObjectConfigurationListOutput)
-}
-
-func (i DataSourceSalesforceStandardObjectConfigurationListArgs) ToDataSourceSalesforceStandardObjectConfigurationListPtrOutput() DataSourceSalesforceStandardObjectConfigurationListPtrOutput {
-	return i.ToDataSourceSalesforceStandardObjectConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceSalesforceStandardObjectConfigurationListArgs) ToDataSourceSalesforceStandardObjectConfigurationListPtrOutputWithContext(ctx context.Context) DataSourceSalesforceStandardObjectConfigurationListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceStandardObjectConfigurationListOutput).ToDataSourceSalesforceStandardObjectConfigurationListPtrOutputWithContext(ctx)
-}
-
-// DataSourceSalesforceStandardObjectConfigurationListPtrInput is an input type that accepts DataSourceSalesforceStandardObjectConfigurationListArgs, DataSourceSalesforceStandardObjectConfigurationListPtr and DataSourceSalesforceStandardObjectConfigurationListPtrOutput values.
-// You can construct a concrete instance of `DataSourceSalesforceStandardObjectConfigurationListPtrInput` via:
-//
-//          DataSourceSalesforceStandardObjectConfigurationListArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceSalesforceStandardObjectConfigurationListPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceSalesforceStandardObjectConfigurationListPtrOutput() DataSourceSalesforceStandardObjectConfigurationListPtrOutput
-	ToDataSourceSalesforceStandardObjectConfigurationListPtrOutputWithContext(context.Context) DataSourceSalesforceStandardObjectConfigurationListPtrOutput
-}
-
-type dataSourceSalesforceStandardObjectConfigurationListPtrType DataSourceSalesforceStandardObjectConfigurationListArgs
-
-func DataSourceSalesforceStandardObjectConfigurationListPtr(v *DataSourceSalesforceStandardObjectConfigurationListArgs) DataSourceSalesforceStandardObjectConfigurationListPtrInput {
-	return (*dataSourceSalesforceStandardObjectConfigurationListPtrType)(v)
-}
-
-func (*dataSourceSalesforceStandardObjectConfigurationListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceSalesforceStandardObjectConfigurationList)(nil)).Elem()
-}
-
-func (i *dataSourceSalesforceStandardObjectConfigurationListPtrType) ToDataSourceSalesforceStandardObjectConfigurationListPtrOutput() DataSourceSalesforceStandardObjectConfigurationListPtrOutput {
-	return i.ToDataSourceSalesforceStandardObjectConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceSalesforceStandardObjectConfigurationListPtrType) ToDataSourceSalesforceStandardObjectConfigurationListPtrOutputWithContext(ctx context.Context) DataSourceSalesforceStandardObjectConfigurationListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSalesforceStandardObjectConfigurationListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html
-type DataSourceSalesforceStandardObjectConfigurationListOutput struct{ *pulumi.OutputState }
-
-func (DataSourceSalesforceStandardObjectConfigurationListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceSalesforceStandardObjectConfigurationList)(nil)).Elem()
-}
-
-func (o DataSourceSalesforceStandardObjectConfigurationListOutput) ToDataSourceSalesforceStandardObjectConfigurationListOutput() DataSourceSalesforceStandardObjectConfigurationListOutput {
-	return o
-}
-
-func (o DataSourceSalesforceStandardObjectConfigurationListOutput) ToDataSourceSalesforceStandardObjectConfigurationListOutputWithContext(ctx context.Context) DataSourceSalesforceStandardObjectConfigurationListOutput {
-	return o
-}
-
-func (o DataSourceSalesforceStandardObjectConfigurationListOutput) ToDataSourceSalesforceStandardObjectConfigurationListPtrOutput() DataSourceSalesforceStandardObjectConfigurationListPtrOutput {
-	return o.ToDataSourceSalesforceStandardObjectConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceSalesforceStandardObjectConfigurationListOutput) ToDataSourceSalesforceStandardObjectConfigurationListPtrOutputWithContext(ctx context.Context) DataSourceSalesforceStandardObjectConfigurationListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSalesforceStandardObjectConfigurationList) *DataSourceSalesforceStandardObjectConfigurationList {
-		return &v
-	}).(DataSourceSalesforceStandardObjectConfigurationListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html#cfn-kendra-datasource-salesforcestandardobjectconfigurationlist-salesforcestandardobjectconfigurationlist
-func (o DataSourceSalesforceStandardObjectConfigurationListOutput) SalesforceStandardObjectConfigurationList() DataSourceSalesforceStandardObjectConfigurationArrayOutput {
-	return o.ApplyT(func(v DataSourceSalesforceStandardObjectConfigurationList) []DataSourceSalesforceStandardObjectConfiguration {
-		return v.SalesforceStandardObjectConfigurationList
-	}).(DataSourceSalesforceStandardObjectConfigurationArrayOutput)
-}
-
-type DataSourceSalesforceStandardObjectConfigurationListPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceSalesforceStandardObjectConfigurationListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceSalesforceStandardObjectConfigurationList)(nil)).Elem()
-}
-
-func (o DataSourceSalesforceStandardObjectConfigurationListPtrOutput) ToDataSourceSalesforceStandardObjectConfigurationListPtrOutput() DataSourceSalesforceStandardObjectConfigurationListPtrOutput {
-	return o
-}
-
-func (o DataSourceSalesforceStandardObjectConfigurationListPtrOutput) ToDataSourceSalesforceStandardObjectConfigurationListPtrOutputWithContext(ctx context.Context) DataSourceSalesforceStandardObjectConfigurationListPtrOutput {
-	return o
-}
-
-func (o DataSourceSalesforceStandardObjectConfigurationListPtrOutput) Elem() DataSourceSalesforceStandardObjectConfigurationListOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceStandardObjectConfigurationList) DataSourceSalesforceStandardObjectConfigurationList {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceSalesforceStandardObjectConfigurationList
-		return ret
-	}).(DataSourceSalesforceStandardObjectConfigurationListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfigurationlist.html#cfn-kendra-datasource-salesforcestandardobjectconfigurationlist-salesforcestandardobjectconfigurationlist
-func (o DataSourceSalesforceStandardObjectConfigurationListPtrOutput) SalesforceStandardObjectConfigurationList() DataSourceSalesforceStandardObjectConfigurationArrayOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceStandardObjectConfigurationList) []DataSourceSalesforceStandardObjectConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.SalesforceStandardObjectConfigurationList
-	}).(DataSourceSalesforceStandardObjectConfigurationArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html
@@ -7301,11 +5713,11 @@ type DataSourceServiceNowKnowledgeArticleConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-documenttitlefieldname
 	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-excludeattachmentfilepatterns
-	ExcludeAttachmentFilePatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"excludeAttachmentFilePatterns"`
+	ExcludeAttachmentFilePatterns []string `pulumi:"excludeAttachmentFilePatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-fieldmappings
-	FieldMappings *DataSourceDataSourceToIndexFieldMappingList `pulumi:"fieldMappings"`
+	FieldMappings []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-includeattachmentfilepatterns
-	IncludeAttachmentFilePatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"includeAttachmentFilePatterns"`
+	IncludeAttachmentFilePatterns []string `pulumi:"includeAttachmentFilePatterns"`
 }
 
 // DataSourceServiceNowKnowledgeArticleConfigurationInput is an input type that accepts DataSourceServiceNowKnowledgeArticleConfigurationArgs and DataSourceServiceNowKnowledgeArticleConfigurationOutput values.
@@ -7328,11 +5740,11 @@ type DataSourceServiceNowKnowledgeArticleConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-documenttitlefieldname
 	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-excludeattachmentfilepatterns
-	ExcludeAttachmentFilePatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"excludeAttachmentFilePatterns"`
+	ExcludeAttachmentFilePatterns pulumi.StringArrayInput `pulumi:"excludeAttachmentFilePatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-fieldmappings
-	FieldMappings DataSourceDataSourceToIndexFieldMappingListPtrInput `pulumi:"fieldMappings"`
+	FieldMappings DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-includeattachmentfilepatterns
-	IncludeAttachmentFilePatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"includeAttachmentFilePatterns"`
+	IncludeAttachmentFilePatterns pulumi.StringArrayInput `pulumi:"includeAttachmentFilePatterns"`
 }
 
 func (DataSourceServiceNowKnowledgeArticleConfigurationArgs) ElementType() reflect.Type {
@@ -7429,24 +5841,24 @@ func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) DocumentTitleFi
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-excludeattachmentfilepatterns
-func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) ExcludeAttachmentFilePatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceServiceNowKnowledgeArticleConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) ExcludeAttachmentFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceServiceNowKnowledgeArticleConfiguration) []string {
 		return v.ExcludeAttachmentFilePatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-fieldmappings
-func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v DataSourceServiceNowKnowledgeArticleConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceServiceNowKnowledgeArticleConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-includeattachmentfilepatterns
-func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) IncludeAttachmentFilePatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceServiceNowKnowledgeArticleConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) IncludeAttachmentFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceServiceNowKnowledgeArticleConfiguration) []string {
 		return v.IncludeAttachmentFilePatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 type DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -7504,33 +5916,33 @@ func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) DocumentTitl
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-excludeattachmentfilepatterns
-func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) ExcludeAttachmentFilePatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceServiceNowKnowledgeArticleConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) ExcludeAttachmentFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceServiceNowKnowledgeArticleConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.ExcludeAttachmentFilePatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-fieldmappings
-func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v *DataSourceServiceNowKnowledgeArticleConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v *DataSourceServiceNowKnowledgeArticleConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		if v == nil {
 			return nil
 		}
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-includeattachmentfilepatterns
-func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) IncludeAttachmentFilePatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceServiceNowKnowledgeArticleConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) IncludeAttachmentFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceServiceNowKnowledgeArticleConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.IncludeAttachmentFilePatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html
@@ -7542,11 +5954,11 @@ type DataSourceServiceNowServiceCatalogConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-documenttitlefieldname
 	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-excludeattachmentfilepatterns
-	ExcludeAttachmentFilePatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"excludeAttachmentFilePatterns"`
+	ExcludeAttachmentFilePatterns []string `pulumi:"excludeAttachmentFilePatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-fieldmappings
-	FieldMappings *DataSourceDataSourceToIndexFieldMappingList `pulumi:"fieldMappings"`
+	FieldMappings []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-includeattachmentfilepatterns
-	IncludeAttachmentFilePatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"includeAttachmentFilePatterns"`
+	IncludeAttachmentFilePatterns []string `pulumi:"includeAttachmentFilePatterns"`
 }
 
 // DataSourceServiceNowServiceCatalogConfigurationInput is an input type that accepts DataSourceServiceNowServiceCatalogConfigurationArgs and DataSourceServiceNowServiceCatalogConfigurationOutput values.
@@ -7569,11 +5981,11 @@ type DataSourceServiceNowServiceCatalogConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-documenttitlefieldname
 	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-excludeattachmentfilepatterns
-	ExcludeAttachmentFilePatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"excludeAttachmentFilePatterns"`
+	ExcludeAttachmentFilePatterns pulumi.StringArrayInput `pulumi:"excludeAttachmentFilePatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-fieldmappings
-	FieldMappings DataSourceDataSourceToIndexFieldMappingListPtrInput `pulumi:"fieldMappings"`
+	FieldMappings DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-includeattachmentfilepatterns
-	IncludeAttachmentFilePatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"includeAttachmentFilePatterns"`
+	IncludeAttachmentFilePatterns pulumi.StringArrayInput `pulumi:"includeAttachmentFilePatterns"`
 }
 
 func (DataSourceServiceNowServiceCatalogConfigurationArgs) ElementType() reflect.Type {
@@ -7670,24 +6082,24 @@ func (o DataSourceServiceNowServiceCatalogConfigurationOutput) DocumentTitleFiel
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-excludeattachmentfilepatterns
-func (o DataSourceServiceNowServiceCatalogConfigurationOutput) ExcludeAttachmentFilePatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceServiceNowServiceCatalogConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceServiceNowServiceCatalogConfigurationOutput) ExcludeAttachmentFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceServiceNowServiceCatalogConfiguration) []string {
 		return v.ExcludeAttachmentFilePatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-fieldmappings
-func (o DataSourceServiceNowServiceCatalogConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v DataSourceServiceNowServiceCatalogConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceServiceNowServiceCatalogConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceServiceNowServiceCatalogConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-includeattachmentfilepatterns
-func (o DataSourceServiceNowServiceCatalogConfigurationOutput) IncludeAttachmentFilePatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceServiceNowServiceCatalogConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceServiceNowServiceCatalogConfigurationOutput) IncludeAttachmentFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceServiceNowServiceCatalogConfiguration) []string {
 		return v.IncludeAttachmentFilePatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 type DataSourceServiceNowServiceCatalogConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -7745,33 +6157,33 @@ func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) DocumentTitleF
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-excludeattachmentfilepatterns
-func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) ExcludeAttachmentFilePatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceServiceNowServiceCatalogConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) ExcludeAttachmentFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceServiceNowServiceCatalogConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.ExcludeAttachmentFilePatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-fieldmappings
-func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v *DataSourceServiceNowServiceCatalogConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v *DataSourceServiceNowServiceCatalogConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		if v == nil {
 			return nil
 		}
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html#cfn-kendra-datasource-servicenowservicecatalogconfiguration-includeattachmentfilepatterns
-func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) IncludeAttachmentFilePatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceServiceNowServiceCatalogConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) IncludeAttachmentFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceServiceNowServiceCatalogConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.IncludeAttachmentFilePatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html
@@ -7783,11 +6195,11 @@ type DataSourceSharePointConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-documenttitlefieldname
 	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-exclusionpatterns
-	ExclusionPatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"exclusionPatterns"`
+	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-fieldmappings
-	FieldMappings *DataSourceDataSourceToIndexFieldMappingList `pulumi:"fieldMappings"`
+	FieldMappings []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-inclusionpatterns
-	InclusionPatterns *DataSourceDataSourceInclusionsExclusionsStrings `pulumi:"inclusionPatterns"`
+	InclusionPatterns []string `pulumi:"inclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-secretarn
 	SecretArn string `pulumi:"secretArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-sharepointversion
@@ -7820,11 +6232,11 @@ type DataSourceSharePointConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-documenttitlefieldname
 	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-exclusionpatterns
-	ExclusionPatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"exclusionPatterns"`
+	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-fieldmappings
-	FieldMappings DataSourceDataSourceToIndexFieldMappingListPtrInput `pulumi:"fieldMappings"`
+	FieldMappings DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-inclusionpatterns
-	InclusionPatterns DataSourceDataSourceInclusionsExclusionsStringsPtrInput `pulumi:"inclusionPatterns"`
+	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-secretarn
 	SecretArn pulumi.StringInput `pulumi:"secretArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-sharepointversion
@@ -7931,24 +6343,20 @@ func (o DataSourceSharePointConfigurationOutput) DocumentTitleFieldName() pulumi
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-exclusionpatterns
-func (o DataSourceSharePointConfigurationOutput) ExclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceSharePointConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
-		return v.ExclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+func (o DataSourceSharePointConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceSharePointConfiguration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-fieldmappings
-func (o DataSourceSharePointConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v DataSourceSharePointConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceSharePointConfigurationOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v DataSourceSharePointConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-inclusionpatterns
-func (o DataSourceSharePointConfigurationOutput) InclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v DataSourceSharePointConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
-		return v.InclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+func (o DataSourceSharePointConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceSharePointConfiguration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-secretarn
@@ -8033,33 +6441,33 @@ func (o DataSourceSharePointConfigurationPtrOutput) DocumentTitleFieldName() pul
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-exclusionpatterns
-func (o DataSourceSharePointConfigurationPtrOutput) ExclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceSharePointConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceSharePointConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceSharePointConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.ExclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-fieldmappings
-func (o DataSourceSharePointConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingListPtrOutput {
-	return o.ApplyT(func(v *DataSourceSharePointConfiguration) *DataSourceDataSourceToIndexFieldMappingList {
+func (o DataSourceSharePointConfigurationPtrOutput) FieldMappings() DataSourceDataSourceToIndexFieldMappingArrayOutput {
+	return o.ApplyT(func(v *DataSourceSharePointConfiguration) []DataSourceDataSourceToIndexFieldMapping {
 		if v == nil {
 			return nil
 		}
 		return v.FieldMappings
-	}).(DataSourceDataSourceToIndexFieldMappingListPtrOutput)
+	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-inclusionpatterns
-func (o DataSourceSharePointConfigurationPtrOutput) InclusionPatterns() DataSourceDataSourceInclusionsExclusionsStringsPtrOutput {
-	return o.ApplyT(func(v *DataSourceSharePointConfiguration) *DataSourceDataSourceInclusionsExclusionsStrings {
+func (o DataSourceSharePointConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceSharePointConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.InclusionPatterns
-	}).(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html#cfn-kendra-datasource-sharepointconfiguration-secretarn
@@ -8252,146 +6660,6 @@ func (o DataSourceSqlConfigurationPtrOutput) QueryIdentifiersEnclosingOption() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html
-type DataSourceTagList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html#cfn-kendra-datasource-taglist-taglist
-	TagList []aws.Tag `pulumi:"tagList"`
-}
-
-// DataSourceTagListInput is an input type that accepts DataSourceTagListArgs and DataSourceTagListOutput values.
-// You can construct a concrete instance of `DataSourceTagListInput` via:
-//
-//          DataSourceTagListArgs{...}
-type DataSourceTagListInput interface {
-	pulumi.Input
-
-	ToDataSourceTagListOutput() DataSourceTagListOutput
-	ToDataSourceTagListOutputWithContext(context.Context) DataSourceTagListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html
-type DataSourceTagListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html#cfn-kendra-datasource-taglist-taglist
-	TagList aws.TagArrayInput `pulumi:"tagList"`
-}
-
-func (DataSourceTagListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceTagList)(nil)).Elem()
-}
-
-func (i DataSourceTagListArgs) ToDataSourceTagListOutput() DataSourceTagListOutput {
-	return i.ToDataSourceTagListOutputWithContext(context.Background())
-}
-
-func (i DataSourceTagListArgs) ToDataSourceTagListOutputWithContext(ctx context.Context) DataSourceTagListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTagListOutput)
-}
-
-func (i DataSourceTagListArgs) ToDataSourceTagListPtrOutput() DataSourceTagListPtrOutput {
-	return i.ToDataSourceTagListPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceTagListArgs) ToDataSourceTagListPtrOutputWithContext(ctx context.Context) DataSourceTagListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTagListOutput).ToDataSourceTagListPtrOutputWithContext(ctx)
-}
-
-// DataSourceTagListPtrInput is an input type that accepts DataSourceTagListArgs, DataSourceTagListPtr and DataSourceTagListPtrOutput values.
-// You can construct a concrete instance of `DataSourceTagListPtrInput` via:
-//
-//          DataSourceTagListArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceTagListPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceTagListPtrOutput() DataSourceTagListPtrOutput
-	ToDataSourceTagListPtrOutputWithContext(context.Context) DataSourceTagListPtrOutput
-}
-
-type dataSourceTagListPtrType DataSourceTagListArgs
-
-func DataSourceTagListPtr(v *DataSourceTagListArgs) DataSourceTagListPtrInput {
-	return (*dataSourceTagListPtrType)(v)
-}
-
-func (*dataSourceTagListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceTagList)(nil)).Elem()
-}
-
-func (i *dataSourceTagListPtrType) ToDataSourceTagListPtrOutput() DataSourceTagListPtrOutput {
-	return i.ToDataSourceTagListPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceTagListPtrType) ToDataSourceTagListPtrOutputWithContext(ctx context.Context) DataSourceTagListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTagListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html
-type DataSourceTagListOutput struct{ *pulumi.OutputState }
-
-func (DataSourceTagListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceTagList)(nil)).Elem()
-}
-
-func (o DataSourceTagListOutput) ToDataSourceTagListOutput() DataSourceTagListOutput {
-	return o
-}
-
-func (o DataSourceTagListOutput) ToDataSourceTagListOutputWithContext(ctx context.Context) DataSourceTagListOutput {
-	return o
-}
-
-func (o DataSourceTagListOutput) ToDataSourceTagListPtrOutput() DataSourceTagListPtrOutput {
-	return o.ToDataSourceTagListPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceTagListOutput) ToDataSourceTagListPtrOutputWithContext(ctx context.Context) DataSourceTagListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceTagList) *DataSourceTagList {
-		return &v
-	}).(DataSourceTagListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html#cfn-kendra-datasource-taglist-taglist
-func (o DataSourceTagListOutput) TagList() aws.TagArrayOutput {
-	return o.ApplyT(func(v DataSourceTagList) []aws.Tag { return v.TagList }).(aws.TagArrayOutput)
-}
-
-type DataSourceTagListPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceTagListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceTagList)(nil)).Elem()
-}
-
-func (o DataSourceTagListPtrOutput) ToDataSourceTagListPtrOutput() DataSourceTagListPtrOutput {
-	return o
-}
-
-func (o DataSourceTagListPtrOutput) ToDataSourceTagListPtrOutputWithContext(ctx context.Context) DataSourceTagListPtrOutput {
-	return o
-}
-
-func (o DataSourceTagListPtrOutput) Elem() DataSourceTagListOutput {
-	return o.ApplyT(func(v *DataSourceTagList) DataSourceTagList {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceTagList
-		return ret
-	}).(DataSourceTagListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-taglist.html#cfn-kendra-datasource-taglist-taglist
-func (o DataSourceTagListPtrOutput) TagList() aws.TagArrayOutput {
-	return o.ApplyT(func(v *DataSourceTagList) []aws.Tag {
-		if v == nil {
-			return nil
-		}
-		return v.TagList
-	}).(aws.TagArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-s3path.html
 type FaqS3Path struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-s3path.html#cfn-kendra-faq-s3path-bucket
@@ -8549,146 +6817,6 @@ func (o FaqS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 		}
 		return &v.Key
 	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html
-type FaqTagList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html#cfn-kendra-faq-taglist-taglist
-	TagList []aws.Tag `pulumi:"tagList"`
-}
-
-// FaqTagListInput is an input type that accepts FaqTagListArgs and FaqTagListOutput values.
-// You can construct a concrete instance of `FaqTagListInput` via:
-//
-//          FaqTagListArgs{...}
-type FaqTagListInput interface {
-	pulumi.Input
-
-	ToFaqTagListOutput() FaqTagListOutput
-	ToFaqTagListOutputWithContext(context.Context) FaqTagListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html
-type FaqTagListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html#cfn-kendra-faq-taglist-taglist
-	TagList aws.TagArrayInput `pulumi:"tagList"`
-}
-
-func (FaqTagListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FaqTagList)(nil)).Elem()
-}
-
-func (i FaqTagListArgs) ToFaqTagListOutput() FaqTagListOutput {
-	return i.ToFaqTagListOutputWithContext(context.Background())
-}
-
-func (i FaqTagListArgs) ToFaqTagListOutputWithContext(ctx context.Context) FaqTagListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FaqTagListOutput)
-}
-
-func (i FaqTagListArgs) ToFaqTagListPtrOutput() FaqTagListPtrOutput {
-	return i.ToFaqTagListPtrOutputWithContext(context.Background())
-}
-
-func (i FaqTagListArgs) ToFaqTagListPtrOutputWithContext(ctx context.Context) FaqTagListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FaqTagListOutput).ToFaqTagListPtrOutputWithContext(ctx)
-}
-
-// FaqTagListPtrInput is an input type that accepts FaqTagListArgs, FaqTagListPtr and FaqTagListPtrOutput values.
-// You can construct a concrete instance of `FaqTagListPtrInput` via:
-//
-//          FaqTagListArgs{...}
-//
-//  or:
-//
-//          nil
-type FaqTagListPtrInput interface {
-	pulumi.Input
-
-	ToFaqTagListPtrOutput() FaqTagListPtrOutput
-	ToFaqTagListPtrOutputWithContext(context.Context) FaqTagListPtrOutput
-}
-
-type faqTagListPtrType FaqTagListArgs
-
-func FaqTagListPtr(v *FaqTagListArgs) FaqTagListPtrInput {
-	return (*faqTagListPtrType)(v)
-}
-
-func (*faqTagListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FaqTagList)(nil)).Elem()
-}
-
-func (i *faqTagListPtrType) ToFaqTagListPtrOutput() FaqTagListPtrOutput {
-	return i.ToFaqTagListPtrOutputWithContext(context.Background())
-}
-
-func (i *faqTagListPtrType) ToFaqTagListPtrOutputWithContext(ctx context.Context) FaqTagListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FaqTagListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html
-type FaqTagListOutput struct{ *pulumi.OutputState }
-
-func (FaqTagListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FaqTagList)(nil)).Elem()
-}
-
-func (o FaqTagListOutput) ToFaqTagListOutput() FaqTagListOutput {
-	return o
-}
-
-func (o FaqTagListOutput) ToFaqTagListOutputWithContext(ctx context.Context) FaqTagListOutput {
-	return o
-}
-
-func (o FaqTagListOutput) ToFaqTagListPtrOutput() FaqTagListPtrOutput {
-	return o.ToFaqTagListPtrOutputWithContext(context.Background())
-}
-
-func (o FaqTagListOutput) ToFaqTagListPtrOutputWithContext(ctx context.Context) FaqTagListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FaqTagList) *FaqTagList {
-		return &v
-	}).(FaqTagListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html#cfn-kendra-faq-taglist-taglist
-func (o FaqTagListOutput) TagList() aws.TagArrayOutput {
-	return o.ApplyT(func(v FaqTagList) []aws.Tag { return v.TagList }).(aws.TagArrayOutput)
-}
-
-type FaqTagListPtrOutput struct{ *pulumi.OutputState }
-
-func (FaqTagListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FaqTagList)(nil)).Elem()
-}
-
-func (o FaqTagListPtrOutput) ToFaqTagListPtrOutput() FaqTagListPtrOutput {
-	return o
-}
-
-func (o FaqTagListPtrOutput) ToFaqTagListPtrOutputWithContext(ctx context.Context) FaqTagListPtrOutput {
-	return o
-}
-
-func (o FaqTagListPtrOutput) Elem() FaqTagListOutput {
-	return o.ApplyT(func(v *FaqTagList) FaqTagList {
-		if v != nil {
-			return *v
-		}
-		var ret FaqTagList
-		return ret
-	}).(FaqTagListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-taglist.html#cfn-kendra-faq-taglist-taglist
-func (o FaqTagListPtrOutput) TagList() aws.TagArrayOutput {
-	return o.ApplyT(func(v *FaqTagList) []aws.Tag {
-		if v == nil {
-			return nil
-		}
-		return v.TagList
-	}).(aws.TagArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html
@@ -8975,148 +7103,6 @@ func (o IndexDocumentMetadataConfigurationArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IndexDocumentMetadataConfiguration {
 		return vs[0].([]IndexDocumentMetadataConfiguration)[vs[1].(int)]
 	}).(IndexDocumentMetadataConfigurationOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html
-type IndexDocumentMetadataConfigurationList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html#cfn-kendra-index-documentmetadataconfigurationlist-documentmetadataconfigurationlist
-	DocumentMetadataConfigurationList []IndexDocumentMetadataConfiguration `pulumi:"documentMetadataConfigurationList"`
-}
-
-// IndexDocumentMetadataConfigurationListInput is an input type that accepts IndexDocumentMetadataConfigurationListArgs and IndexDocumentMetadataConfigurationListOutput values.
-// You can construct a concrete instance of `IndexDocumentMetadataConfigurationListInput` via:
-//
-//          IndexDocumentMetadataConfigurationListArgs{...}
-type IndexDocumentMetadataConfigurationListInput interface {
-	pulumi.Input
-
-	ToIndexDocumentMetadataConfigurationListOutput() IndexDocumentMetadataConfigurationListOutput
-	ToIndexDocumentMetadataConfigurationListOutputWithContext(context.Context) IndexDocumentMetadataConfigurationListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html
-type IndexDocumentMetadataConfigurationListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html#cfn-kendra-index-documentmetadataconfigurationlist-documentmetadataconfigurationlist
-	DocumentMetadataConfigurationList IndexDocumentMetadataConfigurationArrayInput `pulumi:"documentMetadataConfigurationList"`
-}
-
-func (IndexDocumentMetadataConfigurationListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IndexDocumentMetadataConfigurationList)(nil)).Elem()
-}
-
-func (i IndexDocumentMetadataConfigurationListArgs) ToIndexDocumentMetadataConfigurationListOutput() IndexDocumentMetadataConfigurationListOutput {
-	return i.ToIndexDocumentMetadataConfigurationListOutputWithContext(context.Background())
-}
-
-func (i IndexDocumentMetadataConfigurationListArgs) ToIndexDocumentMetadataConfigurationListOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationListOutput)
-}
-
-func (i IndexDocumentMetadataConfigurationListArgs) ToIndexDocumentMetadataConfigurationListPtrOutput() IndexDocumentMetadataConfigurationListPtrOutput {
-	return i.ToIndexDocumentMetadataConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (i IndexDocumentMetadataConfigurationListArgs) ToIndexDocumentMetadataConfigurationListPtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationListOutput).ToIndexDocumentMetadataConfigurationListPtrOutputWithContext(ctx)
-}
-
-// IndexDocumentMetadataConfigurationListPtrInput is an input type that accepts IndexDocumentMetadataConfigurationListArgs, IndexDocumentMetadataConfigurationListPtr and IndexDocumentMetadataConfigurationListPtrOutput values.
-// You can construct a concrete instance of `IndexDocumentMetadataConfigurationListPtrInput` via:
-//
-//          IndexDocumentMetadataConfigurationListArgs{...}
-//
-//  or:
-//
-//          nil
-type IndexDocumentMetadataConfigurationListPtrInput interface {
-	pulumi.Input
-
-	ToIndexDocumentMetadataConfigurationListPtrOutput() IndexDocumentMetadataConfigurationListPtrOutput
-	ToIndexDocumentMetadataConfigurationListPtrOutputWithContext(context.Context) IndexDocumentMetadataConfigurationListPtrOutput
-}
-
-type indexDocumentMetadataConfigurationListPtrType IndexDocumentMetadataConfigurationListArgs
-
-func IndexDocumentMetadataConfigurationListPtr(v *IndexDocumentMetadataConfigurationListArgs) IndexDocumentMetadataConfigurationListPtrInput {
-	return (*indexDocumentMetadataConfigurationListPtrType)(v)
-}
-
-func (*indexDocumentMetadataConfigurationListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IndexDocumentMetadataConfigurationList)(nil)).Elem()
-}
-
-func (i *indexDocumentMetadataConfigurationListPtrType) ToIndexDocumentMetadataConfigurationListPtrOutput() IndexDocumentMetadataConfigurationListPtrOutput {
-	return i.ToIndexDocumentMetadataConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (i *indexDocumentMetadataConfigurationListPtrType) ToIndexDocumentMetadataConfigurationListPtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexDocumentMetadataConfigurationListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html
-type IndexDocumentMetadataConfigurationListOutput struct{ *pulumi.OutputState }
-
-func (IndexDocumentMetadataConfigurationListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IndexDocumentMetadataConfigurationList)(nil)).Elem()
-}
-
-func (o IndexDocumentMetadataConfigurationListOutput) ToIndexDocumentMetadataConfigurationListOutput() IndexDocumentMetadataConfigurationListOutput {
-	return o
-}
-
-func (o IndexDocumentMetadataConfigurationListOutput) ToIndexDocumentMetadataConfigurationListOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationListOutput {
-	return o
-}
-
-func (o IndexDocumentMetadataConfigurationListOutput) ToIndexDocumentMetadataConfigurationListPtrOutput() IndexDocumentMetadataConfigurationListPtrOutput {
-	return o.ToIndexDocumentMetadataConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (o IndexDocumentMetadataConfigurationListOutput) ToIndexDocumentMetadataConfigurationListPtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexDocumentMetadataConfigurationList) *IndexDocumentMetadataConfigurationList {
-		return &v
-	}).(IndexDocumentMetadataConfigurationListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html#cfn-kendra-index-documentmetadataconfigurationlist-documentmetadataconfigurationlist
-func (o IndexDocumentMetadataConfigurationListOutput) DocumentMetadataConfigurationList() IndexDocumentMetadataConfigurationArrayOutput {
-	return o.ApplyT(func(v IndexDocumentMetadataConfigurationList) []IndexDocumentMetadataConfiguration {
-		return v.DocumentMetadataConfigurationList
-	}).(IndexDocumentMetadataConfigurationArrayOutput)
-}
-
-type IndexDocumentMetadataConfigurationListPtrOutput struct{ *pulumi.OutputState }
-
-func (IndexDocumentMetadataConfigurationListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IndexDocumentMetadataConfigurationList)(nil)).Elem()
-}
-
-func (o IndexDocumentMetadataConfigurationListPtrOutput) ToIndexDocumentMetadataConfigurationListPtrOutput() IndexDocumentMetadataConfigurationListPtrOutput {
-	return o
-}
-
-func (o IndexDocumentMetadataConfigurationListPtrOutput) ToIndexDocumentMetadataConfigurationListPtrOutputWithContext(ctx context.Context) IndexDocumentMetadataConfigurationListPtrOutput {
-	return o
-}
-
-func (o IndexDocumentMetadataConfigurationListPtrOutput) Elem() IndexDocumentMetadataConfigurationListOutput {
-	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationList) IndexDocumentMetadataConfigurationList {
-		if v != nil {
-			return *v
-		}
-		var ret IndexDocumentMetadataConfigurationList
-		return ret
-	}).(IndexDocumentMetadataConfigurationListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfigurationlist.html#cfn-kendra-index-documentmetadataconfigurationlist-documentmetadataconfigurationlist
-func (o IndexDocumentMetadataConfigurationListPtrOutput) DocumentMetadataConfigurationList() IndexDocumentMetadataConfigurationArrayOutput {
-	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationList) []IndexDocumentMetadataConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.DocumentMetadataConfigurationList
-	}).(IndexDocumentMetadataConfigurationArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html
@@ -9543,7 +7529,7 @@ type IndexRelevance struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-rankorder
 	RankOrder *string `pulumi:"rankOrder"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
-	ValueImportanceItems *IndexValueImportanceItems `pulumi:"valueImportanceItems"`
+	ValueImportanceItems []IndexValueImportanceItem `pulumi:"valueImportanceItems"`
 }
 
 // IndexRelevanceInput is an input type that accepts IndexRelevanceArgs and IndexRelevanceOutput values.
@@ -9568,7 +7554,7 @@ type IndexRelevanceArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-rankorder
 	RankOrder pulumi.StringPtrInput `pulumi:"rankOrder"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
-	ValueImportanceItems IndexValueImportanceItemsPtrInput `pulumi:"valueImportanceItems"`
+	ValueImportanceItems IndexValueImportanceItemArrayInput `pulumi:"valueImportanceItems"`
 }
 
 func (IndexRelevanceArgs) ElementType() reflect.Type {
@@ -9670,8 +7656,8 @@ func (o IndexRelevanceOutput) RankOrder() pulumi.StringPtrOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
-func (o IndexRelevanceOutput) ValueImportanceItems() IndexValueImportanceItemsPtrOutput {
-	return o.ApplyT(func(v IndexRelevance) *IndexValueImportanceItems { return v.ValueImportanceItems }).(IndexValueImportanceItemsPtrOutput)
+func (o IndexRelevanceOutput) ValueImportanceItems() IndexValueImportanceItemArrayOutput {
+	return o.ApplyT(func(v IndexRelevance) []IndexValueImportanceItem { return v.ValueImportanceItems }).(IndexValueImportanceItemArrayOutput)
 }
 
 type IndexRelevancePtrOutput struct{ *pulumi.OutputState }
@@ -9739,13 +7725,13 @@ func (o IndexRelevancePtrOutput) RankOrder() pulumi.StringPtrOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
-func (o IndexRelevancePtrOutput) ValueImportanceItems() IndexValueImportanceItemsPtrOutput {
-	return o.ApplyT(func(v *IndexRelevance) *IndexValueImportanceItems {
+func (o IndexRelevancePtrOutput) ValueImportanceItems() IndexValueImportanceItemArrayOutput {
+	return o.ApplyT(func(v *IndexRelevance) []IndexValueImportanceItem {
 		if v == nil {
 			return nil
 		}
 		return v.ValueImportanceItems
-	}).(IndexValueImportanceItemsPtrOutput)
+	}).(IndexValueImportanceItemArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html
@@ -10085,146 +8071,6 @@ func (o IndexServerSideEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html
-type IndexTagList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html#cfn-kendra-index-taglist-taglist
-	TagList []aws.Tag `pulumi:"tagList"`
-}
-
-// IndexTagListInput is an input type that accepts IndexTagListArgs and IndexTagListOutput values.
-// You can construct a concrete instance of `IndexTagListInput` via:
-//
-//          IndexTagListArgs{...}
-type IndexTagListInput interface {
-	pulumi.Input
-
-	ToIndexTagListOutput() IndexTagListOutput
-	ToIndexTagListOutputWithContext(context.Context) IndexTagListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html
-type IndexTagListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html#cfn-kendra-index-taglist-taglist
-	TagList aws.TagArrayInput `pulumi:"tagList"`
-}
-
-func (IndexTagListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IndexTagList)(nil)).Elem()
-}
-
-func (i IndexTagListArgs) ToIndexTagListOutput() IndexTagListOutput {
-	return i.ToIndexTagListOutputWithContext(context.Background())
-}
-
-func (i IndexTagListArgs) ToIndexTagListOutputWithContext(ctx context.Context) IndexTagListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexTagListOutput)
-}
-
-func (i IndexTagListArgs) ToIndexTagListPtrOutput() IndexTagListPtrOutput {
-	return i.ToIndexTagListPtrOutputWithContext(context.Background())
-}
-
-func (i IndexTagListArgs) ToIndexTagListPtrOutputWithContext(ctx context.Context) IndexTagListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexTagListOutput).ToIndexTagListPtrOutputWithContext(ctx)
-}
-
-// IndexTagListPtrInput is an input type that accepts IndexTagListArgs, IndexTagListPtr and IndexTagListPtrOutput values.
-// You can construct a concrete instance of `IndexTagListPtrInput` via:
-//
-//          IndexTagListArgs{...}
-//
-//  or:
-//
-//          nil
-type IndexTagListPtrInput interface {
-	pulumi.Input
-
-	ToIndexTagListPtrOutput() IndexTagListPtrOutput
-	ToIndexTagListPtrOutputWithContext(context.Context) IndexTagListPtrOutput
-}
-
-type indexTagListPtrType IndexTagListArgs
-
-func IndexTagListPtr(v *IndexTagListArgs) IndexTagListPtrInput {
-	return (*indexTagListPtrType)(v)
-}
-
-func (*indexTagListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IndexTagList)(nil)).Elem()
-}
-
-func (i *indexTagListPtrType) ToIndexTagListPtrOutput() IndexTagListPtrOutput {
-	return i.ToIndexTagListPtrOutputWithContext(context.Background())
-}
-
-func (i *indexTagListPtrType) ToIndexTagListPtrOutputWithContext(ctx context.Context) IndexTagListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexTagListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html
-type IndexTagListOutput struct{ *pulumi.OutputState }
-
-func (IndexTagListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IndexTagList)(nil)).Elem()
-}
-
-func (o IndexTagListOutput) ToIndexTagListOutput() IndexTagListOutput {
-	return o
-}
-
-func (o IndexTagListOutput) ToIndexTagListOutputWithContext(ctx context.Context) IndexTagListOutput {
-	return o
-}
-
-func (o IndexTagListOutput) ToIndexTagListPtrOutput() IndexTagListPtrOutput {
-	return o.ToIndexTagListPtrOutputWithContext(context.Background())
-}
-
-func (o IndexTagListOutput) ToIndexTagListPtrOutputWithContext(ctx context.Context) IndexTagListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexTagList) *IndexTagList {
-		return &v
-	}).(IndexTagListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html#cfn-kendra-index-taglist-taglist
-func (o IndexTagListOutput) TagList() aws.TagArrayOutput {
-	return o.ApplyT(func(v IndexTagList) []aws.Tag { return v.TagList }).(aws.TagArrayOutput)
-}
-
-type IndexTagListPtrOutput struct{ *pulumi.OutputState }
-
-func (IndexTagListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IndexTagList)(nil)).Elem()
-}
-
-func (o IndexTagListPtrOutput) ToIndexTagListPtrOutput() IndexTagListPtrOutput {
-	return o
-}
-
-func (o IndexTagListPtrOutput) ToIndexTagListPtrOutputWithContext(ctx context.Context) IndexTagListPtrOutput {
-	return o
-}
-
-func (o IndexTagListPtrOutput) Elem() IndexTagListOutput {
-	return o.ApplyT(func(v *IndexTagList) IndexTagList {
-		if v != nil {
-			return *v
-		}
-		var ret IndexTagList
-		return ret
-	}).(IndexTagListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-taglist.html#cfn-kendra-index-taglist-taglist
-func (o IndexTagListPtrOutput) TagList() aws.TagArrayOutput {
-	return o.ApplyT(func(v *IndexTagList) []aws.Tag {
-		if v == nil {
-			return nil
-		}
-		return v.TagList
-	}).(aws.TagArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html
 type IndexUserTokenConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html#cfn-kendra-index-usertokenconfiguration-jsontokentypeconfiguration
@@ -10338,148 +8184,6 @@ func (o IndexUserTokenConfigurationArrayOutput) Index(i pulumi.IntInput) IndexUs
 	}).(IndexUserTokenConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html
-type IndexUserTokenConfigurationList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
-	UserTokenConfigurationList []IndexUserTokenConfiguration `pulumi:"userTokenConfigurationList"`
-}
-
-// IndexUserTokenConfigurationListInput is an input type that accepts IndexUserTokenConfigurationListArgs and IndexUserTokenConfigurationListOutput values.
-// You can construct a concrete instance of `IndexUserTokenConfigurationListInput` via:
-//
-//          IndexUserTokenConfigurationListArgs{...}
-type IndexUserTokenConfigurationListInput interface {
-	pulumi.Input
-
-	ToIndexUserTokenConfigurationListOutput() IndexUserTokenConfigurationListOutput
-	ToIndexUserTokenConfigurationListOutputWithContext(context.Context) IndexUserTokenConfigurationListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html
-type IndexUserTokenConfigurationListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
-	UserTokenConfigurationList IndexUserTokenConfigurationArrayInput `pulumi:"userTokenConfigurationList"`
-}
-
-func (IndexUserTokenConfigurationListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IndexUserTokenConfigurationList)(nil)).Elem()
-}
-
-func (i IndexUserTokenConfigurationListArgs) ToIndexUserTokenConfigurationListOutput() IndexUserTokenConfigurationListOutput {
-	return i.ToIndexUserTokenConfigurationListOutputWithContext(context.Background())
-}
-
-func (i IndexUserTokenConfigurationListArgs) ToIndexUserTokenConfigurationListOutputWithContext(ctx context.Context) IndexUserTokenConfigurationListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexUserTokenConfigurationListOutput)
-}
-
-func (i IndexUserTokenConfigurationListArgs) ToIndexUserTokenConfigurationListPtrOutput() IndexUserTokenConfigurationListPtrOutput {
-	return i.ToIndexUserTokenConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (i IndexUserTokenConfigurationListArgs) ToIndexUserTokenConfigurationListPtrOutputWithContext(ctx context.Context) IndexUserTokenConfigurationListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexUserTokenConfigurationListOutput).ToIndexUserTokenConfigurationListPtrOutputWithContext(ctx)
-}
-
-// IndexUserTokenConfigurationListPtrInput is an input type that accepts IndexUserTokenConfigurationListArgs, IndexUserTokenConfigurationListPtr and IndexUserTokenConfigurationListPtrOutput values.
-// You can construct a concrete instance of `IndexUserTokenConfigurationListPtrInput` via:
-//
-//          IndexUserTokenConfigurationListArgs{...}
-//
-//  or:
-//
-//          nil
-type IndexUserTokenConfigurationListPtrInput interface {
-	pulumi.Input
-
-	ToIndexUserTokenConfigurationListPtrOutput() IndexUserTokenConfigurationListPtrOutput
-	ToIndexUserTokenConfigurationListPtrOutputWithContext(context.Context) IndexUserTokenConfigurationListPtrOutput
-}
-
-type indexUserTokenConfigurationListPtrType IndexUserTokenConfigurationListArgs
-
-func IndexUserTokenConfigurationListPtr(v *IndexUserTokenConfigurationListArgs) IndexUserTokenConfigurationListPtrInput {
-	return (*indexUserTokenConfigurationListPtrType)(v)
-}
-
-func (*indexUserTokenConfigurationListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IndexUserTokenConfigurationList)(nil)).Elem()
-}
-
-func (i *indexUserTokenConfigurationListPtrType) ToIndexUserTokenConfigurationListPtrOutput() IndexUserTokenConfigurationListPtrOutput {
-	return i.ToIndexUserTokenConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (i *indexUserTokenConfigurationListPtrType) ToIndexUserTokenConfigurationListPtrOutputWithContext(ctx context.Context) IndexUserTokenConfigurationListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexUserTokenConfigurationListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html
-type IndexUserTokenConfigurationListOutput struct{ *pulumi.OutputState }
-
-func (IndexUserTokenConfigurationListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IndexUserTokenConfigurationList)(nil)).Elem()
-}
-
-func (o IndexUserTokenConfigurationListOutput) ToIndexUserTokenConfigurationListOutput() IndexUserTokenConfigurationListOutput {
-	return o
-}
-
-func (o IndexUserTokenConfigurationListOutput) ToIndexUserTokenConfigurationListOutputWithContext(ctx context.Context) IndexUserTokenConfigurationListOutput {
-	return o
-}
-
-func (o IndexUserTokenConfigurationListOutput) ToIndexUserTokenConfigurationListPtrOutput() IndexUserTokenConfigurationListPtrOutput {
-	return o.ToIndexUserTokenConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (o IndexUserTokenConfigurationListOutput) ToIndexUserTokenConfigurationListPtrOutputWithContext(ctx context.Context) IndexUserTokenConfigurationListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexUserTokenConfigurationList) *IndexUserTokenConfigurationList {
-		return &v
-	}).(IndexUserTokenConfigurationListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
-func (o IndexUserTokenConfigurationListOutput) UserTokenConfigurationList() IndexUserTokenConfigurationArrayOutput {
-	return o.ApplyT(func(v IndexUserTokenConfigurationList) []IndexUserTokenConfiguration {
-		return v.UserTokenConfigurationList
-	}).(IndexUserTokenConfigurationArrayOutput)
-}
-
-type IndexUserTokenConfigurationListPtrOutput struct{ *pulumi.OutputState }
-
-func (IndexUserTokenConfigurationListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IndexUserTokenConfigurationList)(nil)).Elem()
-}
-
-func (o IndexUserTokenConfigurationListPtrOutput) ToIndexUserTokenConfigurationListPtrOutput() IndexUserTokenConfigurationListPtrOutput {
-	return o
-}
-
-func (o IndexUserTokenConfigurationListPtrOutput) ToIndexUserTokenConfigurationListPtrOutputWithContext(ctx context.Context) IndexUserTokenConfigurationListPtrOutput {
-	return o
-}
-
-func (o IndexUserTokenConfigurationListPtrOutput) Elem() IndexUserTokenConfigurationListOutput {
-	return o.ApplyT(func(v *IndexUserTokenConfigurationList) IndexUserTokenConfigurationList {
-		if v != nil {
-			return *v
-		}
-		var ret IndexUserTokenConfigurationList
-		return ret
-	}).(IndexUserTokenConfigurationListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfigurationlist.html#cfn-kendra-index-usertokenconfigurationlist-usertokenconfigurationlist
-func (o IndexUserTokenConfigurationListPtrOutput) UserTokenConfigurationList() IndexUserTokenConfigurationArrayOutput {
-	return o.ApplyT(func(v *IndexUserTokenConfigurationList) []IndexUserTokenConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.UserTokenConfigurationList
-	}).(IndexUserTokenConfigurationArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitem.html
 type IndexValueImportanceItem struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitem.html#cfn-kendra-index-valueimportanceitem-key
@@ -10589,203 +8293,47 @@ func (o IndexValueImportanceItemArrayOutput) Index(i pulumi.IntInput) IndexValue
 	}).(IndexValueImportanceItemOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html
-type IndexValueImportanceItems struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems
-	ValueImportanceItems []IndexValueImportanceItem `pulumi:"valueImportanceItems"`
-}
-
-// IndexValueImportanceItemsInput is an input type that accepts IndexValueImportanceItemsArgs and IndexValueImportanceItemsOutput values.
-// You can construct a concrete instance of `IndexValueImportanceItemsInput` via:
-//
-//          IndexValueImportanceItemsArgs{...}
-type IndexValueImportanceItemsInput interface {
-	pulumi.Input
-
-	ToIndexValueImportanceItemsOutput() IndexValueImportanceItemsOutput
-	ToIndexValueImportanceItemsOutputWithContext(context.Context) IndexValueImportanceItemsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html
-type IndexValueImportanceItemsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems
-	ValueImportanceItems IndexValueImportanceItemArrayInput `pulumi:"valueImportanceItems"`
-}
-
-func (IndexValueImportanceItemsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IndexValueImportanceItems)(nil)).Elem()
-}
-
-func (i IndexValueImportanceItemsArgs) ToIndexValueImportanceItemsOutput() IndexValueImportanceItemsOutput {
-	return i.ToIndexValueImportanceItemsOutputWithContext(context.Background())
-}
-
-func (i IndexValueImportanceItemsArgs) ToIndexValueImportanceItemsOutputWithContext(ctx context.Context) IndexValueImportanceItemsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexValueImportanceItemsOutput)
-}
-
-func (i IndexValueImportanceItemsArgs) ToIndexValueImportanceItemsPtrOutput() IndexValueImportanceItemsPtrOutput {
-	return i.ToIndexValueImportanceItemsPtrOutputWithContext(context.Background())
-}
-
-func (i IndexValueImportanceItemsArgs) ToIndexValueImportanceItemsPtrOutputWithContext(ctx context.Context) IndexValueImportanceItemsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexValueImportanceItemsOutput).ToIndexValueImportanceItemsPtrOutputWithContext(ctx)
-}
-
-// IndexValueImportanceItemsPtrInput is an input type that accepts IndexValueImportanceItemsArgs, IndexValueImportanceItemsPtr and IndexValueImportanceItemsPtrOutput values.
-// You can construct a concrete instance of `IndexValueImportanceItemsPtrInput` via:
-//
-//          IndexValueImportanceItemsArgs{...}
-//
-//  or:
-//
-//          nil
-type IndexValueImportanceItemsPtrInput interface {
-	pulumi.Input
-
-	ToIndexValueImportanceItemsPtrOutput() IndexValueImportanceItemsPtrOutput
-	ToIndexValueImportanceItemsPtrOutputWithContext(context.Context) IndexValueImportanceItemsPtrOutput
-}
-
-type indexValueImportanceItemsPtrType IndexValueImportanceItemsArgs
-
-func IndexValueImportanceItemsPtr(v *IndexValueImportanceItemsArgs) IndexValueImportanceItemsPtrInput {
-	return (*indexValueImportanceItemsPtrType)(v)
-}
-
-func (*indexValueImportanceItemsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IndexValueImportanceItems)(nil)).Elem()
-}
-
-func (i *indexValueImportanceItemsPtrType) ToIndexValueImportanceItemsPtrOutput() IndexValueImportanceItemsPtrOutput {
-	return i.ToIndexValueImportanceItemsPtrOutputWithContext(context.Background())
-}
-
-func (i *indexValueImportanceItemsPtrType) ToIndexValueImportanceItemsPtrOutputWithContext(ctx context.Context) IndexValueImportanceItemsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexValueImportanceItemsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html
-type IndexValueImportanceItemsOutput struct{ *pulumi.OutputState }
-
-func (IndexValueImportanceItemsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IndexValueImportanceItems)(nil)).Elem()
-}
-
-func (o IndexValueImportanceItemsOutput) ToIndexValueImportanceItemsOutput() IndexValueImportanceItemsOutput {
-	return o
-}
-
-func (o IndexValueImportanceItemsOutput) ToIndexValueImportanceItemsOutputWithContext(ctx context.Context) IndexValueImportanceItemsOutput {
-	return o
-}
-
-func (o IndexValueImportanceItemsOutput) ToIndexValueImportanceItemsPtrOutput() IndexValueImportanceItemsPtrOutput {
-	return o.ToIndexValueImportanceItemsPtrOutputWithContext(context.Background())
-}
-
-func (o IndexValueImportanceItemsOutput) ToIndexValueImportanceItemsPtrOutputWithContext(ctx context.Context) IndexValueImportanceItemsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexValueImportanceItems) *IndexValueImportanceItems {
-		return &v
-	}).(IndexValueImportanceItemsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems
-func (o IndexValueImportanceItemsOutput) ValueImportanceItems() IndexValueImportanceItemArrayOutput {
-	return o.ApplyT(func(v IndexValueImportanceItems) []IndexValueImportanceItem { return v.ValueImportanceItems }).(IndexValueImportanceItemArrayOutput)
-}
-
-type IndexValueImportanceItemsPtrOutput struct{ *pulumi.OutputState }
-
-func (IndexValueImportanceItemsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IndexValueImportanceItems)(nil)).Elem()
-}
-
-func (o IndexValueImportanceItemsPtrOutput) ToIndexValueImportanceItemsPtrOutput() IndexValueImportanceItemsPtrOutput {
-	return o
-}
-
-func (o IndexValueImportanceItemsPtrOutput) ToIndexValueImportanceItemsPtrOutputWithContext(ctx context.Context) IndexValueImportanceItemsPtrOutput {
-	return o
-}
-
-func (o IndexValueImportanceItemsPtrOutput) Elem() IndexValueImportanceItemsOutput {
-	return o.ApplyT(func(v *IndexValueImportanceItems) IndexValueImportanceItems {
-		if v != nil {
-			return *v
-		}
-		var ret IndexValueImportanceItems
-		return ret
-	}).(IndexValueImportanceItemsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitems.html#cfn-kendra-index-valueimportanceitems-valueimportanceitems
-func (o IndexValueImportanceItemsPtrOutput) ValueImportanceItems() IndexValueImportanceItemArrayOutput {
-	return o.ApplyT(func(v *IndexValueImportanceItems) []IndexValueImportanceItem {
-		if v == nil {
-			return nil
-		}
-		return v.ValueImportanceItems
-	}).(IndexValueImportanceItemArrayOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(DataSourceAccessControlListConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceAccessControlListConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAclConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceAclConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceChangeDetectingColumnsOutput{})
-	pulumi.RegisterOutputType(DataSourceChangeDetectingColumnsPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceColumnConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceColumnConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceAttachmentConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceAttachmentConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceConfluenceAttachmentFieldMappingsListOutput{})
-	pulumi.RegisterOutputType(DataSourceConfluenceAttachmentFieldMappingsListPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceAttachmentToIndexFieldMappingOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceBlogConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceBlogConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceConfluenceBlogFieldMappingsListOutput{})
-	pulumi.RegisterOutputType(DataSourceConfluenceBlogFieldMappingsListPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceBlogToIndexFieldMappingOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceBlogToIndexFieldMappingArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluencePageConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluencePageConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceConfluencePageFieldMappingsListOutput{})
-	pulumi.RegisterOutputType(DataSourceConfluencePageFieldMappingsListPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluencePageToIndexFieldMappingOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluencePageToIndexFieldMappingArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceSpaceConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceSpaceConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceConfluenceSpaceFieldMappingsListOutput{})
-	pulumi.RegisterOutputType(DataSourceConfluenceSpaceFieldMappingsListPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceConfluenceSpaceListOutput{})
-	pulumi.RegisterOutputType(DataSourceConfluenceSpaceListPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceSpaceToIndexFieldMappingOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceSpaceToIndexFieldMappingArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceConnectionConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceConnectionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDataSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceDataSourceConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceDataSourceInclusionsExclusionsStringsOutput{})
-	pulumi.RegisterOutputType(DataSourceDataSourceInclusionsExclusionsStringsPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDataSourceToIndexFieldMappingOutput{})
 	pulumi.RegisterOutputType(DataSourceDataSourceToIndexFieldMappingArrayOutput{})
-	pulumi.RegisterOutputType(DataSourceDataSourceToIndexFieldMappingListOutput{})
-	pulumi.RegisterOutputType(DataSourceDataSourceToIndexFieldMappingListPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDataSourceVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceDataSourceVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDatabaseConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceDatabaseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentsMetadataConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentsMetadataConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceGoogleDriveConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceGoogleDriveConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceOneDriveConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceOneDriveConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceOneDriveUserListOutput{})
-	pulumi.RegisterOutputType(DataSourceOneDriveUserListPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceOneDriveUsersOutput{})
 	pulumi.RegisterOutputType(DataSourceOneDriveUsersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceS3DataSourceConfigurationOutput{})
@@ -10794,26 +8342,18 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceS3PathPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceChatterFeedConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceChatterFeedConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceSalesforceChatterFeedIncludeFilterTypesOutput{})
-	pulumi.RegisterOutputType(DataSourceSalesforceChatterFeedIncludeFilterTypesPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListOutput{})
-	pulumi.RegisterOutputType(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceKnowledgeArticleConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceSalesforceKnowledgeArticleStateListOutput{})
-	pulumi.RegisterOutputType(DataSourceSalesforceKnowledgeArticleStateListPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceStandardObjectAttachmentConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceStandardObjectConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceStandardObjectConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(DataSourceSalesforceStandardObjectConfigurationListOutput{})
-	pulumi.RegisterOutputType(DataSourceSalesforceStandardObjectConfigurationListPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceServiceNowConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceServiceNowConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceServiceNowKnowledgeArticleConfigurationOutput{})
@@ -10824,18 +8364,12 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceSharePointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSqlConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceSqlConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceTagListOutput{})
-	pulumi.RegisterOutputType(DataSourceTagListPtrOutput{})
 	pulumi.RegisterOutputType(FaqS3PathOutput{})
 	pulumi.RegisterOutputType(FaqS3PathPtrOutput{})
-	pulumi.RegisterOutputType(FaqTagListOutput{})
-	pulumi.RegisterOutputType(FaqTagListPtrOutput{})
 	pulumi.RegisterOutputType(IndexCapacityUnitsConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexCapacityUnitsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationListOutput{})
-	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationListPtrOutput{})
 	pulumi.RegisterOutputType(IndexJsonTokenTypeConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexJsonTokenTypeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IndexJwtTokenTypeConfigurationOutput{})
@@ -10846,14 +8380,8 @@ func init() {
 	pulumi.RegisterOutputType(IndexSearchPtrOutput{})
 	pulumi.RegisterOutputType(IndexServerSideEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexServerSideEncryptionConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(IndexTagListOutput{})
-	pulumi.RegisterOutputType(IndexTagListPtrOutput{})
 	pulumi.RegisterOutputType(IndexUserTokenConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexUserTokenConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(IndexUserTokenConfigurationListOutput{})
-	pulumi.RegisterOutputType(IndexUserTokenConfigurationListPtrOutput{})
 	pulumi.RegisterOutputType(IndexValueImportanceItemOutput{})
 	pulumi.RegisterOutputType(IndexValueImportanceItemArrayOutput{})
-	pulumi.RegisterOutputType(IndexValueImportanceItemsOutput{})
-	pulumi.RegisterOutputType(IndexValueImportanceItemsPtrOutput{})
 }

@@ -112,6 +112,7 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["distribution_config"] = distribution_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["domain_name"] = None
+            __props__.__dict__["id"] = None
         super(Distribution, __self__).__init__(
             'aws-native:CloudFront:Distribution',
             resource_name,
@@ -136,6 +137,7 @@ class Distribution(pulumi.CustomResource):
 
         __props__.__dict__["distribution_config"] = None
         __props__.__dict__["domain_name"] = None
+        __props__.__dict__["id"] = None
         __props__.__dict__["tags"] = None
         return Distribution(resource_name, opts=opts, __props__=__props__)
 
@@ -151,6 +153,11 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter

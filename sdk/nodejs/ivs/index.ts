@@ -7,11 +7,13 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./channel";
 export * from "./playbackKeyPair";
+export * from "./recordingConfiguration";
 export * from "./streamKey";
 
 // Import resources to register:
 import { Channel } from "./channel";
 import { PlaybackKeyPair } from "./playbackKeyPair";
+import { RecordingConfiguration } from "./recordingConfiguration";
 import { StreamKey } from "./streamKey";
 
 const _module = {
@@ -22,6 +24,8 @@ const _module = {
                 return new Channel(name, <any>undefined, { urn })
             case "aws-native:IVS:PlaybackKeyPair":
                 return new PlaybackKeyPair(name, <any>undefined, { urn })
+            case "aws-native:IVS:RecordingConfiguration":
+                return new RecordingConfiguration(name, <any>undefined, { urn })
             case "aws-native:IVS:StreamKey":
                 return new StreamKey(name, <any>undefined, { urn })
             default:

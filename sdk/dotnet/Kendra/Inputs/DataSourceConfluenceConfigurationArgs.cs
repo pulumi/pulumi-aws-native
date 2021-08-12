@@ -27,17 +27,29 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("blogConfiguration")]
         public Input<Inputs.DataSourceConfluenceBlogConfigurationArgs>? BlogConfiguration { get; set; }
 
+        [Input("exclusionPatterns")]
+        private InputList<string>? _exclusionPatterns;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns
         /// </summary>
-        [Input("exclusionPatterns")]
-        public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? ExclusionPatterns { get; set; }
+        public InputList<string> ExclusionPatterns
+        {
+            get => _exclusionPatterns ?? (_exclusionPatterns = new InputList<string>());
+            set => _exclusionPatterns = value;
+        }
+
+        [Input("inclusionPatterns")]
+        private InputList<string>? _inclusionPatterns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns
         /// </summary>
-        [Input("inclusionPatterns")]
-        public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? InclusionPatterns { get; set; }
+        public InputList<string> InclusionPatterns
+        {
+            get => _inclusionPatterns ?? (_inclusionPatterns = new InputList<string>());
+            set => _inclusionPatterns = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-pageconfiguration

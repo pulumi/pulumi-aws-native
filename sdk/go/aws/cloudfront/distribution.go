@@ -19,6 +19,7 @@ type Distribution struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
 	DistributionConfig DistributionDistributionConfigOutput `pulumi:"distributionConfig"`
 	DomainName         pulumi.StringOutput                  `pulumi:"domainName"`
+	Id                 pulumi.StringOutput                  `pulumi:"id"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }

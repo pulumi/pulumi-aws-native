@@ -42,7 +42,7 @@ export class PermissionSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
      */
-    public readonly inlinePolicy!: pulumi.Output<string | undefined>;
+    public readonly inlinePolicy!: pulumi.Output<any | string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
      */
@@ -124,7 +124,7 @@ export interface PermissionSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
      */
-    inlinePolicy?: pulumi.Input<string>;
+    inlinePolicy?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
      */

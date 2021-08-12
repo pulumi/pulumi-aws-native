@@ -91,6 +91,7 @@ class SpotFleet(pulumi.CustomResource):
             if spot_fleet_request_config_data is None and not opts.urn:
                 raise TypeError("Missing required property 'spot_fleet_request_config_data'")
             __props__.__dict__["spot_fleet_request_config_data"] = spot_fleet_request_config_data
+            __props__.__dict__["id"] = None
         super(SpotFleet, __self__).__init__(
             'aws-native:EC2:SpotFleet',
             resource_name,
@@ -113,8 +114,14 @@ class SpotFleet(pulumi.CustomResource):
 
         __props__ = SpotFleetArgs.__new__(SpotFleetArgs)
 
+        __props__.__dict__["id"] = None
         __props__.__dict__["spot_fleet_request_config_data"] = None
         return SpotFleet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="spotFleetRequestConfigData")

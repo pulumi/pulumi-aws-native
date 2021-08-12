@@ -28,7 +28,8 @@ class CanaryArgs:
                  run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 v_pc_config: Optional[pulumi.Input['CanaryVPCConfigArgs']] = None):
+                 v_pc_config: Optional[pulumi.Input['CanaryVPCConfigArgs']] = None,
+                 visual_reference: Optional[pulumi.Input['CanaryVisualReferenceArgs']] = None):
         """
         The set of arguments for constructing a Canary resource.
         :param pulumi.Input[str] artifact_s3_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
@@ -43,6 +44,7 @@ class CanaryArgs:
         :param pulumi.Input[int] success_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
         :param pulumi.Input['CanaryVPCConfigArgs'] v_pc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
+        :param pulumi.Input['CanaryVisualReferenceArgs'] visual_reference: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
         """
         pulumi.set(__self__, "artifact_s3_location", artifact_s3_location)
         pulumi.set(__self__, "code", code)
@@ -61,6 +63,8 @@ class CanaryArgs:
             pulumi.set(__self__, "tags", tags)
         if v_pc_config is not None:
             pulumi.set(__self__, "v_pc_config", v_pc_config)
+        if visual_reference is not None:
+            pulumi.set(__self__, "visual_reference", visual_reference)
 
     @property
     @pulumi.getter(name="artifactS3Location")
@@ -206,6 +210,18 @@ class CanaryArgs:
     def v_pc_config(self, value: Optional[pulumi.Input['CanaryVPCConfigArgs']]):
         pulumi.set(self, "v_pc_config", value)
 
+    @property
+    @pulumi.getter(name="visualReference")
+    def visual_reference(self) -> Optional[pulumi.Input['CanaryVisualReferenceArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+        """
+        return pulumi.get(self, "visual_reference")
+
+    @visual_reference.setter
+    def visual_reference(self, value: Optional[pulumi.Input['CanaryVisualReferenceArgs']]):
+        pulumi.set(self, "visual_reference", value)
+
 
 class Canary(pulumi.CustomResource):
     @overload
@@ -224,6 +240,7 @@ class Canary(pulumi.CustomResource):
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  v_pc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']]] = None,
+                 visual_reference: Optional[pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']]] = None,
                  __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html
@@ -242,6 +259,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[int] success_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
         :param pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']] v_pc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
+        :param pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']] visual_reference: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
         """
         ...
     @overload
@@ -279,6 +297,7 @@ class Canary(pulumi.CustomResource):
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  v_pc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']]] = None,
+                 visual_reference: Optional[pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -317,6 +336,7 @@ class Canary(pulumi.CustomResource):
             __props__.__dict__["success_retention_period"] = success_retention_period
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v_pc_config"] = v_pc_config
+            __props__.__dict__["visual_reference"] = visual_reference
             __props__.__dict__["id"] = None
             __props__.__dict__["state"] = None
         super(Canary, __self__).__init__(
@@ -355,6 +375,7 @@ class Canary(pulumi.CustomResource):
         __props__.__dict__["success_retention_period"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["v_pc_config"] = None
+        __props__.__dict__["visual_reference"] = None
         return Canary(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -462,4 +483,12 @@ class Canary(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
         """
         return pulumi.get(self, "v_pc_config")
+
+    @property
+    @pulumi.getter(name="visualReference")
+    def visual_reference(self) -> pulumi.Output[Optional['outputs.CanaryVisualReference']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+        """
+        return pulumi.get(self, "visual_reference")
 

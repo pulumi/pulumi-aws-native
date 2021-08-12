@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConformancePack{}
 	case "aws-native:Configuration:OrganizationConformancePack":
 		r = &OrganizationConformancePack{}
+	case "aws-native:Configuration:StoredQuery":
+		r = &StoredQuery{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

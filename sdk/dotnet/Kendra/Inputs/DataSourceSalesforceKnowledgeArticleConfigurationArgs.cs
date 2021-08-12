@@ -15,17 +15,29 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     /// </summary>
     public sealed class DataSourceSalesforceKnowledgeArticleConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("customKnowledgeArticleTypeConfigurations")]
+        private InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs>? _customKnowledgeArticleTypeConfigurations;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
         /// </summary>
-        [Input("customKnowledgeArticleTypeConfigurations")]
-        public Input<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationListArgs>? CustomKnowledgeArticleTypeConfigurations { get; set; }
+        public InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs> CustomKnowledgeArticleTypeConfigurations
+        {
+            get => _customKnowledgeArticleTypeConfigurations ?? (_customKnowledgeArticleTypeConfigurations = new InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs>());
+            set => _customKnowledgeArticleTypeConfigurations = value;
+        }
+
+        [Input("includedStates", required: true)]
+        private InputList<string>? _includedStates;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
         /// </summary>
-        [Input("includedStates", required: true)]
-        public Input<Inputs.DataSourceSalesforceKnowledgeArticleStateListArgs> IncludedStates { get; set; } = null!;
+        public InputList<string> IncludedStates
+        {
+            get => _includedStates ?? (_includedStates = new InputList<string>());
+            set => _includedStates = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration

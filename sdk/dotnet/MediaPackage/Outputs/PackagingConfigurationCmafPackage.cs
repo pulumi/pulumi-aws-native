@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PackagingConfigurationHlsManifest> HlsManifests;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
+        /// </summary>
+        public readonly bool? IncludeEncoderConfigurationInSegments;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
         /// </summary>
         public readonly int? SegmentDurationSeconds;
@@ -35,10 +39,13 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
             ImmutableArray<Outputs.PackagingConfigurationHlsManifest> hlsManifests,
 
+            bool? includeEncoderConfigurationInSegments,
+
             int? segmentDurationSeconds)
         {
             Encryption = encryption;
             HlsManifests = hlsManifests;
+            IncludeEncoderConfigurationInSegments = includeEncoderConfigurationInSegments;
             SegmentDurationSeconds = segmentDurationSeconds;
         }
     }

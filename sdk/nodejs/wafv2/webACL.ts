@@ -38,6 +38,10 @@ export class WebACL extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly capacity!: pulumi.Output<number>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
+     */
+    public readonly customResponseBodies!: pulumi.Output<{[key: string]: outputs.WAFv2.WebACLCustomResponseBody} | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
      */
     public readonly defaultAction!: pulumi.Output<outputs.WAFv2.WebACLDefaultAction>;
@@ -46,6 +50,7 @@ export class WebACL extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly id!: pulumi.Output<string>;
+    public /*out*/ readonly labelNamespace!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
      */
@@ -87,6 +92,7 @@ export class WebACL extends pulumi.CustomResource {
             if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
+            inputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
             inputs["defaultAction"] = args ? args.defaultAction : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -97,12 +103,15 @@ export class WebACL extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["capacity"] = undefined /*out*/;
             inputs["id"] = undefined /*out*/;
+            inputs["labelNamespace"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["capacity"] = undefined /*out*/;
+            inputs["customResponseBodies"] = undefined /*out*/;
             inputs["defaultAction"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["id"] = undefined /*out*/;
+            inputs["labelNamespace"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["rules"] = undefined /*out*/;
             inputs["scope"] = undefined /*out*/;
@@ -120,6 +129,10 @@ export class WebACL extends pulumi.CustomResource {
  * The set of arguments for constructing a WebACL resource.
  */
 export interface WebACLArgs {
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
+     */
+    customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.WAFv2.WebACLCustomResponseBodyArgs>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
      */

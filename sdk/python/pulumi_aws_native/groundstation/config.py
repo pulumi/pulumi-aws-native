@@ -7,20 +7,22 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._inputs import *
 
 __all__ = ['ConfigArgs', 'Config']
 
 @pulumi.input_type
 class ConfigArgs:
     def __init__(__self__, *,
-                 config_data: pulumi.Input[Union[Any, str]],
+                 config_data: pulumi.Input['ConfigConfigDataArgs'],
                  name: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Config resource.
-        :param pulumi.Input[Union[Any, str]] config_data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
+        :param pulumi.Input['ConfigConfigDataArgs'] config_data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
         """
@@ -31,14 +33,14 @@ class ConfigArgs:
 
     @property
     @pulumi.getter(name="configData")
-    def config_data(self) -> pulumi.Input[Union[Any, str]]:
+    def config_data(self) -> pulumi.Input['ConfigConfigDataArgs']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
         """
         return pulumi.get(self, "config_data")
 
     @config_data.setter
-    def config_data(self, value: pulumi.Input[Union[Any, str]]):
+    def config_data(self, value: pulumi.Input['ConfigConfigDataArgs']):
         pulumi.set(self, "config_data", value)
 
     @property
@@ -71,7 +73,7 @@ class Config(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_data: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 config_data: Optional[pulumi.Input[pulumi.InputType['ConfigConfigDataArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
@@ -80,7 +82,7 @@ class Config(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Any, str]] config_data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
+        :param pulumi.Input[pulumi.InputType['ConfigConfigDataArgs']] config_data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
         """
@@ -108,7 +110,7 @@ class Config(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_data: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 config_data: Optional[pulumi.Input[pulumi.InputType['ConfigConfigDataArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
@@ -170,7 +172,7 @@ class Config(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configData")
-    def config_data(self) -> pulumi.Output[str]:
+    def config_data(self) -> pulumi.Output['outputs.ConfigConfigData']:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
         """

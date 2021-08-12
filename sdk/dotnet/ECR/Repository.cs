@@ -19,10 +19,16 @@ namespace Pulumi.AwsNative.ECR
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
+        /// </summary>
+        [Output("encryptionConfiguration")]
+        public Output<Outputs.RepositoryEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
         /// </summary>
         [Output("imageScanningConfiguration")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> ImageScanningConfiguration { get; private set; } = null!;
+        public Output<Outputs.RepositoryImageScanningConfiguration?> ImageScanningConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
@@ -46,7 +52,10 @@ namespace Pulumi.AwsNative.ECR
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
         /// </summary>
         [Output("repositoryPolicyText")]
-        public Output<object?> RepositoryPolicyText { get; private set; } = null!;
+        public Output<Union<System.Text.Json.JsonElement, string>?> RepositoryPolicyText { get; private set; } = null!;
+
+        [Output("repositoryUri")]
+        public Output<string> RepositoryUri { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
@@ -100,10 +109,16 @@ namespace Pulumi.AwsNative.ECR
     public sealed class RepositoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.RepositoryEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
         /// </summary>
         [Input("imageScanningConfiguration")]
-        public InputUnion<System.Text.Json.JsonElement, string>? ImageScanningConfiguration { get; set; }
+        public Input<Inputs.RepositoryImageScanningConfigurationArgs>? ImageScanningConfiguration { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
@@ -127,7 +142,7 @@ namespace Pulumi.AwsNative.ECR
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
         /// </summary>
         [Input("repositoryPolicyText")]
-        public Input<object>? RepositoryPolicyText { get; set; }
+        public InputUnion<System.Text.Json.JsonElement, string>? RepositoryPolicyText { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

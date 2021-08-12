@@ -35,7 +35,19 @@ export class Portal extends pulumi.CustomResource {
         return obj['__pulumiType'] === Portal.__pulumiType;
     }
 
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
+     */
+    public readonly alarms!: pulumi.Output<any | string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
+     */
+    public readonly notificationSenderEmail!: pulumi.Output<string | undefined>;
     public /*out*/ readonly portalArn!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
+     */
+    public readonly portalAuthMode!: pulumi.Output<string | undefined>;
     public /*out*/ readonly portalClientId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
@@ -51,7 +63,6 @@ export class Portal extends pulumi.CustomResource {
      */
     public readonly portalName!: pulumi.Output<string>;
     public /*out*/ readonly portalStartUrl!: pulumi.Output<string>;
-    public /*out*/ readonly portalStatus!: pulumi.Output<outputs.IoTSiteWise.PortalPortalStatus>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
      */
@@ -81,6 +92,9 @@ export class Portal extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            inputs["alarms"] = args ? args.alarms : undefined;
+            inputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
+            inputs["portalAuthMode"] = args ? args.portalAuthMode : undefined;
             inputs["portalContactEmail"] = args ? args.portalContactEmail : undefined;
             inputs["portalDescription"] = args ? args.portalDescription : undefined;
             inputs["portalName"] = args ? args.portalName : undefined;
@@ -90,16 +104,17 @@ export class Portal extends pulumi.CustomResource {
             inputs["portalClientId"] = undefined /*out*/;
             inputs["portalId"] = undefined /*out*/;
             inputs["portalStartUrl"] = undefined /*out*/;
-            inputs["portalStatus"] = undefined /*out*/;
         } else {
+            inputs["alarms"] = undefined /*out*/;
+            inputs["notificationSenderEmail"] = undefined /*out*/;
             inputs["portalArn"] = undefined /*out*/;
+            inputs["portalAuthMode"] = undefined /*out*/;
             inputs["portalClientId"] = undefined /*out*/;
             inputs["portalContactEmail"] = undefined /*out*/;
             inputs["portalDescription"] = undefined /*out*/;
             inputs["portalId"] = undefined /*out*/;
             inputs["portalName"] = undefined /*out*/;
             inputs["portalStartUrl"] = undefined /*out*/;
-            inputs["portalStatus"] = undefined /*out*/;
             inputs["roleArn"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
@@ -114,6 +129,18 @@ export class Portal extends pulumi.CustomResource {
  * The set of arguments for constructing a Portal resource.
  */
 export interface PortalArgs {
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
+     */
+    alarms?: pulumi.Input<any | string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
+     */
+    notificationSenderEmail?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
+     */
+    portalAuthMode?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
      */

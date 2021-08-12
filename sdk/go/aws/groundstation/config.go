@@ -18,8 +18,8 @@ type Config struct {
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
-	ConfigData pulumi.AnyOutput    `pulumi:"configData"`
-	Id         pulumi.StringOutput `pulumi:"id"`
+	ConfigData ConfigConfigDataOutput `pulumi:"configData"`
+	Id         pulumi.StringOutput    `pulumi:"id"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
@@ -73,7 +73,7 @@ func (ConfigState) ElementType() reflect.Type {
 
 type configArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
-	ConfigData interface{} `pulumi:"configData"`
+	ConfigData ConfigConfigData `pulumi:"configData"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
 	Name string `pulumi:"name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
@@ -83,7 +83,7 @@ type configArgs struct {
 // The set of arguments for constructing a Config resource.
 type ConfigArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
-	ConfigData pulumi.Input
+	ConfigData ConfigConfigDataInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
 	Name pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags

@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
+        /// </summary>
+        public readonly Outputs.WebACLStatement? ScopeDownStatement;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
         /// </summary>
         public readonly string VendorName;
@@ -35,10 +39,13 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             string name,
 
+            Outputs.WebACLStatement? scopeDownStatement,
+
             string vendorName)
         {
             ExcludedRules = excludedRules;
             Name = name;
+            ScopeDownStatement = scopeDownStatement;
             VendorName = vendorName;
         }
     }

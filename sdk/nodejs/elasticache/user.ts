@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -40,7 +39,6 @@ export class User extends pulumi.CustomResource {
      */
     public readonly accessString!: pulumi.Output<string | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly authentication!: pulumi.Output<outputs.ElastiCache.UserAuthentication>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
      */
@@ -52,9 +50,8 @@ export class User extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
      */
-    public readonly passwords!: pulumi.Output<outputs.ElastiCache.UserPasswordList | undefined>;
+    public readonly passwords!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
-    public /*out*/ readonly userGroupIds!: pulumi.Output<outputs.ElastiCache.UserUserGroupIdList>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
      */
@@ -91,18 +88,14 @@ export class User extends pulumi.CustomResource {
             inputs["userId"] = args ? args.userId : undefined;
             inputs["userName"] = args ? args.userName : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["authentication"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
-            inputs["userGroupIds"] = undefined /*out*/;
         } else {
             inputs["accessString"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
-            inputs["authentication"] = undefined /*out*/;
             inputs["engine"] = undefined /*out*/;
             inputs["noPasswordRequired"] = undefined /*out*/;
             inputs["passwords"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
-            inputs["userGroupIds"] = undefined /*out*/;
             inputs["userId"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         }
@@ -132,7 +125,7 @@ export interface UserArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
      */
-    passwords?: pulumi.Input<inputs.ElastiCache.UserPasswordListArgs>;
+    passwords?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
      */

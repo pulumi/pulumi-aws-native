@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .db_proxy import *
+from .db_proxy_endpoint import *
 from .db_proxy_target_group import *
 from .global_cluster import *
 from ._inputs import *

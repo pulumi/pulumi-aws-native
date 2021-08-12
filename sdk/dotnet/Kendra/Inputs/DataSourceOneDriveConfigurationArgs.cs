@@ -21,23 +21,41 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("disableLocalGroups")]
         public Input<bool>? DisableLocalGroups { get; set; }
 
+        [Input("exclusionPatterns")]
+        private InputList<string>? _exclusionPatterns;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-exclusionpatterns
         /// </summary>
-        [Input("exclusionPatterns")]
-        public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? ExclusionPatterns { get; set; }
+        public InputList<string> ExclusionPatterns
+        {
+            get => _exclusionPatterns ?? (_exclusionPatterns = new InputList<string>());
+            set => _exclusionPatterns = value;
+        }
+
+        [Input("fieldMappings")]
+        private InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>? _fieldMappings;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-fieldmappings
         /// </summary>
-        [Input("fieldMappings")]
-        public Input<Inputs.DataSourceDataSourceToIndexFieldMappingListArgs>? FieldMappings { get; set; }
+        public InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs> FieldMappings
+        {
+            get => _fieldMappings ?? (_fieldMappings = new InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>());
+            set => _fieldMappings = value;
+        }
+
+        [Input("inclusionPatterns")]
+        private InputList<string>? _inclusionPatterns;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-inclusionpatterns
         /// </summary>
-        [Input("inclusionPatterns")]
-        public Input<Inputs.DataSourceDataSourceInclusionsExclusionsStringsArgs>? InclusionPatterns { get; set; }
+        public InputList<string> InclusionPatterns
+        {
+            get => _inclusionPatterns ?? (_inclusionPatterns = new InputList<string>());
+            set => _inclusionPatterns = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html#cfn-kendra-datasource-onedriveconfiguration-onedriveusers

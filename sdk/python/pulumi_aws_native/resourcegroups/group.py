@@ -18,21 +18,29 @@ __all__ = ['GroupArgs', 'Group']
 class GroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 configuration: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationItemArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  resource_query: Optional[pulumi.Input['GroupResourceQueryArgs']] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-name
+        :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationItemArgs']]] configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-description
         :param pulumi.Input['GroupResourceQueryArgs'] resource_query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resourcequery
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resources
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags
         """
         pulumi.set(__self__, "name", name)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if resource_query is not None:
             pulumi.set(__self__, "resource_query", resource_query)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -47,6 +55,18 @@ class GroupArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationItemArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationItemArgs']]]]):
+        pulumi.set(self, "configuration", value)
 
     @property
     @pulumi.getter
@@ -74,6 +94,18 @@ class GroupArgs:
 
     @property
     @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resources
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resources", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags
@@ -90,9 +122,11 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupConfigurationItemArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_query: Optional[pulumi.Input[pulumi.InputType['GroupResourceQueryArgs']]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
@@ -100,9 +134,11 @@ class Group(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupConfigurationItemArgs']]]] configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-description
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-name
         :param pulumi.Input[pulumi.InputType['GroupResourceQueryArgs']] resource_query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resourcequery
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resources
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags
         """
         ...
@@ -129,9 +165,11 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupConfigurationItemArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_query: Optional[pulumi.Input[pulumi.InputType['GroupResourceQueryArgs']]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -145,11 +183,13 @@ class Group(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GroupArgs.__new__(GroupArgs)
 
+            __props__.__dict__["configuration"] = configuration
             __props__.__dict__["description"] = description
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["resource_query"] = resource_query
+            __props__.__dict__["resources"] = resources
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Group, __self__).__init__(
@@ -175,9 +215,11 @@ class Group(pulumi.CustomResource):
         __props__ = GroupArgs.__new__(GroupArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["configuration"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["resource_query"] = None
+        __props__.__dict__["resources"] = None
         __props__.__dict__["tags"] = None
         return Group(resource_name, opts=opts, __props__=__props__)
 
@@ -185,6 +227,14 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Output[Optional[Sequence['outputs.GroupConfigurationItem']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
+        """
+        return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter
@@ -209,6 +259,14 @@ class Group(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resourcequery
         """
         return pulumi.get(self, "resource_query")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resources
+        """
+        return pulumi.get(self, "resources")
 
     @property
     @pulumi.getter

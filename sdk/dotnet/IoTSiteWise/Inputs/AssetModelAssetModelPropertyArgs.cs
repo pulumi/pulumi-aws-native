@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public Input<string> DataType { get; set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec
+        /// </summary>
+        [Input("dataTypeSpec")]
+        public Input<string>? DataTypeSpec { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
         /// </summary>
         [Input("logicalId", required: true)]

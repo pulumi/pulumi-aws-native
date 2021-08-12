@@ -12,6 +12,10 @@ import (
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html
 type AccessPolicyAccessPolicyIdentity struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
+	IamRole *AccessPolicyIamRole `pulumi:"iamRole"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
+	IamUser *AccessPolicyIamUser `pulumi:"iamUser"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
 	User *AccessPolicyUser `pulumi:"user"`
 }
@@ -29,6 +33,10 @@ type AccessPolicyAccessPolicyIdentityInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html
 type AccessPolicyAccessPolicyIdentityArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
+	IamRole AccessPolicyIamRolePtrInput `pulumi:"iamRole"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
+	IamUser AccessPolicyIamUserPtrInput `pulumi:"iamUser"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
 	User AccessPolicyUserPtrInput `pulumi:"user"`
 }
@@ -111,6 +119,16 @@ func (o AccessPolicyAccessPolicyIdentityOutput) ToAccessPolicyAccessPolicyIdenti
 	}).(AccessPolicyAccessPolicyIdentityPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
+func (o AccessPolicyAccessPolicyIdentityOutput) IamRole() AccessPolicyIamRolePtrOutput {
+	return o.ApplyT(func(v AccessPolicyAccessPolicyIdentity) *AccessPolicyIamRole { return v.IamRole }).(AccessPolicyIamRolePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
+func (o AccessPolicyAccessPolicyIdentityOutput) IamUser() AccessPolicyIamUserPtrOutput {
+	return o.ApplyT(func(v AccessPolicyAccessPolicyIdentity) *AccessPolicyIamUser { return v.IamUser }).(AccessPolicyIamUserPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
 func (o AccessPolicyAccessPolicyIdentityOutput) User() AccessPolicyUserPtrOutput {
 	return o.ApplyT(func(v AccessPolicyAccessPolicyIdentity) *AccessPolicyUser { return v.User }).(AccessPolicyUserPtrOutput)
@@ -138,6 +156,26 @@ func (o AccessPolicyAccessPolicyIdentityPtrOutput) Elem() AccessPolicyAccessPoli
 		var ret AccessPolicyAccessPolicyIdentity
 		return ret
 	}).(AccessPolicyAccessPolicyIdentityOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
+func (o AccessPolicyAccessPolicyIdentityPtrOutput) IamRole() AccessPolicyIamRolePtrOutput {
+	return o.ApplyT(func(v *AccessPolicyAccessPolicyIdentity) *AccessPolicyIamRole {
+		if v == nil {
+			return nil
+		}
+		return v.IamRole
+	}).(AccessPolicyIamRolePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
+func (o AccessPolicyAccessPolicyIdentityPtrOutput) IamUser() AccessPolicyIamUserPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyAccessPolicyIdentity) *AccessPolicyIamUser {
+		if v == nil {
+			return nil
+		}
+		return v.IamUser
+	}).(AccessPolicyIamUserPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
@@ -307,6 +345,286 @@ func (o AccessPolicyAccessPolicyResourcePtrOutput) Project() AccessPolicyProject
 		}
 		return v.Project
 	}).(AccessPolicyProjectPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html
+type AccessPolicyIamRole struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html#cfn-iotsitewise-accesspolicy-iamrole-arn
+	Arn *string `pulumi:"arn"`
+}
+
+// AccessPolicyIamRoleInput is an input type that accepts AccessPolicyIamRoleArgs and AccessPolicyIamRoleOutput values.
+// You can construct a concrete instance of `AccessPolicyIamRoleInput` via:
+//
+//          AccessPolicyIamRoleArgs{...}
+type AccessPolicyIamRoleInput interface {
+	pulumi.Input
+
+	ToAccessPolicyIamRoleOutput() AccessPolicyIamRoleOutput
+	ToAccessPolicyIamRoleOutputWithContext(context.Context) AccessPolicyIamRoleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html
+type AccessPolicyIamRoleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html#cfn-iotsitewise-accesspolicy-iamrole-arn
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+}
+
+func (AccessPolicyIamRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyIamRole)(nil)).Elem()
+}
+
+func (i AccessPolicyIamRoleArgs) ToAccessPolicyIamRoleOutput() AccessPolicyIamRoleOutput {
+	return i.ToAccessPolicyIamRoleOutputWithContext(context.Background())
+}
+
+func (i AccessPolicyIamRoleArgs) ToAccessPolicyIamRoleOutputWithContext(ctx context.Context) AccessPolicyIamRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIamRoleOutput)
+}
+
+func (i AccessPolicyIamRoleArgs) ToAccessPolicyIamRolePtrOutput() AccessPolicyIamRolePtrOutput {
+	return i.ToAccessPolicyIamRolePtrOutputWithContext(context.Background())
+}
+
+func (i AccessPolicyIamRoleArgs) ToAccessPolicyIamRolePtrOutputWithContext(ctx context.Context) AccessPolicyIamRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIamRoleOutput).ToAccessPolicyIamRolePtrOutputWithContext(ctx)
+}
+
+// AccessPolicyIamRolePtrInput is an input type that accepts AccessPolicyIamRoleArgs, AccessPolicyIamRolePtr and AccessPolicyIamRolePtrOutput values.
+// You can construct a concrete instance of `AccessPolicyIamRolePtrInput` via:
+//
+//          AccessPolicyIamRoleArgs{...}
+//
+//  or:
+//
+//          nil
+type AccessPolicyIamRolePtrInput interface {
+	pulumi.Input
+
+	ToAccessPolicyIamRolePtrOutput() AccessPolicyIamRolePtrOutput
+	ToAccessPolicyIamRolePtrOutputWithContext(context.Context) AccessPolicyIamRolePtrOutput
+}
+
+type accessPolicyIamRolePtrType AccessPolicyIamRoleArgs
+
+func AccessPolicyIamRolePtr(v *AccessPolicyIamRoleArgs) AccessPolicyIamRolePtrInput {
+	return (*accessPolicyIamRolePtrType)(v)
+}
+
+func (*accessPolicyIamRolePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyIamRole)(nil)).Elem()
+}
+
+func (i *accessPolicyIamRolePtrType) ToAccessPolicyIamRolePtrOutput() AccessPolicyIamRolePtrOutput {
+	return i.ToAccessPolicyIamRolePtrOutputWithContext(context.Background())
+}
+
+func (i *accessPolicyIamRolePtrType) ToAccessPolicyIamRolePtrOutputWithContext(ctx context.Context) AccessPolicyIamRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIamRolePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html
+type AccessPolicyIamRoleOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyIamRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyIamRole)(nil)).Elem()
+}
+
+func (o AccessPolicyIamRoleOutput) ToAccessPolicyIamRoleOutput() AccessPolicyIamRoleOutput {
+	return o
+}
+
+func (o AccessPolicyIamRoleOutput) ToAccessPolicyIamRoleOutputWithContext(ctx context.Context) AccessPolicyIamRoleOutput {
+	return o
+}
+
+func (o AccessPolicyIamRoleOutput) ToAccessPolicyIamRolePtrOutput() AccessPolicyIamRolePtrOutput {
+	return o.ToAccessPolicyIamRolePtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyIamRoleOutput) ToAccessPolicyIamRolePtrOutputWithContext(ctx context.Context) AccessPolicyIamRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPolicyIamRole) *AccessPolicyIamRole {
+		return &v
+	}).(AccessPolicyIamRolePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html#cfn-iotsitewise-accesspolicy-iamrole-arn
+func (o AccessPolicyIamRoleOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPolicyIamRole) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+type AccessPolicyIamRolePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyIamRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyIamRole)(nil)).Elem()
+}
+
+func (o AccessPolicyIamRolePtrOutput) ToAccessPolicyIamRolePtrOutput() AccessPolicyIamRolePtrOutput {
+	return o
+}
+
+func (o AccessPolicyIamRolePtrOutput) ToAccessPolicyIamRolePtrOutputWithContext(ctx context.Context) AccessPolicyIamRolePtrOutput {
+	return o
+}
+
+func (o AccessPolicyIamRolePtrOutput) Elem() AccessPolicyIamRoleOutput {
+	return o.ApplyT(func(v *AccessPolicyIamRole) AccessPolicyIamRole {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPolicyIamRole
+		return ret
+	}).(AccessPolicyIamRoleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html#cfn-iotsitewise-accesspolicy-iamrole-arn
+func (o AccessPolicyIamRolePtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyIamRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html
+type AccessPolicyIamUser struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html#cfn-iotsitewise-accesspolicy-iamuser-arn
+	Arn *string `pulumi:"arn"`
+}
+
+// AccessPolicyIamUserInput is an input type that accepts AccessPolicyIamUserArgs and AccessPolicyIamUserOutput values.
+// You can construct a concrete instance of `AccessPolicyIamUserInput` via:
+//
+//          AccessPolicyIamUserArgs{...}
+type AccessPolicyIamUserInput interface {
+	pulumi.Input
+
+	ToAccessPolicyIamUserOutput() AccessPolicyIamUserOutput
+	ToAccessPolicyIamUserOutputWithContext(context.Context) AccessPolicyIamUserOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html
+type AccessPolicyIamUserArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html#cfn-iotsitewise-accesspolicy-iamuser-arn
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+}
+
+func (AccessPolicyIamUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyIamUser)(nil)).Elem()
+}
+
+func (i AccessPolicyIamUserArgs) ToAccessPolicyIamUserOutput() AccessPolicyIamUserOutput {
+	return i.ToAccessPolicyIamUserOutputWithContext(context.Background())
+}
+
+func (i AccessPolicyIamUserArgs) ToAccessPolicyIamUserOutputWithContext(ctx context.Context) AccessPolicyIamUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIamUserOutput)
+}
+
+func (i AccessPolicyIamUserArgs) ToAccessPolicyIamUserPtrOutput() AccessPolicyIamUserPtrOutput {
+	return i.ToAccessPolicyIamUserPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPolicyIamUserArgs) ToAccessPolicyIamUserPtrOutputWithContext(ctx context.Context) AccessPolicyIamUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIamUserOutput).ToAccessPolicyIamUserPtrOutputWithContext(ctx)
+}
+
+// AccessPolicyIamUserPtrInput is an input type that accepts AccessPolicyIamUserArgs, AccessPolicyIamUserPtr and AccessPolicyIamUserPtrOutput values.
+// You can construct a concrete instance of `AccessPolicyIamUserPtrInput` via:
+//
+//          AccessPolicyIamUserArgs{...}
+//
+//  or:
+//
+//          nil
+type AccessPolicyIamUserPtrInput interface {
+	pulumi.Input
+
+	ToAccessPolicyIamUserPtrOutput() AccessPolicyIamUserPtrOutput
+	ToAccessPolicyIamUserPtrOutputWithContext(context.Context) AccessPolicyIamUserPtrOutput
+}
+
+type accessPolicyIamUserPtrType AccessPolicyIamUserArgs
+
+func AccessPolicyIamUserPtr(v *AccessPolicyIamUserArgs) AccessPolicyIamUserPtrInput {
+	return (*accessPolicyIamUserPtrType)(v)
+}
+
+func (*accessPolicyIamUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyIamUser)(nil)).Elem()
+}
+
+func (i *accessPolicyIamUserPtrType) ToAccessPolicyIamUserPtrOutput() AccessPolicyIamUserPtrOutput {
+	return i.ToAccessPolicyIamUserPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPolicyIamUserPtrType) ToAccessPolicyIamUserPtrOutputWithContext(ctx context.Context) AccessPolicyIamUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIamUserPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html
+type AccessPolicyIamUserOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyIamUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyIamUser)(nil)).Elem()
+}
+
+func (o AccessPolicyIamUserOutput) ToAccessPolicyIamUserOutput() AccessPolicyIamUserOutput {
+	return o
+}
+
+func (o AccessPolicyIamUserOutput) ToAccessPolicyIamUserOutputWithContext(ctx context.Context) AccessPolicyIamUserOutput {
+	return o
+}
+
+func (o AccessPolicyIamUserOutput) ToAccessPolicyIamUserPtrOutput() AccessPolicyIamUserPtrOutput {
+	return o.ToAccessPolicyIamUserPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyIamUserOutput) ToAccessPolicyIamUserPtrOutputWithContext(ctx context.Context) AccessPolicyIamUserPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPolicyIamUser) *AccessPolicyIamUser {
+		return &v
+	}).(AccessPolicyIamUserPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html#cfn-iotsitewise-accesspolicy-iamuser-arn
+func (o AccessPolicyIamUserOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPolicyIamUser) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+type AccessPolicyIamUserPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyIamUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyIamUser)(nil)).Elem()
+}
+
+func (o AccessPolicyIamUserPtrOutput) ToAccessPolicyIamUserPtrOutput() AccessPolicyIamUserPtrOutput {
+	return o
+}
+
+func (o AccessPolicyIamUserPtrOutput) ToAccessPolicyIamUserPtrOutputWithContext(ctx context.Context) AccessPolicyIamUserPtrOutput {
+	return o
+}
+
+func (o AccessPolicyIamUserPtrOutput) Elem() AccessPolicyIamUserOutput {
+	return o.ApplyT(func(v *AccessPolicyIamUser) AccessPolicyIamUser {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPolicyIamUser
+		return ret
+	}).(AccessPolicyIamUserOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html#cfn-iotsitewise-accesspolicy-iamuser-arn
+func (o AccessPolicyIamUserPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyIamUser) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html
@@ -956,6 +1274,135 @@ func (o AssetAssetPropertyArrayOutput) Index(i pulumi.IntInput) AssetAssetProper
 	}).(AssetAssetPropertyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html
+type AssetModelAssetModelCompositeModel struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-compositemodelproperties
+	CompositeModelProperties []AssetModelAssetModelProperty `pulumi:"compositeModelProperties"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-description
+	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-name
+	Name string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-type
+	Type string `pulumi:"type"`
+}
+
+// AssetModelAssetModelCompositeModelInput is an input type that accepts AssetModelAssetModelCompositeModelArgs and AssetModelAssetModelCompositeModelOutput values.
+// You can construct a concrete instance of `AssetModelAssetModelCompositeModelInput` via:
+//
+//          AssetModelAssetModelCompositeModelArgs{...}
+type AssetModelAssetModelCompositeModelInput interface {
+	pulumi.Input
+
+	ToAssetModelAssetModelCompositeModelOutput() AssetModelAssetModelCompositeModelOutput
+	ToAssetModelAssetModelCompositeModelOutputWithContext(context.Context) AssetModelAssetModelCompositeModelOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html
+type AssetModelAssetModelCompositeModelArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-compositemodelproperties
+	CompositeModelProperties AssetModelAssetModelPropertyArrayInput `pulumi:"compositeModelProperties"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-name
+	Name pulumi.StringInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AssetModelAssetModelCompositeModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelAssetModelCompositeModel)(nil)).Elem()
+}
+
+func (i AssetModelAssetModelCompositeModelArgs) ToAssetModelAssetModelCompositeModelOutput() AssetModelAssetModelCompositeModelOutput {
+	return i.ToAssetModelAssetModelCompositeModelOutputWithContext(context.Background())
+}
+
+func (i AssetModelAssetModelCompositeModelArgs) ToAssetModelAssetModelCompositeModelOutputWithContext(ctx context.Context) AssetModelAssetModelCompositeModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAssetModelCompositeModelOutput)
+}
+
+// AssetModelAssetModelCompositeModelArrayInput is an input type that accepts AssetModelAssetModelCompositeModelArray and AssetModelAssetModelCompositeModelArrayOutput values.
+// You can construct a concrete instance of `AssetModelAssetModelCompositeModelArrayInput` via:
+//
+//          AssetModelAssetModelCompositeModelArray{ AssetModelAssetModelCompositeModelArgs{...} }
+type AssetModelAssetModelCompositeModelArrayInput interface {
+	pulumi.Input
+
+	ToAssetModelAssetModelCompositeModelArrayOutput() AssetModelAssetModelCompositeModelArrayOutput
+	ToAssetModelAssetModelCompositeModelArrayOutputWithContext(context.Context) AssetModelAssetModelCompositeModelArrayOutput
+}
+
+type AssetModelAssetModelCompositeModelArray []AssetModelAssetModelCompositeModelInput
+
+func (AssetModelAssetModelCompositeModelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelAssetModelCompositeModel)(nil)).Elem()
+}
+
+func (i AssetModelAssetModelCompositeModelArray) ToAssetModelAssetModelCompositeModelArrayOutput() AssetModelAssetModelCompositeModelArrayOutput {
+	return i.ToAssetModelAssetModelCompositeModelArrayOutputWithContext(context.Background())
+}
+
+func (i AssetModelAssetModelCompositeModelArray) ToAssetModelAssetModelCompositeModelArrayOutputWithContext(ctx context.Context) AssetModelAssetModelCompositeModelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAssetModelCompositeModelArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html
+type AssetModelAssetModelCompositeModelOutput struct{ *pulumi.OutputState }
+
+func (AssetModelAssetModelCompositeModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelAssetModelCompositeModel)(nil)).Elem()
+}
+
+func (o AssetModelAssetModelCompositeModelOutput) ToAssetModelAssetModelCompositeModelOutput() AssetModelAssetModelCompositeModelOutput {
+	return o
+}
+
+func (o AssetModelAssetModelCompositeModelOutput) ToAssetModelAssetModelCompositeModelOutputWithContext(ctx context.Context) AssetModelAssetModelCompositeModelOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-compositemodelproperties
+func (o AssetModelAssetModelCompositeModelOutput) CompositeModelProperties() AssetModelAssetModelPropertyArrayOutput {
+	return o.ApplyT(func(v AssetModelAssetModelCompositeModel) []AssetModelAssetModelProperty {
+		return v.CompositeModelProperties
+	}).(AssetModelAssetModelPropertyArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-description
+func (o AssetModelAssetModelCompositeModelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelAssetModelCompositeModel) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-name
+func (o AssetModelAssetModelCompositeModelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetModelAssetModelCompositeModel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-type
+func (o AssetModelAssetModelCompositeModelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetModelAssetModelCompositeModel) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AssetModelAssetModelCompositeModelArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetModelAssetModelCompositeModelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelAssetModelCompositeModel)(nil)).Elem()
+}
+
+func (o AssetModelAssetModelCompositeModelArrayOutput) ToAssetModelAssetModelCompositeModelArrayOutput() AssetModelAssetModelCompositeModelArrayOutput {
+	return o
+}
+
+func (o AssetModelAssetModelCompositeModelArrayOutput) ToAssetModelAssetModelCompositeModelArrayOutputWithContext(ctx context.Context) AssetModelAssetModelCompositeModelArrayOutput {
+	return o
+}
+
+func (o AssetModelAssetModelCompositeModelArrayOutput) Index(i pulumi.IntInput) AssetModelAssetModelCompositeModelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelAssetModelCompositeModel {
+		return vs[0].([]AssetModelAssetModelCompositeModel)[vs[1].(int)]
+	}).(AssetModelAssetModelCompositeModelOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html
 type AssetModelAssetModelHierarchy struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-childassetmodelid
@@ -1078,6 +1525,8 @@ func (o AssetModelAssetModelHierarchyArrayOutput) Index(i pulumi.IntInput) Asset
 type AssetModelAssetModelProperty struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype
 	DataType string `pulumi:"dataType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec
+	DataTypeSpec *string `pulumi:"dataTypeSpec"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
 	LogicalId string `pulumi:"logicalId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-name
@@ -1103,6 +1552,8 @@ type AssetModelAssetModelPropertyInput interface {
 type AssetModelAssetModelPropertyArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype
 	DataType pulumi.StringInput `pulumi:"dataType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec
+	DataTypeSpec pulumi.StringPtrInput `pulumi:"dataTypeSpec"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
 	LogicalId pulumi.StringInput `pulumi:"logicalId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-name
@@ -1168,6 +1619,11 @@ func (o AssetModelAssetModelPropertyOutput) ToAssetModelAssetModelPropertyOutput
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype
 func (o AssetModelAssetModelPropertyOutput) DataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelAssetModelProperty) string { return v.DataType }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec
+func (o AssetModelAssetModelPropertyOutput) DataTypeSpec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelAssetModelProperty) *string { return v.DataTypeSpec }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
@@ -2022,6 +2478,8 @@ func (o AssetModelTransformPtrOutput) Variables() AssetModelExpressionVariableAr
 type AssetModelTumblingWindow struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval
 	Interval string `pulumi:"interval"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-offset
+	Offset *string `pulumi:"offset"`
 }
 
 // AssetModelTumblingWindowInput is an input type that accepts AssetModelTumblingWindowArgs and AssetModelTumblingWindowOutput values.
@@ -2039,6 +2497,8 @@ type AssetModelTumblingWindowInput interface {
 type AssetModelTumblingWindowArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval
 	Interval pulumi.StringInput `pulumi:"interval"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-offset
+	Offset pulumi.StringPtrInput `pulumi:"offset"`
 }
 
 func (AssetModelTumblingWindowArgs) ElementType() reflect.Type {
@@ -2124,6 +2584,11 @@ func (o AssetModelTumblingWindowOutput) Interval() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelTumblingWindow) string { return v.Interval }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-offset
+func (o AssetModelTumblingWindowOutput) Offset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelTumblingWindow) *string { return v.Offset }).(pulumi.StringPtrOutput)
+}
+
 type AssetModelTumblingWindowPtrOutput struct{ *pulumi.OutputState }
 
 func (AssetModelTumblingWindowPtrOutput) ElementType() reflect.Type {
@@ -2155,6 +2620,16 @@ func (o AssetModelTumblingWindowPtrOutput) Interval() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Interval
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-offset
+func (o AssetModelTumblingWindowPtrOutput) Offset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssetModelTumblingWindow) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Offset
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2611,329 +3086,15 @@ func (o GatewayGreengrassPtrOutput) GroupArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html
-type PortalMonitorErrorDetails struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html#cfn-iotsitewise-portal-monitorerrordetails-code
-	Code *string `pulumi:"code"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html#cfn-iotsitewise-portal-monitorerrordetails-message
-	Message *string `pulumi:"message"`
-}
-
-// PortalMonitorErrorDetailsInput is an input type that accepts PortalMonitorErrorDetailsArgs and PortalMonitorErrorDetailsOutput values.
-// You can construct a concrete instance of `PortalMonitorErrorDetailsInput` via:
-//
-//          PortalMonitorErrorDetailsArgs{...}
-type PortalMonitorErrorDetailsInput interface {
-	pulumi.Input
-
-	ToPortalMonitorErrorDetailsOutput() PortalMonitorErrorDetailsOutput
-	ToPortalMonitorErrorDetailsOutputWithContext(context.Context) PortalMonitorErrorDetailsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html
-type PortalMonitorErrorDetailsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html#cfn-iotsitewise-portal-monitorerrordetails-code
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html#cfn-iotsitewise-portal-monitorerrordetails-message
-	Message pulumi.StringPtrInput `pulumi:"message"`
-}
-
-func (PortalMonitorErrorDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortalMonitorErrorDetails)(nil)).Elem()
-}
-
-func (i PortalMonitorErrorDetailsArgs) ToPortalMonitorErrorDetailsOutput() PortalMonitorErrorDetailsOutput {
-	return i.ToPortalMonitorErrorDetailsOutputWithContext(context.Background())
-}
-
-func (i PortalMonitorErrorDetailsArgs) ToPortalMonitorErrorDetailsOutputWithContext(ctx context.Context) PortalMonitorErrorDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortalMonitorErrorDetailsOutput)
-}
-
-func (i PortalMonitorErrorDetailsArgs) ToPortalMonitorErrorDetailsPtrOutput() PortalMonitorErrorDetailsPtrOutput {
-	return i.ToPortalMonitorErrorDetailsPtrOutputWithContext(context.Background())
-}
-
-func (i PortalMonitorErrorDetailsArgs) ToPortalMonitorErrorDetailsPtrOutputWithContext(ctx context.Context) PortalMonitorErrorDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortalMonitorErrorDetailsOutput).ToPortalMonitorErrorDetailsPtrOutputWithContext(ctx)
-}
-
-// PortalMonitorErrorDetailsPtrInput is an input type that accepts PortalMonitorErrorDetailsArgs, PortalMonitorErrorDetailsPtr and PortalMonitorErrorDetailsPtrOutput values.
-// You can construct a concrete instance of `PortalMonitorErrorDetailsPtrInput` via:
-//
-//          PortalMonitorErrorDetailsArgs{...}
-//
-//  or:
-//
-//          nil
-type PortalMonitorErrorDetailsPtrInput interface {
-	pulumi.Input
-
-	ToPortalMonitorErrorDetailsPtrOutput() PortalMonitorErrorDetailsPtrOutput
-	ToPortalMonitorErrorDetailsPtrOutputWithContext(context.Context) PortalMonitorErrorDetailsPtrOutput
-}
-
-type portalMonitorErrorDetailsPtrType PortalMonitorErrorDetailsArgs
-
-func PortalMonitorErrorDetailsPtr(v *PortalMonitorErrorDetailsArgs) PortalMonitorErrorDetailsPtrInput {
-	return (*portalMonitorErrorDetailsPtrType)(v)
-}
-
-func (*portalMonitorErrorDetailsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PortalMonitorErrorDetails)(nil)).Elem()
-}
-
-func (i *portalMonitorErrorDetailsPtrType) ToPortalMonitorErrorDetailsPtrOutput() PortalMonitorErrorDetailsPtrOutput {
-	return i.ToPortalMonitorErrorDetailsPtrOutputWithContext(context.Background())
-}
-
-func (i *portalMonitorErrorDetailsPtrType) ToPortalMonitorErrorDetailsPtrOutputWithContext(ctx context.Context) PortalMonitorErrorDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortalMonitorErrorDetailsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html
-type PortalMonitorErrorDetailsOutput struct{ *pulumi.OutputState }
-
-func (PortalMonitorErrorDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortalMonitorErrorDetails)(nil)).Elem()
-}
-
-func (o PortalMonitorErrorDetailsOutput) ToPortalMonitorErrorDetailsOutput() PortalMonitorErrorDetailsOutput {
-	return o
-}
-
-func (o PortalMonitorErrorDetailsOutput) ToPortalMonitorErrorDetailsOutputWithContext(ctx context.Context) PortalMonitorErrorDetailsOutput {
-	return o
-}
-
-func (o PortalMonitorErrorDetailsOutput) ToPortalMonitorErrorDetailsPtrOutput() PortalMonitorErrorDetailsPtrOutput {
-	return o.ToPortalMonitorErrorDetailsPtrOutputWithContext(context.Background())
-}
-
-func (o PortalMonitorErrorDetailsOutput) ToPortalMonitorErrorDetailsPtrOutputWithContext(ctx context.Context) PortalMonitorErrorDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PortalMonitorErrorDetails) *PortalMonitorErrorDetails {
-		return &v
-	}).(PortalMonitorErrorDetailsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html#cfn-iotsitewise-portal-monitorerrordetails-code
-func (o PortalMonitorErrorDetailsOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PortalMonitorErrorDetails) *string { return v.Code }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html#cfn-iotsitewise-portal-monitorerrordetails-message
-func (o PortalMonitorErrorDetailsOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PortalMonitorErrorDetails) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-type PortalMonitorErrorDetailsPtrOutput struct{ *pulumi.OutputState }
-
-func (PortalMonitorErrorDetailsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PortalMonitorErrorDetails)(nil)).Elem()
-}
-
-func (o PortalMonitorErrorDetailsPtrOutput) ToPortalMonitorErrorDetailsPtrOutput() PortalMonitorErrorDetailsPtrOutput {
-	return o
-}
-
-func (o PortalMonitorErrorDetailsPtrOutput) ToPortalMonitorErrorDetailsPtrOutputWithContext(ctx context.Context) PortalMonitorErrorDetailsPtrOutput {
-	return o
-}
-
-func (o PortalMonitorErrorDetailsPtrOutput) Elem() PortalMonitorErrorDetailsOutput {
-	return o.ApplyT(func(v *PortalMonitorErrorDetails) PortalMonitorErrorDetails {
-		if v != nil {
-			return *v
-		}
-		var ret PortalMonitorErrorDetails
-		return ret
-	}).(PortalMonitorErrorDetailsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html#cfn-iotsitewise-portal-monitorerrordetails-code
-func (o PortalMonitorErrorDetailsPtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PortalMonitorErrorDetails) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Code
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-monitorerrordetails.html#cfn-iotsitewise-portal-monitorerrordetails-message
-func (o PortalMonitorErrorDetailsPtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PortalMonitorErrorDetails) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html
-type PortalPortalStatus struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-error
-	Error *PortalMonitorErrorDetails `pulumi:"error"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-state
-	State string `pulumi:"state"`
-}
-
-// PortalPortalStatusInput is an input type that accepts PortalPortalStatusArgs and PortalPortalStatusOutput values.
-// You can construct a concrete instance of `PortalPortalStatusInput` via:
-//
-//          PortalPortalStatusArgs{...}
-type PortalPortalStatusInput interface {
-	pulumi.Input
-
-	ToPortalPortalStatusOutput() PortalPortalStatusOutput
-	ToPortalPortalStatusOutputWithContext(context.Context) PortalPortalStatusOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html
-type PortalPortalStatusArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-error
-	Error PortalMonitorErrorDetailsPtrInput `pulumi:"error"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-state
-	State pulumi.StringInput `pulumi:"state"`
-}
-
-func (PortalPortalStatusArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortalPortalStatus)(nil)).Elem()
-}
-
-func (i PortalPortalStatusArgs) ToPortalPortalStatusOutput() PortalPortalStatusOutput {
-	return i.ToPortalPortalStatusOutputWithContext(context.Background())
-}
-
-func (i PortalPortalStatusArgs) ToPortalPortalStatusOutputWithContext(ctx context.Context) PortalPortalStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortalPortalStatusOutput)
-}
-
-func (i PortalPortalStatusArgs) ToPortalPortalStatusPtrOutput() PortalPortalStatusPtrOutput {
-	return i.ToPortalPortalStatusPtrOutputWithContext(context.Background())
-}
-
-func (i PortalPortalStatusArgs) ToPortalPortalStatusPtrOutputWithContext(ctx context.Context) PortalPortalStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortalPortalStatusOutput).ToPortalPortalStatusPtrOutputWithContext(ctx)
-}
-
-// PortalPortalStatusPtrInput is an input type that accepts PortalPortalStatusArgs, PortalPortalStatusPtr and PortalPortalStatusPtrOutput values.
-// You can construct a concrete instance of `PortalPortalStatusPtrInput` via:
-//
-//          PortalPortalStatusArgs{...}
-//
-//  or:
-//
-//          nil
-type PortalPortalStatusPtrInput interface {
-	pulumi.Input
-
-	ToPortalPortalStatusPtrOutput() PortalPortalStatusPtrOutput
-	ToPortalPortalStatusPtrOutputWithContext(context.Context) PortalPortalStatusPtrOutput
-}
-
-type portalPortalStatusPtrType PortalPortalStatusArgs
-
-func PortalPortalStatusPtr(v *PortalPortalStatusArgs) PortalPortalStatusPtrInput {
-	return (*portalPortalStatusPtrType)(v)
-}
-
-func (*portalPortalStatusPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PortalPortalStatus)(nil)).Elem()
-}
-
-func (i *portalPortalStatusPtrType) ToPortalPortalStatusPtrOutput() PortalPortalStatusPtrOutput {
-	return i.ToPortalPortalStatusPtrOutputWithContext(context.Background())
-}
-
-func (i *portalPortalStatusPtrType) ToPortalPortalStatusPtrOutputWithContext(ctx context.Context) PortalPortalStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortalPortalStatusPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html
-type PortalPortalStatusOutput struct{ *pulumi.OutputState }
-
-func (PortalPortalStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortalPortalStatus)(nil)).Elem()
-}
-
-func (o PortalPortalStatusOutput) ToPortalPortalStatusOutput() PortalPortalStatusOutput {
-	return o
-}
-
-func (o PortalPortalStatusOutput) ToPortalPortalStatusOutputWithContext(ctx context.Context) PortalPortalStatusOutput {
-	return o
-}
-
-func (o PortalPortalStatusOutput) ToPortalPortalStatusPtrOutput() PortalPortalStatusPtrOutput {
-	return o.ToPortalPortalStatusPtrOutputWithContext(context.Background())
-}
-
-func (o PortalPortalStatusOutput) ToPortalPortalStatusPtrOutputWithContext(ctx context.Context) PortalPortalStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PortalPortalStatus) *PortalPortalStatus {
-		return &v
-	}).(PortalPortalStatusPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-error
-func (o PortalPortalStatusOutput) Error() PortalMonitorErrorDetailsPtrOutput {
-	return o.ApplyT(func(v PortalPortalStatus) *PortalMonitorErrorDetails { return v.Error }).(PortalMonitorErrorDetailsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-state
-func (o PortalPortalStatusOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v PortalPortalStatus) string { return v.State }).(pulumi.StringOutput)
-}
-
-type PortalPortalStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (PortalPortalStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PortalPortalStatus)(nil)).Elem()
-}
-
-func (o PortalPortalStatusPtrOutput) ToPortalPortalStatusPtrOutput() PortalPortalStatusPtrOutput {
-	return o
-}
-
-func (o PortalPortalStatusPtrOutput) ToPortalPortalStatusPtrOutputWithContext(ctx context.Context) PortalPortalStatusPtrOutput {
-	return o
-}
-
-func (o PortalPortalStatusPtrOutput) Elem() PortalPortalStatusOutput {
-	return o.ApplyT(func(v *PortalPortalStatus) PortalPortalStatus {
-		if v != nil {
-			return *v
-		}
-		var ret PortalPortalStatus
-		return ret
-	}).(PortalPortalStatusOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-error
-func (o PortalPortalStatusPtrOutput) Error() PortalMonitorErrorDetailsPtrOutput {
-	return o.ApplyT(func(v *PortalPortalStatus) *PortalMonitorErrorDetails {
-		if v == nil {
-			return nil
-		}
-		return v.Error
-	}).(PortalMonitorErrorDetailsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portalstatus.html#cfn-iotsitewise-portal-portalstatus-state
-func (o PortalPortalStatusPtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PortalPortalStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.State
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AccessPolicyAccessPolicyIdentityOutput{})
 	pulumi.RegisterOutputType(AccessPolicyAccessPolicyIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyAccessPolicyResourceOutput{})
 	pulumi.RegisterOutputType(AccessPolicyAccessPolicyResourcePtrOutput{})
+	pulumi.RegisterOutputType(AccessPolicyIamRoleOutput{})
+	pulumi.RegisterOutputType(AccessPolicyIamRolePtrOutput{})
+	pulumi.RegisterOutputType(AccessPolicyIamUserOutput{})
+	pulumi.RegisterOutputType(AccessPolicyIamUserPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyPortalOutput{})
 	pulumi.RegisterOutputType(AccessPolicyPortalPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyProjectOutput{})
@@ -2944,6 +3105,8 @@ func init() {
 	pulumi.RegisterOutputType(AssetAssetHierarchyArrayOutput{})
 	pulumi.RegisterOutputType(AssetAssetPropertyOutput{})
 	pulumi.RegisterOutputType(AssetAssetPropertyArrayOutput{})
+	pulumi.RegisterOutputType(AssetModelAssetModelCompositeModelOutput{})
+	pulumi.RegisterOutputType(AssetModelAssetModelCompositeModelArrayOutput{})
 	pulumi.RegisterOutputType(AssetModelAssetModelHierarchyOutput{})
 	pulumi.RegisterOutputType(AssetModelAssetModelHierarchyArrayOutput{})
 	pulumi.RegisterOutputType(AssetModelAssetModelPropertyOutput{})
@@ -2968,8 +3131,4 @@ func init() {
 	pulumi.RegisterOutputType(GatewayGatewayPlatformPtrOutput{})
 	pulumi.RegisterOutputType(GatewayGreengrassOutput{})
 	pulumi.RegisterOutputType(GatewayGreengrassPtrOutput{})
-	pulumi.RegisterOutputType(PortalMonitorErrorDetailsOutput{})
-	pulumi.RegisterOutputType(PortalMonitorErrorDetailsPtrOutput{})
-	pulumi.RegisterOutputType(PortalPortalStatusOutput{})
-	pulumi.RegisterOutputType(PortalPortalStatusPtrOutput{})
 }

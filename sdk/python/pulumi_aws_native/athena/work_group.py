@@ -21,7 +21,7 @@ class WorkGroupArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  recursive_delete_option: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['WorkGroupTagsArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  work_group_configuration: Optional[pulumi.Input['WorkGroupWorkGroupConfigurationArgs']] = None,
                  work_group_configuration_updates: Optional[pulumi.Input['WorkGroupWorkGroupConfigurationUpdatesArgs']] = None):
         """
@@ -30,7 +30,7 @@ class WorkGroupArgs:
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
         :param pulumi.Input[bool] recursive_delete_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
         :param pulumi.Input[str] state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
-        :param pulumi.Input['WorkGroupTagsArgs'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
         :param pulumi.Input['WorkGroupWorkGroupConfigurationArgs'] work_group_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
         :param pulumi.Input['WorkGroupWorkGroupConfigurationUpdatesArgs'] work_group_configuration_updates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
         """
@@ -98,14 +98,14 @@ class WorkGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['WorkGroupTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['WorkGroupTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -142,7 +142,7 @@ class WorkGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  recursive_delete_option: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['WorkGroupTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  work_group_configuration: Optional[pulumi.Input[pulumi.InputType['WorkGroupWorkGroupConfigurationArgs']]] = None,
                  work_group_configuration_updates: Optional[pulumi.Input[pulumi.InputType['WorkGroupWorkGroupConfigurationUpdatesArgs']]] = None,
                  __props__=None):
@@ -155,7 +155,7 @@ class WorkGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
         :param pulumi.Input[bool] recursive_delete_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
         :param pulumi.Input[str] state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
-        :param pulumi.Input[pulumi.InputType['WorkGroupTagsArgs']] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
         :param pulumi.Input[pulumi.InputType['WorkGroupWorkGroupConfigurationArgs']] work_group_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
         :param pulumi.Input[pulumi.InputType['WorkGroupWorkGroupConfigurationUpdatesArgs']] work_group_configuration_updates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
         """
@@ -187,7 +187,7 @@ class WorkGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  recursive_delete_option: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['WorkGroupTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  work_group_configuration: Optional[pulumi.Input[pulumi.InputType['WorkGroupWorkGroupConfigurationArgs']]] = None,
                  work_group_configuration_updates: Optional[pulumi.Input[pulumi.InputType['WorkGroupWorkGroupConfigurationUpdatesArgs']]] = None,
                  __props__=None):
@@ -212,6 +212,8 @@ class WorkGroup(pulumi.CustomResource):
             __props__.__dict__["work_group_configuration"] = work_group_configuration
             __props__.__dict__["work_group_configuration_updates"] = work_group_configuration_updates
             __props__.__dict__["creation_time"] = None
+            __props__.__dict__["work_group_configuration_engine_version_effective_engine_version"] = None
+            __props__.__dict__["work_group_configuration_updates_engine_version_effective_engine_version"] = None
         super(WorkGroup, __self__).__init__(
             'aws-native:Athena:WorkGroup',
             resource_name,
@@ -241,7 +243,9 @@ class WorkGroup(pulumi.CustomResource):
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["work_group_configuration"] = None
+        __props__.__dict__["work_group_configuration_engine_version_effective_engine_version"] = None
         __props__.__dict__["work_group_configuration_updates"] = None
+        __props__.__dict__["work_group_configuration_updates_engine_version_effective_engine_version"] = None
         return WorkGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -283,7 +287,7 @@ class WorkGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.WorkGroupTags']]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
         """
@@ -298,10 +302,20 @@ class WorkGroup(pulumi.CustomResource):
         return pulumi.get(self, "work_group_configuration")
 
     @property
+    @pulumi.getter(name="workGroupConfigurationEngineVersionEffectiveEngineVersion")
+    def work_group_configuration_engine_version_effective_engine_version(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "work_group_configuration_engine_version_effective_engine_version")
+
+    @property
     @pulumi.getter(name="workGroupConfigurationUpdates")
     def work_group_configuration_updates(self) -> pulumi.Output[Optional['outputs.WorkGroupWorkGroupConfigurationUpdates']]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
         """
         return pulumi.get(self, "work_group_configuration_updates")
+
+    @property
+    @pulumi.getter(name="workGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion")
+    def work_group_configuration_updates_engine_version_effective_engine_version(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "work_group_configuration_updates_engine_version_effective_engine_version")
 

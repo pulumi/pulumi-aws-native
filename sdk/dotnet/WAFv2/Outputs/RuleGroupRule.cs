@@ -29,9 +29,13 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-rulelabels
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RuleGroupLabel> RuleLabels;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
         /// </summary>
-        public readonly Outputs.RuleGroupStatementOne Statement;
+        public readonly Outputs.RuleGroupStatement Statement;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
         /// </summary>
@@ -45,13 +49,16 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             int priority,
 
-            Outputs.RuleGroupStatementOne statement,
+            ImmutableArray<Outputs.RuleGroupLabel> ruleLabels,
+
+            Outputs.RuleGroupStatement statement,
 
             Outputs.RuleGroupVisibilityConfig visibilityConfig)
         {
             Action = action;
             Name = name;
             Priority = priority;
+            RuleLabels = ruleLabels;
             Statement = statement;
             VisibilityConfig = visibilityConfig;
         }

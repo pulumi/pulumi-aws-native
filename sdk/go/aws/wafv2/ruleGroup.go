@@ -16,12 +16,17 @@ import (
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn             pulumi.StringOutput              `pulumi:"arn"`
+	AvailableLabels RuleGroupLabelSummaryArrayOutput `pulumi:"availableLabels"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
-	Capacity pulumi.IntOutput `pulumi:"capacity"`
+	Capacity       pulumi.IntOutput                 `pulumi:"capacity"`
+	ConsumedLabels RuleGroupLabelSummaryArrayOutput `pulumi:"consumedLabels"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
+	CustomResponseBodies RuleGroupCustomResponseBodyMapOutput `pulumi:"customResponseBodies"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Id          pulumi.StringOutput    `pulumi:"id"`
+	Description    pulumi.StringPtrOutput `pulumi:"description"`
+	Id             pulumi.StringOutput    `pulumi:"id"`
+	LabelNamespace pulumi.StringOutput    `pulumi:"labelNamespace"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
@@ -84,6 +89,8 @@ func (RuleGroupState) ElementType() reflect.Type {
 type ruleGroupArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
 	Capacity int `pulumi:"capacity"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
+	CustomResponseBodies map[string]RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
 	Description *string `pulumi:"description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
@@ -102,6 +109,8 @@ type ruleGroupArgs struct {
 type RuleGroupArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
 	Capacity pulumi.IntInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
+	CustomResponseBodies RuleGroupCustomResponseBodyMapInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
 	Description pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name

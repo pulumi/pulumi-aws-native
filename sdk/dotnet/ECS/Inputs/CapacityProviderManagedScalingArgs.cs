@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.ECS.Inputs
     public sealed class CapacityProviderManagedScalingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
+        /// </summary>
+        [Input("instanceWarmupPeriod")]
+        public Input<int>? InstanceWarmupPeriod { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
         /// </summary>
         [Input("maximumScalingStepSize")]

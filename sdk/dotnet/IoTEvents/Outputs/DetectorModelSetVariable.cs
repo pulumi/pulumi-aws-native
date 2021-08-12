@@ -19,17 +19,17 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-value
         /// </summary>
-        public readonly string? Value;
+        public readonly string Value;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename
         /// </summary>
-        public readonly string? VariableName;
+        public readonly string VariableName;
 
         [OutputConstructor]
         private DetectorModelSetVariable(
-            string? value,
+            string value,
 
-            string? variableName)
+            string variableName)
         {
             Value = value;
             VariableName = variableName;

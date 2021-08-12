@@ -10,7 +10,6 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
-from ._inputs import *
 
 __all__ = ['AssetArgs', 'Asset']
 
@@ -21,7 +20,6 @@ class AssetArgs:
                  packaging_group_id: pulumi.Input[str],
                  source_arn: pulumi.Input[str],
                  source_role_arn: pulumi.Input[str],
-                 egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -30,7 +28,6 @@ class AssetArgs:
         :param pulumi.Input[str] packaging_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
         :param pulumi.Input[str] source_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
         :param pulumi.Input[str] source_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
-        :param pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]] egress_endpoints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
         :param pulumi.Input[str] resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
         """
@@ -38,8 +35,6 @@ class AssetArgs:
         pulumi.set(__self__, "packaging_group_id", packaging_group_id)
         pulumi.set(__self__, "source_arn", source_arn)
         pulumi.set(__self__, "source_role_arn", source_role_arn)
-        if egress_endpoints is not None:
-            pulumi.set(__self__, "egress_endpoints", egress_endpoints)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if tags is not None:
@@ -94,18 +89,6 @@ class AssetArgs:
         pulumi.set(self, "source_role_arn", value)
 
     @property
-    @pulumi.getter(name="egressEndpoints")
-    def egress_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
-        """
-        return pulumi.get(self, "egress_endpoints")
-
-    @egress_endpoints.setter
-    def egress_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]]):
-        pulumi.set(self, "egress_endpoints", value)
-
-    @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -135,7 +118,6 @@ class Asset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetEgressEndpointArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  packaging_group_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
@@ -148,7 +130,6 @@ class Asset(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetEgressEndpointArgs']]]] egress_endpoints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
         :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
         :param pulumi.Input[str] packaging_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
         :param pulumi.Input[str] resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
@@ -180,7 +161,6 @@ class Asset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetEgressEndpointArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  packaging_group_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
@@ -199,7 +179,6 @@ class Asset(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssetArgs.__new__(AssetArgs)
 
-            __props__.__dict__["egress_endpoints"] = egress_endpoints
             if id is None and not opts.urn:
                 raise TypeError("Missing required property 'id'")
             __props__.__dict__["id"] = id
@@ -216,6 +195,7 @@ class Asset(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["egress_endpoints"] = None
         super(Asset, __self__).__init__(
             'aws-native:MediaPackage:Asset',
             resource_name,
@@ -261,10 +241,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="egressEndpoints")
-    def egress_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.AssetEgressEndpoint']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
-        """
+    def egress_endpoints(self) -> pulumi.Output[Sequence['outputs.AssetEgressEndpoint']]:
         return pulumi.get(self, "egress_endpoints")
 
     @property

@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
+        /// </summary>
+        [Output("containerRecipeArn")]
+        public Output<string?> ContainerRecipeArn { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
         /// </summary>
         [Output("distributionConfigurationArn")]
@@ -37,7 +43,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
         /// </summary>
         [Output("imageRecipeArn")]
-        public Output<string> ImageRecipeArn { get; private set; } = null!;
+        public Output<string?> ImageRecipeArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
@@ -106,6 +112,12 @@ namespace Pulumi.AwsNative.ImageBuilder
     public sealed class ImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
+        /// </summary>
+        [Input("containerRecipeArn")]
+        public Input<string>? ContainerRecipeArn { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
         /// </summary>
         [Input("distributionConfigurationArn")]
@@ -120,8 +132,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
         /// </summary>
-        [Input("imageRecipeArn", required: true)]
-        public Input<string> ImageRecipeArn { get; set; } = null!;
+        [Input("imageRecipeArn")]
+        public Input<string>? ImageRecipeArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration

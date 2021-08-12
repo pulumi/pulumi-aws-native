@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html#cfn-iotevents-input-attribute-jsonpath
         /// </summary>
-        [Input("jsonPath")]
-        public Input<string>? JsonPath { get; set; }
+        [Input("jsonPath", required: true)]
+        public Input<string> JsonPath { get; set; } = null!;
 
         public InputAttributeArgs()
         {

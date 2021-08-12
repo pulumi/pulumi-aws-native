@@ -9,23 +9,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'EnvironmentAirflowConfigurationOptionsArgs',
     'EnvironmentLoggingConfigurationArgs',
     'EnvironmentModuleLoggingConfigurationArgs',
     'EnvironmentNetworkConfigurationArgs',
-    'EnvironmentSecurityGroupListArgs',
-    'EnvironmentSubnetListArgs',
     'EnvironmentTagMapArgs',
 ]
-
-@pulumi.input_type
-class EnvironmentAirflowConfigurationOptionsArgs:
-    def __init__(__self__):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-airflowconfigurationoptions.html
-        """
-        pass
-
 
 @pulumi.input_type
 class EnvironmentLoggingConfigurationArgs:
@@ -174,12 +162,12 @@ class EnvironmentModuleLoggingConfigurationArgs:
 @pulumi.input_type
 class EnvironmentNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 security_group_ids: Optional[pulumi.Input['EnvironmentSecurityGroupListArgs']] = None,
-                 subnet_ids: Optional[pulumi.Input['EnvironmentSubnetListArgs']] = None):
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html
-        :param pulumi.Input['EnvironmentSecurityGroupListArgs'] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
-        :param pulumi.Input['EnvironmentSubnetListArgs'] subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
         """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -188,75 +176,27 @@ class EnvironmentNetworkConfigurationArgs:
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input['EnvironmentSecurityGroupListArgs']]:
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input['EnvironmentSecurityGroupListArgs']]):
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input['EnvironmentSubnetListArgs']]:
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input['EnvironmentSubnetListArgs']]):
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnet_ids", value)
-
-
-@pulumi.input_type
-class EnvironmentSecurityGroupListArgs:
-    def __init__(__self__, *,
-                 security_group_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-securitygrouplist.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-securitygrouplist.html#cfn-mwaa-environment-securitygrouplist-securitygrouplist
-        """
-        if security_group_list is not None:
-            pulumi.set(__self__, "security_group_list", security_group_list)
-
-    @property
-    @pulumi.getter(name="securityGroupList")
-    def security_group_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-securitygrouplist.html#cfn-mwaa-environment-securitygrouplist-securitygrouplist
-        """
-        return pulumi.get(self, "security_group_list")
-
-    @security_group_list.setter
-    def security_group_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "security_group_list", value)
-
-
-@pulumi.input_type
-class EnvironmentSubnetListArgs:
-    def __init__(__self__, *,
-                 subnet_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-subnetlist.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-subnetlist.html#cfn-mwaa-environment-subnetlist-subnetlist
-        """
-        if subnet_list is not None:
-            pulumi.set(__self__, "subnet_list", subnet_list)
-
-    @property
-    @pulumi.getter(name="subnetList")
-    def subnet_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-subnetlist.html#cfn-mwaa-environment-subnetlist-subnetlist
-        """
-        return pulumi.get(self, "subnet_list")
-
-    @subnet_list.setter
-    def subnet_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "subnet_list", value)
 
 
 @pulumi.input_type

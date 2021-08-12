@@ -15,6 +15,7 @@ import (
 type UsagePlanKey struct {
 	pulumi.CustomResourceState
 
+	Id pulumi.StringOutput `pulumi:"id"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype

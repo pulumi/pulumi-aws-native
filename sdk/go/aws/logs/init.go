@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:Logs:LogGroup":
 		r = &LogGroup{}
+	case "aws-native:Logs:QueryDefinition":
+		r = &QueryDefinition{}
+	case "aws-native:Logs:ResourcePolicy":
+		r = &ResourcePolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

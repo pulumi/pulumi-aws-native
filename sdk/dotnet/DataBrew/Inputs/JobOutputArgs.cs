@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public Input<string>? Format { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-formatoptions
+        /// </summary>
+        [Input("formatOptions")]
+        public Input<Inputs.JobOutputFormatOptionsArgs>? FormatOptions { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
         /// </summary>
         [Input("location", required: true)]

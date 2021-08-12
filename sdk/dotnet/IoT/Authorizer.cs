@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.IoT
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.AuthorizerTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.IoT
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
         /// </summary>
         [Output("tokenSigningPublicKeys")]
-        public Output<Outputs.AuthorizerTokenSigningPublicKeys?> TokenSigningPublicKeys { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> TokenSigningPublicKeys { get; private set; } = null!;
 
 
         /// <summary>
@@ -129,11 +129,17 @@ namespace Pulumi.AwsNative.IoT
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.AuthorizerTagsArgs>? Tags { get; set; }
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
@@ -141,11 +147,17 @@ namespace Pulumi.AwsNative.IoT
         [Input("tokenKeyName")]
         public Input<string>? TokenKeyName { get; set; }
 
+        [Input("tokenSigningPublicKeys")]
+        private InputMap<string>? _tokenSigningPublicKeys;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
         /// </summary>
-        [Input("tokenSigningPublicKeys")]
-        public Input<Inputs.AuthorizerTokenSigningPublicKeysArgs>? TokenSigningPublicKeys { get; set; }
+        public InputMap<string> TokenSigningPublicKeys
+        {
+            get => _tokenSigningPublicKeys ?? (_tokenSigningPublicKeys = new InputMap<string>());
+            set => _tokenSigningPublicKeys = value;
+        }
 
         public AuthorizerArgs()
         {

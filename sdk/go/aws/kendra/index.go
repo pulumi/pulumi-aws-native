@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ type Index struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
-	DocumentMetadataConfigurations IndexDocumentMetadataConfigurationListPtrOutput `pulumi:"documentMetadataConfigurations"`
+	DocumentMetadataConfigurations IndexDocumentMetadataConfigurationArrayOutput `pulumi:"documentMetadataConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
 	Edition pulumi.StringOutput `pulumi:"edition"`
 	Id      pulumi.StringOutput `pulumi:"id"`
@@ -32,11 +33,11 @@ type Index struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
 	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
-	Tags IndexTagListPtrOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
 	UserContextPolicy pulumi.StringPtrOutput `pulumi:"userContextPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
-	UserTokenConfigurations IndexUserTokenConfigurationListPtrOutput `pulumi:"userTokenConfigurations"`
+	UserTokenConfigurations IndexUserTokenConfigurationArrayOutput `pulumi:"userTokenConfigurations"`
 }
 
 // NewIndex registers a new resource with the given unique name, arguments, and options.
@@ -92,7 +93,7 @@ type indexArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
 	Description *string `pulumi:"description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
-	DocumentMetadataConfigurations *IndexDocumentMetadataConfigurationList `pulumi:"documentMetadataConfigurations"`
+	DocumentMetadataConfigurations []IndexDocumentMetadataConfiguration `pulumi:"documentMetadataConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
 	Edition string `pulumi:"edition"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
@@ -102,11 +103,11 @@ type indexArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
 	ServerSideEncryptionConfiguration *IndexServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
-	Tags *IndexTagList `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
 	UserContextPolicy *string `pulumi:"userContextPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
-	UserTokenConfigurations *IndexUserTokenConfigurationList `pulumi:"userTokenConfigurations"`
+	UserTokenConfigurations []IndexUserTokenConfiguration `pulumi:"userTokenConfigurations"`
 }
 
 // The set of arguments for constructing a Index resource.
@@ -116,7 +117,7 @@ type IndexArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
 	Description pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
-	DocumentMetadataConfigurations IndexDocumentMetadataConfigurationListPtrInput
+	DocumentMetadataConfigurations IndexDocumentMetadataConfigurationArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
 	Edition pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
@@ -126,11 +127,11 @@ type IndexArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
 	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
-	Tags IndexTagListPtrInput
+	Tags aws.TagArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
 	UserContextPolicy pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
-	UserTokenConfigurations IndexUserTokenConfigurationListPtrInput
+	UserTokenConfigurations IndexUserTokenConfigurationArrayInput
 }
 
 func (IndexArgs) ElementType() reflect.Type {

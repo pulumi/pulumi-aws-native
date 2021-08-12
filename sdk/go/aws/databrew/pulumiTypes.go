@@ -10,12 +10,3322 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html
+type DatasetCsvOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-delimiter
+	Delimiter *string `pulumi:"delimiter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-headerrow
+	HeaderRow *bool `pulumi:"headerRow"`
+}
+
+// DatasetCsvOptionsInput is an input type that accepts DatasetCsvOptionsArgs and DatasetCsvOptionsOutput values.
+// You can construct a concrete instance of `DatasetCsvOptionsInput` via:
+//
+//          DatasetCsvOptionsArgs{...}
+type DatasetCsvOptionsInput interface {
+	pulumi.Input
+
+	ToDatasetCsvOptionsOutput() DatasetCsvOptionsOutput
+	ToDatasetCsvOptionsOutputWithContext(context.Context) DatasetCsvOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html
+type DatasetCsvOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-delimiter
+	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-headerrow
+	HeaderRow pulumi.BoolPtrInput `pulumi:"headerRow"`
+}
+
+func (DatasetCsvOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCsvOptions)(nil)).Elem()
+}
+
+func (i DatasetCsvOptionsArgs) ToDatasetCsvOptionsOutput() DatasetCsvOptionsOutput {
+	return i.ToDatasetCsvOptionsOutputWithContext(context.Background())
+}
+
+func (i DatasetCsvOptionsArgs) ToDatasetCsvOptionsOutputWithContext(ctx context.Context) DatasetCsvOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCsvOptionsOutput)
+}
+
+func (i DatasetCsvOptionsArgs) ToDatasetCsvOptionsPtrOutput() DatasetCsvOptionsPtrOutput {
+	return i.ToDatasetCsvOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetCsvOptionsArgs) ToDatasetCsvOptionsPtrOutputWithContext(ctx context.Context) DatasetCsvOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCsvOptionsOutput).ToDatasetCsvOptionsPtrOutputWithContext(ctx)
+}
+
+// DatasetCsvOptionsPtrInput is an input type that accepts DatasetCsvOptionsArgs, DatasetCsvOptionsPtr and DatasetCsvOptionsPtrOutput values.
+// You can construct a concrete instance of `DatasetCsvOptionsPtrInput` via:
+//
+//          DatasetCsvOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetCsvOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDatasetCsvOptionsPtrOutput() DatasetCsvOptionsPtrOutput
+	ToDatasetCsvOptionsPtrOutputWithContext(context.Context) DatasetCsvOptionsPtrOutput
+}
+
+type datasetCsvOptionsPtrType DatasetCsvOptionsArgs
+
+func DatasetCsvOptionsPtr(v *DatasetCsvOptionsArgs) DatasetCsvOptionsPtrInput {
+	return (*datasetCsvOptionsPtrType)(v)
+}
+
+func (*datasetCsvOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCsvOptions)(nil)).Elem()
+}
+
+func (i *datasetCsvOptionsPtrType) ToDatasetCsvOptionsPtrOutput() DatasetCsvOptionsPtrOutput {
+	return i.ToDatasetCsvOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetCsvOptionsPtrType) ToDatasetCsvOptionsPtrOutputWithContext(ctx context.Context) DatasetCsvOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetCsvOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html
+type DatasetCsvOptionsOutput struct{ *pulumi.OutputState }
+
+func (DatasetCsvOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetCsvOptions)(nil)).Elem()
+}
+
+func (o DatasetCsvOptionsOutput) ToDatasetCsvOptionsOutput() DatasetCsvOptionsOutput {
+	return o
+}
+
+func (o DatasetCsvOptionsOutput) ToDatasetCsvOptionsOutputWithContext(ctx context.Context) DatasetCsvOptionsOutput {
+	return o
+}
+
+func (o DatasetCsvOptionsOutput) ToDatasetCsvOptionsPtrOutput() DatasetCsvOptionsPtrOutput {
+	return o.ToDatasetCsvOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetCsvOptionsOutput) ToDatasetCsvOptionsPtrOutputWithContext(ctx context.Context) DatasetCsvOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetCsvOptions) *DatasetCsvOptions {
+		return &v
+	}).(DatasetCsvOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-delimiter
+func (o DatasetCsvOptionsOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetCsvOptions) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-headerrow
+func (o DatasetCsvOptionsOutput) HeaderRow() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetCsvOptions) *bool { return v.HeaderRow }).(pulumi.BoolPtrOutput)
+}
+
+type DatasetCsvOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetCsvOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetCsvOptions)(nil)).Elem()
+}
+
+func (o DatasetCsvOptionsPtrOutput) ToDatasetCsvOptionsPtrOutput() DatasetCsvOptionsPtrOutput {
+	return o
+}
+
+func (o DatasetCsvOptionsPtrOutput) ToDatasetCsvOptionsPtrOutputWithContext(ctx context.Context) DatasetCsvOptionsPtrOutput {
+	return o
+}
+
+func (o DatasetCsvOptionsPtrOutput) Elem() DatasetCsvOptionsOutput {
+	return o.ApplyT(func(v *DatasetCsvOptions) DatasetCsvOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetCsvOptions
+		return ret
+	}).(DatasetCsvOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-delimiter
+func (o DatasetCsvOptionsPtrOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetCsvOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-headerrow
+func (o DatasetCsvOptionsPtrOutput) HeaderRow() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetCsvOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HeaderRow
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html
+type DatasetDataCatalogInputDefinition struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-catalogid
+	CatalogId *string `pulumi:"catalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-databasename
+	DatabaseName *string `pulumi:"databaseName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tablename
+	TableName *string `pulumi:"tableName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tempdirectory
+	TempDirectory *DatasetS3Location `pulumi:"tempDirectory"`
+}
+
+// DatasetDataCatalogInputDefinitionInput is an input type that accepts DatasetDataCatalogInputDefinitionArgs and DatasetDataCatalogInputDefinitionOutput values.
+// You can construct a concrete instance of `DatasetDataCatalogInputDefinitionInput` via:
+//
+//          DatasetDataCatalogInputDefinitionArgs{...}
+type DatasetDataCatalogInputDefinitionInput interface {
+	pulumi.Input
+
+	ToDatasetDataCatalogInputDefinitionOutput() DatasetDataCatalogInputDefinitionOutput
+	ToDatasetDataCatalogInputDefinitionOutputWithContext(context.Context) DatasetDataCatalogInputDefinitionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html
+type DatasetDataCatalogInputDefinitionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-catalogid
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-databasename
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tablename
+	TableName pulumi.StringPtrInput `pulumi:"tableName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tempdirectory
+	TempDirectory DatasetS3LocationPtrInput `pulumi:"tempDirectory"`
+}
+
+func (DatasetDataCatalogInputDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDataCatalogInputDefinition)(nil)).Elem()
+}
+
+func (i DatasetDataCatalogInputDefinitionArgs) ToDatasetDataCatalogInputDefinitionOutput() DatasetDataCatalogInputDefinitionOutput {
+	return i.ToDatasetDataCatalogInputDefinitionOutputWithContext(context.Background())
+}
+
+func (i DatasetDataCatalogInputDefinitionArgs) ToDatasetDataCatalogInputDefinitionOutputWithContext(ctx context.Context) DatasetDataCatalogInputDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDataCatalogInputDefinitionOutput)
+}
+
+func (i DatasetDataCatalogInputDefinitionArgs) ToDatasetDataCatalogInputDefinitionPtrOutput() DatasetDataCatalogInputDefinitionPtrOutput {
+	return i.ToDatasetDataCatalogInputDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetDataCatalogInputDefinitionArgs) ToDatasetDataCatalogInputDefinitionPtrOutputWithContext(ctx context.Context) DatasetDataCatalogInputDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDataCatalogInputDefinitionOutput).ToDatasetDataCatalogInputDefinitionPtrOutputWithContext(ctx)
+}
+
+// DatasetDataCatalogInputDefinitionPtrInput is an input type that accepts DatasetDataCatalogInputDefinitionArgs, DatasetDataCatalogInputDefinitionPtr and DatasetDataCatalogInputDefinitionPtrOutput values.
+// You can construct a concrete instance of `DatasetDataCatalogInputDefinitionPtrInput` via:
+//
+//          DatasetDataCatalogInputDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetDataCatalogInputDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToDatasetDataCatalogInputDefinitionPtrOutput() DatasetDataCatalogInputDefinitionPtrOutput
+	ToDatasetDataCatalogInputDefinitionPtrOutputWithContext(context.Context) DatasetDataCatalogInputDefinitionPtrOutput
+}
+
+type datasetDataCatalogInputDefinitionPtrType DatasetDataCatalogInputDefinitionArgs
+
+func DatasetDataCatalogInputDefinitionPtr(v *DatasetDataCatalogInputDefinitionArgs) DatasetDataCatalogInputDefinitionPtrInput {
+	return (*datasetDataCatalogInputDefinitionPtrType)(v)
+}
+
+func (*datasetDataCatalogInputDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDataCatalogInputDefinition)(nil)).Elem()
+}
+
+func (i *datasetDataCatalogInputDefinitionPtrType) ToDatasetDataCatalogInputDefinitionPtrOutput() DatasetDataCatalogInputDefinitionPtrOutput {
+	return i.ToDatasetDataCatalogInputDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetDataCatalogInputDefinitionPtrType) ToDatasetDataCatalogInputDefinitionPtrOutputWithContext(ctx context.Context) DatasetDataCatalogInputDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDataCatalogInputDefinitionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html
+type DatasetDataCatalogInputDefinitionOutput struct{ *pulumi.OutputState }
+
+func (DatasetDataCatalogInputDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDataCatalogInputDefinition)(nil)).Elem()
+}
+
+func (o DatasetDataCatalogInputDefinitionOutput) ToDatasetDataCatalogInputDefinitionOutput() DatasetDataCatalogInputDefinitionOutput {
+	return o
+}
+
+func (o DatasetDataCatalogInputDefinitionOutput) ToDatasetDataCatalogInputDefinitionOutputWithContext(ctx context.Context) DatasetDataCatalogInputDefinitionOutput {
+	return o
+}
+
+func (o DatasetDataCatalogInputDefinitionOutput) ToDatasetDataCatalogInputDefinitionPtrOutput() DatasetDataCatalogInputDefinitionPtrOutput {
+	return o.ToDatasetDataCatalogInputDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetDataCatalogInputDefinitionOutput) ToDatasetDataCatalogInputDefinitionPtrOutputWithContext(ctx context.Context) DatasetDataCatalogInputDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetDataCatalogInputDefinition) *DatasetDataCatalogInputDefinition {
+		return &v
+	}).(DatasetDataCatalogInputDefinitionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-catalogid
+func (o DatasetDataCatalogInputDefinitionOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDataCatalogInputDefinition) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-databasename
+func (o DatasetDataCatalogInputDefinitionOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDataCatalogInputDefinition) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tablename
+func (o DatasetDataCatalogInputDefinitionOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDataCatalogInputDefinition) *string { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tempdirectory
+func (o DatasetDataCatalogInputDefinitionOutput) TempDirectory() DatasetS3LocationPtrOutput {
+	return o.ApplyT(func(v DatasetDataCatalogInputDefinition) *DatasetS3Location { return v.TempDirectory }).(DatasetS3LocationPtrOutput)
+}
+
+type DatasetDataCatalogInputDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetDataCatalogInputDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDataCatalogInputDefinition)(nil)).Elem()
+}
+
+func (o DatasetDataCatalogInputDefinitionPtrOutput) ToDatasetDataCatalogInputDefinitionPtrOutput() DatasetDataCatalogInputDefinitionPtrOutput {
+	return o
+}
+
+func (o DatasetDataCatalogInputDefinitionPtrOutput) ToDatasetDataCatalogInputDefinitionPtrOutputWithContext(ctx context.Context) DatasetDataCatalogInputDefinitionPtrOutput {
+	return o
+}
+
+func (o DatasetDataCatalogInputDefinitionPtrOutput) Elem() DatasetDataCatalogInputDefinitionOutput {
+	return o.ApplyT(func(v *DatasetDataCatalogInputDefinition) DatasetDataCatalogInputDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetDataCatalogInputDefinition
+		return ret
+	}).(DatasetDataCatalogInputDefinitionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-catalogid
+func (o DatasetDataCatalogInputDefinitionPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDataCatalogInputDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-databasename
+func (o DatasetDataCatalogInputDefinitionPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDataCatalogInputDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tablename
+func (o DatasetDataCatalogInputDefinitionPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDataCatalogInputDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tempdirectory
+func (o DatasetDataCatalogInputDefinitionPtrOutput) TempDirectory() DatasetS3LocationPtrOutput {
+	return o.ApplyT(func(v *DatasetDataCatalogInputDefinition) *DatasetS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.TempDirectory
+	}).(DatasetS3LocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html
+type DatasetDatabaseInputDefinition struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-databasetablename
+	DatabaseTableName *string `pulumi:"databaseTableName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-glueconnectionname
+	GlueConnectionName *string `pulumi:"glueConnectionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-tempdirectory
+	TempDirectory *DatasetS3Location `pulumi:"tempDirectory"`
+}
+
+// DatasetDatabaseInputDefinitionInput is an input type that accepts DatasetDatabaseInputDefinitionArgs and DatasetDatabaseInputDefinitionOutput values.
+// You can construct a concrete instance of `DatasetDatabaseInputDefinitionInput` via:
+//
+//          DatasetDatabaseInputDefinitionArgs{...}
+type DatasetDatabaseInputDefinitionInput interface {
+	pulumi.Input
+
+	ToDatasetDatabaseInputDefinitionOutput() DatasetDatabaseInputDefinitionOutput
+	ToDatasetDatabaseInputDefinitionOutputWithContext(context.Context) DatasetDatabaseInputDefinitionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html
+type DatasetDatabaseInputDefinitionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-databasetablename
+	DatabaseTableName pulumi.StringPtrInput `pulumi:"databaseTableName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-glueconnectionname
+	GlueConnectionName pulumi.StringPtrInput `pulumi:"glueConnectionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-tempdirectory
+	TempDirectory DatasetS3LocationPtrInput `pulumi:"tempDirectory"`
+}
+
+func (DatasetDatabaseInputDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDatabaseInputDefinition)(nil)).Elem()
+}
+
+func (i DatasetDatabaseInputDefinitionArgs) ToDatasetDatabaseInputDefinitionOutput() DatasetDatabaseInputDefinitionOutput {
+	return i.ToDatasetDatabaseInputDefinitionOutputWithContext(context.Background())
+}
+
+func (i DatasetDatabaseInputDefinitionArgs) ToDatasetDatabaseInputDefinitionOutputWithContext(ctx context.Context) DatasetDatabaseInputDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatabaseInputDefinitionOutput)
+}
+
+func (i DatasetDatabaseInputDefinitionArgs) ToDatasetDatabaseInputDefinitionPtrOutput() DatasetDatabaseInputDefinitionPtrOutput {
+	return i.ToDatasetDatabaseInputDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetDatabaseInputDefinitionArgs) ToDatasetDatabaseInputDefinitionPtrOutputWithContext(ctx context.Context) DatasetDatabaseInputDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatabaseInputDefinitionOutput).ToDatasetDatabaseInputDefinitionPtrOutputWithContext(ctx)
+}
+
+// DatasetDatabaseInputDefinitionPtrInput is an input type that accepts DatasetDatabaseInputDefinitionArgs, DatasetDatabaseInputDefinitionPtr and DatasetDatabaseInputDefinitionPtrOutput values.
+// You can construct a concrete instance of `DatasetDatabaseInputDefinitionPtrInput` via:
+//
+//          DatasetDatabaseInputDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetDatabaseInputDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToDatasetDatabaseInputDefinitionPtrOutput() DatasetDatabaseInputDefinitionPtrOutput
+	ToDatasetDatabaseInputDefinitionPtrOutputWithContext(context.Context) DatasetDatabaseInputDefinitionPtrOutput
+}
+
+type datasetDatabaseInputDefinitionPtrType DatasetDatabaseInputDefinitionArgs
+
+func DatasetDatabaseInputDefinitionPtr(v *DatasetDatabaseInputDefinitionArgs) DatasetDatabaseInputDefinitionPtrInput {
+	return (*datasetDatabaseInputDefinitionPtrType)(v)
+}
+
+func (*datasetDatabaseInputDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDatabaseInputDefinition)(nil)).Elem()
+}
+
+func (i *datasetDatabaseInputDefinitionPtrType) ToDatasetDatabaseInputDefinitionPtrOutput() DatasetDatabaseInputDefinitionPtrOutput {
+	return i.ToDatasetDatabaseInputDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetDatabaseInputDefinitionPtrType) ToDatasetDatabaseInputDefinitionPtrOutputWithContext(ctx context.Context) DatasetDatabaseInputDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatabaseInputDefinitionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html
+type DatasetDatabaseInputDefinitionOutput struct{ *pulumi.OutputState }
+
+func (DatasetDatabaseInputDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDatabaseInputDefinition)(nil)).Elem()
+}
+
+func (o DatasetDatabaseInputDefinitionOutput) ToDatasetDatabaseInputDefinitionOutput() DatasetDatabaseInputDefinitionOutput {
+	return o
+}
+
+func (o DatasetDatabaseInputDefinitionOutput) ToDatasetDatabaseInputDefinitionOutputWithContext(ctx context.Context) DatasetDatabaseInputDefinitionOutput {
+	return o
+}
+
+func (o DatasetDatabaseInputDefinitionOutput) ToDatasetDatabaseInputDefinitionPtrOutput() DatasetDatabaseInputDefinitionPtrOutput {
+	return o.ToDatasetDatabaseInputDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetDatabaseInputDefinitionOutput) ToDatasetDatabaseInputDefinitionPtrOutputWithContext(ctx context.Context) DatasetDatabaseInputDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetDatabaseInputDefinition) *DatasetDatabaseInputDefinition {
+		return &v
+	}).(DatasetDatabaseInputDefinitionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-databasetablename
+func (o DatasetDatabaseInputDefinitionOutput) DatabaseTableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDatabaseInputDefinition) *string { return v.DatabaseTableName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-glueconnectionname
+func (o DatasetDatabaseInputDefinitionOutput) GlueConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDatabaseInputDefinition) *string { return v.GlueConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-tempdirectory
+func (o DatasetDatabaseInputDefinitionOutput) TempDirectory() DatasetS3LocationPtrOutput {
+	return o.ApplyT(func(v DatasetDatabaseInputDefinition) *DatasetS3Location { return v.TempDirectory }).(DatasetS3LocationPtrOutput)
+}
+
+type DatasetDatabaseInputDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetDatabaseInputDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDatabaseInputDefinition)(nil)).Elem()
+}
+
+func (o DatasetDatabaseInputDefinitionPtrOutput) ToDatasetDatabaseInputDefinitionPtrOutput() DatasetDatabaseInputDefinitionPtrOutput {
+	return o
+}
+
+func (o DatasetDatabaseInputDefinitionPtrOutput) ToDatasetDatabaseInputDefinitionPtrOutputWithContext(ctx context.Context) DatasetDatabaseInputDefinitionPtrOutput {
+	return o
+}
+
+func (o DatasetDatabaseInputDefinitionPtrOutput) Elem() DatasetDatabaseInputDefinitionOutput {
+	return o.ApplyT(func(v *DatasetDatabaseInputDefinition) DatasetDatabaseInputDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetDatabaseInputDefinition
+		return ret
+	}).(DatasetDatabaseInputDefinitionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-databasetablename
+func (o DatasetDatabaseInputDefinitionPtrOutput) DatabaseTableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDatabaseInputDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseTableName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-glueconnectionname
+func (o DatasetDatabaseInputDefinitionPtrOutput) GlueConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDatabaseInputDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GlueConnectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-tempdirectory
+func (o DatasetDatabaseInputDefinitionPtrOutput) TempDirectory() DatasetS3LocationPtrOutput {
+	return o.ApplyT(func(v *DatasetDatabaseInputDefinition) *DatasetS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.TempDirectory
+	}).(DatasetS3LocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html
+type DatasetDatasetParameter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-createcolumn
+	CreateColumn *bool `pulumi:"createColumn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-datetimeoptions
+	DatetimeOptions *DatasetDatetimeOptions `pulumi:"datetimeOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-filter
+	Filter *DatasetFilterExpression `pulumi:"filter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-name
+	Name string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-type
+	Type string `pulumi:"type"`
+}
+
+// DatasetDatasetParameterInput is an input type that accepts DatasetDatasetParameterArgs and DatasetDatasetParameterOutput values.
+// You can construct a concrete instance of `DatasetDatasetParameterInput` via:
+//
+//          DatasetDatasetParameterArgs{...}
+type DatasetDatasetParameterInput interface {
+	pulumi.Input
+
+	ToDatasetDatasetParameterOutput() DatasetDatasetParameterOutput
+	ToDatasetDatasetParameterOutputWithContext(context.Context) DatasetDatasetParameterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html
+type DatasetDatasetParameterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-createcolumn
+	CreateColumn pulumi.BoolPtrInput `pulumi:"createColumn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-datetimeoptions
+	DatetimeOptions DatasetDatetimeOptionsPtrInput `pulumi:"datetimeOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-filter
+	Filter DatasetFilterExpressionPtrInput `pulumi:"filter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-name
+	Name pulumi.StringInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DatasetDatasetParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDatasetParameter)(nil)).Elem()
+}
+
+func (i DatasetDatasetParameterArgs) ToDatasetDatasetParameterOutput() DatasetDatasetParameterOutput {
+	return i.ToDatasetDatasetParameterOutputWithContext(context.Background())
+}
+
+func (i DatasetDatasetParameterArgs) ToDatasetDatasetParameterOutputWithContext(ctx context.Context) DatasetDatasetParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatasetParameterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html
+type DatasetDatasetParameterOutput struct{ *pulumi.OutputState }
+
+func (DatasetDatasetParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDatasetParameter)(nil)).Elem()
+}
+
+func (o DatasetDatasetParameterOutput) ToDatasetDatasetParameterOutput() DatasetDatasetParameterOutput {
+	return o
+}
+
+func (o DatasetDatasetParameterOutput) ToDatasetDatasetParameterOutputWithContext(ctx context.Context) DatasetDatasetParameterOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-createcolumn
+func (o DatasetDatasetParameterOutput) CreateColumn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetDatasetParameter) *bool { return v.CreateColumn }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-datetimeoptions
+func (o DatasetDatasetParameterOutput) DatetimeOptions() DatasetDatetimeOptionsPtrOutput {
+	return o.ApplyT(func(v DatasetDatasetParameter) *DatasetDatetimeOptions { return v.DatetimeOptions }).(DatasetDatetimeOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-filter
+func (o DatasetDatasetParameterOutput) Filter() DatasetFilterExpressionPtrOutput {
+	return o.ApplyT(func(v DatasetDatasetParameter) *DatasetFilterExpression { return v.Filter }).(DatasetFilterExpressionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-name
+func (o DatasetDatasetParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetDatasetParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-type
+func (o DatasetDatasetParameterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetDatasetParameter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html
+type DatasetDatetimeOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-format
+	Format string `pulumi:"format"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode
+	LocaleCode *string `pulumi:"localeCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-timezoneoffset
+	TimezoneOffset *string `pulumi:"timezoneOffset"`
+}
+
+// DatasetDatetimeOptionsInput is an input type that accepts DatasetDatetimeOptionsArgs and DatasetDatetimeOptionsOutput values.
+// You can construct a concrete instance of `DatasetDatetimeOptionsInput` via:
+//
+//          DatasetDatetimeOptionsArgs{...}
+type DatasetDatetimeOptionsInput interface {
+	pulumi.Input
+
+	ToDatasetDatetimeOptionsOutput() DatasetDatetimeOptionsOutput
+	ToDatasetDatetimeOptionsOutputWithContext(context.Context) DatasetDatetimeOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html
+type DatasetDatetimeOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-format
+	Format pulumi.StringInput `pulumi:"format"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode
+	LocaleCode pulumi.StringPtrInput `pulumi:"localeCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-timezoneoffset
+	TimezoneOffset pulumi.StringPtrInput `pulumi:"timezoneOffset"`
+}
+
+func (DatasetDatetimeOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDatetimeOptions)(nil)).Elem()
+}
+
+func (i DatasetDatetimeOptionsArgs) ToDatasetDatetimeOptionsOutput() DatasetDatetimeOptionsOutput {
+	return i.ToDatasetDatetimeOptionsOutputWithContext(context.Background())
+}
+
+func (i DatasetDatetimeOptionsArgs) ToDatasetDatetimeOptionsOutputWithContext(ctx context.Context) DatasetDatetimeOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatetimeOptionsOutput)
+}
+
+func (i DatasetDatetimeOptionsArgs) ToDatasetDatetimeOptionsPtrOutput() DatasetDatetimeOptionsPtrOutput {
+	return i.ToDatasetDatetimeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetDatetimeOptionsArgs) ToDatasetDatetimeOptionsPtrOutputWithContext(ctx context.Context) DatasetDatetimeOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatetimeOptionsOutput).ToDatasetDatetimeOptionsPtrOutputWithContext(ctx)
+}
+
+// DatasetDatetimeOptionsPtrInput is an input type that accepts DatasetDatetimeOptionsArgs, DatasetDatetimeOptionsPtr and DatasetDatetimeOptionsPtrOutput values.
+// You can construct a concrete instance of `DatasetDatetimeOptionsPtrInput` via:
+//
+//          DatasetDatetimeOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetDatetimeOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDatasetDatetimeOptionsPtrOutput() DatasetDatetimeOptionsPtrOutput
+	ToDatasetDatetimeOptionsPtrOutputWithContext(context.Context) DatasetDatetimeOptionsPtrOutput
+}
+
+type datasetDatetimeOptionsPtrType DatasetDatetimeOptionsArgs
+
+func DatasetDatetimeOptionsPtr(v *DatasetDatetimeOptionsArgs) DatasetDatetimeOptionsPtrInput {
+	return (*datasetDatetimeOptionsPtrType)(v)
+}
+
+func (*datasetDatetimeOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDatetimeOptions)(nil)).Elem()
+}
+
+func (i *datasetDatetimeOptionsPtrType) ToDatasetDatetimeOptionsPtrOutput() DatasetDatetimeOptionsPtrOutput {
+	return i.ToDatasetDatetimeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetDatetimeOptionsPtrType) ToDatasetDatetimeOptionsPtrOutputWithContext(ctx context.Context) DatasetDatetimeOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatetimeOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html
+type DatasetDatetimeOptionsOutput struct{ *pulumi.OutputState }
+
+func (DatasetDatetimeOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDatetimeOptions)(nil)).Elem()
+}
+
+func (o DatasetDatetimeOptionsOutput) ToDatasetDatetimeOptionsOutput() DatasetDatetimeOptionsOutput {
+	return o
+}
+
+func (o DatasetDatetimeOptionsOutput) ToDatasetDatetimeOptionsOutputWithContext(ctx context.Context) DatasetDatetimeOptionsOutput {
+	return o
+}
+
+func (o DatasetDatetimeOptionsOutput) ToDatasetDatetimeOptionsPtrOutput() DatasetDatetimeOptionsPtrOutput {
+	return o.ToDatasetDatetimeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetDatetimeOptionsOutput) ToDatasetDatetimeOptionsPtrOutputWithContext(ctx context.Context) DatasetDatetimeOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetDatetimeOptions) *DatasetDatetimeOptions {
+		return &v
+	}).(DatasetDatetimeOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-format
+func (o DatasetDatetimeOptionsOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetDatetimeOptions) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode
+func (o DatasetDatetimeOptionsOutput) LocaleCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDatetimeOptions) *string { return v.LocaleCode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-timezoneoffset
+func (o DatasetDatetimeOptionsOutput) TimezoneOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDatetimeOptions) *string { return v.TimezoneOffset }).(pulumi.StringPtrOutput)
+}
+
+type DatasetDatetimeOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetDatetimeOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDatetimeOptions)(nil)).Elem()
+}
+
+func (o DatasetDatetimeOptionsPtrOutput) ToDatasetDatetimeOptionsPtrOutput() DatasetDatetimeOptionsPtrOutput {
+	return o
+}
+
+func (o DatasetDatetimeOptionsPtrOutput) ToDatasetDatetimeOptionsPtrOutputWithContext(ctx context.Context) DatasetDatetimeOptionsPtrOutput {
+	return o
+}
+
+func (o DatasetDatetimeOptionsPtrOutput) Elem() DatasetDatetimeOptionsOutput {
+	return o.ApplyT(func(v *DatasetDatetimeOptions) DatasetDatetimeOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetDatetimeOptions
+		return ret
+	}).(DatasetDatetimeOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-format
+func (o DatasetDatetimeOptionsPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDatetimeOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode
+func (o DatasetDatetimeOptionsPtrOutput) LocaleCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDatetimeOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocaleCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-timezoneoffset
+func (o DatasetDatetimeOptionsPtrOutput) TimezoneOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDatetimeOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimezoneOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html
+type DatasetExcelOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-headerrow
+	HeaderRow *bool `pulumi:"headerRow"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetindexes
+	SheetIndexes []int `pulumi:"sheetIndexes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetnames
+	SheetNames []string `pulumi:"sheetNames"`
+}
+
+// DatasetExcelOptionsInput is an input type that accepts DatasetExcelOptionsArgs and DatasetExcelOptionsOutput values.
+// You can construct a concrete instance of `DatasetExcelOptionsInput` via:
+//
+//          DatasetExcelOptionsArgs{...}
+type DatasetExcelOptionsInput interface {
+	pulumi.Input
+
+	ToDatasetExcelOptionsOutput() DatasetExcelOptionsOutput
+	ToDatasetExcelOptionsOutputWithContext(context.Context) DatasetExcelOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html
+type DatasetExcelOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-headerrow
+	HeaderRow pulumi.BoolPtrInput `pulumi:"headerRow"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetindexes
+	SheetIndexes pulumi.IntArrayInput `pulumi:"sheetIndexes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetnames
+	SheetNames pulumi.StringArrayInput `pulumi:"sheetNames"`
+}
+
+func (DatasetExcelOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetExcelOptions)(nil)).Elem()
+}
+
+func (i DatasetExcelOptionsArgs) ToDatasetExcelOptionsOutput() DatasetExcelOptionsOutput {
+	return i.ToDatasetExcelOptionsOutputWithContext(context.Background())
+}
+
+func (i DatasetExcelOptionsArgs) ToDatasetExcelOptionsOutputWithContext(ctx context.Context) DatasetExcelOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetExcelOptionsOutput)
+}
+
+func (i DatasetExcelOptionsArgs) ToDatasetExcelOptionsPtrOutput() DatasetExcelOptionsPtrOutput {
+	return i.ToDatasetExcelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetExcelOptionsArgs) ToDatasetExcelOptionsPtrOutputWithContext(ctx context.Context) DatasetExcelOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetExcelOptionsOutput).ToDatasetExcelOptionsPtrOutputWithContext(ctx)
+}
+
+// DatasetExcelOptionsPtrInput is an input type that accepts DatasetExcelOptionsArgs, DatasetExcelOptionsPtr and DatasetExcelOptionsPtrOutput values.
+// You can construct a concrete instance of `DatasetExcelOptionsPtrInput` via:
+//
+//          DatasetExcelOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetExcelOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDatasetExcelOptionsPtrOutput() DatasetExcelOptionsPtrOutput
+	ToDatasetExcelOptionsPtrOutputWithContext(context.Context) DatasetExcelOptionsPtrOutput
+}
+
+type datasetExcelOptionsPtrType DatasetExcelOptionsArgs
+
+func DatasetExcelOptionsPtr(v *DatasetExcelOptionsArgs) DatasetExcelOptionsPtrInput {
+	return (*datasetExcelOptionsPtrType)(v)
+}
+
+func (*datasetExcelOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetExcelOptions)(nil)).Elem()
+}
+
+func (i *datasetExcelOptionsPtrType) ToDatasetExcelOptionsPtrOutput() DatasetExcelOptionsPtrOutput {
+	return i.ToDatasetExcelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetExcelOptionsPtrType) ToDatasetExcelOptionsPtrOutputWithContext(ctx context.Context) DatasetExcelOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetExcelOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html
+type DatasetExcelOptionsOutput struct{ *pulumi.OutputState }
+
+func (DatasetExcelOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetExcelOptions)(nil)).Elem()
+}
+
+func (o DatasetExcelOptionsOutput) ToDatasetExcelOptionsOutput() DatasetExcelOptionsOutput {
+	return o
+}
+
+func (o DatasetExcelOptionsOutput) ToDatasetExcelOptionsOutputWithContext(ctx context.Context) DatasetExcelOptionsOutput {
+	return o
+}
+
+func (o DatasetExcelOptionsOutput) ToDatasetExcelOptionsPtrOutput() DatasetExcelOptionsPtrOutput {
+	return o.ToDatasetExcelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetExcelOptionsOutput) ToDatasetExcelOptionsPtrOutputWithContext(ctx context.Context) DatasetExcelOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetExcelOptions) *DatasetExcelOptions {
+		return &v
+	}).(DatasetExcelOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-headerrow
+func (o DatasetExcelOptionsOutput) HeaderRow() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetExcelOptions) *bool { return v.HeaderRow }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetindexes
+func (o DatasetExcelOptionsOutput) SheetIndexes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v DatasetExcelOptions) []int { return v.SheetIndexes }).(pulumi.IntArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetnames
+func (o DatasetExcelOptionsOutput) SheetNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatasetExcelOptions) []string { return v.SheetNames }).(pulumi.StringArrayOutput)
+}
+
+type DatasetExcelOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetExcelOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetExcelOptions)(nil)).Elem()
+}
+
+func (o DatasetExcelOptionsPtrOutput) ToDatasetExcelOptionsPtrOutput() DatasetExcelOptionsPtrOutput {
+	return o
+}
+
+func (o DatasetExcelOptionsPtrOutput) ToDatasetExcelOptionsPtrOutputWithContext(ctx context.Context) DatasetExcelOptionsPtrOutput {
+	return o
+}
+
+func (o DatasetExcelOptionsPtrOutput) Elem() DatasetExcelOptionsOutput {
+	return o.ApplyT(func(v *DatasetExcelOptions) DatasetExcelOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetExcelOptions
+		return ret
+	}).(DatasetExcelOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-headerrow
+func (o DatasetExcelOptionsPtrOutput) HeaderRow() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetExcelOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HeaderRow
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetindexes
+func (o DatasetExcelOptionsPtrOutput) SheetIndexes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DatasetExcelOptions) []int {
+		if v == nil {
+			return nil
+		}
+		return v.SheetIndexes
+	}).(pulumi.IntArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetnames
+func (o DatasetExcelOptionsPtrOutput) SheetNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DatasetExcelOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SheetNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html
+type DatasetFilesLimit struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles
+	MaxFiles int `pulumi:"maxFiles"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order
+	Order *string `pulumi:"order"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-orderedby
+	OrderedBy *string `pulumi:"orderedBy"`
+}
+
+// DatasetFilesLimitInput is an input type that accepts DatasetFilesLimitArgs and DatasetFilesLimitOutput values.
+// You can construct a concrete instance of `DatasetFilesLimitInput` via:
+//
+//          DatasetFilesLimitArgs{...}
+type DatasetFilesLimitInput interface {
+	pulumi.Input
+
+	ToDatasetFilesLimitOutput() DatasetFilesLimitOutput
+	ToDatasetFilesLimitOutputWithContext(context.Context) DatasetFilesLimitOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html
+type DatasetFilesLimitArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles
+	MaxFiles pulumi.IntInput `pulumi:"maxFiles"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order
+	Order pulumi.StringPtrInput `pulumi:"order"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-orderedby
+	OrderedBy pulumi.StringPtrInput `pulumi:"orderedBy"`
+}
+
+func (DatasetFilesLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetFilesLimit)(nil)).Elem()
+}
+
+func (i DatasetFilesLimitArgs) ToDatasetFilesLimitOutput() DatasetFilesLimitOutput {
+	return i.ToDatasetFilesLimitOutputWithContext(context.Background())
+}
+
+func (i DatasetFilesLimitArgs) ToDatasetFilesLimitOutputWithContext(ctx context.Context) DatasetFilesLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetFilesLimitOutput)
+}
+
+func (i DatasetFilesLimitArgs) ToDatasetFilesLimitPtrOutput() DatasetFilesLimitPtrOutput {
+	return i.ToDatasetFilesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetFilesLimitArgs) ToDatasetFilesLimitPtrOutputWithContext(ctx context.Context) DatasetFilesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetFilesLimitOutput).ToDatasetFilesLimitPtrOutputWithContext(ctx)
+}
+
+// DatasetFilesLimitPtrInput is an input type that accepts DatasetFilesLimitArgs, DatasetFilesLimitPtr and DatasetFilesLimitPtrOutput values.
+// You can construct a concrete instance of `DatasetFilesLimitPtrInput` via:
+//
+//          DatasetFilesLimitArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetFilesLimitPtrInput interface {
+	pulumi.Input
+
+	ToDatasetFilesLimitPtrOutput() DatasetFilesLimitPtrOutput
+	ToDatasetFilesLimitPtrOutputWithContext(context.Context) DatasetFilesLimitPtrOutput
+}
+
+type datasetFilesLimitPtrType DatasetFilesLimitArgs
+
+func DatasetFilesLimitPtr(v *DatasetFilesLimitArgs) DatasetFilesLimitPtrInput {
+	return (*datasetFilesLimitPtrType)(v)
+}
+
+func (*datasetFilesLimitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetFilesLimit)(nil)).Elem()
+}
+
+func (i *datasetFilesLimitPtrType) ToDatasetFilesLimitPtrOutput() DatasetFilesLimitPtrOutput {
+	return i.ToDatasetFilesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetFilesLimitPtrType) ToDatasetFilesLimitPtrOutputWithContext(ctx context.Context) DatasetFilesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetFilesLimitPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html
+type DatasetFilesLimitOutput struct{ *pulumi.OutputState }
+
+func (DatasetFilesLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetFilesLimit)(nil)).Elem()
+}
+
+func (o DatasetFilesLimitOutput) ToDatasetFilesLimitOutput() DatasetFilesLimitOutput {
+	return o
+}
+
+func (o DatasetFilesLimitOutput) ToDatasetFilesLimitOutputWithContext(ctx context.Context) DatasetFilesLimitOutput {
+	return o
+}
+
+func (o DatasetFilesLimitOutput) ToDatasetFilesLimitPtrOutput() DatasetFilesLimitPtrOutput {
+	return o.ToDatasetFilesLimitPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetFilesLimitOutput) ToDatasetFilesLimitPtrOutputWithContext(ctx context.Context) DatasetFilesLimitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetFilesLimit) *DatasetFilesLimit {
+		return &v
+	}).(DatasetFilesLimitPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles
+func (o DatasetFilesLimitOutput) MaxFiles() pulumi.IntOutput {
+	return o.ApplyT(func(v DatasetFilesLimit) int { return v.MaxFiles }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order
+func (o DatasetFilesLimitOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetFilesLimit) *string { return v.Order }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-orderedby
+func (o DatasetFilesLimitOutput) OrderedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetFilesLimit) *string { return v.OrderedBy }).(pulumi.StringPtrOutput)
+}
+
+type DatasetFilesLimitPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetFilesLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetFilesLimit)(nil)).Elem()
+}
+
+func (o DatasetFilesLimitPtrOutput) ToDatasetFilesLimitPtrOutput() DatasetFilesLimitPtrOutput {
+	return o
+}
+
+func (o DatasetFilesLimitPtrOutput) ToDatasetFilesLimitPtrOutputWithContext(ctx context.Context) DatasetFilesLimitPtrOutput {
+	return o
+}
+
+func (o DatasetFilesLimitPtrOutput) Elem() DatasetFilesLimitOutput {
+	return o.ApplyT(func(v *DatasetFilesLimit) DatasetFilesLimit {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetFilesLimit
+		return ret
+	}).(DatasetFilesLimitOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles
+func (o DatasetFilesLimitPtrOutput) MaxFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatasetFilesLimit) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxFiles
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order
+func (o DatasetFilesLimitPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetFilesLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-orderedby
+func (o DatasetFilesLimitPtrOutput) OrderedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetFilesLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrderedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html
+type DatasetFilterExpression struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-expression
+	Expression string `pulumi:"expression"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-valuesmap
+	ValuesMap []DatasetFilterValue `pulumi:"valuesMap"`
+}
+
+// DatasetFilterExpressionInput is an input type that accepts DatasetFilterExpressionArgs and DatasetFilterExpressionOutput values.
+// You can construct a concrete instance of `DatasetFilterExpressionInput` via:
+//
+//          DatasetFilterExpressionArgs{...}
+type DatasetFilterExpressionInput interface {
+	pulumi.Input
+
+	ToDatasetFilterExpressionOutput() DatasetFilterExpressionOutput
+	ToDatasetFilterExpressionOutputWithContext(context.Context) DatasetFilterExpressionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html
+type DatasetFilterExpressionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-expression
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-valuesmap
+	ValuesMap DatasetFilterValueArrayInput `pulumi:"valuesMap"`
+}
+
+func (DatasetFilterExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetFilterExpression)(nil)).Elem()
+}
+
+func (i DatasetFilterExpressionArgs) ToDatasetFilterExpressionOutput() DatasetFilterExpressionOutput {
+	return i.ToDatasetFilterExpressionOutputWithContext(context.Background())
+}
+
+func (i DatasetFilterExpressionArgs) ToDatasetFilterExpressionOutputWithContext(ctx context.Context) DatasetFilterExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetFilterExpressionOutput)
+}
+
+func (i DatasetFilterExpressionArgs) ToDatasetFilterExpressionPtrOutput() DatasetFilterExpressionPtrOutput {
+	return i.ToDatasetFilterExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetFilterExpressionArgs) ToDatasetFilterExpressionPtrOutputWithContext(ctx context.Context) DatasetFilterExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetFilterExpressionOutput).ToDatasetFilterExpressionPtrOutputWithContext(ctx)
+}
+
+// DatasetFilterExpressionPtrInput is an input type that accepts DatasetFilterExpressionArgs, DatasetFilterExpressionPtr and DatasetFilterExpressionPtrOutput values.
+// You can construct a concrete instance of `DatasetFilterExpressionPtrInput` via:
+//
+//          DatasetFilterExpressionArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetFilterExpressionPtrInput interface {
+	pulumi.Input
+
+	ToDatasetFilterExpressionPtrOutput() DatasetFilterExpressionPtrOutput
+	ToDatasetFilterExpressionPtrOutputWithContext(context.Context) DatasetFilterExpressionPtrOutput
+}
+
+type datasetFilterExpressionPtrType DatasetFilterExpressionArgs
+
+func DatasetFilterExpressionPtr(v *DatasetFilterExpressionArgs) DatasetFilterExpressionPtrInput {
+	return (*datasetFilterExpressionPtrType)(v)
+}
+
+func (*datasetFilterExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetFilterExpression)(nil)).Elem()
+}
+
+func (i *datasetFilterExpressionPtrType) ToDatasetFilterExpressionPtrOutput() DatasetFilterExpressionPtrOutput {
+	return i.ToDatasetFilterExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetFilterExpressionPtrType) ToDatasetFilterExpressionPtrOutputWithContext(ctx context.Context) DatasetFilterExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetFilterExpressionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html
+type DatasetFilterExpressionOutput struct{ *pulumi.OutputState }
+
+func (DatasetFilterExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetFilterExpression)(nil)).Elem()
+}
+
+func (o DatasetFilterExpressionOutput) ToDatasetFilterExpressionOutput() DatasetFilterExpressionOutput {
+	return o
+}
+
+func (o DatasetFilterExpressionOutput) ToDatasetFilterExpressionOutputWithContext(ctx context.Context) DatasetFilterExpressionOutput {
+	return o
+}
+
+func (o DatasetFilterExpressionOutput) ToDatasetFilterExpressionPtrOutput() DatasetFilterExpressionPtrOutput {
+	return o.ToDatasetFilterExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetFilterExpressionOutput) ToDatasetFilterExpressionPtrOutputWithContext(ctx context.Context) DatasetFilterExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetFilterExpression) *DatasetFilterExpression {
+		return &v
+	}).(DatasetFilterExpressionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-expression
+func (o DatasetFilterExpressionOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetFilterExpression) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-valuesmap
+func (o DatasetFilterExpressionOutput) ValuesMap() DatasetFilterValueArrayOutput {
+	return o.ApplyT(func(v DatasetFilterExpression) []DatasetFilterValue { return v.ValuesMap }).(DatasetFilterValueArrayOutput)
+}
+
+type DatasetFilterExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetFilterExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetFilterExpression)(nil)).Elem()
+}
+
+func (o DatasetFilterExpressionPtrOutput) ToDatasetFilterExpressionPtrOutput() DatasetFilterExpressionPtrOutput {
+	return o
+}
+
+func (o DatasetFilterExpressionPtrOutput) ToDatasetFilterExpressionPtrOutputWithContext(ctx context.Context) DatasetFilterExpressionPtrOutput {
+	return o
+}
+
+func (o DatasetFilterExpressionPtrOutput) Elem() DatasetFilterExpressionOutput {
+	return o.ApplyT(func(v *DatasetFilterExpression) DatasetFilterExpression {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetFilterExpression
+		return ret
+	}).(DatasetFilterExpressionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-expression
+func (o DatasetFilterExpressionPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetFilterExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-valuesmap
+func (o DatasetFilterExpressionPtrOutput) ValuesMap() DatasetFilterValueArrayOutput {
+	return o.ApplyT(func(v *DatasetFilterExpression) []DatasetFilterValue {
+		if v == nil {
+			return nil
+		}
+		return v.ValuesMap
+	}).(DatasetFilterValueArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html
+type DatasetFilterValue struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-value
+	Value string `pulumi:"value"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-valuereference
+	ValueReference string `pulumi:"valueReference"`
+}
+
+// DatasetFilterValueInput is an input type that accepts DatasetFilterValueArgs and DatasetFilterValueOutput values.
+// You can construct a concrete instance of `DatasetFilterValueInput` via:
+//
+//          DatasetFilterValueArgs{...}
+type DatasetFilterValueInput interface {
+	pulumi.Input
+
+	ToDatasetFilterValueOutput() DatasetFilterValueOutput
+	ToDatasetFilterValueOutputWithContext(context.Context) DatasetFilterValueOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html
+type DatasetFilterValueArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-value
+	Value pulumi.StringInput `pulumi:"value"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-valuereference
+	ValueReference pulumi.StringInput `pulumi:"valueReference"`
+}
+
+func (DatasetFilterValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetFilterValue)(nil)).Elem()
+}
+
+func (i DatasetFilterValueArgs) ToDatasetFilterValueOutput() DatasetFilterValueOutput {
+	return i.ToDatasetFilterValueOutputWithContext(context.Background())
+}
+
+func (i DatasetFilterValueArgs) ToDatasetFilterValueOutputWithContext(ctx context.Context) DatasetFilterValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetFilterValueOutput)
+}
+
+// DatasetFilterValueArrayInput is an input type that accepts DatasetFilterValueArray and DatasetFilterValueArrayOutput values.
+// You can construct a concrete instance of `DatasetFilterValueArrayInput` via:
+//
+//          DatasetFilterValueArray{ DatasetFilterValueArgs{...} }
+type DatasetFilterValueArrayInput interface {
+	pulumi.Input
+
+	ToDatasetFilterValueArrayOutput() DatasetFilterValueArrayOutput
+	ToDatasetFilterValueArrayOutputWithContext(context.Context) DatasetFilterValueArrayOutput
+}
+
+type DatasetFilterValueArray []DatasetFilterValueInput
+
+func (DatasetFilterValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetFilterValue)(nil)).Elem()
+}
+
+func (i DatasetFilterValueArray) ToDatasetFilterValueArrayOutput() DatasetFilterValueArrayOutput {
+	return i.ToDatasetFilterValueArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetFilterValueArray) ToDatasetFilterValueArrayOutputWithContext(ctx context.Context) DatasetFilterValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetFilterValueArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html
+type DatasetFilterValueOutput struct{ *pulumi.OutputState }
+
+func (DatasetFilterValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetFilterValue)(nil)).Elem()
+}
+
+func (o DatasetFilterValueOutput) ToDatasetFilterValueOutput() DatasetFilterValueOutput {
+	return o
+}
+
+func (o DatasetFilterValueOutput) ToDatasetFilterValueOutputWithContext(ctx context.Context) DatasetFilterValueOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-value
+func (o DatasetFilterValueOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetFilterValue) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-valuereference
+func (o DatasetFilterValueOutput) ValueReference() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetFilterValue) string { return v.ValueReference }).(pulumi.StringOutput)
+}
+
+type DatasetFilterValueArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetFilterValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetFilterValue)(nil)).Elem()
+}
+
+func (o DatasetFilterValueArrayOutput) ToDatasetFilterValueArrayOutput() DatasetFilterValueArrayOutput {
+	return o
+}
+
+func (o DatasetFilterValueArrayOutput) ToDatasetFilterValueArrayOutputWithContext(ctx context.Context) DatasetFilterValueArrayOutput {
+	return o
+}
+
+func (o DatasetFilterValueArrayOutput) Index(i pulumi.IntInput) DatasetFilterValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetFilterValue {
+		return vs[0].([]DatasetFilterValue)[vs[1].(int)]
+	}).(DatasetFilterValueOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html
+type DatasetFormatOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-csv
+	Csv *DatasetCsvOptions `pulumi:"csv"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-excel
+	Excel *DatasetExcelOptions `pulumi:"excel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json
+	Json *DatasetJsonOptions `pulumi:"json"`
+}
+
+// DatasetFormatOptionsInput is an input type that accepts DatasetFormatOptionsArgs and DatasetFormatOptionsOutput values.
+// You can construct a concrete instance of `DatasetFormatOptionsInput` via:
+//
+//          DatasetFormatOptionsArgs{...}
+type DatasetFormatOptionsInput interface {
+	pulumi.Input
+
+	ToDatasetFormatOptionsOutput() DatasetFormatOptionsOutput
+	ToDatasetFormatOptionsOutputWithContext(context.Context) DatasetFormatOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html
+type DatasetFormatOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-csv
+	Csv DatasetCsvOptionsPtrInput `pulumi:"csv"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-excel
+	Excel DatasetExcelOptionsPtrInput `pulumi:"excel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json
+	Json DatasetJsonOptionsPtrInput `pulumi:"json"`
+}
+
+func (DatasetFormatOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetFormatOptions)(nil)).Elem()
+}
+
+func (i DatasetFormatOptionsArgs) ToDatasetFormatOptionsOutput() DatasetFormatOptionsOutput {
+	return i.ToDatasetFormatOptionsOutputWithContext(context.Background())
+}
+
+func (i DatasetFormatOptionsArgs) ToDatasetFormatOptionsOutputWithContext(ctx context.Context) DatasetFormatOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetFormatOptionsOutput)
+}
+
+func (i DatasetFormatOptionsArgs) ToDatasetFormatOptionsPtrOutput() DatasetFormatOptionsPtrOutput {
+	return i.ToDatasetFormatOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetFormatOptionsArgs) ToDatasetFormatOptionsPtrOutputWithContext(ctx context.Context) DatasetFormatOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetFormatOptionsOutput).ToDatasetFormatOptionsPtrOutputWithContext(ctx)
+}
+
+// DatasetFormatOptionsPtrInput is an input type that accepts DatasetFormatOptionsArgs, DatasetFormatOptionsPtr and DatasetFormatOptionsPtrOutput values.
+// You can construct a concrete instance of `DatasetFormatOptionsPtrInput` via:
+//
+//          DatasetFormatOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetFormatOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDatasetFormatOptionsPtrOutput() DatasetFormatOptionsPtrOutput
+	ToDatasetFormatOptionsPtrOutputWithContext(context.Context) DatasetFormatOptionsPtrOutput
+}
+
+type datasetFormatOptionsPtrType DatasetFormatOptionsArgs
+
+func DatasetFormatOptionsPtr(v *DatasetFormatOptionsArgs) DatasetFormatOptionsPtrInput {
+	return (*datasetFormatOptionsPtrType)(v)
+}
+
+func (*datasetFormatOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetFormatOptions)(nil)).Elem()
+}
+
+func (i *datasetFormatOptionsPtrType) ToDatasetFormatOptionsPtrOutput() DatasetFormatOptionsPtrOutput {
+	return i.ToDatasetFormatOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetFormatOptionsPtrType) ToDatasetFormatOptionsPtrOutputWithContext(ctx context.Context) DatasetFormatOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetFormatOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html
+type DatasetFormatOptionsOutput struct{ *pulumi.OutputState }
+
+func (DatasetFormatOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetFormatOptions)(nil)).Elem()
+}
+
+func (o DatasetFormatOptionsOutput) ToDatasetFormatOptionsOutput() DatasetFormatOptionsOutput {
+	return o
+}
+
+func (o DatasetFormatOptionsOutput) ToDatasetFormatOptionsOutputWithContext(ctx context.Context) DatasetFormatOptionsOutput {
+	return o
+}
+
+func (o DatasetFormatOptionsOutput) ToDatasetFormatOptionsPtrOutput() DatasetFormatOptionsPtrOutput {
+	return o.ToDatasetFormatOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetFormatOptionsOutput) ToDatasetFormatOptionsPtrOutputWithContext(ctx context.Context) DatasetFormatOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetFormatOptions) *DatasetFormatOptions {
+		return &v
+	}).(DatasetFormatOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-csv
+func (o DatasetFormatOptionsOutput) Csv() DatasetCsvOptionsPtrOutput {
+	return o.ApplyT(func(v DatasetFormatOptions) *DatasetCsvOptions { return v.Csv }).(DatasetCsvOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-excel
+func (o DatasetFormatOptionsOutput) Excel() DatasetExcelOptionsPtrOutput {
+	return o.ApplyT(func(v DatasetFormatOptions) *DatasetExcelOptions { return v.Excel }).(DatasetExcelOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json
+func (o DatasetFormatOptionsOutput) Json() DatasetJsonOptionsPtrOutput {
+	return o.ApplyT(func(v DatasetFormatOptions) *DatasetJsonOptions { return v.Json }).(DatasetJsonOptionsPtrOutput)
+}
+
+type DatasetFormatOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetFormatOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetFormatOptions)(nil)).Elem()
+}
+
+func (o DatasetFormatOptionsPtrOutput) ToDatasetFormatOptionsPtrOutput() DatasetFormatOptionsPtrOutput {
+	return o
+}
+
+func (o DatasetFormatOptionsPtrOutput) ToDatasetFormatOptionsPtrOutputWithContext(ctx context.Context) DatasetFormatOptionsPtrOutput {
+	return o
+}
+
+func (o DatasetFormatOptionsPtrOutput) Elem() DatasetFormatOptionsOutput {
+	return o.ApplyT(func(v *DatasetFormatOptions) DatasetFormatOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetFormatOptions
+		return ret
+	}).(DatasetFormatOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-csv
+func (o DatasetFormatOptionsPtrOutput) Csv() DatasetCsvOptionsPtrOutput {
+	return o.ApplyT(func(v *DatasetFormatOptions) *DatasetCsvOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Csv
+	}).(DatasetCsvOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-excel
+func (o DatasetFormatOptionsPtrOutput) Excel() DatasetExcelOptionsPtrOutput {
+	return o.ApplyT(func(v *DatasetFormatOptions) *DatasetExcelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Excel
+	}).(DatasetExcelOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json
+func (o DatasetFormatOptionsPtrOutput) Json() DatasetJsonOptionsPtrOutput {
+	return o.ApplyT(func(v *DatasetFormatOptions) *DatasetJsonOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Json
+	}).(DatasetJsonOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html
+type DatasetInputType struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-datacataloginputdefinition
+	DataCatalogInputDefinition *DatasetDataCatalogInputDefinition `pulumi:"dataCatalogInputDefinition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition
+	DatabaseInputDefinition *DatasetDatabaseInputDefinition `pulumi:"databaseInputDefinition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition
+	S3InputDefinition *DatasetS3Location `pulumi:"s3InputDefinition"`
+}
+
+// DatasetInputTypeInput is an input type that accepts DatasetInputTypeArgs and DatasetInputTypeOutput values.
+// You can construct a concrete instance of `DatasetInputTypeInput` via:
+//
+//          DatasetInputTypeArgs{...}
+type DatasetInputTypeInput interface {
+	pulumi.Input
+
+	ToDatasetInputTypeOutput() DatasetInputTypeOutput
+	ToDatasetInputTypeOutputWithContext(context.Context) DatasetInputTypeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html
+type DatasetInputTypeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-datacataloginputdefinition
+	DataCatalogInputDefinition DatasetDataCatalogInputDefinitionPtrInput `pulumi:"dataCatalogInputDefinition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition
+	DatabaseInputDefinition DatasetDatabaseInputDefinitionPtrInput `pulumi:"databaseInputDefinition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition
+	S3InputDefinition DatasetS3LocationPtrInput `pulumi:"s3InputDefinition"`
+}
+
+func (DatasetInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetInputType)(nil)).Elem()
+}
+
+func (i DatasetInputTypeArgs) ToDatasetInputTypeOutput() DatasetInputTypeOutput {
+	return i.ToDatasetInputTypeOutputWithContext(context.Background())
+}
+
+func (i DatasetInputTypeArgs) ToDatasetInputTypeOutputWithContext(ctx context.Context) DatasetInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetInputTypeOutput)
+}
+
+func (i DatasetInputTypeArgs) ToDatasetInputTypePtrOutput() DatasetInputTypePtrOutput {
+	return i.ToDatasetInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i DatasetInputTypeArgs) ToDatasetInputTypePtrOutputWithContext(ctx context.Context) DatasetInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetInputTypeOutput).ToDatasetInputTypePtrOutputWithContext(ctx)
+}
+
+// DatasetInputTypePtrInput is an input type that accepts DatasetInputTypeArgs, DatasetInputTypePtr and DatasetInputTypePtrOutput values.
+// You can construct a concrete instance of `DatasetInputTypePtrInput` via:
+//
+//          DatasetInputTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetInputTypePtrInput interface {
+	pulumi.Input
+
+	ToDatasetInputTypePtrOutput() DatasetInputTypePtrOutput
+	ToDatasetInputTypePtrOutputWithContext(context.Context) DatasetInputTypePtrOutput
+}
+
+type datasetInputTypePtrType DatasetInputTypeArgs
+
+func DatasetInputTypePtr(v *DatasetInputTypeArgs) DatasetInputTypePtrInput {
+	return (*datasetInputTypePtrType)(v)
+}
+
+func (*datasetInputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetInputType)(nil)).Elem()
+}
+
+func (i *datasetInputTypePtrType) ToDatasetInputTypePtrOutput() DatasetInputTypePtrOutput {
+	return i.ToDatasetInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i *datasetInputTypePtrType) ToDatasetInputTypePtrOutputWithContext(ctx context.Context) DatasetInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetInputTypePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html
+type DatasetInputTypeOutput struct{ *pulumi.OutputState }
+
+func (DatasetInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetInputType)(nil)).Elem()
+}
+
+func (o DatasetInputTypeOutput) ToDatasetInputTypeOutput() DatasetInputTypeOutput {
+	return o
+}
+
+func (o DatasetInputTypeOutput) ToDatasetInputTypeOutputWithContext(ctx context.Context) DatasetInputTypeOutput {
+	return o
+}
+
+func (o DatasetInputTypeOutput) ToDatasetInputTypePtrOutput() DatasetInputTypePtrOutput {
+	return o.ToDatasetInputTypePtrOutputWithContext(context.Background())
+}
+
+func (o DatasetInputTypeOutput) ToDatasetInputTypePtrOutputWithContext(ctx context.Context) DatasetInputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetInputType) *DatasetInputType {
+		return &v
+	}).(DatasetInputTypePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-datacataloginputdefinition
+func (o DatasetInputTypeOutput) DataCatalogInputDefinition() DatasetDataCatalogInputDefinitionPtrOutput {
+	return o.ApplyT(func(v DatasetInputType) *DatasetDataCatalogInputDefinition { return v.DataCatalogInputDefinition }).(DatasetDataCatalogInputDefinitionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition
+func (o DatasetInputTypeOutput) DatabaseInputDefinition() DatasetDatabaseInputDefinitionPtrOutput {
+	return o.ApplyT(func(v DatasetInputType) *DatasetDatabaseInputDefinition { return v.DatabaseInputDefinition }).(DatasetDatabaseInputDefinitionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition
+func (o DatasetInputTypeOutput) S3InputDefinition() DatasetS3LocationPtrOutput {
+	return o.ApplyT(func(v DatasetInputType) *DatasetS3Location { return v.S3InputDefinition }).(DatasetS3LocationPtrOutput)
+}
+
+type DatasetInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetInputType)(nil)).Elem()
+}
+
+func (o DatasetInputTypePtrOutput) ToDatasetInputTypePtrOutput() DatasetInputTypePtrOutput {
+	return o
+}
+
+func (o DatasetInputTypePtrOutput) ToDatasetInputTypePtrOutputWithContext(ctx context.Context) DatasetInputTypePtrOutput {
+	return o
+}
+
+func (o DatasetInputTypePtrOutput) Elem() DatasetInputTypeOutput {
+	return o.ApplyT(func(v *DatasetInputType) DatasetInputType {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetInputType
+		return ret
+	}).(DatasetInputTypeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-datacataloginputdefinition
+func (o DatasetInputTypePtrOutput) DataCatalogInputDefinition() DatasetDataCatalogInputDefinitionPtrOutput {
+	return o.ApplyT(func(v *DatasetInputType) *DatasetDataCatalogInputDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.DataCatalogInputDefinition
+	}).(DatasetDataCatalogInputDefinitionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition
+func (o DatasetInputTypePtrOutput) DatabaseInputDefinition() DatasetDatabaseInputDefinitionPtrOutput {
+	return o.ApplyT(func(v *DatasetInputType) *DatasetDatabaseInputDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseInputDefinition
+	}).(DatasetDatabaseInputDefinitionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition
+func (o DatasetInputTypePtrOutput) S3InputDefinition() DatasetS3LocationPtrOutput {
+	return o.ApplyT(func(v *DatasetInputType) *DatasetS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputDefinition
+	}).(DatasetS3LocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html
+type DatasetJsonOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
+	MultiLine *bool `pulumi:"multiLine"`
+}
+
+// DatasetJsonOptionsInput is an input type that accepts DatasetJsonOptionsArgs and DatasetJsonOptionsOutput values.
+// You can construct a concrete instance of `DatasetJsonOptionsInput` via:
+//
+//          DatasetJsonOptionsArgs{...}
+type DatasetJsonOptionsInput interface {
+	pulumi.Input
+
+	ToDatasetJsonOptionsOutput() DatasetJsonOptionsOutput
+	ToDatasetJsonOptionsOutputWithContext(context.Context) DatasetJsonOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html
+type DatasetJsonOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
+	MultiLine pulumi.BoolPtrInput `pulumi:"multiLine"`
+}
+
+func (DatasetJsonOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetJsonOptions)(nil)).Elem()
+}
+
+func (i DatasetJsonOptionsArgs) ToDatasetJsonOptionsOutput() DatasetJsonOptionsOutput {
+	return i.ToDatasetJsonOptionsOutputWithContext(context.Background())
+}
+
+func (i DatasetJsonOptionsArgs) ToDatasetJsonOptionsOutputWithContext(ctx context.Context) DatasetJsonOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonOptionsOutput)
+}
+
+func (i DatasetJsonOptionsArgs) ToDatasetJsonOptionsPtrOutput() DatasetJsonOptionsPtrOutput {
+	return i.ToDatasetJsonOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetJsonOptionsArgs) ToDatasetJsonOptionsPtrOutputWithContext(ctx context.Context) DatasetJsonOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonOptionsOutput).ToDatasetJsonOptionsPtrOutputWithContext(ctx)
+}
+
+// DatasetJsonOptionsPtrInput is an input type that accepts DatasetJsonOptionsArgs, DatasetJsonOptionsPtr and DatasetJsonOptionsPtrOutput values.
+// You can construct a concrete instance of `DatasetJsonOptionsPtrInput` via:
+//
+//          DatasetJsonOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetJsonOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDatasetJsonOptionsPtrOutput() DatasetJsonOptionsPtrOutput
+	ToDatasetJsonOptionsPtrOutputWithContext(context.Context) DatasetJsonOptionsPtrOutput
+}
+
+type datasetJsonOptionsPtrType DatasetJsonOptionsArgs
+
+func DatasetJsonOptionsPtr(v *DatasetJsonOptionsArgs) DatasetJsonOptionsPtrInput {
+	return (*datasetJsonOptionsPtrType)(v)
+}
+
+func (*datasetJsonOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetJsonOptions)(nil)).Elem()
+}
+
+func (i *datasetJsonOptionsPtrType) ToDatasetJsonOptionsPtrOutput() DatasetJsonOptionsPtrOutput {
+	return i.ToDatasetJsonOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetJsonOptionsPtrType) ToDatasetJsonOptionsPtrOutputWithContext(ctx context.Context) DatasetJsonOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html
+type DatasetJsonOptionsOutput struct{ *pulumi.OutputState }
+
+func (DatasetJsonOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetJsonOptions)(nil)).Elem()
+}
+
+func (o DatasetJsonOptionsOutput) ToDatasetJsonOptionsOutput() DatasetJsonOptionsOutput {
+	return o
+}
+
+func (o DatasetJsonOptionsOutput) ToDatasetJsonOptionsOutputWithContext(ctx context.Context) DatasetJsonOptionsOutput {
+	return o
+}
+
+func (o DatasetJsonOptionsOutput) ToDatasetJsonOptionsPtrOutput() DatasetJsonOptionsPtrOutput {
+	return o.ToDatasetJsonOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetJsonOptionsOutput) ToDatasetJsonOptionsPtrOutputWithContext(ctx context.Context) DatasetJsonOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetJsonOptions) *DatasetJsonOptions {
+		return &v
+	}).(DatasetJsonOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
+func (o DatasetJsonOptionsOutput) MultiLine() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetJsonOptions) *bool { return v.MultiLine }).(pulumi.BoolPtrOutput)
+}
+
+type DatasetJsonOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetJsonOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetJsonOptions)(nil)).Elem()
+}
+
+func (o DatasetJsonOptionsPtrOutput) ToDatasetJsonOptionsPtrOutput() DatasetJsonOptionsPtrOutput {
+	return o
+}
+
+func (o DatasetJsonOptionsPtrOutput) ToDatasetJsonOptionsPtrOutputWithContext(ctx context.Context) DatasetJsonOptionsPtrOutput {
+	return o
+}
+
+func (o DatasetJsonOptionsPtrOutput) Elem() DatasetJsonOptionsOutput {
+	return o.ApplyT(func(v *DatasetJsonOptions) DatasetJsonOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetJsonOptions
+		return ret
+	}).(DatasetJsonOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
+func (o DatasetJsonOptionsPtrOutput) MultiLine() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetJsonOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MultiLine
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html
+type DatasetPathOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit
+	FilesLimit *DatasetFilesLimit `pulumi:"filesLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition
+	LastModifiedDateCondition *DatasetFilterExpression `pulumi:"lastModifiedDateCondition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters
+	Parameters []DatasetPathParameter `pulumi:"parameters"`
+}
+
+// DatasetPathOptionsInput is an input type that accepts DatasetPathOptionsArgs and DatasetPathOptionsOutput values.
+// You can construct a concrete instance of `DatasetPathOptionsInput` via:
+//
+//          DatasetPathOptionsArgs{...}
+type DatasetPathOptionsInput interface {
+	pulumi.Input
+
+	ToDatasetPathOptionsOutput() DatasetPathOptionsOutput
+	ToDatasetPathOptionsOutputWithContext(context.Context) DatasetPathOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html
+type DatasetPathOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit
+	FilesLimit DatasetFilesLimitPtrInput `pulumi:"filesLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition
+	LastModifiedDateCondition DatasetFilterExpressionPtrInput `pulumi:"lastModifiedDateCondition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters
+	Parameters DatasetPathParameterArrayInput `pulumi:"parameters"`
+}
+
+func (DatasetPathOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetPathOptions)(nil)).Elem()
+}
+
+func (i DatasetPathOptionsArgs) ToDatasetPathOptionsOutput() DatasetPathOptionsOutput {
+	return i.ToDatasetPathOptionsOutputWithContext(context.Background())
+}
+
+func (i DatasetPathOptionsArgs) ToDatasetPathOptionsOutputWithContext(ctx context.Context) DatasetPathOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetPathOptionsOutput)
+}
+
+func (i DatasetPathOptionsArgs) ToDatasetPathOptionsPtrOutput() DatasetPathOptionsPtrOutput {
+	return i.ToDatasetPathOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetPathOptionsArgs) ToDatasetPathOptionsPtrOutputWithContext(ctx context.Context) DatasetPathOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetPathOptionsOutput).ToDatasetPathOptionsPtrOutputWithContext(ctx)
+}
+
+// DatasetPathOptionsPtrInput is an input type that accepts DatasetPathOptionsArgs, DatasetPathOptionsPtr and DatasetPathOptionsPtrOutput values.
+// You can construct a concrete instance of `DatasetPathOptionsPtrInput` via:
+//
+//          DatasetPathOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetPathOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDatasetPathOptionsPtrOutput() DatasetPathOptionsPtrOutput
+	ToDatasetPathOptionsPtrOutputWithContext(context.Context) DatasetPathOptionsPtrOutput
+}
+
+type datasetPathOptionsPtrType DatasetPathOptionsArgs
+
+func DatasetPathOptionsPtr(v *DatasetPathOptionsArgs) DatasetPathOptionsPtrInput {
+	return (*datasetPathOptionsPtrType)(v)
+}
+
+func (*datasetPathOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetPathOptions)(nil)).Elem()
+}
+
+func (i *datasetPathOptionsPtrType) ToDatasetPathOptionsPtrOutput() DatasetPathOptionsPtrOutput {
+	return i.ToDatasetPathOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetPathOptionsPtrType) ToDatasetPathOptionsPtrOutputWithContext(ctx context.Context) DatasetPathOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetPathOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html
+type DatasetPathOptionsOutput struct{ *pulumi.OutputState }
+
+func (DatasetPathOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetPathOptions)(nil)).Elem()
+}
+
+func (o DatasetPathOptionsOutput) ToDatasetPathOptionsOutput() DatasetPathOptionsOutput {
+	return o
+}
+
+func (o DatasetPathOptionsOutput) ToDatasetPathOptionsOutputWithContext(ctx context.Context) DatasetPathOptionsOutput {
+	return o
+}
+
+func (o DatasetPathOptionsOutput) ToDatasetPathOptionsPtrOutput() DatasetPathOptionsPtrOutput {
+	return o.ToDatasetPathOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetPathOptionsOutput) ToDatasetPathOptionsPtrOutputWithContext(ctx context.Context) DatasetPathOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetPathOptions) *DatasetPathOptions {
+		return &v
+	}).(DatasetPathOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit
+func (o DatasetPathOptionsOutput) FilesLimit() DatasetFilesLimitPtrOutput {
+	return o.ApplyT(func(v DatasetPathOptions) *DatasetFilesLimit { return v.FilesLimit }).(DatasetFilesLimitPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition
+func (o DatasetPathOptionsOutput) LastModifiedDateCondition() DatasetFilterExpressionPtrOutput {
+	return o.ApplyT(func(v DatasetPathOptions) *DatasetFilterExpression { return v.LastModifiedDateCondition }).(DatasetFilterExpressionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters
+func (o DatasetPathOptionsOutput) Parameters() DatasetPathParameterArrayOutput {
+	return o.ApplyT(func(v DatasetPathOptions) []DatasetPathParameter { return v.Parameters }).(DatasetPathParameterArrayOutput)
+}
+
+type DatasetPathOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetPathOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetPathOptions)(nil)).Elem()
+}
+
+func (o DatasetPathOptionsPtrOutput) ToDatasetPathOptionsPtrOutput() DatasetPathOptionsPtrOutput {
+	return o
+}
+
+func (o DatasetPathOptionsPtrOutput) ToDatasetPathOptionsPtrOutputWithContext(ctx context.Context) DatasetPathOptionsPtrOutput {
+	return o
+}
+
+func (o DatasetPathOptionsPtrOutput) Elem() DatasetPathOptionsOutput {
+	return o.ApplyT(func(v *DatasetPathOptions) DatasetPathOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetPathOptions
+		return ret
+	}).(DatasetPathOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit
+func (o DatasetPathOptionsPtrOutput) FilesLimit() DatasetFilesLimitPtrOutput {
+	return o.ApplyT(func(v *DatasetPathOptions) *DatasetFilesLimit {
+		if v == nil {
+			return nil
+		}
+		return v.FilesLimit
+	}).(DatasetFilesLimitPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition
+func (o DatasetPathOptionsPtrOutput) LastModifiedDateCondition() DatasetFilterExpressionPtrOutput {
+	return o.ApplyT(func(v *DatasetPathOptions) *DatasetFilterExpression {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedDateCondition
+	}).(DatasetFilterExpressionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters
+func (o DatasetPathOptionsPtrOutput) Parameters() DatasetPathParameterArrayOutput {
+	return o.ApplyT(func(v *DatasetPathOptions) []DatasetPathParameter {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(DatasetPathParameterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html
+type DatasetPathParameter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-datasetparameter
+	DatasetParameter DatasetDatasetParameter `pulumi:"datasetParameter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-pathparametername
+	PathParameterName string `pulumi:"pathParameterName"`
+}
+
+// DatasetPathParameterInput is an input type that accepts DatasetPathParameterArgs and DatasetPathParameterOutput values.
+// You can construct a concrete instance of `DatasetPathParameterInput` via:
+//
+//          DatasetPathParameterArgs{...}
+type DatasetPathParameterInput interface {
+	pulumi.Input
+
+	ToDatasetPathParameterOutput() DatasetPathParameterOutput
+	ToDatasetPathParameterOutputWithContext(context.Context) DatasetPathParameterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html
+type DatasetPathParameterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-datasetparameter
+	DatasetParameter DatasetDatasetParameterInput `pulumi:"datasetParameter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-pathparametername
+	PathParameterName pulumi.StringInput `pulumi:"pathParameterName"`
+}
+
+func (DatasetPathParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetPathParameter)(nil)).Elem()
+}
+
+func (i DatasetPathParameterArgs) ToDatasetPathParameterOutput() DatasetPathParameterOutput {
+	return i.ToDatasetPathParameterOutputWithContext(context.Background())
+}
+
+func (i DatasetPathParameterArgs) ToDatasetPathParameterOutputWithContext(ctx context.Context) DatasetPathParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetPathParameterOutput)
+}
+
+// DatasetPathParameterArrayInput is an input type that accepts DatasetPathParameterArray and DatasetPathParameterArrayOutput values.
+// You can construct a concrete instance of `DatasetPathParameterArrayInput` via:
+//
+//          DatasetPathParameterArray{ DatasetPathParameterArgs{...} }
+type DatasetPathParameterArrayInput interface {
+	pulumi.Input
+
+	ToDatasetPathParameterArrayOutput() DatasetPathParameterArrayOutput
+	ToDatasetPathParameterArrayOutputWithContext(context.Context) DatasetPathParameterArrayOutput
+}
+
+type DatasetPathParameterArray []DatasetPathParameterInput
+
+func (DatasetPathParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetPathParameter)(nil)).Elem()
+}
+
+func (i DatasetPathParameterArray) ToDatasetPathParameterArrayOutput() DatasetPathParameterArrayOutput {
+	return i.ToDatasetPathParameterArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetPathParameterArray) ToDatasetPathParameterArrayOutputWithContext(ctx context.Context) DatasetPathParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetPathParameterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html
+type DatasetPathParameterOutput struct{ *pulumi.OutputState }
+
+func (DatasetPathParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetPathParameter)(nil)).Elem()
+}
+
+func (o DatasetPathParameterOutput) ToDatasetPathParameterOutput() DatasetPathParameterOutput {
+	return o
+}
+
+func (o DatasetPathParameterOutput) ToDatasetPathParameterOutputWithContext(ctx context.Context) DatasetPathParameterOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-datasetparameter
+func (o DatasetPathParameterOutput) DatasetParameter() DatasetDatasetParameterOutput {
+	return o.ApplyT(func(v DatasetPathParameter) DatasetDatasetParameter { return v.DatasetParameter }).(DatasetDatasetParameterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-pathparametername
+func (o DatasetPathParameterOutput) PathParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetPathParameter) string { return v.PathParameterName }).(pulumi.StringOutput)
+}
+
+type DatasetPathParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetPathParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetPathParameter)(nil)).Elem()
+}
+
+func (o DatasetPathParameterArrayOutput) ToDatasetPathParameterArrayOutput() DatasetPathParameterArrayOutput {
+	return o
+}
+
+func (o DatasetPathParameterArrayOutput) ToDatasetPathParameterArrayOutputWithContext(ctx context.Context) DatasetPathParameterArrayOutput {
+	return o
+}
+
+func (o DatasetPathParameterArrayOutput) Index(i pulumi.IntInput) DatasetPathParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetPathParameter {
+		return vs[0].([]DatasetPathParameter)[vs[1].(int)]
+	}).(DatasetPathParameterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html
+type DatasetS3Location struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucket
+	Bucket string `pulumi:"bucket"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-key
+	Key *string `pulumi:"key"`
+}
+
+// DatasetS3LocationInput is an input type that accepts DatasetS3LocationArgs and DatasetS3LocationOutput values.
+// You can construct a concrete instance of `DatasetS3LocationInput` via:
+//
+//          DatasetS3LocationArgs{...}
+type DatasetS3LocationInput interface {
+	pulumi.Input
+
+	ToDatasetS3LocationOutput() DatasetS3LocationOutput
+	ToDatasetS3LocationOutputWithContext(context.Context) DatasetS3LocationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html
+type DatasetS3LocationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucket
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-key
+	Key pulumi.StringPtrInput `pulumi:"key"`
+}
+
+func (DatasetS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetS3Location)(nil)).Elem()
+}
+
+func (i DatasetS3LocationArgs) ToDatasetS3LocationOutput() DatasetS3LocationOutput {
+	return i.ToDatasetS3LocationOutputWithContext(context.Background())
+}
+
+func (i DatasetS3LocationArgs) ToDatasetS3LocationOutputWithContext(ctx context.Context) DatasetS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetS3LocationOutput)
+}
+
+func (i DatasetS3LocationArgs) ToDatasetS3LocationPtrOutput() DatasetS3LocationPtrOutput {
+	return i.ToDatasetS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetS3LocationArgs) ToDatasetS3LocationPtrOutputWithContext(ctx context.Context) DatasetS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetS3LocationOutput).ToDatasetS3LocationPtrOutputWithContext(ctx)
+}
+
+// DatasetS3LocationPtrInput is an input type that accepts DatasetS3LocationArgs, DatasetS3LocationPtr and DatasetS3LocationPtrOutput values.
+// You can construct a concrete instance of `DatasetS3LocationPtrInput` via:
+//
+//          DatasetS3LocationArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToDatasetS3LocationPtrOutput() DatasetS3LocationPtrOutput
+	ToDatasetS3LocationPtrOutputWithContext(context.Context) DatasetS3LocationPtrOutput
+}
+
+type datasetS3LocationPtrType DatasetS3LocationArgs
+
+func DatasetS3LocationPtr(v *DatasetS3LocationArgs) DatasetS3LocationPtrInput {
+	return (*datasetS3LocationPtrType)(v)
+}
+
+func (*datasetS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetS3Location)(nil)).Elem()
+}
+
+func (i *datasetS3LocationPtrType) ToDatasetS3LocationPtrOutput() DatasetS3LocationPtrOutput {
+	return i.ToDatasetS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetS3LocationPtrType) ToDatasetS3LocationPtrOutputWithContext(ctx context.Context) DatasetS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetS3LocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html
+type DatasetS3LocationOutput struct{ *pulumi.OutputState }
+
+func (DatasetS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetS3Location)(nil)).Elem()
+}
+
+func (o DatasetS3LocationOutput) ToDatasetS3LocationOutput() DatasetS3LocationOutput {
+	return o
+}
+
+func (o DatasetS3LocationOutput) ToDatasetS3LocationOutputWithContext(ctx context.Context) DatasetS3LocationOutput {
+	return o
+}
+
+func (o DatasetS3LocationOutput) ToDatasetS3LocationPtrOutput() DatasetS3LocationPtrOutput {
+	return o.ToDatasetS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetS3LocationOutput) ToDatasetS3LocationPtrOutputWithContext(ctx context.Context) DatasetS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetS3Location) *DatasetS3Location {
+		return &v
+	}).(DatasetS3LocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucket
+func (o DatasetS3LocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetS3Location) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-key
+func (o DatasetS3LocationOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetS3Location) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+type DatasetS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetS3Location)(nil)).Elem()
+}
+
+func (o DatasetS3LocationPtrOutput) ToDatasetS3LocationPtrOutput() DatasetS3LocationPtrOutput {
+	return o
+}
+
+func (o DatasetS3LocationPtrOutput) ToDatasetS3LocationPtrOutputWithContext(ctx context.Context) DatasetS3LocationPtrOutput {
+	return o
+}
+
+func (o DatasetS3LocationPtrOutput) Elem() DatasetS3LocationOutput {
+	return o.ApplyT(func(v *DatasetS3Location) DatasetS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetS3Location
+		return ret
+	}).(DatasetS3LocationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucket
+func (o DatasetS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-key
+func (o DatasetS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html
+type JobColumnSelector struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-regex
+	Regex *string `pulumi:"regex"`
+}
+
+// JobColumnSelectorInput is an input type that accepts JobColumnSelectorArgs and JobColumnSelectorOutput values.
+// You can construct a concrete instance of `JobColumnSelectorInput` via:
+//
+//          JobColumnSelectorArgs{...}
+type JobColumnSelectorInput interface {
+	pulumi.Input
+
+	ToJobColumnSelectorOutput() JobColumnSelectorOutput
+	ToJobColumnSelectorOutputWithContext(context.Context) JobColumnSelectorOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html
+type JobColumnSelectorArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-regex
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
+}
+
+func (JobColumnSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobColumnSelector)(nil)).Elem()
+}
+
+func (i JobColumnSelectorArgs) ToJobColumnSelectorOutput() JobColumnSelectorOutput {
+	return i.ToJobColumnSelectorOutputWithContext(context.Background())
+}
+
+func (i JobColumnSelectorArgs) ToJobColumnSelectorOutputWithContext(ctx context.Context) JobColumnSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobColumnSelectorOutput)
+}
+
+// JobColumnSelectorArrayInput is an input type that accepts JobColumnSelectorArray and JobColumnSelectorArrayOutput values.
+// You can construct a concrete instance of `JobColumnSelectorArrayInput` via:
+//
+//          JobColumnSelectorArray{ JobColumnSelectorArgs{...} }
+type JobColumnSelectorArrayInput interface {
+	pulumi.Input
+
+	ToJobColumnSelectorArrayOutput() JobColumnSelectorArrayOutput
+	ToJobColumnSelectorArrayOutputWithContext(context.Context) JobColumnSelectorArrayOutput
+}
+
+type JobColumnSelectorArray []JobColumnSelectorInput
+
+func (JobColumnSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobColumnSelector)(nil)).Elem()
+}
+
+func (i JobColumnSelectorArray) ToJobColumnSelectorArrayOutput() JobColumnSelectorArrayOutput {
+	return i.ToJobColumnSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i JobColumnSelectorArray) ToJobColumnSelectorArrayOutputWithContext(ctx context.Context) JobColumnSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobColumnSelectorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html
+type JobColumnSelectorOutput struct{ *pulumi.OutputState }
+
+func (JobColumnSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobColumnSelector)(nil)).Elem()
+}
+
+func (o JobColumnSelectorOutput) ToJobColumnSelectorOutput() JobColumnSelectorOutput {
+	return o
+}
+
+func (o JobColumnSelectorOutput) ToJobColumnSelectorOutputWithContext(ctx context.Context) JobColumnSelectorOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-name
+func (o JobColumnSelectorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobColumnSelector) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-regex
+func (o JobColumnSelectorOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobColumnSelector) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+type JobColumnSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (JobColumnSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobColumnSelector)(nil)).Elem()
+}
+
+func (o JobColumnSelectorArrayOutput) ToJobColumnSelectorArrayOutput() JobColumnSelectorArrayOutput {
+	return o
+}
+
+func (o JobColumnSelectorArrayOutput) ToJobColumnSelectorArrayOutputWithContext(ctx context.Context) JobColumnSelectorArrayOutput {
+	return o
+}
+
+func (o JobColumnSelectorArrayOutput) Index(i pulumi.IntInput) JobColumnSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobColumnSelector {
+		return vs[0].([]JobColumnSelector)[vs[1].(int)]
+	}).(JobColumnSelectorOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html
+type JobColumnStatisticsConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors
+	Selectors []JobColumnSelector `pulumi:"selectors"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics
+	Statistics JobStatisticsConfiguration `pulumi:"statistics"`
+}
+
+// JobColumnStatisticsConfigurationInput is an input type that accepts JobColumnStatisticsConfigurationArgs and JobColumnStatisticsConfigurationOutput values.
+// You can construct a concrete instance of `JobColumnStatisticsConfigurationInput` via:
+//
+//          JobColumnStatisticsConfigurationArgs{...}
+type JobColumnStatisticsConfigurationInput interface {
+	pulumi.Input
+
+	ToJobColumnStatisticsConfigurationOutput() JobColumnStatisticsConfigurationOutput
+	ToJobColumnStatisticsConfigurationOutputWithContext(context.Context) JobColumnStatisticsConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html
+type JobColumnStatisticsConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors
+	Selectors JobColumnSelectorArrayInput `pulumi:"selectors"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics
+	Statistics JobStatisticsConfigurationInput `pulumi:"statistics"`
+}
+
+func (JobColumnStatisticsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobColumnStatisticsConfiguration)(nil)).Elem()
+}
+
+func (i JobColumnStatisticsConfigurationArgs) ToJobColumnStatisticsConfigurationOutput() JobColumnStatisticsConfigurationOutput {
+	return i.ToJobColumnStatisticsConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobColumnStatisticsConfigurationArgs) ToJobColumnStatisticsConfigurationOutputWithContext(ctx context.Context) JobColumnStatisticsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobColumnStatisticsConfigurationOutput)
+}
+
+// JobColumnStatisticsConfigurationArrayInput is an input type that accepts JobColumnStatisticsConfigurationArray and JobColumnStatisticsConfigurationArrayOutput values.
+// You can construct a concrete instance of `JobColumnStatisticsConfigurationArrayInput` via:
+//
+//          JobColumnStatisticsConfigurationArray{ JobColumnStatisticsConfigurationArgs{...} }
+type JobColumnStatisticsConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToJobColumnStatisticsConfigurationArrayOutput() JobColumnStatisticsConfigurationArrayOutput
+	ToJobColumnStatisticsConfigurationArrayOutputWithContext(context.Context) JobColumnStatisticsConfigurationArrayOutput
+}
+
+type JobColumnStatisticsConfigurationArray []JobColumnStatisticsConfigurationInput
+
+func (JobColumnStatisticsConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobColumnStatisticsConfiguration)(nil)).Elem()
+}
+
+func (i JobColumnStatisticsConfigurationArray) ToJobColumnStatisticsConfigurationArrayOutput() JobColumnStatisticsConfigurationArrayOutput {
+	return i.ToJobColumnStatisticsConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i JobColumnStatisticsConfigurationArray) ToJobColumnStatisticsConfigurationArrayOutputWithContext(ctx context.Context) JobColumnStatisticsConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobColumnStatisticsConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html
+type JobColumnStatisticsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobColumnStatisticsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobColumnStatisticsConfiguration)(nil)).Elem()
+}
+
+func (o JobColumnStatisticsConfigurationOutput) ToJobColumnStatisticsConfigurationOutput() JobColumnStatisticsConfigurationOutput {
+	return o
+}
+
+func (o JobColumnStatisticsConfigurationOutput) ToJobColumnStatisticsConfigurationOutputWithContext(ctx context.Context) JobColumnStatisticsConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors
+func (o JobColumnStatisticsConfigurationOutput) Selectors() JobColumnSelectorArrayOutput {
+	return o.ApplyT(func(v JobColumnStatisticsConfiguration) []JobColumnSelector { return v.Selectors }).(JobColumnSelectorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics
+func (o JobColumnStatisticsConfigurationOutput) Statistics() JobStatisticsConfigurationOutput {
+	return o.ApplyT(func(v JobColumnStatisticsConfiguration) JobStatisticsConfiguration { return v.Statistics }).(JobStatisticsConfigurationOutput)
+}
+
+type JobColumnStatisticsConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (JobColumnStatisticsConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobColumnStatisticsConfiguration)(nil)).Elem()
+}
+
+func (o JobColumnStatisticsConfigurationArrayOutput) ToJobColumnStatisticsConfigurationArrayOutput() JobColumnStatisticsConfigurationArrayOutput {
+	return o
+}
+
+func (o JobColumnStatisticsConfigurationArrayOutput) ToJobColumnStatisticsConfigurationArrayOutputWithContext(ctx context.Context) JobColumnStatisticsConfigurationArrayOutput {
+	return o
+}
+
+func (o JobColumnStatisticsConfigurationArrayOutput) Index(i pulumi.IntInput) JobColumnStatisticsConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobColumnStatisticsConfiguration {
+		return vs[0].([]JobColumnStatisticsConfiguration)[vs[1].(int)]
+	}).(JobColumnStatisticsConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html
+type JobCsvOutputOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html#cfn-databrew-job-csvoutputoptions-delimiter
+	Delimiter *string `pulumi:"delimiter"`
+}
+
+// JobCsvOutputOptionsInput is an input type that accepts JobCsvOutputOptionsArgs and JobCsvOutputOptionsOutput values.
+// You can construct a concrete instance of `JobCsvOutputOptionsInput` via:
+//
+//          JobCsvOutputOptionsArgs{...}
+type JobCsvOutputOptionsInput interface {
+	pulumi.Input
+
+	ToJobCsvOutputOptionsOutput() JobCsvOutputOptionsOutput
+	ToJobCsvOutputOptionsOutputWithContext(context.Context) JobCsvOutputOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html
+type JobCsvOutputOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html#cfn-databrew-job-csvoutputoptions-delimiter
+	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
+}
+
+func (JobCsvOutputOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobCsvOutputOptions)(nil)).Elem()
+}
+
+func (i JobCsvOutputOptionsArgs) ToJobCsvOutputOptionsOutput() JobCsvOutputOptionsOutput {
+	return i.ToJobCsvOutputOptionsOutputWithContext(context.Background())
+}
+
+func (i JobCsvOutputOptionsArgs) ToJobCsvOutputOptionsOutputWithContext(ctx context.Context) JobCsvOutputOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobCsvOutputOptionsOutput)
+}
+
+func (i JobCsvOutputOptionsArgs) ToJobCsvOutputOptionsPtrOutput() JobCsvOutputOptionsPtrOutput {
+	return i.ToJobCsvOutputOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i JobCsvOutputOptionsArgs) ToJobCsvOutputOptionsPtrOutputWithContext(ctx context.Context) JobCsvOutputOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobCsvOutputOptionsOutput).ToJobCsvOutputOptionsPtrOutputWithContext(ctx)
+}
+
+// JobCsvOutputOptionsPtrInput is an input type that accepts JobCsvOutputOptionsArgs, JobCsvOutputOptionsPtr and JobCsvOutputOptionsPtrOutput values.
+// You can construct a concrete instance of `JobCsvOutputOptionsPtrInput` via:
+//
+//          JobCsvOutputOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type JobCsvOutputOptionsPtrInput interface {
+	pulumi.Input
+
+	ToJobCsvOutputOptionsPtrOutput() JobCsvOutputOptionsPtrOutput
+	ToJobCsvOutputOptionsPtrOutputWithContext(context.Context) JobCsvOutputOptionsPtrOutput
+}
+
+type jobCsvOutputOptionsPtrType JobCsvOutputOptionsArgs
+
+func JobCsvOutputOptionsPtr(v *JobCsvOutputOptionsArgs) JobCsvOutputOptionsPtrInput {
+	return (*jobCsvOutputOptionsPtrType)(v)
+}
+
+func (*jobCsvOutputOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobCsvOutputOptions)(nil)).Elem()
+}
+
+func (i *jobCsvOutputOptionsPtrType) ToJobCsvOutputOptionsPtrOutput() JobCsvOutputOptionsPtrOutput {
+	return i.ToJobCsvOutputOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *jobCsvOutputOptionsPtrType) ToJobCsvOutputOptionsPtrOutputWithContext(ctx context.Context) JobCsvOutputOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobCsvOutputOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html
+type JobCsvOutputOptionsOutput struct{ *pulumi.OutputState }
+
+func (JobCsvOutputOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobCsvOutputOptions)(nil)).Elem()
+}
+
+func (o JobCsvOutputOptionsOutput) ToJobCsvOutputOptionsOutput() JobCsvOutputOptionsOutput {
+	return o
+}
+
+func (o JobCsvOutputOptionsOutput) ToJobCsvOutputOptionsOutputWithContext(ctx context.Context) JobCsvOutputOptionsOutput {
+	return o
+}
+
+func (o JobCsvOutputOptionsOutput) ToJobCsvOutputOptionsPtrOutput() JobCsvOutputOptionsPtrOutput {
+	return o.ToJobCsvOutputOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o JobCsvOutputOptionsOutput) ToJobCsvOutputOptionsPtrOutputWithContext(ctx context.Context) JobCsvOutputOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobCsvOutputOptions) *JobCsvOutputOptions {
+		return &v
+	}).(JobCsvOutputOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html#cfn-databrew-job-csvoutputoptions-delimiter
+func (o JobCsvOutputOptionsOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobCsvOutputOptions) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+}
+
+type JobCsvOutputOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (JobCsvOutputOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobCsvOutputOptions)(nil)).Elem()
+}
+
+func (o JobCsvOutputOptionsPtrOutput) ToJobCsvOutputOptionsPtrOutput() JobCsvOutputOptionsPtrOutput {
+	return o
+}
+
+func (o JobCsvOutputOptionsPtrOutput) ToJobCsvOutputOptionsPtrOutputWithContext(ctx context.Context) JobCsvOutputOptionsPtrOutput {
+	return o
+}
+
+func (o JobCsvOutputOptionsPtrOutput) Elem() JobCsvOutputOptionsOutput {
+	return o.ApplyT(func(v *JobCsvOutputOptions) JobCsvOutputOptions {
+		if v != nil {
+			return *v
+		}
+		var ret JobCsvOutputOptions
+		return ret
+	}).(JobCsvOutputOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html#cfn-databrew-job-csvoutputoptions-delimiter
+func (o JobCsvOutputOptionsPtrOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCsvOutputOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html
+type JobDataCatalogOutput struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-catalogid
+	CatalogId *string `pulumi:"catalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databasename
+	DatabaseName string `pulumi:"databaseName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databaseoptions
+	DatabaseOptions *JobDatabaseTableOutputOptions `pulumi:"databaseOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-overwrite
+	Overwrite *bool `pulumi:"overwrite"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-s3options
+	S3Options *JobS3TableOutputOptions `pulumi:"s3Options"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-tablename
+	TableName string `pulumi:"tableName"`
+}
+
+// JobDataCatalogOutputInput is an input type that accepts JobDataCatalogOutputArgs and JobDataCatalogOutputOutput values.
+// You can construct a concrete instance of `JobDataCatalogOutputInput` via:
+//
+//          JobDataCatalogOutputArgs{...}
+type JobDataCatalogOutputInput interface {
+	pulumi.Input
+
+	ToJobDataCatalogOutputOutput() JobDataCatalogOutputOutput
+	ToJobDataCatalogOutputOutputWithContext(context.Context) JobDataCatalogOutputOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html
+type JobDataCatalogOutputArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-catalogid
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databasename
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databaseoptions
+	DatabaseOptions JobDatabaseTableOutputOptionsPtrInput `pulumi:"databaseOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-overwrite
+	Overwrite pulumi.BoolPtrInput `pulumi:"overwrite"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-s3options
+	S3Options JobS3TableOutputOptionsPtrInput `pulumi:"s3Options"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-tablename
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (JobDataCatalogOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDataCatalogOutput)(nil)).Elem()
+}
+
+func (i JobDataCatalogOutputArgs) ToJobDataCatalogOutputOutput() JobDataCatalogOutputOutput {
+	return i.ToJobDataCatalogOutputOutputWithContext(context.Background())
+}
+
+func (i JobDataCatalogOutputArgs) ToJobDataCatalogOutputOutputWithContext(ctx context.Context) JobDataCatalogOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDataCatalogOutputOutput)
+}
+
+// JobDataCatalogOutputArrayInput is an input type that accepts JobDataCatalogOutputArray and JobDataCatalogOutputArrayOutput values.
+// You can construct a concrete instance of `JobDataCatalogOutputArrayInput` via:
+//
+//          JobDataCatalogOutputArray{ JobDataCatalogOutputArgs{...} }
+type JobDataCatalogOutputArrayInput interface {
+	pulumi.Input
+
+	ToJobDataCatalogOutputArrayOutput() JobDataCatalogOutputArrayOutput
+	ToJobDataCatalogOutputArrayOutputWithContext(context.Context) JobDataCatalogOutputArrayOutput
+}
+
+type JobDataCatalogOutputArray []JobDataCatalogOutputInput
+
+func (JobDataCatalogOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDataCatalogOutput)(nil)).Elem()
+}
+
+func (i JobDataCatalogOutputArray) ToJobDataCatalogOutputArrayOutput() JobDataCatalogOutputArrayOutput {
+	return i.ToJobDataCatalogOutputArrayOutputWithContext(context.Background())
+}
+
+func (i JobDataCatalogOutputArray) ToJobDataCatalogOutputArrayOutputWithContext(ctx context.Context) JobDataCatalogOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDataCatalogOutputArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html
+type JobDataCatalogOutputOutput struct{ *pulumi.OutputState }
+
+func (JobDataCatalogOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDataCatalogOutput)(nil)).Elem()
+}
+
+func (o JobDataCatalogOutputOutput) ToJobDataCatalogOutputOutput() JobDataCatalogOutputOutput {
+	return o
+}
+
+func (o JobDataCatalogOutputOutput) ToJobDataCatalogOutputOutputWithContext(ctx context.Context) JobDataCatalogOutputOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-catalogid
+func (o JobDataCatalogOutputOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDataCatalogOutput) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databasename
+func (o JobDataCatalogOutputOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDataCatalogOutput) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databaseoptions
+func (o JobDataCatalogOutputOutput) DatabaseOptions() JobDatabaseTableOutputOptionsPtrOutput {
+	return o.ApplyT(func(v JobDataCatalogOutput) *JobDatabaseTableOutputOptions { return v.DatabaseOptions }).(JobDatabaseTableOutputOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-overwrite
+func (o JobDataCatalogOutputOutput) Overwrite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDataCatalogOutput) *bool { return v.Overwrite }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-s3options
+func (o JobDataCatalogOutputOutput) S3Options() JobS3TableOutputOptionsPtrOutput {
+	return o.ApplyT(func(v JobDataCatalogOutput) *JobS3TableOutputOptions { return v.S3Options }).(JobS3TableOutputOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-tablename
+func (o JobDataCatalogOutputOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDataCatalogOutput) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type JobDataCatalogOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (JobDataCatalogOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDataCatalogOutput)(nil)).Elem()
+}
+
+func (o JobDataCatalogOutputArrayOutput) ToJobDataCatalogOutputArrayOutput() JobDataCatalogOutputArrayOutput {
+	return o
+}
+
+func (o JobDataCatalogOutputArrayOutput) ToJobDataCatalogOutputArrayOutputWithContext(ctx context.Context) JobDataCatalogOutputArrayOutput {
+	return o
+}
+
+func (o JobDataCatalogOutputArrayOutput) Index(i pulumi.IntInput) JobDataCatalogOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDataCatalogOutput {
+		return vs[0].([]JobDataCatalogOutput)[vs[1].(int)]
+	}).(JobDataCatalogOutputOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html
+type JobDatabaseOutput struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoptions
+	DatabaseOptions JobDatabaseTableOutputOptions `pulumi:"databaseOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoutputmode
+	DatabaseOutputMode *string `pulumi:"databaseOutputMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-glueconnectionname
+	GlueConnectionName string `pulumi:"glueConnectionName"`
+}
+
+// JobDatabaseOutputInput is an input type that accepts JobDatabaseOutputArgs and JobDatabaseOutputOutput values.
+// You can construct a concrete instance of `JobDatabaseOutputInput` via:
+//
+//          JobDatabaseOutputArgs{...}
+type JobDatabaseOutputInput interface {
+	pulumi.Input
+
+	ToJobDatabaseOutputOutput() JobDatabaseOutputOutput
+	ToJobDatabaseOutputOutputWithContext(context.Context) JobDatabaseOutputOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html
+type JobDatabaseOutputArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoptions
+	DatabaseOptions JobDatabaseTableOutputOptionsInput `pulumi:"databaseOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoutputmode
+	DatabaseOutputMode pulumi.StringPtrInput `pulumi:"databaseOutputMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-glueconnectionname
+	GlueConnectionName pulumi.StringInput `pulumi:"glueConnectionName"`
+}
+
+func (JobDatabaseOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDatabaseOutput)(nil)).Elem()
+}
+
+func (i JobDatabaseOutputArgs) ToJobDatabaseOutputOutput() JobDatabaseOutputOutput {
+	return i.ToJobDatabaseOutputOutputWithContext(context.Background())
+}
+
+func (i JobDatabaseOutputArgs) ToJobDatabaseOutputOutputWithContext(ctx context.Context) JobDatabaseOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDatabaseOutputOutput)
+}
+
+// JobDatabaseOutputArrayInput is an input type that accepts JobDatabaseOutputArray and JobDatabaseOutputArrayOutput values.
+// You can construct a concrete instance of `JobDatabaseOutputArrayInput` via:
+//
+//          JobDatabaseOutputArray{ JobDatabaseOutputArgs{...} }
+type JobDatabaseOutputArrayInput interface {
+	pulumi.Input
+
+	ToJobDatabaseOutputArrayOutput() JobDatabaseOutputArrayOutput
+	ToJobDatabaseOutputArrayOutputWithContext(context.Context) JobDatabaseOutputArrayOutput
+}
+
+type JobDatabaseOutputArray []JobDatabaseOutputInput
+
+func (JobDatabaseOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDatabaseOutput)(nil)).Elem()
+}
+
+func (i JobDatabaseOutputArray) ToJobDatabaseOutputArrayOutput() JobDatabaseOutputArrayOutput {
+	return i.ToJobDatabaseOutputArrayOutputWithContext(context.Background())
+}
+
+func (i JobDatabaseOutputArray) ToJobDatabaseOutputArrayOutputWithContext(ctx context.Context) JobDatabaseOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDatabaseOutputArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html
+type JobDatabaseOutputOutput struct{ *pulumi.OutputState }
+
+func (JobDatabaseOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDatabaseOutput)(nil)).Elem()
+}
+
+func (o JobDatabaseOutputOutput) ToJobDatabaseOutputOutput() JobDatabaseOutputOutput {
+	return o
+}
+
+func (o JobDatabaseOutputOutput) ToJobDatabaseOutputOutputWithContext(ctx context.Context) JobDatabaseOutputOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoptions
+func (o JobDatabaseOutputOutput) DatabaseOptions() JobDatabaseTableOutputOptionsOutput {
+	return o.ApplyT(func(v JobDatabaseOutput) JobDatabaseTableOutputOptions { return v.DatabaseOptions }).(JobDatabaseTableOutputOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoutputmode
+func (o JobDatabaseOutputOutput) DatabaseOutputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDatabaseOutput) *string { return v.DatabaseOutputMode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-glueconnectionname
+func (o JobDatabaseOutputOutput) GlueConnectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDatabaseOutput) string { return v.GlueConnectionName }).(pulumi.StringOutput)
+}
+
+type JobDatabaseOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (JobDatabaseOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDatabaseOutput)(nil)).Elem()
+}
+
+func (o JobDatabaseOutputArrayOutput) ToJobDatabaseOutputArrayOutput() JobDatabaseOutputArrayOutput {
+	return o
+}
+
+func (o JobDatabaseOutputArrayOutput) ToJobDatabaseOutputArrayOutputWithContext(ctx context.Context) JobDatabaseOutputArrayOutput {
+	return o
+}
+
+func (o JobDatabaseOutputArrayOutput) Index(i pulumi.IntInput) JobDatabaseOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDatabaseOutput {
+		return vs[0].([]JobDatabaseOutput)[vs[1].(int)]
+	}).(JobDatabaseOutputOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html
+type JobDatabaseTableOutputOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tablename
+	TableName string `pulumi:"tableName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tempdirectory
+	TempDirectory *JobS3Location `pulumi:"tempDirectory"`
+}
+
+// JobDatabaseTableOutputOptionsInput is an input type that accepts JobDatabaseTableOutputOptionsArgs and JobDatabaseTableOutputOptionsOutput values.
+// You can construct a concrete instance of `JobDatabaseTableOutputOptionsInput` via:
+//
+//          JobDatabaseTableOutputOptionsArgs{...}
+type JobDatabaseTableOutputOptionsInput interface {
+	pulumi.Input
+
+	ToJobDatabaseTableOutputOptionsOutput() JobDatabaseTableOutputOptionsOutput
+	ToJobDatabaseTableOutputOptionsOutputWithContext(context.Context) JobDatabaseTableOutputOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html
+type JobDatabaseTableOutputOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tablename
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tempdirectory
+	TempDirectory JobS3LocationPtrInput `pulumi:"tempDirectory"`
+}
+
+func (JobDatabaseTableOutputOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDatabaseTableOutputOptions)(nil)).Elem()
+}
+
+func (i JobDatabaseTableOutputOptionsArgs) ToJobDatabaseTableOutputOptionsOutput() JobDatabaseTableOutputOptionsOutput {
+	return i.ToJobDatabaseTableOutputOptionsOutputWithContext(context.Background())
+}
+
+func (i JobDatabaseTableOutputOptionsArgs) ToJobDatabaseTableOutputOptionsOutputWithContext(ctx context.Context) JobDatabaseTableOutputOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDatabaseTableOutputOptionsOutput)
+}
+
+func (i JobDatabaseTableOutputOptionsArgs) ToJobDatabaseTableOutputOptionsPtrOutput() JobDatabaseTableOutputOptionsPtrOutput {
+	return i.ToJobDatabaseTableOutputOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i JobDatabaseTableOutputOptionsArgs) ToJobDatabaseTableOutputOptionsPtrOutputWithContext(ctx context.Context) JobDatabaseTableOutputOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDatabaseTableOutputOptionsOutput).ToJobDatabaseTableOutputOptionsPtrOutputWithContext(ctx)
+}
+
+// JobDatabaseTableOutputOptionsPtrInput is an input type that accepts JobDatabaseTableOutputOptionsArgs, JobDatabaseTableOutputOptionsPtr and JobDatabaseTableOutputOptionsPtrOutput values.
+// You can construct a concrete instance of `JobDatabaseTableOutputOptionsPtrInput` via:
+//
+//          JobDatabaseTableOutputOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type JobDatabaseTableOutputOptionsPtrInput interface {
+	pulumi.Input
+
+	ToJobDatabaseTableOutputOptionsPtrOutput() JobDatabaseTableOutputOptionsPtrOutput
+	ToJobDatabaseTableOutputOptionsPtrOutputWithContext(context.Context) JobDatabaseTableOutputOptionsPtrOutput
+}
+
+type jobDatabaseTableOutputOptionsPtrType JobDatabaseTableOutputOptionsArgs
+
+func JobDatabaseTableOutputOptionsPtr(v *JobDatabaseTableOutputOptionsArgs) JobDatabaseTableOutputOptionsPtrInput {
+	return (*jobDatabaseTableOutputOptionsPtrType)(v)
+}
+
+func (*jobDatabaseTableOutputOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDatabaseTableOutputOptions)(nil)).Elem()
+}
+
+func (i *jobDatabaseTableOutputOptionsPtrType) ToJobDatabaseTableOutputOptionsPtrOutput() JobDatabaseTableOutputOptionsPtrOutput {
+	return i.ToJobDatabaseTableOutputOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDatabaseTableOutputOptionsPtrType) ToJobDatabaseTableOutputOptionsPtrOutputWithContext(ctx context.Context) JobDatabaseTableOutputOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDatabaseTableOutputOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html
+type JobDatabaseTableOutputOptionsOutput struct{ *pulumi.OutputState }
+
+func (JobDatabaseTableOutputOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDatabaseTableOutputOptions)(nil)).Elem()
+}
+
+func (o JobDatabaseTableOutputOptionsOutput) ToJobDatabaseTableOutputOptionsOutput() JobDatabaseTableOutputOptionsOutput {
+	return o
+}
+
+func (o JobDatabaseTableOutputOptionsOutput) ToJobDatabaseTableOutputOptionsOutputWithContext(ctx context.Context) JobDatabaseTableOutputOptionsOutput {
+	return o
+}
+
+func (o JobDatabaseTableOutputOptionsOutput) ToJobDatabaseTableOutputOptionsPtrOutput() JobDatabaseTableOutputOptionsPtrOutput {
+	return o.ToJobDatabaseTableOutputOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o JobDatabaseTableOutputOptionsOutput) ToJobDatabaseTableOutputOptionsPtrOutputWithContext(ctx context.Context) JobDatabaseTableOutputOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDatabaseTableOutputOptions) *JobDatabaseTableOutputOptions {
+		return &v
+	}).(JobDatabaseTableOutputOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tablename
+func (o JobDatabaseTableOutputOptionsOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDatabaseTableOutputOptions) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tempdirectory
+func (o JobDatabaseTableOutputOptionsOutput) TempDirectory() JobS3LocationPtrOutput {
+	return o.ApplyT(func(v JobDatabaseTableOutputOptions) *JobS3Location { return v.TempDirectory }).(JobS3LocationPtrOutput)
+}
+
+type JobDatabaseTableOutputOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDatabaseTableOutputOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDatabaseTableOutputOptions)(nil)).Elem()
+}
+
+func (o JobDatabaseTableOutputOptionsPtrOutput) ToJobDatabaseTableOutputOptionsPtrOutput() JobDatabaseTableOutputOptionsPtrOutput {
+	return o
+}
+
+func (o JobDatabaseTableOutputOptionsPtrOutput) ToJobDatabaseTableOutputOptionsPtrOutputWithContext(ctx context.Context) JobDatabaseTableOutputOptionsPtrOutput {
+	return o
+}
+
+func (o JobDatabaseTableOutputOptionsPtrOutput) Elem() JobDatabaseTableOutputOptionsOutput {
+	return o.ApplyT(func(v *JobDatabaseTableOutputOptions) JobDatabaseTableOutputOptions {
+		if v != nil {
+			return *v
+		}
+		var ret JobDatabaseTableOutputOptions
+		return ret
+	}).(JobDatabaseTableOutputOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tablename
+func (o JobDatabaseTableOutputOptionsPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDatabaseTableOutputOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tempdirectory
+func (o JobDatabaseTableOutputOptionsPtrOutput) TempDirectory() JobS3LocationPtrOutput {
+	return o.ApplyT(func(v *JobDatabaseTableOutputOptions) *JobS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.TempDirectory
+	}).(JobS3LocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html
+type JobJobSample struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-mode
+	Mode *string `pulumi:"mode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-size
+	Size *int `pulumi:"size"`
+}
+
+// JobJobSampleInput is an input type that accepts JobJobSampleArgs and JobJobSampleOutput values.
+// You can construct a concrete instance of `JobJobSampleInput` via:
+//
+//          JobJobSampleArgs{...}
+type JobJobSampleInput interface {
+	pulumi.Input
+
+	ToJobJobSampleOutput() JobJobSampleOutput
+	ToJobJobSampleOutputWithContext(context.Context) JobJobSampleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html
+type JobJobSampleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-mode
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-size
+	Size pulumi.IntPtrInput `pulumi:"size"`
+}
+
+func (JobJobSampleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobJobSample)(nil)).Elem()
+}
+
+func (i JobJobSampleArgs) ToJobJobSampleOutput() JobJobSampleOutput {
+	return i.ToJobJobSampleOutputWithContext(context.Background())
+}
+
+func (i JobJobSampleArgs) ToJobJobSampleOutputWithContext(ctx context.Context) JobJobSampleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobJobSampleOutput)
+}
+
+func (i JobJobSampleArgs) ToJobJobSamplePtrOutput() JobJobSamplePtrOutput {
+	return i.ToJobJobSamplePtrOutputWithContext(context.Background())
+}
+
+func (i JobJobSampleArgs) ToJobJobSamplePtrOutputWithContext(ctx context.Context) JobJobSamplePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobJobSampleOutput).ToJobJobSamplePtrOutputWithContext(ctx)
+}
+
+// JobJobSamplePtrInput is an input type that accepts JobJobSampleArgs, JobJobSamplePtr and JobJobSamplePtrOutput values.
+// You can construct a concrete instance of `JobJobSamplePtrInput` via:
+//
+//          JobJobSampleArgs{...}
+//
+//  or:
+//
+//          nil
+type JobJobSamplePtrInput interface {
+	pulumi.Input
+
+	ToJobJobSamplePtrOutput() JobJobSamplePtrOutput
+	ToJobJobSamplePtrOutputWithContext(context.Context) JobJobSamplePtrOutput
+}
+
+type jobJobSamplePtrType JobJobSampleArgs
+
+func JobJobSamplePtr(v *JobJobSampleArgs) JobJobSamplePtrInput {
+	return (*jobJobSamplePtrType)(v)
+}
+
+func (*jobJobSamplePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobJobSample)(nil)).Elem()
+}
+
+func (i *jobJobSamplePtrType) ToJobJobSamplePtrOutput() JobJobSamplePtrOutput {
+	return i.ToJobJobSamplePtrOutputWithContext(context.Background())
+}
+
+func (i *jobJobSamplePtrType) ToJobJobSamplePtrOutputWithContext(ctx context.Context) JobJobSamplePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobJobSamplePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html
+type JobJobSampleOutput struct{ *pulumi.OutputState }
+
+func (JobJobSampleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobJobSample)(nil)).Elem()
+}
+
+func (o JobJobSampleOutput) ToJobJobSampleOutput() JobJobSampleOutput {
+	return o
+}
+
+func (o JobJobSampleOutput) ToJobJobSampleOutputWithContext(ctx context.Context) JobJobSampleOutput {
+	return o
+}
+
+func (o JobJobSampleOutput) ToJobJobSamplePtrOutput() JobJobSamplePtrOutput {
+	return o.ToJobJobSamplePtrOutputWithContext(context.Background())
+}
+
+func (o JobJobSampleOutput) ToJobJobSamplePtrOutputWithContext(ctx context.Context) JobJobSamplePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobJobSample) *JobJobSample {
+		return &v
+	}).(JobJobSamplePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-mode
+func (o JobJobSampleOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobJobSample) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-size
+func (o JobJobSampleOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobJobSample) *int { return v.Size }).(pulumi.IntPtrOutput)
+}
+
+type JobJobSamplePtrOutput struct{ *pulumi.OutputState }
+
+func (JobJobSamplePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobJobSample)(nil)).Elem()
+}
+
+func (o JobJobSamplePtrOutput) ToJobJobSamplePtrOutput() JobJobSamplePtrOutput {
+	return o
+}
+
+func (o JobJobSamplePtrOutput) ToJobJobSamplePtrOutputWithContext(ctx context.Context) JobJobSamplePtrOutput {
+	return o
+}
+
+func (o JobJobSamplePtrOutput) Elem() JobJobSampleOutput {
+	return o.ApplyT(func(v *JobJobSample) JobJobSample {
+		if v != nil {
+			return *v
+		}
+		var ret JobJobSample
+		return ret
+	}).(JobJobSampleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-mode
+func (o JobJobSamplePtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobJobSample) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-size
+func (o JobJobSamplePtrOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobJobSample) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html
 type JobOutputType struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-compressionformat
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-format
 	Format *string `pulumi:"format"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-formatoptions
+	FormatOptions *JobOutputFormatOptions `pulumi:"formatOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
 	Location JobS3Location `pulumi:"location"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-overwrite
@@ -41,6 +3351,8 @@ type JobOutputTypeArgs struct {
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-format
 	Format pulumi.StringPtrInput `pulumi:"format"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-formatoptions
+	FormatOptions JobOutputFormatOptionsPtrInput `pulumi:"formatOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
 	Location JobS3LocationInput `pulumi:"location"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-overwrite
@@ -111,6 +3423,11 @@ func (o JobOutputTypeOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobOutputType) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-formatoptions
+func (o JobOutputTypeOutput) FormatOptions() JobOutputFormatOptionsPtrOutput {
+	return o.ApplyT(func(v JobOutputType) *JobOutputFormatOptions { return v.FormatOptions }).(JobOutputFormatOptionsPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
 func (o JobOutputTypeOutput) Location() JobS3LocationOutput {
 	return o.ApplyT(func(v JobOutputType) JobS3Location { return v.Location }).(JobS3LocationOutput)
@@ -144,6 +3461,595 @@ func (o JobOutputTypeArrayOutput) Index(i pulumi.IntInput) JobOutputTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobOutputType {
 		return vs[0].([]JobOutputType)[vs[1].(int)]
 	}).(JobOutputTypeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html
+type JobOutputFormatOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv
+	Csv *JobCsvOutputOptions `pulumi:"csv"`
+}
+
+// JobOutputFormatOptionsInput is an input type that accepts JobOutputFormatOptionsArgs and JobOutputFormatOptionsOutput values.
+// You can construct a concrete instance of `JobOutputFormatOptionsInput` via:
+//
+//          JobOutputFormatOptionsArgs{...}
+type JobOutputFormatOptionsInput interface {
+	pulumi.Input
+
+	ToJobOutputFormatOptionsOutput() JobOutputFormatOptionsOutput
+	ToJobOutputFormatOptionsOutputWithContext(context.Context) JobOutputFormatOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html
+type JobOutputFormatOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv
+	Csv JobCsvOutputOptionsPtrInput `pulumi:"csv"`
+}
+
+func (JobOutputFormatOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobOutputFormatOptions)(nil)).Elem()
+}
+
+func (i JobOutputFormatOptionsArgs) ToJobOutputFormatOptionsOutput() JobOutputFormatOptionsOutput {
+	return i.ToJobOutputFormatOptionsOutputWithContext(context.Background())
+}
+
+func (i JobOutputFormatOptionsArgs) ToJobOutputFormatOptionsOutputWithContext(ctx context.Context) JobOutputFormatOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobOutputFormatOptionsOutput)
+}
+
+func (i JobOutputFormatOptionsArgs) ToJobOutputFormatOptionsPtrOutput() JobOutputFormatOptionsPtrOutput {
+	return i.ToJobOutputFormatOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i JobOutputFormatOptionsArgs) ToJobOutputFormatOptionsPtrOutputWithContext(ctx context.Context) JobOutputFormatOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobOutputFormatOptionsOutput).ToJobOutputFormatOptionsPtrOutputWithContext(ctx)
+}
+
+// JobOutputFormatOptionsPtrInput is an input type that accepts JobOutputFormatOptionsArgs, JobOutputFormatOptionsPtr and JobOutputFormatOptionsPtrOutput values.
+// You can construct a concrete instance of `JobOutputFormatOptionsPtrInput` via:
+//
+//          JobOutputFormatOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type JobOutputFormatOptionsPtrInput interface {
+	pulumi.Input
+
+	ToJobOutputFormatOptionsPtrOutput() JobOutputFormatOptionsPtrOutput
+	ToJobOutputFormatOptionsPtrOutputWithContext(context.Context) JobOutputFormatOptionsPtrOutput
+}
+
+type jobOutputFormatOptionsPtrType JobOutputFormatOptionsArgs
+
+func JobOutputFormatOptionsPtr(v *JobOutputFormatOptionsArgs) JobOutputFormatOptionsPtrInput {
+	return (*jobOutputFormatOptionsPtrType)(v)
+}
+
+func (*jobOutputFormatOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobOutputFormatOptions)(nil)).Elem()
+}
+
+func (i *jobOutputFormatOptionsPtrType) ToJobOutputFormatOptionsPtrOutput() JobOutputFormatOptionsPtrOutput {
+	return i.ToJobOutputFormatOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *jobOutputFormatOptionsPtrType) ToJobOutputFormatOptionsPtrOutputWithContext(ctx context.Context) JobOutputFormatOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobOutputFormatOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html
+type JobOutputFormatOptionsOutput struct{ *pulumi.OutputState }
+
+func (JobOutputFormatOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobOutputFormatOptions)(nil)).Elem()
+}
+
+func (o JobOutputFormatOptionsOutput) ToJobOutputFormatOptionsOutput() JobOutputFormatOptionsOutput {
+	return o
+}
+
+func (o JobOutputFormatOptionsOutput) ToJobOutputFormatOptionsOutputWithContext(ctx context.Context) JobOutputFormatOptionsOutput {
+	return o
+}
+
+func (o JobOutputFormatOptionsOutput) ToJobOutputFormatOptionsPtrOutput() JobOutputFormatOptionsPtrOutput {
+	return o.ToJobOutputFormatOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o JobOutputFormatOptionsOutput) ToJobOutputFormatOptionsPtrOutputWithContext(ctx context.Context) JobOutputFormatOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobOutputFormatOptions) *JobOutputFormatOptions {
+		return &v
+	}).(JobOutputFormatOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv
+func (o JobOutputFormatOptionsOutput) Csv() JobCsvOutputOptionsPtrOutput {
+	return o.ApplyT(func(v JobOutputFormatOptions) *JobCsvOutputOptions { return v.Csv }).(JobCsvOutputOptionsPtrOutput)
+}
+
+type JobOutputFormatOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (JobOutputFormatOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobOutputFormatOptions)(nil)).Elem()
+}
+
+func (o JobOutputFormatOptionsPtrOutput) ToJobOutputFormatOptionsPtrOutput() JobOutputFormatOptionsPtrOutput {
+	return o
+}
+
+func (o JobOutputFormatOptionsPtrOutput) ToJobOutputFormatOptionsPtrOutputWithContext(ctx context.Context) JobOutputFormatOptionsPtrOutput {
+	return o
+}
+
+func (o JobOutputFormatOptionsPtrOutput) Elem() JobOutputFormatOptionsOutput {
+	return o.ApplyT(func(v *JobOutputFormatOptions) JobOutputFormatOptions {
+		if v != nil {
+			return *v
+		}
+		var ret JobOutputFormatOptions
+		return ret
+	}).(JobOutputFormatOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv
+func (o JobOutputFormatOptionsPtrOutput) Csv() JobCsvOutputOptionsPtrOutput {
+	return o.ApplyT(func(v *JobOutputFormatOptions) *JobCsvOutputOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Csv
+	}).(JobCsvOutputOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html
+type JobOutputLocation struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucket
+	Bucket string `pulumi:"bucket"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-key
+	Key *string `pulumi:"key"`
+}
+
+// JobOutputLocationInput is an input type that accepts JobOutputLocationArgs and JobOutputLocationOutput values.
+// You can construct a concrete instance of `JobOutputLocationInput` via:
+//
+//          JobOutputLocationArgs{...}
+type JobOutputLocationInput interface {
+	pulumi.Input
+
+	ToJobOutputLocationOutput() JobOutputLocationOutput
+	ToJobOutputLocationOutputWithContext(context.Context) JobOutputLocationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html
+type JobOutputLocationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucket
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-key
+	Key pulumi.StringPtrInput `pulumi:"key"`
+}
+
+func (JobOutputLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobOutputLocation)(nil)).Elem()
+}
+
+func (i JobOutputLocationArgs) ToJobOutputLocationOutput() JobOutputLocationOutput {
+	return i.ToJobOutputLocationOutputWithContext(context.Background())
+}
+
+func (i JobOutputLocationArgs) ToJobOutputLocationOutputWithContext(ctx context.Context) JobOutputLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobOutputLocationOutput)
+}
+
+func (i JobOutputLocationArgs) ToJobOutputLocationPtrOutput() JobOutputLocationPtrOutput {
+	return i.ToJobOutputLocationPtrOutputWithContext(context.Background())
+}
+
+func (i JobOutputLocationArgs) ToJobOutputLocationPtrOutputWithContext(ctx context.Context) JobOutputLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobOutputLocationOutput).ToJobOutputLocationPtrOutputWithContext(ctx)
+}
+
+// JobOutputLocationPtrInput is an input type that accepts JobOutputLocationArgs, JobOutputLocationPtr and JobOutputLocationPtrOutput values.
+// You can construct a concrete instance of `JobOutputLocationPtrInput` via:
+//
+//          JobOutputLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type JobOutputLocationPtrInput interface {
+	pulumi.Input
+
+	ToJobOutputLocationPtrOutput() JobOutputLocationPtrOutput
+	ToJobOutputLocationPtrOutputWithContext(context.Context) JobOutputLocationPtrOutput
+}
+
+type jobOutputLocationPtrType JobOutputLocationArgs
+
+func JobOutputLocationPtr(v *JobOutputLocationArgs) JobOutputLocationPtrInput {
+	return (*jobOutputLocationPtrType)(v)
+}
+
+func (*jobOutputLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobOutputLocation)(nil)).Elem()
+}
+
+func (i *jobOutputLocationPtrType) ToJobOutputLocationPtrOutput() JobOutputLocationPtrOutput {
+	return i.ToJobOutputLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobOutputLocationPtrType) ToJobOutputLocationPtrOutputWithContext(ctx context.Context) JobOutputLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobOutputLocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html
+type JobOutputLocationOutput struct{ *pulumi.OutputState }
+
+func (JobOutputLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobOutputLocation)(nil)).Elem()
+}
+
+func (o JobOutputLocationOutput) ToJobOutputLocationOutput() JobOutputLocationOutput {
+	return o
+}
+
+func (o JobOutputLocationOutput) ToJobOutputLocationOutputWithContext(ctx context.Context) JobOutputLocationOutput {
+	return o
+}
+
+func (o JobOutputLocationOutput) ToJobOutputLocationPtrOutput() JobOutputLocationPtrOutput {
+	return o.ToJobOutputLocationPtrOutputWithContext(context.Background())
+}
+
+func (o JobOutputLocationOutput) ToJobOutputLocationPtrOutputWithContext(ctx context.Context) JobOutputLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobOutputLocation) *JobOutputLocation {
+		return &v
+	}).(JobOutputLocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucket
+func (o JobOutputLocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v JobOutputLocation) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-key
+func (o JobOutputLocationOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobOutputLocation) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+type JobOutputLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobOutputLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobOutputLocation)(nil)).Elem()
+}
+
+func (o JobOutputLocationPtrOutput) ToJobOutputLocationPtrOutput() JobOutputLocationPtrOutput {
+	return o
+}
+
+func (o JobOutputLocationPtrOutput) ToJobOutputLocationPtrOutputWithContext(ctx context.Context) JobOutputLocationPtrOutput {
+	return o
+}
+
+func (o JobOutputLocationPtrOutput) Elem() JobOutputLocationOutput {
+	return o.ApplyT(func(v *JobOutputLocation) JobOutputLocation {
+		if v != nil {
+			return *v
+		}
+		var ret JobOutputLocation
+		return ret
+	}).(JobOutputLocationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucket
+func (o JobOutputLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobOutputLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-key
+func (o JobOutputLocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobOutputLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-parametermap.html
+type JobParameterMap struct {
+}
+
+// JobParameterMapInput is an input type that accepts JobParameterMap and JobParameterMapOutput values.
+// You can construct a concrete instance of `JobParameterMapInput` via:
+//
+//          JobParameterMap{ "key": JobParameterArgs{...} }
+type JobParameterMapInput interface {
+	pulumi.Input
+
+	ToJobParameterMapOutput() JobParameterMapOutput
+	ToJobParameterMapOutputWithContext(context.Context) JobParameterMapOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-parametermap.html
+type JobParameterMapArgs struct {
+}
+
+func (JobParameterMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobParameterMap)(nil)).Elem()
+}
+
+func (i JobParameterMapArgs) ToJobParameterMapOutput() JobParameterMapOutput {
+	return i.ToJobParameterMapOutputWithContext(context.Background())
+}
+
+func (i JobParameterMapArgs) ToJobParameterMapOutputWithContext(ctx context.Context) JobParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobParameterMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-parametermap.html
+type JobParameterMapOutput struct{ *pulumi.OutputState }
+
+func (JobParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobParameterMap)(nil)).Elem()
+}
+
+func (o JobParameterMapOutput) ToJobParameterMapOutput() JobParameterMapOutput {
+	return o
+}
+
+func (o JobParameterMapOutput) ToJobParameterMapOutputWithContext(ctx context.Context) JobParameterMapOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html
+type JobProfileConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-columnstatisticsconfigurations
+	ColumnStatisticsConfigurations []JobColumnStatisticsConfiguration `pulumi:"columnStatisticsConfigurations"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-datasetstatisticsconfiguration
+	DatasetStatisticsConfiguration *JobStatisticsConfiguration `pulumi:"datasetStatisticsConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns
+	ProfileColumns []JobColumnSelector `pulumi:"profileColumns"`
+}
+
+// JobProfileConfigurationInput is an input type that accepts JobProfileConfigurationArgs and JobProfileConfigurationOutput values.
+// You can construct a concrete instance of `JobProfileConfigurationInput` via:
+//
+//          JobProfileConfigurationArgs{...}
+type JobProfileConfigurationInput interface {
+	pulumi.Input
+
+	ToJobProfileConfigurationOutput() JobProfileConfigurationOutput
+	ToJobProfileConfigurationOutputWithContext(context.Context) JobProfileConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html
+type JobProfileConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-columnstatisticsconfigurations
+	ColumnStatisticsConfigurations JobColumnStatisticsConfigurationArrayInput `pulumi:"columnStatisticsConfigurations"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-datasetstatisticsconfiguration
+	DatasetStatisticsConfiguration JobStatisticsConfigurationPtrInput `pulumi:"datasetStatisticsConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns
+	ProfileColumns JobColumnSelectorArrayInput `pulumi:"profileColumns"`
+}
+
+func (JobProfileConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobProfileConfiguration)(nil)).Elem()
+}
+
+func (i JobProfileConfigurationArgs) ToJobProfileConfigurationOutput() JobProfileConfigurationOutput {
+	return i.ToJobProfileConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobProfileConfigurationArgs) ToJobProfileConfigurationOutputWithContext(ctx context.Context) JobProfileConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobProfileConfigurationOutput)
+}
+
+func (i JobProfileConfigurationArgs) ToJobProfileConfigurationPtrOutput() JobProfileConfigurationPtrOutput {
+	return i.ToJobProfileConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JobProfileConfigurationArgs) ToJobProfileConfigurationPtrOutputWithContext(ctx context.Context) JobProfileConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobProfileConfigurationOutput).ToJobProfileConfigurationPtrOutputWithContext(ctx)
+}
+
+// JobProfileConfigurationPtrInput is an input type that accepts JobProfileConfigurationArgs, JobProfileConfigurationPtr and JobProfileConfigurationPtrOutput values.
+// You can construct a concrete instance of `JobProfileConfigurationPtrInput` via:
+//
+//          JobProfileConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type JobProfileConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJobProfileConfigurationPtrOutput() JobProfileConfigurationPtrOutput
+	ToJobProfileConfigurationPtrOutputWithContext(context.Context) JobProfileConfigurationPtrOutput
+}
+
+type jobProfileConfigurationPtrType JobProfileConfigurationArgs
+
+func JobProfileConfigurationPtr(v *JobProfileConfigurationArgs) JobProfileConfigurationPtrInput {
+	return (*jobProfileConfigurationPtrType)(v)
+}
+
+func (*jobProfileConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobProfileConfiguration)(nil)).Elem()
+}
+
+func (i *jobProfileConfigurationPtrType) ToJobProfileConfigurationPtrOutput() JobProfileConfigurationPtrOutput {
+	return i.ToJobProfileConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobProfileConfigurationPtrType) ToJobProfileConfigurationPtrOutputWithContext(ctx context.Context) JobProfileConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobProfileConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html
+type JobProfileConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobProfileConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobProfileConfiguration)(nil)).Elem()
+}
+
+func (o JobProfileConfigurationOutput) ToJobProfileConfigurationOutput() JobProfileConfigurationOutput {
+	return o
+}
+
+func (o JobProfileConfigurationOutput) ToJobProfileConfigurationOutputWithContext(ctx context.Context) JobProfileConfigurationOutput {
+	return o
+}
+
+func (o JobProfileConfigurationOutput) ToJobProfileConfigurationPtrOutput() JobProfileConfigurationPtrOutput {
+	return o.ToJobProfileConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JobProfileConfigurationOutput) ToJobProfileConfigurationPtrOutputWithContext(ctx context.Context) JobProfileConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobProfileConfiguration) *JobProfileConfiguration {
+		return &v
+	}).(JobProfileConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-columnstatisticsconfigurations
+func (o JobProfileConfigurationOutput) ColumnStatisticsConfigurations() JobColumnStatisticsConfigurationArrayOutput {
+	return o.ApplyT(func(v JobProfileConfiguration) []JobColumnStatisticsConfiguration {
+		return v.ColumnStatisticsConfigurations
+	}).(JobColumnStatisticsConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-datasetstatisticsconfiguration
+func (o JobProfileConfigurationOutput) DatasetStatisticsConfiguration() JobStatisticsConfigurationPtrOutput {
+	return o.ApplyT(func(v JobProfileConfiguration) *JobStatisticsConfiguration { return v.DatasetStatisticsConfiguration }).(JobStatisticsConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns
+func (o JobProfileConfigurationOutput) ProfileColumns() JobColumnSelectorArrayOutput {
+	return o.ApplyT(func(v JobProfileConfiguration) []JobColumnSelector { return v.ProfileColumns }).(JobColumnSelectorArrayOutput)
+}
+
+type JobProfileConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobProfileConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobProfileConfiguration)(nil)).Elem()
+}
+
+func (o JobProfileConfigurationPtrOutput) ToJobProfileConfigurationPtrOutput() JobProfileConfigurationPtrOutput {
+	return o
+}
+
+func (o JobProfileConfigurationPtrOutput) ToJobProfileConfigurationPtrOutputWithContext(ctx context.Context) JobProfileConfigurationPtrOutput {
+	return o
+}
+
+func (o JobProfileConfigurationPtrOutput) Elem() JobProfileConfigurationOutput {
+	return o.ApplyT(func(v *JobProfileConfiguration) JobProfileConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret JobProfileConfiguration
+		return ret
+	}).(JobProfileConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-columnstatisticsconfigurations
+func (o JobProfileConfigurationPtrOutput) ColumnStatisticsConfigurations() JobColumnStatisticsConfigurationArrayOutput {
+	return o.ApplyT(func(v *JobProfileConfiguration) []JobColumnStatisticsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnStatisticsConfigurations
+	}).(JobColumnStatisticsConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-datasetstatisticsconfiguration
+func (o JobProfileConfigurationPtrOutput) DatasetStatisticsConfiguration() JobStatisticsConfigurationPtrOutput {
+	return o.ApplyT(func(v *JobProfileConfiguration) *JobStatisticsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DatasetStatisticsConfiguration
+	}).(JobStatisticsConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns
+func (o JobProfileConfigurationPtrOutput) ProfileColumns() JobColumnSelectorArrayOutput {
+	return o.ApplyT(func(v *JobProfileConfiguration) []JobColumnSelector {
+		if v == nil {
+			return nil
+		}
+		return v.ProfileColumns
+	}).(JobColumnSelectorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html
+type JobRecipe struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-name
+	Name string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-version
+	Version *string `pulumi:"version"`
+}
+
+// JobRecipeInput is an input type that accepts JobRecipeArgs and JobRecipeOutput values.
+// You can construct a concrete instance of `JobRecipeInput` via:
+//
+//          JobRecipeArgs{...}
+type JobRecipeInput interface {
+	pulumi.Input
+
+	ToJobRecipeOutput() JobRecipeOutput
+	ToJobRecipeOutputWithContext(context.Context) JobRecipeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html
+type JobRecipeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-name
+	Name pulumi.StringInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-version
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (JobRecipeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRecipe)(nil)).Elem()
+}
+
+func (i JobRecipeArgs) ToJobRecipeOutput() JobRecipeOutput {
+	return i.ToJobRecipeOutputWithContext(context.Background())
+}
+
+func (i JobRecipeArgs) ToJobRecipeOutputWithContext(ctx context.Context) JobRecipeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRecipeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html
+type JobRecipeOutput struct{ *pulumi.OutputState }
+
+func (JobRecipeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRecipe)(nil)).Elem()
+}
+
+func (o JobRecipeOutput) ToJobRecipeOutput() JobRecipeOutput {
+	return o
+}
+
+func (o JobRecipeOutput) ToJobRecipeOutputWithContext(ctx context.Context) JobRecipeOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-name
+func (o JobRecipeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobRecipe) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-version
+func (o JobRecipeOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobRecipe) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html
@@ -185,6 +4091,47 @@ func (i JobS3LocationArgs) ToJobS3LocationOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(JobS3LocationOutput)
 }
 
+func (i JobS3LocationArgs) ToJobS3LocationPtrOutput() JobS3LocationPtrOutput {
+	return i.ToJobS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i JobS3LocationArgs) ToJobS3LocationPtrOutputWithContext(ctx context.Context) JobS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobS3LocationOutput).ToJobS3LocationPtrOutputWithContext(ctx)
+}
+
+// JobS3LocationPtrInput is an input type that accepts JobS3LocationArgs, JobS3LocationPtr and JobS3LocationPtrOutput values.
+// You can construct a concrete instance of `JobS3LocationPtrInput` via:
+//
+//          JobS3LocationArgs{...}
+//
+//  or:
+//
+//          nil
+type JobS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToJobS3LocationPtrOutput() JobS3LocationPtrOutput
+	ToJobS3LocationPtrOutputWithContext(context.Context) JobS3LocationPtrOutput
+}
+
+type jobS3LocationPtrType JobS3LocationArgs
+
+func JobS3LocationPtr(v *JobS3LocationArgs) JobS3LocationPtrInput {
+	return (*jobS3LocationPtrType)(v)
+}
+
+func (*jobS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobS3Location)(nil)).Elem()
+}
+
+func (i *jobS3LocationPtrType) ToJobS3LocationPtrOutput() JobS3LocationPtrOutput {
+	return i.ToJobS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobS3LocationPtrType) ToJobS3LocationPtrOutputWithContext(ctx context.Context) JobS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobS3LocationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html
 type JobS3LocationOutput struct{ *pulumi.OutputState }
 
@@ -200,6 +4147,16 @@ func (o JobS3LocationOutput) ToJobS3LocationOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o JobS3LocationOutput) ToJobS3LocationPtrOutput() JobS3LocationPtrOutput {
+	return o.ToJobS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o JobS3LocationOutput) ToJobS3LocationPtrOutputWithContext(ctx context.Context) JobS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobS3Location) *JobS3Location {
+		return &v
+	}).(JobS3LocationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-bucket
 func (o JobS3LocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v JobS3Location) string { return v.Bucket }).(pulumi.StringOutput)
@@ -210,12 +4167,623 @@ func (o JobS3LocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobS3Location) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+type JobS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobS3Location)(nil)).Elem()
+}
+
+func (o JobS3LocationPtrOutput) ToJobS3LocationPtrOutput() JobS3LocationPtrOutput {
+	return o
+}
+
+func (o JobS3LocationPtrOutput) ToJobS3LocationPtrOutputWithContext(ctx context.Context) JobS3LocationPtrOutput {
+	return o
+}
+
+func (o JobS3LocationPtrOutput) Elem() JobS3LocationOutput {
+	return o.ApplyT(func(v *JobS3Location) JobS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret JobS3Location
+		return ret
+	}).(JobS3LocationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-bucket
+func (o JobS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-key
+func (o JobS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html
+type JobS3TableOutputOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html#cfn-databrew-job-s3tableoutputoptions-location
+	Location JobS3Location `pulumi:"location"`
+}
+
+// JobS3TableOutputOptionsInput is an input type that accepts JobS3TableOutputOptionsArgs and JobS3TableOutputOptionsOutput values.
+// You can construct a concrete instance of `JobS3TableOutputOptionsInput` via:
+//
+//          JobS3TableOutputOptionsArgs{...}
+type JobS3TableOutputOptionsInput interface {
+	pulumi.Input
+
+	ToJobS3TableOutputOptionsOutput() JobS3TableOutputOptionsOutput
+	ToJobS3TableOutputOptionsOutputWithContext(context.Context) JobS3TableOutputOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html
+type JobS3TableOutputOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html#cfn-databrew-job-s3tableoutputoptions-location
+	Location JobS3LocationInput `pulumi:"location"`
+}
+
+func (JobS3TableOutputOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobS3TableOutputOptions)(nil)).Elem()
+}
+
+func (i JobS3TableOutputOptionsArgs) ToJobS3TableOutputOptionsOutput() JobS3TableOutputOptionsOutput {
+	return i.ToJobS3TableOutputOptionsOutputWithContext(context.Background())
+}
+
+func (i JobS3TableOutputOptionsArgs) ToJobS3TableOutputOptionsOutputWithContext(ctx context.Context) JobS3TableOutputOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobS3TableOutputOptionsOutput)
+}
+
+func (i JobS3TableOutputOptionsArgs) ToJobS3TableOutputOptionsPtrOutput() JobS3TableOutputOptionsPtrOutput {
+	return i.ToJobS3TableOutputOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i JobS3TableOutputOptionsArgs) ToJobS3TableOutputOptionsPtrOutputWithContext(ctx context.Context) JobS3TableOutputOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobS3TableOutputOptionsOutput).ToJobS3TableOutputOptionsPtrOutputWithContext(ctx)
+}
+
+// JobS3TableOutputOptionsPtrInput is an input type that accepts JobS3TableOutputOptionsArgs, JobS3TableOutputOptionsPtr and JobS3TableOutputOptionsPtrOutput values.
+// You can construct a concrete instance of `JobS3TableOutputOptionsPtrInput` via:
+//
+//          JobS3TableOutputOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type JobS3TableOutputOptionsPtrInput interface {
+	pulumi.Input
+
+	ToJobS3TableOutputOptionsPtrOutput() JobS3TableOutputOptionsPtrOutput
+	ToJobS3TableOutputOptionsPtrOutputWithContext(context.Context) JobS3TableOutputOptionsPtrOutput
+}
+
+type jobS3TableOutputOptionsPtrType JobS3TableOutputOptionsArgs
+
+func JobS3TableOutputOptionsPtr(v *JobS3TableOutputOptionsArgs) JobS3TableOutputOptionsPtrInput {
+	return (*jobS3TableOutputOptionsPtrType)(v)
+}
+
+func (*jobS3TableOutputOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobS3TableOutputOptions)(nil)).Elem()
+}
+
+func (i *jobS3TableOutputOptionsPtrType) ToJobS3TableOutputOptionsPtrOutput() JobS3TableOutputOptionsPtrOutput {
+	return i.ToJobS3TableOutputOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *jobS3TableOutputOptionsPtrType) ToJobS3TableOutputOptionsPtrOutputWithContext(ctx context.Context) JobS3TableOutputOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobS3TableOutputOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html
+type JobS3TableOutputOptionsOutput struct{ *pulumi.OutputState }
+
+func (JobS3TableOutputOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobS3TableOutputOptions)(nil)).Elem()
+}
+
+func (o JobS3TableOutputOptionsOutput) ToJobS3TableOutputOptionsOutput() JobS3TableOutputOptionsOutput {
+	return o
+}
+
+func (o JobS3TableOutputOptionsOutput) ToJobS3TableOutputOptionsOutputWithContext(ctx context.Context) JobS3TableOutputOptionsOutput {
+	return o
+}
+
+func (o JobS3TableOutputOptionsOutput) ToJobS3TableOutputOptionsPtrOutput() JobS3TableOutputOptionsPtrOutput {
+	return o.ToJobS3TableOutputOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o JobS3TableOutputOptionsOutput) ToJobS3TableOutputOptionsPtrOutputWithContext(ctx context.Context) JobS3TableOutputOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobS3TableOutputOptions) *JobS3TableOutputOptions {
+		return &v
+	}).(JobS3TableOutputOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html#cfn-databrew-job-s3tableoutputoptions-location
+func (o JobS3TableOutputOptionsOutput) Location() JobS3LocationOutput {
+	return o.ApplyT(func(v JobS3TableOutputOptions) JobS3Location { return v.Location }).(JobS3LocationOutput)
+}
+
+type JobS3TableOutputOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (JobS3TableOutputOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobS3TableOutputOptions)(nil)).Elem()
+}
+
+func (o JobS3TableOutputOptionsPtrOutput) ToJobS3TableOutputOptionsPtrOutput() JobS3TableOutputOptionsPtrOutput {
+	return o
+}
+
+func (o JobS3TableOutputOptionsPtrOutput) ToJobS3TableOutputOptionsPtrOutputWithContext(ctx context.Context) JobS3TableOutputOptionsPtrOutput {
+	return o
+}
+
+func (o JobS3TableOutputOptionsPtrOutput) Elem() JobS3TableOutputOptionsOutput {
+	return o.ApplyT(func(v *JobS3TableOutputOptions) JobS3TableOutputOptions {
+		if v != nil {
+			return *v
+		}
+		var ret JobS3TableOutputOptions
+		return ret
+	}).(JobS3TableOutputOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html#cfn-databrew-job-s3tableoutputoptions-location
+func (o JobS3TableOutputOptionsPtrOutput) Location() JobS3LocationPtrOutput {
+	return o.ApplyT(func(v *JobS3TableOutputOptions) *JobS3Location {
+		if v == nil {
+			return nil
+		}
+		return &v.Location
+	}).(JobS3LocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html
+type JobStatisticOverride struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-parameters
+	Parameters JobParameterMap `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-statistic
+	Statistic string `pulumi:"statistic"`
+}
+
+// JobStatisticOverrideInput is an input type that accepts JobStatisticOverrideArgs and JobStatisticOverrideOutput values.
+// You can construct a concrete instance of `JobStatisticOverrideInput` via:
+//
+//          JobStatisticOverrideArgs{...}
+type JobStatisticOverrideInput interface {
+	pulumi.Input
+
+	ToJobStatisticOverrideOutput() JobStatisticOverrideOutput
+	ToJobStatisticOverrideOutputWithContext(context.Context) JobStatisticOverrideOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html
+type JobStatisticOverrideArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-parameters
+	Parameters JobParameterMapInput `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-statistic
+	Statistic pulumi.StringInput `pulumi:"statistic"`
+}
+
+func (JobStatisticOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStatisticOverride)(nil)).Elem()
+}
+
+func (i JobStatisticOverrideArgs) ToJobStatisticOverrideOutput() JobStatisticOverrideOutput {
+	return i.ToJobStatisticOverrideOutputWithContext(context.Background())
+}
+
+func (i JobStatisticOverrideArgs) ToJobStatisticOverrideOutputWithContext(ctx context.Context) JobStatisticOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStatisticOverrideOutput)
+}
+
+// JobStatisticOverrideArrayInput is an input type that accepts JobStatisticOverrideArray and JobStatisticOverrideArrayOutput values.
+// You can construct a concrete instance of `JobStatisticOverrideArrayInput` via:
+//
+//          JobStatisticOverrideArray{ JobStatisticOverrideArgs{...} }
+type JobStatisticOverrideArrayInput interface {
+	pulumi.Input
+
+	ToJobStatisticOverrideArrayOutput() JobStatisticOverrideArrayOutput
+	ToJobStatisticOverrideArrayOutputWithContext(context.Context) JobStatisticOverrideArrayOutput
+}
+
+type JobStatisticOverrideArray []JobStatisticOverrideInput
+
+func (JobStatisticOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobStatisticOverride)(nil)).Elem()
+}
+
+func (i JobStatisticOverrideArray) ToJobStatisticOverrideArrayOutput() JobStatisticOverrideArrayOutput {
+	return i.ToJobStatisticOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i JobStatisticOverrideArray) ToJobStatisticOverrideArrayOutputWithContext(ctx context.Context) JobStatisticOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStatisticOverrideArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html
+type JobStatisticOverrideOutput struct{ *pulumi.OutputState }
+
+func (JobStatisticOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStatisticOverride)(nil)).Elem()
+}
+
+func (o JobStatisticOverrideOutput) ToJobStatisticOverrideOutput() JobStatisticOverrideOutput {
+	return o
+}
+
+func (o JobStatisticOverrideOutput) ToJobStatisticOverrideOutputWithContext(ctx context.Context) JobStatisticOverrideOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-parameters
+func (o JobStatisticOverrideOutput) Parameters() JobParameterMapOutput {
+	return o.ApplyT(func(v JobStatisticOverride) JobParameterMap { return v.Parameters }).(JobParameterMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-statistic
+func (o JobStatisticOverrideOutput) Statistic() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStatisticOverride) string { return v.Statistic }).(pulumi.StringOutput)
+}
+
+type JobStatisticOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (JobStatisticOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobStatisticOverride)(nil)).Elem()
+}
+
+func (o JobStatisticOverrideArrayOutput) ToJobStatisticOverrideArrayOutput() JobStatisticOverrideArrayOutput {
+	return o
+}
+
+func (o JobStatisticOverrideArrayOutput) ToJobStatisticOverrideArrayOutputWithContext(ctx context.Context) JobStatisticOverrideArrayOutput {
+	return o
+}
+
+func (o JobStatisticOverrideArrayOutput) Index(i pulumi.IntInput) JobStatisticOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobStatisticOverride {
+		return vs[0].([]JobStatisticOverride)[vs[1].(int)]
+	}).(JobStatisticOverrideOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html
+type JobStatisticsConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics
+	IncludedStatistics []string `pulumi:"includedStatistics"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides
+	Overrides []JobStatisticOverride `pulumi:"overrides"`
+}
+
+// JobStatisticsConfigurationInput is an input type that accepts JobStatisticsConfigurationArgs and JobStatisticsConfigurationOutput values.
+// You can construct a concrete instance of `JobStatisticsConfigurationInput` via:
+//
+//          JobStatisticsConfigurationArgs{...}
+type JobStatisticsConfigurationInput interface {
+	pulumi.Input
+
+	ToJobStatisticsConfigurationOutput() JobStatisticsConfigurationOutput
+	ToJobStatisticsConfigurationOutputWithContext(context.Context) JobStatisticsConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html
+type JobStatisticsConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics
+	IncludedStatistics pulumi.StringArrayInput `pulumi:"includedStatistics"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides
+	Overrides JobStatisticOverrideArrayInput `pulumi:"overrides"`
+}
+
+func (JobStatisticsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStatisticsConfiguration)(nil)).Elem()
+}
+
+func (i JobStatisticsConfigurationArgs) ToJobStatisticsConfigurationOutput() JobStatisticsConfigurationOutput {
+	return i.ToJobStatisticsConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobStatisticsConfigurationArgs) ToJobStatisticsConfigurationOutputWithContext(ctx context.Context) JobStatisticsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStatisticsConfigurationOutput)
+}
+
+func (i JobStatisticsConfigurationArgs) ToJobStatisticsConfigurationPtrOutput() JobStatisticsConfigurationPtrOutput {
+	return i.ToJobStatisticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JobStatisticsConfigurationArgs) ToJobStatisticsConfigurationPtrOutputWithContext(ctx context.Context) JobStatisticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStatisticsConfigurationOutput).ToJobStatisticsConfigurationPtrOutputWithContext(ctx)
+}
+
+// JobStatisticsConfigurationPtrInput is an input type that accepts JobStatisticsConfigurationArgs, JobStatisticsConfigurationPtr and JobStatisticsConfigurationPtrOutput values.
+// You can construct a concrete instance of `JobStatisticsConfigurationPtrInput` via:
+//
+//          JobStatisticsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type JobStatisticsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJobStatisticsConfigurationPtrOutput() JobStatisticsConfigurationPtrOutput
+	ToJobStatisticsConfigurationPtrOutputWithContext(context.Context) JobStatisticsConfigurationPtrOutput
+}
+
+type jobStatisticsConfigurationPtrType JobStatisticsConfigurationArgs
+
+func JobStatisticsConfigurationPtr(v *JobStatisticsConfigurationArgs) JobStatisticsConfigurationPtrInput {
+	return (*jobStatisticsConfigurationPtrType)(v)
+}
+
+func (*jobStatisticsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobStatisticsConfiguration)(nil)).Elem()
+}
+
+func (i *jobStatisticsConfigurationPtrType) ToJobStatisticsConfigurationPtrOutput() JobStatisticsConfigurationPtrOutput {
+	return i.ToJobStatisticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobStatisticsConfigurationPtrType) ToJobStatisticsConfigurationPtrOutputWithContext(ctx context.Context) JobStatisticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStatisticsConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html
+type JobStatisticsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobStatisticsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStatisticsConfiguration)(nil)).Elem()
+}
+
+func (o JobStatisticsConfigurationOutput) ToJobStatisticsConfigurationOutput() JobStatisticsConfigurationOutput {
+	return o
+}
+
+func (o JobStatisticsConfigurationOutput) ToJobStatisticsConfigurationOutputWithContext(ctx context.Context) JobStatisticsConfigurationOutput {
+	return o
+}
+
+func (o JobStatisticsConfigurationOutput) ToJobStatisticsConfigurationPtrOutput() JobStatisticsConfigurationPtrOutput {
+	return o.ToJobStatisticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JobStatisticsConfigurationOutput) ToJobStatisticsConfigurationPtrOutputWithContext(ctx context.Context) JobStatisticsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStatisticsConfiguration) *JobStatisticsConfiguration {
+		return &v
+	}).(JobStatisticsConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics
+func (o JobStatisticsConfigurationOutput) IncludedStatistics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobStatisticsConfiguration) []string { return v.IncludedStatistics }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides
+func (o JobStatisticsConfigurationOutput) Overrides() JobStatisticOverrideArrayOutput {
+	return o.ApplyT(func(v JobStatisticsConfiguration) []JobStatisticOverride { return v.Overrides }).(JobStatisticOverrideArrayOutput)
+}
+
+type JobStatisticsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobStatisticsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobStatisticsConfiguration)(nil)).Elem()
+}
+
+func (o JobStatisticsConfigurationPtrOutput) ToJobStatisticsConfigurationPtrOutput() JobStatisticsConfigurationPtrOutput {
+	return o
+}
+
+func (o JobStatisticsConfigurationPtrOutput) ToJobStatisticsConfigurationPtrOutputWithContext(ctx context.Context) JobStatisticsConfigurationPtrOutput {
+	return o
+}
+
+func (o JobStatisticsConfigurationPtrOutput) Elem() JobStatisticsConfigurationOutput {
+	return o.ApplyT(func(v *JobStatisticsConfiguration) JobStatisticsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret JobStatisticsConfiguration
+		return ret
+	}).(JobStatisticsConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics
+func (o JobStatisticsConfigurationPtrOutput) IncludedStatistics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobStatisticsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedStatistics
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides
+func (o JobStatisticsConfigurationPtrOutput) Overrides() JobStatisticOverrideArrayOutput {
+	return o.ApplyT(func(v *JobStatisticsConfiguration) []JobStatisticOverride {
+		if v == nil {
+			return nil
+		}
+		return v.Overrides
+	}).(JobStatisticOverrideArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html
+type ProjectSample struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-size
+	Size *int `pulumi:"size"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-type
+	Type string `pulumi:"type"`
+}
+
+// ProjectSampleInput is an input type that accepts ProjectSampleArgs and ProjectSampleOutput values.
+// You can construct a concrete instance of `ProjectSampleInput` via:
+//
+//          ProjectSampleArgs{...}
+type ProjectSampleInput interface {
+	pulumi.Input
+
+	ToProjectSampleOutput() ProjectSampleOutput
+	ToProjectSampleOutputWithContext(context.Context) ProjectSampleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html
+type ProjectSampleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-size
+	Size pulumi.IntPtrInput `pulumi:"size"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectSampleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSample)(nil)).Elem()
+}
+
+func (i ProjectSampleArgs) ToProjectSampleOutput() ProjectSampleOutput {
+	return i.ToProjectSampleOutputWithContext(context.Background())
+}
+
+func (i ProjectSampleArgs) ToProjectSampleOutputWithContext(ctx context.Context) ProjectSampleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSampleOutput)
+}
+
+func (i ProjectSampleArgs) ToProjectSamplePtrOutput() ProjectSamplePtrOutput {
+	return i.ToProjectSamplePtrOutputWithContext(context.Background())
+}
+
+func (i ProjectSampleArgs) ToProjectSamplePtrOutputWithContext(ctx context.Context) ProjectSamplePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSampleOutput).ToProjectSamplePtrOutputWithContext(ctx)
+}
+
+// ProjectSamplePtrInput is an input type that accepts ProjectSampleArgs, ProjectSamplePtr and ProjectSamplePtrOutput values.
+// You can construct a concrete instance of `ProjectSamplePtrInput` via:
+//
+//          ProjectSampleArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectSamplePtrInput interface {
+	pulumi.Input
+
+	ToProjectSamplePtrOutput() ProjectSamplePtrOutput
+	ToProjectSamplePtrOutputWithContext(context.Context) ProjectSamplePtrOutput
+}
+
+type projectSamplePtrType ProjectSampleArgs
+
+func ProjectSamplePtr(v *ProjectSampleArgs) ProjectSamplePtrInput {
+	return (*projectSamplePtrType)(v)
+}
+
+func (*projectSamplePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSample)(nil)).Elem()
+}
+
+func (i *projectSamplePtrType) ToProjectSamplePtrOutput() ProjectSamplePtrOutput {
+	return i.ToProjectSamplePtrOutputWithContext(context.Background())
+}
+
+func (i *projectSamplePtrType) ToProjectSamplePtrOutputWithContext(ctx context.Context) ProjectSamplePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSamplePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html
+type ProjectSampleOutput struct{ *pulumi.OutputState }
+
+func (ProjectSampleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSample)(nil)).Elem()
+}
+
+func (o ProjectSampleOutput) ToProjectSampleOutput() ProjectSampleOutput {
+	return o
+}
+
+func (o ProjectSampleOutput) ToProjectSampleOutputWithContext(ctx context.Context) ProjectSampleOutput {
+	return o
+}
+
+func (o ProjectSampleOutput) ToProjectSamplePtrOutput() ProjectSamplePtrOutput {
+	return o.ToProjectSamplePtrOutputWithContext(context.Background())
+}
+
+func (o ProjectSampleOutput) ToProjectSamplePtrOutputWithContext(ctx context.Context) ProjectSamplePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectSample) *ProjectSample {
+		return &v
+	}).(ProjectSamplePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-size
+func (o ProjectSampleOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProjectSample) *int { return v.Size }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-type
+func (o ProjectSampleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectSample) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProjectSamplePtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectSamplePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSample)(nil)).Elem()
+}
+
+func (o ProjectSamplePtrOutput) ToProjectSamplePtrOutput() ProjectSamplePtrOutput {
+	return o
+}
+
+func (o ProjectSamplePtrOutput) ToProjectSamplePtrOutputWithContext(ctx context.Context) ProjectSamplePtrOutput {
+	return o
+}
+
+func (o ProjectSamplePtrOutput) Elem() ProjectSampleOutput {
+	return o.ApplyT(func(v *ProjectSample) ProjectSample {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectSample
+		return ret
+	}).(ProjectSampleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-size
+func (o ProjectSamplePtrOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProjectSample) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-type
+func (o ProjectSamplePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectSample) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html
 type RecipeAction struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
 	Operation string `pulumi:"operation"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
-	Parameters interface{} `pulumi:"parameters"`
+	Parameters *RecipeParameterMap `pulumi:"parameters"`
 }
 
 // RecipeActionInput is an input type that accepts RecipeActionArgs and RecipeActionOutput values.
@@ -234,7 +4802,7 @@ type RecipeActionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
 	Operation pulumi.StringInput `pulumi:"operation"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
-	Parameters pulumi.Input `pulumi:"parameters"`
+	Parameters RecipeParameterMapPtrInput `pulumi:"parameters"`
 }
 
 func (RecipeActionArgs) ElementType() reflect.Type {
@@ -270,8 +4838,8 @@ func (o RecipeActionOutput) Operation() pulumi.StringOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
-func (o RecipeActionOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v RecipeAction) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+func (o RecipeActionOutput) Parameters() RecipeParameterMapPtrOutput {
+	return o.ApplyT(func(v RecipeAction) *RecipeParameterMap { return v.Parameters }).(RecipeParameterMapPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html
@@ -587,6 +5155,127 @@ func (o RecipeDataCatalogInputDefinitionPtrOutput) TempDirectory() RecipeS3Locat
 		}
 		return v.TempDirectory
 	}).(RecipeS3LocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-parametermap.html
+type RecipeParameterMap struct {
+}
+
+// RecipeParameterMapInput is an input type that accepts RecipeParameterMap and RecipeParameterMapOutput values.
+// You can construct a concrete instance of `RecipeParameterMapInput` via:
+//
+//          RecipeParameterMap{ "key": RecipeParameterArgs{...} }
+type RecipeParameterMapInput interface {
+	pulumi.Input
+
+	ToRecipeParameterMapOutput() RecipeParameterMapOutput
+	ToRecipeParameterMapOutputWithContext(context.Context) RecipeParameterMapOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-parametermap.html
+type RecipeParameterMapArgs struct {
+}
+
+func (RecipeParameterMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecipeParameterMap)(nil)).Elem()
+}
+
+func (i RecipeParameterMapArgs) ToRecipeParameterMapOutput() RecipeParameterMapOutput {
+	return i.ToRecipeParameterMapOutputWithContext(context.Background())
+}
+
+func (i RecipeParameterMapArgs) ToRecipeParameterMapOutputWithContext(ctx context.Context) RecipeParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecipeParameterMapOutput)
+}
+
+func (i RecipeParameterMapArgs) ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput {
+	return i.ToRecipeParameterMapPtrOutputWithContext(context.Background())
+}
+
+func (i RecipeParameterMapArgs) ToRecipeParameterMapPtrOutputWithContext(ctx context.Context) RecipeParameterMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecipeParameterMapOutput).ToRecipeParameterMapPtrOutputWithContext(ctx)
+}
+
+// RecipeParameterMapPtrInput is an input type that accepts RecipeParameterMapArgs, RecipeParameterMapPtr and RecipeParameterMapPtrOutput values.
+// You can construct a concrete instance of `RecipeParameterMapPtrInput` via:
+//
+//          RecipeParameterMapArgs{...}
+//
+//  or:
+//
+//          nil
+type RecipeParameterMapPtrInput interface {
+	pulumi.Input
+
+	ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput
+	ToRecipeParameterMapPtrOutputWithContext(context.Context) RecipeParameterMapPtrOutput
+}
+
+type recipeParameterMapPtrType RecipeParameterMapArgs
+
+func RecipeParameterMapPtr(v *RecipeParameterMapArgs) RecipeParameterMapPtrInput {
+	return (*recipeParameterMapPtrType)(v)
+}
+
+func (*recipeParameterMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecipeParameterMap)(nil)).Elem()
+}
+
+func (i *recipeParameterMapPtrType) ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput {
+	return i.ToRecipeParameterMapPtrOutputWithContext(context.Background())
+}
+
+func (i *recipeParameterMapPtrType) ToRecipeParameterMapPtrOutputWithContext(ctx context.Context) RecipeParameterMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecipeParameterMapPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-parametermap.html
+type RecipeParameterMapOutput struct{ *pulumi.OutputState }
+
+func (RecipeParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecipeParameterMap)(nil)).Elem()
+}
+
+func (o RecipeParameterMapOutput) ToRecipeParameterMapOutput() RecipeParameterMapOutput {
+	return o
+}
+
+func (o RecipeParameterMapOutput) ToRecipeParameterMapOutputWithContext(ctx context.Context) RecipeParameterMapOutput {
+	return o
+}
+
+func (o RecipeParameterMapOutput) ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput {
+	return o.ToRecipeParameterMapPtrOutputWithContext(context.Background())
+}
+
+func (o RecipeParameterMapOutput) ToRecipeParameterMapPtrOutputWithContext(ctx context.Context) RecipeParameterMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecipeParameterMap) *RecipeParameterMap {
+		return &v
+	}).(RecipeParameterMapPtrOutput)
+}
+
+type RecipeParameterMapPtrOutput struct{ *pulumi.OutputState }
+
+func (RecipeParameterMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecipeParameterMap)(nil)).Elem()
+}
+
+func (o RecipeParameterMapPtrOutput) ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput {
+	return o
+}
+
+func (o RecipeParameterMapPtrOutput) ToRecipeParameterMapPtrOutputWithContext(ctx context.Context) RecipeParameterMapPtrOutput {
+	return o
+}
+
+func (o RecipeParameterMapPtrOutput) Elem() RecipeParameterMapOutput {
+	return o.ApplyT(func(v *RecipeParameterMap) RecipeParameterMap {
+		if v != nil {
+			return *v
+		}
+		var ret RecipeParameterMap
+		return ret
+	}).(RecipeParameterMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html
@@ -1922,14 +6611,76 @@ func (o RecipeSecondaryInputArrayOutput) Index(i pulumi.IntInput) RecipeSecondar
 }
 
 func init() {
+	pulumi.RegisterOutputType(DatasetCsvOptionsOutput{})
+	pulumi.RegisterOutputType(DatasetCsvOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DatasetDataCatalogInputDefinitionOutput{})
+	pulumi.RegisterOutputType(DatasetDataCatalogInputDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(DatasetDatabaseInputDefinitionOutput{})
+	pulumi.RegisterOutputType(DatasetDatabaseInputDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(DatasetDatasetParameterOutput{})
+	pulumi.RegisterOutputType(DatasetDatetimeOptionsOutput{})
+	pulumi.RegisterOutputType(DatasetDatetimeOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DatasetExcelOptionsOutput{})
+	pulumi.RegisterOutputType(DatasetExcelOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DatasetFilesLimitOutput{})
+	pulumi.RegisterOutputType(DatasetFilesLimitPtrOutput{})
+	pulumi.RegisterOutputType(DatasetFilterExpressionOutput{})
+	pulumi.RegisterOutputType(DatasetFilterExpressionPtrOutput{})
+	pulumi.RegisterOutputType(DatasetFilterValueOutput{})
+	pulumi.RegisterOutputType(DatasetFilterValueArrayOutput{})
+	pulumi.RegisterOutputType(DatasetFormatOptionsOutput{})
+	pulumi.RegisterOutputType(DatasetFormatOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DatasetInputTypeOutput{})
+	pulumi.RegisterOutputType(DatasetInputTypePtrOutput{})
+	pulumi.RegisterOutputType(DatasetJsonOptionsOutput{})
+	pulumi.RegisterOutputType(DatasetJsonOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DatasetPathOptionsOutput{})
+	pulumi.RegisterOutputType(DatasetPathOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DatasetPathParameterOutput{})
+	pulumi.RegisterOutputType(DatasetPathParameterArrayOutput{})
+	pulumi.RegisterOutputType(DatasetS3LocationOutput{})
+	pulumi.RegisterOutputType(DatasetS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(JobColumnSelectorOutput{})
+	pulumi.RegisterOutputType(JobColumnSelectorArrayOutput{})
+	pulumi.RegisterOutputType(JobColumnStatisticsConfigurationOutput{})
+	pulumi.RegisterOutputType(JobColumnStatisticsConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(JobCsvOutputOptionsOutput{})
+	pulumi.RegisterOutputType(JobCsvOutputOptionsPtrOutput{})
+	pulumi.RegisterOutputType(JobDataCatalogOutputOutput{})
+	pulumi.RegisterOutputType(JobDataCatalogOutputArrayOutput{})
+	pulumi.RegisterOutputType(JobDatabaseOutputOutput{})
+	pulumi.RegisterOutputType(JobDatabaseOutputArrayOutput{})
+	pulumi.RegisterOutputType(JobDatabaseTableOutputOptionsOutput{})
+	pulumi.RegisterOutputType(JobDatabaseTableOutputOptionsPtrOutput{})
+	pulumi.RegisterOutputType(JobJobSampleOutput{})
+	pulumi.RegisterOutputType(JobJobSamplePtrOutput{})
 	pulumi.RegisterOutputType(JobOutputTypeOutput{})
 	pulumi.RegisterOutputType(JobOutputTypeArrayOutput{})
+	pulumi.RegisterOutputType(JobOutputFormatOptionsOutput{})
+	pulumi.RegisterOutputType(JobOutputFormatOptionsPtrOutput{})
+	pulumi.RegisterOutputType(JobOutputLocationOutput{})
+	pulumi.RegisterOutputType(JobOutputLocationPtrOutput{})
+	pulumi.RegisterOutputType(JobParameterMapOutput{})
+	pulumi.RegisterOutputType(JobProfileConfigurationOutput{})
+	pulumi.RegisterOutputType(JobProfileConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(JobRecipeOutput{})
 	pulumi.RegisterOutputType(JobS3LocationOutput{})
+	pulumi.RegisterOutputType(JobS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(JobS3TableOutputOptionsOutput{})
+	pulumi.RegisterOutputType(JobS3TableOutputOptionsPtrOutput{})
+	pulumi.RegisterOutputType(JobStatisticOverrideOutput{})
+	pulumi.RegisterOutputType(JobStatisticOverrideArrayOutput{})
+	pulumi.RegisterOutputType(JobStatisticsConfigurationOutput{})
+	pulumi.RegisterOutputType(JobStatisticsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ProjectSampleOutput{})
+	pulumi.RegisterOutputType(ProjectSamplePtrOutput{})
 	pulumi.RegisterOutputType(RecipeActionOutput{})
 	pulumi.RegisterOutputType(RecipeConditionExpressionOutput{})
 	pulumi.RegisterOutputType(RecipeConditionExpressionArrayOutput{})
 	pulumi.RegisterOutputType(RecipeDataCatalogInputDefinitionOutput{})
 	pulumi.RegisterOutputType(RecipeDataCatalogInputDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(RecipeParameterMapOutput{})
+	pulumi.RegisterOutputType(RecipeParameterMapPtrOutput{})
 	pulumi.RegisterOutputType(RecipeRecipeParametersOutput{})
 	pulumi.RegisterOutputType(RecipeRecipeStepOutput{})
 	pulumi.RegisterOutputType(RecipeRecipeStepArrayOutput{})

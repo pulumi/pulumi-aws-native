@@ -24,12 +24,6 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
-        [Output("pendingChanges")]
-        public Output<Outputs.UserGroupUserGroupPendingChanges> PendingChanges { get; private set; } = null!;
-
-        [Output("replicationGroupIds")]
-        public Output<Outputs.UserGroupReplicationGroupIdList> ReplicationGroupIds { get; private set; } = null!;
-
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -43,7 +37,7 @@ namespace Pulumi.AwsNative.ElastiCache
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
         /// </summary>
         [Output("userIds")]
-        public Output<Outputs.UserGroupUserIdList?> UserIds { get; private set; } = null!;
+        public Output<ImmutableArray<string>> UserIds { get; private set; } = null!;
 
 
         /// <summary>
@@ -102,11 +96,17 @@ namespace Pulumi.AwsNative.ElastiCache
         [Input("userGroupId", required: true)]
         public Input<string> UserGroupId { get; set; } = null!;
 
+        [Input("userIds")]
+        private InputList<string>? _userIds;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
         /// </summary>
-        [Input("userIds")]
-        public Input<Inputs.UserGroupUserIdListArgs>? UserIds { get; set; }
+        public InputList<string> UserIds
+        {
+            get => _userIds ?? (_userIds = new InputList<string>());
+            set => _userIds = value;
+        }
 
         public UserGroupArgs()
         {

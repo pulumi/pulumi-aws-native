@@ -31,15 +31,15 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceInclusionsExclusionsStrings? ExclusionPatterns;
+        public readonly ImmutableArray<string> ExclusionPatterns;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceInclusionsExclusionsStrings? InclusionPatterns;
+        public readonly ImmutableArray<string> InclusionPatterns;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionprefixes
         /// </summary>
-        public readonly Outputs.DataSourceDataSourceInclusionsExclusionsStrings? InclusionPrefixes;
+        public readonly ImmutableArray<string> InclusionPrefixes;
 
         [OutputConstructor]
         private DataSourceS3DataSourceConfiguration(
@@ -49,11 +49,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Outputs.DataSourceDocumentsMetadataConfiguration? documentsMetadataConfiguration,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? exclusionPatterns,
+            ImmutableArray<string> exclusionPatterns,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? inclusionPatterns,
+            ImmutableArray<string> inclusionPatterns,
 
-            Outputs.DataSourceDataSourceInclusionsExclusionsStrings? inclusionPrefixes)
+            ImmutableArray<string> inclusionPrefixes)
         {
             AccessControlListConfiguration = accessControlListConfiguration;
             BucketName = bucketName;

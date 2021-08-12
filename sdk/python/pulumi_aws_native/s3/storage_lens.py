@@ -111,7 +111,7 @@ class StorageLens(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_lens_configuration'")
             __props__.__dict__["storage_lens_configuration"] = storage_lens_configuration
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["storage_lens_arn"] = None
+            __props__.__dict__["storage_lens_configuration_storage_lens_arn"] = None
         super(StorageLens, __self__).__init__(
             'aws-native:S3:StorageLens',
             resource_name,
@@ -134,15 +134,10 @@ class StorageLens(pulumi.CustomResource):
 
         __props__ = StorageLensArgs.__new__(StorageLensArgs)
 
-        __props__.__dict__["storage_lens_arn"] = None
         __props__.__dict__["storage_lens_configuration"] = None
+        __props__.__dict__["storage_lens_configuration_storage_lens_arn"] = None
         __props__.__dict__["tags"] = None
         return StorageLens(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="storageLensArn")
-    def storage_lens_arn(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "storage_lens_arn")
 
     @property
     @pulumi.getter(name="storageLensConfiguration")
@@ -151,6 +146,11 @@ class StorageLens(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
         """
         return pulumi.get(self, "storage_lens_configuration")
+
+    @property
+    @pulumi.getter(name="storageLensConfigurationStorageLensArn")
+    def storage_lens_configuration_storage_lens_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "storage_lens_configuration_storage_lens_arn")
 
     @property
     @pulumi.getter

@@ -21,6 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:Route53Resolver:FirewallDomainList":
+		r = &FirewallDomainList{}
+	case "aws-native:Route53Resolver:FirewallRuleGroup":
+		r = &FirewallRuleGroup{}
+	case "aws-native:Route53Resolver:FirewallRuleGroupAssociation":
+		r = &FirewallRuleGroupAssociation{}
+	case "aws-native:Route53Resolver:ResolverDNSSECConfig":
+		r = &ResolverDNSSECConfig{}
 	case "aws-native:Route53Resolver:ResolverQueryLoggingConfig":
 		r = &ResolverQueryLoggingConfig{}
 	case "aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation":

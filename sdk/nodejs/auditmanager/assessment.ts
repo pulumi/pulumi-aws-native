@@ -46,12 +46,15 @@ export class Assessment extends pulumi.CustomResource {
      */
     public readonly awsAccount!: pulumi.Output<outputs.AuditManager.AssessmentAWSAccount | undefined>;
     public /*out*/ readonly creationTime!: pulumi.Output<number>;
-    public /*out*/ readonly delegations!: pulumi.Output<outputs.AuditManager.AssessmentDelegations>;
+    public /*out*/ readonly delegations!: pulumi.Output<outputs.AuditManager.AssessmentDelegation[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly frameworkId!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
+     */
+    public readonly frameworkId!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
      */
@@ -59,7 +62,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
      */
-    public readonly roles!: pulumi.Output<outputs.AuditManager.AssessmentRoles | undefined>;
+    public readonly roles!: pulumi.Output<outputs.AuditManager.AssessmentRole[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
      */
@@ -71,7 +74,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
      */
-    public readonly tags!: pulumi.Output<outputs.AuditManager.AssessmentTags | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Assessment resource with the given unique name, arguments, and options.
@@ -146,7 +149,7 @@ export interface AssessmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
      */
-    roles?: pulumi.Input<inputs.AuditManager.AssessmentRolesArgs>;
+    roles?: pulumi.Input<pulumi.Input<inputs.AuditManager.AssessmentRoleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
      */
@@ -158,5 +161,5 @@ export interface AssessmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
      */
-    tags?: pulumi.Input<inputs.AuditManager.AssessmentTagsArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

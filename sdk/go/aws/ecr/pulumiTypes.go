@@ -10,6 +10,658 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html
+type ReplicationConfigurationReplicationConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
+	Rules []ReplicationConfigurationReplicationRule `pulumi:"rules"`
+}
+
+// ReplicationConfigurationReplicationConfigurationInput is an input type that accepts ReplicationConfigurationReplicationConfigurationArgs and ReplicationConfigurationReplicationConfigurationOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationInput` via:
+//
+//          ReplicationConfigurationReplicationConfigurationArgs{...}
+type ReplicationConfigurationReplicationConfigurationInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationReplicationConfigurationOutput() ReplicationConfigurationReplicationConfigurationOutput
+	ToReplicationConfigurationReplicationConfigurationOutputWithContext(context.Context) ReplicationConfigurationReplicationConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html
+type ReplicationConfigurationReplicationConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
+	Rules ReplicationConfigurationReplicationRuleArrayInput `pulumi:"rules"`
+}
+
+func (ReplicationConfigurationReplicationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationReplicationConfiguration)(nil)).Elem()
+}
+
+func (i ReplicationConfigurationReplicationConfigurationArgs) ToReplicationConfigurationReplicationConfigurationOutput() ReplicationConfigurationReplicationConfigurationOutput {
+	return i.ToReplicationConfigurationReplicationConfigurationOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationReplicationConfigurationArgs) ToReplicationConfigurationReplicationConfigurationOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationOutput)
+}
+
+func (i ReplicationConfigurationReplicationConfigurationArgs) ToReplicationConfigurationReplicationConfigurationPtrOutput() ReplicationConfigurationReplicationConfigurationPtrOutput {
+	return i.ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationReplicationConfigurationArgs) ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationOutput).ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(ctx)
+}
+
+// ReplicationConfigurationReplicationConfigurationPtrInput is an input type that accepts ReplicationConfigurationReplicationConfigurationArgs, ReplicationConfigurationReplicationConfigurationPtr and ReplicationConfigurationReplicationConfigurationPtrOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationPtrInput` via:
+//
+//          ReplicationConfigurationReplicationConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ReplicationConfigurationReplicationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationReplicationConfigurationPtrOutput() ReplicationConfigurationReplicationConfigurationPtrOutput
+	ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(context.Context) ReplicationConfigurationReplicationConfigurationPtrOutput
+}
+
+type replicationConfigurationReplicationConfigurationPtrType ReplicationConfigurationReplicationConfigurationArgs
+
+func ReplicationConfigurationReplicationConfigurationPtr(v *ReplicationConfigurationReplicationConfigurationArgs) ReplicationConfigurationReplicationConfigurationPtrInput {
+	return (*replicationConfigurationReplicationConfigurationPtrType)(v)
+}
+
+func (*replicationConfigurationReplicationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationReplicationConfiguration)(nil)).Elem()
+}
+
+func (i *replicationConfigurationReplicationConfigurationPtrType) ToReplicationConfigurationReplicationConfigurationPtrOutput() ReplicationConfigurationReplicationConfigurationPtrOutput {
+	return i.ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationConfigurationReplicationConfigurationPtrType) ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html
+type ReplicationConfigurationReplicationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationReplicationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationReplicationConfiguration)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationConfigurationReplicationConfigurationOutput() ReplicationConfigurationReplicationConfigurationOutput {
+	return o
+}
+
+func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationConfigurationReplicationConfigurationOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationOutput {
+	return o
+}
+
+func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationConfigurationReplicationConfigurationPtrOutput() ReplicationConfigurationReplicationConfigurationPtrOutput {
+	return o.ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationReplicationConfiguration) *ReplicationConfigurationReplicationConfiguration {
+		return &v
+	}).(ReplicationConfigurationReplicationConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
+func (o ReplicationConfigurationReplicationConfigurationOutput) Rules() ReplicationConfigurationReplicationRuleArrayOutput {
+	return o.ApplyT(func(v ReplicationConfigurationReplicationConfiguration) []ReplicationConfigurationReplicationRule {
+		return v.Rules
+	}).(ReplicationConfigurationReplicationRuleArrayOutput)
+}
+
+type ReplicationConfigurationReplicationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationReplicationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationReplicationConfiguration)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationReplicationConfigurationPtrOutput) ToReplicationConfigurationReplicationConfigurationPtrOutput() ReplicationConfigurationReplicationConfigurationPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationReplicationConfigurationPtrOutput) ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Elem() ReplicationConfigurationReplicationConfigurationOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfiguration) ReplicationConfigurationReplicationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigurationReplicationConfiguration
+		return ret
+	}).(ReplicationConfigurationReplicationConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
+func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Rules() ReplicationConfigurationReplicationRuleArrayOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfiguration) []ReplicationConfigurationReplicationRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(ReplicationConfigurationReplicationRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html
+type ReplicationConfigurationReplicationDestination struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-region
+	Region string `pulumi:"region"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-registryid
+	RegistryId string `pulumi:"registryId"`
+}
+
+// ReplicationConfigurationReplicationDestinationInput is an input type that accepts ReplicationConfigurationReplicationDestinationArgs and ReplicationConfigurationReplicationDestinationOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationReplicationDestinationInput` via:
+//
+//          ReplicationConfigurationReplicationDestinationArgs{...}
+type ReplicationConfigurationReplicationDestinationInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationReplicationDestinationOutput() ReplicationConfigurationReplicationDestinationOutput
+	ToReplicationConfigurationReplicationDestinationOutputWithContext(context.Context) ReplicationConfigurationReplicationDestinationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html
+type ReplicationConfigurationReplicationDestinationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-region
+	Region pulumi.StringInput `pulumi:"region"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-registryid
+	RegistryId pulumi.StringInput `pulumi:"registryId"`
+}
+
+func (ReplicationConfigurationReplicationDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationReplicationDestination)(nil)).Elem()
+}
+
+func (i ReplicationConfigurationReplicationDestinationArgs) ToReplicationConfigurationReplicationDestinationOutput() ReplicationConfigurationReplicationDestinationOutput {
+	return i.ToReplicationConfigurationReplicationDestinationOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationReplicationDestinationArgs) ToReplicationConfigurationReplicationDestinationOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationDestinationOutput)
+}
+
+// ReplicationConfigurationReplicationDestinationArrayInput is an input type that accepts ReplicationConfigurationReplicationDestinationArray and ReplicationConfigurationReplicationDestinationArrayOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationReplicationDestinationArrayInput` via:
+//
+//          ReplicationConfigurationReplicationDestinationArray{ ReplicationConfigurationReplicationDestinationArgs{...} }
+type ReplicationConfigurationReplicationDestinationArrayInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationReplicationDestinationArrayOutput() ReplicationConfigurationReplicationDestinationArrayOutput
+	ToReplicationConfigurationReplicationDestinationArrayOutputWithContext(context.Context) ReplicationConfigurationReplicationDestinationArrayOutput
+}
+
+type ReplicationConfigurationReplicationDestinationArray []ReplicationConfigurationReplicationDestinationInput
+
+func (ReplicationConfigurationReplicationDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigurationReplicationDestination)(nil)).Elem()
+}
+
+func (i ReplicationConfigurationReplicationDestinationArray) ToReplicationConfigurationReplicationDestinationArrayOutput() ReplicationConfigurationReplicationDestinationArrayOutput {
+	return i.ToReplicationConfigurationReplicationDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationReplicationDestinationArray) ToReplicationConfigurationReplicationDestinationArrayOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationDestinationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html
+type ReplicationConfigurationReplicationDestinationOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationReplicationDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationReplicationDestination)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationReplicationDestinationOutput) ToReplicationConfigurationReplicationDestinationOutput() ReplicationConfigurationReplicationDestinationOutput {
+	return o
+}
+
+func (o ReplicationConfigurationReplicationDestinationOutput) ToReplicationConfigurationReplicationDestinationOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationDestinationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-region
+func (o ReplicationConfigurationReplicationDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationConfigurationReplicationDestination) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-registryid
+func (o ReplicationConfigurationReplicationDestinationOutput) RegistryId() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationConfigurationReplicationDestination) string { return v.RegistryId }).(pulumi.StringOutput)
+}
+
+type ReplicationConfigurationReplicationDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationReplicationDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigurationReplicationDestination)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationReplicationDestinationArrayOutput) ToReplicationConfigurationReplicationDestinationArrayOutput() ReplicationConfigurationReplicationDestinationArrayOutput {
+	return o
+}
+
+func (o ReplicationConfigurationReplicationDestinationArrayOutput) ToReplicationConfigurationReplicationDestinationArrayOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationDestinationArrayOutput {
+	return o
+}
+
+func (o ReplicationConfigurationReplicationDestinationArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationReplicationDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfigurationReplicationDestination {
+		return vs[0].([]ReplicationConfigurationReplicationDestination)[vs[1].(int)]
+	}).(ReplicationConfigurationReplicationDestinationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html
+type ReplicationConfigurationReplicationRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
+	Destinations []ReplicationConfigurationReplicationDestination `pulumi:"destinations"`
+}
+
+// ReplicationConfigurationReplicationRuleInput is an input type that accepts ReplicationConfigurationReplicationRuleArgs and ReplicationConfigurationReplicationRuleOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationReplicationRuleInput` via:
+//
+//          ReplicationConfigurationReplicationRuleArgs{...}
+type ReplicationConfigurationReplicationRuleInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationReplicationRuleOutput() ReplicationConfigurationReplicationRuleOutput
+	ToReplicationConfigurationReplicationRuleOutputWithContext(context.Context) ReplicationConfigurationReplicationRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html
+type ReplicationConfigurationReplicationRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
+	Destinations ReplicationConfigurationReplicationDestinationArrayInput `pulumi:"destinations"`
+}
+
+func (ReplicationConfigurationReplicationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationReplicationRule)(nil)).Elem()
+}
+
+func (i ReplicationConfigurationReplicationRuleArgs) ToReplicationConfigurationReplicationRuleOutput() ReplicationConfigurationReplicationRuleOutput {
+	return i.ToReplicationConfigurationReplicationRuleOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationReplicationRuleArgs) ToReplicationConfigurationReplicationRuleOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationRuleOutput)
+}
+
+// ReplicationConfigurationReplicationRuleArrayInput is an input type that accepts ReplicationConfigurationReplicationRuleArray and ReplicationConfigurationReplicationRuleArrayOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationReplicationRuleArrayInput` via:
+//
+//          ReplicationConfigurationReplicationRuleArray{ ReplicationConfigurationReplicationRuleArgs{...} }
+type ReplicationConfigurationReplicationRuleArrayInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationReplicationRuleArrayOutput() ReplicationConfigurationReplicationRuleArrayOutput
+	ToReplicationConfigurationReplicationRuleArrayOutputWithContext(context.Context) ReplicationConfigurationReplicationRuleArrayOutput
+}
+
+type ReplicationConfigurationReplicationRuleArray []ReplicationConfigurationReplicationRuleInput
+
+func (ReplicationConfigurationReplicationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigurationReplicationRule)(nil)).Elem()
+}
+
+func (i ReplicationConfigurationReplicationRuleArray) ToReplicationConfigurationReplicationRuleArrayOutput() ReplicationConfigurationReplicationRuleArrayOutput {
+	return i.ToReplicationConfigurationReplicationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationReplicationRuleArray) ToReplicationConfigurationReplicationRuleArrayOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html
+type ReplicationConfigurationReplicationRuleOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationReplicationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationReplicationRule)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationReplicationRuleOutput) ToReplicationConfigurationReplicationRuleOutput() ReplicationConfigurationReplicationRuleOutput {
+	return o
+}
+
+func (o ReplicationConfigurationReplicationRuleOutput) ToReplicationConfigurationReplicationRuleOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationRuleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
+func (o ReplicationConfigurationReplicationRuleOutput) Destinations() ReplicationConfigurationReplicationDestinationArrayOutput {
+	return o.ApplyT(func(v ReplicationConfigurationReplicationRule) []ReplicationConfigurationReplicationDestination {
+		return v.Destinations
+	}).(ReplicationConfigurationReplicationDestinationArrayOutput)
+}
+
+type ReplicationConfigurationReplicationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationReplicationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigurationReplicationRule)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationReplicationRuleArrayOutput) ToReplicationConfigurationReplicationRuleArrayOutput() ReplicationConfigurationReplicationRuleArrayOutput {
+	return o
+}
+
+func (o ReplicationConfigurationReplicationRuleArrayOutput) ToReplicationConfigurationReplicationRuleArrayOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationRuleArrayOutput {
+	return o
+}
+
+func (o ReplicationConfigurationReplicationRuleArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationReplicationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfigurationReplicationRule {
+		return vs[0].([]ReplicationConfigurationReplicationRule)[vs[1].(int)]
+	}).(ReplicationConfigurationReplicationRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html
+type RepositoryEncryptionConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-encryptiontype
+	EncryptionType string `pulumi:"encryptionType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-kmskey
+	KmsKey *string `pulumi:"kmsKey"`
+}
+
+// RepositoryEncryptionConfigurationInput is an input type that accepts RepositoryEncryptionConfigurationArgs and RepositoryEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `RepositoryEncryptionConfigurationInput` via:
+//
+//          RepositoryEncryptionConfigurationArgs{...}
+type RepositoryEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToRepositoryEncryptionConfigurationOutput() RepositoryEncryptionConfigurationOutput
+	ToRepositoryEncryptionConfigurationOutputWithContext(context.Context) RepositoryEncryptionConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html
+type RepositoryEncryptionConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-encryptiontype
+	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-kmskey
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+}
+
+func (RepositoryEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RepositoryEncryptionConfigurationArgs) ToRepositoryEncryptionConfigurationOutput() RepositoryEncryptionConfigurationOutput {
+	return i.ToRepositoryEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RepositoryEncryptionConfigurationArgs) ToRepositoryEncryptionConfigurationOutputWithContext(ctx context.Context) RepositoryEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEncryptionConfigurationOutput)
+}
+
+func (i RepositoryEncryptionConfigurationArgs) ToRepositoryEncryptionConfigurationPtrOutput() RepositoryEncryptionConfigurationPtrOutput {
+	return i.ToRepositoryEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryEncryptionConfigurationArgs) ToRepositoryEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RepositoryEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEncryptionConfigurationOutput).ToRepositoryEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// RepositoryEncryptionConfigurationPtrInput is an input type that accepts RepositoryEncryptionConfigurationArgs, RepositoryEncryptionConfigurationPtr and RepositoryEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `RepositoryEncryptionConfigurationPtrInput` via:
+//
+//          RepositoryEncryptionConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositoryEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryEncryptionConfigurationPtrOutput() RepositoryEncryptionConfigurationPtrOutput
+	ToRepositoryEncryptionConfigurationPtrOutputWithContext(context.Context) RepositoryEncryptionConfigurationPtrOutput
+}
+
+type repositoryEncryptionConfigurationPtrType RepositoryEncryptionConfigurationArgs
+
+func RepositoryEncryptionConfigurationPtr(v *RepositoryEncryptionConfigurationArgs) RepositoryEncryptionConfigurationPtrInput {
+	return (*repositoryEncryptionConfigurationPtrType)(v)
+}
+
+func (*repositoryEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *repositoryEncryptionConfigurationPtrType) ToRepositoryEncryptionConfigurationPtrOutput() RepositoryEncryptionConfigurationPtrOutput {
+	return i.ToRepositoryEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryEncryptionConfigurationPtrType) ToRepositoryEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RepositoryEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEncryptionConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html
+type RepositoryEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RepositoryEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigurationOutput() RepositoryEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigurationOutputWithContext(ctx context.Context) RepositoryEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigurationPtrOutput() RepositoryEncryptionConfigurationPtrOutput {
+	return o.ToRepositoryEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RepositoryEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryEncryptionConfiguration) *RepositoryEncryptionConfiguration {
+		return &v
+	}).(RepositoryEncryptionConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-encryptiontype
+func (o RepositoryEncryptionConfigurationOutput) EncryptionType() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryEncryptionConfiguration) string { return v.EncryptionType }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-kmskey
+func (o RepositoryEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+type RepositoryEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RepositoryEncryptionConfigurationPtrOutput) ToRepositoryEncryptionConfigurationPtrOutput() RepositoryEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RepositoryEncryptionConfigurationPtrOutput) ToRepositoryEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RepositoryEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RepositoryEncryptionConfigurationPtrOutput) Elem() RepositoryEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *RepositoryEncryptionConfiguration) RepositoryEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryEncryptionConfiguration
+		return ret
+	}).(RepositoryEncryptionConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-encryptiontype
+func (o RepositoryEncryptionConfigurationPtrOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-kmskey
+func (o RepositoryEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html
+type RepositoryImageScanningConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
+	ScanOnPush *bool `pulumi:"scanOnPush"`
+}
+
+// RepositoryImageScanningConfigurationInput is an input type that accepts RepositoryImageScanningConfigurationArgs and RepositoryImageScanningConfigurationOutput values.
+// You can construct a concrete instance of `RepositoryImageScanningConfigurationInput` via:
+//
+//          RepositoryImageScanningConfigurationArgs{...}
+type RepositoryImageScanningConfigurationInput interface {
+	pulumi.Input
+
+	ToRepositoryImageScanningConfigurationOutput() RepositoryImageScanningConfigurationOutput
+	ToRepositoryImageScanningConfigurationOutputWithContext(context.Context) RepositoryImageScanningConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html
+type RepositoryImageScanningConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
+	ScanOnPush pulumi.BoolPtrInput `pulumi:"scanOnPush"`
+}
+
+func (RepositoryImageScanningConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfigurationOutput() RepositoryImageScanningConfigurationOutput {
+	return i.ToRepositoryImageScanningConfigurationOutputWithContext(context.Background())
+}
+
+func (i RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfigurationOutputWithContext(ctx context.Context) RepositoryImageScanningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryImageScanningConfigurationOutput)
+}
+
+func (i RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfigurationPtrOutput() RepositoryImageScanningConfigurationPtrOutput {
+	return i.ToRepositoryImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfigurationPtrOutputWithContext(ctx context.Context) RepositoryImageScanningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryImageScanningConfigurationOutput).ToRepositoryImageScanningConfigurationPtrOutputWithContext(ctx)
+}
+
+// RepositoryImageScanningConfigurationPtrInput is an input type that accepts RepositoryImageScanningConfigurationArgs, RepositoryImageScanningConfigurationPtr and RepositoryImageScanningConfigurationPtrOutput values.
+// You can construct a concrete instance of `RepositoryImageScanningConfigurationPtrInput` via:
+//
+//          RepositoryImageScanningConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositoryImageScanningConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryImageScanningConfigurationPtrOutput() RepositoryImageScanningConfigurationPtrOutput
+	ToRepositoryImageScanningConfigurationPtrOutputWithContext(context.Context) RepositoryImageScanningConfigurationPtrOutput
+}
+
+type repositoryImageScanningConfigurationPtrType RepositoryImageScanningConfigurationArgs
+
+func RepositoryImageScanningConfigurationPtr(v *RepositoryImageScanningConfigurationArgs) RepositoryImageScanningConfigurationPtrInput {
+	return (*repositoryImageScanningConfigurationPtrType)(v)
+}
+
+func (*repositoryImageScanningConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i *repositoryImageScanningConfigurationPtrType) ToRepositoryImageScanningConfigurationPtrOutput() RepositoryImageScanningConfigurationPtrOutput {
+	return i.ToRepositoryImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryImageScanningConfigurationPtrType) ToRepositoryImageScanningConfigurationPtrOutputWithContext(ctx context.Context) RepositoryImageScanningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryImageScanningConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html
+type RepositoryImageScanningConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RepositoryImageScanningConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningConfigurationOutput() RepositoryImageScanningConfigurationOutput {
+	return o
+}
+
+func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningConfigurationOutputWithContext(ctx context.Context) RepositoryImageScanningConfigurationOutput {
+	return o
+}
+
+func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningConfigurationPtrOutput() RepositoryImageScanningConfigurationPtrOutput {
+	return o.ToRepositoryImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningConfigurationPtrOutputWithContext(ctx context.Context) RepositoryImageScanningConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryImageScanningConfiguration) *RepositoryImageScanningConfiguration {
+		return &v
+	}).(RepositoryImageScanningConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
+func (o RepositoryImageScanningConfigurationOutput) ScanOnPush() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RepositoryImageScanningConfiguration) *bool { return v.ScanOnPush }).(pulumi.BoolPtrOutput)
+}
+
+type RepositoryImageScanningConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryImageScanningConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o RepositoryImageScanningConfigurationPtrOutput) ToRepositoryImageScanningConfigurationPtrOutput() RepositoryImageScanningConfigurationPtrOutput {
+	return o
+}
+
+func (o RepositoryImageScanningConfigurationPtrOutput) ToRepositoryImageScanningConfigurationPtrOutputWithContext(ctx context.Context) RepositoryImageScanningConfigurationPtrOutput {
+	return o
+}
+
+func (o RepositoryImageScanningConfigurationPtrOutput) Elem() RepositoryImageScanningConfigurationOutput {
+	return o.ApplyT(func(v *RepositoryImageScanningConfiguration) RepositoryImageScanningConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryImageScanningConfiguration
+		return ret
+	}).(RepositoryImageScanningConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
+func (o RepositoryImageScanningConfigurationPtrOutput) ScanOnPush() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RepositoryImageScanningConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScanOnPush
+	}).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html
 type RepositoryLifecyclePolicy struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext
@@ -170,6 +822,16 @@ func (o RepositoryLifecyclePolicyPtrOutput) RegistryId() pulumi.StringPtrOutput 
 }
 
 func init() {
+	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationReplicationDestinationOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationReplicationDestinationArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationReplicationRuleOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationReplicationRuleArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryImageScanningConfigurationOutput{})
+	pulumi.RegisterOutputType(RepositoryImageScanningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(RepositoryLifecyclePolicyPtrOutput{})
 }

@@ -39,6 +39,12 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         [Input("s3BucketName")]
         public Input<string>? S3BucketName { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3objectacl
+        /// </summary>
+        [Input("s3ObjectAcl")]
+        public Input<string>? S3ObjectAcl { get; set; }
+
         public CertificateAuthorityCrlConfigurationArgs()
         {
         }

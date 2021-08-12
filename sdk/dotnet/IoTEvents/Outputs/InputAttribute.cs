@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html#cfn-iotevents-input-attribute-jsonpath
         /// </summary>
-        public readonly string? JsonPath;
+        public readonly string JsonPath;
 
         [OutputConstructor]
-        private InputAttribute(string? jsonPath)
+        private InputAttribute(string jsonPath)
         {
             JsonPath = jsonPath;
         }

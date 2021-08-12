@@ -9,8 +9,160 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ReplicationConfigurationReplicationConfigurationArgs',
+    'ReplicationConfigurationReplicationDestinationArgs',
+    'ReplicationConfigurationReplicationRuleArgs',
+    'RepositoryEncryptionConfigurationArgs',
+    'RepositoryImageScanningConfigurationArgs',
     'RepositoryLifecyclePolicyArgs',
 ]
+
+@pulumi.input_type
+class ReplicationConfigurationReplicationConfigurationArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
+        """
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class ReplicationConfigurationReplicationDestinationArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[str],
+                 registry_id: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html
+        :param pulumi.Input[str] region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-region
+        :param pulumi.Input[str] registry_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-registryid
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "registry_id", registry_id)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-region
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="registryId")
+    def registry_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-registryid
+        """
+        return pulumi.get(self, "registry_id")
+
+    @registry_id.setter
+    def registry_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_id", value)
+
+
+@pulumi.input_type
+class ReplicationConfigurationReplicationRuleArgs:
+    def __init__(__self__, *,
+                 destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]] destinations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
+        """
+        pulumi.set(__self__, "destinations", destinations)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]]):
+        pulumi.set(self, "destinations", value)
+
+
+@pulumi.input_type
+class RepositoryEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 encryption_type: pulumi.Input[str],
+                 kms_key: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html
+        :param pulumi.Input[str] encryption_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-encryptiontype
+        :param pulumi.Input[str] kms_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-kmskey
+        """
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-encryptiontype
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "encryption_type", value)
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-kmskey
+        """
+        return pulumi.get(self, "kms_key")
+
+    @kms_key.setter
+    def kms_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key", value)
+
+
+@pulumi.input_type
+class RepositoryImageScanningConfigurationArgs:
+    def __init__(__self__, *,
+                 scan_on_push: Optional[pulumi.Input[bool]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html
+        :param pulumi.Input[bool] scan_on_push: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
+        """
+        if scan_on_push is not None:
+            pulumi.set(__self__, "scan_on_push", scan_on_push)
+
+    @property
+    @pulumi.getter(name="scanOnPush")
+    def scan_on_push(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
+        """
+        return pulumi.get(self, "scan_on_push")
+
+    @scan_on_push.setter
+    def scan_on_push(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scan_on_push", value)
+
 
 @pulumi.input_type
 class RepositoryLifecyclePolicyArgs:

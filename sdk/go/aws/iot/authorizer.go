@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,11 +26,11 @@ type Authorizer struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
-	Tags AuthorizerTagsPtrOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
 	TokenKeyName pulumi.StringPtrOutput `pulumi:"tokenKeyName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
-	TokenSigningPublicKeys AuthorizerTokenSigningPublicKeysPtrOutput `pulumi:"tokenSigningPublicKeys"`
+	TokenSigningPublicKeys pulumi.StringMapOutput `pulumi:"tokenSigningPublicKeys"`
 }
 
 // NewAuthorizer registers a new resource with the given unique name, arguments, and options.
@@ -83,11 +84,11 @@ type authorizerArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
 	Status *string `pulumi:"status"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
-	Tags *AuthorizerTags `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
 	TokenKeyName *string `pulumi:"tokenKeyName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
-	TokenSigningPublicKeys *AuthorizerTokenSigningPublicKeys `pulumi:"tokenSigningPublicKeys"`
+	TokenSigningPublicKeys map[string]string `pulumi:"tokenSigningPublicKeys"`
 }
 
 // The set of arguments for constructing a Authorizer resource.
@@ -101,11 +102,11 @@ type AuthorizerArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
 	Status pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
-	Tags AuthorizerTagsPtrInput
+	Tags aws.TagArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
 	TokenKeyName pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
-	TokenSigningPublicKeys AuthorizerTokenSigningPublicKeysPtrInput
+	TokenSigningPublicKeys pulumi.StringMapInput
 }
 
 func (AuthorizerArgs) ElementType() reflect.Type {

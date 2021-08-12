@@ -15,41 +15,77 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     /// </summary>
     public sealed class RuleGroupMatchAttributesArgs : Pulumi.ResourceArgs
     {
+        [Input("destinationPorts")]
+        private InputList<Inputs.RuleGroupPortRangeArgs>? _destinationPorts;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports
         /// </summary>
-        [Input("destinationPorts")]
-        public Input<Inputs.RuleGroupPortRangesArgs>? DestinationPorts { get; set; }
+        public InputList<Inputs.RuleGroupPortRangeArgs> DestinationPorts
+        {
+            get => _destinationPorts ?? (_destinationPorts = new InputList<Inputs.RuleGroupPortRangeArgs>());
+            set => _destinationPorts = value;
+        }
+
+        [Input("destinations")]
+        private InputList<Inputs.RuleGroupAddressArgs>? _destinations;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations
         /// </summary>
-        [Input("destinations")]
-        public Input<Inputs.RuleGroupAddressesArgs>? Destinations { get; set; }
+        public InputList<Inputs.RuleGroupAddressArgs> Destinations
+        {
+            get => _destinations ?? (_destinations = new InputList<Inputs.RuleGroupAddressArgs>());
+            set => _destinations = value;
+        }
+
+        [Input("protocols")]
+        private InputList<int>? _protocols;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-protocols
         /// </summary>
-        [Input("protocols")]
-        public Input<Inputs.RuleGroupProtocolNumbersArgs>? Protocols { get; set; }
+        public InputList<int> Protocols
+        {
+            get => _protocols ?? (_protocols = new InputList<int>());
+            set => _protocols = value;
+        }
+
+        [Input("sourcePorts")]
+        private InputList<Inputs.RuleGroupPortRangeArgs>? _sourcePorts;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports
         /// </summary>
-        [Input("sourcePorts")]
-        public Input<Inputs.RuleGroupPortRangesArgs>? SourcePorts { get; set; }
+        public InputList<Inputs.RuleGroupPortRangeArgs> SourcePorts
+        {
+            get => _sourcePorts ?? (_sourcePorts = new InputList<Inputs.RuleGroupPortRangeArgs>());
+            set => _sourcePorts = value;
+        }
+
+        [Input("sources")]
+        private InputList<Inputs.RuleGroupAddressArgs>? _sources;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources
         /// </summary>
-        [Input("sources")]
-        public Input<Inputs.RuleGroupAddressesArgs>? Sources { get; set; }
+        public InputList<Inputs.RuleGroupAddressArgs> Sources
+        {
+            get => _sources ?? (_sources = new InputList<Inputs.RuleGroupAddressArgs>());
+            set => _sources = value;
+        }
+
+        [Input("tCPFlags")]
+        private InputList<Inputs.RuleGroupTCPFlagFieldArgs>? _tCPFlags;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-tcpflags
         /// </summary>
-        [Input("tCPFlags")]
-        public Input<Inputs.RuleGroupTCPFlagsArgs>? TCPFlags { get; set; }
+        public InputList<Inputs.RuleGroupTCPFlagFieldArgs> TCPFlags
+        {
+            get => _tCPFlags ?? (_tCPFlags = new InputList<Inputs.RuleGroupTCPFlagFieldArgs>());
+            set => _tCPFlags = value;
+        }
 
         public RuleGroupMatchAttributesArgs()
         {

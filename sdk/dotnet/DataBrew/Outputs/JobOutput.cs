@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// </summary>
         public readonly string? Format;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-formatoptions
+        /// </summary>
+        public readonly Outputs.JobOutputFormatOptions? FormatOptions;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
         /// </summary>
         public readonly Outputs.JobS3Location Location;
@@ -43,6 +47,8 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 
             string? format,
 
+            Outputs.JobOutputFormatOptions? formatOptions,
+
             Outputs.JobS3Location location,
 
             bool? overwrite,
@@ -51,6 +57,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         {
             CompressionFormat = compressionFormat;
             Format = format;
+            FormatOptions = formatOptions;
             Location = location;
             Overwrite = overwrite;
             PartitionColumns = partitionColumns;

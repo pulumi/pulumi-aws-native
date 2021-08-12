@@ -22,6 +22,8 @@ type Cluster struct {
 	ClusterName pulumi.StringPtrOutput `pulumi:"clusterName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
 	ClusterSettings ClusterClusterSettingsArrayOutput `pulumi:"clusterSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-configuration
+	Configuration ClusterClusterConfigurationPtrOutput `pulumi:"configuration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
 	DefaultCapacityProviderStrategy ClusterCapacityProviderStrategyItemArrayOutput `pulumi:"defaultCapacityProviderStrategy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
@@ -73,6 +75,8 @@ type clusterArgs struct {
 	ClusterName *string `pulumi:"clusterName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
 	ClusterSettings []ClusterClusterSettings `pulumi:"clusterSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-configuration
+	Configuration *ClusterClusterConfiguration `pulumi:"configuration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
 	DefaultCapacityProviderStrategy []ClusterCapacityProviderStrategyItem `pulumi:"defaultCapacityProviderStrategy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
@@ -87,6 +91,8 @@ type ClusterArgs struct {
 	ClusterName pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
 	ClusterSettings ClusterClusterSettingsArrayInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-configuration
+	Configuration ClusterClusterConfigurationPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
 	DefaultCapacityProviderStrategy ClusterCapacityProviderStrategyItemArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags

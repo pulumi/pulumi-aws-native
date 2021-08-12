@@ -20,6 +20,7 @@ class WebACLArgs:
                  default_action: pulumi.Input['WebACLDefaultActionArgs'],
                  scope: pulumi.Input[str],
                  visibility_config: pulumi.Input['WebACLVisibilityConfigArgs'],
+                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input['WebACLCustomResponseBodyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleArgs']]]] = None,
@@ -29,6 +30,7 @@ class WebACLArgs:
         :param pulumi.Input['WebACLDefaultActionArgs'] default_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
         :param pulumi.Input[str] scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
         :param pulumi.Input['WebACLVisibilityConfigArgs'] visibility_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
+        :param pulumi.Input[Mapping[str, pulumi.Input['WebACLCustomResponseBodyArgs']]] custom_response_bodies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
         :param pulumi.Input[Sequence[pulumi.Input['WebACLRuleArgs']]] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
@@ -37,6 +39,8 @@ class WebACLArgs:
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "visibility_config", visibility_config)
+        if custom_response_bodies is not None:
+            pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -81,6 +85,18 @@ class WebACLArgs:
     @visibility_config.setter
     def visibility_config(self, value: pulumi.Input['WebACLVisibilityConfigArgs']):
         pulumi.set(self, "visibility_config", value)
+
+    @property
+    @pulumi.getter(name="customResponseBodies")
+    def custom_response_bodies(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['WebACLCustomResponseBodyArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
+        """
+        return pulumi.get(self, "custom_response_bodies")
+
+    @custom_response_bodies.setter
+    def custom_response_bodies(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['WebACLCustomResponseBodyArgs']]]]):
+        pulumi.set(self, "custom_response_bodies", value)
 
     @property
     @pulumi.getter
@@ -136,6 +152,7 @@ class WebACL(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WebACLCustomResponseBodyArgs']]]]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebACLDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -149,6 +166,7 @@ class WebACL(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WebACLCustomResponseBodyArgs']]]] custom_response_bodies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
         :param pulumi.Input[pulumi.InputType['WebACLDefaultActionArgs']] default_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
         :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
@@ -181,6 +199,7 @@ class WebACL(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WebACLCustomResponseBodyArgs']]]]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebACLDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -200,6 +219,7 @@ class WebACL(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebACLArgs.__new__(WebACLArgs)
 
+            __props__.__dict__["custom_response_bodies"] = custom_response_bodies
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action
@@ -216,6 +236,7 @@ class WebACL(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["capacity"] = None
             __props__.__dict__["id"] = None
+            __props__.__dict__["label_namespace"] = None
         super(WebACL, __self__).__init__(
             'aws-native:WAFv2:WebACL',
             resource_name,
@@ -240,9 +261,11 @@ class WebACL(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["capacity"] = None
+        __props__.__dict__["custom_response_bodies"] = None
         __props__.__dict__["default_action"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["id"] = None
+        __props__.__dict__["label_namespace"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rules"] = None
         __props__.__dict__["scope"] = None
@@ -259,6 +282,14 @@ class WebACL(pulumi.CustomResource):
     @pulumi.getter
     def capacity(self) -> pulumi.Output[int]:
         return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter(name="customResponseBodies")
+    def custom_response_bodies(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.WebACLCustomResponseBody']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
+        """
+        return pulumi.get(self, "custom_response_bodies")
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -280,6 +311,11 @@ class WebACL(pulumi.CustomResource):
     @pulumi.getter
     def id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="labelNamespace")
+    def label_namespace(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "label_namespace")
 
     @property
     @pulumi.getter

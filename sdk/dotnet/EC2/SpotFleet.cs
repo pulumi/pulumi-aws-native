@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.EC2
     [AwsNativeResourceType("aws-native:EC2:SpotFleet")]
     public partial class SpotFleet : Pulumi.CustomResource
     {
+        [Output("id")]
+        public Output<string> Id { get; private set; } = null!;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
         /// </summary>

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.MWAA
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
         /// </summary>
         [Output("airflowConfigurationOptions")]
-        public Output<Outputs.EnvironmentAirflowConfigurationOptions?> AirflowConfigurationOptions { get; private set; } = null!;
+        public Output<Union<System.Text.Json.JsonElement, string>?> AirflowConfigurationOptions { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
@@ -29,9 +29,6 @@ namespace Pulumi.AwsNative.MWAA
 
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
-
-        [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
@@ -57,14 +54,26 @@ namespace Pulumi.AwsNative.MWAA
         [Output("kmsKey")]
         public Output<string?> KmsKey { get; private set; } = null!;
 
-        [Output("lastUpdate")]
-        public Output<Outputs.EnvironmentLastUpdate> LastUpdate { get; private set; } = null!;
-
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
         /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.EnvironmentLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
+
+        [Output("loggingConfigurationDagProcessingLogsCloudWatchLogGroupArn")]
+        public Output<string> LoggingConfigurationDagProcessingLogsCloudWatchLogGroupArn { get; private set; } = null!;
+
+        [Output("loggingConfigurationSchedulerLogsCloudWatchLogGroupArn")]
+        public Output<string> LoggingConfigurationSchedulerLogsCloudWatchLogGroupArn { get; private set; } = null!;
+
+        [Output("loggingConfigurationTaskLogsCloudWatchLogGroupArn")]
+        public Output<string> LoggingConfigurationTaskLogsCloudWatchLogGroupArn { get; private set; } = null!;
+
+        [Output("loggingConfigurationWebserverLogsCloudWatchLogGroupArn")]
+        public Output<string> LoggingConfigurationWebserverLogsCloudWatchLogGroupArn { get; private set; } = null!;
+
+        [Output("loggingConfigurationWorkerLogsCloudWatchLogGroupArn")]
+        public Output<string> LoggingConfigurationWorkerLogsCloudWatchLogGroupArn { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
@@ -72,6 +81,15 @@ namespace Pulumi.AwsNative.MWAA
         [Output("maxWorkers")]
         public Output<int?> MaxWorkers { get; private set; } = null!;
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers
+        /// </summary>
+        [Output("minWorkers")]
+        public Output<int?> MinWorkers { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -105,17 +123,17 @@ namespace Pulumi.AwsNative.MWAA
         [Output("requirementsS3Path")]
         public Output<string?> RequirementsS3Path { get; private set; } = null!;
 
-        [Output("serviceRoleArn")]
-        public Output<string> ServiceRoleArn { get; private set; } = null!;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers
+        /// </summary>
+        [Output("schedulers")]
+        public Output<int?> Schedulers { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
         /// </summary>
         [Output("sourceBucketArn")]
         public Output<string?> SourceBucketArn { get; private set; } = null!;
-
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
@@ -129,11 +147,8 @@ namespace Pulumi.AwsNative.MWAA
         [Output("webserverAccessMode")]
         public Output<string?> WebserverAccessMode { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
-        /// </summary>
         [Output("webserverUrl")]
-        public Output<string?> WebserverUrl { get; private set; } = null!;
+        public Output<string> WebserverUrl { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
@@ -149,7 +164,7 @@ namespace Pulumi.AwsNative.MWAA
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Environment(string name, EnvironmentArgs? args = null, CustomResourceOptions? options = null)
+        public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
             : base("aws-native:MWAA:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -190,7 +205,7 @@ namespace Pulumi.AwsNative.MWAA
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
         /// </summary>
         [Input("airflowConfigurationOptions")]
-        public Input<Inputs.EnvironmentAirflowConfigurationOptionsArgs>? AirflowConfigurationOptions { get; set; }
+        public InputUnion<System.Text.Json.JsonElement, string>? AirflowConfigurationOptions { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
@@ -235,6 +250,18 @@ namespace Pulumi.AwsNative.MWAA
         public Input<int>? MaxWorkers { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers
+        /// </summary>
+        [Input("minWorkers")]
+        public Input<int>? MinWorkers { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
         /// </summary>
         [Input("networkConfiguration")]
@@ -265,6 +292,12 @@ namespace Pulumi.AwsNative.MWAA
         public Input<string>? RequirementsS3Path { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers
+        /// </summary>
+        [Input("schedulers")]
+        public Input<int>? Schedulers { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
         /// </summary>
         [Input("sourceBucketArn")]
@@ -281,12 +314,6 @@ namespace Pulumi.AwsNative.MWAA
         /// </summary>
         [Input("webserverAccessMode")]
         public Input<string>? WebserverAccessMode { get; set; }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
-        /// </summary>
-        [Input("webserverUrl")]
-        public Input<string>? WebserverUrl { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart

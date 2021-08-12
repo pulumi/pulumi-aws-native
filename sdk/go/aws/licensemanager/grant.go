@@ -15,44 +15,19 @@ type Grant struct {
 	pulumi.CustomResourceState
 
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
-	AllowedOperations GrantAllowedOperationListPtrOutput `pulumi:"allowedOperations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-clienttoken
-	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-filters
-	Filters  GrantFilterListPtrOutput `pulumi:"filters"`
-	GrantArn pulumi.StringOutput      `pulumi:"grantArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantarns
-	GrantArns GrantArnListPtrOutput `pulumi:"grantArns"`
+	AllowedOperations pulumi.StringArrayOutput `pulumi:"allowedOperations"`
+	GrantArn          pulumi.StringOutput      `pulumi:"grantArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
 	GrantName pulumi.StringPtrOutput `pulumi:"grantName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantstatus
-	GrantStatus pulumi.StringPtrOutput `pulumi:"grantStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantedoperations
-	GrantedOperations GrantAllowedOperationListPtrOutput `pulumi:"grantedOperations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-granteeprincipalarn
-	GranteePrincipalArn pulumi.StringPtrOutput `pulumi:"granteePrincipalArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
 	HomeRegion pulumi.StringPtrOutput `pulumi:"homeRegion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
 	LicenseArn pulumi.StringPtrOutput `pulumi:"licenseArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-maxresults
-	MaxResults pulumi.IntPtrOutput `pulumi:"maxResults"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-nexttoken
-	NextToken pulumi.StringPtrOutput `pulumi:"nextToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-parentarn
-	ParentArn pulumi.StringPtrOutput `pulumi:"parentArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
-	Principals GrantArnListPtrOutput `pulumi:"principals"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-sourceversion
-	SourceVersion pulumi.StringPtrOutput `pulumi:"sourceVersion"`
+	Principals pulumi.StringArrayOutput `pulumi:"principals"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-statusreason
-	StatusReason pulumi.StringPtrOutput `pulumi:"statusReason"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-tags
-	Tags GrantTagListPtrOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-version
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	Status  pulumi.StringPtrOutput `pulumi:"status"`
+	Version pulumi.StringOutput    `pulumi:"version"`
 }
 
 // NewGrant registers a new resource with the given unique name, arguments, and options.
@@ -95,85 +70,33 @@ func (GrantState) ElementType() reflect.Type {
 
 type grantArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
-	AllowedOperations *GrantAllowedOperationList `pulumi:"allowedOperations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-clienttoken
-	ClientToken *string `pulumi:"clientToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-filters
-	Filters *GrantFilterList `pulumi:"filters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantarns
-	GrantArns *GrantArnList `pulumi:"grantArns"`
+	AllowedOperations []string `pulumi:"allowedOperations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
 	GrantName *string `pulumi:"grantName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantstatus
-	GrantStatus *string `pulumi:"grantStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantedoperations
-	GrantedOperations *GrantAllowedOperationList `pulumi:"grantedOperations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-granteeprincipalarn
-	GranteePrincipalArn *string `pulumi:"granteePrincipalArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
 	HomeRegion *string `pulumi:"homeRegion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
 	LicenseArn *string `pulumi:"licenseArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-maxresults
-	MaxResults *int `pulumi:"maxResults"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-nexttoken
-	NextToken *string `pulumi:"nextToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-parentarn
-	ParentArn *string `pulumi:"parentArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
-	Principals *GrantArnList `pulumi:"principals"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-sourceversion
-	SourceVersion *string `pulumi:"sourceVersion"`
+	Principals []string `pulumi:"principals"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
 	Status *string `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-statusreason
-	StatusReason *string `pulumi:"statusReason"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-tags
-	Tags *GrantTagList `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-version
-	Version *string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Grant resource.
 type GrantArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
-	AllowedOperations GrantAllowedOperationListPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-clienttoken
-	ClientToken pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-filters
-	Filters GrantFilterListPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantarns
-	GrantArns GrantArnListPtrInput
+	AllowedOperations pulumi.StringArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
 	GrantName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantstatus
-	GrantStatus pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantedoperations
-	GrantedOperations GrantAllowedOperationListPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-granteeprincipalarn
-	GranteePrincipalArn pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
 	HomeRegion pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
 	LicenseArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-maxresults
-	MaxResults pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-nexttoken
-	NextToken pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-parentarn
-	ParentArn pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
-	Principals GrantArnListPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-sourceversion
-	SourceVersion pulumi.StringPtrInput
+	Principals pulumi.StringArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
 	Status pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-statusreason
-	StatusReason pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-tags
-	Tags GrantTagListPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-version
-	Version pulumi.StringPtrInput
 }
 
 func (GrantArgs) ElementType() reflect.Type {

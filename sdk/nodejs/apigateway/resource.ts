@@ -42,6 +42,7 @@ export class Resource extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
      */
     public readonly pathPart!: pulumi.Output<string>;
+    public /*out*/ readonly resourceId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
      */
@@ -70,9 +71,11 @@ export class Resource extends pulumi.CustomResource {
             inputs["parentId"] = args ? args.parentId : undefined;
             inputs["pathPart"] = args ? args.pathPart : undefined;
             inputs["restApiId"] = args ? args.restApiId : undefined;
+            inputs["resourceId"] = undefined /*out*/;
         } else {
             inputs["parentId"] = undefined /*out*/;
             inputs["pathPart"] = undefined /*out*/;
+            inputs["resourceId"] = undefined /*out*/;
             inputs["restApiId"] = undefined /*out*/;
         }
         if (!opts.version) {

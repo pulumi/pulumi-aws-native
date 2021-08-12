@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html#cfn-networkfirewall-rulegroup-publishmetricaction-dimensions
         /// </summary>
-        public readonly Outputs.RuleGroupDimensions Dimensions;
+        public readonly ImmutableArray<Outputs.RuleGroupDimension> Dimensions;
 
         [OutputConstructor]
-        private RuleGroupPublishMetricAction(Outputs.RuleGroupDimensions dimensions)
+        private RuleGroupPublishMetricAction(ImmutableArray<Outputs.RuleGroupDimension> dimensions)
         {
             Dimensions = dimensions;
         }

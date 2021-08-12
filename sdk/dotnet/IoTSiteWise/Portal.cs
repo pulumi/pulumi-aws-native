@@ -15,8 +15,26 @@ namespace Pulumi.AwsNative.IoTSiteWise
     [AwsNativeResourceType("aws-native:IoTSiteWise:Portal")]
     public partial class Portal : Pulumi.CustomResource
     {
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
+        /// </summary>
+        [Output("alarms")]
+        public Output<Union<System.Text.Json.JsonElement, string>?> Alarms { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
+        /// </summary>
+        [Output("notificationSenderEmail")]
+        public Output<string?> NotificationSenderEmail { get; private set; } = null!;
+
         [Output("portalArn")]
         public Output<string> PortalArn { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
+        /// </summary>
+        [Output("portalAuthMode")]
+        public Output<string?> PortalAuthMode { get; private set; } = null!;
 
         [Output("portalClientId")]
         public Output<string> PortalClientId { get; private set; } = null!;
@@ -44,9 +62,6 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
         [Output("portalStartUrl")]
         public Output<string> PortalStartUrl { get; private set; } = null!;
-
-        [Output("portalStatus")]
-        public Output<Outputs.PortalPortalStatus> PortalStatus { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
@@ -105,6 +120,24 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
     public sealed class PortalArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
+        /// </summary>
+        [Input("alarms")]
+        public InputUnion<System.Text.Json.JsonElement, string>? Alarms { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
+        /// </summary>
+        [Input("notificationSenderEmail")]
+        public Input<string>? NotificationSenderEmail { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
+        /// </summary>
+        [Input("portalAuthMode")]
+        public Input<string>? PortalAuthMode { get; set; }
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
         /// </summary>
