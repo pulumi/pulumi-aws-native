@@ -60,7 +60,7 @@ export class GameServerGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
      */
-    public readonly instanceDefinitions!: pulumi.Output<outputs.GameLift.GameServerGroupInstanceDefinitions>;
+    public readonly instanceDefinitions!: pulumi.Output<outputs.GameLift.GameServerGroupInstanceDefinition[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
      */
@@ -80,11 +80,11 @@ export class GameServerGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
      */
-    public readonly tags!: pulumi.Output<outputs.GameLift.GameServerGroupTags | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
      */
-    public readonly vpcSubnets!: pulumi.Output<outputs.GameLift.GameServerGroupVpcSubnets | undefined>;
+    public readonly vpcSubnets!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a GameServerGroup resource with the given unique name, arguments, and options.
@@ -173,7 +173,7 @@ export interface GameServerGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
      */
-    instanceDefinitions: pulumi.Input<inputs.GameLift.GameServerGroupInstanceDefinitionsArgs>;
+    instanceDefinitions: pulumi.Input<pulumi.Input<inputs.GameLift.GameServerGroupInstanceDefinitionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
      */
@@ -193,9 +193,9 @@ export interface GameServerGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
      */
-    tags?: pulumi.Input<inputs.GameLift.GameServerGroupTagsArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
      */
-    vpcSubnets?: pulumi.Input<inputs.GameLift.GameServerGroupVpcSubnetsArgs>;
+    vpcSubnets?: pulumi.Input<pulumi.Input<string>[]>;
 }

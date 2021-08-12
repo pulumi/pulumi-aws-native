@@ -40,11 +40,18 @@ export class Channel extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly hlsIngest!: pulumi.Output<outputs.MediaPackage.ChannelHlsIngest>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+     */
+    public readonly egressAccessLogs!: pulumi.Output<outputs.MediaPackage.ChannelLogConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
      */
     public readonly id!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+     */
+    public readonly ingressAccessLogs!: pulumi.Output<outputs.MediaPackage.ChannelLogConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
      */
@@ -65,15 +72,17 @@ export class Channel extends pulumi.CustomResource {
                 throw new Error("Missing required property 'id'");
             }
             inputs["description"] = args ? args.description : undefined;
+            inputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ingressAccessLogs"] = args ? args.ingressAccessLogs : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["hlsIngest"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
-            inputs["hlsIngest"] = undefined /*out*/;
+            inputs["egressAccessLogs"] = undefined /*out*/;
             inputs["id"] = undefined /*out*/;
+            inputs["ingressAccessLogs"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -92,9 +101,17 @@ export interface ChannelArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+     */
+    egressAccessLogs?: pulumi.Input<inputs.MediaPackage.ChannelLogConfigurationArgs>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
      */
     id: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+     */
+    ingressAccessLogs?: pulumi.Input<inputs.MediaPackage.ChannelLogConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
      */

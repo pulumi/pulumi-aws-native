@@ -44,6 +44,10 @@ export class StackSet extends pulumi.CustomResource {
      */
     public readonly autoDeployment!: pulumi.Output<outputs.CloudFormation.StackSetAutoDeployment | undefined>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+     */
+    public readonly callAs!: pulumi.Output<string | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
      */
     public readonly capabilities!: pulumi.Output<string[] | undefined>;
@@ -108,6 +112,7 @@ export class StackSet extends pulumi.CustomResource {
             }
             inputs["administrationRoleARN"] = args ? args.administrationRoleARN : undefined;
             inputs["autoDeployment"] = args ? args.autoDeployment : undefined;
+            inputs["callAs"] = args ? args.callAs : undefined;
             inputs["capabilities"] = args ? args.capabilities : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["executionRoleName"] = args ? args.executionRoleName : undefined;
@@ -123,6 +128,7 @@ export class StackSet extends pulumi.CustomResource {
         } else {
             inputs["administrationRoleARN"] = undefined /*out*/;
             inputs["autoDeployment"] = undefined /*out*/;
+            inputs["callAs"] = undefined /*out*/;
             inputs["capabilities"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["executionRoleName"] = undefined /*out*/;
@@ -155,6 +161,10 @@ export interface StackSetArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
      */
     autoDeployment?: pulumi.Input<inputs.CloudFormation.StackSetAutoDeploymentArgs>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+     */
+    callAs?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
      */

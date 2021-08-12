@@ -49,6 +49,10 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly automationTargetParameterName!: pulumi.Output<string | undefined>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
+     */
+    public readonly calendarNames!: pulumi.Output<string[] | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
      */
     public readonly complianceSeverity!: pulumi.Output<string | undefined>;
@@ -79,7 +83,7 @@ export class Association extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.SSM.AssociationParameterValues} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: any | string} | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
      */
@@ -114,6 +118,7 @@ export class Association extends pulumi.CustomResource {
             inputs["applyOnlyAtCronInterval"] = args ? args.applyOnlyAtCronInterval : undefined;
             inputs["associationName"] = args ? args.associationName : undefined;
             inputs["automationTargetParameterName"] = args ? args.automationTargetParameterName : undefined;
+            inputs["calendarNames"] = args ? args.calendarNames : undefined;
             inputs["complianceSeverity"] = args ? args.complianceSeverity : undefined;
             inputs["documentVersion"] = args ? args.documentVersion : undefined;
             inputs["instanceId"] = args ? args.instanceId : undefined;
@@ -132,6 +137,7 @@ export class Association extends pulumi.CustomResource {
             inputs["associationId"] = undefined /*out*/;
             inputs["associationName"] = undefined /*out*/;
             inputs["automationTargetParameterName"] = undefined /*out*/;
+            inputs["calendarNames"] = undefined /*out*/;
             inputs["complianceSeverity"] = undefined /*out*/;
             inputs["documentVersion"] = undefined /*out*/;
             inputs["instanceId"] = undefined /*out*/;
@@ -169,6 +175,10 @@ export interface AssociationArgs {
      */
     automationTargetParameterName?: pulumi.Input<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
+     */
+    calendarNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
      */
     complianceSeverity?: pulumi.Input<string>;
@@ -199,7 +209,7 @@ export interface AssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.SSM.AssociationParameterValuesArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<any | string>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
      */

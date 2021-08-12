@@ -5,17 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./apiDestination";
 export * from "./archive";
+export * from "./connection";
 
 // Import resources to register:
+import { ApiDestination } from "./apiDestination";
 import { Archive } from "./archive";
+import { Connection } from "./connection";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:Events:ApiDestination":
+                return new ApiDestination(name, <any>undefined, { urn })
             case "aws-native:Events:Archive":
                 return new Archive(name, <any>undefined, { urn })
+            case "aws-native:Events:Connection":
+                return new Connection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

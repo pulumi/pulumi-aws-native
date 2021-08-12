@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./cachePolicy";
 export * from "./cloudFrontOriginAccessIdentity";
 export * from "./distribution";
+export * from "./function";
 export * from "./keyGroup";
 export * from "./originRequestPolicy";
 export * from "./publicKey";
@@ -17,6 +18,7 @@ export * from "./realtimeLogConfig";
 import { CachePolicy } from "./cachePolicy";
 import { CloudFrontOriginAccessIdentity } from "./cloudFrontOriginAccessIdentity";
 import { Distribution } from "./distribution";
+import { Function } from "./function";
 import { KeyGroup } from "./keyGroup";
 import { OriginRequestPolicy } from "./originRequestPolicy";
 import { PublicKey } from "./publicKey";
@@ -32,6 +34,8 @@ const _module = {
                 return new CloudFrontOriginAccessIdentity(name, <any>undefined, { urn })
             case "aws-native:CloudFront:Distribution":
                 return new Distribution(name, <any>undefined, { urn })
+            case "aws-native:CloudFront:Function":
+                return new Function(name, <any>undefined, { urn })
             case "aws-native:CloudFront:KeyGroup":
                 return new KeyGroup(name, <any>undefined, { urn })
             case "aws-native:CloudFront:OriginRequestPolicy":

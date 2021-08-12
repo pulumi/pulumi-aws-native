@@ -41,7 +41,6 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
      */
     public readonly endpointDetails!: pulumi.Output<outputs.GroundStation.DataflowEndpointGroupEndpointDetails[]>;
     public /*out*/ readonly id!: pulumi.Output<string>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
      */
@@ -65,12 +64,10 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["id"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["endpointDetails"] = undefined /*out*/;
             inputs["id"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {

@@ -44,7 +44,6 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
      */
     public readonly notificationArns!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
      */
@@ -112,14 +111,12 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
             inputs["provisioningPreferences"] = args ? args.provisioningPreferences : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["cloudformationStackArn"] = undefined /*out*/;
-            inputs["outputs"] = undefined /*out*/;
             inputs["provisionedProductId"] = undefined /*out*/;
             inputs["recordId"] = undefined /*out*/;
         } else {
             inputs["acceptLanguage"] = undefined /*out*/;
             inputs["cloudformationStackArn"] = undefined /*out*/;
             inputs["notificationArns"] = undefined /*out*/;
-            inputs["outputs"] = undefined /*out*/;
             inputs["pathId"] = undefined /*out*/;
             inputs["pathName"] = undefined /*out*/;
             inputs["productId"] = undefined /*out*/;

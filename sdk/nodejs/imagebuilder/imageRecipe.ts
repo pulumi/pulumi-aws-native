@@ -35,6 +35,10 @@ export class ImageRecipe extends pulumi.CustomResource {
         return obj['__pulumiType'] === ImageRecipe.__pulumiType;
     }
 
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+     */
+    public readonly additionalInstanceConfiguration!: pulumi.Output<outputs.ImageBuilder.ImageRecipeAdditionalInstanceConfiguration | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
@@ -48,9 +52,6 @@ export class ImageRecipe extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
@@ -92,6 +93,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
+            inputs["additionalInstanceConfiguration"] = args ? args.additionalInstanceConfiguration : undefined;
             inputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
             inputs["components"] = args ? args.components : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -102,6 +104,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             inputs["workingDirectory"] = args ? args.workingDirectory : undefined;
             inputs["arn"] = undefined /*out*/;
         } else {
+            inputs["additionalInstanceConfiguration"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["blockDeviceMappings"] = undefined /*out*/;
             inputs["components"] = undefined /*out*/;
@@ -123,6 +126,10 @@ export class ImageRecipe extends pulumi.CustomResource {
  * The set of arguments for constructing a ImageRecipe resource.
  */
 export interface ImageRecipeArgs {
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+     */
+    additionalInstanceConfiguration?: pulumi.Input<inputs.ImageBuilder.ImageRecipeAdditionalInstanceConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
      */

@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./configurationSet";
+export * from "./contactList";
 
 // Import resources to register:
 import { ConfigurationSet } from "./configurationSet";
+import { ContactList } from "./contactList";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,6 +18,8 @@ const _module = {
         switch (type) {
             case "aws-native:SES:ConfigurationSet":
                 return new ConfigurationSet(name, <any>undefined, { urn })
+            case "aws-native:SES:ContactList":
+                return new ContactList(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

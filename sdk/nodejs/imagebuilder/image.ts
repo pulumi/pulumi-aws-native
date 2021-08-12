@@ -37,6 +37,10 @@ export class Image extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
+     */
+    public readonly containerRecipeArn!: pulumi.Output<string | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
      */
     public readonly distributionConfigurationArn!: pulumi.Output<string | undefined>;
@@ -48,7 +52,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
      */
-    public readonly imageRecipeArn!: pulumi.Output<string>;
+    public readonly imageRecipeArn!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
      */
@@ -74,12 +78,10 @@ export class Image extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.imageRecipeArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'imageRecipeArn'");
-            }
             if ((!args || args.infrastructureConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'infrastructureConfigurationArn'");
             }
+            inputs["containerRecipeArn"] = args ? args.containerRecipeArn : undefined;
             inputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
             inputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
             inputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
@@ -91,6 +93,7 @@ export class Image extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
+            inputs["containerRecipeArn"] = undefined /*out*/;
             inputs["distributionConfigurationArn"] = undefined /*out*/;
             inputs["enhancedImageMetadataEnabled"] = undefined /*out*/;
             inputs["imageId"] = undefined /*out*/;
@@ -112,6 +115,10 @@ export class Image extends pulumi.CustomResource {
  */
 export interface ImageArgs {
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
+     */
+    containerRecipeArn?: pulumi.Input<string>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
      */
     distributionConfigurationArn?: pulumi.Input<string>;
@@ -122,7 +129,7 @@ export interface ImageArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
      */
-    imageRecipeArn: pulumi.Input<string>;
+    imageRecipeArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
      */

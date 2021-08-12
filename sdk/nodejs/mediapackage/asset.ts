@@ -37,10 +37,7 @@ export class Asset extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
-     */
-    public readonly egressEndpoints!: pulumi.Output<outputs.MediaPackage.AssetEgressEndpoint[] | undefined>;
+    public /*out*/ readonly egressEndpoints!: pulumi.Output<outputs.MediaPackage.AssetEgressEndpoint[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
      */
@@ -89,7 +86,6 @@ export class Asset extends pulumi.CustomResource {
             if ((!args || args.sourceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceRoleArn'");
             }
-            inputs["egressEndpoints"] = args ? args.egressEndpoints : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
@@ -98,6 +94,7 @@ export class Asset extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
+            inputs["egressEndpoints"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
@@ -120,10 +117,6 @@ export class Asset extends pulumi.CustomResource {
  * The set of arguments for constructing a Asset resource.
  */
 export interface AssetArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
-     */
-    egressEndpoints?: pulumi.Input<pulumi.Input<inputs.MediaPackage.AssetEgressEndpointArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
      */

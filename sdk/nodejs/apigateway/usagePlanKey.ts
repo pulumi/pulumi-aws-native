@@ -34,6 +34,7 @@ export class UsagePlanKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === UsagePlanKey.__pulumiType;
     }
 
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
      */
@@ -70,7 +71,9 @@ export class UsagePlanKey extends pulumi.CustomResource {
             inputs["keyId"] = args ? args.keyId : undefined;
             inputs["keyType"] = args ? args.keyType : undefined;
             inputs["usagePlanId"] = args ? args.usagePlanId : undefined;
+            inputs["id"] = undefined /*out*/;
         } else {
+            inputs["id"] = undefined /*out*/;
             inputs["keyId"] = undefined /*out*/;
             inputs["keyType"] = undefined /*out*/;
             inputs["usagePlanId"] = undefined /*out*/;

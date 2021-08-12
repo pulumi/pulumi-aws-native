@@ -38,7 +38,7 @@ export class DetectorModel extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition
      */
-    public readonly detectorModelDefinition!: pulumi.Output<outputs.IoTEvents.DetectorModelDetectorModelDefinition | undefined>;
+    public readonly detectorModelDefinition!: pulumi.Output<outputs.IoTEvents.DetectorModelDetectorModelDefinition>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription
      */
@@ -58,7 +58,7 @@ export class DetectorModel extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-tags
      */
@@ -71,10 +71,16 @@ export class DetectorModel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DetectorModelArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DetectorModelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.detectorModelDefinition === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'detectorModelDefinition'");
+            }
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'roleArn'");
+            }
             inputs["detectorModelDefinition"] = args ? args.detectorModelDefinition : undefined;
             inputs["detectorModelDescription"] = args ? args.detectorModelDescription : undefined;
             inputs["detectorModelName"] = args ? args.detectorModelName : undefined;
@@ -105,7 +111,7 @@ export interface DetectorModelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition
      */
-    detectorModelDefinition?: pulumi.Input<inputs.IoTEvents.DetectorModelDetectorModelDefinitionArgs>;
+    detectorModelDefinition: pulumi.Input<inputs.IoTEvents.DetectorModelDetectorModelDefinitionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription
      */
@@ -125,7 +131,7 @@ export interface DetectorModelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-rolearn
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-tags
      */

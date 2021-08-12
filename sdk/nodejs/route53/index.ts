@@ -5,21 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./dnssec";
 export * from "./healthCheck";
 export * from "./hostedZone";
+export * from "./keySigningKey";
 
 // Import resources to register:
+import { DNSSEC } from "./dnssec";
 import { HealthCheck } from "./healthCheck";
 import { HostedZone } from "./hostedZone";
+import { KeySigningKey } from "./keySigningKey";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:Route53:DNSSEC":
+                return new DNSSEC(name, <any>undefined, { urn })
             case "aws-native:Route53:HealthCheck":
                 return new HealthCheck(name, <any>undefined, { urn })
             case "aws-native:Route53:HostedZone":
                 return new HostedZone(name, <any>undefined, { urn })
+            case "aws-native:Route53:KeySigningKey":
+                return new KeySigningKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

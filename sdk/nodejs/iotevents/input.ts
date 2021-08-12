@@ -38,7 +38,7 @@ export class Input extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
      */
-    public readonly inputDefinition!: pulumi.Output<outputs.IoTEvents.InputInputDefinition | undefined>;
+    public readonly inputDefinition!: pulumi.Output<outputs.IoTEvents.InputInputDefinition>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription
      */
@@ -59,10 +59,13 @@ export class Input extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: InputArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: InputArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.inputDefinition === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'inputDefinition'");
+            }
             inputs["inputDefinition"] = args ? args.inputDefinition : undefined;
             inputs["inputDescription"] = args ? args.inputDescription : undefined;
             inputs["inputName"] = args ? args.inputName : undefined;
@@ -87,7 +90,7 @@ export interface InputArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
      */
-    inputDefinition?: pulumi.Input<inputs.IoTEvents.InputInputDefinitionArgs>;
+    inputDefinition: pulumi.Input<inputs.IoTEvents.InputInputDefinitionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription
      */

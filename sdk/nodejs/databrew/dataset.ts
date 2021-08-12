@@ -36,17 +36,25 @@ export class Dataset extends pulumi.CustomResource {
     }
 
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-format
+     */
+    public readonly format!: pulumi.Output<string | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
      */
-    public readonly formatOptions!: pulumi.Output<any | string | undefined>;
+    public readonly formatOptions!: pulumi.Output<outputs.DataBrew.DatasetFormatOptions | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
      */
-    public readonly input!: pulumi.Output<any | string>;
+    public readonly input!: pulumi.Output<outputs.DataBrew.DatasetInput>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
+     */
+    public readonly pathOptions!: pulumi.Output<outputs.DataBrew.DatasetPathOptions | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
      */
@@ -69,14 +77,18 @@ export class Dataset extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            inputs["format"] = args ? args.format : undefined;
             inputs["formatOptions"] = args ? args.formatOptions : undefined;
             inputs["input"] = args ? args.input : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["pathOptions"] = args ? args.pathOptions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         } else {
+            inputs["format"] = undefined /*out*/;
             inputs["formatOptions"] = undefined /*out*/;
             inputs["input"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["pathOptions"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -91,17 +103,25 @@ export class Dataset extends pulumi.CustomResource {
  */
 export interface DatasetArgs {
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-format
+     */
+    format?: pulumi.Input<string>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
      */
-    formatOptions?: pulumi.Input<any | string>;
+    formatOptions?: pulumi.Input<inputs.DataBrew.DatasetFormatOptionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
      */
-    input: pulumi.Input<any | string>;
+    input: pulumi.Input<inputs.DataBrew.DatasetInputArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
      */
     name: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
+     */
+    pathOptions?: pulumi.Input<inputs.DataBrew.DatasetPathOptionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
      */

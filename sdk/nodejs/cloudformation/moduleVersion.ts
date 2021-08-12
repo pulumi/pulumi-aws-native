@@ -45,7 +45,7 @@ export class ModuleVersion extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
      */
-    public readonly modulePackage!: pulumi.Output<string | undefined>;
+    public readonly modulePackage!: pulumi.Output<string>;
     public /*out*/ readonly schema!: pulumi.Output<string>;
     public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     public /*out*/ readonly versionId!: pulumi.Output<string>;
@@ -64,6 +64,9 @@ export class ModuleVersion extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.moduleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'moduleName'");
+            }
+            if ((!args || args.modulePackage === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'modulePackage'");
             }
             inputs["moduleName"] = args ? args.moduleName : undefined;
             inputs["modulePackage"] = args ? args.modulePackage : undefined;
@@ -105,5 +108,5 @@ export interface ModuleVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
      */
-    modulePackage?: pulumi.Input<string>;
+    modulePackage: pulumi.Input<string>;
 }

@@ -52,10 +52,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.EC2.NetworkInsightsAnalysisPathComponent[]>;
     public /*out*/ readonly startDate!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
-     */
-    public readonly statusMessage!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
      */
@@ -77,7 +74,6 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             }
             inputs["filterInArns"] = args ? args.filterInArns : undefined;
             inputs["networkInsightsPathId"] = args ? args.networkInsightsPathId : undefined;
-            inputs["statusMessage"] = args ? args.statusMessage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["alternatePathHints"] = undefined /*out*/;
             inputs["explanations"] = undefined /*out*/;
@@ -88,6 +84,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             inputs["returnPathComponents"] = undefined /*out*/;
             inputs["startDate"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["statusMessage"] = undefined /*out*/;
         } else {
             inputs["alternatePathHints"] = undefined /*out*/;
             inputs["explanations"] = undefined /*out*/;
@@ -122,10 +119,6 @@ export interface NetworkInsightsAnalysisArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
      */
     networkInsightsPathId: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
-     */
-    statusMessage?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
      */

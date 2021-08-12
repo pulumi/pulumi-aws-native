@@ -39,10 +39,11 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-accountaggregationsources
      */
     public readonly accountAggregationSources!: pulumi.Output<outputs.Configuration.ConfigurationAggregatorAccountAggregationSource[] | undefined>;
+    public /*out*/ readonly configurationAggregatorArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
      */
-    public readonly configurationAggregatorName!: pulumi.Output<string>;
+    public readonly configurationAggregatorName!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
      */
@@ -59,19 +60,18 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConfigurationAggregatorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ConfigurationAggregatorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationAggregatorName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'configurationAggregatorName'");
-            }
             inputs["accountAggregationSources"] = args ? args.accountAggregationSources : undefined;
             inputs["configurationAggregatorName"] = args ? args.configurationAggregatorName : undefined;
             inputs["organizationAggregationSource"] = args ? args.organizationAggregationSource : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["configurationAggregatorArn"] = undefined /*out*/;
         } else {
             inputs["accountAggregationSources"] = undefined /*out*/;
+            inputs["configurationAggregatorArn"] = undefined /*out*/;
             inputs["configurationAggregatorName"] = undefined /*out*/;
             inputs["organizationAggregationSource"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -94,7 +94,7 @@ export interface ConfigurationAggregatorArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
      */
-    configurationAggregatorName: pulumi.Input<string>;
+    configurationAggregatorName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
      */

@@ -37,9 +37,13 @@ export class Repository extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
+     */
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.ECR.RepositoryEncryptionConfiguration | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
      */
-    public readonly imageScanningConfiguration!: pulumi.Output<any | string | undefined>;
+    public readonly imageScanningConfiguration!: pulumi.Output<outputs.ECR.RepositoryImageScanningConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
      */
@@ -55,7 +59,8 @@ export class Repository extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
      */
-    public readonly repositoryPolicyText!: pulumi.Output<any | undefined>;
+    public readonly repositoryPolicyText!: pulumi.Output<any | string | undefined>;
+    public /*out*/ readonly repositoryUri!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
      */
@@ -72,6 +77,7 @@ export class Repository extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            inputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             inputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
             inputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
             inputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
@@ -79,13 +85,16 @@ export class Repository extends pulumi.CustomResource {
             inputs["repositoryPolicyText"] = args ? args.repositoryPolicyText : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["repositoryUri"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
+            inputs["encryptionConfiguration"] = undefined /*out*/;
             inputs["imageScanningConfiguration"] = undefined /*out*/;
             inputs["imageTagMutability"] = undefined /*out*/;
             inputs["lifecyclePolicy"] = undefined /*out*/;
             inputs["repositoryName"] = undefined /*out*/;
             inputs["repositoryPolicyText"] = undefined /*out*/;
+            inputs["repositoryUri"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -100,9 +109,13 @@ export class Repository extends pulumi.CustomResource {
  */
 export interface RepositoryArgs {
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.ECR.RepositoryEncryptionConfigurationArgs>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
      */
-    imageScanningConfiguration?: pulumi.Input<any | string>;
+    imageScanningConfiguration?: pulumi.Input<inputs.ECR.RepositoryImageScanningConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
      */
@@ -118,7 +131,7 @@ export interface RepositoryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
      */
-    repositoryPolicyText?: any;
+    repositoryPolicyText?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
      */

@@ -39,7 +39,7 @@ export class Config extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
      */
-    public readonly configData!: pulumi.Output<any | string>;
+    public readonly configData!: pulumi.Output<outputs.GroundStation.ConfigConfigData>;
     public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
@@ -96,7 +96,7 @@ export interface ConfigArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
      */
-    configData: pulumi.Input<any | string>;
+    configData: pulumi.Input<inputs.GroundStation.ConfigConfigDataArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
      */

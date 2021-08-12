@@ -44,7 +44,7 @@ export class BackupPlan extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
      */
-    public readonly backupPlanTags!: pulumi.Output<any | string | undefined>;
+    public readonly backupPlanTags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly versionId!: pulumi.Output<string>;
 
     /**
@@ -91,5 +91,5 @@ export interface BackupPlanArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
      */
-    backupPlanTags?: pulumi.Input<any | string>;
+    backupPlanTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -40,21 +40,13 @@ export class License extends pulumi.CustomResource {
      */
     public readonly beneficiary!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-clienttoken
-     */
-    public readonly clientToken!: pulumi.Output<string | undefined>;
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
      */
     public readonly consumptionConfiguration!: pulumi.Output<outputs.LicenseManager.LicenseConsumptionConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
      */
-    public readonly entitlements!: pulumi.Output<outputs.LicenseManager.LicenseEntitlementList>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-filters
-     */
-    public readonly filters!: pulumi.Output<outputs.LicenseManager.LicenseFilterList | undefined>;
+    public readonly entitlements!: pulumi.Output<outputs.LicenseManager.LicenseEntitlement[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
      */
@@ -65,53 +57,30 @@ export class License extends pulumi.CustomResource {
     public readonly issuer!: pulumi.Output<outputs.LicenseManager.LicenseIssuerData>;
     public /*out*/ readonly licenseArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensearns
-     */
-    public readonly licenseArns!: pulumi.Output<outputs.LicenseManager.LicenseArnList | undefined>;
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
      */
-    public readonly licenseMetadata!: pulumi.Output<outputs.LicenseManager.LicenseMetadataList | undefined>;
+    public readonly licenseMetadata!: pulumi.Output<outputs.LicenseManager.LicenseMetadata[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
      */
-    public readonly licenseName!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-maxresults
-     */
-    public readonly maxResults!: pulumi.Output<number | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-nexttoken
-     */
-    public readonly nextToken!: pulumi.Output<string | undefined>;
+    public readonly licenseName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
      */
-    public readonly productName!: pulumi.Output<string | undefined>;
+    public readonly productName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
      */
     public readonly productSKU!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-sourceversion
-     */
-    public readonly sourceVersion!: pulumi.Output<string | undefined>;
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.LicenseManager.LicenseTagList | undefined>;
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
      */
     public readonly validity!: pulumi.Output<outputs.LicenseManager.LicenseValidityDateFormat>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-version
-     */
-    public readonly version!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a License resource with the given unique name, arguments, and options.
@@ -136,48 +105,40 @@ export class License extends pulumi.CustomResource {
             if ((!args || args.issuer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'issuer'");
             }
+            if ((!args || args.licenseName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'licenseName'");
+            }
+            if ((!args || args.productName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'productName'");
+            }
             if ((!args || args.validity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'validity'");
             }
             inputs["beneficiary"] = args ? args.beneficiary : undefined;
-            inputs["clientToken"] = args ? args.clientToken : undefined;
             inputs["consumptionConfiguration"] = args ? args.consumptionConfiguration : undefined;
             inputs["entitlements"] = args ? args.entitlements : undefined;
-            inputs["filters"] = args ? args.filters : undefined;
             inputs["homeRegion"] = args ? args.homeRegion : undefined;
             inputs["issuer"] = args ? args.issuer : undefined;
-            inputs["licenseArns"] = args ? args.licenseArns : undefined;
             inputs["licenseMetadata"] = args ? args.licenseMetadata : undefined;
             inputs["licenseName"] = args ? args.licenseName : undefined;
-            inputs["maxResults"] = args ? args.maxResults : undefined;
-            inputs["nextToken"] = args ? args.nextToken : undefined;
             inputs["productName"] = args ? args.productName : undefined;
             inputs["productSKU"] = args ? args.productSKU : undefined;
-            inputs["sourceVersion"] = args ? args.sourceVersion : undefined;
             inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
             inputs["validity"] = args ? args.validity : undefined;
-            inputs["version"] = args ? args.version : undefined;
             inputs["licenseArn"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         } else {
             inputs["beneficiary"] = undefined /*out*/;
-            inputs["clientToken"] = undefined /*out*/;
             inputs["consumptionConfiguration"] = undefined /*out*/;
             inputs["entitlements"] = undefined /*out*/;
-            inputs["filters"] = undefined /*out*/;
             inputs["homeRegion"] = undefined /*out*/;
             inputs["issuer"] = undefined /*out*/;
             inputs["licenseArn"] = undefined /*out*/;
-            inputs["licenseArns"] = undefined /*out*/;
             inputs["licenseMetadata"] = undefined /*out*/;
             inputs["licenseName"] = undefined /*out*/;
-            inputs["maxResults"] = undefined /*out*/;
-            inputs["nextToken"] = undefined /*out*/;
             inputs["productName"] = undefined /*out*/;
             inputs["productSKU"] = undefined /*out*/;
-            inputs["sourceVersion"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
             inputs["validity"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
@@ -197,21 +158,13 @@ export interface LicenseArgs {
      */
     beneficiary?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-clienttoken
-     */
-    clientToken?: pulumi.Input<string>;
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
      */
     consumptionConfiguration: pulumi.Input<inputs.LicenseManager.LicenseConsumptionConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
      */
-    entitlements: pulumi.Input<inputs.LicenseManager.LicenseEntitlementListArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-filters
-     */
-    filters?: pulumi.Input<inputs.LicenseManager.LicenseFilterListArgs>;
+    entitlements: pulumi.Input<pulumi.Input<inputs.LicenseManager.LicenseEntitlementArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
      */
@@ -221,51 +174,27 @@ export interface LicenseArgs {
      */
     issuer: pulumi.Input<inputs.LicenseManager.LicenseIssuerDataArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensearns
-     */
-    licenseArns?: pulumi.Input<inputs.LicenseManager.LicenseArnListArgs>;
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
      */
-    licenseMetadata?: pulumi.Input<inputs.LicenseManager.LicenseMetadataListArgs>;
+    licenseMetadata?: pulumi.Input<pulumi.Input<inputs.LicenseManager.LicenseMetadataArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
      */
-    licenseName?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-maxresults
-     */
-    maxResults?: pulumi.Input<number>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-nexttoken
-     */
-    nextToken?: pulumi.Input<string>;
+    licenseName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
      */
-    productName?: pulumi.Input<string>;
+    productName: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
      */
     productSKU?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-sourceversion
-     */
-    sourceVersion?: pulumi.Input<string>;
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
      */
     status?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-tags
-     */
-    tags?: pulumi.Input<inputs.LicenseManager.LicenseTagListArgs>;
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
      */
     validity: pulumi.Input<inputs.LicenseManager.LicenseValidityDateFormatArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-version
-     */
-    version?: pulumi.Input<string>;
 }

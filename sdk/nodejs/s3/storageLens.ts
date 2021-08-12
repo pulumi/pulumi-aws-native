@@ -35,11 +35,11 @@ export class StorageLens extends pulumi.CustomResource {
         return obj['__pulumiType'] === StorageLens.__pulumiType;
     }
 
-    public /*out*/ readonly storageLensArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
      */
     public readonly storageLensConfiguration!: pulumi.Output<outputs.S3.StorageLensStorageLensConfiguration>;
+    public /*out*/ readonly storageLensConfigurationStorageLensArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
      */
@@ -61,10 +61,10 @@ export class StorageLens extends pulumi.CustomResource {
             }
             inputs["storageLensConfiguration"] = args ? args.storageLensConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["storageLensArn"] = undefined /*out*/;
+            inputs["storageLensConfigurationStorageLensArn"] = undefined /*out*/;
         } else {
-            inputs["storageLensArn"] = undefined /*out*/;
             inputs["storageLensConfiguration"] = undefined /*out*/;
+            inputs["storageLensConfigurationStorageLensArn"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {

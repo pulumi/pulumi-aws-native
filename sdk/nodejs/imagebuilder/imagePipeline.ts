@@ -37,6 +37,10 @@ export class ImagePipeline extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-containerrecipearn
+     */
+    public readonly containerRecipeArn!: pulumi.Output<string | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -51,7 +55,7 @@ export class ImagePipeline extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
      */
-    public readonly imageRecipeArn!: pulumi.Output<string>;
+    public readonly imageRecipeArn!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
      */
@@ -60,9 +64,6 @@ export class ImagePipeline extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
      */
     public readonly infrastructureConfigurationArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-name
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
@@ -88,15 +89,13 @@ export class ImagePipeline extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.imageRecipeArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'imageRecipeArn'");
-            }
             if ((!args || args.infrastructureConfigurationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'infrastructureConfigurationArn'");
             }
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            inputs["containerRecipeArn"] = args ? args.containerRecipeArn : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
             inputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
@@ -110,6 +109,7 @@ export class ImagePipeline extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
+            inputs["containerRecipeArn"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["distributionConfigurationArn"] = undefined /*out*/;
             inputs["enhancedImageMetadataEnabled"] = undefined /*out*/;
@@ -133,6 +133,10 @@ export class ImagePipeline extends pulumi.CustomResource {
  */
 export interface ImagePipelineArgs {
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-containerrecipearn
+     */
+    containerRecipeArn?: pulumi.Input<string>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
      */
     description?: pulumi.Input<string>;
@@ -147,7 +151,7 @@ export interface ImagePipelineArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
      */
-    imageRecipeArn: pulumi.Input<string>;
+    imageRecipeArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
      */

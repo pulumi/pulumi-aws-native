@@ -35,6 +35,10 @@ export class MemberInvitation extends pulumi.CustomResource {
     }
 
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+     */
+    public readonly disableEmailNotification!: pulumi.Output<boolean | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
      */
     public readonly graphArn!: pulumi.Output<string>;
@@ -71,11 +75,13 @@ export class MemberInvitation extends pulumi.CustomResource {
             if ((!args || args.memberId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'memberId'");
             }
+            inputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
             inputs["graphArn"] = args ? args.graphArn : undefined;
             inputs["memberEmailAddress"] = args ? args.memberEmailAddress : undefined;
             inputs["memberId"] = args ? args.memberId : undefined;
             inputs["message"] = args ? args.message : undefined;
         } else {
+            inputs["disableEmailNotification"] = undefined /*out*/;
             inputs["graphArn"] = undefined /*out*/;
             inputs["memberEmailAddress"] = undefined /*out*/;
             inputs["memberId"] = undefined /*out*/;
@@ -92,6 +98,10 @@ export class MemberInvitation extends pulumi.CustomResource {
  * The set of arguments for constructing a MemberInvitation resource.
  */
 export interface MemberInvitationArgs {
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+     */
+    disableEmailNotification?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
      */

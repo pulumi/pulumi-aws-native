@@ -35,6 +35,7 @@ export class SpotFleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === SpotFleet.__pulumiType;
     }
 
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
      */
@@ -55,7 +56,9 @@ export class SpotFleet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'spotFleetRequestConfigData'");
             }
             inputs["spotFleetRequestConfigData"] = args ? args.spotFleetRequestConfigData : undefined;
+            inputs["id"] = undefined /*out*/;
         } else {
+            inputs["id"] = undefined /*out*/;
             inputs["spotFleetRequestConfigData"] = undefined /*out*/;
         }
         if (!opts.version) {

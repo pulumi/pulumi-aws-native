@@ -44,7 +44,7 @@ export class BackupVault extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
      */
-    public readonly backupVaultTags!: pulumi.Output<any | string | undefined>;
+    public readonly backupVaultTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
      */
@@ -104,7 +104,7 @@ export interface BackupVaultArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
      */
-    backupVaultTags?: pulumi.Input<any | string>;
+    backupVaultTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
      */

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -35,9 +36,9 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
      */
-    public readonly instanceAccessControlAttributeConfiguration!: pulumi.Output<any | string>;
+    public readonly accessControlAttributes!: pulumi.Output<outputs.SSO.InstanceAccessControlAttributeConfigurationAccessControlAttribute[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
      */
@@ -54,16 +55,13 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceAccessControlAttributeConfiguration === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'instanceAccessControlAttributeConfiguration'");
-            }
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            inputs["instanceAccessControlAttributeConfiguration"] = args ? args.instanceAccessControlAttributeConfiguration : undefined;
+            inputs["accessControlAttributes"] = args ? args.accessControlAttributes : undefined;
             inputs["instanceArn"] = args ? args.instanceArn : undefined;
         } else {
-            inputs["instanceAccessControlAttributeConfiguration"] = undefined /*out*/;
+            inputs["accessControlAttributes"] = undefined /*out*/;
             inputs["instanceArn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -78,9 +76,9 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
  */
 export interface InstanceAccessControlAttributeConfigurationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instanceaccesscontrolattributeconfiguration
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
      */
-    instanceAccessControlAttributeConfiguration: pulumi.Input<any | string>;
+    accessControlAttributes?: pulumi.Input<pulumi.Input<inputs.SSO.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
      */

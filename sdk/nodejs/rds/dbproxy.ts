@@ -69,6 +69,7 @@ export class DBProxy extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
      */
     public readonly tags!: pulumi.Output<outputs.RDS.DBProxyTagFormat[] | undefined>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
      */
@@ -116,6 +117,7 @@ export class DBProxy extends pulumi.CustomResource {
             inputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
             inputs["dBProxyArn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["vpcId"] = undefined /*out*/;
         } else {
             inputs["auth"] = undefined /*out*/;
             inputs["dBProxyArn"] = undefined /*out*/;
@@ -127,6 +129,7 @@ export class DBProxy extends pulumi.CustomResource {
             inputs["requireTLS"] = undefined /*out*/;
             inputs["roleArn"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["vpcId"] = undefined /*out*/;
             inputs["vpcSecurityGroupIds"] = undefined /*out*/;
             inputs["vpcSubnetIds"] = undefined /*out*/;
         }

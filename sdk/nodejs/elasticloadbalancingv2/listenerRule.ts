@@ -43,6 +43,7 @@ export class ListenerRule extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
      */
     public readonly conditions!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerRuleRuleCondition[]>;
+    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
      */
@@ -51,6 +52,7 @@ export class ListenerRule extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
      */
     public readonly priority!: pulumi.Output<number>;
+    public /*out*/ readonly ruleArn!: pulumi.Output<string>;
 
     /**
      * Create a ListenerRule resource with the given unique name, arguments, and options.
@@ -79,11 +81,15 @@ export class ListenerRule extends pulumi.CustomResource {
             inputs["conditions"] = args ? args.conditions : undefined;
             inputs["listenerArn"] = args ? args.listenerArn : undefined;
             inputs["priority"] = args ? args.priority : undefined;
+            inputs["isDefault"] = undefined /*out*/;
+            inputs["ruleArn"] = undefined /*out*/;
         } else {
             inputs["actions"] = undefined /*out*/;
             inputs["conditions"] = undefined /*out*/;
+            inputs["isDefault"] = undefined /*out*/;
             inputs["listenerArn"] = undefined /*out*/;
             inputs["priority"] = undefined /*out*/;
+            inputs["ruleArn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});

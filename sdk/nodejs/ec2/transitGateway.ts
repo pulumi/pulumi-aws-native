@@ -40,6 +40,10 @@ export class TransitGateway extends pulumi.CustomResource {
      */
     public readonly amazonSideAsn!: pulumi.Output<number | undefined>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-associationdefaultroutetableid
+     */
+    public readonly associationDefaultRouteTableId!: pulumi.Output<string | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-autoacceptsharedattachments
      */
     public readonly autoAcceptSharedAttachments!: pulumi.Output<string | undefined>;
@@ -59,14 +63,23 @@ export class TransitGateway extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-dnssupport
      */
     public readonly dnsSupport!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-multicastsupport
      */
     public readonly multicastSupport!: pulumi.Output<string | undefined>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-propagationdefaultroutetableid
+     */
+    public readonly propagationDefaultRouteTableId!: pulumi.Output<string | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-transitgatewaycidrblocks
+     */
+    public readonly transitGatewayCidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-vpnecmpsupport
      */
@@ -84,23 +97,31 @@ export class TransitGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             inputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
+            inputs["associationDefaultRouteTableId"] = args ? args.associationDefaultRouteTableId : undefined;
             inputs["autoAcceptSharedAttachments"] = args ? args.autoAcceptSharedAttachments : undefined;
             inputs["defaultRouteTableAssociation"] = args ? args.defaultRouteTableAssociation : undefined;
             inputs["defaultRouteTablePropagation"] = args ? args.defaultRouteTablePropagation : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["dnsSupport"] = args ? args.dnsSupport : undefined;
             inputs["multicastSupport"] = args ? args.multicastSupport : undefined;
+            inputs["propagationDefaultRouteTableId"] = args ? args.propagationDefaultRouteTableId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["transitGatewayCidrBlocks"] = args ? args.transitGatewayCidrBlocks : undefined;
             inputs["vpnEcmpSupport"] = args ? args.vpnEcmpSupport : undefined;
+            inputs["id"] = undefined /*out*/;
         } else {
             inputs["amazonSideAsn"] = undefined /*out*/;
+            inputs["associationDefaultRouteTableId"] = undefined /*out*/;
             inputs["autoAcceptSharedAttachments"] = undefined /*out*/;
             inputs["defaultRouteTableAssociation"] = undefined /*out*/;
             inputs["defaultRouteTablePropagation"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["dnsSupport"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
             inputs["multicastSupport"] = undefined /*out*/;
+            inputs["propagationDefaultRouteTableId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["transitGatewayCidrBlocks"] = undefined /*out*/;
             inputs["vpnEcmpSupport"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -118,6 +139,10 @@ export interface TransitGatewayArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-amazonsideasn
      */
     amazonSideAsn?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-associationdefaultroutetableid
+     */
+    associationDefaultRouteTableId?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-autoacceptsharedattachments
      */
@@ -143,9 +168,17 @@ export interface TransitGatewayArgs {
      */
     multicastSupport?: pulumi.Input<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-propagationdefaultroutetableid
+     */
+    propagationDefaultRouteTableId?: pulumi.Input<string>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-transitgatewaycidrblocks
+     */
+    transitGatewayCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-vpnecmpsupport
      */

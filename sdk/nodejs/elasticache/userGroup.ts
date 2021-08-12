@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -40,8 +39,6 @@ export class UserGroup extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
      */
     public readonly engine!: pulumi.Output<string>;
-    public /*out*/ readonly pendingChanges!: pulumi.Output<outputs.ElastiCache.UserGroupUserGroupPendingChanges>;
-    public /*out*/ readonly replicationGroupIds!: pulumi.Output<outputs.ElastiCache.UserGroupReplicationGroupIdList>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
@@ -50,7 +47,7 @@ export class UserGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
      */
-    public readonly userIds!: pulumi.Output<outputs.ElastiCache.UserGroupUserIdList | undefined>;
+    public readonly userIds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a UserGroup resource with the given unique name, arguments, and options.
@@ -73,14 +70,10 @@ export class UserGroup extends pulumi.CustomResource {
             inputs["userGroupId"] = args ? args.userGroupId : undefined;
             inputs["userIds"] = args ? args.userIds : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["pendingChanges"] = undefined /*out*/;
-            inputs["replicationGroupIds"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["engine"] = undefined /*out*/;
-            inputs["pendingChanges"] = undefined /*out*/;
-            inputs["replicationGroupIds"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["userGroupId"] = undefined /*out*/;
             inputs["userIds"] = undefined /*out*/;
@@ -107,5 +100,5 @@ export interface UserGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
      */
-    userIds?: pulumi.Input<inputs.ElastiCache.UserGroupUserIdListArgs>;
+    userIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

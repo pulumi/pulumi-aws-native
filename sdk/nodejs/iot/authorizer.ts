@@ -55,7 +55,7 @@ export class Authorizer extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
      */
-    public readonly tags!: pulumi.Output<outputs.IoT.AuthorizerTags | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
      */
@@ -63,7 +63,7 @@ export class Authorizer extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
      */
-    public readonly tokenSigningPublicKeys!: pulumi.Output<outputs.IoT.AuthorizerTokenSigningPublicKeys | undefined>;
+    public readonly tokenSigningPublicKeys!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Authorizer resource with the given unique name, arguments, and options.
@@ -127,7 +127,7 @@ export interface AuthorizerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
      */
-    tags?: pulumi.Input<inputs.IoT.AuthorizerTagsArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
      */
@@ -135,5 +135,5 @@ export interface AuthorizerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
      */
-    tokenSigningPublicKeys?: pulumi.Input<inputs.IoT.AuthorizerTokenSigningPublicKeysArgs>;
+    tokenSigningPublicKeys?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

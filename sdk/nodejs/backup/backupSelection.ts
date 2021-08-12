@@ -40,6 +40,7 @@ export class BackupSelection extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
      */
     public readonly backupSelection!: pulumi.Output<outputs.Backup.BackupSelectionBackupSelectionResourceType>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     public /*out*/ readonly selectionId!: pulumi.Output<string>;
 
     /**
@@ -61,10 +62,12 @@ export class BackupSelection extends pulumi.CustomResource {
             }
             inputs["backupPlanId"] = args ? args.backupPlanId : undefined;
             inputs["backupSelection"] = args ? args.backupSelection : undefined;
+            inputs["id"] = undefined /*out*/;
             inputs["selectionId"] = undefined /*out*/;
         } else {
             inputs["backupPlanId"] = undefined /*out*/;
             inputs["backupSelection"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
             inputs["selectionId"] = undefined /*out*/;
         }
         if (!opts.version) {

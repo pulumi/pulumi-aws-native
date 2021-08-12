@@ -7,11 +7,13 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./dataCatalog";
 export * from "./namedQuery";
+export * from "./preparedStatement";
 export * from "./workGroup";
 
 // Import resources to register:
 import { DataCatalog } from "./dataCatalog";
 import { NamedQuery } from "./namedQuery";
+import { PreparedStatement } from "./preparedStatement";
 import { WorkGroup } from "./workGroup";
 
 const _module = {
@@ -22,6 +24,8 @@ const _module = {
                 return new DataCatalog(name, <any>undefined, { urn })
             case "aws-native:Athena:NamedQuery":
                 return new NamedQuery(name, <any>undefined, { urn })
+            case "aws-native:Athena:PreparedStatement":
+                return new PreparedStatement(name, <any>undefined, { urn })
             case "aws-native:Athena:WorkGroup":
                 return new WorkGroup(name, <any>undefined, { urn })
             default:

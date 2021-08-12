@@ -37,9 +37,17 @@ export class FileSystem extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
+     */
+    public readonly availabilityZoneName!: pulumi.Output<string | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
      */
     public readonly backupPolicy!: pulumi.Output<outputs.EFS.FileSystemBackupPolicy | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
+     */
+    public readonly bypassPolicyLockoutSafetyCheck!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
      */
@@ -85,7 +93,9 @@ export class FileSystem extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            inputs["availabilityZoneName"] = args ? args.availabilityZoneName : undefined;
             inputs["backupPolicy"] = args ? args.backupPolicy : undefined;
+            inputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
             inputs["encrypted"] = args ? args.encrypted : undefined;
             inputs["fileSystemPolicy"] = args ? args.fileSystemPolicy : undefined;
             inputs["fileSystemTags"] = args ? args.fileSystemTags : undefined;
@@ -98,7 +108,9 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["fileSystemId"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
+            inputs["availabilityZoneName"] = undefined /*out*/;
             inputs["backupPolicy"] = undefined /*out*/;
+            inputs["bypassPolicyLockoutSafetyCheck"] = undefined /*out*/;
             inputs["encrypted"] = undefined /*out*/;
             inputs["fileSystemId"] = undefined /*out*/;
             inputs["fileSystemPolicy"] = undefined /*out*/;
@@ -121,9 +133,17 @@ export class FileSystem extends pulumi.CustomResource {
  */
 export interface FileSystemArgs {
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
+     */
+    availabilityZoneName?: pulumi.Input<string>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
      */
     backupPolicy?: pulumi.Input<inputs.EFS.FileSystemBackupPolicyArgs>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
+     */
+    bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
      */

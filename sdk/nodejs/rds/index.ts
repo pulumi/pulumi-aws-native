@@ -6,11 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./dbproxy";
+export * from "./dbproxyEndpoint";
 export * from "./dbproxyTargetGroup";
 export * from "./globalCluster";
 
 // Import resources to register:
 import { DBProxy } from "./dbproxy";
+import { DBProxyEndpoint } from "./dbproxyEndpoint";
 import { DBProxyTargetGroup } from "./dbproxyTargetGroup";
 import { GlobalCluster } from "./globalCluster";
 
@@ -20,6 +22,8 @@ const _module = {
         switch (type) {
             case "aws-native:RDS:DBProxy":
                 return new DBProxy(name, <any>undefined, { urn })
+            case "aws-native:RDS:DBProxyEndpoint":
+                return new DBProxyEndpoint(name, <any>undefined, { urn })
             case "aws-native:RDS:DBProxyTargetGroup":
                 return new DBProxyTargetGroup(name, <any>undefined, { urn })
             case "aws-native:RDS:GlobalCluster":

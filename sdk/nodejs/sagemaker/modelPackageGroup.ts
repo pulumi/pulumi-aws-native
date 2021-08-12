@@ -48,7 +48,7 @@ export class ModelPackageGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
      */
-    public readonly modelPackageGroupPolicy!: pulumi.Output<any | undefined>;
+    public readonly modelPackageGroupPolicy!: pulumi.Output<any | string | undefined>;
     public /*out*/ readonly modelPackageGroupStatus!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
@@ -107,7 +107,7 @@ export interface ModelPackageGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
      */
-    modelPackageGroupPolicy?: any;
+    modelPackageGroupPolicy?: pulumi.Input<any | string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
      */

@@ -55,15 +55,17 @@ export class WorkGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
      */
-    public readonly tags!: pulumi.Output<outputs.Athena.WorkGroupTags | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
      */
     public readonly workGroupConfiguration!: pulumi.Output<outputs.Athena.WorkGroupWorkGroupConfiguration | undefined>;
+    public /*out*/ readonly workGroupConfigurationEngineVersionEffectiveEngineVersion!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
      */
     public readonly workGroupConfigurationUpdates!: pulumi.Output<outputs.Athena.WorkGroupWorkGroupConfigurationUpdates | undefined>;
+    public /*out*/ readonly workGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion!: pulumi.Output<string>;
 
     /**
      * Create a WorkGroup resource with the given unique name, arguments, and options.
@@ -87,6 +89,8 @@ export class WorkGroup extends pulumi.CustomResource {
             inputs["workGroupConfiguration"] = args ? args.workGroupConfiguration : undefined;
             inputs["workGroupConfigurationUpdates"] = args ? args.workGroupConfigurationUpdates : undefined;
             inputs["creationTime"] = undefined /*out*/;
+            inputs["workGroupConfigurationEngineVersionEffectiveEngineVersion"] = undefined /*out*/;
+            inputs["workGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion"] = undefined /*out*/;
         } else {
             inputs["creationTime"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
@@ -95,7 +99,9 @@ export class WorkGroup extends pulumi.CustomResource {
             inputs["state"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["workGroupConfiguration"] = undefined /*out*/;
+            inputs["workGroupConfigurationEngineVersionEffectiveEngineVersion"] = undefined /*out*/;
             inputs["workGroupConfigurationUpdates"] = undefined /*out*/;
+            inputs["workGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -127,7 +133,7 @@ export interface WorkGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
      */
-    tags?: pulumi.Input<inputs.Athena.WorkGroupTagsArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
      */

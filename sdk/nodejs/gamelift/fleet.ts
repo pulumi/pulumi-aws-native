@@ -58,7 +58,8 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
      */
-    public readonly eC2InstanceType!: pulumi.Output<string>;
+    public readonly eC2InstanceType!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly fleetId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
      */
@@ -68,9 +69,9 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly instanceRoleARN!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
      */
-    public readonly logPaths!: pulumi.Output<string[] | undefined>;
+    public readonly locations!: pulumi.Output<outputs.GameLift.FleetLocationConfiguration[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
      */
@@ -86,7 +87,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy
      */
@@ -111,14 +112,6 @@ export class Fleet extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid
      */
     public readonly scriptId!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters
-     */
-    public readonly serverLaunchParameters!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath
-     */
-    public readonly serverLaunchPath!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -127,16 +120,10 @@ export class Fleet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: FleetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eC2InstanceType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'eC2InstanceType'");
-            }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["buildId"] = args ? args.buildId : undefined;
             inputs["certificateConfiguration"] = args ? args.certificateConfiguration : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -145,7 +132,7 @@ export class Fleet extends pulumi.CustomResource {
             inputs["eC2InstanceType"] = args ? args.eC2InstanceType : undefined;
             inputs["fleetType"] = args ? args.fleetType : undefined;
             inputs["instanceRoleARN"] = args ? args.instanceRoleARN : undefined;
-            inputs["logPaths"] = args ? args.logPaths : undefined;
+            inputs["locations"] = args ? args.locations : undefined;
             inputs["maxSize"] = args ? args.maxSize : undefined;
             inputs["metricGroups"] = args ? args.metricGroups : undefined;
             inputs["minSize"] = args ? args.minSize : undefined;
@@ -156,8 +143,7 @@ export class Fleet extends pulumi.CustomResource {
             inputs["resourceCreationLimitPolicy"] = args ? args.resourceCreationLimitPolicy : undefined;
             inputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
             inputs["scriptId"] = args ? args.scriptId : undefined;
-            inputs["serverLaunchParameters"] = args ? args.serverLaunchParameters : undefined;
-            inputs["serverLaunchPath"] = args ? args.serverLaunchPath : undefined;
+            inputs["fleetId"] = undefined /*out*/;
         } else {
             inputs["buildId"] = undefined /*out*/;
             inputs["certificateConfiguration"] = undefined /*out*/;
@@ -165,9 +151,10 @@ export class Fleet extends pulumi.CustomResource {
             inputs["desiredEC2Instances"] = undefined /*out*/;
             inputs["eC2InboundPermissions"] = undefined /*out*/;
             inputs["eC2InstanceType"] = undefined /*out*/;
+            inputs["fleetId"] = undefined /*out*/;
             inputs["fleetType"] = undefined /*out*/;
             inputs["instanceRoleARN"] = undefined /*out*/;
-            inputs["logPaths"] = undefined /*out*/;
+            inputs["locations"] = undefined /*out*/;
             inputs["maxSize"] = undefined /*out*/;
             inputs["metricGroups"] = undefined /*out*/;
             inputs["minSize"] = undefined /*out*/;
@@ -178,8 +165,6 @@ export class Fleet extends pulumi.CustomResource {
             inputs["resourceCreationLimitPolicy"] = undefined /*out*/;
             inputs["runtimeConfiguration"] = undefined /*out*/;
             inputs["scriptId"] = undefined /*out*/;
-            inputs["serverLaunchParameters"] = undefined /*out*/;
-            inputs["serverLaunchPath"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -215,7 +200,7 @@ export interface FleetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
      */
-    eC2InstanceType: pulumi.Input<string>;
+    eC2InstanceType?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
      */
@@ -225,9 +210,9 @@ export interface FleetArgs {
      */
     instanceRoleARN?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
      */
-    logPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    locations?: pulumi.Input<pulumi.Input<inputs.GameLift.FleetLocationConfigurationArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
      */
@@ -243,7 +228,7 @@ export interface FleetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy
      */
@@ -268,12 +253,4 @@ export interface FleetArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid
      */
     scriptId?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters
-     */
-    serverLaunchParameters?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath
-     */
-    serverLaunchPath?: pulumi.Input<string>;
 }

@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./component";
+export * from "./containerRecipe";
 export * from "./distributionConfiguration";
 export * from "./image";
 export * from "./imagePipeline";
@@ -14,6 +15,7 @@ export * from "./infrastructureConfiguration";
 
 // Import resources to register:
 import { Component } from "./component";
+import { ContainerRecipe } from "./containerRecipe";
 import { DistributionConfiguration } from "./distributionConfiguration";
 import { Image } from "./image";
 import { ImagePipeline } from "./imagePipeline";
@@ -26,6 +28,8 @@ const _module = {
         switch (type) {
             case "aws-native:ImageBuilder:Component":
                 return new Component(name, <any>undefined, { urn })
+            case "aws-native:ImageBuilder:ContainerRecipe":
+                return new ContainerRecipe(name, <any>undefined, { urn })
             case "aws-native:ImageBuilder:DistributionConfiguration":
                 return new DistributionConfiguration(name, <any>undefined, { urn })
             case "aws-native:ImageBuilder:Image":

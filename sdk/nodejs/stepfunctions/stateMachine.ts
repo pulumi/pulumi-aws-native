@@ -37,6 +37,10 @@ export class StateMachine extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition
+     */
+    public readonly definition!: pulumi.Output<outputs.StepFunctions.StateMachineDefinition | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
      */
     public readonly definitionS3Location!: pulumi.Output<outputs.StepFunctions.StateMachineS3Location | undefined>;
@@ -47,7 +51,7 @@ export class StateMachine extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
      */
-    public readonly definitionSubstitutions!: pulumi.Output<outputs.StepFunctions.StateMachineDefinitionSubstitutions | undefined>;
+    public readonly definitionSubstitutions!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
      */
@@ -88,6 +92,7 @@ export class StateMachine extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            inputs["definition"] = args ? args.definition : undefined;
             inputs["definitionS3Location"] = args ? args.definitionS3Location : undefined;
             inputs["definitionString"] = args ? args.definitionString : undefined;
             inputs["definitionSubstitutions"] = args ? args.definitionSubstitutions : undefined;
@@ -101,6 +106,7 @@ export class StateMachine extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
+            inputs["definition"] = undefined /*out*/;
             inputs["definitionS3Location"] = undefined /*out*/;
             inputs["definitionString"] = undefined /*out*/;
             inputs["definitionSubstitutions"] = undefined /*out*/;
@@ -124,6 +130,10 @@ export class StateMachine extends pulumi.CustomResource {
  */
 export interface StateMachineArgs {
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition
+     */
+    definition?: pulumi.Input<inputs.StepFunctions.StateMachineDefinitionArgs>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
      */
     definitionS3Location?: pulumi.Input<inputs.StepFunctions.StateMachineS3LocationArgs>;
@@ -134,7 +144,7 @@ export interface StateMachineArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
      */
-    definitionSubstitutions?: pulumi.Input<inputs.StepFunctions.StateMachineDefinitionSubstitutionsArgs>;
+    definitionSubstitutions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
      */

@@ -5,16 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./accountAuditConfiguration";
 export * from "./authorizer";
 export * from "./certificate";
+export * from "./customMetric";
+export * from "./dimension";
+export * from "./domainConfiguration";
+export * from "./mitigationAction";
 export * from "./provisioningTemplate";
+export * from "./scheduledAudit";
+export * from "./securityProfile";
 export * from "./topicRule";
 export * from "./topicRuleDestination";
 
 // Import resources to register:
+import { AccountAuditConfiguration } from "./accountAuditConfiguration";
 import { Authorizer } from "./authorizer";
 import { Certificate } from "./certificate";
+import { CustomMetric } from "./customMetric";
+import { Dimension } from "./dimension";
+import { DomainConfiguration } from "./domainConfiguration";
+import { MitigationAction } from "./mitigationAction";
 import { ProvisioningTemplate } from "./provisioningTemplate";
+import { ScheduledAudit } from "./scheduledAudit";
+import { SecurityProfile } from "./securityProfile";
 import { TopicRule } from "./topicRule";
 import { TopicRuleDestination } from "./topicRuleDestination";
 
@@ -22,12 +36,26 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:IoT:AccountAuditConfiguration":
+                return new AccountAuditConfiguration(name, <any>undefined, { urn })
             case "aws-native:IoT:Authorizer":
                 return new Authorizer(name, <any>undefined, { urn })
             case "aws-native:IoT:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "aws-native:IoT:CustomMetric":
+                return new CustomMetric(name, <any>undefined, { urn })
+            case "aws-native:IoT:Dimension":
+                return new Dimension(name, <any>undefined, { urn })
+            case "aws-native:IoT:DomainConfiguration":
+                return new DomainConfiguration(name, <any>undefined, { urn })
+            case "aws-native:IoT:MitigationAction":
+                return new MitigationAction(name, <any>undefined, { urn })
             case "aws-native:IoT:ProvisioningTemplate":
                 return new ProvisioningTemplate(name, <any>undefined, { urn })
+            case "aws-native:IoT:ScheduledAudit":
+                return new ScheduledAudit(name, <any>undefined, { urn })
+            case "aws-native:IoT:SecurityProfile":
+                return new SecurityProfile(name, <any>undefined, { urn })
             case "aws-native:IoT:TopicRule":
                 return new TopicRule(name, <any>undefined, { urn })
             case "aws-native:IoT:TopicRuleDestination":

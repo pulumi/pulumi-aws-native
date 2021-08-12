@@ -37,6 +37,10 @@ export class RepositoryAssociation extends pulumi.CustomResource {
 
     public /*out*/ readonly associationArn!: pulumi.Output<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-bucketname
+     */
+    public readonly bucketName!: pulumi.Output<string | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-connectionarn
      */
     public readonly connectionArn!: pulumi.Output<string | undefined>;
@@ -74,6 +78,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            inputs["bucketName"] = args ? args.bucketName : undefined;
             inputs["connectionArn"] = args ? args.connectionArn : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["owner"] = args ? args.owner : undefined;
@@ -82,6 +87,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
             inputs["associationArn"] = undefined /*out*/;
         } else {
             inputs["associationArn"] = undefined /*out*/;
+            inputs["bucketName"] = undefined /*out*/;
             inputs["connectionArn"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["owner"] = undefined /*out*/;
@@ -99,6 +105,10 @@ export class RepositoryAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a RepositoryAssociation resource.
  */
 export interface RepositoryAssociationArgs {
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-bucketname
+     */
+    bucketName?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-connectionarn
      */

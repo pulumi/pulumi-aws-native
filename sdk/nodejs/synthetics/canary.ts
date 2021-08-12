@@ -85,6 +85,10 @@ export class Canary extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
      */
     public readonly vPCConfig!: pulumi.Output<outputs.Synthetics.CanaryVPCConfig | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+     */
+    public readonly visualReference!: pulumi.Output<outputs.Synthetics.CanaryVisualReference | undefined>;
 
     /**
      * Create a Canary resource with the given unique name, arguments, and options.
@@ -130,6 +134,7 @@ export class Canary extends pulumi.CustomResource {
             inputs["successRetentionPeriod"] = args ? args.successRetentionPeriod : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vPCConfig"] = args ? args.vPCConfig : undefined;
+            inputs["visualReference"] = args ? args.visualReference : undefined;
             inputs["id"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         } else {
@@ -147,6 +152,7 @@ export class Canary extends pulumi.CustomResource {
             inputs["successRetentionPeriod"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["vPCConfig"] = undefined /*out*/;
+            inputs["visualReference"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -207,4 +213,8 @@ export interface CanaryArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
      */
     vPCConfig?: pulumi.Input<inputs.Synthetics.CanaryVPCConfigArgs>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+     */
+    visualReference?: pulumi.Input<inputs.Synthetics.CanaryVisualReferenceArgs>;
 }

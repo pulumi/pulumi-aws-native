@@ -36,6 +36,14 @@ export class Job extends pulumi.CustomResource {
     }
 
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
+     */
+    public readonly dataCatalogOutputs!: pulumi.Output<outputs.DataBrew.JobDataCatalogOutput[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
+     */
+    public readonly databaseOutputs!: pulumi.Output<outputs.DataBrew.JobDatabaseOutput[] | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
      */
     public readonly datasetName!: pulumi.Output<string | undefined>;
@@ -47,6 +55,10 @@ export class Job extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
      */
     public readonly encryptionMode!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample
+     */
+    public readonly jobSample!: pulumi.Output<outputs.DataBrew.JobJobSample | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
      */
@@ -66,11 +78,15 @@ export class Job extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
      */
-    public readonly outputLocation!: pulumi.Output<any | string | undefined>;
+    public readonly outputLocation!: pulumi.Output<outputs.DataBrew.JobOutputLocation | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
      */
     public readonly outputs!: pulumi.Output<outputs.DataBrew.JobOutput[] | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
+     */
+    public readonly profileConfiguration!: pulumi.Output<outputs.DataBrew.JobProfileConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
      */
@@ -116,15 +132,19 @@ export class Job extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            inputs["dataCatalogOutputs"] = args ? args.dataCatalogOutputs : undefined;
+            inputs["databaseOutputs"] = args ? args.databaseOutputs : undefined;
             inputs["datasetName"] = args ? args.datasetName : undefined;
             inputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
             inputs["encryptionMode"] = args ? args.encryptionMode : undefined;
+            inputs["jobSample"] = args ? args.jobSample : undefined;
             inputs["logSubscription"] = args ? args.logSubscription : undefined;
             inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             inputs["maxRetries"] = args ? args.maxRetries : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["outputLocation"] = args ? args.outputLocation : undefined;
             inputs["outputs"] = args ? args.outputs : undefined;
+            inputs["profileConfiguration"] = args ? args.profileConfiguration : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
             inputs["recipe"] = args ? args.recipe : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
@@ -132,15 +152,19 @@ export class Job extends pulumi.CustomResource {
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["type"] = args ? args.type : undefined;
         } else {
+            inputs["dataCatalogOutputs"] = undefined /*out*/;
+            inputs["databaseOutputs"] = undefined /*out*/;
             inputs["datasetName"] = undefined /*out*/;
             inputs["encryptionKeyArn"] = undefined /*out*/;
             inputs["encryptionMode"] = undefined /*out*/;
+            inputs["jobSample"] = undefined /*out*/;
             inputs["logSubscription"] = undefined /*out*/;
             inputs["maxCapacity"] = undefined /*out*/;
             inputs["maxRetries"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["outputLocation"] = undefined /*out*/;
             inputs["outputs"] = undefined /*out*/;
+            inputs["profileConfiguration"] = undefined /*out*/;
             inputs["projectName"] = undefined /*out*/;
             inputs["recipe"] = undefined /*out*/;
             inputs["roleArn"] = undefined /*out*/;
@@ -160,6 +184,14 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobArgs {
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
+     */
+    dataCatalogOutputs?: pulumi.Input<pulumi.Input<inputs.DataBrew.JobDataCatalogOutputArgs>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
+     */
+    databaseOutputs?: pulumi.Input<pulumi.Input<inputs.DataBrew.JobDatabaseOutputArgs>[]>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
      */
     datasetName?: pulumi.Input<string>;
@@ -171,6 +203,10 @@ export interface JobArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-encryptionmode
      */
     encryptionMode?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample
+     */
+    jobSample?: pulumi.Input<inputs.DataBrew.JobJobSampleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
      */
@@ -190,11 +226,15 @@ export interface JobArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
      */
-    outputLocation?: pulumi.Input<any | string>;
+    outputLocation?: pulumi.Input<inputs.DataBrew.JobOutputLocationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
      */
     outputs?: pulumi.Input<pulumi.Input<inputs.DataBrew.JobOutputArgs>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
+     */
+    profileConfiguration?: pulumi.Input<inputs.DataBrew.JobProfileConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
      */

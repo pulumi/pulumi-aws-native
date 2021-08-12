@@ -35,6 +35,10 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
+     */
+    public readonly apiPassthrough!: pulumi.Output<outputs.ACMPCA.CertificateApiPassthrough | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly certificate!: pulumi.Output<string>;
     /**
@@ -57,6 +61,10 @@ export class Certificate extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
      */
     public readonly validity!: pulumi.Output<outputs.ACMPCA.CertificateValidity>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
+     */
+    public readonly validityNotBefore!: pulumi.Output<outputs.ACMPCA.CertificateValidity | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -81,14 +89,17 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.validity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'validity'");
             }
+            inputs["apiPassthrough"] = args ? args.apiPassthrough : undefined;
             inputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
             inputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
             inputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
             inputs["templateArn"] = args ? args.templateArn : undefined;
             inputs["validity"] = args ? args.validity : undefined;
+            inputs["validityNotBefore"] = args ? args.validityNotBefore : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["certificate"] = undefined /*out*/;
         } else {
+            inputs["apiPassthrough"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["certificate"] = undefined /*out*/;
             inputs["certificateAuthorityArn"] = undefined /*out*/;
@@ -96,6 +107,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["signingAlgorithm"] = undefined /*out*/;
             inputs["templateArn"] = undefined /*out*/;
             inputs["validity"] = undefined /*out*/;
+            inputs["validityNotBefore"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -108,6 +120,10 @@ export class Certificate extends pulumi.CustomResource {
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
+     */
+    apiPassthrough?: pulumi.Input<inputs.ACMPCA.CertificateApiPassthroughArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
      */
@@ -128,4 +144,8 @@ export interface CertificateArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
      */
     validity: pulumi.Input<inputs.ACMPCA.CertificateValidityArgs>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
+     */
+    validityNotBefore?: pulumi.Input<inputs.ACMPCA.CertificateValidityArgs>;
 }

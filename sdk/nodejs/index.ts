@@ -22,11 +22,17 @@ import * as acmpca from "./acmpca";
 import * as amplify from "./amplify";
 import * as apigateway from "./apigateway";
 import * as appflow from "./appflow";
+import * as appintegrations from "./appintegrations";
 import * as applicationinsights from "./applicationinsights";
+import * as apprunner from "./apprunner";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
+import * as autoscaling from "./autoscaling";
 import * as backup from "./backup";
+import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
+import * as ce from "./ce";
+import * as certificatemanager from "./certificatemanager";
 import * as chatbot from "./chatbot";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
@@ -37,9 +43,13 @@ import * as codegurureviewer from "./codegurureviewer";
 import * as codestarconnections from "./codestarconnections";
 import * as config from "./config";
 import * as configuration from "./configuration";
+import * as connect from "./connect";
+import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
+import * as datasync from "./datasync";
 import * as detective from "./detective";
 import * as devopsguru from "./devopsguru";
+import * as dynamodb from "./dynamodb";
 import * as ec2 from "./ec2";
 import * as ecr from "./ecr";
 import * as ecs from "./ecs";
@@ -47,18 +57,27 @@ import * as efs from "./efs";
 import * as eks from "./eks";
 import * as elasticache from "./elasticache";
 import * as elasticloadbalancingv2 from "./elasticloadbalancingv2";
+import * as emr from "./emr";
+import * as emrcontainers from "./emrcontainers";
 import * as events from "./events";
 import * as eventschemas from "./eventschemas";
+import * as finspace from "./finspace";
+import * as fis from "./fis";
 import * as fms from "./fms";
+import * as frauddetector from "./frauddetector";
 import * as gamelift from "./gamelift";
 import * as globalaccelerator from "./globalaccelerator";
 import * as glue from "./glue";
 import * as greengrassv2 from "./greengrassv2";
 import * as groundstation from "./groundstation";
+import * as iam from "./iam";
 import * as imagebuilder from "./imagebuilder";
 import * as iot from "./iot";
+import * as iotcoredeviceadvisor from "./iotcoredeviceadvisor";
 import * as iotevents from "./iotevents";
+import * as iotfleethub from "./iotfleethub";
 import * as iotsitewise from "./iotsitewise";
+import * as iotwireless from "./iotwireless";
 import * as ivs from "./ivs";
 import * as kendra from "./kendra";
 import * as kinesis from "./kinesis";
@@ -66,25 +85,38 @@ import * as kinesisfirehose from "./kinesisfirehose";
 import * as kms from "./kms";
 import * as lambda from "./lambda";
 import * as licensemanager from "./licensemanager";
+import * as location from "./location";
 import * as logs from "./logs";
+import * as lookoutmetrics from "./lookoutmetrics";
+import * as lookoutvision from "./lookoutvision";
 import * as macie from "./macie";
+import * as mediaconnect from "./mediaconnect";
 import * as mediapackage from "./mediapackage";
 import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
+import * as nimblestudio from "./nimblestudio";
 import * as opsworkscm from "./opsworkscm";
 import * as qldb from "./qldb";
+import * as quicksight from "./quicksight";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as resourcegroups from "./resourcegroups";
 import * as route53 from "./route53";
+import * as route53recoverycontrol from "./route53recoverycontrol";
+import * as route53recoveryreadiness from "./route53recoveryreadiness";
 import * as route53resolver from "./route53resolver";
 import * as s3 from "./s3";
+import * as s3objectlambda from "./s3objectlambda";
+import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
 import * as servicecatalog from "./servicecatalog";
+import * as servicecatalogappregistry from "./servicecatalogappregistry";
 import * as ses from "./ses";
 import * as signer from "./signer";
 import * as ssm from "./ssm";
+import * as ssmcontacts from "./ssmcontacts";
+import * as ssmincidents from "./ssmincidents";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
 import * as synthetics from "./synthetics";
@@ -92,6 +124,7 @@ import * as timestream from "./timestream";
 import * as types from "./types";
 import * as wafv2 from "./wafv2";
 import * as workspaces from "./workspaces";
+import * as xray from "./xray";
 
 export {
     accessanalyzer,
@@ -99,11 +132,17 @@ export {
     amplify,
     apigateway,
     appflow,
+    appintegrations,
     applicationinsights,
+    apprunner,
     athena,
     auditmanager,
+    autoscaling,
     backup,
+    budgets,
     cassandra,
+    ce,
+    certificatemanager,
     chatbot,
     cloudformation,
     cloudfront,
@@ -114,9 +153,13 @@ export {
     codestarconnections,
     config,
     configuration,
+    connect,
+    customerprofiles,
     databrew,
+    datasync,
     detective,
     devopsguru,
+    dynamodb,
     ec2,
     ecr,
     ecs,
@@ -124,18 +167,27 @@ export {
     eks,
     elasticache,
     elasticloadbalancingv2,
+    emr,
+    emrcontainers,
     events,
     eventschemas,
+    finspace,
+    fis,
     fms,
+    frauddetector,
     gamelift,
     globalaccelerator,
     glue,
     greengrassv2,
     groundstation,
+    iam,
     imagebuilder,
     iot,
+    iotcoredeviceadvisor,
     iotevents,
+    iotfleethub,
     iotsitewise,
+    iotwireless,
     ivs,
     kendra,
     kinesis,
@@ -143,25 +195,38 @@ export {
     kms,
     lambda,
     licensemanager,
+    location,
     logs,
+    lookoutmetrics,
+    lookoutvision,
     macie,
+    mediaconnect,
     mediapackage,
     mwaa,
     networkfirewall,
     networkmanager,
+    nimblestudio,
     opsworkscm,
     qldb,
+    quicksight,
     rds,
     redshift,
     resourcegroups,
     route53,
+    route53recoverycontrol,
+    route53recoveryreadiness,
     route53resolver,
     s3,
+    s3objectlambda,
+    s3outposts,
     sagemaker,
     servicecatalog,
+    servicecatalogappregistry,
     ses,
     signer,
     ssm,
+    ssmcontacts,
+    ssmincidents,
     sso,
     stepfunctions,
     synthetics,
@@ -169,6 +234,7 @@ export {
     types,
     wafv2,
     workspaces,
+    xray,
 };
 
 import { Provider } from "./provider";

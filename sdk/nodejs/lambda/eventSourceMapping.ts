@@ -81,10 +81,6 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly parallelizationFactor!: pulumi.Output<number | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
-     */
-    public readonly partialBatchResponse!: pulumi.Output<boolean | undefined>;
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
      */
     public readonly queues!: pulumi.Output<string[] | undefined>;
@@ -100,6 +96,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
      */
     public readonly startingPosition!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
+     */
+    public readonly startingPositionTimestamp!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
      */
@@ -134,11 +134,11 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["maximumRecordAgeInSeconds"] = args ? args.maximumRecordAgeInSeconds : undefined;
             inputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
             inputs["parallelizationFactor"] = args ? args.parallelizationFactor : undefined;
-            inputs["partialBatchResponse"] = args ? args.partialBatchResponse : undefined;
             inputs["queues"] = args ? args.queues : undefined;
             inputs["selfManagedEventSource"] = args ? args.selfManagedEventSource : undefined;
             inputs["sourceAccessConfigurations"] = args ? args.sourceAccessConfigurations : undefined;
             inputs["startingPosition"] = args ? args.startingPosition : undefined;
+            inputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
             inputs["topics"] = args ? args.topics : undefined;
             inputs["tumblingWindowInSeconds"] = args ? args.tumblingWindowInSeconds : undefined;
             inputs["id"] = undefined /*out*/;
@@ -155,11 +155,11 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["maximumRecordAgeInSeconds"] = undefined /*out*/;
             inputs["maximumRetryAttempts"] = undefined /*out*/;
             inputs["parallelizationFactor"] = undefined /*out*/;
-            inputs["partialBatchResponse"] = undefined /*out*/;
             inputs["queues"] = undefined /*out*/;
             inputs["selfManagedEventSource"] = undefined /*out*/;
             inputs["sourceAccessConfigurations"] = undefined /*out*/;
             inputs["startingPosition"] = undefined /*out*/;
+            inputs["startingPositionTimestamp"] = undefined /*out*/;
             inputs["topics"] = undefined /*out*/;
             inputs["tumblingWindowInSeconds"] = undefined /*out*/;
         }
@@ -219,10 +219,6 @@ export interface EventSourceMappingArgs {
      */
     parallelizationFactor?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-partialbatchresponse
-     */
-    partialBatchResponse?: pulumi.Input<boolean>;
-    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
      */
     queues?: pulumi.Input<pulumi.Input<string>[]>;
@@ -238,6 +234,10 @@ export interface EventSourceMappingArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
      */
     startingPosition?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
+     */
+    startingPositionTimestamp?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
      */
